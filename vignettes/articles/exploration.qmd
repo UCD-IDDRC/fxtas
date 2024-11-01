@@ -245,13 +245,38 @@ vars = c(
   "Corpus Callosum-Thickness"
 )
 
-table1(
-  na.is.category = FALSE, 
-  overall = FALSE,
-  NA.label = NA.label1,
-  # droplevels = FALSE,
-  x = stratified_formula(vars, column_var),
-  data = v1_usable_cases)
+# table1(
+#   na.is.category = FALSE, 
+#   overall = FALSE,
+#   NA.label = NA.label1,
+#   # droplevels = FALSE,
+#   x = stratified_formula(vars, column_var),
+#   data = v1_usable_cases)
+
+v1_usable |>
+  dplyr::select(
+    dplyr::all_of(c(vars, column_var))
+  ) |>
+  dplyr::mutate(
+    dplyr::across(
+      .cols = dplyr::all_of(vars),
+      ~ dplyr::if_else(
+        `FX3*` == "CGG <55",
+        NA,
+        .x
+      )
+    )
+  ) |>
+  gtsummary::tbl_strata(
+    strata =  Gender,
+    .tbl_fun = 
+      ~ .x |>
+      gtsummary::tbl_summary(
+        by = `FX3*`,
+        missing_text = NA.label1
+      )
+  ) |>
+  gtsummary::as_flex_table()
 
 ```
 

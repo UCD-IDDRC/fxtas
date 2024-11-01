@@ -1162,11 +1162,13 @@ flex_biomarkers_table(biomarkers_table)
 
 
 tbl_sg_demos |>
-  gtsummary::separate_p_footnotes() |>
   gtsummary::as_flex_table() |>
   flextable::width(width = 1.75) |>
   flextable::width(j = 2:6, width = 0.75) |>
-  flextable::width(j = 7, width = 1)
+  flextable::width(j = 7, width = 1) |>
+  flextable::delete_rows(
+    i = c(4, 7)
+  )
 
 ```
 

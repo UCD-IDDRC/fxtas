@@ -37,9 +37,13 @@ table_subtype_by_demographics = function(
     dplyr::select(ml_subtype, CGG, `FX3*`, Gender, `Primary Race/Ethnicity`) |>
     gtsummary::tbl_summary(
       by = ml_subtype,
+      # type = list(
+      #   c(Gender) ~ "dichotomous"
+      # ),
       percent = "column", # revert back to column percentages
       statistic = list(
-        gtsummary::all_continuous() ~ "{mean} ({sd})"
+        gtsummary::all_continuous() ~ "{mean} ({sd})"#,
+        # gtsummary::all_dichotomous() ~ "{n} ({p}%)"
       ),
       # missing = "no" # do not show missing
       missing_text = "Missing",
@@ -53,5 +57,8 @@ table_subtype_by_demographics = function(
     ) |>
     gtsummary::add_stat_label(location = "row") |>
     gtsummary::add_overall() |>
-    gtsummary::modify_footnote(gtsummary::all_stat_cols() ~ "n (column %)")
+    gtsummary::separate_p_footnotes() |>
+    gtsummary::modify_footnote(
+      gtsummary::all_stat_cols() ~ "n (column %); Mean (SD)"
+    )
 }

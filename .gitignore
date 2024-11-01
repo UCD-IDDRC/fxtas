@@ -1,6 +1,7 @@
 .Rproj.user
 data/trax*
 data/*gp*
+data/apoe*
 data/visit1.rda
 tests/testthat/_snaps/*.new.md
 inst/doc
