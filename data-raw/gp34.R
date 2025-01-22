@@ -55,14 +55,19 @@ decreased_age2 = gp34 |> get_decreased_age2()
 
 readr::write_csv(decreased_age2, "inst/extdata/decreased_age2.csv")
 
-test =
-  waldo::compare(y = gp34,
-                 x = fxtas::gp34,
-                 ignore_attr = "problems") |>
-  print()
 
-if (length(test) > 0) {
-  browser("are you sure you want to overwrite?")
+if (exists("fxtas::gp34")) {
+
+  test =
+    waldo::compare(y = gp34,
+                   x = fxtas::gp34,
+                   ignore_attr = "problems") |>
+    print()
+
+  if (length(test) > 0) {
+    browser("are you sure you want to overwrite?")
+  }
+
 }
 
 usethis::use_data(gp34, overwrite = TRUE)
