@@ -101,8 +101,9 @@ pvd_lineplot <- function(figs,
       Change_color = dplyr::case_when(
         `biomarker` == "FXTAS Stage" ~ -2,
         Change < 0 ~ -1,
+        Change == 0 ~ 0,
         Change > 0 ~ 1,
-        Change == 0 ~ 0
+
       ) |>
         factor()
     )
