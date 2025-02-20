@@ -3,19 +3,7 @@
 #' @inheritDotParams plot_positional_var
 #' @inherit plot_positional_var return
 #' @export
-#' @examples
-#'
-#' output_path =
-#'   fs::path_package("extdata/sim_data", package = "fxtas")
-#'
-#' if(dir.exists(output_path))
-#' {
-#' figs = extract_figs_from_pickle(
-#'   output_folder = output_path,
-#'   n = 3)
-#'
-#'  figs
-#' }
+#' @example inst/examples/exm-extract_figs_from_pickle.R
 extract_figs_from_pickle <- function(
     n_s = 1,
     dataset_name = 'sample_data',

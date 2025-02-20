@@ -426,6 +426,12 @@ plot_compact_pvd(
 )
 ```
 
+we can also do position difference graphs: (PDGs):
+
+```{r}
+figs[1:2] |> pvd_lineplot()
+```
+
 
 ```{r}
 #| label: save-files

@@ -12,6 +12,7 @@
 #' @param y_lab todo
 #'
 #' @export
+#' @example inst/examples/exm-pvd_lineplot.R
 pvd_lineplot <- function(figs,
                          min_alpha = 0.25,
                          max_alpha = 1,
@@ -100,8 +101,9 @@ pvd_lineplot <- function(figs,
       Change_color = dplyr::case_when(
         `biomarker` == "FXTAS Stage" ~ -2,
         Change < 0 ~ -1,
+        Change == 0 ~ 0,
         Change > 0 ~ 1,
-        Change == 0 ~ 0
+
       ) |>
         factor()
     )

@@ -68,7 +68,6 @@ a \verb{"PVD.list} (a \link{list} of \code{PVD} objects from \code{\link[=autopl
 Extact PVDs from pickle file
 }
 \examples{
-
 output_path =
   fs::path_package("extdata/sim_data", package = "fxtas")
 

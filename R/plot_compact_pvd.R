@@ -9,6 +9,7 @@
 #' @param scale_colors todo
 #' @export
 #' @returns a [ggplot2::ggplot]
+#' @example inst/examples/exm-plot_compact_pvd.R
 plot_compact_pvd <- function(
     figs,
     tile_height = 1,
