@@ -12,6 +12,7 @@
 #' @param y_lab todo
 #'
 #' @export
+#' @example inst/examples/exm-pvd_lineplot.R
 pvd_lineplot <- function(figs,
                          min_alpha = 0.25,
                          max_alpha = 1,
