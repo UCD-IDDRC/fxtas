@@ -115,7 +115,7 @@ table1(
   shared_flextable_settings()
 ```
 
-Ataxia by CGG status
+**Ataxia by CGG status**
 
 :::
 
@@ -138,7 +138,7 @@ table1(
   shared_flextable_settings()
 ```
 
-Parkinson's disease by CGG status
+**Parkinson's disease by CGG status**
 
 :::
 
@@ -161,7 +161,7 @@ table1(
 
 ```
 
-FXTAS Stage by CGG level
+**FXTAS Stage by CGG level**
 
 :::
 
@@ -182,7 +182,7 @@ table1(
   shared_flextable_settings()
 ```
 
-Behavior Dyscontrol Scale - Second Edition (BDS-2)
+**Behavior Dyscontrol Scale - Second Edition (BDS-2)**
 
 :::
 
@@ -213,7 +213,7 @@ table1(
   shared_flextable_settings()
 ```
 
-Mini-Mental State Examination (MMSE)
+**Mini-Mental State Examination (MMSE)**
 
 :::
 
