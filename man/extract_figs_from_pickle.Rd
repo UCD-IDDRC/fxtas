@@ -68,15 +68,15 @@ a \verb{"PVD.list} (a \link{list} of \code{PVD} objects from \code{\link[=autopl
 Extact PVDs from pickle file
 }
 \examples{
-output_path =
+output_path <-
   fs::path_package("extdata/sim_data", package = "fxtas")
 
-if(dir.exists(output_path))
-{
-figs = extract_figs_from_pickle(
-  output_folder = output_path,
-  n = 3)
+if (dir.exists(output_path)) {
+  figs <- extract_figs_from_pickle(
+    output_folder = output_path,
+    n = 3
+  )
 
- figs
+  figs
 }
 }
