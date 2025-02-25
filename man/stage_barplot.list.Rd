@@ -2,7 +2,7 @@
 % Please edit documentation in R/stage_barplot.R
 \name{stage_barplot.list}
 \alias{stage_barplot.list}
-\title{Title}
+\title{Plot estimated stage counts}
 \usage{
 \method{stage_barplot}{list}(object)
 }
@@ -13,5 +13,5 @@
 a \link[ggplot2:ggplot]{ggplot2::ggplot}
 }
 \description{
-Title
+Plot estimated stage counts
 }

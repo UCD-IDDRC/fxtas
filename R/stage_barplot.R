@@ -13,19 +13,6 @@ stage_barplot <- function(object, ...) {
 
 #' Plot estimated stage counts
 #'
-#' @param object a `Sustain_model` object
-#' @inheritDotParams stage_barplot.default
-#'
-#' @returns a [ggplot2::ggplot]
-#' @export
-#'
-stage_barplot.Sustain_model = function(object, ...) {
-  results$subtype_and_stage_table |>
-    stage_barplot.default(...)
-}
-
-#' Plot estimated stage counts
-#'
 #' @param object a `subtype_and_stage_table` object
 #' (a type of data.frame)
 #' @param ... unused
@@ -33,9 +20,9 @@ stage_barplot.Sustain_model = function(object, ...) {
 #'
 #' @returns a [ggplot2::ggplot]
 #' @export
-stage_barplot.default = function(object,
-                                 include_type_0 = TRUE,
-                                 ...) {
+stage_barplot.default <- function(object,
+                                  include_type_0 = TRUE,
+                                  ...) {
 
   multiple_subtypes <-
     "Type 2" %in% object$ml_subtype
@@ -44,14 +31,15 @@ stage_barplot.default = function(object,
     object <-
       object |>
       dplyr::filter(.data$ml_subtype != "Type 0") |>
-      dplyr::mutate(ml_subtype =
-                      .data$ml_subtype |> droplevels())
+      dplyr::mutate(
+        ml_subtype = .data$ml_subtype |> droplevels()
+      )
   }
 
   plot1 <-
     object |>
     ggplot2::ggplot() +
-    ggplot2::aes(x = ml_stage) +
+    ggplot2::aes(x = .data$ml_stage) +
     geom_bar() +
     xlab("Disease stage") +
     ylab("Number of observations in stage")
@@ -63,7 +51,7 @@ stage_barplot.default = function(object,
   return(plot1)
 }
 
-#' Title
+#' Plot estimated stage counts
 #'
 #' @param results_list a [list] of `Sustain_model` objects
 #'

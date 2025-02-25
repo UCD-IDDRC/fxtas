@@ -66,6 +66,7 @@ Suggests:
     devtag (>= 0.0.0.9000),
     doconv,
     knitr,
+    rentrez,
     rmarkdown,
     scales,
     spelling,
