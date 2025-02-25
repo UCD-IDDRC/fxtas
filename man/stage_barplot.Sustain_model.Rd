@@ -2,13 +2,22 @@
 % Please edit documentation in R/stage_barplot.R
 \name{stage_barplot.Sustain_model}
 \alias{stage_barplot.Sustain_model}
-\title{Title}
+\title{Plot estimated stage counts}
 \usage{
 \method{stage_barplot}{Sustain_model}(object, ...)
 }
 \arguments{
-\item{...}{}
+\item{object}{a \code{Sustain_model} object}
+
+\item{...}{
+  Arguments passed on to \code{\link[=stage_barplot.default]{stage_barplot.default}}
+  \describe{
+    \item{\code{include_type_0}}{\link{logical} whether to include Type 0 in the plot}
+  }}
+}
+\value{
+a \link[ggplot2:ggplot]{ggplot2::ggplot}
 }
 \description{
-Title
+Plot estimated stage counts
 }

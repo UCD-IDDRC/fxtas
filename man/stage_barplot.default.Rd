@@ -2,15 +2,21 @@
 % Please edit documentation in R/stage_barplot.R
 \name{stage_barplot.default}
 \alias{stage_barplot.default}
-\title{Title}
+\title{Plot estimated stage counts}
 \usage{
 \method{stage_barplot}{default}(object, include_type_0 = TRUE, ...)
 }
 \arguments{
-\item{include_type_0}{}
+\item{object}{a \code{subtype_and_stage_table} object
+(a type of data.frame)}
+
+\item{include_type_0}{\link{logical} whether to include Type 0 in the plot}
 
 \item{...}{unused}
 }
+\value{
+a \link[ggplot2:ggplot]{ggplot2::ggplot}
+}
 \description{
-Title
+Plot estimated stage counts
 }

@@ -2,13 +2,19 @@
 % Please edit documentation in R/stage_barplot.R
 \name{stage_barplot}
 \alias{stage_barplot}
-\title{Title}
+\title{Plot estimated stage counts}
 \usage{
 stage_barplot(object, ...)
 }
 \arguments{
-\item{...}{}
+\item{object}{an object,
+whose class will determine which \code{stage_barplot()} method is used}
+
+\item{...}{other arguments passed to specific methods}
+}
+\value{
+a \link[ggplot2:ggplot]{ggplot2::ggplot}
 }
 \description{
-Title
+Plot estimated stage counts
 }

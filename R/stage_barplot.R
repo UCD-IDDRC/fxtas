@@ -1,21 +1,22 @@
-#' Title
+#' Plot estimated stage counts
 #'
-#' @param object
-#' @param ...
+#' @param object an object,
+#' whose class will determine which `stage_barplot()` method is used
+#' @param ... other arguments passed to specific methods
 #'
-#' @returns
+#' @returns a [ggplot2::ggplot]
 #' @export
 #'
 stage_barplot <- function(object, ...) {
   UseMethod("stage_barplot")
 }
 
-#' Title
+#' Plot estimated stage counts
 #'
-#' @param object
-#' @param ...
+#' @param object a `Sustain_model` object
+#' @inheritDotParams stage_barplot.default
 #'
-#' @returns
+#' @returns a [ggplot2::ggplot]
 #' @export
 #'
 stage_barplot.Sustain_model = function(object, ...) {
@@ -23,13 +24,14 @@ stage_barplot.Sustain_model = function(object, ...) {
     stage_barplot.default(...)
 }
 
-#' Title
+#' Plot estimated stage counts
 #'
-#' @param object
+#' @param object a `subtype_and_stage_table` object
+#' (a type of data.frame)
 #' @param ... unused
-#' @param include_type_0
+#' @param include_type_0 [logical] whether to include Type 0 in the plot
 #'
-#' @returns
+#' @returns a [ggplot2::ggplot]
 #' @export
 stage_barplot.default = function(object,
                                  include_type_0 = TRUE,
@@ -63,9 +65,9 @@ stage_barplot.default = function(object,
 
 #' Title
 #'
-#' @param results_list
+#' @param results_list a [list] of `Sustain_model` objects
 #'
-#' @returns
+#' @returns a [ggplot2::ggplot]
 #' @export
 #'
 stage_barplot.list <- function(object) {
