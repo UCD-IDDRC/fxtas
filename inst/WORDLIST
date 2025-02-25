@@ -17,7 +17,6 @@ CMD
 COPD
 CVIC
 Callosum
-Codecov
 Conda
 DESC
 DSM
@@ -59,6 +58,7 @@ Opioid
 Oxtoby
 Oxtoby's
 PDD
+PDGs
 PIs
 PNS
 PVD
@@ -72,6 +72,7 @@ Pons
 Posttraumatic
 Premutation
 Ps
+PubMed
 Raynaud's
 Raynauds
 RedCap
@@ -114,7 +115,6 @@ callout
 cgg
 codebase
 comorbid
-conda
 de
 decapitalized
 dichotomizes
