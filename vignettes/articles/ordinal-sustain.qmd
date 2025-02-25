@@ -334,6 +334,22 @@ results_v1 <- extract_results_from_pickles(
   output_folder = "output/output.fixed_CV"
 )
 
+results_females_first = extract_results_from_pickle(
+  use_rds = use_rds,
+  n_s = 1,
+  rda_filename = "data.RData",
+  dataset_name = "females",
+  output_folder = output_folder
+)
+
+results_males_first = extract_results_from_pickle(
+  use_rds = use_rds,
+  n_s = 1,
+  rda_filename = "data.RData",
+  dataset_name = "males",
+  output_folder = output_folder
+)
+  
 fig_females_first <- extract_figs_from_pickle(
   use_rds = use_rds,
   size.y = size.y,
@@ -666,7 +682,8 @@ Between `r broman::spell_out(n_s_selected)` and `r broman::spell_out(N_S_max)`
 latent subgroups, 
 the distribution of OOFLL appears to be
 approximately unchanging and the CVIC appears approximately flat, 
-and thus for easier clinical interpretation, 
+and thus for easier clinical interpretation
+and in consideration of the principle of parsimony, 
 we chose to classify participants into `r n_s_selected` subtypes.
 The subtypes are numbered 1-4 in order of estimated relative frequency
 (that is, in order of how many participants were clustered into each subtype).
@@ -845,6 +862,16 @@ list(
 ) |>
   plot_compact_pvd(y_text_size = y_text_size)
 ```
+
+```{r}
+results_list_by_sex <- list(
+  "Males" = results_males_first,
+  "Females" = results_females_first
+)
+
+results_list_by_sex |> stage_barplot()
+```
+
 
 {{< pagebreak >}}
 

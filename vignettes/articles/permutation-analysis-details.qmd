@@ -22,7 +22,7 @@ if(FALSE)
   results_males_first = extract_results_from_pickle(
     n_s = 1,
     rda_filename = "data.RData",
-    dataset_name = "females",
+    dataset_name = "males",
     output_folder = output_folder)
 
   llik_females = results_females_first$samples_likelihood

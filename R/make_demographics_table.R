@@ -9,19 +9,21 @@
 #'
 #' @examples
 #' test_data_v1 |> make_demographics_table()
-make_demographics_table <- function(data,
-                                    strata = "Gender",
-                                    vars = c(# "Study",
-                                      "Age at visit",
-                                      # "# visits",
-                                      # column_var,
-                                      "Primary Race/Ethnicity",
-                                      # "Primary Ethnicity",
-                                      # "Primary Race",
-                                      "FXTAS Stage",
-                                      "CGG"
-                                      # "ApoE")
-                                    ))
+make_demographics_table <- function(
+    data,
+    strata = "Gender",
+    vars = c(# "Study",
+      "Age at visit",
+      # "# visits",
+      # column_var,
+      "Primary Race/Ethnicity",
+      # "Primary Ethnicity",
+      # "Primary Race",
+      "FXTAS Stage",
+      "CGG"
+      # "ApoE")
+    )
+)
 {
 
 

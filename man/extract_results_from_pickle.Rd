@@ -43,7 +43,7 @@ extract_results_from_pickle(
   }}
 }
 \value{
-a \code{"SuStaIn-model"} object (extends \code{\link[=list]{list()}})
+a \code{"SuStaIn_model"} object (extends \code{\link[=list]{list()}})
 }
 \description{
 Extract results from pickle file
