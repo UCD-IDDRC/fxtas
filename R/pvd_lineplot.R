@@ -39,31 +39,36 @@ pvd_lineplot <- function(figs,
       ),
       .id = "facet"
     ) |>
-      dplyr::mutate(facet = factor(facet, levels = names(figs)))
+      dplyr::mutate(
+        facet = .data$facet |> factor(levels = names(figs))
+      )
   }
 
-# ---------------------------------------------------------------
+  # ---------------------------------------------------------------
 
 
-# ---------------------------------------------------------------
+  # ---------------------------------------------------------------
 
 
   # additional processing
   plot_dataset <- dataset |>
     dplyr::mutate(
       # extract order number
-      Order = stringi::stri_extract_first_regex(`row number and name`, "[0-9]+") |>
+      Order =
+        .data$`row number and name` |>
+        stringi::stri_extract_first_regex("[0-9]+") |>
         as.integer(),
       # right justify left facet, left justify right facet
-      hjust = ifelse(facet == facet_labels[1],
+      hjust = ifelse(
+        .data$facet == facet_labels[1],
         1,
         0
       ),
       # made FXTAS Stage label bold
       `event label` = ifelse(
-        biomarker == "FXTAS Stage",
-        paste0("<b>", `event label`, "</b>"),
-        as.character(`event label`)
+        .data$biomarker == "FXTAS Stage",
+        paste0("<b>", .data$`event label`, "</b>"),
+        as.character(.data$`event label`)
       )
     ) |>
     dplyr::select(
@@ -83,13 +88,14 @@ pvd_lineplot <- function(figs,
     arrange(.data$`event name`, .data$facet) |>
     dplyr::mutate(
       # logical: did sequence change
-      Changed = n_distinct(Order) != 1,
+      Changed = n_distinct(.data$Order) != 1,
       # magnitude of sequence change
-      Change = -base::diff(Order),
-      .by = `event name`
+      Change = -base::diff(.data$Order),
+      .by = "event name"
     ) |>
     dplyr::mutate(
-      linesize = ifelse(biomarker == "FXTAS Stage",
+      linesize = ifelse(
+        .data$biomarker == "FXTAS Stage",
         1.5,
         1
       ),
@@ -103,7 +109,6 @@ pvd_lineplot <- function(figs,
         Change < 0 ~ -1,
         Change == 0 ~ 0,
         Change > 0 ~ 1,
-
       ) |>
         factor()
     )
@@ -115,8 +120,8 @@ pvd_lineplot <- function(figs,
   plot_dataset <- plot_dataset |>
     dplyr::mutate(
       alpha = dplyr::case_when(
-        biomarker == "FXTAS Stage" ~ stage_alpha,
-        .default = (abs(Change) * alpha_mult) + min_alpha
+        .data$biomarker == "FXTAS Stage" ~ stage_alpha,
+        .default = (abs(.data$Change) * alpha_mult) + min_alpha
       )
     )
 
@@ -129,22 +134,24 @@ pvd_lineplot <- function(figs,
   ggplot(
     plot_dataset,
     aes(
-      x = facet_order,
-      y = Order |> factor()
+      x = .data$facet_order,
+      y = .data$Order |> factor()
     )
   ) +
     ggtext::geom_richtext(
       aes(
-        label = `event label`,
-        hjust = hjust
+        label = .data$`event label`,
+        hjust = .data$hjust
       ),
       fill = NA,
       label.color = NA,
       size = text_size
     ) +
     geom_line(
-      aes(group = `event name`, color = Change_color),
-      # color = plot_dataset$group_color,
+      aes(
+        group = .data$`event name`,
+        color = .data$Change_color
+      ),
       linewidth = plot_dataset$linesize,
       alpha = plot_dataset$alpha
     ) +
