@@ -105,7 +105,7 @@ compute_prob_correct <- function(dataset, biomarker_levels, max_prob = 1) {
     dplyr::select(
       all_of(
         c(
-          Biomarker = "biomarker",
+          Symptom = "biomarker",
           `# controls with data` = "# obs",
           "# at baseline",
           "% at baseline",
