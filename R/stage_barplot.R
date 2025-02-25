@@ -20,6 +20,7 @@ stage_barplot <- function(object, ...) {
 #'
 #' @returns a [ggplot2::ggplot]
 #' @export
+#' @examples sim_subtype_and_stage_table |>
 stage_barplot.default <- function(object,
                                   include_type_0 = TRUE,
                                   ...) {
