@@ -27,12 +27,11 @@ get_biomarker_events_table <- function(biomarker_levels) {
     ) |>
     dplyr::relocate("biomarker", .before = everything()) |>
     dplyr::mutate(
-      biomarker_level =
-        if_else(
-          .data$level == "Yes",
-          .data$biomarker,
-          .data$biomarker |> paste(.data$level, sep = ": ")
-        )
+      biomarker_level = if_else(
+        .data$level == "Yes",
+        .data$biomarker,
+        .data$biomarker |> paste(.data$level, sep = ": ")
+      )
     ) |>
     dplyr::mutate(
       .by = "biomarker",
@@ -43,12 +42,4 @@ get_biomarker_events_table <- function(biomarker_levels) {
     arrange(across(all_of(c("level", "biomarker"))))
 
   to_return
-}
-
-get_biomarker_event_names <- function(
-    biomarker_levels,
-    biomarker_events_table =
-      get_biomarker_events_table(biomarker_levels)
-) {
-  biomarker_events_table |> dplyr::pull("biomarker_level")
 }

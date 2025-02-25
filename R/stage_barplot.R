@@ -73,7 +73,7 @@ stage_barplot.default = function(object,
 stage_barplot.list <- function(object) {
   object |>
     lapply(
-      F = function(x) purrr::pluck(x, "subtype_and_stage_table")
+      FUN = function(x) purrr::pluck(x, "subtype_and_stage_table")
     ) |>
     dplyr::bind_rows(.id = "stratum") |>
     stage_barplot.default() +
