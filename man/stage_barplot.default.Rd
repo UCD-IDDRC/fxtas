@@ -20,3 +20,6 @@ a \link[ggplot2:ggplot]{ggplot2::ggplot}
 \description{
 Plot estimated stage counts
 }
+\examples{
+sim_subtype_and_stage_table |> stage_barplot()
+}
