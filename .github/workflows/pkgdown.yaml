@@ -4,6 +4,10 @@
 # copied from https://github.com/rstudio/education-workflows/blob/main/examples/pkgdown.yaml
 # referred from https://github.com/r-lib/actions/issues/865
 # more info: https://github.com/rstudio/education-workflows/tree/main/examples#deploy-pkgdown-to-github-pages-with-pr-previews-and-tagged-versions
+permissions:
+  contents: write
+  pages: write
+
 on:
   pull_request:
     branches:
@@ -46,6 +50,14 @@ jobs:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v2
+
+      # - name: "setup conda"
+      #   run: |
+      #     conda init
+      #     conda create --name fxtas39 python=3.9
+      #     conda activate fxtas39
+      #     pip install seaborn
+      #     pip install git+https://github.com/d-morrison/pySuStaIn
 
       - name: Configure git
         run: |
@@ -96,8 +108,23 @@ jobs:
         run: |
           echo "Subdir is set to: ${{ env.subdir }}"
 
+      - name: check articles
+        id: check-pkgdown-articles
+        shell: Rscript --verbose {0}
+        run: |
+          cat("hello there")
+          quarto::quarto_version()
+          pkgdown::build_articles(quiet = FALSE)
+
+      - name: setup pkgdown
+        id: setup-pkgdown
+        shell: Rscript {0}
+        run: |
+          pkg <- pkgdown::as_pkgdown(".")
+          print(pkg)
+
       - name: Deploy pkgdown site
-        id: deploy
+        id: deploy-pkgdown
         shell: Rscript {0}
         run: |
           subdir <- "${{ env.subdir }}"

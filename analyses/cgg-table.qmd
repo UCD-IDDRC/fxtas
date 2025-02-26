@@ -1,6 +1,6 @@
 ---
 title: "CGG_table"
-editor: visual
+editor: source
 ---
 
 ## CGG

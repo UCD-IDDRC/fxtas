@@ -4,7 +4,7 @@
 dev_history.R
 ^dev$
 ^misc$
-^output$
+^output/$
 ^output*$
 ^outputOLD$
 $run_dev.*
@@ -57,6 +57,11 @@ $run_dev.*
 ^docs$
 ^genetics\.Rmd$
 ^oldreports$
+^analyses/$
+^output$
+^vignettes/articles/\.quarto$
+^vignettes/articles/*_files$
+^vignettes/*_files$
 ^man/compact_pvd_figure\.Rd$
 ^man/format_demographics_table_as_flextable\.Rd$
 ^man/get_title_i_2\.Rd$

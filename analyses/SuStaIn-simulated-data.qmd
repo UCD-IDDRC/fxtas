@@ -3,8 +3,8 @@ title: "SuStaIn Model Fitting"
 authors:
   - name: Alexandra Young
   - name: Douglas Ezra Morrison
-    affiliations:
-      - ref: ucdphs
+    # affiliations:
+    #   - ref: ucdphs
     corresponding: true
     email: demorrison@ucdavis.edu
     address: One Shields Ave, Davis, CA 95616
