@@ -47,13 +47,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: "setup conda"
-        run: |
-          conda init
-          conda create --name fxtas39 python=3.9
-          conda activate fxtas39
-          pip install seaborn
-          pip install git+https://github.com/d-morrison/pySuStaIn
+      # - name: "setup conda"
+      #   run: |
+      #     conda init
+      #     conda create --name fxtas39 python=3.9
+      #     conda activate fxtas39
+      #     pip install seaborn
+      #     pip install git+https://github.com/d-morrison/pySuStaIn
 
       - name: Configure git
         run: |
