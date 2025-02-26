@@ -3,9 +3,11 @@
 #' @param results pickle file contents
 #' @param biomarker_labels biomarker labels
 #' @param biomarker_levels biomarker levels
-#' @param biomarker_events_table table of biomarker events (excluding base level)
+#' @param biomarker_events_table table of biomarker events
+#' (excluding base level)
 #' @param biomarker_event_names vector of biomarker event names
-#' @param format_sst should the subtype and stage table be formatted? (doesn't work for cross-validation fold pickle-files)
+#' @param format_sst should the subtype and stage table be formatted?
+#' (doesn't work for cross-validation fold pickle-files)
 #'
 #' @returns a `"SuStaIn_model"` object (extends [list()])
 #'

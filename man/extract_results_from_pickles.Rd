@@ -39,7 +39,8 @@ extract_results_from_pickles(
 \item{...}{
   Arguments passed on to \code{\link[=format_results_list]{format_results_list}}
   \describe{
-    \item{\code{format_sst}}{should the subtype and stage table be formatted? (doesn't work for cross-validation fold pickle-files)}
+    \item{\code{format_sst}}{should the subtype and stage table be formatted?
+(doesn't work for cross-validation fold pickle-files)}
   }}
 }
 \value{
