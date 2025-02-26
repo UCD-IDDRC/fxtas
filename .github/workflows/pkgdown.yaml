@@ -4,9 +4,6 @@
 # copied from https://github.com/rstudio/education-workflows/blob/main/examples/pkgdown.yaml
 # referred from https://github.com/r-lib/actions/issues/865
 # more info: https://github.com/rstudio/education-workflows/tree/main/examples#deploy-pkgdown-to-github-pages-with-pr-previews-and-tagged-versions
-permissions:
-  contents: write
-  pages: write
 
 on:
   pull_request:
@@ -109,7 +106,7 @@ jobs:
           echo "Subdir is set to: ${{ env.subdir }}"
 
       - name: Deploy pkgdown site
-        id: deploy-pkgdown
+        id: deploy
         shell: Rscript {0}
         run: |
           subdir <- "${{ env.subdir }}"
