@@ -1,6 +1,5 @@
 ---
-title: "Untitled"
-format: docx
+title: "demo table_subtype_by_demographics()"
 ---
 
 ```{r}
