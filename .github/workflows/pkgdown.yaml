@@ -104,21 +104,17 @@ jobs:
         run: |
           echo "Subdir is set to: ${{ env.subdir }}"
 
-      - name: setup pkgdown
-        id: setup-pkgdown
-        shell: Rscript {0}
-        run: |
-          subdir <- "${{ env.subdir }}"
-          pkg <- pkgdown::as_pkgdown(".")
-          print(pkg)
-
       - name: check articles
         id: check-pkgdown-articles
         shell: Rscript {0}
         run: |
-          subdir <- "${{ env.subdir }}"
-          pkg <- pkgdown::as_pkgdown(".")
           pkgdown::build_articles(quiet = FALSE)
+
+      - name: setup pkgdown
+        id: setup-pkgdown
+        shell: Rscript {0}
+        run: |
+          print(pkg)
 
       - name: Deploy pkgdown site
         id: deploy-pkgdown
