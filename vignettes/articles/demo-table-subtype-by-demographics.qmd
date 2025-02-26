@@ -1,5 +1,8 @@
 ---
 title: "demo table_subtype_by_demographics()"
+format:
+  html: default
+  docx: default
 ---
 
 ```{r}

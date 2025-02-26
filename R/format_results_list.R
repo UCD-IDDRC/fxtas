@@ -13,27 +13,24 @@ format_results_list <- function(
     results,
     biomarker_labels = names(biomarker_levels),
     biomarker_levels = NULL,
-    biomarker_events_table =
-      biomarker_levels |> get_biomarker_events_table(),
-    biomarker_event_names =
-      biomarker_events_table |> dplyr::pull(biomarker_level),
-    format_sst = TRUE)
-{
+    biomarker_events_table = get_biomarker_events_table(biomarker_levels),
+    biomarker_event_names = biomarker_events_table$biomarker_level,
+    format_sst = TRUE) {
 
-  results$samples_sequence =
+  results$samples_sequence <-
     results$samples_sequence |>
     format_samples_sequence(
       results = results,
-      biomarker_event_names = biomarker_event_names)
+      biomarker_event_names = biomarker_event_names
+    )
 
-  if(format_sst)
-  {
-    results$subtype_and_stage_table =
+  if (format_sst) {
+    results$subtype_and_stage_table <-
       results |>
       extract_subtype_and_stage_table()
   }
 
-  class(results) = c("SuStaIn_model", class(results))
+  class(results) <- c("SuStaIn_model", class(results))
 
   return(results)
 }
