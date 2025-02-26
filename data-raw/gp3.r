@@ -1,3 +1,8 @@
+# notes:
+# neu: NEUROLOGICAL HISTORY
+# ne: NEUROLOGICAL EXAM
+# (at least in GP3)
+
 #Clear existing data and graphics
 rm(list=ls())
 #Load Hmisc library
