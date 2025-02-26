@@ -2,7 +2,7 @@
 
 ## Manuscript
 
-* Moved manuscript to `analyses/`
+* Moved manuscript to `analyses/` (#69)
 * Tons of polishing (#63, #64, #65)
 * Added `gtsummary::bold_labels()` to `gtsummary` tables
 * Added keywords
