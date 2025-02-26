@@ -162,6 +162,7 @@ jobs:
 
       - name: Notify pkgdown cleanup
         uses: hasura/comment-progress@v2.2.0
+        permissions: write-all
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           repository: ${{ github.repository }}
