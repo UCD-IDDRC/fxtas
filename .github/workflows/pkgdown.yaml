@@ -108,21 +108,6 @@ jobs:
         run: |
           echo "Subdir is set to: ${{ env.subdir }}"
 
-      - name: check articles
-        id: check-pkgdown-articles
-        shell: Rscript --verbose {0}
-        run: |
-          cat("hello there")
-          quarto::quarto_version()
-          pkgdown::build_articles(quiet = FALSE)
-
-      - name: setup pkgdown
-        id: setup-pkgdown
-        shell: Rscript {0}
-        run: |
-          pkg <- pkgdown::as_pkgdown(".")
-          print(pkg)
-
       - name: Deploy pkgdown site
         id: deploy-pkgdown
         shell: Rscript {0}
