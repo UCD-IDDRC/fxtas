@@ -581,7 +581,9 @@ labels = c(subj_id = "FXS ID", redcap_event_name = "Event Name", visit_age = "Ag
            dem_edlev = "Education Level",
            dem_edyr = "Years of Education")
 
-if(!isTRUE(setequal(names(dataset), names(labels)))) browser(message('why is there a mismatch?'))
+if(!isTRUE(setequal(names(dataset), names(labels)))) {
+  browser(message('why is there a mismatch?'))
+}
 
 names(dataset) = labels[names(dataset)]
 
