@@ -6,7 +6,8 @@ create_mri_domains <- function(
     mri_variables = c(
       "Cerebral Atrophy", "Cerebellar Atrophy",
       "Cerebral WM Hyperintensity", "Cerebellar WM Hyperintensity",
-      "MCP-WM Hyperintensity", "Pons-WM Hyperintensity",
+      "MCP-WM Hyperintensity",
+      "Pons-WM Hyperintensity",
       "Sub-Insular WM Hyperintensity", "Periventricular WM Hyperintensity",
       "Splenium (CC)-WM Hyperintensity", "Genu (CC)-WM Hyperintensity",
       "Corpus Callosum-Thickness"
@@ -14,8 +15,8 @@ create_mri_domains <- function(
 ){
   # cerebellum variables
   cerebellum_vars <- c(
-    "Cerebellar Atrophy", "Cerebellar WM Hyperintensity",
-    "MCP-WM Hyperintensity"
+    "Cerebellar Atrophy", "Cerebellar WM Hyperintensity"
+    # "MCP-WM Hyperintensity"
   )
   # cereberal variables
   cerebral_vars <- c(
@@ -31,7 +32,8 @@ create_mri_domains <- function(
     # convert to ordered factors
     mutate(
       across(
-        .cols = c(all_of(cerebellum_vars), all_of(cerebral_vars)),
+        .cols = c(all_of(cerebellum_vars), all_of(cerebral_vars),
+                  `MCP-WM Hyperintensity`),
         ~ factor(.x, levels = c("None", "Mild", "Moderate", "Severe"),
                  ordered = TRUE)
       )
