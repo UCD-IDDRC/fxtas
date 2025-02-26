@@ -41,7 +41,7 @@ tremors = c(
   "Resting tremor" = 1,
   "Postural tremor" = 1,
   "Intermittent tremor" = 1,
-  "Any tremor" = 1
+  "Any tremor (excluding head)" = 1
 )
 
 categorical_biomarker_directions = c(

@@ -2,7 +2,7 @@
 #'
 #' @param dataset a [tibble::tbl_df] containing the following columns:
 #' * `FXS ID`: participant ID number ([character()])
-#' * `Visit Date`: date of clinic visit ([Date()])
+#' * `Visit Date`: date of clinic visit ([base::Date()])
 #' * `Event Name`: role of clinic visit in the study design ([character()])
 #'
 #' @returns a [tibble::tbl_df]

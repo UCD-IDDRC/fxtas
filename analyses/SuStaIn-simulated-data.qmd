@@ -3,8 +3,8 @@ title: "SuStaIn Model Fitting"
 authors:
   - name: Alexandra Young
   - name: Douglas Ezra Morrison
-    affiliations:
-      - ref: ucdphs
+    # affiliations:
+    #   - ref: ucdphs
     corresponding: true
     email: demorrison@ucdavis.edu
     address: One Shields Ave, Davis, CA 95616
@@ -426,6 +426,18 @@ plot_compact_pvd(
 )
 ```
 
+we can also do position difference graphs: (PDGs):
+
+```{r}
+figs[1:2] |> pvd_lineplot()
+```
+
+We can check the distribution of ML stages with `stage_barplot()`:
+
+```{r}
+results3 |> stage_barplot()
+```
+
 
 ```{r}
 #| label: save-files
@@ -445,4 +457,5 @@ readr::write_rds(
 )
 
 ```
+
 

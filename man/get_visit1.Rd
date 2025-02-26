@@ -10,7 +10,7 @@ get_visit1(dataset)
 \item{dataset}{a \link[tibble:tbl_df-class]{tibble::tbl_df} containing the following columns:
 \itemize{
 \item \verb{FXS ID}: participant ID number (\code{\link[=character]{character()}})
-\item \verb{Visit Date}: date of clinic visit (\code{\link[=Date]{Date()}})
+\item \verb{Visit Date}: date of clinic visit (\code{\link[base:Dates]{base::Date()}})
 \item \verb{Event Name}: role of clinic visit in the study design (\code{\link[=character]{character()}})
 }}
 }

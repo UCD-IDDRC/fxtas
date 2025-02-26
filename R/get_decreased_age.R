@@ -1,25 +1,66 @@
-get_decreased_age <- function(dataset)
-{
+get_decreased_age <- function(dataset) {
   dataset |>
-    arrange(`FXS ID`, `Event Name`) |> # not sure about this one; added later to clarify difference from below
-    group_by(`FXS ID`) |>
+
+    arrange(
+      across(
+        all_of(
+          c("FXS ID", "Event Name")
+        )
+      )
+    ) |>
+    # not sure about this one;
+    # added later to clarify difference from below
+    # where we arrange by visit date instead of event name
+
     dplyr::mutate(
-      `diff age` = c(NA, base::diff(`Age at visit`)),
-      `decreased age` = `diff age` < 0) |>
-    dplyr::filter(any(`decreased age`, na.rm = TRUE)) |>
-    ungroup() |>
-    dplyr::select(`FXS ID`, `Event Name`, `Visit Date`, `Age at visit`, `diff age`, `decreased age`)
+      .by = "FXS ID",
+      `diff age` = c(NA, base::diff(.data$`Age at visit`)),
+      `decreased age` = .data$`diff age` < 0
+    ) |>
+    dplyr::filter(
+      any(.data$`decreased age`, na.rm = TRUE)
+    ) |>
+    dplyr::select(
+      all_of(
+        c(
+          "FXS ID",
+          "Event Name",
+          "Visit Date",
+          "Age at visit",
+          "diff age",
+          "decreased age"
+        )
+      )
+    )
 }
 
-get_decreased_age2 <- function(dataset)
-{
+get_decreased_age2 <- function(dataset) {
   dataset |>
-    arrange(`FXS ID`, `Visit Date`) |>
-    group_by(`FXS ID`) |>
+    arrange(
+      across(
+        all_of(
+          c("FXS ID", "Visit Date")
+        )
+      )
+    ) |>
     dplyr::mutate(
-      `diff age` = c(NA, base::diff(`Age at visit`)),
-      `decreased age` = `diff age` < 0) |>
-    dplyr::filter(any(`decreased age`, na.rm = TRUE)) |>
-    ungroup() |>
-    dplyr::select(`FXS ID`, `Event Name`, `Visit Date`, `Age at visit`, `diff age`, `decreased age`)
+      .by = "FXS ID",
+      `diff age` = c(NA, base::diff(.data$`Age at visit`)),
+      `decreased age` = .data$`diff age` < 0
+    ) |>
+    dplyr::filter(
+      any(.data$`decreased age`, na.rm = TRUE)
+    ) |>
+    dplyr::select(
+      all_of(
+        c(
+          "FXS ID",
+          "Event Name",
+          "Visit Date",
+          "Age at visit",
+          "diff age",
+          "decreased age"
+        )
+      )
+    )
 }

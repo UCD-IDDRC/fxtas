@@ -9,7 +9,7 @@ format_results_list(
   biomarker_labels = names(biomarker_levels),
   biomarker_levels = NULL,
   biomarker_events_table = get_biomarker_events_table(biomarker_levels),
-  biomarker_event_names = dplyr::pull(biomarker_events_table, biomarker_level),
+  biomarker_event_names = biomarker_events_table$biomarker_level,
   format_sst = TRUE
 )
 }
@@ -20,14 +20,16 @@ format_results_list(
 
 \item{biomarker_levels}{biomarker levels}
 
-\item{biomarker_events_table}{table of biomarker events (excluding base level)}
+\item{biomarker_events_table}{table of biomarker events
+(excluding base level)}
 
 \item{biomarker_event_names}{vector of biomarker event names}
 
-\item{format_sst}{should the subtype and stage table be formatted? (doesn't work for cross-validation fold pickle-files)}
+\item{format_sst}{should the subtype and stage table be formatted?
+(doesn't work for cross-validation fold pickle-files)}
 }
 \value{
-a \code{"SuStaIn-model"} object (extends \code{\link[=list]{list()}})
+a \code{"SuStaIn_model"} object (extends \code{\link[=list]{list()}})
 }
 \description{
 Format results list extracted from pickle file

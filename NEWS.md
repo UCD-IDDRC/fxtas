@@ -2,6 +2,7 @@
 
 ## Manuscript
 
+* Moved manuscript to `analyses/` (#69)
 * Tons of polishing (#63, #64, #65)
 * Added `gtsummary::bold_labels()` to `gtsummary` tables
 * Added keywords
@@ -20,6 +21,7 @@ for latent subtype clustering analysis
 
 ## Graphics
 
+* added test for `pvd_lineplot()` (#68)
 * added `biomarker_order` argument to `compact_pvd_data_prep()` 
 (default behavior should be unchanged)
 * added `shared_flextable_settings()` function to apply font, font size, and line spacing to all tables
