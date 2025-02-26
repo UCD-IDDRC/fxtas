@@ -49,6 +49,7 @@ jobs:
 
       - name: "setup conda"
         run: |
+          conda init
           conda create --name fxtas39 python=3.9
           conda activate fxtas39
           pip install seaborn
