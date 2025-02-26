@@ -114,6 +114,7 @@ jobs:
         id: setup-pkgdown
         shell: Rscript {0}
         run: |
+          pkg <- pkgdown::as_pkgdown(".")
           print(pkg)
 
       - name: Deploy pkgdown site
