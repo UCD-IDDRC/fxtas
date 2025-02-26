@@ -30,23 +30,26 @@ devtools::install_github("UCD-IDDRC/fxtas")
 ## Running the analyses
 
 The manuscript is implemented in the file `ordinal-sustain.qmd` in the
-`vignettes/articles` subfolder, which incorporates several subfiles in
-this repository. The `data-raw` folder contains numerous auxiliary
-scripts, including:
+`analyses` subfolder, which incorporates several subfiles in this
+repository. The `data-raw` folder contains numerous auxiliary scripts,
+including:
 
 - data preprocessing scripts, which be run in the following order (after
   extracting the necessary files from the GP, GP4, and Trax research
   databases):
+
   - `gp3.r`
   - `gp4.r`
   - `gp34.R`
   - `trax.R`
+
 - [SLURM](https://slurm.schedmd.com/documentation.html) batch scripts
   and corresponding R scripts for pre-running the computation-heavy
   sections of the analysis on an appropriately-preconfigured distributed
   computing server.
-  - If the corresponding output files have not been pre-generated,
-    `ordinal-sustain.qmd` should produce them
+
+If the corresponding output files have not been pre-generated,
+`ordinal-sustain.qmd` should produce them.
 
 # References
 
