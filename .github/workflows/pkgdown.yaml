@@ -123,6 +123,7 @@ jobs:
           cat(sprintf('url=%s', deployed_url), file = Sys.getenv("GITHUB_OUTPUT"), append = TRUE)
 
       - name: Notify pkgdown deployment
+        permissions: write-all
         if: github.event_name == 'pull_request'
         uses: hasura/comment-progress@HEAD
         with:
