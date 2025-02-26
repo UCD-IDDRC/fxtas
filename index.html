@@ -22,7 +22,7 @@
 
     <a class="navbar-brand me-2" href="index.html">fxtas</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Unreleased version">0.0.0.9016</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Unreleased version">0.0.0.9017</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -82,9 +82,10 @@ as described in Morrison et al (not yet published), “Progression of fragile X-
 <div class="section level2">
 <h2 id="running-the-analyses">Running the analyses<a class="anchor" aria-label="anchor" href="#running-the-analyses"></a>
 </h2>
-<p>The manuscript is implemented in the file <code>ordinal-sustain.qmd</code> in the <code>vignettes/articles</code> subfolder, which incorporates several subfiles in this repository. The <code>data-raw</code> folder contains numerous auxiliary scripts, including:</p>
+<p>The manuscript is implemented in the file <code>ordinal-sustain.qmd</code> in the <code>analyses</code> subfolder, which incorporates several subfiles in this repository. The <code>data-raw</code> folder contains numerous auxiliary scripts, including:</p>
 <ul>
-<li>data preprocessing scripts, which be run in the following order (after extracting the necessary files from the GP, GP4, and Trax research databases):
+<li>
+<p>data preprocessing scripts, which be run in the following order (after extracting the necessary files from the GP, GP4, and Trax research databases):</p>
 <ul>
 <li><code>gp3.r</code></li>
 <li><code>gp4.r</code></li>
@@ -92,13 +93,9 @@ as described in Morrison et al (not yet published), “Progression of fragile X-
 <li><code>trax.R</code></li>
 </ul>
 </li>
-<li>
-<a href="https://slurm.schedmd.com/documentation.html" class="external-link">SLURM</a> batch scripts and corresponding R scripts for pre-running the computation-heavy sections of the analysis on an appropriately-preconfigured distributed computing server.
-<ul>
-<li>If the corresponding output files have not been pre-generated, <code>ordinal-sustain.qmd</code> should produce them</li>
+<li><p><a href="https://slurm.schedmd.com/documentation.html" class="external-link">SLURM</a> batch scripts and corresponding R scripts for pre-running the computation-heavy sections of the analysis on an appropriately-preconfigured distributed computing server.</p></li>
 </ul>
-</li>
-</ul>
+<p>If the corresponding output files have not been pre-generated, <code>ordinal-sustain.qmd</code> should produce them.</p>
 </div>
 </div>
 <div class="section level1">
