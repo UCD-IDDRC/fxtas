@@ -12,5 +12,5 @@ knitr:
 
 ```{r}
 #| label: setup
-library(fxtas)
+#library(fxtas)
 ```
