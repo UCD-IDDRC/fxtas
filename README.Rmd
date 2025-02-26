@@ -1,5 +1,5 @@
 ---
-format: gfm
+output: github_document
 bibliography: vignettes/references.bib
 ---
 
