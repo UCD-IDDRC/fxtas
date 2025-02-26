@@ -108,6 +108,8 @@ jobs:
         id: check-pkgdown-articles
         shell: Rscript --verbose {0}
         run: |
+          cat("hello there")
+          quarto::quarto_version()
           pkgdown::build_articles(quiet = FALSE)
 
       - name: setup pkgdown
