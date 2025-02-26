@@ -1,6 +1,5 @@
 #Clear existing data and graphics
 rm(list=ls())
-graphics.off()
 #Load Hmisc library
 library(Hmisc)
 library(dplyr)
@@ -15,9 +14,10 @@ conflicts_prefer(vroom::col_double)
 conflicts_prefer(vroom::col_logical)
 conflicts_prefer(vroom::col_skip)
 dataset=vroom::vroom(
-  'inst/extdata/GPGenotypePhenotypeR-FXTASEventSequence10_DATA_2024-03-20_1146.csv',
+  'inst/extdata/GPGenotypePhenotypeR-FXTASEventSequence10_DATA_2025-02-19_2044.csv',
   col_types = cols(
     dem_date = col_date(),
+    mds_ne_tand = col_integer(),
     mds_med_ca_other = col_character(),
     new_mds_med_can_other = col_integer(),
     new_mds_med_anes1 = col_character(),
@@ -130,6 +130,7 @@ dataset=vroom::vroom(
   )
 )
 
+label(dataset$mds_ne_tand)="Tandem Walk"
 #Setting Factors(will create new variable for factors)
 
 dataset$new_mds_med_anes1 =
