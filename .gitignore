@@ -31,3 +31,5 @@ _freeze
 /Meta/
 docs
 **/.quarto/
+README.html
+README_files

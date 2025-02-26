@@ -1,5 +1,4 @@
-clean_ataxia <- function(data)
-{
+clean_ataxia <- function(data) {
   data |>
     dplyr::mutate(
 
@@ -7,7 +6,7 @@ clean_ataxia <- function(data)
         missingness_reasons.numeric(`Ataxia: severity`),
 
       # setting missing codes as 0s:
-      `Ataxia: severity` =
+      `Ataxia: severity` <-
         dplyr::if_else(
           condition = `Ataxia: severity` %in% c(888,999),
           true = "0",
