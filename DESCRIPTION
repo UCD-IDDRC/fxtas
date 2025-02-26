@@ -99,4 +99,4 @@ Remotes:
     d-morrison/gtsummary@dev,
     insightsengineering/cardx
 Config/Needs/build: moodymudskipper/devtag
-Config/Needs/website: quarto
+Config/Needs/website: quarto, rmarkdown
