@@ -1,0 +1,11 @@
+*.aux
+*.log
+*.pdf
+*.tex
+test-wide-figures.qmd
+_tbl_fxtas_stages_files
+ordinal-sustain.knit.md
+SuStaIn-simulated-data_files
+*.html
+*.R
+*_files
