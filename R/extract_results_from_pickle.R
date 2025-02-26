@@ -77,7 +77,7 @@ extract_results_from_pickle <- function(
 #'
 #' @inheritParams extract_results_from_pickle
 #' @inheritDotParams format_results_list format_sst
-#' @returns a [list] of `"SuStaIn-model"` objects (extends [list()])
+#' @returns a [list] of `"SuStaIn_model"` objects (extends [list()])
 #' @export
 #'
 extract_results_from_pickles =

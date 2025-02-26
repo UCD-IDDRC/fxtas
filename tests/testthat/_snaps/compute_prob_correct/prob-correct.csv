@@ -1,4 +1,4 @@
-Biomarker,# controls with data,# at baseline,% at baseline,Est. Pr(correct)
+Symptom,# controls with data,# at baseline,% at baseline,Est. Pr(correct)
 Head tremor,22,21,95.5%,95%
 Intention tremor,37,18,48.6%,48.6%
 Resting tremor,45,38,84.4%,84.4%

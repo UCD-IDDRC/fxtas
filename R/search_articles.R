@@ -8,7 +8,7 @@
 #' @examples search_articles("FXTAS")
 search_articles <- function(query) {
   # First, get the total number of results
-  search_results <- entrez_search(
+  search_results <- rentrez::entrez_search(
     db = "pubmed",
     term = query,
     use_history = TRUE, # Use Web History to handle large queries
@@ -28,7 +28,7 @@ search_articles <- function(query) {
   cli::cli_inform("getting ids")
   for (start in seq(1, total_results, by = batch_size)) {
     cli::cli_inform("running {start}-{start+batch_size} out of {total_results}")
-    batch_results <- entrez_search(db = "pubmed",
+    batch_results <- rentrez::entrez_search(db = "pubmed",
                                    term = query,
                                    retstart = start - 1,
                                    retmax = batch_size)
@@ -44,7 +44,7 @@ search_articles <- function(query) {
   cli::cli_inform("getting summaries")
   for (start in seq(1, total_results, by = batch_size)) {
     cli::cli_inform("running {start}-{start+batch_size} out of {total_results}")
-    batch_summaries <- entrez_summary(
+    batch_summaries <- rentrez::entrez_summary(
       db = "pubmed",
       web_history = web_history,
       retstart = start - 1,

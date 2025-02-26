@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_biomarker_events_table.R
 \name{get_biomarker_events_table}
 \alias{get_biomarker_events_table}
-\title{Title}
+\title{Construct biomarker events table}
 \usage{
 get_biomarker_events_table(biomarker_levels)
 }
@@ -10,21 +10,21 @@ get_biomarker_events_table(biomarker_levels)
 \item{biomarker_levels}{todo}
 }
 \value{
-a \link[ggplot2:ggplot]{ggplot2::ggplot}
+a \link[tibble:tbl_df-class]{tibble::tbl_df}
 }
 \description{
-Title
+Construct biomarker events table
 }
 \examples{
-df = test_data_v1
-biomarker_groups = compile_biomarker_groups_table(dataset = df)
-biomarker_varnames =
+df <- test_data_v1
+biomarker_groups <- compile_biomarker_groups_table(dataset = df)
+biomarker_varnames <-
   biomarker_groups |>
   dplyr::pull("biomarker")
 
-biomarker_levels =
+biomarker_levels <-
   df |>
   get_levels(biomarker_varnames, keep_labels = TRUE)
 
- get_biomarker_events_table(biomarker_levels)
+get_biomarker_events_table(biomarker_levels)
 }

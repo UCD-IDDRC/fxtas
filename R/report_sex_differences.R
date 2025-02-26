@@ -28,11 +28,10 @@
 #'
 #'   table |> report_sex_differences(cutoff = 0.5)
 #'
-report_sex_differences <- function(table, cutoff = 0.05)
-{
+report_sex_differences <- function(table, cutoff = 0.05) {
 
   table |>
-    dplyr::filter(`p-value` < cutoff) |>
+    dplyr::filter(.data$`p-value` < cutoff) |>
     dplyr::mutate(
       biomarker = .data$biomarker |>
         stringr::str_replace(
@@ -41,22 +40,26 @@ report_sex_differences <- function(table, cutoff = 0.05)
         ) |>
         stringr::str_replace(
           "MMSE total score",
-          "Mini-Mental State Examination (MMSE) total score < 21 (mild impairment or worse)"
+          paste(
+            "Mini-Mental State Examination (MMSE) total score < 26",
+            "(mild impairment or worse)"
+          )
         ) |>
 
         stringr::str_replace(
           "SWM Between errors",
-          "the CANTAB subtest of Spatial Working Memory (SWM) Between errors") |>
-        # stringr::str_replace("MMSE total score", "MMSE total score < 26") |>
+          "the CANTAB subtest of Spatial Working Memory (SWM) Between errors"
+        ) |>
         stringr::str_replace("Head tremor", "head tremor"),
 
       p_val_formatted =
-        `p-value` |>
+        .data$`p-value` |>
         scales::label_pvalue(
-          prefix = paste(c('<', '=', '>'), ''))(),
+          prefix = paste(c("<", "=", ">"), "")
+        )(),
 
       comparison = glue::glue(
-        '"{biomarker}" ',
+        "\"{biomarker}\" ",
         "({Female} of females versus {Male} of males",
         ", p-value {p_val_formatted})"
 

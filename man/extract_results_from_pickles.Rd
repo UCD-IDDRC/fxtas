@@ -43,7 +43,7 @@ extract_results_from_pickles(
   }}
 }
 \value{
-a \link{list} of \code{"SuStaIn-model"} objects (extends \code{\link[=list]{list()}})
+a \link{list} of \code{"SuStaIn_model"} objects (extends \code{\link[=list]{list()}})
 }
 \description{
 Extract results from multiple pickle files

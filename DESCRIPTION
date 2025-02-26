@@ -1,6 +1,6 @@
 Package: fxtas
 Title: FXTAS
-Version: 0.0.0.9012
+Version: 0.0.0.9013
 Authors@R: 
     person("Douglas Ezra", "Morrison", , "demorrison@ucdavis.edu", role = c("cre", "aut"))
 Description: PKG_DESC.
@@ -66,6 +66,7 @@ Suggests:
     devtag (>= 0.0.0.9000),
     doconv,
     knitr,
+    rentrez,
     rmarkdown,
     scales,
     spelling,
