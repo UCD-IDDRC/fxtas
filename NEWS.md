@@ -54,6 +54,8 @@ on Dr. Bourgeois's recommendation.
 
 ## Package setup
 
+* updated readme to specify new location of manuscript source code 
+in `analyses/`
 * updated `WORDLIST`
 
 ## Linting
