@@ -4,7 +4,7 @@
 dev_history.R
 ^dev$
 ^misc$
-^output$
+^output/$
 ^output*$
 ^outputOLD$
 $run_dev.*
