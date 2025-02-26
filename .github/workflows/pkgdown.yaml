@@ -109,7 +109,7 @@ jobs:
           echo "Subdir is set to: ${{ env.subdir }}"
 
       - name: Deploy pkgdown site
-        id: deploy-pkgdown
+        id: deploy
         shell: Rscript {0}
         run: |
           subdir <- "${{ env.subdir }}"
