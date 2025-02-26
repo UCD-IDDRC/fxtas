@@ -5,8 +5,8 @@
 # referred from https://github.com/r-lib/actions/issues/865
 # more info: https://github.com/rstudio/education-workflows/tree/main/examples#deploy-pkgdown-to-github-pages-with-pr-previews-and-tagged-versions
 permissions:
-  contents: write-all
-  pages: write-all
+  contents: write
+  pages: write
 
 on:
   pull_request:
