@@ -106,7 +106,7 @@ jobs:
 
       - name: check articles
         id: check-pkgdown-articles
-        shell: Rscript {0}
+        shell: Rscript --verbose {0}
         run: |
           pkgdown::build_articles(quiet = FALSE)
 
