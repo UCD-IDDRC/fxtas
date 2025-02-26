@@ -63,3 +63,5 @@ $run_dev.*
 ^man/get_title_i_2\.Rd$
 ^man/tmp_data_prep\.Rd$
 ^output$
+^vignettes/articles/\.quarto$
+^vignettes/articles/*_files$
