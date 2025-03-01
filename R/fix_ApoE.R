@@ -1,29 +1,29 @@
-fix_ApoE <- function(dataset)
-{
+fix_ApoE <- function(dataset) { # nolint: object_name_linter
+
   dataset |>
     dplyr::mutate(
       ApoE =
-        ApoE |>
+        .data$ApoE |>
+        as.character() |>
         strsplit(", ") |>
         sapply(sort) |>
         sapply(paste, collapse = ", ") |>
         na_if(""),
 
-      ApoE = factor(ApoE, levels = sort(unique(ApoE))),
+      ApoE =
+        .data$ApoE |>
+        factor(levels = sort(unique(.data$ApoE))),
 
-      `ApoE (original)` = ApoE,
+      `ApoE (original)` = .data$ApoE,
     ) |>
     dplyr::relocate(
-      `ApoE (original)`, .after = "ApoE"
-    ) |>
-    group_by(`FXS ID`) |>
-    tidyr::fill(
-      `ApoE`,
-      .direction = "downup") |>
-    ungroup() |>
+      "ApoE (original)", .after = "ApoE"
+    )
+
+  ApoE <- dataset |>
     dplyr::mutate(
       .by = `FXS ID`,
-      `ApoE` = `ApoE` |> last() # more recent assays may be more accurate
+      `ApoE` = `ApoE` |> dplyr::last(na_rm = TRUE) # more recent assays may be more accurate
     )
 
 
