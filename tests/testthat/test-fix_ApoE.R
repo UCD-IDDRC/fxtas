@@ -7,8 +7,14 @@ test_that("results are consistent", {
 
   apoe <- gp34 |> fix_ApoE()
 
-  apoe |> pull("ApoE") |> unique() |> expect_snapshot_value(style = "deparse")
-  apoe |> select(`FXS ID`, `Event Name`, ApoE) |>
+  apoe |>
+    pull("ApoE") |>
+    unique() |>
+    expect_snapshot_value(style = "deparse")
+
+  apoe |>
+    arrange(`FXS ID`, `Event Name`) |>
+    select(`FXS ID`, `Event Name`, ApoE, `ApoE (original)`) |>
     ssdtools:::expect_snapshot_data(name = "real_data")
 
 })

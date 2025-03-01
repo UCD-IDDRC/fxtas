@@ -21,9 +21,8 @@ fix_ApoE <- function(dataset) { # nolint: object_name_linter
     ) |>
     # more recent assays may be more accurate:
     dplyr::mutate(
-      .by = `FXS ID`,
-      `ApoE` = `ApoE` |> dplyr::last(na_rm = TRUE)
-
+      .by = all_of(c("FXS ID")),
+      `ApoE` = .data$`ApoE` |> dplyr::last(na_rm = TRUE)
     )
 
 
