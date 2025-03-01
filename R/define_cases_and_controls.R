@@ -20,11 +20,10 @@
 
 #' @export
 #'
-define_cases_and_controls <- function(dataset)
-{
+define_cases_and_controls <- function(dataset) {
   dataset |>
     dplyr::mutate(
-      FX = .data$`CGG` >= 55, # TRUE = cases
+      FX = .data$`CGG` >= 55, # TRUE: cases
       `FX*` =
         if_else(.data$FX, "CGG \u2265 55", "CGG <55") |>
         factor() |>
@@ -45,9 +44,11 @@ define_cases_and_controls <- function(dataset)
               "CGG <55",
               "CGG 55-99",
               "CGG 100-199",
-              "CGG \u2265 200")
+              "CGG \u2265 200"
+            )
           )
-        ) |> labelled::set_label_attribute("CGG repeat size"),
+        ) |>
+        labelled::set_label_attribute("CGG repeat size"),
 
       `FX3**` =
         case_when(
@@ -62,7 +63,8 @@ define_cases_and_controls <- function(dataset)
               "CGG 55-99",
               "CGG 100-199",
               "CGG \u2265 200",
-              "CGG missing")
+              "CGG missing"
+            )
           )
         ),
 
