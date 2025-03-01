@@ -18,12 +18,12 @@ fix_ApoE <- function(dataset) { # nolint: object_name_linter
     ) |>
     dplyr::relocate(
       "ApoE (original)", .after = "ApoE"
-    )
-
-  ApoE <- dataset |>
+    ) |>
+    # more recent assays may be more accurate:
     dplyr::mutate(
       .by = `FXS ID`,
-      `ApoE` = `ApoE` |> dplyr::last(na_rm = TRUE) # more recent assays may be more accurate
+      `ApoE` = `ApoE` |> dplyr::last(na_rm = TRUE)
+
     )
 
 
