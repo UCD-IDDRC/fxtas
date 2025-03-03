@@ -559,7 +559,7 @@ trax <- dplyr::bind_rows(
   # clean trax data
   clean_trax_data()
 
-if (exists("fxtas::trax")) {
+if (data_exists("trax")) {
 
   test <- waldo::compare(
     y = trax,
