@@ -1,0 +1,15 @@
+::: {#tbl-abbrevs}
+
+Abbreviation | Meaning
+-------------|--------
+CANTAB | Cambridge Neuropsychological Test Automated Battery
+CC | Corpus Callosum
+DSM | Diagnostic and Statistical Manual of Mental Disorders
+MCP | Middle cerebellar peduncle
+SCID | Structured Clinical Interview for DSM Disorders
+SWM | Spatial Working Memory
+WM | White Matter
+
+**Table of abbreviations**
+
+:::

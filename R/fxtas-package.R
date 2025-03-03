@@ -15,6 +15,7 @@
 #' @importFrom dplyr case_match
 #' @importFrom dplyr case_when
 #' @importFrom dplyr count
+#' @importFrom dplyr cur_column
 #' @importFrom dplyr desc
 #' @importFrom dplyr distinct
 #' @importFrom dplyr everything

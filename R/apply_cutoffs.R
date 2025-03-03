@@ -1,7 +1,6 @@
 apply_cutoffs <- function(
     dataset,
-    cutoffs)
-{
+    cutoffs) {
   dataset |>
     dplyr::mutate(
       across(
