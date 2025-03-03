@@ -56,7 +56,7 @@ decreased_age2 = gp34 |> get_decreased_age2()
 readr::write_csv(decreased_age2, "inst/extdata/decreased_age2.csv")
 
 
-if (exists("fxtas::gp34")) {
+if (data_exists("gp34")) {
 
   test =
     waldo::compare(y = gp34,
