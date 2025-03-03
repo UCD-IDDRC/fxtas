@@ -30,7 +30,9 @@ gp34 =
 
 
 trans =
-  gp34 |> group_by(`FXS ID`) |> dplyr::filter(n_distinct(Gender |> setdiff(NA)) > 1)
+  gp34 |>
+  group_by(`FXS ID`) |>
+  dplyr::filter(n_distinct(Gender |> setdiff(NA)) > 1)
 
 if (nrow(trans) != 0)
   browser(message('some values of Gender are inconsistent; valid?'))
@@ -56,7 +58,7 @@ decreased_age2 = gp34 |> get_decreased_age2()
 readr::write_csv(decreased_age2, "inst/extdata/decreased_age2.csv")
 
 
-if (exists("fxtas::gp34")) {
+if (data_exists("gp34")) {
 
   test =
     waldo::compare(y = gp34,

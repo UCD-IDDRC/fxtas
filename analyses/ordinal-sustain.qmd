@@ -381,9 +381,7 @@ fig_both_first2 <-
   list("all" = fig_both_first) |>
   plot_compact_pvd()
 
-ggsave(fig_both_first2,
-  filename = "output/thumbnail.jpeg"
-)
+fig_both_first2 |> ggsave(filename = "output/thumbnail.jpeg")
 
 fig_under100 <- extract_figs_from_pickle(
   use_rds = use_rds,
@@ -843,6 +841,10 @@ tbl_sg_demos |>
   flextable::width(j = 2:6, width = 0.75) |>
   flextable::width(j = 7, width = 1)
 ```
+
+{{< pagebreak >}}
+
+{{< include _sec_abbrev_table.qmd >}}
 
 {{< pagebreak >}}
 

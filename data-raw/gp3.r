@@ -1,6 +1,10 @@
+# notes:
+# neu: NEUROLOGICAL HISTORY
+# ne: NEUROLOGICAL EXAM
+# (at least in GP3)
+
 #Clear existing data and graphics
 rm(list=ls())
-graphics.off()
 #Load Hmisc library
 library(Hmisc)
 library(dplyr)
@@ -15,9 +19,10 @@ conflicts_prefer(vroom::col_double)
 conflicts_prefer(vroom::col_logical)
 conflicts_prefer(vroom::col_skip)
 dataset=vroom::vroom(
-  'inst/extdata/GPGenotypePhenotypeR-FXTASEventSequence10_DATA_2024-03-20_1146.csv',
+  'inst/extdata/GPGenotypePhenotypeR-FXTASEventSequence10_DATA_2025-02-19_2044.csv',
   col_types = cols(
     dem_date = col_date(),
+    mds_ne_tand = col_integer(),
     mds_med_ca_other = col_character(),
     new_mds_med_can_other = col_integer(),
     new_mds_med_anes1 = col_character(),
@@ -391,7 +396,10 @@ levels(dataset$mri_corp_call_thick)=c("Normal","Thin","Missing/Refused (999)")
 #Setting Labels
 # browser()
 
-labels = c(subj_id = "FXS ID", redcap_event_name = "Event Name", visit_age = "Age at visit",
+labels = c(subj_id = "FXS ID",
+           mds_ne_tand = "Tandem Walk",
+           redcap_event_name = "Event Name",
+           visit_age = "Age at visit",
            mds_med_ca_other="Other Cancer (detailed)",
            new_mds_med_can_other="Other Cancer",
 
@@ -575,7 +583,12 @@ labels = c(subj_id = "FXS ID", redcap_event_name = "Event Name", visit_age = "Ag
            dem_edlev = "Education Level",
            dem_edyr = "Years of Education")
 
-if(!isTRUE(setequal(names(dataset), names(labels)))) browser(message('why is there a mismatch?'))
+if(!isTRUE(setequal(names(dataset), names(labels)))) {
+
+  print(setdiff(names(dataset), names(labels)))
+  print(setdiff(names(labels), names(dataset)))
+  browser(message('why is there a mismatch?'))
+}
 
 names(dataset) = labels[names(dataset)]
 
@@ -686,7 +699,7 @@ if(FALSE)
 
 gp3 = tibble(dataset)
 
-if (exists("fxtas::gp3")) {
+if (data_exists("gp3")) {
 
   test = waldo::compare(y = gp3,
                         x = fxtas::gp3,
