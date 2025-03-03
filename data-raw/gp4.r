@@ -697,7 +697,7 @@ names(dataset) = labels[names(dataset)]
 
 gp4 = tibble(dataset)
 
-if (exists("fxtas::gp4")) {
+if (data_exists("gp4")) {
 
   test = waldo::compare(y = gp4,
                         x = fxtas::gp4,
