@@ -724,7 +724,7 @@ if(FALSE)
 
 gp3 = tibble(dataset)
 
-if (exists("fxtas::gp3")) {
+if (data_exists("gp3")) {
 
   test = waldo::compare(y = gp3,
                         x = fxtas::gp3,
