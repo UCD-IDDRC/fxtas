@@ -262,6 +262,7 @@ osa_output = run_and_save_OSA(
   N_iterations_MCMC = N_iterations_MCMC,
   plot = TRUE,
   N_S_max = N_S_max,
+  N_CV_folds = 10,
   rerun = TRUE
 )
 
