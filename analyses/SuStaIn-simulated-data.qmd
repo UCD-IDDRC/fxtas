@@ -268,12 +268,12 @@ osa_output = run_and_save_OSA(
 )
 
 osa_output_sim_data <- osa_output
-osa_output_sim_data |> devtools::use_data(overwrite = TRUE)
+osa_output_sim_data |> usethis::use_data(overwrite = TRUE)
 cvic_sim_data <- osa_output |> extract_cvic()
-cvic_sim_data |> devtools::use_data(overwrite = TRUE)
+cvic_sim_data |> usethis::use_data(overwrite = TRUE)
 ```
 
-::: {#fig-cvic layout-ncol=2}
+::: {#fig-cvic layout-ncol="2"}
 
 ::: {#fig-cvic-1}
 
