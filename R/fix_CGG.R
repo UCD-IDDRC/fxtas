@@ -85,7 +85,8 @@ fix_CGG <- function(dataset)
     ) |>
     dplyr::mutate(
       .by = "FXS ID",
-      `CGG (backfilled)` = `CGG (backfilled)` |> last(na_rm = TRUE) # more recent assays may be more accurate
+      `CGG (backfilled)` = .data$`CGG (backfilled)` |> last(na_rm = TRUE)
+      # more recent assays may be more accurate
     ) |>
     rename(
       `CGG (before backfill)` = "CGG",

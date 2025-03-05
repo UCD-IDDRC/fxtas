@@ -25,7 +25,7 @@ fix_ApoE <- function(dataset) { # nolint: object_name_linter
       `ApoE` = .data$`ApoE` |> dplyr::last(na_rm = TRUE)
     ) |>
     dplyr::mutate(
-      ApoE = ApoE |> structure(label = "ApoE")
+      ApoE = .data$ApoE |> structure(label = "ApoE")
     )
 
 
