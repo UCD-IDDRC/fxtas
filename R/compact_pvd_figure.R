@@ -83,10 +83,10 @@ compact_pvd_figure <- function(
   fig <- ggplot() +
     # layer for biomarker level 2
     ggplot2::geom_tile(
-      data = plot_dataset |> dplyr::filter(level == 2),
+      data = plot_dataset |> dplyr::filter(.data$level == 2),
       aes(
-        x = position,
-        y = forcats::fct_inorder(biomarker_label),
+        x = .data$position,
+        y = forcats::fct_inorder(.data$biomarker_label),
         fill = proportion,
         width = tile_width,
         height = tile_height
