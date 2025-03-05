@@ -11,7 +11,7 @@ get_out_of_order <- function(dataset)
     ) |>
     dplyr::filter(
       .by = "FXS ID",
-      is.unsorted(`Event Name`)
+      is.unsorted(.data$`Event Name`)
     ) |>
     # dplyr::filter(.by = "FXS ID", any(`decreased age`, na.rm = TRUE)) |>
     # ungroup() |>

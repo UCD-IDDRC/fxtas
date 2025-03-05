@@ -14,9 +14,8 @@
 missingness_reasons.numeric <- function(
     x,
     x.clean = x |> clean_numeric(...),
-    ...)
-{
-  to_return  =
+    ...) {
+  to_return  <-
 
     # first change all valid values to "[Valid data recorded]"
     if_else(
@@ -26,4 +25,5 @@ missingness_reasons.numeric <- function(
     add_labels_to_missing_codes() |>
     forcats::fct_relevel("[Valid data recorded]", after = Inf)
 
+  return(to_return)
 }

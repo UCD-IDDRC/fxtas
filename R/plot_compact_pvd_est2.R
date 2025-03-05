@@ -29,7 +29,7 @@ plot_compact_pvd_est2 <- function(
 
   # create plot for each panel
   p <- lapply(
-    1:length(figs_plot),
+    seq_along(figs_plot),
     function(x) tmp_func(
       figs_plot[[x]],
       y_position = dplyr::if_else(
