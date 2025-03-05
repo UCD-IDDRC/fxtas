@@ -126,7 +126,7 @@ output_folder <-
 
 ```{r}
 #| label: subset-data
-
+load("data/trax_gp34_v1.rda")
 full_data <-
   trax_gp34_v1 |>
   add_labels()

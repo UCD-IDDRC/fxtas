@@ -7,7 +7,9 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' build_rds_path("sample_data", "output/output.fixed_CV")
+#' }
 build_rds_path <- function(dataset_name, output_folder)
 {
   rds_filename = paste0(dataset_name, ".rds")

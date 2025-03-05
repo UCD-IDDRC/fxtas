@@ -64,10 +64,12 @@ $run_dev.*
 ^vignettes/*_files$
 ^analyses$
 ^codecov\.yml$
-^gp4\.rda$
-^gp3\.rda$
-^gp34_v1\.rda$
-^trax_gp34_all\.rda$
+^data/gp4\.rda$
+^data/gp3\.rda$
+^data/gp34_v1\.rda$
+^data/trax_gp34_all\.rda$
+^inst/extdata/inconsistent_ataxia\.csv$
+^data/trax_gp34_v1\.rda$
 ^man/compact_pvd_figure\.Rd$
 ^man/format_demographics_table_as_flextable\.Rd$
 ^man/get_title_i_2\.Rd$
