@@ -54,6 +54,7 @@ Imports:
 Suggests: 
     arsenal,
     constructive,
+    cardx (>= 0.2.3), 
     devtag (>= 0.0.0.9000),
     doconv,
     knitr,
