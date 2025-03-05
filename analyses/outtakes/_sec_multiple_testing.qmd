@@ -1,0 +1,12 @@
+Hypothesis testing occurs in:
+-	Table 1 (baseline demographics): male vs female, comparing age at 1st visit (4 p-values, fisher and wilcoxon tests)
+-	Table 2 (univariate symptoms): male vs female, comparing each outcome, ignoring CGG (31 p-values, all with Fisher’s exact test)
+-	Table 3: comparisons of CGG mean, CGG group, Sex, and Race/Ethnicity by latent subgroup (4 p-values; mix of ANOVA, fisher, and chi-square tests)
+-	Permutation tests of event sequence by subgroup (6 p-values)
+o	Male vs female
+o	males vs females, given CGG < 100
+o	male vs female, given CGG ≥ 100
+o	CGG < 100 vs ≥ 100
+o	CGG < 100 vs ≥ 100, among females
+o	CGG < 100 vs ≥ 100, among males
+Total is 45 p-values; should we do a 45x Bonferroni correction on all of them? Or just on table 2 which the reviewer seems to be focusing on?
