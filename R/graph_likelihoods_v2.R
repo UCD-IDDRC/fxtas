@@ -5,6 +5,8 @@
 #'
 #' @returns a [ggplot2::ggplot]
 #' @export
+#' @examples
+#' example_likelihoods |> graph_likelihoods_v2(alpha = 0.5)
 #'
 graph_likelihoods_v2 <- function(
     likelihoods,
