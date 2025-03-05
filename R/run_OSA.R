@@ -132,11 +132,16 @@ run_OSA <- function(
       sustain_input$
       cross_validate_sustain_model(
         test_idxs = splits,
-        select_fold = as.integer(CV_fold_nums - 1L))
+        select_fold = as.integer(CV_fold_nums - 1L)) |>
+      add_class("CVIC")
 
     names(CV_output) = c("CVIC", "loglike_matrix")
     sustain_output |> attr("CV") = CV_output
   }
+
+  sustain_output <-
+    sustain_output |>
+    add_class("SuStaIn_output")
 
   return(sustain_output)
 }

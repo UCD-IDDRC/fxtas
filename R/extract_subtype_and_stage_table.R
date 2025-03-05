@@ -1,5 +1,4 @@
-extract_subtype_and_stage_table <- function(results)
-{
+extract_subtype_and_stage_table <- function(results) {
 
   n_s = get_n_subtypes(results)
 
@@ -11,12 +10,15 @@ extract_subtype_and_stage_table <- function(results)
   ) |>
     dplyr::mutate(
       ml_subtype = if_else(
-        ml_stage == 0,
+        .data$ml_stage == 0,
         0,
-        ml_subtype
+        .data$ml_subtype
       ),
-      ml_subtype = paste("Type", ml_subtype) |>
-        factor(levels = glue::glue("Type {0:n_s}")) |>
+      ml_subtype =
+        paste("Type", .data$ml_subtype) |>
+        factor(
+          levels = glue::glue("Type {0:n_s}")
+        ) |>
         magrittr::set_attr("n_s", n_s)
     )
 }

@@ -17,3 +17,7 @@ a \code{\link[ggplot2:ggplot]{ggplot2::ggplot()}}
 \description{
 Plot cross-validated per-fold log-likelihood distributions
 }
+\examples{
+cvic_sim_data$loglike_matrix |> plot_cv_loglik()
+
+}

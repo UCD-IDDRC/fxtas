@@ -41,7 +41,7 @@ compile_biomarker_group_list <- function(dataset)
     # "Cerebellar Atrophy",
     # "Cerebral WM Hyperintensity",
     # "Cerebellar WM Hyperintensity",
-    # "MCP-WM Hyperintensity",
+    "MCP-WM Hyperintensity",
     # "Pons-WM Hyperintensity",
     # "Sub-Insular WM Hyperintensity",
     # "Periventricular WM Hyperintensity",
@@ -66,21 +66,20 @@ compile_biomarker_group_list <- function(dataset)
     "Ataxia: severity*"
   )
 
-  scid_vars =
-    vars = c(
-      # "Bipolar I Disorder (MD01), Lifetime",
-      # "Bipolar II Disorder (MD02), Lifetime",
-      # "Other Bipolar Disorder (MD03), Lifetime",
-      # "Major Depressive Disorder (MD04), Lifetime",
-      # "Mood Disorder Due to GMC (MD07), Lifetime",
-      # "Substance-Induced Mood Dis. (MD08), Lifetime", # no positives
-      # "Primary Psychotic Symptoms (PS01), Lifetime"
-      "SCID: mood disorders",
-      "SCID: substance use disorders",
-      "SCID: anxiety disorders",
-      "SCID: somatoform disorders"
-      # "SCID: Psychotic Symptoms" # exclude, only 2 at sub-threshold & 0 at threshold
-    )
+  scid_vars <- c(
+    # "Bipolar I Disorder (MD01), Lifetime",
+    # "Bipolar II Disorder (MD02), Lifetime",
+    # "Other Bipolar Disorder (MD03), Lifetime",
+    # "Major Depressive Disorder (MD04), Lifetime",
+    # "Mood Disorder Due to GMC (MD07), Lifetime",
+    # "Substance-Induced Mood Dis. (MD08), Lifetime", # no positives
+    # "Primary Psychotic Symptoms (PS01), Lifetime"
+    "SCID: mood disorders",
+    "SCID: substance use disorders",
+    "SCID: anxiety disorders",
+    "SCID: somatoform disorders"
+    # "SCID: Psychotic Symptoms" # exclude, only 2 at sub-threshold & 0 at threshold
+  )
 
   cantab_vars = c(
     "SWM Between errors*",
@@ -116,9 +115,9 @@ compile_biomarker_group_list <- function(dataset)
     # "Pulmonary Fibrosis" # no events
     ## "Immunological Notes"
     "any autoimmune disorder"
-)
+  )
 
-kinesia_vars = c(
+  kinesia_vars = c( # nolint: object_usage_linter
     "Kinesia Left Rest Tremor*",
     "Kinesia Left Postural Tremor*",
     "Kinesia Left Kinetic Tremor*",

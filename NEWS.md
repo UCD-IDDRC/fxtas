@@ -60,7 +60,7 @@ in `analyses/`
 
 ## Linting
 
-* configured .lintr
+* configured .lintr (#74)
 
 # fxtas 0.0.0.9000
 

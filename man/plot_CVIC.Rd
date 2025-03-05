@@ -15,3 +15,7 @@ a \code{\link[ggplot2:ggplot]{ggplot2::ggplot()}}
 \description{
 Plot a CVIC curve
 }
+\examples{
+cvic_sim_data$CVIC |> plot_CVIC()
+
+}

@@ -110,7 +110,7 @@ pvd_lineplot <- function(figs,
         Change == 0 ~ 0,
         Change > 0 ~ 1,
       ) |>
-        factor()
+        factor(levels = c(-2, -1, 0, 1))
     )
 
   # alpha scaling #
@@ -160,7 +160,13 @@ pvd_lineplot <- function(figs,
       breaks = c(1, 1.15),
       labels = facet_x_labels
     ) +
-    scale_color_manual(values = c("grey25", "#F8766D", "grey70", "#00BFC4")) +
+    scale_color_manual(
+      drop = FALSE,
+      values = c(
+        "grey25",
+        "#F8766D",
+        "grey70",
+        "#00BFC4")) +
     scale_y_discrete(limits = rev, breaks = NULL) +
     labs(y = y_lab) +
     theme_classic() +

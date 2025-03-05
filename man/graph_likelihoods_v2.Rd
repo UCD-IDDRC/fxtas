@@ -17,3 +17,7 @@ a \link[ggplot2:ggplot]{ggplot2::ggplot}
 \description{
 Title
 }
+\examples{
+example_likelihoods |> graph_likelihoods_v2(alpha = 0.5)
+
+}

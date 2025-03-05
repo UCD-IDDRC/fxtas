@@ -30,7 +30,9 @@ gp34 =
 
 
 trans =
-  gp34 |> group_by(`FXS ID`) |> dplyr::filter(n_distinct(Gender |> setdiff(NA)) > 1)
+  gp34 |>
+  group_by(`FXS ID`) |>
+  dplyr::filter(n_distinct(Gender |> setdiff(NA)) > 1)
 
 if (nrow(trans) != 0)
   browser(message('some values of Gender are inconsistent; valid?'))

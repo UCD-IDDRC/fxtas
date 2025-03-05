@@ -69,6 +69,7 @@ output_folder =
 # previously `nrow(v1_usable_cases)` was 221, which was based on incorrectly filtering on a version of CGG that hadn't been backfilled.
 
 # March 2024, main analysis now uses Trax/GP34 Visit 1 data replacing previous version using only GP34
+load("data/trax_gp34_v1.rda")
 df =
   trax_gp34_v1 |>
   dplyr::filter(

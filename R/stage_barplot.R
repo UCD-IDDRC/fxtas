@@ -54,12 +54,12 @@ stage_barplot.default <- function(object,
 
 #' Plot estimated stage counts
 #'
-#' @param results_list a [list] of `Sustain_model` objects
-#'
+#' @param object a [list] of `Sustain_model` objects
+#' @inheritDotParams stage_barplot.default
 #' @returns a [ggplot2::ggplot]
 #' @export
 #'
-stage_barplot.list <- function(object) {
+stage_barplot.list <- function(object, ...) {
   object |>
     lapply(
       FUN = function(x) purrr::pluck(x, "subtype_and_stage_table")

@@ -189,7 +189,7 @@ N_S_max = 3L
 N_iterations_MCMC = 1e5L
 dataset_name = 'sample_data'
 output_folder = 
-  fs::path_package("extdata/sim_data", package = "fxtas")
+  fs::path("inst/extdata/sim_data")
 print(output_folder)
 ```
 
@@ -262,16 +262,44 @@ osa_output = run_and_save_OSA(
   N_iterations_MCMC = N_iterations_MCMC,
   plot = TRUE,
   N_S_max = N_S_max,
-  rerun = TRUE
+  N_CV_folds = 10,
+  rerun = TRUE,
+  verbose = TRUE
 )
 
+cvic_sim_data <- osa_output |> extract_cvic()
+cvic_sim_data |> usethis::use_data(overwrite = TRUE)
 ```
+
+::: {#fig-cvic layout-ncol="2"}
+
+::: {#fig-cvic-1}
+
+```{r}
+cvic_sim_data$CVIC |> plot_CVIC()
+```
+
+:::
+
+::: {#fig-cvic-2}
+
+```{r}
+cvic_sim_data$loglike_matrix |> plot_cv_loglik()
+```
+
+:::
+
+**Cross-validation information criterion (CVIC)**
+
+:::
 
 ```{r}
 #| label: graph-likelihoods
-likelihoods = py$samples_likelihood |> 
+likelihoods = 
+  py$samples_likelihood |> 
   magrittr::set_colnames(
-    paste(1:ncol(py$samples_likelihood), "subtype(s)")) |> 
+    paste(1:ncol(py$samples_likelihood), "subtype(s)")
+  ) |> 
   as_tibble() |> 
   dplyr::mutate(Iteration = dplyr::row_number())
 
@@ -410,6 +438,8 @@ results3 <- extract_results_from_pickle(
   use_rds = use_rds,
   n_s = 3)
 
+results_s3_sim_data <- results3
+results_s3_sim_data |> use_data(overwrite = TRUE)
 
 figs3 = extract_figs_from_pickle(
   output_folder = output_folder,

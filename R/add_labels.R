@@ -34,5 +34,6 @@ add_labels <- function(data) {
         labelled::set_label_attribute(
           "RTI Five-choice movement time"
         ),
-    )
+    ) |>
+    set_mri_var_labels()
 }

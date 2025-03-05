@@ -15,7 +15,7 @@ autoplot.PF <- function(
   to_return <-
     object |>
     dplyr::mutate(
-      position = as.numeric(position)
+      position = as.numeric(.data$position)
     ) |>
     ggplot(
       aes(
