@@ -1,0 +1,24 @@
+```{r}
+d1 <- trax_gp34_v1
+
+d2 <-
+  d1 |>
+  filter(CGG > 55) |> 
+  arrange(`FXTAS Stage`) |> 
+  select(
+    `FXS ID`,
+    `Event Name`,
+    `FXTAS Stage`,
+    contains("tremor"),
+    contains("ataxia"),
+    -contains("kinesia"),
+    -contains("onset"),
+    -contains("missingness"),
+    -contains("any tremor")
+  )
+
+d2 <- 
+  filter()
+
+```
+
