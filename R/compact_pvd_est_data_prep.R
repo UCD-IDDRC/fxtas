@@ -37,23 +37,40 @@ compact_pvd_est_data_prep <- function(figs){
         as.numeric()
     ) |>
     dplyr::mutate(
-      `event order` = min(Order),
-      .by = `biomarker`
+      `event order` = min(.data$Order),
+      .by = all_of("biomarker")
     ) |>
     # dplyr::select(
     #   biomarker, position
     # ) |>
-    arrange(`event order`) |>
+    arrange("event order") |>
     dplyr::mutate(
-      biomarker = forcats::fct_inorder(biomarker)
+      biomarker = .data$biomarker |> forcats::fct_inorder()
     ) |>
-    dplyr::select(biomarker, `event order`) |>
+    dplyr::select(
+      all_of(
+        c(
+          "biomarker",
+          "event order"
+        )
+      )
+    ) |>
     unique()
 
   event_order_facet <- dataset |>
-    dplyr::select(facet, `row number and name`, `event name`, biomarker) |>
+    dplyr::select(
+      "facet",
+      "row number and name",
+      "event name",
+      "biomarker") |>
     dplyr::mutate(
-      Order = sub("\\D*(\\d+).*", "\\1", `row number and name`) |> as.numeric()
+      Order =
+        sub(
+          "\\D*(\\d+).*",
+          "\\1",
+          .data$`row number and name`
+        ) |>
+        as.numeric()
     ) |>
     unique()
 
@@ -63,17 +80,17 @@ compact_pvd_est_data_prep <- function(figs){
     by = c("facet", "row number and name", "event name", "biomarker")
   ) |>
     dplyr::filter(
-      position == Order
+      .data$position == .data$Order
     ) |>
     # convert biomarker to factor with event order levels
     dplyr::mutate(
       biomarker = factor(
-        biomarker,
+        .data$biomarker,
         levels = levels(event_order$biomarker)
       )
     ) |>
     # arrange by biomarker levels
-    arrange(biomarker) |>
+    arrange(across(all_of("biomarker"))) |>
     # create biomarker labels for figure
     dplyr::mutate(
       biomarker_label = glue::glue(
@@ -82,7 +99,12 @@ compact_pvd_est_data_prep <- function(figs){
         forcats::fct_inorder()
     ) |>
     dplyr::select(
-      facet, biomarker, biomarker_label, position, proportion, level
+      "facet",
+      "biomarker",
+      "biomarker_label",
+      "position",
+      "proportion",
+      "level"
     )
 
 
