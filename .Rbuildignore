@@ -45,7 +45,7 @@ $run_dev.*
 ^data/gp34_v1\.rda$
 ^data/gp4\.rda$
 ^data/males_gp34_trax\.rda$
-^males_gp34_trax_v1\.rda$
+^data/males_gp34_trax_v1\.rda$
 ^data/trax\.rda$
 ^data/trax_visit1\.rda$
 ^visit1\.rda$
@@ -70,7 +70,7 @@ $run_dev.*
 ^data/trax_gp34_all\.rda$
 ^inst/extdata/inconsistent_ataxia\.csv$
 ^data/trax_gp34_v1\.rda$
-^inst/extdata/sim_data$
+^inst/extdata/sim_data/pickle_files$
 ^man/compact_pvd_figure\.Rd$
 ^man/format_demographics_table_as_flextable\.Rd$
 ^man/get_title_i_2\.Rd$
