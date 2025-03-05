@@ -17,8 +17,6 @@ d2 <-
     -contains("any tremor")
   )
 
-d2 <- 
-  filter()
 
 ```
 
