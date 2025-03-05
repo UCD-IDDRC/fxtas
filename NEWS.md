@@ -54,6 +54,7 @@ on Dr. Bourgeois's recommendation.
 
 ## Package setup
 
+* updated test-coverage.yaml workflow
 * updated readme to specify new location of manuscript source code 
 in `analyses/`
 * updated `WORDLIST`
