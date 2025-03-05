@@ -82,6 +82,7 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">output_path</span> <span class="op">&lt;-</span></span></span>
 <span class="r-in"><span>  <span class="fu">fs</span><span class="fu">::</span><span class="fu"><a href="https://fs.r-lib.org/reference/path_package.html" class="external-link">path_package</a></span><span class="op">(</span><span class="st">"extdata/sim_data"</span>, package <span class="op">=</span> <span class="st">"fxtas"</span><span class="op">)</span></span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> File(s) '/home/runner/work/_temp/Library/fxtas/extdata/sim_data' do not exist</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">results</span> <span class="op">&lt;-</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="extract_results_from_pickle.html">extract_results_from_pickle</a></span><span class="op">(</span></span></span>
@@ -89,10 +90,11 @@
 <span class="r-in"><span>    use_rds <span class="op">=</span> <span class="cn">FALSE</span>,</span></span>
 <span class="r-in"><span>    n_s <span class="op">=</span> <span class="fl">3</span></span></span>
 <span class="r-in"><span>  <span class="op">)</span></span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'output_path' not found</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">results</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="stage_barplot.html">stage_barplot</a></span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-plt img"><img src="stage_barplot.SuStaIn_model-1.png" alt="" width="700" height="433"></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'results' not found</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
