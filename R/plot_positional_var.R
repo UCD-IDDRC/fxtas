@@ -45,7 +45,7 @@ plot_positional_var <- function(
     biomarker_events_table =
       biomarker_levels |> get_biomarker_events_table(),
     biomarker_event_names =
-      biomarker_events_table |> dplyr::pull(biomarker_level),
+      biomarker_events_table |> dplyr::pull("biomarker_level"),
     biomarker_plot_order = NULL,
     ml_f_EM = NULL,
     cval = FALSE,
@@ -102,7 +102,7 @@ plot_positional_var <- function(
   stage_biomarker_index <- rep(1:N_bio, times = N_z)
   stage_biomarker_index <- stage_biomarker_index[IX_select]
   # Warn user of reordering if labels and order given
-  if (!is.null(biomarker_labels) & !is.null(biomarker_order)) {
+  if (!is.null(biomarker_labels) && !is.null(biomarker_order)) {
     cli::cli_warn(
       c(
         "Both labels and an order have been given.\n",
@@ -134,7 +134,7 @@ plot_positional_var <- function(
     stopifnot(length(subtype_titles) == N_S)
   }
   # Z-score colour definition
-  colour_mat <- get_colour_mat(cmap, N_z)
+  colour_mat <- get_colour_mat(cmap, N_z) # nolint: object_usage_linter
 
   # Check biomarker label colours
   # If custom biomarker text colours are given
@@ -252,7 +252,7 @@ plot_positional_var <- function(
   if (length(figs) == 1) {
     figs <- figs[[1]]
   } else {
-    names(figs) <- paste("Group", seq_len(length(figs)))
+    names(figs) <- paste("Group", seq_along(figs))
     class(figs) <- c("PVD.list", class(figs))
   }
 
