@@ -440,6 +440,8 @@ results3 <- extract_results_from_pickle(
   use_rds = use_rds,
   n_s = 3)
 
+results_s3_sim_data <- results3
+results_s3_sim_data |> use_data(overwrite = TRUE)
 
 figs3 = extract_figs_from_pickle(
   output_folder = output_folder,
