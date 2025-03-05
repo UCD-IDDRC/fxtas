@@ -30,7 +30,7 @@ test_that(
       attr("data") |>
       ssdtools:::expect_snapshot_data(name = "prob-correct")
 
-    library(flextable)
+    withr::local_package("flextable")
     ft = prob_correct |>
       attr("data") |>
       flextable::flextable() |>
