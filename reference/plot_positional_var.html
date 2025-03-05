@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">fxtas</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Unreleased version">0.0.0.9017</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Unreleased version">0.0.0.9018</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,7 +43,7 @@
   <main id="main" class="col-md-9"><div class="page-header">
 
       <h1>Plot positional variance diagram</h1>
-      <small class="dont-index">Source: <a href="https://github.com/ucd-iddrc/fxtas/blob/main/R/plot_positional_variance.R" class="external-link"><code>R/plot_positional_variance.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/ucd-iddrc/fxtas/blob/main/R/plot_positional_var.R" class="external-link"><code>R/plot_positional_var.R</code></a></small>
       <div class="d-none name"><code>plot_positional_var.Rd</code></div>
     </div>
 
@@ -63,7 +63,7 @@
 <span>  biomarker_groups <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  biomarker_levels <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  biomarker_events_table <span class="op">=</span> <span class="fu"><a href="get_biomarker_events_table.html">get_biomarker_events_table</a></span><span class="op">(</span><span class="va">biomarker_levels</span><span class="op">)</span>,</span>
-<span>  biomarker_event_names <span class="op">=</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">pull</a></span><span class="op">(</span><span class="va">biomarker_events_table</span>, <span class="va">biomarker_level</span><span class="op">)</span>,</span>
+<span>  biomarker_event_names <span class="op">=</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">pull</a></span><span class="op">(</span><span class="va">biomarker_events_table</span>, <span class="st">"biomarker_level"</span><span class="op">)</span>,</span>
 <span>  biomarker_plot_order <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  ml_f_EM <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  cval <span class="op">=</span> <span class="cn">FALSE</span>,</span>
