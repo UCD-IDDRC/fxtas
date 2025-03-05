@@ -53,9 +53,9 @@ compact_pvd_data_prep <- function(figs, biomarker_order = NULL) {
   # update biomarker levels in dataset
   plot_dataset <- dataset |>
     # convert biomarker to factor with event order levels
-    dplyr::mutate(biomarker = factor(.data$biomarker, levels = biomarker_order)) |>
+    dplyr::mutate(biomarker = factor(biomarker, levels = biomarker_order)) |>
     # arrange by biomarker levels
-    arrange("biomarker") |>
+    arrange(biomarker) |>
     # create biomarker labels for figure
     dplyr::mutate(
       biomarker_label = glue::glue("<i style='color:{group_color}'>{biomarker}</i>") |>
