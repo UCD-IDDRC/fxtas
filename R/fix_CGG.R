@@ -1,14 +1,14 @@
 fix_CGG <- function(dataset)
 {
   missingCGG = readxl::read_excel(
-    "inst/extdata/Missing CGG repeat import_24Mar23.xlsx",
+    "inst/extdata/Missing_CGG_repeat_import_24Mar23.xlsx",
     sheet = "missing_CGG")
 
   colnames(missingCGG)[3] = "CGG (recovered)"
 
   # import additiona missingCGG data (10/2023)
   updatedCGG = readxl::read_xlsx(
-    "inst/extdata/GP3 & GP4 - Missing CGG Data Samples Table - 10-9-2023-mdp.xlsx"
+    "inst/extdata/GP34_Missing_CGG_Data_Samples_Table_10-9-2023-mdp.xlsx"
   ) |>
     dplyr::mutate(
       Study = substr(.data$`Event Name`, start = 1, stop = 3),
