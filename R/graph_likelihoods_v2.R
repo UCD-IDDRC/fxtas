@@ -11,21 +11,22 @@ graph_likelihoods_v2 <- function(
     alpha = 0.5)
 {
 
-  data =
+  data <-
     likelihoods |>
     format_likelihoods()
 
+  xmax <- max(data$Iteration) * 1.1
 
   labels = data |>
-    slice_tail(n = 1, by = name)
+    slice_tail(n = 1, by = "name")
 
   data |>
-    ggplot(
-      aes(
-        x = .data$Iteration,
-        y = .data$value,
-        col = .data$name
-      )) +
+    ggplot() +
+    aes(
+      x = .data$Iteration,
+      y = .data$value,
+      col = .data$name
+    ) +
     geom_line(alpha = alpha) +
     ggplot2::geom_text(
       data = labels,
@@ -39,7 +40,7 @@ graph_likelihoods_v2 <- function(
     ) +
     # facet_wrap(~name) +
     ylab("log-likelihood") +
-    ggplot2::xlim(c(0, .data$Iteration |> max() * 1.1)) +
+    ggplot2::xlim(c(0, xmax)) +
     theme_bw() +
     theme(legend.position = "none")
 }
