@@ -74,22 +74,17 @@
 <span class="r-in"><span>  dataset_name <span class="op">=</span> <span class="st">"sample_data"</span>,</span></span>
 <span class="r-in"><span>  output_folder <span class="op">=</span> <span class="fu">fs</span><span class="fu">::</span><span class="fu"><a href="https://fs.r-lib.org/reference/path_package.html" class="external-link">path_package</a></span><span class="op">(</span><span class="st">"extdata/sim_data"</span>, package <span class="op">=</span> <span class="st">"fxtas"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in py_call_impl(callable, call_args$unnamed, call_args$named):</span> FileNotFoundError: [Errno 2] No such file or directory: '/home/runner/work/_temp/Library/fxtas/extdata/sim_data/pickle_files/sample_data_subtype2.pickle'</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> Run `reticulate::py_last_error()` for details.</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">y_text_size</span> <span class="op">=</span> <span class="fl">11</span></span></span>
 <span class="r-in"><span><span class="va">tile_height</span> <span class="op">=</span> <span class="fl">1</span></span></span>
 <span class="r-in"><span><span class="co"># facet_label_size = 8</span></span></span>
 <span class="r-in"><span><span class="va">facet_label_prefix</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">figs</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'figs' not found</span>
 <span class="r-in"><span><span class="va">legend.position</span> <span class="op">=</span> <span class="st">"none"</span></span></span>
 <span class="r-in"><span><span class="va">scale_colors</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"red"</span>, <span class="st">"blue"</span>, <span class="st">"purple4"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">plot_dataset</span> <span class="op">&lt;-</span> <span class="fu">fxtas</span><span class="fu">:::</span><span class="fu"><a href="compact_pvd_data_prep.html">compact_pvd_data_prep</a></span><span class="op">(</span>figs <span class="op">=</span> <span class="va">figs</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'figs' not found</span>
 <span class="r-in"><span><span class="co"># facet labels</span></span></span>
 <span class="r-in"><span><span class="va">facet_names</span> <span class="op">&lt;-</span> <span class="fu">fxtas</span><span class="fu">:::</span><span class="fu"><a href="compact_pvd_facet_labels.html">compact_pvd_facet_labels</a></span><span class="op">(</span>figs <span class="op">=</span> <span class="va">figs</span>,</span></span>
 <span class="r-in"><span>facet_label_prefix <span class="op">=</span> <span class="va">facet_label_prefix</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'figs' not found</span>
 <span class="r-in"><span><span class="co"># generate figure</span></span></span>
 <span class="r-in"><span><span class="fu">fxtas</span><span class="fu">:::</span><span class="fu">compact_pvd_figure</span><span class="op">(</span></span></span>
 <span class="r-in"><span>  <span class="va">plot_dataset</span>,</span></span>
@@ -100,7 +95,7 @@
 <span class="r-in"><span>  legend.position <span class="op">=</span> <span class="va">legend.position</span>,</span></span>
 <span class="r-in"><span>  scale_colors <span class="op">=</span> <span class="va">scale_colors</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'plot_dataset' not found</span>
+<span class="r-plt img"><img src="compact_pvd_figure-1.png" alt="" width="700" height="433"></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
