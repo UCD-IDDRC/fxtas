@@ -4,10 +4,10 @@ clean_trax_data <- function(dataset)
     # fix date before arranging
     fix_date() |>
 
-    arrange(`FXS ID`, `Visit Date`, `Event Name`) |>
+    arrange(across(all_of(c("FXS ID", "Visit Date", "Event Name")))) |>
     remove_unneeded_records() |>
-    dplyr::relocate(`Visit Date`, .after = `Event Name`) |>
-    dplyr::relocate(`FXS ID`, .before = `Event Name`) |>
+    dplyr::relocate("Visit Date", .after = "Event Name") |>
+    dplyr::relocate("FXS ID", .before = "Event Name") |>
     # clean_head_tremor_onset() |>
 
     create_any_tremor() |>

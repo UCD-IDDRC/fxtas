@@ -11,7 +11,7 @@ compact_pvd_est_data_prep <- function(figs){
     # extract data from list of pvd fig object
     dataset <- dplyr::bind_rows(
       lapply(
-        1:length(figs),
+        seq_along(figs),
         function(x) figs[[x]]$data
       ),
       .id = "facet"
@@ -20,10 +20,21 @@ compact_pvd_est_data_prep <- function(figs){
 
   # determine biomarker event order
   event_order <- dataset |>
-    dplyr::filter(facet == 1) |>
-    dplyr::select(`row number and name`, `event name`, biomarker) |>
+    dplyr::filter(.data$facet == 1) |>
+    dplyr::select(
+      all_of(
+        c(
+          "row number and name",
+          "event name",
+          "biomarker"
+        )
+      )
+    ) |>
     dplyr::mutate(
-      Order = sub("\\D*(\\d+).*", "\\1", `row number and name`) |> as.numeric()
+      Order =
+        .data$`row number and name` |>
+        stringr::str_replace("\\D*(\\d+).*", "\\1") |>
+        as.numeric()
     ) |>
     dplyr::mutate(
       `event order` = min(Order),

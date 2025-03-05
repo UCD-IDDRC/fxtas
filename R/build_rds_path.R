@@ -20,4 +20,6 @@ build_rds_path <- function(dataset_name, output_folder)
     fs::dir_create()
 
   rds_path = fs::path(rds_folder_path, rds_filename)
+
+  return(rds_path)
 }

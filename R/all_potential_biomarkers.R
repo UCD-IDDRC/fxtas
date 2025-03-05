@@ -53,8 +53,7 @@ all_potential_biomarkers <- function(dataset) {
     "Ataxia: severity*"
   )
 
-  scid_vars <-
-    vars <- c(
+  scid_vars <- c(
       "Bipolar I Disorder (MD01), Lifetime",
       "Bipolar II Disorder (MD02), Lifetime",
       "Other Bipolar Disorder (MD03), Lifetime",
