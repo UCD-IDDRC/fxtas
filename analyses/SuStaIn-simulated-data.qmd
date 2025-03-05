@@ -267,8 +267,6 @@ osa_output = run_and_save_OSA(
   verbose = TRUE
 )
 
-osa_output_sim_data <- osa_output
-osa_output_sim_data |> usethis::use_data(overwrite = TRUE)
 cvic_sim_data <- osa_output |> extract_cvic()
 cvic_sim_data |> usethis::use_data(overwrite = TRUE)
 ```

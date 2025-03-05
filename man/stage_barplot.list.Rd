@@ -7,7 +7,7 @@
 \method{stage_barplot}{list}(object)
 }
 \arguments{
-\item{results_list}{a \link{list} of \code{Sustain_model} objects}
+\item{object}{a \link{list} of \code{Sustain_model} objects}
 }
 \value{
 a \link[ggplot2:ggplot]{ggplot2::ggplot}

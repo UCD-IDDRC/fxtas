@@ -54,7 +54,7 @@ stage_barplot.default <- function(object,
 
 #' Plot estimated stage counts
 #'
-#' @param results_list a [list] of `Sustain_model` objects
+#' @param object a [list] of `Sustain_model` objects
 #'
 #' @returns a [ggplot2::ggplot]
 #' @export

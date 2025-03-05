@@ -62,8 +62,13 @@ $run_dev.*
 ^vignettes/articles/\.quarto$
 ^vignettes/articles/*_files$
 ^vignettes/*_files$
+^analyses$
+^codecov\.yml$
+^gp4\.rda$
+^gp3\.rda$
+^gp34_v1\.rda$
+^trax_gp34_all\.rda$
 ^man/compact_pvd_figure\.Rd$
 ^man/format_demographics_table_as_flextable\.Rd$
 ^man/get_title_i_2\.Rd$
 ^man/tmp_data_prep\.Rd$
-^analyses$

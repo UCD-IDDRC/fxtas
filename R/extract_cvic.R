@@ -7,7 +7,9 @@
 #' @export
 #'
 #' @examples
-#' osa_output_sim_data |> extract_cvic()
+#' \dontrun{
+#' osa_output |> extract_cvic()
+#' }
 extract_cvic <- function(object, ...) {
   object |> attr("CV")
 }

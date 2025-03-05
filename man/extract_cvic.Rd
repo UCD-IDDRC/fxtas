@@ -18,5 +18,7 @@ a "CVIC" object
 Extract CVIC element from an object
 }
 \examples{
-osa_output_sim_data |> extract_cvic()
+\dontrun{
+osa_output |> extract_cvic()
+}
 }
