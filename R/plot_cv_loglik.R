@@ -4,6 +4,8 @@
 #' @param y_text_size [integer]
 #' @return a [ggplot2::ggplot()]
 #' @export
+#' @examples
+#' cvic_sim_data$loglike_matrix |> plot_cv_loglik()
 #'
 plot_cv_loglik <- function(cv_loglik, y_text_size = 8)
 {
