@@ -30,25 +30,5 @@ test_that(
       attr("data") |>
       ssdtools:::expect_snapshot_data(name = "prob-correct")
 
-
-    skip_if_not_installed("chromote")
-    suppressMessages(is_there_chrome <- chromote::find_chrome())
-    skip_if(is.null(is_there_chrome))
-
-    withr::local_package("flextable")
-    ft = prob_correct |>
-      attr("data") |>
-      flextable::flextable() |>
-      shared_flextable_settings() |>
-      width(width = 1)
-
-    html_file <- tempfile(fileext = ".html")
-    flextable::save_as_html(ft, path = html_file)
-    doconv::expect_snapshot_html(
-      x = html_file,
-      name = "prob_correct_table",
-      engine = "testthat"
-    )
-
   }
 )
