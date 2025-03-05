@@ -20,9 +20,9 @@ create_race_ethnicity <- function(dataset){
     dplyr::mutate(
       `Primary Race/Ethnicity` =
         case_when(
-          `Primary Ethnicity` == "Hispanic or Latino" ~ "Hispanic",
+          .data$`Primary Ethnicity` == "Hispanic or Latino" ~ "Hispanic",
           # (is.na(`Primary Race`) & is.na(`Primary Ethnicity`)) ~ NA_character_,
-          .default = `Primary Race`
+          .default = .data$`Primary Race`
         ) |>
         factor(
           levels = c("White", "Hispanic", "Black", "Other")

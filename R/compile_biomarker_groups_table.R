@@ -31,11 +31,11 @@ compile_biomarker_groups_table <- function(
     stack() |>
     as_tibble() |>
     dplyr::rename(
-      biomarker  = values,
-      biomarker_group = ind)  |>
+      biomarker  = "values",
+      biomarker_group = "ind")  |>
     dplyr::mutate(
       biomarker_group =
-        biomarker_group |>
+        .data$biomarker_group |>
         factor(levels = names(biomarker_group_list))) |>
     left_join(
       colors,

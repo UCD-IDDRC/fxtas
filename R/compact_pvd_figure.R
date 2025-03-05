@@ -74,11 +74,6 @@ compact_pvd_figure <- function(
 
   scale_limits <- c(0, 1)
 
-  # facet labeller - currently throws updated API message
-  facet_labeller <- function(variable, value) {
-    facet_names[value]
-  }
-
   # figure
   fig <- ggplot() +
     # layer for biomarker level 2
@@ -87,7 +82,7 @@ compact_pvd_figure <- function(
       aes(
         x = .data$position,
         y = forcats::fct_inorder(.data$biomarker_label),
-        fill = proportion,
+        fill = .data$proportion,
         width = tile_width,
         height = tile_height
       ),
@@ -98,17 +93,21 @@ compact_pvd_figure <- function(
       high = level2_scale[100],
       limits = scale_limits,
       breaks = c(0, 0.5, 1),
-      guide = ggplot2::guide_colorbar(title = "Pr(Stage)<sub>2</sub>", order = 1)
+      guide = ggplot2::guide_colorbar(
+        title = "Pr(Stage)<sub>2</sub>",
+        order = 1
+      )
     ) +
     # guides(fill = guide_legend(title = "Pr(Stage)<sub>2</sub>")) +
     ggnewscale::new_scale_fill() +
     # layer for biomarker level 3
     ggplot2::geom_tile(
-      data = plot_dataset |> dplyr::filter(level == 3),
+      data = plot_dataset |>
+        dplyr::filter(.data$level == 3),
       aes(
-        x = position,
-        y = forcats::fct_inorder(biomarker_label),
-        fill = proportion,
+        x = .data$position,
+        y = forcats::fct_inorder(.data$biomarker_label),
+        fill = .data$proportion,
         width = tile_width,
         height = tile_height
       ),
@@ -119,17 +118,18 @@ compact_pvd_figure <- function(
       high = level3_scale[100],
       limits = scale_limits,
       breaks = c(0, 0.5, 1),
-      guide = ggplot2::guide_colorbar(title = "Pr(Stage)<sub>3</sub>", order = 2)
+      guide = ggplot2::guide_colorbar(
+        title = "Pr(Stage)<sub>3</sub>", order = 2)
     ) +
     # guides(fill = guide_legend(title = "Pr(Stage)<sub>3</sub>")) +
     ggnewscale::new_scale_fill() +
     # layer for biomarker level 4
     ggplot2::geom_tile(
-      data = plot_dataset |> dplyr::filter(level == 4),
+      data = plot_dataset |> dplyr::filter(.data$level == 4),
       aes(
-        x = position,
-        y = forcats::fct_inorder(biomarker_label),
-        fill = proportion,
+        x = .data$position,
+        y = forcats::fct_inorder(.data$biomarker_label),
+        fill = .data$proportion,
         width = tile_width,
         height = tile_height
       ),
@@ -146,11 +146,11 @@ compact_pvd_figure <- function(
     ggnewscale::new_scale_fill() +
     # layer for biomarker level 5
     ggplot2::geom_tile(
-      data = plot_dataset |> dplyr::filter(level == 5),
+      data = plot_dataset |> dplyr::filter(.data$level == 5),
       aes(
-        x = position,
-        y = forcats::fct_inorder(biomarker_label),
-        fill = proportion,
+        x = .data$position,
+        y = forcats::fct_inorder(.data$biomarker_label),
+        fill = .data$proportion,
         width = tile_width,
         height = tile_height
       ),
@@ -168,11 +168,11 @@ compact_pvd_figure <- function(
     ggnewscale::new_scale_fill() +
     # layer for biomarker level 6
     ggplot2::geom_tile(
-      data = plot_dataset |> dplyr::filter(level == 6),
+      data = plot_dataset |> dplyr::filter(.data$level == 6),
       aes(
-        x = position,
-        y = forcats::fct_inorder(biomarker_label),
-        fill = proportion,
+        x = .data$position,
+        y = forcats::fct_inorder(.data$biomarker_label),
+        fill = .data$proportion,
         width = tile_width,
         height = tile_height
       ),
