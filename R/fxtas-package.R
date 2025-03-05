@@ -2,7 +2,6 @@
 "_PACKAGE"
 
 ## usethis namespace: start
-#' @importFrom arsenal tableby
 #' @importFrom colorspace qualitative_hcl
 #' @importFrom dplyr across
 #' @importFrom dplyr add_count
@@ -88,8 +87,6 @@
 #' @importFrom lubridate days
 #' @importFrom magrittr set_names
 #' @importFrom pander pander
-#' @importFrom plotly ggplotly
-#' @importFrom rcartocolor carto_pal
 #' @importFrom readxl read_excel
 #' @importFrom reticulate import
 #' @importFrom reticulate iterate

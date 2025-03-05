@@ -9,7 +9,6 @@ URL: https://github.com/ucd-iddrc/fxtas, https://ucd-iddrc.github.io/fxtas/
 BugReports: https://github.com/ucd-iddrc/fxtas/issues
 Imports: 
     and,
-    arsenal,
     base,
     broom,
     cli,
@@ -36,9 +35,7 @@ Imports:
     lubridate,
     magrittr,
     pander,
-    plotly,
     purrr,
-    rcartocolor,
     readr,
     readxl,
     reticulate,
@@ -55,10 +52,12 @@ Imports:
     units,
     utils
 Suggests: 
+    arsenal,
     constructive,
     devtag (>= 0.0.0.9000),
     doconv,
     knitr,
+    plotly,
     quarto,
     rentrez,
     rmarkdown,
