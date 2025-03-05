@@ -54,7 +54,7 @@ Imports:
 Suggests: 
     arsenal,
     constructive,
-    cardx (>= 0.2.3), 
+    cardx (>= 0.2.3),
     devtag (>= 0.0.0.9000),
     doconv,
     knitr,
@@ -75,7 +75,8 @@ Suggests:
     viridis,
     webshot2,
     withr,
-    writexl
+    writexl,
+    chromote
 Config/testthat/edition: 3
 Encoding: UTF-8
 Language: en-US

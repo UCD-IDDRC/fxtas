@@ -18,6 +18,10 @@ test_that("`table_subtype_by_demographics()` produces consistent results",
               flextable::save_as_html(ft, path = html_file)
             }
 
+            skip_if_not_installed("chromote")
+            suppressMessages(is_there_chrome <- chromote::find_chrome())
+            skip_if(is.null(is_there_chrome))
+
             doconv::expect_snapshot_html(
               x = html_file,
               name = "table_subtype_by_demographics",

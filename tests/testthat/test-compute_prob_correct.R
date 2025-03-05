@@ -30,6 +30,11 @@ test_that(
       attr("data") |>
       ssdtools:::expect_snapshot_data(name = "prob-correct")
 
+
+    skip_if_not_installed("chromote")
+    suppressMessages(is_there_chrome <- chromote::find_chrome())
+    skip_if(is.null(is_there_chrome))
+
     withr::local_package("flextable")
     ft = prob_correct |>
       attr("data") |>
