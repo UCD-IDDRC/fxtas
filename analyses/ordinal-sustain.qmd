@@ -928,6 +928,20 @@ plot_compact_pvd_est2(
 
 {{< pagebreak >}}
 
+
+::: {#fig-stage-barplot_chosen_subtypes}
+
+```{r}
+
+```
+
+**Number of observations at each stage, by latent cluster
+
+:::
+
+{{< pagebreak >}}
+
+
 # Supplementary material
 
 {{< include _sec_supplement.qmd >}}
