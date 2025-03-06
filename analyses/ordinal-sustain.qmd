@@ -9,7 +9,7 @@ format:
 reference-doc: Brain_template_2022.docx
 knitr:
   opts_chunk:
-    fig.path: ordinal-sustain_files/figures/
+    fig.path: ordinal-sustain_files/figure-docx/
     # see https://github.com/quarto-dev/quarto-cli/discussions/4254
 ---
 
@@ -664,6 +664,7 @@ n_s_selected <- 4
 
 results_cv_max <- extract_results_from_pickle(
   n_s = n_s_selected,
+  use_rds = use_rds,
   dataset_name = dataset_name,
   output_folder = output_folder
 )
@@ -932,7 +933,7 @@ plot_compact_pvd_est2(
 ::: {#fig-stage-barplot_chosen_subtypes}
 
 ```{r}
-
+results_cv_max |> stage_barplot()
 ```
 
 **Number of observations at each stage, by latent cluster
