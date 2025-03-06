@@ -7,6 +7,10 @@ format:
     echo: false
   docx: default
 reference-doc: Brain_template_2022.docx
+knitr:
+  opts_chunk:
+    fig.path: ordinal-sustain_files/figures/
+    # see https://github.com/quarto-dev/quarto-cli/discussions/4254
 ---
 
 Correspondence to: Douglas Ezra Morrison
