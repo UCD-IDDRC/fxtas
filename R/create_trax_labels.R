@@ -55,7 +55,7 @@ create_trax_labels <- function(
       mds_neu_atax_age="Ataxia: Age of onset",
       mds_neu_atax_sev="Ataxia: severity",
       mds_neu_trem_age="Tremor: Age of onset",
-      mds_neu_trem_irm="Hx Intermittent tremor",
+      mds_neu_trem_irm="Intermittent tremor",
       mds_psy_dri="# of drinks per day now",
       mds_psy_drug="Drug use",
       mds_psy_drug_notes="Drugs used",
