@@ -10,7 +10,9 @@ compact_pvd_figure(
   y_text_size,
   facet_names,
   legend.position,
-  scale_colors
+  scale_colors,
+  rel_heights = c(1, 0.1),
+  ...
 )
 }
 \description{

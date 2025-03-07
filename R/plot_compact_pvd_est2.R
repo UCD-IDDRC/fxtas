@@ -3,6 +3,7 @@
 #' @param tile_width todo
 #' @param ... arguments passed to `tmp_func()`
 #' @export
+#' @example inst/examples/exm-plot_compact_pvd_est2.R
 #'
 plot_compact_pvd_est2 <- function(
     figs,
@@ -11,6 +12,7 @@ plot_compact_pvd_est2 <- function(
     y_text_size = 9,
     legend.position = "none",
     scale_colors = c("red", "blue", "purple4", "darkgreen", "magenta"),
+    rel_heights = c(1, 0.1),
     ...
 ){
   # prepare data from figure list
@@ -51,7 +53,13 @@ plot_compact_pvd_est2 <- function(
     plotlist = p,
     nrow = 2,
     ncol = 2
-  )
+  ) |>
+    cowplot::plot_grid(
+      horizontal_greyscale_legend,
+      nrow = 2,
+      rel_heights = rel_heights
+    )
+
 
 }
 

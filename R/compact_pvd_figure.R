@@ -37,7 +37,9 @@ compact_pvd_figure <- function(
     facet_names,
     # facet_label_size,
     legend.position,
-    scale_colors) {
+    scale_colors,
+    rel_heights = c(1, 0.1),
+    ...) {
   # set tile width
   tile_width <- 1
 
@@ -205,7 +207,7 @@ compact_pvd_figure <- function(
       legend.title = ggtext::element_markdown(), # markdown for legends
       legend.byrow = TRUE,
       legend.box = "horizontal",
-      legend.justification = ,
+      # legend.justification = ,
       legend.margin = ggplot2::margin(0, 0.15, 0, -0.45, "cm"),
       axis.title.y = ggplot2::element_blank(),
       axis.text.y = ggtext::element_markdown(
@@ -214,6 +216,14 @@ compact_pvd_figure <- function(
       # strip.text = ggtext::element_markdown(size = facet_label_size) # allow markdown for labels
       strip.text = ggtext::element_markdown() # allow markdown for labels
     )
+
+  if(legend.position == "none") {
+    fig <- cowplot::plot_grid(
+      fig, horizontal_greyscale_legend,
+      nrow = 2,
+      rel_heights = rel_heights
+    )
+  }
 
   return(fig)
 }

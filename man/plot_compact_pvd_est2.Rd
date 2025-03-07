@@ -11,6 +11,7 @@ plot_compact_pvd_est2(
   y_text_size = 9,
   legend.position = "none",
   scale_colors = c("red", "blue", "purple4", "darkgreen", "magenta"),
+  rel_heights = c(1, 0.1),
   ...
 )
 }
@@ -31,4 +32,21 @@ plot_compact_pvd_est2(
 }
 \description{
 Plot SuStaIn Sequential Estimate
+}
+\examples{
+\dontrun{
+  figs <- extract_figs_from_pickle(
+    n_s = 4,
+    dataset_name = "sample_data",
+    output_folder = "output/output.fixed_CV/",
+    use_rds = FALSE
+  )
+
+  plot_compact_pvd_est2(
+    figs = figs,
+    tile_height = 1,
+    y_text_size = 6,
+    title_size = 8
+  )
+}
 }
