@@ -13,8 +13,7 @@ plot_compact_pvd_est2 <- function(
     legend.position = "none",
     scale_colors = c("red", "blue", "purple4", "darkgreen", "magenta"),
     rel_heights = c(1, 0.1),
-    ...
-){
+    ...) {
   # prepare data from figure list
   #   unlike the other functions, the data will remain in a list, not combined
   figs_plot <- lapply(
@@ -32,21 +31,23 @@ plot_compact_pvd_est2 <- function(
   # create plot for each panel
   p <- lapply(
     seq_along(figs_plot),
-    function(x) tmp_func(
-      figs_plot[[x]],
-      y_position = dplyr::if_else(
-        x %% 2 == 0,
-        "right",
-        "left"
-      ),
-      panel_title = names(figs_plot)[x],
-      scale_colors = scale_colors,
-      y_text_size = y_text_size,
-      legend.position = legend.position,
-      tile_height = tile_height,
-      tile_width = tile_width,
-      ...
-    )
+    function(x) {
+      tmp_func(
+        figs_plot[[x]],
+        y_position = dplyr::if_else(
+          x %% 2 == 0,
+          "right",
+          "left"
+        ),
+        panel_title = names(figs_plot)[x],
+        scale_colors = scale_colors,
+        y_text_size = y_text_size,
+        legend.position = legend.position,
+        tile_height = tile_height,
+        tile_width = tile_width,
+        ...
+      )
+    }
   )
 
   cowplot::plot_grid(
@@ -59,9 +60,4 @@ plot_compact_pvd_est2 <- function(
       nrow = 2,
       rel_heights = rel_heights
     )
-
-
 }
-
-#
-# plot_compact_pvd_est2(figs)

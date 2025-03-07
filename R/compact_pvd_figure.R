@@ -1,7 +1,7 @@
 #' plot compact pvd: figure
 #' @examples
-#' size.y = 11
-#' figs = extract_figs_from_pickle(
+#' size.y <- 11
+#' figs <- extract_figs_from_pickle(
 #'   size.y = size.y,
 #'   n_s = 3,
 #'   rda_filename = "data.RData",
@@ -9,16 +9,18 @@
 #'   output_folder = fs::path_package("extdata/sim_data", package = "fxtas")
 #' )
 #'
-#' y_text_size = 11
-#' tile_height = 1
+#' y_text_size <- 11
+#' tile_height <- 1
 #' # facet_label_size = 8
-#' facet_label_prefix = names(figs)
-#' legend.position = "none"
-#' scale_colors = c("red", "blue", "purple4")
+#' facet_label_prefix <- names(figs)
+#' legend.position <- "none"
+#' scale_colors <- c("red", "blue", "purple4")
 #' plot_dataset <- fxtas:::compact_pvd_data_prep(figs = figs)
 #' # facet labels
-#' facet_names <- fxtas:::compact_pvd_facet_labels(figs = figs,
-#' facet_label_prefix = facet_label_prefix)
+#' facet_names <- fxtas:::compact_pvd_facet_labels(
+#'   figs = figs,
+#'   facet_label_prefix = facet_label_prefix
+#' )
 #' # generate figure
 #' fxtas:::compact_pvd_figure(
 #'   plot_dataset,
@@ -46,7 +48,7 @@ compact_pvd_figure <- function(
   plot_dataset <-
     plot_dataset |>
     dplyr::mutate(facet = facet_names[as.numeric(.data$facet)] |>
-             factor(levels = facet_names))
+      factor(levels = facet_names))
 
   nlevels <- plot_dataset |>
     dplyr::pull("level") |>
@@ -121,7 +123,8 @@ compact_pvd_figure <- function(
       limits = scale_limits,
       breaks = c(0, 0.5, 1),
       guide = ggplot2::guide_colorbar(
-        title = "Pr(Stage)<sub>3</sub>", order = 2)
+        title = "Pr(Stage)<sub>3</sub>", order = 2
+      )
     ) +
     # guides(fill = guide_legend(title = "Pr(Stage)<sub>3</sub>")) +
     ggnewscale::new_scale_fill() +
@@ -163,8 +166,10 @@ compact_pvd_figure <- function(
       high = level5_scale[100],
       limits = scale_limits,
       breaks = c(0, 0.5, 1),
-      guide = ggplot2::guide_colorbar(title = "Pr(Stage)<sub>5</sub>",
-                                      order = 4)
+      guide = ggplot2::guide_colorbar(
+        title = "Pr(Stage)<sub>5</sub>",
+        order = 4
+      )
     ) +
     # guides(fill = guide_legend(title = "Pr(Stage)<sub>5</sub>")) +
     ggnewscale::new_scale_fill() +
@@ -217,7 +222,7 @@ compact_pvd_figure <- function(
       strip.text = ggtext::element_markdown() # allow markdown for labels
     )
 
-  if(legend.position == "none") {
+  if (legend.position == "none") {
     fig <- cowplot::plot_grid(
       fig, horizontal_greyscale_legend,
       nrow = 2,
