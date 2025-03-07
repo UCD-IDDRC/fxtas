@@ -10,15 +10,22 @@ define_cases_and_controls(dataset)
 \item{dataset}{a tibble containing a numeric variable named \code{CGG}}
 }
 \value{
-a tibble with the same columns as \code{dataset}, except with the following additions:
+a tibble with the same columns as \code{dataset},
+except with the following additions:
 \itemize{
 \item FX (logical): TRUE if CGG >= 55
 }
 \itemize{
-\item \verb{FX*} (factor): dichotomizes CGG to < 55 vs >= 55; \code{NA}s stay as \code{NA}
-\item \verb{FX**} (factor): dichotomizes CGG to < 55 vs >= 55; \code{NA}s converted to level \code{"CGG missing"}
-\item \verb{FX3*} (factor): trichotomizes CGG to < 55, 55-100, and >100 >= 55; \code{NA}s stay as NAs
-\item \verb{FX3**} (factor): trichotomizes CGG to < 55, 55-100, and >100 >= 55; \code{NA}s converted to level "CGG missing"
+\item \verb{FX*} (factor): dichotomizes CGG to < 55 vs >= 55;
+\code{NA}s stay as \code{NA}
+\item \verb{FX**} (factor): dichotomizes CGG to < 55 vs >= 55;
+\code{NA}s converted to level \code{"CGG missing"}
+\item \verb{FX3*} (factor):
+trichotomizes CGG to < 55, 55-100, and >100 >= 55;
+\code{NA}s stay as NAs
+\item \verb{FX3**} (factor):
+trichotomizes CGG to < 55, 55-100, and >100 >= 55;
+\code{NA}s converted to level "CGG missing"
 }
 }
 \description{

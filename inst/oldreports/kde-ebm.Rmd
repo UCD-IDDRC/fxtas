@@ -356,11 +356,17 @@ print(plot1)
 ```
 
 ```{r}
+library(ggplot2)
 cur_data |> 
   dplyr::filter(!FX) |> 
   dplyr::select(stages_ML, `FXS ID`, `Age at visit`) |> 
-  arrange(stages_ML) %$% 
-  plot(stages_ML  ~ `Age at visit`)
+  arrange(stages_ML) |>  
+  ggplot() +
+  aes(
+    y = .data$stages_ML,
+    x = .data$`Age at visit`
+  ) + 
+  geom_point()
 ```
 
 

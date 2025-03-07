@@ -10,16 +10,23 @@
 #'
 #' @examples
 #' test_data |> get_visit1()
-get_visit1 <- function(dataset)
-{
+get_visit1 <- function(dataset) {
   dataset |>
-    arrange(`FXS ID`, `Visit Date`, `Event Name`) |>
-    dplyr::mutate(.by = `FXS ID`, `# visits` = n()) |>
-    slice_head(n = 1, by = `FXS ID`) |>
-    dplyr::rename(
-      `Age at visit` = `Age at visit`
+    arrange(
+      across(
+        all_of(
+          c("FXS ID", "Visit Date", "Event Name")
+        )
+      )
     ) |>
-    dplyr::mutate(`# visits` = factor(`# visits`, levels = 1:max(`# visits`))) |>
+    dplyr::mutate(.by = "FXS ID", `# visits` = n()) |>
+    slice_head(n = 1, by = "FXS ID") |>
+    dplyr::mutate(
+      `# visits` = factor(
+        .data$`# visits`,
+        levels = 1:max(.data$`# visits`)
+      )
+    ) |>
     drop_levels() |>
     clean_gender()
 }

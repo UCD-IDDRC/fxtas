@@ -1,11 +1,13 @@
 test_that("results are consistent", {
+
+  skip_if_not(utils::packageVersion("cardx") >= "0.2.3")
   output_path <-
     fs::path_package("extdata/sim_data", package = "fxtas")
 
   results <-
     extract_results_from_pickle(
       output_folder = output_path,
-      use_rds = FALSE,
+      use_rds = TRUE,
       n_s = 3
     )
 

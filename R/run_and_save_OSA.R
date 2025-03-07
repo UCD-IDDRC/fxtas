@@ -55,7 +55,8 @@ run_and_save_OSA <- function(
     osa_output |> saveRDS(rds_path)
   }
 
-  temp = extract_results_from_pickles(
+  # create extra rds files:
+  extract_results_from_pickles(
     n_s = 1:N_S_max,
     rda_filename = rda_filename,
     dataset_name = dataset_name,

@@ -18,7 +18,9 @@ graph_CGG_repeats <- function(
 {
   plot1 =
     data |>
-    ggplot(aes(x = .data$CGG)) +
+    filter(!is.na(.data$CGG)) |>
+    ggplot() +
+    aes(x = .data$CGG) +
     geom_bar(alpha = .5) +
     geom_vline(
       data = tibble(
@@ -41,8 +43,8 @@ graph_CGG_repeats <- function(
           )
       ),
       aes(
-        xintercept = x,
-        col = col),
+        xintercept = .data$x,
+        col = .data$col),
       linetype = "dashed"
     ) +
     # geom_vline(

@@ -1,6 +1,6 @@
 test_that("`table_subtype_by_demographics()` produces consistent results",
           {
-            library(dplyr)
+            withr::local_package("dplyr")
             patient_data = sim_data |> dplyr::filter(Category == "Patient")
             table = sim_subtype_and_stage_table
             set.seed(1)
@@ -10,14 +10,18 @@ test_that("`table_subtype_by_demographics()` produces consistent results",
                                                footnotes_as_letters = FALSE)
 
             html_file <- tempfile(fileext = ".html")
-            if(ft |> inherits("gt_tbl"))
-            {
+
+            if (ft |> inherits("gt_tbl")) {
             gt::gtsave(ft, filename = html_file)
-            } else
-            {
+            } else {
               ft = gtsummary::as_flex_table(ft)
               flextable::save_as_html(ft, path = html_file)
             }
+
+            skip_if_not_installed("chromote")
+            suppressMessages(is_there_chrome <- chromote::find_chrome())
+            skip_if(is.null(is_there_chrome))
+
             doconv::expect_snapshot_html(
               x = html_file,
               name = "table_subtype_by_demographics",

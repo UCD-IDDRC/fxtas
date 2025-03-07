@@ -54,14 +54,20 @@ on Dr. Bourgeois's recommendation.
 
 ## Package setup
 
+* updated test-coverage.yaml workflow
 * updated readme to specify new location of manuscript source code 
 in `analyses/`
 * updated `WORDLIST`
 
 ## Linting
 
-* configured .lintr
+* configured .lintr (#74)
+
+## Testing
+
+- added test for `compile_biomarker_group_list()`
 
 # fxtas 0.0.0.9000
 
 * Added a `NEWS.md` file to track changes to the package.
+

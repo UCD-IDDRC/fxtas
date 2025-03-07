@@ -10,7 +10,7 @@ categorize_MMSE <- function(
   dataset |>
     dplyr::mutate(
       `MMSE total score*` =
-        `MMSE total score` |>
+        .data$`MMSE total score` |>
         case_match(
           26:30 ~ levels[1],
           20:25   ~ levels[2],

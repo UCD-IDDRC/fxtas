@@ -1,5 +1,4 @@
 count_articles <- function(x) {
   x |>
-    count(Journal) |>
-    arrange(desc(n))
+    count(across(all_of("Journal")), sort = TRUE)
 }

@@ -28,7 +28,7 @@ output_path <-
 results <-
   extract_results_from_pickle(
     output_folder = output_path,
-    use_rds = FALSE,
+    use_rds = TRUE,
     n_s = 3
   )
 

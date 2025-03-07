@@ -9,7 +9,7 @@
 construct_biomarker_events_table <- function(
     biomarker_levels,
     biomarker_groups
-    )
+)
 {
   biomarker_events_table =
     biomarker_levels |>
@@ -20,5 +20,15 @@ construct_biomarker_events_table <- function(
       biomarker_groups,
       by = "biomarker"
     ) |>
-    arrange(biomarker_group, biomarker, biomarker_level)
+    arrange(
+      across(
+        all_of(
+          c(
+            "biomarker_group",
+            "biomarker",
+            "biomarker_level"
+          )
+        )
+      )
+    )
 }

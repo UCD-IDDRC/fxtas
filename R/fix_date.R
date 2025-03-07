@@ -2,6 +2,6 @@
 fix_date <- function(dataset){
   dataset |>
     dplyr::mutate(
-      `Visit Date` = as.Date(`Visit Date`, format = "%m/%d/%Y")
+      `Visit Date` = as.Date(.data$`Visit Date`, format = "%m/%d/%Y")
     )
 }

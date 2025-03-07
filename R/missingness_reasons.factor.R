@@ -24,5 +24,6 @@ if(all(is.na(x.clean))){browser()}
     add_labels_to_missing_codes() |>
     forcats::fct_relevel("[Valid data recorded]", after = Inf)
 
+  return(to_return)
 }
 

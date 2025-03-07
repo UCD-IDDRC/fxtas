@@ -58,7 +58,7 @@ gp34 |>
 gp34 |> 
   dplyr::filter(!(Ataxia %in% "Yes"), `Ataxia: severity` %in% 1:4) |> 
   dplyr::select(`FXS ID`, `Event Name`, Ataxia, `Ataxia: severity`) |> 
-  write.csv(file = "inst/extdata/inconsistent ataxia.csv")
+  write.csv(file = "inst/extdata/inconsistent_ataxia.csv")
 
 
 ```
