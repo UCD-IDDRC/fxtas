@@ -12,7 +12,7 @@ patient_data <-
   sim_data |>
   dplyr::filter(Category == "Patient")
 
-stages =
+stages <-
   results$subtype_and_stage_table |>
   dplyr::mutate(
     age = patient_data$Age,
