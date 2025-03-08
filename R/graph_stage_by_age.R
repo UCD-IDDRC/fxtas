@@ -16,13 +16,14 @@ graph_stage_by_age <- function(data,
 
     ) +
     geom_point(
-      alpha = alpha
+      alpha = alpha,
+      if ("sex" %in% names(data)) aes(col = .data$sex)
     ) +
     geom_smooth(method = "loess", formula = y ~ x) +
     xlab("Age at visit (years)") +
     ylab("Estimated sequence stage") +
     ggplot2::theme_bw() +
-    theme(legend.position = "none")
+    theme(legend.position = "bottom")
 
   n_subtypes <- data |>
     dplyr::filter(.data$ml_subtype != "Type 0") |>
