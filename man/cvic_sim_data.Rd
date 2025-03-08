@@ -5,7 +5,7 @@
 \alias{cvic_sim_data}
 \title{CVIC results from simulated data}
 \format{
-An object of class \code{CVIC} (inherits from \code{list}) of length 2.
+An object of class \code{NULL} of length 0.
 }
 \usage{
 cvic_sim_data
