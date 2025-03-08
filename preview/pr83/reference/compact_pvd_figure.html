@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">fxtas</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Unreleased version">0.0.0.9021</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Unreleased version">0.0.0.9022</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -68,8 +68,8 @@
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">size.y</span> <span class="op">=</span> <span class="fl">11</span></span></span>
-<span class="r-in"><span><span class="va">figs</span> <span class="op">=</span> <span class="fu"><a href="extract_figs_from_pickle.html">extract_figs_from_pickle</a></span><span class="op">(</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">size.y</span> <span class="op">&lt;-</span> <span class="fl">11</span></span></span>
+<span class="r-in"><span><span class="va">figs</span> <span class="op">&lt;-</span> <span class="fu"><a href="extract_figs_from_pickle.html">extract_figs_from_pickle</a></span><span class="op">(</span></span></span>
 <span class="r-in"><span>  size.y <span class="op">=</span> <span class="va">size.y</span>,</span></span>
 <span class="r-in"><span>  n_s <span class="op">=</span> <span class="fl">3</span>,</span></span>
 <span class="r-in"><span>  rda_filename <span class="op">=</span> <span class="st">"data.RData"</span>,</span></span>
@@ -77,16 +77,18 @@
 <span class="r-in"><span>  output_folder <span class="op">=</span> <span class="fu">fs</span><span class="fu">::</span><span class="fu"><a href="https://fs.r-lib.org/reference/path_package.html" class="external-link">path_package</a></span><span class="op">(</span><span class="st">"extdata/sim_data"</span>, package <span class="op">=</span> <span class="st">"fxtas"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">y_text_size</span> <span class="op">=</span> <span class="fl">11</span></span></span>
-<span class="r-in"><span><span class="va">tile_height</span> <span class="op">=</span> <span class="fl">1</span></span></span>
+<span class="r-in"><span><span class="va">y_text_size</span> <span class="op">&lt;-</span> <span class="fl">11</span></span></span>
+<span class="r-in"><span><span class="va">tile_height</span> <span class="op">&lt;-</span> <span class="fl">1</span></span></span>
 <span class="r-in"><span><span class="co"># facet_label_size = 8</span></span></span>
-<span class="r-in"><span><span class="va">facet_label_prefix</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">figs</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">legend.position</span> <span class="op">=</span> <span class="st">"none"</span></span></span>
-<span class="r-in"><span><span class="va">scale_colors</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"red"</span>, <span class="st">"blue"</span>, <span class="st">"purple4"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">facet_label_prefix</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">figs</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">legend.position</span> <span class="op">&lt;-</span> <span class="st">"none"</span></span></span>
+<span class="r-in"><span><span class="va">scale_colors</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"red"</span>, <span class="st">"blue"</span>, <span class="st">"purple4"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">plot_dataset</span> <span class="op">&lt;-</span> <span class="fu">fxtas</span><span class="fu">:::</span><span class="fu"><a href="compact_pvd_data_prep.html">compact_pvd_data_prep</a></span><span class="op">(</span>figs <span class="op">=</span> <span class="va">figs</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="co"># facet labels</span></span></span>
-<span class="r-in"><span><span class="va">facet_names</span> <span class="op">&lt;-</span> <span class="fu">fxtas</span><span class="fu">:::</span><span class="fu"><a href="compact_pvd_facet_labels.html">compact_pvd_facet_labels</a></span><span class="op">(</span>figs <span class="op">=</span> <span class="va">figs</span>,</span></span>
-<span class="r-in"><span>facet_label_prefix <span class="op">=</span> <span class="va">facet_label_prefix</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">facet_names</span> <span class="op">&lt;-</span> <span class="fu">fxtas</span><span class="fu">:::</span><span class="fu"><a href="compact_pvd_facet_labels.html">compact_pvd_facet_labels</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  figs <span class="op">=</span> <span class="va">figs</span>,</span></span>
+<span class="r-in"><span>  facet_label_prefix <span class="op">=</span> <span class="va">facet_label_prefix</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="co"># generate figure</span></span></span>
 <span class="r-in"><span><span class="fu">fxtas</span><span class="fu">:::</span><span class="fu">compact_pvd_figure</span><span class="op">(</span></span></span>
 <span class="r-in"><span>  <span class="va">plot_dataset</span>,</span></span>
