@@ -48,6 +48,28 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - uses: actions/setup-python@HEAD
+        with:
+          python-version: '3.9'
+
+      - name: setup r-reticulate venv
+        shell: Rscript {0}
+        run: |
+
+          library(reticulate)
+
+          path_to_venv <- virtualenv_create(
+            envname = "fxtas39",
+            python = Sys.which("python"), # placed on PATH by the setup-python action
+            packages = c(
+              "git+https://github.com/d-morrison/pySuStaIn"
+            )
+          )
+
+          writeLines(
+            paste0("RETICULATE_PYTHON=", virtualenv_python(path_to_venv)),
+            Sys.getenv("GITHUB_ENV"))
+
       # - name: "setup conda"
       #   run: |
       #     conda init
