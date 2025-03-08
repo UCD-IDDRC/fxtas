@@ -1,6 +1,7 @@
 #' @title Plot SuStaIn Sequential Estimate
 #' @inheritParams plot_compact_pvd_est
 #' @param tile_width todo
+#' @param rel_heights relative heights of the plot and the legend
 #' @param ... arguments passed to `tmp_func()`
 #' @export
 #' @example inst/examples/exm-plot_compact_pvd_est2.R
