@@ -8,7 +8,8 @@ stages =
   results_cv_max$subtype_and_stage_table |>
   dplyr::mutate(
     age = patient_data$`Age at visit`,
-    id = patient_data$`FXS ID`
+    id = patient_data$`FXS ID`,
+    sex = patient_data$Gender
   )
 
 library(ggplot2)
