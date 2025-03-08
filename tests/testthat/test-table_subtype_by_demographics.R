@@ -26,6 +26,8 @@ test_that(
 
     doconv::expect_snapshot_html(
       x = html_file,
+      vwidth = 1200, # based on what github actions seems to do
+      vheight = 744, # these get passed down to `webshot2::webshot()`
       name = "table_subtype_by_demographics",
       engine = "testthat"
     )

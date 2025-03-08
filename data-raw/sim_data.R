@@ -1,12 +1,16 @@
 file_path = fs::path_package("extdata/sim_data/synthetic_data.xlsx", package = "fxtas")
 library(readxl)
+set.seed(1)
 sim_data =
   file_path |>
   readxl::read_excel() |>
-  dplyr::mutate(Male = (.data$Sex == "Male"),
+  dplyr::mutate(
+    Male = (.data$Sex == "Male"),
+    Age = runif(n = n(), 40, 80),
          across(
            .cols = starts_with("Biomarker"),
-           .fns = as.factor))
+           .fns = as.factor)) |>
+  relocate(c("Male", "Age"), .after = "Sex")
 
 usethis::use_data(sim_data, overwrite = TRUE)
 
