@@ -23,13 +23,8 @@
 
 #' Simulated data
 #'
-#' Toy example data provided by Alexandra Young
-#'
-#' @format ## `sim_data`
-#' A data frame with nrow rows and ncol columns:
-#' \describe{
-#'  \item{col1}{col1name}
-#' }
+#' Toy example data provided by Alexandra Young and modified by adding variables
+#' `Sex` and `Age`
 "sim_data"
 
 #' Simulated subtype-and-stage table

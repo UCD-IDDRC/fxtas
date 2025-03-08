@@ -5,18 +5,13 @@
 \alias{sim_data}
 \title{Simulated data}
 \format{
-\subsection{\code{sim_data}}{
-
-A data frame with nrow rows and ncol columns:
-\describe{
-\item{col1}{col1name}
-}
-}
+An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 25 rows and 9 columns.
 }
 \usage{
 sim_data
 }
 \description{
-Toy example data provided by Alexandra Young
+Toy example data provided by Alexandra Young and modified by adding variable
+\code{Sex}
 }
 \keyword{datasets}

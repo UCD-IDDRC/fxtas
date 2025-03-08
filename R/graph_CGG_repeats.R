@@ -18,7 +18,7 @@ graph_CGG_repeats <- function(
 {
   plot1 =
     data |>
-    filter(!is.na(.data$CGG)) |>
+    dplyr::filter(!is.na(.data$CGG)) |>
     ggplot() +
     aes(x = .data$CGG) +
     geom_bar(alpha = .5) +
