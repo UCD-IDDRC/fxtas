@@ -24,6 +24,8 @@ test_that("`table_subtype_by_demographics()` produces consistent results",
 
             doconv::expect_snapshot_html(
               x = html_file,
+              vwidth = 992,
+              vheight = 744,
               name = "table_subtype_by_demographics",
               engine = "testthat"
             )
