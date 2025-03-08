@@ -1,8 +1,8 @@
 ---
 title: "SuStaIn Model Fitting"
 authors:
-  - name: Alexandra Young
   - name: Douglas Ezra Morrison
+  - name: Matthew Ponzini
     # affiliations:
     #   - ref: ucdphs
     corresponding: true
@@ -18,8 +18,12 @@ vignette: >
   %\VignetteIndexEntry{OS_example}
   %\VignetteEngine{quarto::html}
   %\VignetteEncoding{UTF-8}
+execute:
+  freeze: auto
+  cache: true
 ---
 
+(adapted from a Jupyter notebook by Alexandra Young)
 
 ```{r}
 #| label: setup
@@ -189,12 +193,12 @@ N_S_max = 4L
 N_iterations_MCMC = 1e5L
 dataset_name = 'sample_data'
 output_folder = 
-  fs::path("inst/extdata/sim_data")
+  fs::path_package(package = "fxtas", "extdata/sim_data")
 print(output_folder)
 ```
 
 ```{python "initialize-model"}
-
+#| eval: true
 import pandas
 import numpy as np
 import numpy.matlib
@@ -223,7 +227,7 @@ sustain_input = pySuStaIn.OrdinalSustain(
 ```
 
 ```{python "fit-model", fig.width = 8, fig.height = 9}
-
+#| eval: true
 [samples_sequence, samples_f, 
 ml_subtype, prob_ml_subtype, ml_stage, 
 prob_ml_stage, prob_subtype_stage, 
@@ -268,7 +272,7 @@ osa_output = run_and_save_OSA(
 )
 
 cvic_sim_data <- osa_output |> extract_cvic()
-cvic_sim_data |> usethis::use_data(overwrite = TRUE)
+# cvic_sim_data |> usethis::use_data(overwrite = TRUE)
 ```
 
 ::: {#fig-cvic layout-ncol="2"}
@@ -439,7 +443,7 @@ results3 <- extract_results_from_pickle(
   n_s = 3)
 
 results_s3_sim_data <- results3
-results_s3_sim_data |> use_data(overwrite = TRUE)
+# results_s3_sim_data |> use_data(overwrite = TRUE)
 
 figs3 = extract_figs_from_pickle(
   output_folder = output_folder,
