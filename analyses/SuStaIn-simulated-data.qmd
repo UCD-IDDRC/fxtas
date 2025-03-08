@@ -185,7 +185,7 @@ Otherwise, we might get errors about array lengths and indices.
 ```{r "set run parameters"}
 
 N_startpoints = 10L
-N_S_max = 3L
+N_S_max = 4L
 N_iterations_MCMC = 1e5L
 dataset_name = 'sample_data'
 output_folder = 
