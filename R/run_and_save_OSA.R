@@ -25,7 +25,7 @@ run_and_save_OSA <- function(
   {
     if (verbose)
       {
-      cli::cli_alert_info(
+      cli::cli_inform(
         c(
           "Found RDS file for {rds_filebase} in {output_folder};",
           "loading..."
@@ -40,7 +40,7 @@ run_and_save_OSA <- function(
     {
       if (!file.exists(rds_path))
       {
-        cli::cli_alert_info("RDS file for {rds_filebase} not found.")
+        cli::cli_inform("RDS file for {rds_filebase} not found.")
       }
       if (rerun) cli::cli_alert_info("`rerun = TRUE`.")
     }
