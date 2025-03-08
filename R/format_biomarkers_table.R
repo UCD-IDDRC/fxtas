@@ -16,7 +16,7 @@ flex_biomarkers_table <- function(x)
     flextable::set_header_labels(
       values = c(
         "Category",
-        "Biomarker",
+        "Symptom",
         "Defined Ordered Levels",
         "Female",
         "Male",
