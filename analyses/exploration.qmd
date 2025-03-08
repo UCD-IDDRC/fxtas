@@ -332,14 +332,14 @@ We used categorization cutoffs taken from Talebi et al 2020 [@talebi2020cambridg
 vars <- c(
   "Hypothyroid",
   "Hyperthyroid",
-  # "Thyroid problems",
-  # "Lupus",
-  # "Rheumatoid arthritis",
-  # "Multiple Sclerosis: Workup",
-  # "ANA positive",
-  # "Sjogrens Syndrome",
-  # "Raynauds Syndrome",
-  # "Pulmonary Fibrosis",
+  "Thyroid problems",
+  "Lupus",
+  "Rheumatoid arthritis",
+  "Multiple Sclerosis: Workup",
+  "ANA positive",
+  "Sjogrens Syndrome",
+  "Raynauds Syndrome",
+  "Pulmonary Fibrosis",
   "any autoimmune disorder"
 )
 
