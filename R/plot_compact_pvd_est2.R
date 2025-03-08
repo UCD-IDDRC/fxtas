@@ -10,7 +10,7 @@ plot_compact_pvd_est2 <- function(
     tile_height = 1,
     tile_width = 1,
     y_text_size = 9,
-    legend.position = "none",
+    legend.position = "none", # nolint: object_name_linter
     scale_colors = c("red", "blue", "purple4", "darkgreen", "magenta"),
     rel_heights = c(1, 0.1),
     ...) {

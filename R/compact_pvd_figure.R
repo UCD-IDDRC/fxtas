@@ -38,7 +38,7 @@ compact_pvd_figure <- function(
     y_text_size,
     facet_names,
     # facet_label_size,
-    legend.position,
+    legend.position, # nolint: object_name_linter
     scale_colors,
     rel_heights = c(1, 0.1),
     ...) {
@@ -47,8 +47,10 @@ compact_pvd_figure <- function(
 
   plot_dataset <-
     plot_dataset |>
-    dplyr::mutate(facet = facet_names[as.numeric(.data$facet)] |>
-      factor(levels = facet_names))
+    dplyr::mutate(
+      facet = facet_names[as.numeric(.data$facet)] |>
+        factor(levels = facet_names)
+    )
 
   nlevels <- plot_dataset |>
     dplyr::pull("level") |>
@@ -145,7 +147,10 @@ compact_pvd_figure <- function(
       high = level4_scale[100],
       limits = scale_limits,
       breaks = c(0, 0.5, 1),
-      guide = ggplot2::guide_colorbar(title = "Pr(Stage)<sub>4</sub>", order = 3)
+      guide = ggplot2::guide_colorbar(
+        title = "Pr(Stage)<sub>4</sub>",
+        order = 3
+      )
     ) +
     # guides(fill = guide_legend(title = "Pr(Stage)<sub>4</sub>")) +
     ggnewscale::new_scale_fill() +
@@ -190,7 +195,10 @@ compact_pvd_figure <- function(
       high = level6_scale[100],
       limits = scale_limits,
       breaks = c(0, 0.5, 1),
-      guide = ggplot2::guide_colorbar(title = "Pr(Stage)<sub>6</sub>", order = 5)
+      guide = ggplot2::guide_colorbar(
+        title = "Pr(Stage)<sub>6</sub>",
+        order = 5
+      )
     ) +
     # guides(fill = guide_legend(title = "Pr(Stage)<sub>6</sub>")) +
     # reverse order of y-axis (biomarkers)
@@ -208,7 +216,8 @@ compact_pvd_figure <- function(
     # plot theme
     ggplot2::theme_bw() +
     ggplot2::theme(
-      legend.position = legend.position, # add color scale info in figure caption,
+      # add color scale info in figure caption:
+      legend.position = legend.position,
       legend.title = ggtext::element_markdown(), # markdown for legends
       legend.byrow = TRUE,
       legend.box = "horizontal",
@@ -218,7 +227,6 @@ compact_pvd_figure <- function(
       axis.text.y = ggtext::element_markdown(
         size = y_text_size
       ), # allow markdown for coloring
-      # strip.text = ggtext::element_markdown(size = facet_label_size) # allow markdown for labels
       strip.text = ggtext::element_markdown() # allow markdown for labels
     )
 

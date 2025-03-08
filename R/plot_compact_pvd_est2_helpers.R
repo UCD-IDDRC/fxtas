@@ -29,7 +29,8 @@ tmp_data_prep <- function(x) {
     arrange(across(all_of("event order"))) |>
     dplyr::mutate(biomarker = forcats::fct_inorder(.data$biomarker)) |>
     dplyr::select(
-      c("biomarker", "event order") |> all_of()) |>
+      c("biomarker", "event order") |> all_of()
+    ) |>
     unique()
 
   event_order_facet <- tmp |>
