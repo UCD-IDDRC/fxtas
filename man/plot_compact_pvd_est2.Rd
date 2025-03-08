@@ -11,6 +11,7 @@ plot_compact_pvd_est2(
   y_text_size = 9,
   legend.position = "none",
   scale_colors = c("red", "blue", "purple4", "darkgreen", "magenta"),
+  rel_heights = c(1, 0.1),
   ...
 )
 }
@@ -27,8 +28,25 @@ plot_compact_pvd_est2(
 
 \item{scale_colors}{todo}
 
+\item{rel_heights}{relative heights of the plot and the legend}
+
 \item{...}{arguments passed to \code{tmp_func()}}
 }
 \description{
 Plot SuStaIn Sequential Estimate
+}
+\examples{
+figs <- extract_figs_from_pickle(
+  n_s = 4,
+  dataset_name = "sample_data",
+  output_folder = fs::path_package("fxtas", "extdata/sim_data/"),
+  use_rds = TRUE
+)
+
+plot_compact_pvd_est2(
+  figs = figs,
+  tile_height = 1,
+  y_text_size = 6,
+  title_size = 8
+)
 }

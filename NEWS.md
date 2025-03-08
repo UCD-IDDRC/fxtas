@@ -21,6 +21,7 @@ for latent subtype clustering analysis
 
 ## Graphics
 
+* added grayscale legend to PVDs (#83)
 * added test for `pvd_lineplot()` (#68)
 * added `biomarker_order` argument to `compact_pvd_data_prep()` 
 (default behavior should be unchanged)
@@ -63,6 +64,11 @@ in `analyses/`
 
 * configured .lintr (#74)
 
+## Testing
+
+- added test for `compile_biomarker_group_list()`
+
 # fxtas 0.0.0.9000
 
 * Added a `NEWS.md` file to track changes to the package.
+

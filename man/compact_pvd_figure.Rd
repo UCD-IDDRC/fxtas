@@ -10,15 +10,17 @@ compact_pvd_figure(
   y_text_size,
   facet_names,
   legend.position,
-  scale_colors
+  scale_colors,
+  rel_heights = c(1, 0.1),
+  ...
 )
 }
 \description{
 plot compact pvd: figure
 }
 \examples{
-size.y = 11
-figs = extract_figs_from_pickle(
+size.y <- 11
+figs <- extract_figs_from_pickle(
   size.y = size.y,
   n_s = 3,
   rda_filename = "data.RData",
@@ -26,16 +28,18 @@ figs = extract_figs_from_pickle(
   output_folder = fs::path_package("extdata/sim_data", package = "fxtas")
 )
 
-y_text_size = 11
-tile_height = 1
+y_text_size <- 11
+tile_height <- 1
 # facet_label_size = 8
-facet_label_prefix = names(figs)
-legend.position = "none"
-scale_colors = c("red", "blue", "purple4")
+facet_label_prefix <- names(figs)
+legend.position <- "none"
+scale_colors <- c("red", "blue", "purple4")
 plot_dataset <- fxtas:::compact_pvd_data_prep(figs = figs)
 # facet labels
-facet_names <- fxtas:::compact_pvd_facet_labels(figs = figs,
-facet_label_prefix = facet_label_prefix)
+facet_names <- fxtas:::compact_pvd_facet_labels(
+  figs = figs,
+  facet_label_prefix = facet_label_prefix
+)
 # generate figure
 fxtas:::compact_pvd_figure(
   plot_dataset,
