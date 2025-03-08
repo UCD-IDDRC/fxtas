@@ -14,8 +14,8 @@ test_that("results are consistent", {
   flextable::save_as_html(ft, path = html_file)
   doconv::expect_snapshot_html(
     x = html_file,
-    vwidth = 992,
-    vheight = 744,
+    vwidth = 1200, # based on what github actions seems to do
+    vheight = 744, # these get passed down to `webshot2::webshot()`
     name = "prob_correct_table",
     engine = "testthat"
   )

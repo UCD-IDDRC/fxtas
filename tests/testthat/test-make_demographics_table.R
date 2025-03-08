@@ -8,7 +8,7 @@ test_that(
     html_file <- tempfile(fileext = ".html")
     flextable::save_as_html(ft, path = html_file)
     doconv::expect_snapshot_html(
-      vwidth = 992, # taken from `webshot2::webshot()` defaults
+      vwidth = 1200, # based on what github actions seems to do
       vheight = 744, # these get passed down to `webshot2::webshot()`
       x = html_file,
       name = "demographics_table",
