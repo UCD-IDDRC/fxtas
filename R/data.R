@@ -23,19 +23,15 @@
 
 #' Simulated data
 #'
-#' Toy example data provided by Alexandra Young
-#'
-#' @format ## `sim_data`
-#' A data frame with nrow rows and ncol columns:
-#' \describe{
-#'  \item{col1}{col1name}
-#' }
+#' Toy example data provided by Alexandra Young and modified by adding variables
+#' `Sex` and `Age`
 "sim_data"
 
 #' Simulated subtype-and-stage table
 #'
 #' See `vignettes/articles/SuStaIn-simulated-data.qmd` and
-#' `data-raw/sim_subtype_and_stage_table.R` for details on how this file was created.
+#' `data-raw/sim_subtype_and_stage_table.R`
+#' for details on how this file was created.
 #'
 #' @format ## `sim_subtype_and_stage_table`
 #' A data frame with nrow rows and ncol columns:

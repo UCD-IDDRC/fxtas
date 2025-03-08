@@ -18,6 +18,7 @@ sim_subtype_and_stage_table
 }
 \description{
 See \code{vignettes/articles/SuStaIn-simulated-data.qmd} and
-\code{data-raw/sim_subtype_and_stage_table.R} for details on how this file was created.
+\code{data-raw/sim_subtype_and_stage_table.R}
+for details on how this file was created.
 }
 \keyword{datasets}
