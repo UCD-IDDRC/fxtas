@@ -12,7 +12,7 @@
     -   "Intention tremor",
     -   "Resting tremor",
     -   "Postural tremor",
-    -   "Intermittent tremor"
+    -   "Hx Intermittent tremor"
 
 "Any cancer" includes:
     -   "Thyroid Cancer",

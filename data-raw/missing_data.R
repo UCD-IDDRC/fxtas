@@ -23,16 +23,16 @@ variables =
     "Intention tremor",
     "Resting tremor",
     "Postural tremor",
-    "Intermittent tremor",
+    "Hx Intermittent tremor",
     "Any tremor",
     "Tremor: Age of onset",
 
     "Head tremor",
     "Head Tremor: Age of onset",
 
-    "Ataxia",
-    "Ataxia: severity",
-    "Ataxia: Age of onset",
+    "Gait ataxia",
+    "Gait ataxia severity",
+    "Hx Ataxia: Age of onset",
 
 
     grep("Parkinson", value = TRUE, names(gp34)),

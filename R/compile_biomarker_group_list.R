@@ -23,7 +23,7 @@ compile_biomarker_group_list <- function(dataset)
     "Intention tremor",
     "Resting tremor",
     "Postural tremor",
-    "Intermittent tremor"
+    "Hx Intermittent tremor"
     # "Any tremor (excluding head)"
   )
 
@@ -62,7 +62,7 @@ compile_biomarker_group_list <- function(dataset)
   # )
 
   ataxia = c(
-    "Ataxia",
+    "Gait ataxia",
     "Ataxia: severity*"
   )
 

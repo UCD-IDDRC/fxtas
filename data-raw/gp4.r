@@ -5,10 +5,13 @@ graphics.off()
 library(Hmisc)
 library(dplyr)
 library(vroom)
+devtools::load_all()
 #Read Data
 dataset=vroom::vroom(
   'inst/extdata/CTSC3704GP4GenotypeP-FXTASEventSequence10_DATA_2025-02-27_1709.csv',
   col_types = cols(
+    new_mds_ne_gas = col_integer(),
+    mol_mos_meth = col_skip(),
     dem_date = col_date(),
     new_mds_med_can_other = col_integer(),
     new_mds_med_anes1 = col_character(),
@@ -401,7 +404,10 @@ levels(dataset$new_mds_ne_it)=c("No","Yes","No Response","Question not asked at 
 levels(dataset$new_mds_ne_pt)=c("No","Yes","No Response","Question not asked at time of data entry; check records")
 levels(dataset$new_mds_ne_tand)=c("Normal","Steps (Abnormal, < 10)","Unable (Absent)","No data","question not asked at time of data entry; check records")
 
-
+dataset <- dataset |>
+  mutate(
+    mol_act_ratio = mol_act_ratio |> clean_mol_act_ratio()
+  )
 
 #Setting Labels
 
@@ -498,14 +504,14 @@ labels = c(subj_id = "FXS ID",
            new_mds_neu_trem_int = "Hx Intention tremor",
            new_mds_neu_trem_rest = "Hx Resting tremor",
            new_mds_neu_trem_pos = "Hx Postural tremor",
-           new_mds_neu_trem_irm = "Intermittent tremor",
+           new_mds_neu_trem_irm = "Hx Intermittent tremor",
            new_mds_neu_trem_age = "Tremor: Age of onset",
            new_mds_neu_trem_head = "Hx Head tremor",
            new_mds_neu_trem_age2 = "Head Tremor: Age of onset",
            new_mds_neu_atax = "Walking/ataxia Problems",
-           new_mds_neu_atax_age = "Ataxia: Age of onset",
-           new_mds_ne_ga = "Gait: Ataxia",
-           new_mds_ne_gas = "Gait: Ataxia severity",
+           new_mds_neu_atax_age = "Hx Ataxia: Age of onset",
+           new_mds_ne_ga = "Gait ataxia",
+           new_mds_ne_gas = "Gait ataxia severity",
            new_mds_med_park = "Parkinsons",
            new_mds_ne_pf = "parkinsonian features",
            new_mds_ne_pfmf = "Masked faces",
@@ -596,7 +602,7 @@ labels = c(subj_id = "FXS ID",
            # moca_tot_score ="MOCA Total score",
 
            # new vars
-           mol_mos_meth = "Fraction of Methylation (0.0-1.0)",
+           # mol_mos_meth = "Fraction of Methylation (0.0-1.0)",
            mol_act_ratio = "Activation Ratio (0.0-1.0)",
            new_mds_ne_head = "Exam Head tremor",
            new_mds_ne_rt = "Exam Resting tremor",
@@ -641,13 +647,13 @@ names(dataset) = labels[names(dataset)]
   # label(dataset$new_mds_neu_trem_int)="Intention tremor"
   # label(dataset$new_mds_neu_trem_rest)="Resting tremor"
   # label(dataset$new_mds_neu_trem_pos)="Postural tremor"
-  # label(dataset$new_mds_neu_trem_irm)="Intermittent tremor"
+  # label(dataset$new_mds_neu_trem_irm)="Hx Intermittent tremor"
   # label(dataset$new_mds_neu_trem_age)="Tremor: Age of onset"
   # label(dataset$new_mds_neu_trem_head)="Head tremor"
   # label(dataset$new_mds_neu_trem_age2)="Head Tremor: Age of onset"
   # label(dataset$new_mds_neu_atax)="Walking/ataxia Problems"
   # label(dataset$new_mds_neu_atax_age)="Age of onset"
-  # label(dataset$new_mds_ne_ga)="Ataxia"
+  # label(dataset$new_mds_ne_ga)="Gait ataxia"
   # label(dataset$new_mds_ne_gas)="Ataxia severity"
   # label(dataset$new_mds_med_park)="Parkinsons"
   # label(dataset$new_mds_ne_pf)="parkinsonian features"

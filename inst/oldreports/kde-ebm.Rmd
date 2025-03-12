@@ -40,7 +40,7 @@ tremors = c(
   "Intention tremor" = 1,
   "Resting tremor" = 1,
   "Postural tremor" = 1,
-  "Intermittent tremor" = 1,
+  "Hx Intermittent tremor" = 1,
   "Any tremor (excluding head)" = 1
 )
 
@@ -54,7 +54,7 @@ categorical_biomarker_directions = c(
 
 continuous_biomarker_directions = 
   c(
-    "Ataxia: severity" = 1,
+    "Gait ataxia severity" = 1,
     "MMSE total score" = -1,
     "BDS-2 Total Score" = -1,
     "SCL90: Somatization" = 1,

@@ -47,17 +47,17 @@ gp34 |> dplyr::filter(
 
 ```{r}
 
-gp34 |> dplyr::select(Ataxia, `Ataxia: severity`) |> table(useNA ='ifany')
+gp34 |> dplyr::select(Ataxia, `Gait ataxia severity`) |> table(useNA ='ifany')
 
 gp34 |> 
-  dplyr::filter(`Ataxia: severity` == 0, !is.element(`Ataxia`,"No"))
+  dplyr::filter(`Gait ataxia severity` == 0, !is.element(`Gait ataxia`,"No"))
 
 gp34 |> 
-  dplyr::filter(Ataxia == "No", !is.element(`Ataxia: severity`, 0))
+  dplyr::filter(Ataxia == "No", !is.element(`Gait ataxia severity`, 0))
 
 gp34 |> 
-  dplyr::filter(!(Ataxia %in% "Yes"), `Ataxia: severity` %in% 1:4) |> 
-  dplyr::select(`FXS ID`, `Event Name`, Ataxia, `Ataxia: severity`) |> 
+  dplyr::filter(!(Ataxia %in% "Yes"), `Gait ataxia severity` %in% 1:4) |> 
+  dplyr::select(`FXS ID`, `Event Name`, Ataxia, `Gait ataxia severity`) |> 
   write.csv(file = "inst/extdata/inconsistent_ataxia.csv")
 
 

@@ -71,7 +71,7 @@ biomarker_groups =
 
 library(dplyr)
 biomarker_groups = biomarker_groups |>
-  dplyr::filter(biomarker_group %in% c("Tremors", "Stage", "Ataxia", "Parkinsonian", "MRI"))
+  dplyr::filter(biomarker_group %in% c("Tremors", "Stage", "Gait ataxia", "Parkinsonian", "MRI"))
 
 SuStaInLabels =
   biomarker_varnames =

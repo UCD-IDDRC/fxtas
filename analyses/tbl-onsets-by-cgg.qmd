@@ -22,11 +22,11 @@ table1(na.is.category = FALSE, overall = FALSE,
 #| label: tbl-ataxia-AO-by-cgg
 #| tbl-cap: "Ataxia age of onset by CGG level"
 vars = c(
-  # "Ataxia",
-  # "Ataxia: severity",
+  # "Gait ataxia",
+  # "Gait ataxia severity",
   # "Ataxia: severity*"
-  "Ataxia: Age of onset"
-  # "Ataxia: Age of onset: missingness reasons"
+  "Hx Ataxia: Age of onset"
+  # "Hx Ataxia: Age of onset": missingness reasons"
 )
 
 table1(na.is.category = FALSE, overall = FALSE,

@@ -4,40 +4,40 @@ clean_trax_ataxia <- function(data)
     dplyr::mutate(
 
       `Ataxia severity: missingness reasons` =
-        .data$`Ataxia: severity` |> missingness_reasons.numeric(),
+        .data$`Gait ataxia severity` |> missingness_reasons.numeric(),
 
       # setting missing codes as 0s:
-      `Ataxia: severity` =
+      `Gait ataxia severity` =
         dplyr::case_when(
-          .data$`Ataxia: severity` %in% c("888","999") ~ 0,
-          TRUE ~ .data$`Ataxia: severity`
+          .data$`Gait ataxia severity` %in% c("888","999") ~ 0,
+          TRUE ~ .data$`Gait ataxia severity`
         ),
 
-      `Ataxia: severity` =
-        .data$`Ataxia: severity` |>
+      `Gait ataxia severity` =
+        .data$`Gait ataxia severity` |>
         clean_numeric(),
 
-      `Ataxia` =
+      `Gait ataxia` =
         if_else(
           condition =
-            (.data$`Ataxia: severity` %in% 0) & is.na(.data$Ataxia),
+            (.data$`Gait ataxia severity` %in% 0) & is.na(.data$`Gait ataxia`),
           true = "No",
-          false = .data$`Ataxia`
+          false = .data$`Gait ataxia`
         ) |>
         factor(levels = c("No", "Yes")),
 
-      `Ataxia: severity` =
+      `Gait ataxia severity` =
         if_else(
         condition =
-          (.data$Ataxia %in% "No") & is.na(.data$`Ataxia: severity`),
+          (.data$`Gait ataxia` %in% "No") & is.na(.data$`Gait ataxia severity`),
         true = 0,
-        false = .data$`Ataxia: severity`
+        false = .data$`Gait ataxia severity`
       ),
 
       `Ataxia: severity*` =
         case_when(
-          .data$`Ataxia: severity` == "2.5" ~ 2,
-          TRUE ~ .data$`Ataxia: severity`
+          .data$`Gait ataxia severity` == "2.5" ~ 2,
+          TRUE ~ .data$`Gait ataxia severity`
         ) |>
         factor()
 
