@@ -8,7 +8,7 @@ library(vroom)
 devtools::load_all()
 #Read Data
 dataset=vroom::vroom(
-  'inst/extdata/CTSC3704GP4GenotypeP-FXTASEventSequence10_DATA_2025-02-27_1709.csv',
+  'inst/extdata/CTSC3704GP4GenotypeP-FXTASEventSequence10_DATA_2025-03-12_1507.csv',
   col_types = cols(
     new_mds_ne_gas = col_integer(),
     mol_mos_meth = col_skip(),
@@ -415,7 +415,7 @@ labels = c(subj_id = "FXS ID",
            redcap_event_name = "Event Name",
            new_mds_med_anes1="Anesthesia (new_mds_med_anes1)",
            medic_surg_anes="Anesthesia (medic_surg_anes)",
-           # pp_t1rlb_total ="Purdue pegboard 1st Trial Total, R+L+B",
+           pp_t1rlb_total ="Purdue pegboard 1st Trial Total, R+L+B",
            new_mds_med_can_notes ="Cancer Notes",
            new_mds_med_thy ="Thyroid problems",
            new_mds_med_hyothy ="Hypothyroid",
@@ -562,7 +562,8 @@ labels = c(subj_id = "FXS ID",
            new_mds_med_ray = "Raynauds Syndrome",
            new_mds_med_pulm = "Pulmonary Fibrosis",
            new_mds_med_immun_notes = "Immunological Notes",
-
+           redcap_repeat_instrument = "Repeat Instrument",
+           redcap_repeat_instance = "Repeat Instance",
            mri_cere_atr = "Cerebral Atrophy",
            mri_cerebel_atr = "Cerebellar Atrophy",
            mri_cere_wm_hyper = "Cerebral WM Hyperintensity",

@@ -1,0 +1,38 @@
+vars,labels
+ApoE,ApoE
+Ataxia: severity*,Ataxia severity
+BDS-2 Total Score,BDS-2 total score
+BDS-2 Total Score*,BDS-2 total score
+CGG,CGG repeats
+Cerebellar Atrophy,Cerebellar Atrophy
+Cerebellar WM Hyperintensity,Cerebellar White Matter Hyperintensity
+Cerebral Atrophy,Cerebral Atrophy
+Cerebral WM Hyperintensity,Cerebral White Matter Hyperintensity
+Corpus Callosum-Thickness,Corpus Callosum-Thickness
+FX3*,CGG repeat level
+FXTAS Stage,FXTAS Stage
+Gender,Sex
+Genu (CC)-WM Hyperintensity,Genu (CC) White Matter Hyperintensity
+Hx Ataxia: Age of onset,Ataxia: Age of onset
+Hx Ataxia: Age of onset: missingness reasons,Ataxia: Age of onset: missingness reasons
+Hx Ataxia: severity,Ataxia: severity
+Hx Head tremor,Head tremor
+Hx Head tremor: missingness reasons,Head tremor: missingness reasons
+Hx Intention tremor,Intention tremor
+Hx Intention tremor: missingness reasons,Intention tremor: missingness reasons
+Hx Intermittent tremor,Intermittent tremor
+Hx Intermittent tremor: missingness reasons,Intermittent tremor: missingness reasons
+Hx Postural tremor,Postural tremor
+Hx Postural tremor: missingness reasons,Postural tremor: missingness reasons
+Hx Resting tremor,Resting tremor
+Hx Resting tremor: missingness reasons,Resting tremor: missingness reasons
+MCP-WM Hyperintensity,MCP White Matter Hyperintensity
+MMSE total score*,MMSE total score
+PAL Total errors (adjusted)*,PAL total errors
+Parkinsons,Parkinson's disease
+Periventricular WM Hyperintensity,Periventricular White Matter Hyperintensity
+Pons-WM Hyperintensity,Pons White Matter Hyperintensity
+RTI Five-choice movement time*,RTI Five-choice movement time
+SWM Between errors*,SWM Between errors
+Splenium (CC)-WM Hyperintensity,Splenium (CC) White Matter Hyperintensity
+Sub-Insular WM Hyperintensity,Sub-Insular White Matter Hyperintensity

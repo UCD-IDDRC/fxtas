@@ -1,6 +1,7 @@
 clean_data <- function(dataset)
 {
-  dataset |>
+  to_return <-
+    dataset |>
     dplyr::arrange(
       across(
         all_of(
@@ -19,7 +20,9 @@ clean_data <- function(dataset)
     create_any_tremor() |>
     fix_tremor_onsets() |>
 
-    fix_onset_age_vars() |>
+    fix_onset_age_vars()
+
+  to_return <- to_return |>
 
     clean_kinesia() |>
     # includes BDS, MMSE
@@ -82,6 +85,10 @@ clean_data <- function(dataset)
 
     drop_levels(except = exceptions_to_droplevels) |>
 
-    clean_gender() |> # droplevels() removes attributes
+    clean_gender() # droplevels() removes attributes
+
+  to_return <- to_return |>
     add_labels()
+
+  return(to_return)
 }

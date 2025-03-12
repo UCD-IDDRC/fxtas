@@ -34,6 +34,16 @@ add_labels <- function(data) {
         labelled::set_label_attribute(
           "RTI Five-choice movement time"
         ),
+      across(
+        .cols = starts_with("Hx"),
+        .fns =
+          ~ set_label_attribute(
+            .x,
+            cur_column() |> stringr::str_replace("^Hx ", "")
+          )
+      )
+
+
     ) |>
     set_mri_var_labels()
 }

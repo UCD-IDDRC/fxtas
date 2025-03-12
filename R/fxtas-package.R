@@ -105,6 +105,7 @@
 #' @importFrom tidyselect contains
 #' @importFrom tidyselect ends_with
 #' @importFrom tidyselect starts_with
+#' @importFrom tidyselect where
 #' @importFrom utils head
 #' @importFrom utils stack
 #' @importFrom utils tail
