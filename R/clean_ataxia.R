@@ -3,21 +3,29 @@ clean_ataxia <- function(data) {
     data |>
     dplyr::mutate(
 
+      across(
+        any_of(c("gait ataxia exam", "gait ataxia hx")),
+        replace_missing_codes
+      ),
+
       "gait ataxia severity exam: missingness reasons" =
         .data$`gait ataxia severity exam` |>
         missingness_reasons.numeric(),
 
       # setting missing codes as 0s:
-      "gait ataxia severity exam" =
-        .data$`gait ataxia severity exam` |>
-        replace_missing_with_0() |>
-        clean_numeric(),
 
-      "gait ataxia severity hx" =
-        .data$`gait ataxia severity hx` |>
-        replace_missing_with_0() |>
-        clean_numeric()
-      ) |>
+      across(
+        any_of(
+          c(
+            "gait ataxia severity exam",
+            "gait ataxia severity hx"
+          )
+        ),
+        \(x) x |> replace_missing_with_0() |> clean_numeric()
+
+      )
+
+    ) |>
     combine_presence_and_severity(
       binary_varname = "gait ataxia hx",
       severity_varname = "gait ataxia severity hx") |>
