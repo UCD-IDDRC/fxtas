@@ -16,7 +16,7 @@ a \link{character} string
 Compute and paste counts and proportions
 }
 \examples{
-x <- test_data$`Ataxia: severity*`
+x <- test_data$`ataxia severity*`
 x |> counts_and_pcts()
 
 }

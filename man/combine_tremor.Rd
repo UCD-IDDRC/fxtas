@@ -6,9 +6,9 @@
 \usage{
 combine_tremor(
   dataset,
-  tremor_vars = c("Hx Intention tremor", "Hx Resting tremor", "Hx Postural tremor",
-    "Exam Intention tremor", "Exam Resting tremor", "Exam Postural tremor",
-    "Hx Head tremor", "Exam Head tremor")
+  tremor_vars = c("intention tremor hx", "resting tremor hx", "postural tremor hx",
+    "intention tremor exam", "resting tremor exam", "postural tremor exam",
+    "head tremor hx", "head tremor exam")
 )
 }
 \arguments{
