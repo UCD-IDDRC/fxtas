@@ -32,7 +32,7 @@ compile_biomarker_group_list <- function(dataset)
       "parkinsonian features",
       "Masked faces",
       "Increased tone",
-      "pill-rolling tremor",
+      "pill-rolling tremor exam",
       "Stiff gait")
 
 

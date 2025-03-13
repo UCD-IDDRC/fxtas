@@ -5,13 +5,14 @@ test_that("results are consistent", {
 
   result <-
     trax_gp34_all |>
-    combine_tremor() |>
     select(
       contains("tremor", ignore.case = TRUE),
       -contains("kinesia", ignore.case = TRUE),
       -contains("missingness")
     ) |>
     distinct() |>
+    arrange() |>
+    combine_tremor() |>
     relocate(sort(tidyselect::peek_vars()))
 
   result |>

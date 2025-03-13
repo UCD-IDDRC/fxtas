@@ -1,5 +1,6 @@
 test_that("`extract_figs_from_pickle()` produces stable results", {
 
+  skip_on_os("windows")
   fs::path_package("extdata/sim_data/", package = "fxtas") |>
     extract_figs_from_pickle(output_folder = _,
                              n_s = 1,

@@ -4,7 +4,7 @@
     "resting tremor", "postural tremor", "intermittent tremor hx"), 
         Ataxia = c("Gait ataxia", "Ataxia: severity*"), Stage = "FXTAS Stage", 
         Parkinsonian = c("parkinsonian features", "Masked faces", 
-        "Increased tone", "pill-rolling tremor", "Stiff gait"), Parkinsons = "Parkinsons", 
+        "Increased tone", "pill-rolling tremor exam", "Stiff gait"), Parkinsons = "Parkinsons", 
         MRI = c("MCP-WM Hyperintensity", "MRI: Cerebellar", "MRI: Cerebral", 
         "Splenium (CC)-WM Hyperintensity", "Genu (CC)-WM Hyperintensity", 
         "Corpus Callosum-Thickness"), Scores = c("MMSE total score*", 
