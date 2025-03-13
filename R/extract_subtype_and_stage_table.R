@@ -1,6 +1,6 @@
-extract_subtype_and_stage_table <- function(results) {
-
-  n_s = get_n_subtypes(results)
+extract_subtype_and_stage_table <- function(
+    results,
+    n_s = get_n_subtypes(results)) {
 
   tibble(
     ml_subtype = results$ml_subtype[,1] + 1,

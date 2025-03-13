@@ -9,10 +9,10 @@ test_that("`extract_results_from_pickle()` produces stable results", {
 
   skip_if_not(dir.exists(pickle_folder))
 
-  # skip_if_not("fxtas39" %in% reticulate::conda_list()$name)
+  skip_if_not("fxtas39" %in% reticulate::conda_list()$name)
 
-  # reticulate::use_condaenv("fxtas39", required = TRUE) |>
-  #   suppressWarnings()
+  reticulate::use_condaenv("fxtas39", required = TRUE) |>
+    suppressWarnings()
 
   results =
     extract_results_from_pickle(output_folder = output_path,
