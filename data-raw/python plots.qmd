@@ -33,7 +33,7 @@ tremors = c(
   "Intention tremor" = 1,
   "Resting tremor" = 1,
   "Postural tremor" = 1,
-  "Hx Intermittent tremor" = 1
+  "Intermittent tremor hx" = 1
   # "Any tremor" = 1
 )
 

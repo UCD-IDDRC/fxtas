@@ -23,7 +23,7 @@ compile_biomarker_group_list <- function(dataset)
     "Intention tremor",
     "Resting tremor",
     "Postural tremor",
-    "Hx Intermittent tremor"
+    "Intermittent tremor hx"
     # "Any tremor (excluding head)"
   )
 

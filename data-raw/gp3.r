@@ -450,12 +450,12 @@ labels = c(subj_id = "FXS ID",
            new_mds_med_sur2 = "Surgery 2: Type/Age",
            new_mds_med_sur3 = "Surgery 3: Type/Age",
            # Neurological Exam Tremors
-           mds_ne_it = "Exam Intention tremor",
-           mds_ne_rt = "Exam Resting tremor",
-           mds_ne_pt = "Exam Postural tremor",
-           mds_neu_trem_irm = "Hx Intermittent tremor",
+           mds_ne_it = "intention tremor exam",
+           mds_ne_rt = "resting tremor exam",
+           mds_ne_pt = "postural tremor exam",
+           mds_neu_trem_irm = "Intermittent tremor hx",
            mds_neu_trem_age = "Tremor: Age of onset",
-           new_mds_neu_trem_head = "Hx Head tremor",
+           new_mds_neu_trem_head = "head tremor hx",
            new_mds_neu_trem_age2 = "Head Tremor: Age of onset",
            mds_neu_atax = "Walking/ataxia Problems",
            mds_neu_atax_age = "Hx Ataxia: Age of onset",
@@ -615,9 +615,9 @@ labels = c(subj_id = "FXS ID",
            mds_ne_ga = "Gait ataxia",
            mds_ne_gas = "Gait ataxia severity",
            # Neurological History tremor variables
-           mds_neu_trem_int = "Hx Intention tremor",
-           mds_neu_trem_rest = "Hx Resting tremor",
-           mds_neu_trem_pos = "Hx Postural tremor")
+           mds_neu_trem_int = "intention tremor hx",
+           mds_neu_trem_rest = "resting tremor hx",
+           mds_neu_trem_pos = "postural tremor hx")
 
 if(!isTRUE(setequal(names(dataset), names(labels)))) {
 
@@ -654,7 +654,7 @@ if(FALSE)
   # label(dataset$mds_ne_it)="Intention tremor"
   # label(dataset$mds_ne_rt)="Resting tremor"
   # label(dataset$mds_ne_pt)="Postural tremor"
-  # label(dataset$mds_neu_trem_irm)="Hx Intermittent tremor"
+  # label(dataset$mds_neu_trem_irm)="Intermittent tremor hx"
   # label(dataset$mds_neu_trem_age)="Tremor: Age of onset"
   # label(dataset$new_mds_neu_trem_head)="Head tremor"
   # label(dataset$new_mds_neu_trem_age2)="Head Tremor: Age of onset"

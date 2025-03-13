@@ -1,18 +1,30 @@
-## Tremor variables have TWO versions: "ne_tremor" and "neu_tremor"
-##  ne = Neurological Exam, neu = Neurological History
-##  create a new Tremor variable that takes the more severe score (e.g. Yes)
-
+#' @title Combine exam and history tremor vars
+#' @description
+#' Tremor variables have TWO versions: "ne_tremor" and "neu_tremor"
+#' ne = Neurological Exam, neu = Neurological History
+#' Here, we create a new Tremor variable that takes the more severe score
+#' (e.g. Yes)
+#' @param dataset [data.frame]
+#' @param tremor_vars [character] [vector]
+#'
+#' @returns a modified version of `dataset`
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' test_data |> combine_tremor()
+#' }
 combine_tremor <- function(
     dataset,
     tremor_vars = c(
-      "Hx Intention tremor",
-      "Hx Resting tremor",
-      "Hx Postural tremor",
-      "Exam Intention tremor",
-      "Exam Resting tremor",
-      "Exam Postural tremor",
-      "Hx Head tremor",
-      "Exam Head tremor"
+      "intention tremor hx",
+      "resting tremor hx",
+      "postural tremor hx",
+      "intention tremor exam",
+      "resting tremor exam",
+      "postural tremor exam",
+      "head tremor hx",
+      "head tremor exam"
     )) {
   dataset |>
     dplyr::mutate(
@@ -23,19 +35,19 @@ combine_tremor <- function(
       ),
       # combine using most severe score
       `Resting tremor` = pmax(
-        .data$`Hx Resting tremor`, .data$`Exam Resting tremor`,
+        .data$`resting tremor hx`, .data$`resting tremor exam`,
         na.rm = TRUE
       ),
       `Postural tremor` = pmax(
-        .data$`Hx Postural tremor`, .data$`Exam Postural tremor`,
+        .data$`postural tremor hx`, .data$`postural tremor exam`,
         na.rm = TRUE
       ),
       `Intention tremor` = pmax(
-        .data$`Hx Intention tremor`, .data$`Exam Intention tremor`,
+        .data$`intention tremor hx`, .data$`intention tremor exam`,
         na.rm = TRUE
       ),
       `Head tremor` = pmax(
-        .data$`Hx Head tremor`, .data$`Exam Head tremor`,
+        .data$`head tremor hx`, .data$`head tremor exam`,
         na.rm = TRUE
       )
     )

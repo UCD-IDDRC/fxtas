@@ -1,10 +1,10 @@
 create_any_tremor <- function(
     dataset,
     tremor_types = c(
-      "Hx Intention tremor",
-      "Hx Resting tremor",
-      "Hx Postural tremor",
-      "Hx Intermittent tremor"
+      "intention tremor hx",
+      "resting tremor hx",
+      "postural tremor hx",
+      "Intermittent tremor hx"
     )
 )
 {

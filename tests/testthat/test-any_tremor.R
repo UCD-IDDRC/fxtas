@@ -7,7 +7,7 @@ test_that(
       "Intention tremor",
       "Resting tremor",
       "Postural tremor",
-      "Hx Intermittent tremor"
+      "Intermittent tremor hx"
     )
 
     inconsistent =

@@ -26,7 +26,7 @@ vars = c(
   # "Gait ataxia severity",
   # "Ataxia: severity*"
   "Hx Ataxia: Age of onset"
-  # "Hx Ataxia: Age of onset": missingness reasons"
+  # "Hx Ataxia: Age of onset: missingness reasons"
 )
 
 table1(na.is.category = FALSE, overall = FALSE,

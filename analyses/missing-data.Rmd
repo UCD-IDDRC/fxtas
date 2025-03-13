@@ -145,7 +145,7 @@ vars = c(
   "Intention tremor",
   "Resting tremor",
   "Postural tremor",
-  "Hx Intermittent tremor",
+  "Intermittent tremor hx",
   "Any tremor",
   "Tremor: Age of onset"
   # "Tremor: Age of onset: missingness reasons"
@@ -209,7 +209,7 @@ vars = c(
   "Gait ataxia severity",
   "Ataxia: severity*",
   "Hx Ataxia: Age of onset",
-  "Hx Ataxia: Age of onset": missingness reasons"
+  "Hx Ataxia: Age of onset: missingness reasons"
 )
 
 table1(na.is.category = FALSE, 

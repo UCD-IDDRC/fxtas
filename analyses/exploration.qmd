@@ -1,4 +1,5 @@
 ```{r}
+devtools::load_all()
 load("data/trax_gp34_v1.rda")
 full_data <-
   trax_gp34_v1 |>
@@ -33,7 +34,7 @@ v1_usable_male_cases <-
 outcomes_name <- "symptom"
 events_name <- "symptomatic events"
 column_var <- c("Gender", "FX3*")
-devtools::load_all()
+
 ```
 
 The following supplementary tables 
@@ -76,10 +77,10 @@ footnote1 <- 'Codes `777`, `888`, and `999` are counted as "Missing" (NA).'
 ```{r}
 #| label: tab-tremors
 vars <- c(
-  "Hx Intention tremor",
+  "intention tremor hx",
   "Resting tremor",
   "Postural tremor",
-  "Hx Intermittent tremor"
+  "Intermittent tremor hx"
 )
 table1(
   na.is.category = FALSE, overall = FALSE,
@@ -139,7 +140,7 @@ vars <- c(
   # "Gait ataxia severity",
   "Ataxia: severity*"
   # "Hx Ataxia: Age of onset",
-  # "Hx Ataxia: Age of onset": missingness reasons"
+  # "Hx Ataxia: Age of onset: missingness reasons"
 )
 
 table1(

@@ -12,7 +12,7 @@ all_potential_biomarkers <- function(dataset) {
     "Intention tremor",
     "Resting tremor",
     "Postural tremor",
-    "Hx Intermittent tremor",
+    "Intermittent tremor hx",
     "Any tremor (excluding head)"
   )
 

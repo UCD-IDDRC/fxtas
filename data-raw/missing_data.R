@@ -23,7 +23,7 @@ variables =
     "Intention tremor",
     "Resting tremor",
     "Postural tremor",
-    "Hx Intermittent tremor",
+    "Intermittent tremor hx",
     "Any tremor",
     "Tremor: Age of onset",
 

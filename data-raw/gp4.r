@@ -501,12 +501,12 @@ labels = c(subj_id = "FXS ID",
            new_mds_med_sur3 = "Surgery 3: Type/Age",
            new_mds_med_sur4 = "Surgery 4: Type/Age",
            new_mds_med_sur5 = "Surgery 5: Type/Age",
-           new_mds_neu_trem_int = "Hx Intention tremor",
-           new_mds_neu_trem_rest = "Hx Resting tremor",
-           new_mds_neu_trem_pos = "Hx Postural tremor",
-           new_mds_neu_trem_irm = "Hx Intermittent tremor",
+           new_mds_neu_trem_int = "intention tremor hx",
+           new_mds_neu_trem_rest = "resting tremor hx",
+           new_mds_neu_trem_pos = "postural tremor hx",
+           new_mds_neu_trem_irm = "Intermittent tremor hx",
            new_mds_neu_trem_age = "Tremor: Age of onset",
-           new_mds_neu_trem_head = "Hx Head tremor",
+           new_mds_neu_trem_head = "head tremor hx",
            new_mds_neu_trem_age2 = "Head Tremor: Age of onset",
            new_mds_neu_atax = "Walking/ataxia Problems",
            new_mds_neu_atax_age = "Hx Ataxia: Age of onset",
@@ -605,11 +605,11 @@ labels = c(subj_id = "FXS ID",
            # new vars
            # mol_mos_meth = "Fraction of Methylation (0.0-1.0)",
            mol_act_ratio = "Activation Ratio (0.0-1.0)",
-           new_mds_ne_head = "Exam Head tremor",
-           new_mds_ne_rt = "Exam Resting tremor",
+           new_mds_ne_head = "head tremor exam",
+           new_mds_ne_rt = "resting tremor exam",
            new_mds_ne_rts = "Tremor severity",
-           new_mds_ne_it = "Exam Intention tremor",
-           new_mds_ne_pt = "Exam Postural tremor",
+           new_mds_ne_it = "intention tremor exam",
+           new_mds_ne_pt = "postural tremor exam",
            new_mds_ne_tand = "Tandem Walk"
 )
 
@@ -648,7 +648,7 @@ names(dataset) = labels[names(dataset)]
   # label(dataset$new_mds_neu_trem_int)="Intention tremor"
   # label(dataset$new_mds_neu_trem_rest)="Resting tremor"
   # label(dataset$new_mds_neu_trem_pos)="Postural tremor"
-  # label(dataset$new_mds_neu_trem_irm)="Hx Intermittent tremor"
+  # label(dataset$new_mds_neu_trem_irm)="Intermittent tremor hx"
   # label(dataset$new_mds_neu_trem_age)="Tremor: Age of onset"
   # label(dataset$new_mds_neu_trem_head)="Head tremor"
   # label(dataset$new_mds_neu_trem_age2)="Head Tremor: Age of onset"
