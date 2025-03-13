@@ -35,11 +35,15 @@ add_labels <- function(data) {
           "RTI Five-choice movement time"
         ),
       across(
-        .cols = ends_with("hx"),
+        .cols = matches(" ?hx ?"),
         .fns =
           ~ set_label_attribute(
             .x,
-            cur_column() |> stringr::str_replace(" hx$", "")
+            cur_column() |>
+              stringr::str_replace(
+                regex(" ?hx ?", ignore_case = TRUE),
+                ""
+              )
           )
       )
 

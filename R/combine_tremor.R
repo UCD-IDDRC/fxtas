@@ -46,7 +46,7 @@ combine_tremor <- function(
         .data$`intention tremor hx`, .data$`intention tremor exam`,
         na.rm = TRUE
       ),
-      `Head tremor` = pmax(
+      `head tremor hx` = pmax(
         .data$`head tremor hx`, .data$`head tremor exam`,
         na.rm = TRUE
       )

@@ -412,7 +412,7 @@ Unfortunately head tremor was not collected in GP3
 
 ```{r}
 vars = c(
-  "Head tremor"
+  "head tremor hx"
   # "Head Tremor: Age of onset"
   
 )
@@ -432,7 +432,7 @@ table1(na.is.category = FALSE,
 
 <br>
 
-Age of onset and missingness reasons where "Head tremor" = "Yes":
+Age of onset and missingness reasons where "head tremor hx" = "Yes":
 
 ```{r}
 vars = c(
@@ -449,7 +449,7 @@ table1(na.is.category = FALSE,
   NA.label = NA.label1,
   stratified_formula(vars, column_var),
   # render.continuous = c(.="N", .="Mean (SD)", .="Median [Min,  Max]"),
-  data = visit1 |> dplyr::filter(Study == "GP4" & `Head tremor` == "Yes"),
+  data = visit1 |> dplyr::filter(Study == "GP4" & `head tremor hx` == "Yes"),
   footnote = footnote)
 
 ```
@@ -457,8 +457,8 @@ table1(na.is.category = FALSE,
 ```{r}
 # store n for text
 n_age_NoHeadTremor <- visit1 |> 
-    dplyr::filter((`Head tremor` == "No" |
-             is.na(`Head tremor`)) & 
+    dplyr::filter((`head tremor hx` == "No" |
+             is.na(`head tremor hx`)) & 
              Study == "GP4" &
              !is.na(`Head Tremor: Age of onset`)) |>
   nrow()
@@ -482,8 +482,8 @@ table1(na.is.category = FALSE,
   stratified_formula(vars, column_var),
   # render.continuous = c(.="N", .="Mean (SD)", .="Median [Min,  Max]"),
   data = visit1 |> 
-    dplyr::filter((`Head tremor` == "No" |
-             is.na(`Head tremor`)) & 
+    dplyr::filter((`head tremor hx` == "No" |
+             is.na(`head tremor hx`)) & 
              Study == "GP4"),
   footnote = footnote)
 ```

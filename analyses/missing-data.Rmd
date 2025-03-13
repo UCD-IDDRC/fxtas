@@ -174,7 +174,7 @@ table1(na.is.category = FALSE,
 
 ```{r}
 vars = c(
-  "Head tremor",
+  "head tremor hx",
   "Head Tremor: Age of onset"
   
 )
@@ -185,14 +185,14 @@ table1(na.is.category = FALSE,
 
 ```
 
-Age of onset missingness reasons where "Head tremor" = "Yes":
+Age of onset missingness reasons where "head tremor hx" = "Yes":
 
 ```{r}
 
 table1(na.is.category = FALSE, 
   NA.label = NA.label1,
   stratified_formula("Head Tremor: Age of onset: missingness reasons", "Recruited in study phase"),
-  data = visit1 |> dplyr::filter(`Head tremor` == "Yes"))
+  data = visit1 |> dplyr::filter(`head tremor hx` == "Yes"))
 
 ```
 

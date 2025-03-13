@@ -1,6 +1,6 @@
 # results are consistent
 
-    structure(list(Tremors = c("Head tremor", "Intention tremor", 
+    structure(list(Tremors = c("head tremor hx", "Intention tremor", 
     "Resting tremor", "Postural tremor", "Intermittent tremor hx"), 
         Ataxia = c("Gait ataxia", "Ataxia: severity*"), Stage = "FXTAS Stage", 
         Parkinsonian = c("parkinsonian features", "Masked faces", 

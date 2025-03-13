@@ -23,7 +23,7 @@ table1(
   data = v1_usable |> 
     dplyr::filter(
       !(Study %in% c("Trax Phase 1", "GP3")),
-      `Head tremor` == "Yes"))
+      `head tremor hx` == "Yes"))
 
 ```
 

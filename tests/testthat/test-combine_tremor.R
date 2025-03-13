@@ -7,10 +7,11 @@ test_that("results are consistent", {
     trax_gp34_all |>
     combine_tremor() |>
     select(
-      sort(contains("tremor", ignore.case = TRUE)),
+      contains("tremor", ignore.case = TRUE),
       -contains("kinesia", ignore.case = TRUE)
     ) |>
-    distinct()
+    distinct() |>
+    relocate(sort(tidyselect::peek_vars()))
 
   result |>
     ssdtools:::expect_snapshot_data(name = "tremor-vars")

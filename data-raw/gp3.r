@@ -656,7 +656,7 @@ if(FALSE)
   # label(dataset$mds_ne_pt)="Postural tremor"
   # label(dataset$mds_neu_trem_irm)="Intermittent tremor hx"
   # label(dataset$mds_neu_trem_age)="Tremor: Age of onset"
-  # label(dataset$new_mds_neu_trem_head)="Head tremor"
+  # label(dataset$new_mds_neu_trem_head)="head tremor hx"
   # label(dataset$new_mds_neu_trem_age2)="Head Tremor: Age of onset"
   # label(dataset$mds_neu_atax)="Problem with walking/ataxia"
   # label(dataset$mds_neu_atax_age)="Hx Ataxia: Age of onset"

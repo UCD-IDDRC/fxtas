@@ -19,7 +19,7 @@ compile_biomarker_group_list <- function(dataset)
 {
 
   tremors = c(
-    "Head tremor",
+    "head tremor hx",
     "Intention tremor",
     "Resting tremor",
     "Postural tremor",

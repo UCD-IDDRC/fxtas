@@ -50,7 +50,7 @@ report_sex_differences <- function(table, cutoff = 0.05) {
           "SWM Between errors",
           "the CANTAB subtest of Spatial Working Memory (SWM) Between errors"
         ) |>
-        stringr::str_replace("Head tremor", "head tremor"),
+        stringr::str_replace("head tremor hx", "head tremor hx"),
 
       p_val_formatted =
         .data$`p-value` |>

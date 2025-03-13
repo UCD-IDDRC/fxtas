@@ -27,7 +27,7 @@ variables =
     "Any tremor",
     "Tremor: Age of onset",
 
-    "Head tremor",
+    "head tremor hx",
     "Head Tremor: Age of onset",
 
     "Gait ataxia",

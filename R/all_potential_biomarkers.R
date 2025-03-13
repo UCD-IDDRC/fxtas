@@ -8,7 +8,7 @@
 all_potential_biomarkers <- function(dataset) {
   missingness_vars <- grep("missingness", names(dataset), value = TRUE)
   tremors <- c(
-    "Head tremor",
+    "head tremor hx",
     "Intention tremor",
     "Resting tremor",
     "Postural tremor",
