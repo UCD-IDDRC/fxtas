@@ -30,7 +30,7 @@ combine_tremor <- function(
     dplyr::mutate(
       # convert to ordered factor
       dplyr::across(
-        .cols = dplyr::all_of(tremor_vars),
+        .cols = dplyr::any_of(tremor_vars),
         ~ factor(.x, levels = c("No", "Yes"), ordered = TRUE)
       ),
       # combine using most severe score
@@ -46,13 +46,10 @@ combine_tremor <- function(
         .data$`intention tremor hx`, .data$`intention tremor exam`,
         na.rm = TRUE
       ),
-      `head tremor` = pmax(
-        .data$`head tremor hx`, .data$`head tremor exam`,
-        na.rm = TRUE
-      ),
 
       # there's no `intermittent tremor exam` variable
       `intermittent tremor` = .data$`intermittent tremor hx`
     ) |>
+    combine_head_tremor() |>
     create_any_tremor()
 }

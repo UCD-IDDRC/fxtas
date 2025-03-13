@@ -16,8 +16,6 @@ Genu (CC)-WM Hyperintensity,Genu (CC) White Matter Hyperintensity
 Hx Ataxia: Age of onset,Ataxia: Age of onset
 Hx Ataxia: Age of onset: missingness reasons,Ataxia: Age of onset: missingness reasons
 Hx Ataxia: severity,Ataxia: severity
-Intermittent tremor hx,Intermittent tremor
-Intermittent tremor hx: missingness reasons,Intermittent tremor: missingness reasons
 MCP-WM Hyperintensity,MCP White Matter Hyperintensity
 MMSE total score*,MMSE total score
 PAL Total errors (adjusted)*,PAL total errors
@@ -32,6 +30,8 @@ head tremor hx,head tremor
 head tremor hx: missingness reasons,head tremor: missingness reasons
 intention tremor hx,intention tremor
 intention tremor hx: missingness reasons,intention tremor: missingness reasons
+intermittent tremor hx,intermittent tremor
+intermittent tremor hx: missingness reasons,intermittent tremor: missingness reasons
 postural tremor hx,postural tremor
 postural tremor hx: missingness reasons,postural tremor: missingness reasons
 resting tremor hx,resting tremor

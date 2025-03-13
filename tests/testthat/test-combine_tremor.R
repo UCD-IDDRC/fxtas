@@ -8,7 +8,8 @@ test_that("results are consistent", {
     combine_tremor() |>
     select(
       contains("tremor", ignore.case = TRUE),
-      -contains("kinesia", ignore.case = TRUE)
+      -contains("kinesia", ignore.case = TRUE),
+      -contains("missingness")
     ) |>
     distinct() |>
     relocate(sort(tidyselect::peek_vars()))

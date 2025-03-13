@@ -10,7 +10,7 @@ clean_trax_data <- function(dataset)
     dplyr::relocate("FXS ID", .before = "Event Name") |>
     # clean_head_tremor_onset() |>
 
-    create_any_tremor() |>
+    combine_tremor() |>
     fix_tremor_onsets() |>
 
     fix_onset_age_vars() |>
