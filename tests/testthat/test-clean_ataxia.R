@@ -5,7 +5,10 @@ test_that("results are consistent", {
   skip_if_not(file.exists(file_path))
 
   d1 <- readr::read_rds(file_path) |>
-    dplyr::select(contains("ataxia", ignore.case = TRUE)) |>
+    dplyr::select(
+      contains("ataxia", ignore.case = TRUE),
+      -contains("age of onset")
+    ) |>
     distinct()
 
   withr::local_package("dplyr")
