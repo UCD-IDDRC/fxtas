@@ -1,7 +1,7 @@
 combine_presence_and_severity <- function(
   data,
   binary_varname,
-  severity_varname = paste(varname_stem, "severity"),
+  severity_varname = paste(binary_varname, "severity"),
   severity_varname_f = paste0(severity_varname, "*")
 ) {
   data |>

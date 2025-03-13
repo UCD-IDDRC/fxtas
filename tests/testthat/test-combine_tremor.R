@@ -3,6 +3,7 @@ test_that("results are consistent", {
   skip_on_ci()
   skip_on_cran()
 
+  skip_if_not(exists("trax_gp34_all"))
   result <-
     trax_gp34_all |>
     select(
