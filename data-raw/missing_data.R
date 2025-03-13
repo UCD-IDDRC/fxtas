@@ -20,15 +20,15 @@ variables =
     "Anesthesia (medic_surg_anes)",
     "Anesthesia (new_mds_med_anes1)",
 
-    "Intention tremor",
-    "Resting tremor",
-    "Postural tremor",
-    "Intermittent tremor hx",
+    "intention tremor",
+    "resting tremor",
+    "postural tremor",
+    "intermittent tremor hx",
     "Any tremor",
-    "Tremor: Age of onset",
+    "tremor: age of onset",
 
     "head tremor hx",
-    "Head Tremor: Age of onset",
+    "head tremor: age of onset",
 
     "Gait ataxia",
     "Gait ataxia severity",

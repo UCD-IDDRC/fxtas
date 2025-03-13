@@ -1,10 +1,10 @@
 clean_kinesia <- function(data,
                           kinesia_vars = c(
                             "Kinesia Left Rest Tremor",
-                            "Kinesia Left Postural Tremor",
+                            "Kinesia Left postural tremor",
                             "Kinesia Left Kinetic Tremor",
                             "Kinesia Right Rest Tremor",
-                            "Kinesia Right Postural Tremor",
+                            "Kinesia Right postural tremor",
                             "Kinesia Right Kinetic Tremor"
                           ))
 {

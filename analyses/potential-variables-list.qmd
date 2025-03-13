@@ -58,11 +58,11 @@ Notes:
   - "Raynauds Syndrome",
   - "Pulmonary Fibrosis"
   
-- "Any tremor (excluding head)" includes:
-  - "Intention tremor",
-  - "Resting tremor",
-  - "Postural tremor",
-  - "Intermittent tremor hx"
+- "any tremor (excluding head)" includes:
+  - "intention tremor",
+  - "resting tremor",
+  - "postural tremor",
+  - "intermittent tremor hx"
   
 - "Any cancer" includes:
   - "Thyroid Cancer",

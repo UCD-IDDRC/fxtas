@@ -1,5 +1,5 @@
 test_that(
-  "`Tremor: Age of onset: missingness reasons` matches `Tremor: Age of onset`",
+  "`tremor: age of onset: missingness reasons` matches `tremor: age of onset`",
 
   {
 
@@ -8,11 +8,11 @@ test_that(
     inconsistent =
       gp34 |>
       dplyr::filter(
-        is.na(`Tremor: Age of onset`),
-        `Tremor: Age of onset: missingness reasons` == "[Valid data recorded]") |>
+        is.na(`tremor: age of onset`),
+        `tremor: age of onset: missingness reasons` == "[Valid data recorded]") |>
       dplyr::select(
-        `Tremor: Age of onset`,
-        `Tremor: Age of onset: missingness reasons`)
+        `tremor: age of onset`,
+        `tremor: age of onset: missingness reasons`)
 
     expect_equal(object = nrow(inconsistent), expected = 0)
 

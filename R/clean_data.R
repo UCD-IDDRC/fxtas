@@ -17,7 +17,7 @@ clean_data <- function(dataset)
     dplyr::relocate("Visit Date", .after = "Event Name") |>
     clean_head_tremor_onset() |>
 
-    create_any_tremor() |>
+    combine_tremor() |>
     fix_tremor_onsets() |>
 
     fix_onset_age_vars()

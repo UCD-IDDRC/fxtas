@@ -142,13 +142,13 @@ table1(na.is.category = FALSE,
 ```{r}
 vars = c(
   
-  "Intention tremor",
-  "Resting tremor",
-  "Postural tremor",
-  "Intermittent tremor hx",
+  "intention tremor",
+  "resting tremor",
+  "postural tremor",
+  "intermittent tremor hx",
   "Any tremor",
-  "Tremor: Age of onset"
-  # "Tremor: Age of onset: missingness reasons"
+  "tremor: age of onset"
+  # "tremor: age of onset: missingness reasons"
 )
 table1(na.is.category = FALSE, 
   NA.label = NA.label1,
@@ -163,7 +163,7 @@ Age of onset missingness reasons where any of the four above tremor types = "Yes
 
 table1(na.is.category = FALSE, 
   NA.label = NA.label1,
-  stratified_formula("Tremor: Age of onset: missingness reasons", "Recruited in study phase"),
+  stratified_formula("tremor: age of onset: missingness reasons", "Recruited in study phase"),
   data = visit1 |> dplyr::filter(`Any tremor` == "Some Tremors Recorded"))
 
 ```
@@ -175,7 +175,7 @@ table1(na.is.category = FALSE,
 ```{r}
 vars = c(
   "head tremor hx",
-  "Head Tremor: Age of onset"
+  "head tremor: age of onset"
   
 )
 table1(na.is.category = FALSE, 
@@ -191,7 +191,7 @@ Age of onset missingness reasons where "head tremor hx" = "Yes":
 
 table1(na.is.category = FALSE, 
   NA.label = NA.label1,
-  stratified_formula("Head Tremor: Age of onset: missingness reasons", "Recruited in study phase"),
+  stratified_formula("head tremor: age of onset: missingness reasons", "Recruited in study phase"),
   data = visit1 |> dplyr::filter(`head tremor hx` == "Yes"))
 
 ```

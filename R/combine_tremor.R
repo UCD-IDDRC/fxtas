@@ -34,21 +34,25 @@ combine_tremor <- function(
         ~ factor(.x, levels = c("No", "Yes"), ordered = TRUE)
       ),
       # combine using most severe score
-      `Resting tremor` = pmax(
+      `resting tremor` = pmax(
         .data$`resting tremor hx`, .data$`resting tremor exam`,
         na.rm = TRUE
       ),
-      `Postural tremor` = pmax(
+      `postural tremor` = pmax(
         .data$`postural tremor hx`, .data$`postural tremor exam`,
         na.rm = TRUE
       ),
-      `Intention tremor` = pmax(
+      `intention tremor` = pmax(
         .data$`intention tremor hx`, .data$`intention tremor exam`,
         na.rm = TRUE
       ),
-      `head tremor hx` = pmax(
+      `head tremor` = pmax(
         .data$`head tremor hx`, .data$`head tremor exam`,
         na.rm = TRUE
-      )
-    )
+      ),
+
+      # there's no `intermittent tremor exam` variable
+      `intermittent tremor` = .data$`intermittent tremor hx`
+    ) |>
+    create_any_tremor()
 }
