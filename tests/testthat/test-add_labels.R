@@ -1,6 +1,5 @@
 test_that("results are consistent", {
 
-  skip_on_ci()
   dat <- readr::read_rds(testthat::test_path("fixtures", "gp34_nodata.rds"))
 
   x <- dat |>

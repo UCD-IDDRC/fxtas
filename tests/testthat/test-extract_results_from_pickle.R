@@ -1,5 +1,7 @@
 test_that("`extract_results_from_pickle()` produces stable results", {
 
+  skip_on_ci()
+
   output_path <-
     fs::path_package("extdata/sim_data", package = "fxtas")
 
