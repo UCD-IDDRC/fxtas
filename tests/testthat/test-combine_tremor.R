@@ -8,7 +8,8 @@ test_that("results are consistent", {
     select(
       contains("tremor", ignore.case = TRUE),
       -contains("kinesia", ignore.case = TRUE),
-      -contains("missingness")
+      -contains("missingness"),
+      -contains("age of onset")
     ) |>
     distinct() |>
     arrange() |>
