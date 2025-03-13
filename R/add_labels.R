@@ -29,7 +29,7 @@ add_labels <- function(data) {
       `SWM Between errors*` =
         .data$`SWM Between errors*` |>
         labelled::set_label_attribute("SWM Between errors"),
-      `RTI Five-choice movement time*` =
+      `RTI Five-choice move2ment time*` =
         .data$`RTI Five-choice movement time*` |>
         labelled::set_label_attribute(
           "RTI Five-choice movement time"
