@@ -13,7 +13,7 @@ combine_presence_and_severity <- function(
           true = "No",
           false = .data[[binary_varname]]
         ) |>
-        factor(levels = c("No", "Yes")),
+        ordered(levels = c("No", "Yes")),
       "{severity_varname}" :=
         if_else(
           condition = (.data[[binary_varname]] %in% "No") &

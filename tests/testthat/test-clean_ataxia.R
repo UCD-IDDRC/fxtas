@@ -4,14 +4,15 @@ test_that("results are consistent", {
 
   skip_if_not(file.exists(file_path))
 
-  d1 <- readr::read_rds(file_path)
+  d1 <- readr::read_rds(file_path) |>
+    dplyr::select(contains("ataxia", ignore.case = TRUE)) |>
+    distinct()
 
   withr::local_package("dplyr")
   snap <-
     d1 |>
-    dplyr::select(contains("ataxia", ignore.case = TRUE)) |>
-    distinct() |>
-    clean_ataxia()
+    clean_ataxia() |>
+    relocate(sort(tidyselect::peek_vars()))
 
   snap |>
     ssdtools:::expect_snapshot_data(name = "ataxia-vars")

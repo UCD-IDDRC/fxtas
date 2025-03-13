@@ -69,7 +69,7 @@ clean_trax_data <- function(dataset)
     define_cases_and_controls() |>
 
     # Ataxia
-    clean_trax_ataxia() |>
+    clean_ataxia() |>
 
     fix_factors() |>
 

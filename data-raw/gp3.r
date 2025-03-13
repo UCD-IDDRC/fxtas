@@ -458,7 +458,7 @@ labels = c(subj_id = "FXS ID",
            new_mds_neu_trem_head = "head tremor hx",
            new_mds_neu_trem_age2 = "head tremor: age of onset",
            mds_neu_atax = "gait ataxia hx",
-           mds_neu_atax_age = "ataxia hx: age of onset",
+           mds_neu_atax_age = "gait ataxia age of onset hx",
            mds_neu_atax_sev = "gait ataxia severity hx",
            # new_mds_ne_ga = "gait ataxia exam",
            new_mds_med_park = "Parkinsons",
@@ -659,7 +659,7 @@ if(FALSE)
   # label(dataset$new_mds_neu_trem_head)="head tremor hx"
   # label(dataset$new_mds_neu_trem_age2)="head tremor: age of onset"
   # label(dataset$mds_neu_atax)="Problem with walking/ataxia"
-  # label(dataset$mds_neu_atax_age)="ataxia hx: age of onset"
+  # label(dataset$mds_neu_atax_age)="gait ataxia age of onset hx"
   # label(dataset$mds_neu_atax_sev)="gait ataxia severity hx"
   # label(dataset$new_mds_ne_ga)="gait ataxia exam"
   # label(dataset$new_mds_med_park)="Parkinsons"

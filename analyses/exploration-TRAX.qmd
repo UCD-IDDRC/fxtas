@@ -471,8 +471,8 @@ vars = c(
   "gait ataxia exam",
   "gait ataxia severity exam",
   "gait ataxia severity*"
-  # "ataxia hx: age of onset",
-  # "ataxia hx: age of onset: missingness reasons"
+  # "gait ataxia age of onset hx",
+  # "gait ataxia age of onset hx: missingness reasons"
 )
 
 table1(na.is.category = FALSE, 
@@ -492,8 +492,8 @@ vars = c(
   # "gait ataxia exam",
   # "gait ataxia severity exam",
   # "gait ataxia severity*"
-  "ataxia hx: age of onset",
-  "ataxia hx: age of onset: missingness reasons"
+  "gait ataxia age of onset hx",
+  "gait ataxia age of onset hx: missingness reasons"
 )
 
 table1(na.is.category = FALSE, 
@@ -521,8 +521,8 @@ vars = c(
   # "gait ataxia exam",
   # "gait ataxia severity exam",
   # "gait ataxia severity*"
-  "ataxia hx: age of onset",
-  "ataxia hx: age of onset: missingness reasons"
+  "gait ataxia age of onset hx",
+  "gait ataxia age of onset hx: missingness reasons"
 )
 
 footnote = paste0(

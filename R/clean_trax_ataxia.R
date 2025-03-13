@@ -1,9 +1,10 @@
 clean_trax_ataxia <- function(data)
 {
-  data |>
+  to_return <-
+    data |>
     dplyr::mutate(
 
-      `Ataxia severity: missingness reasons` =
+      `gait ataxia severity exam: missingness reasons` =
         .data$`gait ataxia severity exam` |> missingness_reasons.numeric(),
 
       # setting missing codes as 0s:
@@ -32,7 +33,10 @@ clean_trax_ataxia <- function(data)
           (.data$`gait ataxia exam` %in% "No") & is.na(.data$`gait ataxia severity exam`),
         true = 0,
         false = .data$`gait ataxia severity exam`
-      ),
+      )
+    )
+  to_return <- to_return |>
+    mutate(
 
       `gait ataxia severity*` =
         case_when(

@@ -32,7 +32,7 @@ variables =
 
     "gait ataxia exam",
     "gait ataxia severity exam",
-    "ataxia hx: age of onset",
+    "gait ataxia age of onset hx",
 
 
     grep("Parkinson", value = TRUE, names(gp34)),
