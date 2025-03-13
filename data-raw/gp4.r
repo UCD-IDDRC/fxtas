@@ -5,10 +5,13 @@ graphics.off()
 library(Hmisc)
 library(dplyr)
 library(vroom)
+devtools::load_all()
 #Read Data
 dataset=vroom::vroom(
-  'inst/extdata/CTSC3704GP4GenotypeP-FXTASEventSequence10_DATA_2025-02-27_1709.csv',
+  'inst/extdata/CTSC3704GP4GenotypeP-FXTASEventSequence10_DATA_2025-03-12_1507.csv',
   col_types = cols(
+    new_mds_ne_gas = col_integer(),
+    mol_mos_meth = col_skip(),
     dem_date = col_date(),
     new_mds_med_can_other = col_integer(),
     new_mds_med_anes1 = col_character(),
@@ -401,7 +404,10 @@ levels(dataset$new_mds_ne_it)=c("No","Yes","No Response","Question not asked at 
 levels(dataset$new_mds_ne_pt)=c("No","Yes","No Response","Question not asked at time of data entry; check records")
 levels(dataset$new_mds_ne_tand)=c("Normal","Steps (Abnormal, < 10)","Unable (Absent)","No data","question not asked at time of data entry; check records")
 
-
+dataset <- dataset |>
+  mutate(
+    mol_act_ratio = mol_act_ratio |> clean_mol_act_ratio()
+  )
 
 #Setting Labels
 
@@ -409,7 +415,7 @@ labels = c(subj_id = "FXS ID",
            redcap_event_name = "Event Name",
            new_mds_med_anes1="Anesthesia (new_mds_med_anes1)",
            medic_surg_anes="Anesthesia (medic_surg_anes)",
-           # pp_t1rlb_total ="Purdue pegboard 1st Trial Total, R+L+B",
+           pp_t1rlb_total ="Purdue pegboard 1st Trial Total, R+L+B",
            new_mds_med_can_notes ="Cancer Notes",
            new_mds_med_thy ="Thyroid problems",
            new_mds_med_hyothy ="Hypothyroid",
@@ -495,22 +501,22 @@ labels = c(subj_id = "FXS ID",
            new_mds_med_sur3 = "Surgery 3: Type/Age",
            new_mds_med_sur4 = "Surgery 4: Type/Age",
            new_mds_med_sur5 = "Surgery 5: Type/Age",
-           new_mds_neu_trem_int = "Hx Intention tremor",
-           new_mds_neu_trem_rest = "Hx Resting tremor",
-           new_mds_neu_trem_pos = "Hx Postural tremor",
-           new_mds_neu_trem_irm = "Intermittent tremor",
-           new_mds_neu_trem_age = "Tremor: Age of onset",
-           new_mds_neu_trem_head = "Hx Head tremor",
-           new_mds_neu_trem_age2 = "Head Tremor: Age of onset",
-           new_mds_neu_atax = "Walking/ataxia Problems",
-           new_mds_neu_atax_age = "Ataxia: Age of onset",
-           new_mds_ne_ga = "Gait: Ataxia",
-           new_mds_ne_gas = "Gait: Ataxia severity",
+           new_mds_neu_trem_int = "intention tremor hx",
+           new_mds_neu_trem_rest = "resting tremor hx",
+           new_mds_neu_trem_pos = "postural tremor hx",
+           new_mds_neu_trem_irm = "intermittent tremor hx",
+           new_mds_neu_trem_age = "tremor: age of onset",
+           new_mds_neu_trem_head = "head tremor hx",
+           new_mds_neu_trem_age2 = "head tremor: age of onset",
+           new_mds_neu_atax = "ataxia hx",
+           new_mds_neu_atax_age = "ataxia age of onset hx",
+           new_mds_ne_ga = "ataxia exam",
+           new_mds_ne_gas = "ataxia severity exam",
            new_mds_med_park = "Parkinsons",
            new_mds_ne_pf = "parkinsonian features",
            new_mds_ne_pfmf = "Masked faces",
            new_mds_ne_pfit = "Increased tone",
-           new_mds_ne_pfprt = "Pill-rolling tremor",
+           new_mds_ne_pfprt = "pill-rolling tremor exam",
            new_mds_ne_pfsg = "Stiff gait",
            new_mds_fxtas_stage = "FXTAS Stage (0-5)",
            bds2_score = "BDS-2 Total Score",
@@ -556,7 +562,8 @@ labels = c(subj_id = "FXS ID",
            new_mds_med_ray = "Raynauds Syndrome",
            new_mds_med_pulm = "Pulmonary Fibrosis",
            new_mds_med_immun_notes = "Immunological Notes",
-
+           redcap_repeat_instrument = "Repeat Instrument",
+           redcap_repeat_instance = "Repeat Instance",
            mri_cere_atr = "Cerebral Atrophy",
            mri_cerebel_atr = "Cerebellar Atrophy",
            mri_cere_wm_hyper = "Cerebral WM Hyperintensity",
@@ -588,21 +595,21 @@ labels = c(subj_id = "FXS ID",
            rtifmdmt = "RTI Five-choice movement time",
            swmbe468 = "SWM Between errors",
            kin_l_resttrem="Kinesia Left Rest Tremor",
-           kin_l_posttrem="Kinesia Left Postural Tremor",
+           kin_l_posttrem="Kinesia Left postural tremor",
            kin_l_kintrem ="Kinesia Left Kinetic Tremor",
            kin_r_resttrem="Kinesia Right Rest Tremor",
-           kin_r_posttrem="Kinesia Right Postural Tremor",
+           kin_r_posttrem="Kinesia Right postural tremor",
            kin_r_kintrem ="Kinesia Right Kinetic Tremor",
            # moca_tot_score ="MOCA Total score",
 
            # new vars
-           mol_mos_meth = "Fraction of Methylation (0.0-1.0)",
+           # mol_mos_meth = "Fraction of Methylation (0.0-1.0)",
            mol_act_ratio = "Activation Ratio (0.0-1.0)",
-           new_mds_ne_head = "Exam Head tremor",
-           new_mds_ne_rt = "Exam Resting tremor",
-           new_mds_ne_rts = "Tremor severity",
-           new_mds_ne_it = "Exam Intention tremor",
-           new_mds_ne_pt = "Exam Postural tremor",
+           new_mds_ne_head = "head tremor exam",
+           new_mds_ne_rt = "resting tremor exam",
+           new_mds_ne_rts = "tremor severity",
+           new_mds_ne_it = "intention tremor exam",
+           new_mds_ne_pt = "postural tremor exam",
            new_mds_ne_tand = "Tandem Walk"
 )
 
@@ -638,22 +645,22 @@ names(dataset) = labels[names(dataset)]
   # label(dataset$new_mds_med_sur3)="Surgery 3: Type/Age"
   # label(dataset$new_mds_med_sur4)="Surgery 4: Type/Age"
   # label(dataset$new_mds_med_sur5)="Surgery 5: Type/Age"
-  # label(dataset$new_mds_neu_trem_int)="Intention tremor"
-  # label(dataset$new_mds_neu_trem_rest)="Resting tremor"
-  # label(dataset$new_mds_neu_trem_pos)="Postural tremor"
-  # label(dataset$new_mds_neu_trem_irm)="Intermittent tremor"
-  # label(dataset$new_mds_neu_trem_age)="Tremor: Age of onset"
-  # label(dataset$new_mds_neu_trem_head)="Head tremor"
-  # label(dataset$new_mds_neu_trem_age2)="Head Tremor: Age of onset"
-  # label(dataset$new_mds_neu_atax)="Walking/ataxia Problems"
+  # label(dataset$new_mds_neu_trem_int)="intention tremor"
+  # label(dataset$new_mds_neu_trem_rest)="resting tremor"
+  # label(dataset$new_mds_neu_trem_pos)="postural tremor"
+  # label(dataset$new_mds_neu_trem_irm)="intermittent tremor hx"
+  # label(dataset$new_mds_neu_trem_age)="tremor: age of onset"
+  # label(dataset$new_mds_neu_trem_head)="head tremor hx"
+  # label(dataset$new_mds_neu_trem_age2)="head tremor: age of onset"
+  # label(dataset$new_mds_neu_atax)="ataxia hx"
   # label(dataset$new_mds_neu_atax_age)="Age of onset"
-  # label(dataset$new_mds_ne_ga)="Ataxia"
+  # label(dataset$new_mds_ne_ga)="ataxia exam"
   # label(dataset$new_mds_ne_gas)="Ataxia severity"
   # label(dataset$new_mds_med_park)="Parkinsons"
   # label(dataset$new_mds_ne_pf)="parkinsonian features"
   # label(dataset$new_mds_ne_pfmf)="Masked faces"
   # label(dataset$new_mds_ne_pfit)="Increased tone"
-  # label(dataset$new_mds_ne_pfprt)="Pill-rolling tremor"
+  # label(dataset$new_mds_ne_pfprt)="pill-rolling tremor exam"
   # label(dataset$new_mds_ne_pfsg)="Stiff gait"
   # label(dataset$new_mds_fxtas_stage)="FXTAS Stage (0-5)"
   # label(dataset$bds2_score)="BDS-2 Total Score"

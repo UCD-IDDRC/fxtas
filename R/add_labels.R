@@ -15,7 +15,7 @@ add_labels <- function(data) {
         labelled::set_label_attribute("Parkinson's disease"),
       `FXTAS Stage` = .data$`FXTAS Stage` |>
         labelled::set_label_attribute("FXTAS Stage"),
-      `Ataxia: severity*` = .data$`Ataxia: severity*` |>
+      `ataxia severity*` = .data$`ataxia severity*` |>
         labelled::set_label_attribute("Ataxia severity"),
       `MMSE total score*` = .data$`MMSE total score*` |>
         labelled::set_label_attribute("MMSE total score"),
@@ -29,11 +29,11 @@ add_labels <- function(data) {
       `SWM Between errors*` =
         .data$`SWM Between errors*` |>
         labelled::set_label_attribute("SWM Between errors"),
-      `RTI Five-choice movement time*` =
+      `RTI Five-choice move2ment time*` =
         .data$`RTI Five-choice movement time*` |>
         labelled::set_label_attribute(
           "RTI Five-choice movement time"
-        ),
+        )
     ) |>
     set_mri_var_labels()
 }

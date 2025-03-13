@@ -1,3 +1,42 @@
+```{r}
+devtools::load_all()
+load("data/trax_gp34_v1.rda")
+full_data <-
+  trax_gp34_v1 |>
+  add_labels()
+n_missing_CGG <- # nolint: object_name_linter
+  full_data$CGG |>
+  is.na() |>
+  sum()
+n_above_200 <- sum(full_data$CGG >= 200, na.rm = TRUE)
+v1_usable <-
+  full_data |>
+  dplyr::filter(CGG < 200) |>
+  dplyr::mutate(
+    `FX3*` = .data$`FX3*` |>
+      forcats::fct_drop() |>
+      labelled::set_label_attribute("CGG Repeat Level"),
+    Parkinsons = Parkinsons |>
+      labelled::set_label_attribute("Parkinson's disease"),
+    `FXTAS Stage` = `FXTAS Stage` |>
+      labelled::set_label_attribute("FXTAS Stage")
+  )
+
+v1_usable_males <- v1_usable |> dplyr::filter(Gender == "Male")
+v1_usable_females <- v1_usable |> dplyr::filter(Gender == "Female")
+v1_usable_cases <- v1_usable |> dplyr::filter(CGG >= 55)
+v1_usable_male_cases <-
+  v1_usable |>
+  dplyr::filter(
+    Gender == "Male",
+    CGG >= 55
+  )
+outcomes_name <- "symptom"
+events_name <- "symptomatic events"
+column_var <- c("Gender", "FX3*")
+
+```
+
 The following supplementary tables 
 [-@supptbl-tremors] - [-@supptbl-autoimmune] 
 summarize the distributions of the `r outcomes_name`s
@@ -38,13 +77,35 @@ footnote1 <- 'Codes `777`, `888`, and `999` are counted as "Missing" (NA).'
 ```{r}
 #| label: tab-tremors
 vars <- c(
-  "Intention tremor",
-  "Resting tremor",
-  "Postural tremor",
-  "Intermittent tremor"
+  "intention tremor",
+  "resting tremor",
+  "postural tremor",
+  "intermittent tremor"
 )
+
+# gtsummary version:
+# if (FALSE) {
+# tbl_function <- function(x) {
+#   gtsummary::tbl_summary(
+#     data = x,
+#     by = column_var[2],
+#     type = gtsummary::all_dichotomous() ~ "categorical"
+#   )
+# }
+# 
+# v1_usable |> 
+#   select(all_of(c(vars, column_var))) |> 
+#   gtsummary::tbl_strata(
+#     strata = column_var[1],
+#     .tbl_fun = tbl_function
+#   ) |> 
+#   gtsummary::as_flex_table() |> 
+#   shared_flextable_settings()
+# }
+
 table1(
-  na.is.category = FALSE, overall = FALSE,
+  na.is.category = FALSE, 
+  overall = FALSE,
   NA.label = na_label_1,
   stratified_formula(vars, column_var),
   render.continuous = c(
@@ -66,8 +127,8 @@ table1(
 
 ```{r}
 vars <- c(
-  "Head tremor"
-  # "Head Tremor: Age of onset"
+  "head tremor hx"
+  # "head tremor: age of onset"
 )
 
 footnote_ht <- paste(
@@ -75,16 +136,16 @@ footnote_ht <- paste(
   "Summaries provided are for GP4 + Trax Phase 2 only."
 )
 v1_usable |>
-    # dplyr::filter(!(Study %in% c("Trax Phase 1", "GP3"))) |> 
-table1(
-  # footnote = footnote_ht,
-  na.is.category = FALSE,
-  overall = FALSE,
-  NA.label = na_label_1,
-  stratified_formula(vars, column_var),
-  # render.continuous = c(.="N", .="Mean (SD)", .="Median [Min,  Max]"),
-  data = _
-) |> 
+  # dplyr::filter(!(Study %in% c("Trax Phase 1", "GP3"))) |> 
+  table1(
+    # footnote = footnote_ht,
+    na.is.category = FALSE,
+    overall = FALSE,
+    NA.label = na_label_1,
+    stratified_formula(vars, column_var),
+    # render.continuous = c(.="N", .="Mean (SD)", .="Median [Min,  Max]"),
+    data = _
+  ) |> 
   table1::t1flex() |>
   shared_flextable_settings()
 ```
@@ -97,11 +158,10 @@ table1(
 
 ```{r}
 vars <- c(
-  "Ataxia",
-  # "Ataxia: severity",
-  "Ataxia: severity*"
-  # "Ataxia: Age of onset",
-  # "Ataxia: Age of onset: missingness reasons"
+  "ataxia",
+  "ataxia severity"
+  # "ataxia age of onset",
+  # "ataxia age of onset: missingness reasons"
 )
 
 table1(
@@ -306,17 +366,17 @@ cantab_vars <- c(
 #   as.vector()
 
 
-  table1(
-    na.is.category = FALSE, overall = FALSE,
-    NA.label = "Missing (empty in RedCap)",
-    stratified_formula(cantab_vars, column_var),
-    # render.continuous = c(.="N", .="Mean (SD)", .="Median [Min,  Max]"),
-    data = v1_usable
-  ) |> 
-    table1::t1flex() |>
-    shared_flextable_settings() |>
-    flextable::width(width = 2) |>
-    flextable::width(j = 2:7, width = 1.25)
+table1(
+  na.is.category = FALSE, overall = FALSE,
+  NA.label = "Missing (empty in RedCap)",
+  stratified_formula(cantab_vars, column_var),
+  # render.continuous = c(.="N", .="Mean (SD)", .="Median [Min,  Max]"),
+  data = v1_usable
+) |> 
+  table1::t1flex() |>
+  shared_flextable_settings() |>
+  flextable::width(width = 2) |>
+  flextable::width(j = 2:7, width = 1.25)
 ```
 
 **Cambridge Neuropsychological Test Automated Battery (CANTAB)**

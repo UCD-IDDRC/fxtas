@@ -20,19 +20,19 @@ variables =
     "Anesthesia (medic_surg_anes)",
     "Anesthesia (new_mds_med_anes1)",
 
-    "Intention tremor",
-    "Resting tremor",
-    "Postural tremor",
-    "Intermittent tremor",
+    "intention tremor",
+    "resting tremor",
+    "postural tremor",
+    "intermittent tremor hx",
     "Any tremor",
-    "Tremor: Age of onset",
+    "tremor: age of onset",
 
-    "Head tremor",
-    "Head Tremor: Age of onset",
+    "head tremor hx",
+    "head tremor: age of onset",
 
-    "Ataxia",
-    "Ataxia: severity",
-    "Ataxia: Age of onset",
+    "ataxia exam",
+    "ataxia severity exam",
+    "ataxia age of onset hx",
 
 
     grep("Parkinson", value = TRUE, names(gp34)),

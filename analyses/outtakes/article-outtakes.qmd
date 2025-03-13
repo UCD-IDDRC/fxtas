@@ -9,8 +9,8 @@ title: "Summaries of Excluded Variables"
 #| label: "tbl-head-tremor-AO"
 #| eval: false # converting to docx runs into a weird `flextable()` edge case because two subcolumn headers are identical
 vars = c(
-  "Head Tremor: Age of onset",
-  if(show_missingness_reasons) "Head Tremor: Age of onset: missingness reasons"
+  "head tremor: age of onset",
+  if(show_missingness_reasons) "head tremor: age of onset: missingness reasons"
   
 )
 
@@ -23,7 +23,7 @@ table1(
   data = v1_usable |> 
     dplyr::filter(
       !(Study %in% c("Trax Phase 1", "GP3")),
-      `Head tremor` == "Yes"))
+      `head tremor hx` == "Yes"))
 
 ```
 

@@ -1,7 +1,7 @@
 
 ```{r}
 #| label: count-incomplete-data
-x1 = v1_usable_cases |> dplyr::pull(`Ataxia: severity`)
+x1 = v1_usable_cases |> dplyr::pull(`ataxia severity exam`)
 n_missing = sum(x1 |> is.na())
 # n_obs = sum(x1 |> is.na() |> not()) # not() is deprecated?
 n_obs = sum(!is.na(x1))
@@ -35,7 +35,7 @@ For example,
 had missing values for ataxia severity,
 and `r n_obs` (`r pct_obs`) had recorded values,
 distributed among ataxia severity levels 0-4
-(`r v1_usable_cases$"Ataxia: severity*" |> counts_and_pcts() |> and::and()`,
+(`r v1_usable_cases$"ataxia severity*" |> counts_and_pcts() |> and::and()`,
 respectively).
 For the `r n_missing` cases with missing values,
 we assigned probabilities of `r probs |> and::and()`

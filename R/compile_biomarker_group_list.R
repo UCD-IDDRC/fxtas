@@ -19,12 +19,12 @@ compile_biomarker_group_list <- function(dataset)
 {
 
   tremors = c(
-    "Head tremor",
-    "Intention tremor",
-    "Resting tremor",
-    "Postural tremor",
-    "Intermittent tremor"
-    # "Any tremor (excluding head)"
+    "head tremor",
+    "intention tremor",
+    "resting tremor",
+    "postural tremor",
+    "intermittent tremor"
+    # "any tremor (excluding head)"
   )
 
   parkinsonian_vars =
@@ -32,7 +32,7 @@ compile_biomarker_group_list <- function(dataset)
       "parkinsonian features",
       "Masked faces",
       "Increased tone",
-      "Pill-rolling tremor",
+      "pill-rolling tremor",
       "Stiff gait")
 
 
@@ -62,8 +62,8 @@ compile_biomarker_group_list <- function(dataset)
   # )
 
   ataxia = c(
-    "Ataxia",
-    "Ataxia: severity*"
+    "ataxia",
+    "ataxia severity*"
   )
 
   scid_vars <- c(
@@ -119,10 +119,10 @@ compile_biomarker_group_list <- function(dataset)
 
   kinesia_vars = c( # nolint: object_usage_linter
     "Kinesia Left Rest Tremor*",
-    "Kinesia Left Postural Tremor*",
+    "Kinesia Left postural tremor*",
     "Kinesia Left Kinetic Tremor*",
     "Kinesia Right Rest Tremor*",
-    "Kinesia Right Postural Tremor*",
+    "Kinesia Right postural tremor*",
     "Kinesia Right Kinetic Tremor*"
   )
 

@@ -47,7 +47,7 @@ on Dr. Bourgeois's recommendation.
 * removed "Parkinsonian features: " prefix from:
   - "Masked faces",
   - "Increased tone",
-  - "Pill-rolling tremor",
+  - "pill-rolling tremor exam",
   - "Stiff gait"
 * Renamed "CGG (backfilled)" to CGG
 * Renamed "ApoE (backfilled)" to ApoE

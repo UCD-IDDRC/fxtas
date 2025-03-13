@@ -8,12 +8,12 @@
 all_potential_biomarkers <- function(dataset) {
   missingness_vars <- grep("missingness", names(dataset), value = TRUE)
   tremors <- c(
-    "Head tremor",
-    "Intention tremor",
-    "Resting tremor",
-    "Postural tremor",
-    "Intermittent tremor",
-    "Any tremor (excluding head)"
+    "head tremor",
+    "intention tremor",
+    "resting tremor",
+    "postural tremor",
+    "intermittent tremor",
+    "any tremor (excluding head)"
   )
 
   parkinsonian_vars <-
@@ -21,7 +21,7 @@ all_potential_biomarkers <- function(dataset) {
       "parkinsonian features",
       "Masked faces",
       "Increased tone",
-      "Pill-rolling tremor",
+      "pill-rolling tremor",
       "Stiff gait"
     )
 
@@ -49,8 +49,8 @@ all_potential_biomarkers <- function(dataset) {
   )
 
   ataxia <- c(
-    "Ataxia",
-    "Ataxia: severity*"
+    "ataxia",
+    "ataxia severity*"
   )
 
   scid_vars <- c(
@@ -103,10 +103,10 @@ all_potential_biomarkers <- function(dataset) {
 
   kinesia_vars <- c(
     "Kinesia Left Rest Tremor*",
-    "Kinesia Left Postural Tremor*",
+    "Kinesia Left postural tremor*",
     "Kinesia Left Kinetic Tremor*",
     "Kinesia Right Rest Tremor*",
-    "Kinesia Right Postural Tremor*",
+    "Kinesia Right postural tremor*",
     "Kinesia Right Kinetic Tremor*"
   )
 

@@ -7,7 +7,8 @@
 make_demographics_table(
   data,
   strata = "Gender",
-  vars = c("Age at visit", "Primary Race/Ethnicity", "FXTAS Stage", "CGG")
+  vars = c("Age at visit", "Primary Race/Ethnicity", "FXTAS Stage", "CGG"),
+  make_ft = TRUE
 )
 }
 \arguments{
@@ -17,6 +18,8 @@ make_demographics_table(
 \item{strata}{names of column variable, specified as \link{character}}
 
 \item{vars}{names of row variables, specified as \link{character}}
+
+\item{make_ft}{\link{logical} whether to convert to flextable}
 }
 \value{
 a \link[flextable:flextable]{flextable::flextable}
