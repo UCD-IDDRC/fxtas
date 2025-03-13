@@ -1,4 +1,4 @@
-# `extract_results_from_pickle()` produces stable results
+# results are consistent
 
     WAoAAAACAAQEAgACAwAAAAMTAAAADQAAAg4AAYagwFn8f+UMCWHAWfx/5QwJYcBZ/H/lDAlh
     wFn8f+UMCWHAWfx/5QwJYcBZ/Zdgvl/+wFn9l2C+X/7AWf2XYL5f/sBaENdKrOJLwFoQ10qs
