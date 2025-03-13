@@ -49,8 +49,8 @@ all_potential_biomarkers <- function(dataset) {
   )
 
   ataxia <- c(
-    "Gait ataxia",
-    "Ataxia: severity*"
+    "gait ataxia exam",
+    "gait ataxia severity*"
   )
 
   scid_vars <- c(

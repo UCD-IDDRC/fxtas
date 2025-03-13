@@ -1,4 +1,4 @@
-combine_head_tremor <- function(x, method = "old") {
+combine_head_tremor <- function(x, method = "new") {
   if (method == "old") {
     to_return <-
       x |>
@@ -9,15 +9,12 @@ combine_head_tremor <- function(x, method = "old") {
         )
       )
 
-  } else {
+  } else if (method == "new") {
     to_return <-
       x |>
-      rowwise() |>
-      mutate(
-        `head tremor` =
-          do.call(pmax, across(any_of(c("head tremor hx", "head tremor exam"))))
-      ) |>
-      ungroup()
+      combine_history_and_exam("head tremor")
+  } else {
+    cli::cli_abort("method {method} not currently supported.")
   }
   return(to_return)
 }

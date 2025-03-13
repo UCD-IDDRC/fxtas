@@ -468,11 +468,11 @@ See my previous responses on the matter.
 ```{r}
 
 vars = c(
-  "Gait ataxia",
-  "Gait ataxia severity",
-  "Ataxia: severity*"
-  # "Hx Ataxia: Age of onset",
-  # "Hx Ataxia: Age of onset: missingness reasons"
+  "gait ataxia exam",
+  "gait ataxia severity exam",
+  "gait ataxia severity*"
+  # "ataxia hx: age of onset",
+  # "ataxia hx: age of onset: missingness reasons"
 )
 
 table1(na.is.category = FALSE, 
@@ -485,15 +485,15 @@ table1(na.is.category = FALSE,
 
 <br>
 
-Age of onset and missingness reasons where "Gait ataxia" = "Yes":
+Age of onset and missingness reasons where "gait ataxia exam" = "Yes":
 
 ```{r}
 vars = c(
-  # "Gait ataxia",
-  # "Gait ataxia severity",
-  # "Ataxia: severity*"
-  "Hx Ataxia: Age of onset",
-  "Hx Ataxia: Age of onset: missingness reasons"
+  # "gait ataxia exam",
+  # "gait ataxia severity exam",
+  # "gait ataxia severity*"
+  "ataxia hx: age of onset",
+  "ataxia hx: age of onset: missingness reasons"
 )
 
 table1(na.is.category = FALSE, 
@@ -518,11 +518,11 @@ Do we have age of onset for those with 'No' Ataxia or missing data?
 
 ```{r}
 vars = c(
-  # "Gait ataxia",
-  # "Gait ataxia severity",
-  # "Ataxia: severity*"
-  "Hx Ataxia: Age of onset",
-  "Hx Ataxia: Age of onset: missingness reasons"
+  # "gait ataxia exam",
+  # "gait ataxia severity exam",
+  # "gait ataxia severity*"
+  "ataxia hx: age of onset",
+  "ataxia hx: age of onset: missingness reasons"
 )
 
 footnote = paste0(

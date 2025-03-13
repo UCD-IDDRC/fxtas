@@ -61,7 +61,7 @@ dataset=vroom::vroom(
     new_mds_neu_trem_age2 = col_character(),
     mds_neu_atax = col_double(),
     mds_neu_atax_age = col_double(),
-    mds_neu_atax_sev = col_character(),
+    mds_neu_atax_sev = col_integer(),
     new_mds_ne_ga = col_skip(),
     new_mds_med_park = col_double(),
     mds_ne_pf = col_double(),
@@ -457,10 +457,10 @@ labels = c(subj_id = "FXS ID",
            mds_neu_trem_age = "tremor: age of onset",
            new_mds_neu_trem_head = "head tremor hx",
            new_mds_neu_trem_age2 = "head tremor: age of onset",
-           mds_neu_atax = "Walking/ataxia Problems",
-           mds_neu_atax_age = "Hx Ataxia: Age of onset",
-           mds_neu_atax_sev = "Hx Ataxia: severity",
-           # new_mds_ne_ga = "Gait ataxia",
+           mds_neu_atax = "gait ataxia hx",
+           mds_neu_atax_age = "ataxia hx: age of onset",
+           mds_neu_atax_sev = "gait ataxia severity hx",
+           # new_mds_ne_ga = "gait ataxia exam",
            new_mds_med_park = "Parkinsons",
            mds_ne_pf = "parkinsonian features",
            mds_ne_pfmf = "Masked faces",
@@ -612,8 +612,8 @@ labels = c(subj_id = "FXS ID",
            dem_edlev = "Education Level",
            dem_edyr = "Years of Education",
            # new variables
-           mds_ne_ga = "Gait ataxia",
-           mds_ne_gas = "Gait ataxia severity",
+           mds_ne_ga = "gait ataxia exam",
+           mds_ne_gas = "gait ataxia severity exam",
            # Neurological History tremor variables
            mds_neu_trem_int = "intention tremor hx",
            mds_neu_trem_rest = "resting tremor hx",
@@ -659,9 +659,9 @@ if(FALSE)
   # label(dataset$new_mds_neu_trem_head)="head tremor hx"
   # label(dataset$new_mds_neu_trem_age2)="head tremor: age of onset"
   # label(dataset$mds_neu_atax)="Problem with walking/ataxia"
-  # label(dataset$mds_neu_atax_age)="Hx Ataxia: Age of onset"
-  # label(dataset$mds_neu_atax_sev)="Gait ataxia severity"
-  # label(dataset$new_mds_ne_ga)="Gait ataxia"
+  # label(dataset$mds_neu_atax_age)="ataxia hx: age of onset"
+  # label(dataset$mds_neu_atax_sev)="gait ataxia severity hx"
+  # label(dataset$new_mds_ne_ga)="gait ataxia exam"
   # label(dataset$new_mds_med_park)="Parkinsons"
   # label(dataset$mds_ne_pf)="parkinsonian features:"
   # label(dataset$mds_ne_pfmf)="Masked faces"

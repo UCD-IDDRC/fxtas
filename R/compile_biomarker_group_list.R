@@ -62,8 +62,8 @@ compile_biomarker_group_list <- function(dataset)
   # )
 
   ataxia = c(
-    "Gait ataxia",
-    "Ataxia: severity*"
+    "gait ataxia exam",
+    "gait ataxia severity*"
   )
 
   scid_vars <- c(

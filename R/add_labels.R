@@ -15,7 +15,7 @@ add_labels <- function(data) {
         labelled::set_label_attribute("Parkinson's disease"),
       `FXTAS Stage` = .data$`FXTAS Stage` |>
         labelled::set_label_attribute("FXTAS Stage"),
-      `Ataxia: severity*` = .data$`Ataxia: severity*` |>
+      `gait ataxia severity*` = .data$`gait ataxia severity*` |>
         labelled::set_label_attribute("Ataxia severity"),
       `MMSE total score*` = .data$`MMSE total score*` |>
         labelled::set_label_attribute("MMSE total score"),

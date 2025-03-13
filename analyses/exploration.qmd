@@ -77,13 +77,35 @@ footnote1 <- 'Codes `777`, `888`, and `999` are counted as "Missing" (NA).'
 ```{r}
 #| label: tab-tremors
 vars <- c(
-  "intention tremor hx",
+  "intention tremor",
   "resting tremor",
   "postural tremor",
-  "intermittent tremor hx"
+  "intermittent tremor"
 )
+
+# gtsummary version:
+# if (FALSE) {
+# tbl_function <- function(x) {
+#   gtsummary::tbl_summary(
+#     data = x,
+#     by = column_var[2],
+#     type = gtsummary::all_dichotomous() ~ "categorical"
+#   )
+# }
+# 
+# v1_usable |> 
+#   select(all_of(c(vars, column_var))) |> 
+#   gtsummary::tbl_strata(
+#     strata = column_var[1],
+#     .tbl_fun = tbl_function
+#   ) |> 
+#   gtsummary::as_flex_table() |> 
+#   shared_flextable_settings()
+# }
+
 table1(
-  na.is.category = FALSE, overall = FALSE,
+  na.is.category = FALSE, 
+  overall = FALSE,
   NA.label = na_label_1,
   stratified_formula(vars, column_var),
   render.continuous = c(
@@ -114,16 +136,16 @@ footnote_ht <- paste(
   "Summaries provided are for GP4 + Trax Phase 2 only."
 )
 v1_usable |>
-    # dplyr::filter(!(Study %in% c("Trax Phase 1", "GP3"))) |> 
-table1(
-  # footnote = footnote_ht,
-  na.is.category = FALSE,
-  overall = FALSE,
-  NA.label = na_label_1,
-  stratified_formula(vars, column_var),
-  # render.continuous = c(.="N", .="Mean (SD)", .="Median [Min,  Max]"),
-  data = _
-) |> 
+  # dplyr::filter(!(Study %in% c("Trax Phase 1", "GP3"))) |> 
+  table1(
+    # footnote = footnote_ht,
+    na.is.category = FALSE,
+    overall = FALSE,
+    NA.label = na_label_1,
+    stratified_formula(vars, column_var),
+    # render.continuous = c(.="N", .="Mean (SD)", .="Median [Min,  Max]"),
+    data = _
+  ) |> 
   table1::t1flex() |>
   shared_flextable_settings()
 ```
@@ -136,11 +158,11 @@ table1(
 
 ```{r}
 vars <- c(
-  "Gait ataxia",
-  # "Gait ataxia severity",
-  "Ataxia: severity*"
-  # "Hx Ataxia: Age of onset",
-  # "Hx Ataxia: Age of onset: missingness reasons"
+  "gait ataxia exam",
+  # "gait ataxia severity exam",
+  "gait ataxia severity exam"
+  # "ataxia hx: age of onset",
+  # "ataxia hx: age of onset: missingness reasons"
 )
 
 table1(
@@ -154,7 +176,7 @@ table1(
   shared_flextable_settings()
 ```
 
-**Ataxia by CGG status**
+**gait ataxia by CGG status**
 
 :::
 
@@ -345,17 +367,17 @@ cantab_vars <- c(
 #   as.vector()
 
 
-  table1(
-    na.is.category = FALSE, overall = FALSE,
-    NA.label = "Missing (empty in RedCap)",
-    stratified_formula(cantab_vars, column_var),
-    # render.continuous = c(.="N", .="Mean (SD)", .="Median [Min,  Max]"),
-    data = v1_usable
-  ) |> 
-    table1::t1flex() |>
-    shared_flextable_settings() |>
-    flextable::width(width = 2) |>
-    flextable::width(j = 2:7, width = 1.25)
+table1(
+  na.is.category = FALSE, overall = FALSE,
+  NA.label = "Missing (empty in RedCap)",
+  stratified_formula(cantab_vars, column_var),
+  # render.continuous = c(.="N", .="Mean (SD)", .="Median [Min,  Max]"),
+  data = v1_usable
+) |> 
+  table1::t1flex() |>
+  shared_flextable_settings() |>
+  flextable::width(width = 2) |>
+  flextable::width(j = 2:7, width = 1.25)
 ```
 
 **Cambridge Neuropsychological Test Automated Battery (CANTAB)**

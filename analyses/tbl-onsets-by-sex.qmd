@@ -40,15 +40,15 @@ table1a(
 
 <br>
 
-Age of onset and missingness reasons where "Gait ataxia" = "Yes":
+Age of onset and missingness reasons where "gait ataxia exam" = "Yes":
 
 ```{r}
 vars = c(
-  # "Gait ataxia",
-  # "Gait ataxia severity",
-  # "Ataxia: severity*"
-  "Hx Ataxia: Age of onset",
-  "Hx Ataxia: Age of onset: missingness reasons"
+  # "gait ataxia exam",
+  # "gait ataxia severity exam",
+  # "gait ataxia severity*"
+  "ataxia hx: age of onset",
+  "ataxia hx: age of onset: missingness reasons"
 )
 
 table1a(

@@ -1,41 +1,53 @@
 clean_ataxia <- function(data) {
-  data |>
+  to_return <-
+    data |>
     dplyr::mutate(
 
       "Ataxia severity: missingness reasons" =
-        missingness_reasons.numeric(.data$`Gait ataxia severity`),
+        missingness_reasons.numeric(.data$`gait ataxia severity exam`),
 
       # setting missing codes as 0s:
-      "Gait ataxia severity" =
+      "gait ataxia severity exam" =
         dplyr::if_else(
-          condition = .data$`Gait ataxia severity` %in% c(888, 999),
+          condition = .data$`gait ataxia severity exam` %in% c(777, 888, 999),
           true = 0,
-          false = .data$`Gait ataxia severity`
-        ),
-
-      "Gait ataxia severity" =
-        .data$`Gait ataxia severity` |>
+          false = .data$`gait ataxia severity exam`
+        ) |>
         clean_numeric(),
 
-      "Gait ataxia" =
+      "gait ataxia severity hx" =
+        dplyr::if_else(
+          condition = .data$`gait ataxia severity hx` %in% c(777, 888, 999),
+          true = 0,
+          false = .data$`gait ataxia severity hx`
+        ) |>
+        clean_numeric()
+      ) |>
+    combine_history_and_exam("gait ataxia severity")
+
+  to_return <-
+    to_return |>
+    combine_history_and_exam("gait ataxia") |>
+    mutate(
+      "gait ataxia" =
         if_else(
-          condition = (.data$`Gait ataxia severity` %in% 0) &
-            is.na(.data$`Gait ataxia`),
+          condition = (.data$`gait ataxia severity` %in% 0) &
+            is.na(.data$`gait ataxia`),
           true = "No",
-          false = .data$`Gait ataxia`
+          false = .data$`gait ataxia`
         ) |>
         factor(levels = c("No", "Yes")),
 
-      "Gait ataxia severity" =
+      "gait ataxia severity" =
         if_else(
-          condition = (.data$`Gait ataxia` %in% "No") &
-            is.na(.data$`Gait ataxia severity`),
+          condition = (.data$`gait ataxia` %in% "No") &
+            is.na(.data$`gait ataxia severity`),
           true = 0,
-          false = .data$`Gait ataxia severity`
+          false = .data$`gait ataxia severity`
         ),
 
-      "Ataxia: severity*" =
-        .data$`Gait ataxia severity` |>
+      "gait ataxia severity*" =
+        .data$`gait ataxia severity` |>
         factor()
 
     )

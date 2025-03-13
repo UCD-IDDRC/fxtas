@@ -53,6 +53,6 @@ combine_tremor <- function(
       # there's no `pill-rolling tremor exam` variable
       `pill-rolling tremor` = .data$`pill-rolling tremor exam`
     ) |>
-    combine_head_tremor(method = "old") |>
+    combine_head_tremor(method = "new") |>
     create_any_tremor()
 }

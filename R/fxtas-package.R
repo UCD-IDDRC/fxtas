@@ -36,6 +36,7 @@
 #' @importFrom dplyr relocate
 #' @importFrom dplyr rename
 #' @importFrom dplyr row_number
+#' @importFrom dplyr rowwise
 #' @importFrom dplyr select
 #' @importFrom dplyr semi_join
 #' @importFrom dplyr slice_head

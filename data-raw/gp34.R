@@ -28,6 +28,10 @@ gp34_raw <-
   bind_rows("GP3" = gp3, "GP4" = gp4, .id = "Study")
 
 gp34_raw |>
+  readr::write_rds(testthat::test_path("fixtures", "gp34_raw.rds"))
+
+
+gp34_raw |>
   head(0) |>
   readr::write_rds(testthat::test_path("fixtures", "gp34_raw_nodata.rds"))
 
