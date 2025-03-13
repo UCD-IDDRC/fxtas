@@ -1,5 +1,5 @@
 test_that(
-  desc = "`table_subtype_by_demographics()` produces consistent results",
+  desc = "results are consistent",
   code = {
     withr::local_package("dplyr")
     patient_data <- sim_data |> dplyr::filter(Category == "Patient")
@@ -15,6 +15,25 @@ test_that(
     ft |>
       as.data.frame() |>
       ssdtools:::expect_snapshot_data(name = "table-st-by-demo")
+  }
+)
+
+test_that(
+  desc = "results are consistent 2",
+  code = {
+
+    skip_on_ci()
+
+    withr::local_package("dplyr")
+    patient_data <- sim_data |> dplyr::filter(Category == "Patient")
+    table <- sim_subtype_and_stage_table
+    set.seed(1)
+    ft <- table_subtype_by_demographics(
+      patient_data,
+      table,
+      demographic_vars = "Sex",
+      footnotes_as_letters = FALSE
+    )
 
     html_file <- tempfile(fileext = ".html")
 
