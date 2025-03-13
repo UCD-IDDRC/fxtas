@@ -5,11 +5,16 @@ test_that(
     patient_data <- sim_data |> dplyr::filter(Category == "Patient")
     table <- sim_subtype_and_stage_table
     set.seed(1)
-    ft <- table_subtype_by_demographics(patient_data,
+    ft <- table_subtype_by_demographics(
+      patient_data,
       table,
       demographic_vars = "Sex",
       footnotes_as_letters = FALSE
     )
+
+    ft |>
+      as.data.frame() |>
+      ssdtools:::expect_snapshot_data(name = "table-st-by-demo")
 
     html_file <- tempfile(fileext = ".html")
 

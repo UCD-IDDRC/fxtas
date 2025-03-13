@@ -205,11 +205,11 @@ table1(na.is.category = FALSE,
 ```{r}
 
 vars = c(
-  "gait ataxia exam",
-  "gait ataxia severity exam",
-  "gait ataxia severity*",
-  "gait ataxia age of onset hx",
-  "gait ataxia age of onset hx: missingness reasons"
+  "ataxia exam",
+  "ataxia severity exam",
+  "ataxia severity*",
+  "ataxia age of onset hx",
+  "ataxia age of onset hx: missingness reasons"
 )
 
 table1(na.is.category = FALSE, 

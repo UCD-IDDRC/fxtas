@@ -54,7 +54,7 @@ categorical_biomarker_directions = c(
 
 continuous_biomarker_directions = 
   c(
-    "gait ataxia severity exam" = 1,
+    "ataxia severity exam" = 1,
     "MMSE total score" = -1,
     "BDS-2 Total Score" = -1,
     "SCL90: Somatization" = 1,

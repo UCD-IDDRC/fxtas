@@ -158,11 +158,10 @@ v1_usable |>
 
 ```{r}
 vars <- c(
-  "gait ataxia exam",
-  # "gait ataxia severity exam",
-  "gait ataxia severity exam"
-  # "gait ataxia age of onset hx",
-  # "gait ataxia age of onset hx: missingness reasons"
+  "ataxia",
+  "ataxia severity"
+  # "ataxia age of onset",
+  # "ataxia age of onset: missingness reasons"
 )
 
 table1(
@@ -176,7 +175,7 @@ table1(
   shared_flextable_settings()
 ```
 
-**gait ataxia by CGG status**
+**Ataxia by CGG status**
 
 :::
 

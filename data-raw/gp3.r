@@ -457,10 +457,10 @@ labels = c(subj_id = "FXS ID",
            mds_neu_trem_age = "tremor: age of onset",
            new_mds_neu_trem_head = "head tremor hx",
            new_mds_neu_trem_age2 = "head tremor: age of onset",
-           mds_neu_atax = "gait ataxia hx",
-           mds_neu_atax_age = "gait ataxia age of onset hx",
-           mds_neu_atax_sev = "gait ataxia severity hx",
-           # new_mds_ne_ga = "gait ataxia exam",
+           mds_neu_atax = "ataxia hx",
+           mds_neu_atax_age = "ataxia age of onset hx",
+           mds_neu_atax_sev = "ataxia severity hx",
+           # new_mds_ne_ga = "ataxia exam",
            new_mds_med_park = "Parkinsons",
            mds_ne_pf = "parkinsonian features",
            mds_ne_pfmf = "Masked faces",
@@ -612,8 +612,8 @@ labels = c(subj_id = "FXS ID",
            dem_edlev = "Education Level",
            dem_edyr = "Years of Education",
            # new variables
-           mds_ne_ga = "gait ataxia exam",
-           mds_ne_gas = "gait ataxia severity exam",
+           mds_ne_ga = "ataxia exam",
+           mds_ne_gas = "ataxia severity exam",
            # Neurological History tremor variables
            mds_neu_trem_int = "intention tremor hx",
            mds_neu_trem_rest = "resting tremor hx",
@@ -659,9 +659,9 @@ if(FALSE)
   # label(dataset$new_mds_neu_trem_head)="head tremor hx"
   # label(dataset$new_mds_neu_trem_age2)="head tremor: age of onset"
   # label(dataset$mds_neu_atax)="Problem with walking/ataxia"
-  # label(dataset$mds_neu_atax_age)="gait ataxia age of onset hx"
-  # label(dataset$mds_neu_atax_sev)="gait ataxia severity hx"
-  # label(dataset$new_mds_ne_ga)="gait ataxia exam"
+  # label(dataset$mds_neu_atax_age)="ataxia age of onset hx"
+  # label(dataset$mds_neu_atax_sev)="ataxia severity hx"
+  # label(dataset$new_mds_ne_ga)="ataxia exam"
   # label(dataset$new_mds_med_park)="Parkinsons"
   # label(dataset$mds_ne_pf)="parkinsonian features:"
   # label(dataset$mds_ne_pfmf)="Masked faces"

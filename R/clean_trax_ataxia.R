@@ -4,44 +4,44 @@ clean_trax_ataxia <- function(data)
     data |>
     dplyr::mutate(
 
-      `gait ataxia severity exam: missingness reasons` =
-        .data$`gait ataxia severity exam` |> missingness_reasons.numeric(),
+      `ataxia severity exam: missingness reasons` =
+        .data$`ataxia severity exam` |> missingness_reasons.numeric(),
 
       # setting missing codes as 0s:
-      `gait ataxia severity exam` =
+      `ataxia severity exam` =
         dplyr::case_when(
-          .data$`gait ataxia severity exam` %in% c("888","999") ~ 0,
-          TRUE ~ .data$`gait ataxia severity exam`
+          .data$`ataxia severity exam` %in% c("888","999") ~ 0,
+          TRUE ~ .data$`ataxia severity exam`
         ),
 
-      `gait ataxia severity exam` =
-        .data$`gait ataxia severity exam` |>
+      `ataxia severity exam` =
+        .data$`ataxia severity exam` |>
         clean_numeric(),
 
-      `gait ataxia exam` =
+      `ataxia exam` =
         if_else(
           condition =
-            (.data$`gait ataxia severity exam` %in% 0) & is.na(.data$`gait ataxia exam`),
+            (.data$`ataxia severity exam` %in% 0) & is.na(.data$`ataxia exam`),
           true = "No",
-          false = .data$`gait ataxia exam`
+          false = .data$`ataxia exam`
         ) |>
         factor(levels = c("No", "Yes")),
 
-      `gait ataxia severity exam` =
+      `ataxia severity exam` =
         if_else(
         condition =
-          (.data$`gait ataxia exam` %in% "No") & is.na(.data$`gait ataxia severity exam`),
+          (.data$`ataxia exam` %in% "No") & is.na(.data$`ataxia severity exam`),
         true = 0,
-        false = .data$`gait ataxia severity exam`
+        false = .data$`ataxia severity exam`
       )
     )
   to_return <- to_return |>
     mutate(
 
-      `gait ataxia severity*` =
+      `ataxia severity*` =
         case_when(
-          .data$`gait ataxia severity exam` == "2.5" ~ 2,
-          TRUE ~ .data$`gait ataxia severity exam`
+          .data$`ataxia severity exam` == "2.5" ~ 2,
+          TRUE ~ .data$`ataxia severity exam`
         ) |>
         factor()
 

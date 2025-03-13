@@ -30,9 +30,9 @@ variables =
     "head tremor hx",
     "head tremor: age of onset",
 
-    "gait ataxia exam",
-    "gait ataxia severity exam",
-    "gait ataxia age of onset hx",
+    "ataxia exam",
+    "ataxia severity exam",
+    "ataxia age of onset hx",
 
 
     grep("Parkinson", value = TRUE, names(gp34)),

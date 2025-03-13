@@ -6,7 +6,7 @@
 #' @export
 #'
 #' @examples
-#' x <- test_data$`gait ataxia severity*`
+#' x <- test_data$`ataxia severity*`
 #' x |> counts_and_pcts()
 #'
 counts_and_pcts <- function(x)

@@ -1,6 +1,5 @@
 vars,labels
 ApoE,ApoE
-Ataxia: severity*,Ataxia severity
 BDS-2 Total Score,BDS-2 total score
 BDS-2 Total Score*,BDS-2 total score
 CGG,CGG repeats
@@ -13,9 +12,6 @@ FX3*,CGG repeat level
 FXTAS Stage,FXTAS Stage
 Gender,Sex
 Genu (CC)-WM Hyperintensity,Genu (CC) White Matter Hyperintensity
-Hx Ataxia: Age of onset,Ataxia: Age of onset
-Hx Ataxia: Age of onset: missingness reasons,Ataxia: Age of onset: missingness reasons
-Hx Ataxia: severity,Ataxia: severity
 MCP-WM Hyperintensity,MCP White Matter Hyperintensity
 MMSE total score*,MMSE total score
 PAL Total errors (adjusted)*,PAL total errors
@@ -26,6 +22,12 @@ RTI Five-choice movement time*,RTI Five-choice movement time
 SWM Between errors*,SWM Between errors
 Splenium (CC)-WM Hyperintensity,Splenium (CC) White Matter Hyperintensity
 Sub-Insular WM Hyperintensity,Sub-Insular White Matter Hyperintensity
+ataxia age of onset hx,ataxia age of onset
+ataxia hx,ataxia
+ataxia hx: missingness reasons,ataxia: missingness reasons
+ataxia severity hx,ataxia severity
+ataxia severity hx*,ataxia severity*
+ataxia severity*,Ataxia severity
 head tremor hx,head tremor
 head tremor hx: missingness reasons,head tremor: missingness reasons
 intention tremor hx,intention tremor

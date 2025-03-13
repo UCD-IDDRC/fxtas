@@ -1,5 +1,4 @@
 test_that("results are consistent", {
-  skip_on_os("windows")
   prob_correct <-
     testthat::test_path("fixtures", "prob_correct.rds") |>
     readr::read_rds()

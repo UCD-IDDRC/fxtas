@@ -19,11 +19,11 @@ compile_biomarker_group_list <- function(dataset)
 {
 
   tremors = c(
-    "head tremor hx",
+    "head tremor",
     "intention tremor",
     "resting tremor",
     "postural tremor",
-    "intermittent tremor hx"
+    "intermittent tremor"
     # "any tremor (excluding head)"
   )
 
@@ -32,7 +32,7 @@ compile_biomarker_group_list <- function(dataset)
       "parkinsonian features",
       "Masked faces",
       "Increased tone",
-      "pill-rolling tremor exam",
+      "pill-rolling tremor",
       "Stiff gait")
 
 
@@ -62,8 +62,8 @@ compile_biomarker_group_list <- function(dataset)
   # )
 
   ataxia = c(
-    "gait ataxia exam",
-    "gait ataxia severity*"
+    "ataxia",
+    "ataxia severity*"
   )
 
   scid_vars <- c(

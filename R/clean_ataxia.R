@@ -4,12 +4,12 @@ clean_ataxia <- function(data) {
     dplyr::mutate(
 
       across(
-        any_of(c("gait ataxia exam", "gait ataxia hx")),
+        any_of(c("ataxia exam", "ataxia hx")),
         replace_missing_codes
       ),
 
-      "gait ataxia severity exam: missingness reasons" =
-        .data$`gait ataxia severity exam` |>
+      "ataxia severity exam: missingness reasons" =
+        .data$`ataxia severity exam` |>
         missingness_reasons.numeric(),
 
       # setting missing codes as 0s:
@@ -17,8 +17,8 @@ clean_ataxia <- function(data) {
       across(
         any_of(
           c(
-            "gait ataxia severity exam",
-            "gait ataxia severity hx"
+            "ataxia severity exam",
+            "ataxia severity hx"
           )
         ),
         \(x) x |> replace_missing_with_0() |> clean_numeric()
@@ -27,19 +27,19 @@ clean_ataxia <- function(data) {
 
     ) |>
     combine_presence_and_severity(
-      binary_varname = "gait ataxia hx",
-      severity_varname = "gait ataxia severity hx") |>
+      binary_varname = "ataxia hx",
+      severity_varname = "ataxia severity hx") |>
     combine_presence_and_severity(
-      binary_varname = "gait ataxia exam",
-      severity_varname = "gait ataxia severity exam") |>
-    combine_history_and_exam("gait ataxia severity")
+      binary_varname = "ataxia exam",
+      severity_varname = "ataxia severity exam") |>
+    combine_history_and_exam("ataxia severity")
 
   to_return <-
     to_return |>
-    combine_history_and_exam("gait ataxia") |>
+    combine_history_and_exam("ataxia") |>
     mutate(
-      "gait ataxia severity*" =
-        .data$`gait ataxia severity` |>
+      "ataxia severity*" =
+        .data$`ataxia severity` |>
         factor()
 
     )
