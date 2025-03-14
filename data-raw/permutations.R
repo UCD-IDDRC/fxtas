@@ -83,31 +83,39 @@ output_folder =
 
 
 ## ----------------------------------------------------------------------------------------------------
+# April 2024, main analysis now uses Trax/GP34 Visit 1 data replacing previous version using only GP34
+load("data/trax_gp34_v1.rda")
+v1_usable <-
+  trax_gp34_v1 |>
+  add_labels() |>
+  add_missing_labels() |>
+  dplyr::filter(CGG < 200) |>
+  dplyr::mutate(
+    `FX3*` = .data$`FX3*` |>
+      forcats::fct_drop() |>
+      labelled::set_label_attribute("CGG Repeat Level"),
+    Parkinsons = Parkinsons |>
+      labelled::set_label_attribute("Parkinson's disease"),
+    `FXTAS Stage` = `FXTAS Stage` |>
+      labelled::set_label_attribute("FXTAS Stage")
+  )
 
-biomarker_groups = compile_biomarker_groups_table()
+
+biomarker_groups = compile_biomarker_groups_table(dataset = v1_usable)
 
 biomarker_varnames =
   biomarker_groups |>
   dplyr::pull("biomarker")
 
-# April 2024, main analysis now uses Trax/GP34 Visit 1 data replacing previous version using only GP34
-load("data/trax_gp34_v1.rda")
-df =
-  trax_gp34_v1 |>
-  dplyr::filter(
-    !is.na(`FX*`),
-    # exclude patients with CGG > 200 (full mutation)
-    CGG < 200)
-
-biomarker_levels = df |> get_levels(biomarker_varnames)
+biomarker_levels = v1_usable |> get_levels(biomarker_varnames)
 
 control_data =
-  df |>
+  v1_usable |>
   dplyr::filter(CGG <55) |>
   dplyr::select(all_of(biomarker_varnames))
 
 patient_data =
-  df |>
+  v1_usable |>
   # na.omit() |>
   dplyr::filter(
     CGG >= 55,
