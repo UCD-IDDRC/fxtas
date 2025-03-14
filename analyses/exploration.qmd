@@ -22,20 +22,31 @@ v1_usable <-
       labelled::set_label_attribute("FXTAS Stage")
   )
 
-v1_usable_males <- v1_usable |> dplyr::filter(Gender == "Male")
-v1_usable_females <- v1_usable |> dplyr::filter(Gender == "Female")
-v1_usable_cases <- v1_usable |> dplyr::filter(CGG >= 55)
-v1_usable_male_cases <-
-  v1_usable |>
-  dplyr::filter(
-    Gender == "Male",
-    CGG >= 55
-  )
+
 outcomes_name <- "symptom"
 events_name <- "symptomatic events"
 column_var <- c("Gender", "FX3*")
 
 ```
+
+```{r}
+v1_usable_capital_labels <- 
+  v1_usable 
+
+
+capitalize_label <- function(x) {
+  if (is.null(x)) {
+    NULL
+  } else {
+    stringr::str_replace(x, "([[:alpha:]])", toupper)
+  }
+}
+
+labelled::var_label(v1_usable_capital_labels) <- 
+  labelled::var_label(v1_usable_capital_labels) |> 
+  lapply(FUN = capitalize_label)
+```
+
 
 The following supplementary tables 
 [-@supptbl-tremors] - [-@supptbl-autoimmune] 
@@ -93,7 +104,7 @@ vars <- c(
 #   )
 # }
 # 
-# v1_usable |> 
+# v1_usable_capital_labels |> 
 #   select(all_of(c(vars, column_var))) |> 
 #   gtsummary::tbl_strata(
 #     strata = column_var[1],
@@ -113,7 +124,7 @@ table1(
     . = "Mean (SD)",
     . = "Median [Min, Max]"
   ),
-  data = v1_usable
+  data = v1_usable_capital_labels
 ) |> 
   table1::t1flex() |>
   shared_flextable_settings()
@@ -127,7 +138,7 @@ table1(
 
 ```{r}
 vars <- c(
-  "head tremor hx"
+  "head tremor"
   # "head tremor: age of onset"
 )
 
@@ -135,7 +146,7 @@ footnote_ht <- paste(
   "Head tremor was not collected in GP3 or Trax Phase 1.",
   "Summaries provided are for GP4 + Trax Phase 2 only."
 )
-v1_usable |>
+v1_usable_capital_labels |>
   # dplyr::filter(!(Study %in% c("Trax Phase 1", "GP3"))) |> 
   table1(
     # footnote = footnote_ht,
@@ -158,7 +169,7 @@ v1_usable |>
 
 ```{r}
 vars <- c(
-  "tandem walk",
+  "Tandem Walk",
   "ataxia",
   "ataxia severity"
   # "ataxia age of onset",
@@ -170,7 +181,7 @@ table1(
   NA.label = na_label_1,
   stratified_formula(vars, column_var),
   # render.continuous = c(.="N", .="Mean (SD)", .="Median [Min,  Max]"),
-  data = v1_usable
+  data = v1_usable_capital_labels
 ) |> 
   table1::t1flex() |>
   shared_flextable_settings()
@@ -193,7 +204,7 @@ table1(
   na.is.category = FALSE, overall = FALSE,
   NA.label = na_label_1,
   stratified_formula(vars, column_var),
-  data = v1_usable
+  data = v1_usable_capital_labels
 ) |> 
   table1::t1flex() |>
   shared_flextable_settings()
@@ -215,7 +226,7 @@ table1(
   na.is.category = FALSE, overall = FALSE,
   NA.label = na_label_1,
   stratified_formula(vars, column_var),
-  data = v1_usable
+  data = v1_usable_capital_labels
 ) |> 
   table1::t1flex() |>
   shared_flextable_settings()
@@ -237,7 +248,7 @@ table1(
   stratified_formula(vars, column_var),
   # render.continuous = c(.="N", .="Mean (SD)", .="Median [Min,  Max]"),
   # footnote = footnote1,
-  data = v1_usable
+  data = v1_usable_capital_labels
 ) |> 
   table1::t1flex() |>
   shared_flextable_settings()
@@ -268,7 +279,7 @@ table1(
   stratified_formula(vars, column_var),
   # footnote = footnote1,
   # render.continuous = c(.="N", .="Mean (SD)", .="Median [Min,  Max]"),
-  data = v1_usable
+  data = v1_usable_capital_labels
 ) |> 
   table1::t1flex() |>
   shared_flextable_settings()
@@ -284,11 +295,12 @@ table1(
 vars <- scid_vars_for_table1()
 
 table1(
-  na.is.category = FALSE, overall = FALSE,
+  na.is.category = FALSE, 
+  overall = FALSE,
   NA.label = na_label_1,
   stratified_formula(vars, column_var),
   # render.continuous = c(.="N", .="Mean (SD)", .="Median [Min,  Max]"),
-  data = v1_usable
+  data = v1_usable_capital_labels
 ) |> 
   table1::t1flex() |>
   shared_flextable_settings()
@@ -323,7 +335,7 @@ table1(
   NA.label = na_label_1,
   droplevels = FALSE,
   x = stratified_formula(vars, column_var),
-  data = v1_usable
+  data = v1_usable_capital_labels
 ) |> 
   table1::t1flex() |>
   shared_flextable_settings()
@@ -339,7 +351,7 @@ table1(
 # table1(na.is.category = FALSE, overall = FALSE,
 #   NA.label = na_label_1,
 #   stratified_formula("Drugs used", column_var),
-#   data = v1_usable)
+#   data = v1_usable_capital_labels)
 
 
 cantab_vars <- c(
@@ -361,7 +373,7 @@ cantab_vars <- c(
 #       value =  TRUE,
 #       fixed = TRUE,
 #       pattern = x,
-#       x = names(v1_usable)
+#       x = names(v1_usable_capital_labels)
 #     )
 # ) |>
 #   as.vector()
@@ -372,7 +384,7 @@ table1(
   NA.label = "Missing (empty in RedCap)",
   stratified_formula(cantab_vars, column_var),
   # render.continuous = c(.="N", .="Mean (SD)", .="Median [Min,  Max]"),
-  data = v1_usable
+  data = v1_usable_capital_labels
 ) |> 
   table1::t1flex() |>
   shared_flextable_settings() |>
@@ -409,7 +421,7 @@ table1(
   overall = FALSE,
   NA.label = na_label_1,
   stratified_formula(vars, column_var),
-  data = v1_usable
+  data = v1_usable_capital_labels
 ) |> 
   table1::t1flex() |>
   shared_flextable_settings()

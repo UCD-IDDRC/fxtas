@@ -35,7 +35,10 @@ add_labels <- function(data) {
           "RTI Five-choice movement time"
         ),
       `Tandem Walk` = .data$`Tandem Walk` |>
-        labelled::set_label_attribute("tandem walk")
+        labelled::set_label_attribute("tandem walk"),
+      ataxia = ataxia |> set_label_attribute("ataxia"),
+      `ataxia severity` = .data$`ataxia severity` |> set_label_attribute("ataxia severity"),
+      `head tremor` = .data$`head tremor` |> set_label_attribute("head tremor")
     ) |>
     set_mri_var_labels()
 }

@@ -403,7 +403,7 @@ levels(dataset$mri_genu_wm_hyper)=c("No","Yes","Missing/Refused (999)")
 levels(dataset$mri_corp_call_thick)=c("Normal","Thin","Missing/Refused (999)")
 # new variables
 levels(dataset$mds_ne_ga)=c("No","Yes","No Response (999)","Question not asked at time of data entry; check records (777)")
-levels(dataset$mds_ne_tand)=c("Normal","Steps (Abnormal, < 10)","Unable (Absent)","Missing/Refused (999)","Question not asked at time of data entry; check records (777)")
+levels(dataset$mds_ne_tand)=c("Normal","Steps (Abnormal, < 10)","Unable (Absent)","No Response (999)","Question not asked at time of data entry; check records (777)")
 levels(dataset$mds_neu_trem_int)=c("No","Yes","No Response (999)","NA (888)","Question not asked at time of data entry; check records (777)")
 levels(dataset$mds_neu_trem_rest)=c("No","Yes","No Response (999)","NA (888)","Question not asked at time of data entry; check records (777)")
 levels(dataset$mds_neu_trem_pos)=c("No","Yes","No Response (999)","NA (888)","Question not asked at time of data entry; check records (777)")
