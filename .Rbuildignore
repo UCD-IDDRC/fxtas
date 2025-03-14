@@ -71,7 +71,7 @@ $run_dev.*
 ^inst/extdata/inconsistent_ataxia\.csv$
 ^data/trax_gp34_v1\.rda$
 ^inst/extdata/sim_data/pickle_files$
+^data/obs_to_use\.rda$
 ^man/compact_pvd_figure\.Rd$
 ^man/get_title_i_2\.Rd$
 ^man/tmp_data_prep\.Rd$
-^data/obs_to_use\.rda$

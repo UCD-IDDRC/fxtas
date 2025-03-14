@@ -34,15 +34,19 @@ add_labels <- function(data) {
         labelled::set_label_attribute(
           "RTI Five-choice movement time"
         ),
-      `Tandem Walk` = .data$`Tandem Walk` |>
+      `Tandem Walk` =
+        .data$`Tandem Walk` |>
         labelled::set_label_attribute("tandem walk"),
       ataxia = .data$ataxia |> set_label_attribute("ataxia"),
-      `ataxia severity` = .data$`ataxia severity` |> set_label_attribute("ataxia severity"),
+      `ataxia severity` =
+        .data$`ataxia severity` |>
+        set_label_attribute("ataxia severity"),
       `head tremor` = .data$`head tremor` |> set_label_attribute("head tremor"),
       `Corpus Callosum-Thickness` =
         .data$`Corpus Callosum-Thickness` |>
         set_label_attribute("Corpus Callosum Thickness"),
-      `any autoimmune disorder` = .data$`any autoimmune disorder` |>
+      `any autoimmune disorder` =
+        .data$`any autoimmune disorder` |>
         set_label_attribute("autoimmune diagnoses or symptoms")
     ) |>
     set_mri_var_labels()
