@@ -589,6 +589,7 @@ trax$`FXS ID` |> intersect(gp34$`FXS ID`)
 trax_gp34_all <-
   trax |>
   bind_rows(gp34) |>
+  semi_join(obs_to_use) |> # limit to obs we had in first submission
   clean_gender() |> # re-add label
   add_labels() # `bind_rows()` removes them
 

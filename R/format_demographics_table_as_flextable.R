@@ -6,8 +6,7 @@
 #' @returns a [flextable::flextable]
 #' @export
 #' @keywords internal
-format_demographics_table_as_flextable <- function(x, ...)
-{
+format_demographics_table_as_flextable <- function(x, ...) {
   x |>
     gtsummary::as_flex_table() |>
     # update upper header label: '' to 'M vs. F'
