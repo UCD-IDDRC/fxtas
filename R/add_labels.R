@@ -41,7 +41,9 @@ add_labels <- function(data) {
       `head tremor` = .data$`head tremor` |> set_label_attribute("head tremor"),
       `Corpus Callosum-Thickness` =
         .data$`Corpus Callosum-Thickness` |>
-        set_label_attribute("Corpus Callosum Thickness")
+        set_label_attribute("Corpus Callosum Thickness"),
+      `any autoimmune disorder` = .data$`any autoimmune disorder` |>
+        set_label_attribute("autoimmune diagnoses or symptoms")
     ) |>
     set_mri_var_labels()
 }
