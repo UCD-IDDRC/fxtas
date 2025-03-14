@@ -43,7 +43,16 @@ stage_barplot.default <- function(object,
     ggplot2::aes(x = .data$ml_stage) +
     geom_bar() +
     xlab("Disease stage") +
-    ylab("Number of observations in stage")
+    ylab("Number of observations in stage") +
+    ggplot2::geom_hline(
+      aes(
+        yintercept = 3,
+        col = "recommended sample size: three observations per stage"
+      )
+    ) +
+    theme_bw() +
+    theme(legend.position = "bottom") +
+    labs(color = "")
 
   if (multiple_subtypes) {
     plot1 <- plot1 + ggplot2::facet_wrap(~ ml_subtype)
