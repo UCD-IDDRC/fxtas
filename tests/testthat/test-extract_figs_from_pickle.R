@@ -4,5 +4,5 @@ test_that("`extract_figs_from_pickle()` produces stable results", {
     extract_figs_from_pickle(output_folder = _,
                              n_s = 1,
                              use_rds = TRUE) |>
-    vdiffr::expect_doppelganger(title = "PVD")
+    vdiffr::expect_doppelganger(title = "pvd")
 })
