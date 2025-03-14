@@ -1,5 +1,4 @@
-clean_data <- function(dataset)
-{
+clean_data <- function(dataset) {
   to_return <-
     dataset |>
     dplyr::arrange(
@@ -40,11 +39,11 @@ clean_data <- function(dataset)
 
     categorize_BDS() |>
 
-    # make_vars_numeric(regex = "BDS-2 Total Score") |>
-    # make_vars_numeric(regex = "MMSE total score") |>
+    # make_vars_numeric(regex = "BDS-2 Total Score") |> # nolint: commented_code_linter
+    # make_vars_numeric(regex = "MMSE total score") |> # nolint: commented_code_linter
 
     # `Drugs used` is unstructured text, with typos; unusable
-    # fix_drugs_used() |>
+    # fix_drugs_used() |> # nolint: commented_code_linter
 
     categorize_MMSE() |>
 
