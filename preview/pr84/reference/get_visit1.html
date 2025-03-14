@@ -75,20 +75,20 @@
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">test_data</span> <span class="op">|&gt;</span> <span class="fu">get_visit1</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 313 × 460</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 312 × 460</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    Study `FXS ID` `Event Name` `Visit Date` `Visit Number` `Age at visit` Gender</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> GP3   1        Visit 2 (Ar… 2017-12-13               <span style="color: #BB0000;">NA</span>           79.0 Male  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> GP4   10       Visit 2 (Ar… 2014-07-24               <span style="color: #BB0000;">NA</span>           64   Male  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> GP3   100      Visit 3 (Ar… 2023-02-22                1           54   Male  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> GP4   101      Visit 2 (Ar… 2021-05-05               <span style="color: #BB0000;">NA</span>           67.3 Female</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> GP4   102      GP4 - Singl… 2020-02-04                1           53.7 Male  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> GP4   103      Visit 1 (Ar… 2023-05-24               <span style="color: #BB0000;">NA</span>           52   Male  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> Trax… 104      Visit 1 (Ar… 2017-04-10               <span style="color: #BB0000;">NA</span>           61.6 Male  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> GP4   105      Visit 1 (Ar… 2014-08-05               <span style="color: #BB0000;">NA</span>           54   Female</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> GP3   106      Visit 1 (Ar… 2013-07-09               <span style="color: #BB0000;">NA</span>           59.8 Male  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> Trax… 107      GP3 - Visit… 2022-02-10               <span style="color: #BB0000;">NA</span>           68.4 Female</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 303 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> Trax… 1        Visit 1 (Ar… 2023-06-26               <span style="color: #BB0000;">NA</span>           68.2 Male  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> GP4   10       Visit 3 (Ar… 2015-11-03                1           66   Male  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> GP4   100      Visit 1 (Ar… 2019-08-01                2           58   Male  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> Trax… 101      Visit 2 (Ar… <span style="color: #BB0000;">NA</span>                       <span style="color: #BB0000;">NA</span>           69   Male  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> Trax… 102      GP4 - Visit… 2015-01-23                1           64.3 Male  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> GP4   103      GP3 - Visit… 2017-01-19                1           69.1 Male  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> GP3   104      GP3 - Visit… 2015-02-26               <span style="color: #BB0000;">NA</span>           50.7 Female</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> GP3   105      GP4 - Visit… 2018-01-18                2           67.9 Male  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> Trax… 106      GP4 - Visit… 2013-10-10               <span style="color: #BB0000;">NA</span>           74.1 Male  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> GP4   107      Visit 2 (Ar… 2019-02-21               <span style="color: #BB0000;">NA</span>           74   Female</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 302 more rows</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 453 more variables: `Primary Race` &lt;fct&gt;, `Primary Ethnicity` &lt;fct&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   `FMR1 Category` &lt;fct&gt;, `Education Level` &lt;fct&gt;, `Years of Education` &lt;dbl&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   `Kinesia Left Kinetic Tremor` &lt;dbl&gt;, `Kinesia Left postural tremor` &lt;dbl&gt;,</span></span>
