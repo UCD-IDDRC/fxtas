@@ -40,6 +40,7 @@ clean_ataxia <- function(data) {
     mutate(
       "ataxia severity*" =
         .data$`ataxia severity` |>
+        floor() |>
         factor()
 
     )
