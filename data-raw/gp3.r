@@ -348,7 +348,7 @@ levels(dataset$scid_som38)=c("Inadequate Info","Absent","Sub-Threshold","Thresho
 levels(dataset$scid_som40)=c("Inadequate Info","Absent","Sub-Threshold","Threshold")
 levels(dataset$scid_som39)=c("Inadequate Info","Absent","Sub-Threshold","Threshold")
 # edu var
-levels(dataset$dem_edlev)=c("K-7","8-9","10-11","High School/GED","Partial College","BA/BS","MA/MS/PhD/MD","No Data")
+levels(dataset$dem_edlev)=c("K-7","8-9","10-11","High School/GED","Partial College","BA/BS","MA/MS/PhD/MD","No Response (999)")
 
 levels(dataset$new_mds_med_can_other)=c("No","Yes","No Response (999)","NA (888)","Question not asked at time of data entry; check records (777)")
 
@@ -402,11 +402,11 @@ levels(dataset$mri_splen_wm_hyper)=c("None","Mild","Moderate","Severe","Missing/
 levels(dataset$mri_genu_wm_hyper)=c("No","Yes","Missing/Refused (999)")
 levels(dataset$mri_corp_call_thick)=c("Normal","Thin","Missing/Refused (999)")
 # new variables
-levels(dataset$mds_ne_ga)=c("No","Yes","No Response","Question not asked at time of data entry; check records")
-levels(dataset$mds_ne_tand)=c("Normal","Steps (Abnormal, < 10)","Cannot (Absent)","No data","question not asked at time of data entry; check records")
-levels(dataset$mds_neu_trem_int)=c("No","Yes","No Response","NA","Question not asked at time of data entry; check records")
-levels(dataset$mds_neu_trem_rest)=c("No","Yes","No Response","NA","Question not asked at time of data entry; check records")
-levels(dataset$mds_neu_trem_pos)=c("No","Yes","No Response","NA","Question not asked at time of data entry; check records")
+levels(dataset$mds_ne_ga)=c("No","Yes","No Response (999)","Question not asked at time of data entry; check records (777)")
+levels(dataset$mds_ne_tand)=c("Normal","Steps (Abnormal, < 10)","Unable (Absent)","Missing/Refused (999)","Question not asked at time of data entry; check records (777)")
+levels(dataset$mds_neu_trem_int)=c("No","Yes","No Response (999)","NA (888)","Question not asked at time of data entry; check records (777)")
+levels(dataset$mds_neu_trem_rest)=c("No","Yes","No Response (999)","NA (888)","Question not asked at time of data entry; check records (777)")
+levels(dataset$mds_neu_trem_pos)=c("No","Yes","No Response (999)","NA (888)","Question not asked at time of data entry; check records (777)")
 
 
 

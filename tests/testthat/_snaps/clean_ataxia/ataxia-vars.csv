@@ -4,36 +4,36 @@ Yes,Yes,Yes,1,0,0,No Response (999),1,1,1
 Yes,Yes,Yes,4,4,4,[Valid data recorded],3,3,4
 NA,NA,NA,NA,NA,NA,Missing (empty in RedCap),NA,NA,NA
 No,No,No,0,0,0,No Response (999),0,0,0
-Yes,NA,Yes,1,0,0,No Response (999),1,1,1
+Yes,No,Yes,1,0,0,No Response (999),1,1,1
 No,No,No,0,0,0,NA (888),0,0,0
 No,No,No,0,0,0,No Response (999),0,0,0
 Yes,No,Yes,3,0,0,NA (888),3,3,3
 No,No,No,0,0,0,NA (888),0,0,0
-No,NA,No,0,0,0,No Response (999),0,0,0
-No,NA,No,2,0,0,No Response (999),2,2,2
+No,No,No,0,0,0,No Response (999),0,0,0
+No,No,No,2,0,0,No Response (999),2,2,2
 Yes,No,Yes,0,0,0,NA (888),0,0,0
 Yes,Yes,Yes,2,2,2,[Valid data recorded],2,2,2
 Yes,Yes,NA,2,0,0,No Response (999),2,2,2
 Yes,No,Yes,1,0,0,NA (888),1,1,1
 Yes,Yes,Yes,2,0,0,NA (888),2,2,2
-No,NA,No,0,0,0,No Response (999),0,0,0
+No,No,No,0,0,0,No Response (999),0,0,0
 Yes,Yes,Yes,3,0,0,No Response (999),3,3,3
 No,NA,No,0,NA,NA,Missing (empty in RedCap),0,0,0
 Yes,Yes,Yes,2,0,0,No Response (999),2,2,2
 Yes,No,Yes,2,0,0,NA (888),2,2,2
-No,NA,No,4,0,0,No Response (999),4,4,4
-No,NA,No,0,0,0,NA (888),0,0,0
+No,No,No,4,0,0,No Response (999),4,4,4
+No,No,No,0,0,0,NA (888),0,0,0
 No,No,No,1,0,0,NA (888),1,1,1
 No,No,No,0,0,0,NA (888),0,0,0
 Yes,Yes,Yes,0,0,0,No Response (999),0,0,0
 No,No,No,0,0,0,[Valid data recorded],0,0,0
 No,No,No,0,0,0,[Valid data recorded],0,0,0
-NA,NA,NA,0,0,0,No Response (999),NA,NA,0
+No,No,NA,0,0,0,No Response (999),NA,NA,0
 Yes,No,Yes,0,0,0,NA (888),0,0,0
 Yes,No,Yes,2,0,0,No Response (999),2,2,2
 No,No,No,1,0,0,NA (888),1,1,1
 No,No,No,0,0,0,No Response (999),0,0,0
-No,NA,No,0,0,0,No Response (999),0,0,0
+No,No,No,0,0,0,No Response (999),0,0,0
 No,No,No,0,0,0,NA (888),0,0,0
 No,No,No,3,0,0,NA (888),3,3,3
 No,No,No,0,0,0,No Response (999),0,0,0

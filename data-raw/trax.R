@@ -378,7 +378,7 @@ levels(dataset$dem_trax_gender) <- c("Female", "Male")
 levels(dataset$dem_trax_race) <- c("American Indian/Alaska Native", "Asian", "Native Hawaiian or Other Pacific Islander", "Black or African American", "White", "More Than One Race", "Unknown / Not Reported")
 levels(dataset$dem_trax_eth) <- c("Hispanic or Latino", "Not Hispanic or Latino", "Unknown / Not Reported")
 levels(dataset$dem_trax_category) <- c("Control", "Premutation")
-levels(dataset$dem_edlev) <- c("K-7", "8-9", "10-11", "High School/GED", "Partial College", "BA/BS", "MA/MS/PhD/MD", "No Data")
+levels(dataset$dem_edlev) <- c("K-7", "8-9", "10-11", "High School/GED", "Partial College", "BA/BS", "MA/MS/PhD/MD", "No Response (999)")
 levels(dataset$mds_med_hyethy) <- c("No", "Yes", "No Response (999)", "NA (888)", "Question not asked at time of data entry; check records (777)")
 levels(dataset$mds_med_hyothy) <- c("No", "Yes", "No Response (999)", "NA (888)", "Question not asked at time of data entry; check records (777)")
 levels(dataset$mds_med_lup) <- c("No", "Yes", "No Response (999)", "Question not asked at time of data entry; check records (777)")
@@ -399,7 +399,7 @@ levels(dataset$mds_ne_pt) <- c("No", "Yes", "No Response (999)", "Question not a
 levels(dataset$mds_ne_rt) <- c("No", "Yes", "No Response (999)", "NA (888)", "Question not asked at time of data entry; check records (777)")
 levels(dataset$mds_neu_atax) <- c("No", "Yes", "No Response (999)", "NA (888)", "Question not asked at time of data entry; check records (777)")
 levels(dataset$mds_neu_trem_irm) <- c("No", "Yes", "No Response (999)", "NA (888)", "Question not asked at time of data entry; check records (777)")
-levels(dataset$mds_psy_drug) <- c("Past Only", "Present", "None", "No Response (999)", "question not asked at time of data entry; check records (777)")
+levels(dataset$mds_psy_drug) <- c("Past Only", "Present", "None", "No Response (999)", "Question not asked at time of data entry; check records (777)")
 levels(dataset$mri_cere_atr) <- c("None", "Mild", "Moderate", "Severe", "Missing/Refused")
 levels(dataset$mri_cere_wm_hyper) <- c("None", "Mild", "Moderate", "Severe", "Missing/Refused")
 levels(dataset$mri_cerebel_atr) <- c("None", "Mild", "Moderate", "Severe", "Missing/Refused")
@@ -440,9 +440,9 @@ levels(dataset$new_mds_neu_trem_int) <- c("No", "Yes", "No Response (999)", "NA 
 levels(dataset$new_mds_neu_trem_irm) <- c("No", "Yes", "No Response (999)", "NA (888)", "Question not asked at time of data entry; check records (777)")
 levels(dataset$new_mds_neu_trem_pos) <- c("No", "Yes", "No Response (999)", "NA (888)", "Question not asked at time of data entry; check records (777)")
 levels(dataset$new_mds_neu_trem_rest) <- c("No", "Yes", "No Response (999)", "NA (888)", "Question not asked at time of data entry; check records (777)")
-levels(dataset$new_mds_psy_alco) <- c("None", "Past Only", "Present", "No Response (999)", "NA (888)", "question not asked at time of data entry; check records (777)")
-levels(dataset$new_mds_psy_drug) <- c("None", "Past Only", "Present", "No Response (999)", "NA (888)", "question not asked at time of data entry; check records (777)")
-levels(dataset$new_mds_psy_drug_marij) <- c("None", "Past Only", "Present", "No Response (999)", "NA (888)", "question not asked at time of data entry; check records (777)")
+levels(dataset$new_mds_psy_alco) <- c("None", "Past Only", "Present", "No Response (999)", "NA (888)", "Question not asked at time of data entry; check records (777)")
+levels(dataset$new_mds_psy_drug) <- c("None", "Past Only", "Present", "No Response (999)", "NA (888)", "Question not asked at time of data entry; check records (777)")
+levels(dataset$new_mds_psy_drug_marij) <- c("None", "Past Only", "Present", "No Response (999)", "NA (888)", "Question not asked at time of data entry; check records (777)")
 levels(dataset$scid_admin) <- c("Yes", "No")
 levels(dataset$scid_dxcode1) <- c("Bipolar I Disorder (MD01)", "Bipolar II Disorder (MD02)", "Other Bipolar Disorder (MD03)", "Major Depressive Disorder (MD04)", "Dysthymic Disorder (MD05), Lifetime", "Depressive Disorder NOS (MD06)", "Mood Disorder Due to GMC (MD07)", "Substance-Induced Mood Disorder (MD08)", "Primary Psychotic Symptom (PS01)", "Alcohol (SUD17)", "Sedative-Hypnotic-Anxioly (SUD18)", "Cannabis (SUD19)", "Stimulants (SUD20)", "Opioid (SUD21)", "Cocaine (SUD22)", "Hallucinogenics/ PCP (SUD23)", "Poly Drug (SUD24)", "Substance Abuse Other (SUD25)", "Panic Disorder (ANX26)", "Agoraphobia without Panic (ANX27)", "Social Phobia (ANX28)", "Specific Phobia (ANX29)", "Obsessive Compulsive (ANX30)", "Posttraumatic Stress (ANX31)", "Generalized Anxiety (ANX32)", "Anxiety Due to GMC (ANX33)", "Substance-Induced Anxiety (ANX34)", "Anxiety Disorder NOS (ANX35)", "Somatization Disorder (SOM36)", "Pain Disorder (SOM37)", "Undifferentiated Somatoform (SOM38)", "Hypochondriasis (SOM39)", "Body Dysmorphic (SOM40)", "Adjustment Disorder (ADJ44)", "Other Dx Not Listed", "Not Applicable", "None Listed or Incomplete Data")
 levels(dataset$scid_dxcode2) <- c("Bipolar I Disorder (MD01)", "Bipolar II Disorder (MD02)", "Other Bipolar Disorder (MD03)", "Major Depressive Disorder (MD04)", "Dysthymic Disorder (MD05), Lifetime", "Depressive Disorder NOS (MD06)", "Mood Disorder Due to GMC (MD07)", "Substance-Induced Mood Disorder (MD08)", "Primary Psychotic Symptom (PS01)", "Alcohol (SUD17)", "Sedative-Hypnotic-Anxioly (SUD18)", "Cannabis (SUD19)", "Stimulants (SUD20)", "Opioid (SUD21)", "Cocaine (SUD22)", "Hallucinogenics/ PCP (SUD23)", "Poly Drug (SUD24)", "Substance Abuse Other (SUD25)", "Panic Disorder (ANX26)", "Agoraphobia without Panic (ANX27)", "Social Phobia (ANX28)", "Specific Phobia (ANX29)", "Obsessive Compulsive (ANX30)", "Posttraumatic Stress (ANX31)", "Generalized Anxiety (ANX32)", "Anxiety Due to GMC (ANX33)", "Substance-Induced Anxiety (ANX34)", "Anxiety Disorder NOS (ANX35)", "Somatization Disorder (SOM36)", "Pain Disorder (SOM37)", "Undifferentiated Somatoform (SOM38)", "Hypochondriasis (SOM39)", "Body Dysmorphic (SOM40)", "Adjustment Disorder (ADJ44)", "Other Dx Not Listed", "Not Applicable", "None Listed or Incomplete Data")
@@ -556,6 +556,7 @@ trax <- dplyr::bind_rows(
   "Trax Phase 2" = data_arm2,
   .id = "Study"
 ) |>
+  mutate(`Tandem Walk` = NA) |>
   # clean trax data
   clean_trax_data()
 

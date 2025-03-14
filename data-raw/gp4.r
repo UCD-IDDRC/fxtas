@@ -398,11 +398,12 @@ levels(dataset$scid_som40)=c("Inadequate Info","Absent","Sub-Threshold","Thresho
 # edu variable
 levels(dataset$dem_edlev)=c("K-7","8-9","10-11","High School/GED","Partial College","BA/BS","MA/MS/PhD/MD","No dataset")
 # new variables
-levels(dataset$new_mds_ne_head)=c("No","Yes","No Response","NA","Question not asked at time of data entry; check records")
-levels(dataset$new_mds_ne_rt)=c("No","Yes","No Response","NA","Question not asked at time of data entry; check records")
-levels(dataset$new_mds_ne_it)=c("No","Yes","No Response","Question not asked at time of data entry; check records")
-levels(dataset$new_mds_ne_pt)=c("No","Yes","No Response","Question not asked at time of data entry; check records")
-levels(dataset$new_mds_ne_tand)=c("Normal","Steps (Abnormal, < 10)","Unable (Absent)","No data","question not asked at time of data entry; check records")
+levels(dataset$new_mds_ne_head)=c("No","Yes","No Response (999)","NA","Question not asked at time of data entry; check records  (777)")
+levels(dataset$new_mds_ne_rt)=c("No","Yes","No Response (999)","NA","Question not asked at time of data entry; check records")
+levels(dataset$new_mds_ne_it)=c("No","Yes","No Response (999)","Question not asked at time of data entry; check records (777)")
+levels(dataset$new_mds_ne_pt)=c("No","Yes","No Response (999)","Question not asked at time of data entry; check records (777)")
+levels(dataset$new_mds_ne_tand)=c("Normal","Steps (Abnormal, < 10)","Unable (Absent)","No Response (999)",
+                                  "Question not asked at time of data entry; check records (777)")
 
 dataset <- dataset |>
   mutate(

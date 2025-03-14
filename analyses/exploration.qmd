@@ -158,6 +158,7 @@ v1_usable |>
 
 ```{r}
 vars <- c(
+  "tandem walk",
   "ataxia",
   "ataxia severity"
   # "ataxia age of onset",
