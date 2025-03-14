@@ -18,6 +18,7 @@ test_that(
       make_demographics_table(make_ft = TRUE)
 
     ft |>
+      flextable::gen_grob(fit = "auto") |>
       vdiffr::expect_doppelganger(title = "demographics_table-2")
 
   }

@@ -10,6 +10,7 @@ test_that("results are consistent", {
     flextable::width(width = 1)
 
   ft |>
+    flextable::gen_grob(fit = "auto") |>
     vdiffr::expect_doppelganger(title = "prob_correct_table")
 
 })
