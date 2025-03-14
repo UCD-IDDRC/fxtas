@@ -7,7 +7,8 @@ set_mri_var_label <- function(var, name) {
 expand_mri_abbreviations <- function(string) {
   string |>
     stringr::str_replace(fixed("-WM"), " White Matter") |>
-    stringr::str_replace(fixed("WM"), "White Matter")
+    stringr::str_replace(fixed("WM"), "White Matter") |>
+    stringr::str_replace(fixed("(CC)"), "(Corpus Callosum)")
 }
 
 set_mri_var_labels <- function(data) {

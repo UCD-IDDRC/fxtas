@@ -1,26 +1,12 @@
 vars,labels
-ApoE,ApoE
-BDS-2 Total Score,BDS-2 total score
-BDS-2 Total Score*,BDS-2 total score
-CGG,CGG repeats
 Cerebellar Atrophy,Cerebellar Atrophy
 Cerebellar WM Hyperintensity,Cerebellar White Matter Hyperintensity
 Cerebral Atrophy,Cerebral Atrophy
 Cerebral WM Hyperintensity,Cerebral White Matter Hyperintensity
 Corpus Callosum-Thickness,Corpus Callosum-Thickness
-FX3*,CGG repeat level
-FXTAS Stage,FXTAS Stage
-Gender,Sex
 Genu (CC)-WM Hyperintensity,Genu (Corpus Callosum) White Matter Hyperintensity
 MCP-WM Hyperintensity,MCP White Matter Hyperintensity
-MMSE total score*,MMSE total score
-PAL Total errors (adjusted)*,PAL total errors
-Parkinsons,Parkinson's disease
 Periventricular WM Hyperintensity,Periventricular White Matter Hyperintensity
 Pons-WM Hyperintensity,Pons White Matter Hyperintensity
-RTI Five-choice move2ment time*,RTI Five-choice movement time
-RTI Five-choice movement time*,RTI Five-choice movement time
-SWM Between errors*,SWM Between errors
 Splenium (CC)-WM Hyperintensity,Splenium (Corpus Callosum) White Matter Hyperintensity
 Sub-Insular WM Hyperintensity,Sub-Insular White Matter Hyperintensity
-ataxia severity*,Ataxia severity
