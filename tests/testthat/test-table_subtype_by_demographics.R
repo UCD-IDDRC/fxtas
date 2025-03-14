@@ -35,8 +35,8 @@ test_that(
 
     ft |>
       gtsummary::as_flex_table() |>
-      shared_flextable_settings() |>
-      flextable::gen_grob(fit = "auto") |>
+      shared_flextable_settings(padding = 2) |>
+      flextable::gen_grob(fit = "fixed") |>
       vdiffr::expect_doppelganger(title = "table_subtype_by_demographics")
 
   }

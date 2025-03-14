@@ -8,7 +8,8 @@ make_demographics_table(
   data,
   strata = "Gender",
   vars = c("Age at visit", "Primary Race/Ethnicity", "FXTAS Stage", "CGG"),
-  make_ft = TRUE
+  make_ft = TRUE,
+  ...
 )
 }
 \arguments{
@@ -20,6 +21,12 @@ make_demographics_table(
 \item{vars}{names of row variables, specified as \link{character}}
 
 \item{make_ft}{\link{logical} whether to convert to flextable}
+
+\item{...}{
+  Arguments passed on to \code{\link[=format_demographics_table_as_flextable]{format_demographics_table_as_flextable}}
+  \describe{
+    \item{\code{}}{}
+  }}
 }
 \value{
 a \link[flextable:flextable]{flextable::flextable}

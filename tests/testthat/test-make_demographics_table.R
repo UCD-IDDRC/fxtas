@@ -15,10 +15,10 @@ test_that(
   code = {
     ft = test_data_v1 |>
       dplyr::filter(!is.na(CGG)) |>
-      make_demographics_table(make_ft = TRUE)
+      make_demographics_table(make_ft = TRUE, padding = 2)
 
     ft |>
-      flextable::gen_grob(fit = "auto") |>
+      flextable::gen_grob(fit = "fixed") |>
       vdiffr::expect_doppelganger(title = "demographics_table-2")
 
   }

@@ -5,6 +5,7 @@
 #' @param strata names of column variable, specified as [character]
 #' @param vars names of row variables, specified as [character]
 #' @param make_ft [logical] whether to convert to flextable
+#' @inheritDotParams format_demographics_table_as_flextable -x
 #' @inherit format_demographics_table_as_flextable return
 #' @export
 #'
@@ -24,7 +25,8 @@ make_demographics_table <- function(
       "CGG"
       # "ApoE")
     ),
-    make_ft = TRUE) {
+    make_ft = TRUE,
+    ...) {
 
 
   data_to_use <- data |>
@@ -64,7 +66,7 @@ make_demographics_table <- function(
   if (make_ft) {
     to_return <-
       to_return |>
-    format_demographics_table_as_flextable()
+    format_demographics_table_as_flextable(...)
   }
 
   return(to_return)

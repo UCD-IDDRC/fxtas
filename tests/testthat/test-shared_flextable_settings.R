@@ -6,11 +6,10 @@ test_that("results are consistent", {
   withr::local_package("flextable")
   ft = prob_correct |>
     flextable::flextable() |>
-    shared_flextable_settings() |>
-    flextable::width(width = 1)
+    shared_flextable_settings(padding = 2)
 
   ft |>
-    flextable::gen_grob(fit = "auto") |>
+    flextable::gen_grob(fit = "fixed") |>
     vdiffr::expect_doppelganger(title = "prob_correct_table")
 
 })

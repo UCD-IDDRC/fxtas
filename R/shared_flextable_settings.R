@@ -1,15 +1,16 @@
 #' Apply flextable settings to match Brain journal requirements
 #'
 #' @param x a [flextable::flextable]
-#'
+#' @param padding
+#' controls `padding.top` and `padding.bottom` in [flextable::padding()]
 #' @returns a modified [flextable::flextable]
 #' @export
 #'
-shared_flextable_settings = function(x)
+shared_flextable_settings = function(x, padding = 0)
 {
   x |>
-    flextable::padding(padding.top = 0,
-                       padding.bottom = 0,
+    flextable::padding(padding.top = padding,
+                       padding.bottom = padding,
                        part = "all") |>
     flextable::fontsize(size = 8, part = "all") |>
     flextable::font(fontname = "Gill sans MT", part = 'all') |>

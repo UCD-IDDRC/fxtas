@@ -1,7 +1,7 @@
 #' Format the demographics table as a flextable
 #'
 #' @param x a [gtsummary::gtsummary] object
-#' @param ... not used
+#' @inheritDotParams shared_flextable_settings
 #'
 #' @returns a [flextable::flextable]
 #' @dev
@@ -10,7 +10,7 @@ format_demographics_table_as_flextable <- function(x, ...)
   x |>
     gtsummary::as_flex_table() |>
     # update upper header label: '' to 'M vs. F'
-    shared_flextable_settings() |>
+    shared_flextable_settings(...) |>
     flextable::compose(
       part = "header",
       i = 1,
