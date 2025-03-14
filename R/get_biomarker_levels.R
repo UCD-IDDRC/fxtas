@@ -19,13 +19,11 @@ get_levels <- function(data, varnames = names(data), keep_labels = FALSE)
     lapply(FUN = levels)
 
 
-  if(keep_labels)
-  {
+  if (keep_labels) {
     labels = labelled::var_label(vars)
 
 
-    for (cur in names(labels))
-    {
+    for (cur in names(labels)) {
       labelled::var_label(to_return[[cur]]) = labels[[cur]]
     }
 

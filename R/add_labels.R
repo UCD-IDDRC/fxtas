@@ -36,9 +36,12 @@ add_labels <- function(data) {
         ),
       `Tandem Walk` = .data$`Tandem Walk` |>
         labelled::set_label_attribute("tandem walk"),
-      ataxia = ataxia |> set_label_attribute("ataxia"),
+      ataxia = .data$ataxia |> set_label_attribute("ataxia"),
       `ataxia severity` = .data$`ataxia severity` |> set_label_attribute("ataxia severity"),
-      `head tremor` = .data$`head tremor` |> set_label_attribute("head tremor")
+      `head tremor` = .data$`head tremor` |> set_label_attribute("head tremor"),
+      `Corpus Callosum-Thickness` =
+        .data$`Corpus Callosum-Thickness` |>
+        set_label_attribute("Corpus Callosum Thickness")
     ) |>
     set_mri_var_labels()
 }

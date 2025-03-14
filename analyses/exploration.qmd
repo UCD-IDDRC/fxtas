@@ -20,7 +20,8 @@ v1_usable <-
       labelled::set_label_attribute("Parkinson's disease"),
     `FXTAS Stage` = `FXTAS Stage` |>
       labelled::set_label_attribute("FXTAS Stage")
-  )
+  ) |> 
+  add_missing_labels()
 
 
 outcomes_name <- "symptom"

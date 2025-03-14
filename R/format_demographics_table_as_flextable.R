@@ -4,7 +4,8 @@
 #' @inheritDotParams shared_flextable_settings
 #'
 #' @returns a [flextable::flextable]
-#' @dev
+#' @export
+#' @keywords internal
 format_demographics_table_as_flextable <- function(x, ...)
 {
   x |>
