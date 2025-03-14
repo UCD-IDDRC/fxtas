@@ -10,12 +10,16 @@ compile_biomarker_group_list(dataset)
 \item{dataset}{Dataset to extract biomarker names from using regular expressions}
 }
 \value{
-a \link{list} of \link{character} vectors, with the list names denoting biomarker groups and the elements of the \link{character} vectors denoting individual biomarkers in each group.
+a \link{list} of \link{character} vectors,
+with the list names denoting biomarker groups and the elements of
+the \link{character} vectors denoting individual biomarkers in each group.
 }
 \description{
-This function compiles a \link{list} of biomarker variable names, grouped into categories.
+This function compiles a \link{list} of biomarker variable names,
+grouped into categories.
 Some of the categories are hard-coded, while others are extracted from the
-column names of the input \link{data.frame} \code{dataset} using regular expressions (see \link[base:regex]{base::regex} and \code{\link[base:grep]{base::grep()}}).
+column names of the input \link{data.frame} \code{dataset} using regular expressions
+(see \link[base:regex]{base::regex} and \code{\link[base:grep]{base::grep()}}).
 }
 \examples{
 compile_biomarker_group_list(dataset = test_data_v1)

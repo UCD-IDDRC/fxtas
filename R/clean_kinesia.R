@@ -1,24 +1,26 @@
-clean_kinesia <- function(data,
-                          kinesia_vars = c(
-                            "Kinesia Left Rest Tremor",
-                            "Kinesia Left postural tremor",
-                            "Kinesia Left Kinetic Tremor",
-                            "Kinesia Right Rest Tremor",
-                            "Kinesia Right postural tremor",
-                            "Kinesia Right Kinetic Tremor"
-                          ))
-{
+clean_kinesia <- function(
+  data,
+  kinesia_vars = c(
+    "Kinesia Left Rest Tremor",
+    "Kinesia Left postural tremor",
+    "Kinesia Left Kinetic Tremor",
+    "Kinesia Right Rest Tremor",
+    "Kinesia Right postural tremor",
+    "Kinesia Right Kinetic Tremor"
+  )
+) {
   data |>
     dplyr::mutate(across(
       all_of(kinesia_vars),
-      .fns = function(x)
+      .fns = function(x) {
         x |>
-        cut(
-          breaks = c(0, 1, 2, 3, 4),
-          include.lowest = TRUE,
-          right = TRUE,
-          labels = c("0-1", "1-2", "2-3", "3-4")
-        ),
+          cut(
+            breaks = c(0, 1, 2, 3, 4),
+            include.lowest = TRUE,
+            right = TRUE,
+            labels = c("0-1", "1-2", "2-3", "3-4")
+          )
+      },
       .names = "{.col}*"
     ))
 }

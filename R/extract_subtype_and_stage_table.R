@@ -1,12 +1,12 @@
-extract_subtype_and_stage_table <- function(
+extract_subtype_and_stage_table <- function( # nolint: object_length_linter
     results,
     n_s = get_n_subtypes(results)) {
 
   tibble(
-    ml_subtype = results$ml_subtype[,1] + 1,
-    ml_stage = results$ml_stage[,1],
-    prob_ml_subtype = results$prob_ml_subtype[,1],
-    prob_ml_stage = results$prob_ml_stage[,1]
+    ml_subtype = results$ml_subtype[, 1] + 1,
+    ml_stage = results$ml_stage[, 1],
+    prob_ml_subtype = results$prob_ml_subtype[, 1],
+    prob_ml_stage = results$prob_ml_stage[, 1]
   ) |>
     dplyr::mutate(
       ml_subtype = if_else(
