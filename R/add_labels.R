@@ -33,7 +33,9 @@ add_labels <- function(data) {
         .data$`RTI Five-choice movement time*` |>
         labelled::set_label_attribute(
           "RTI Five-choice movement time"
-        )
+        ),
+      `Tandem Walk` = .data$`Tandem Walk` |>
+        labelled::set_label_attribute("tandem walk")
     ) |>
     set_mri_var_labels()
 }
