@@ -66,7 +66,7 @@ make_demographics_table <- function(
   if (make_ft) {
     to_return <-
       to_return |>
-    format_demographics_table_as_flextable(...)
+      format_demographics_table_as_flextable(...)
   }
 
   return(to_return)

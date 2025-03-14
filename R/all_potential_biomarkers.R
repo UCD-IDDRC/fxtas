@@ -54,14 +54,14 @@ all_potential_biomarkers <- function(dataset) {
   )
 
   scid_vars <- c(
-      "Bipolar I Disorder (MD01), Lifetime",
-      "Bipolar II Disorder (MD02), Lifetime",
-      "Other Bipolar Disorder (MD03), Lifetime",
-      "Major Depressive Disorder (MD04), Lifetime",
-      "Mood Disorder Due to GMC (MD07), Lifetime",
-      "Substance-Induced Mood Dis. (MD08), Lifetime", # no positives
-      "Primary Psychotic Symptoms (PS01), Lifetime"
-    )
+    "Bipolar I Disorder (MD01), Lifetime",
+    "Bipolar II Disorder (MD02), Lifetime",
+    "Other Bipolar Disorder (MD03), Lifetime",
+    "Major Depressive Disorder (MD04), Lifetime",
+    "Mood Disorder Due to GMC (MD07), Lifetime",
+    "Substance-Induced Mood Dis. (MD08), Lifetime", # no positives
+    "Primary Psychotic Symptoms (PS01), Lifetime"
+  )
 
   cantab_vars <- c(
     "SWM Between errors*",

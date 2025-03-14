@@ -6,7 +6,7 @@
 #' @returns a [flextable::flextable]
 #' @export
 #' @keywords internal
-format_demographics_table_as_flextable <- function(x, ...) {
+format_demographics_table_as_flextable <- function(x, ...) { # nolint: object_length_linter
   x |>
     gtsummary::as_flex_table() |>
     # update upper header label: '' to 'M vs. F'
@@ -21,4 +21,3 @@ format_demographics_table_as_flextable <- function(x, ...) {
     # reset p-value header column to bold font
     flextable::bold(part = "header", j = 6)
 }
-
