@@ -20,7 +20,7 @@ parkinsonian_vars =
       "parkinsonian features",
       "Masked faces",
       "Increased tone",
-      "Pill-rolling tremor",
+      "pill-rolling tremor exam",
       "Stiff gait")
 parkinsonian_data = 
   trax_gp34_all |> dplyr::select(all_of(parkinsonian_vars))

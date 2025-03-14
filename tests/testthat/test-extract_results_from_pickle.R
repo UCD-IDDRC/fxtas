@@ -1,17 +1,29 @@
-test_that("`extract_results_from_pickle()` produces stable results", {
-  output_path <-
-    fs::path_package("extdata/sim_data", package = "fxtas")
+test_that(
+  desc = "results are consistent",
+  code = {
 
-  pickle_folder <- fs::path(output_path, "pickle_files")
+    skip_on_ci()
 
-  skip_if_not(dir.exists(pickle_folder))
+    output_path <-
+      fs::path_package("extdata/sim_data", package = "fxtas")
 
-  results =
-    extract_results_from_pickle(output_folder = output_path,
-                                use_rds = FALSE)
+    pickle_folder <- fs::path(output_path, "pickle_files")
 
-  results$samples_sequence = NULL
-  results$samples_f = NULL
-  results |>
-    expect_snapshot_value(style = "serialize")
-})
+    skip_if_not(dir.exists(pickle_folder))
+
+    skip_if_not("fxtas39" %in% reticulate::conda_list()$name)
+
+    reticulate::use_condaenv("fxtas39", required = TRUE) |>
+      suppressWarnings()
+
+    results =
+      extract_results_from_pickle(
+        output_folder = output_path,
+        use_rds = FALSE
+      )
+
+    results$samples_sequence = NULL
+    results$samples_f = NULL
+    results |>
+      expect_snapshot_value(style = "serialize")
+  })

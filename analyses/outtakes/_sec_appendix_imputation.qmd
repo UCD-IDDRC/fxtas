@@ -11,5 +11,5 @@ when Ataxia severity was recorded.
 table1(
   na.is.category = FALSE,
   data = v1_usable_cases,
-  x = ~ `Ataxia: severity*`)
+  x = ~ `ataxia severity*`)
 ```

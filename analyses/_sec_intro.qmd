@@ -51,7 +51,7 @@ in the general population [@maenner2013fmr1; @hunter2014epidemiology].
 The symptoms of FXTAS appear and develop over many years in adulthood, 
 usually after age 50, and include 
 tremor, 
-gait ataxia, 
+ataxia, 
 neuropathy, 
 cognitive decline, 
 and depressive and anxiety disorders

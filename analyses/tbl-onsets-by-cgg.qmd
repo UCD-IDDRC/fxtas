@@ -4,8 +4,8 @@
 #| label: "tbl-tremor-ao"
 #| 
 vars = c(
-         "Tremor: Age of onset",
-         # "Tremor: Age of onset: missingness reasons",
+         "tremor: age of onset",
+         # "tremor: age of onset: missingness reasons",
          NULL
          )
 
@@ -15,18 +15,18 @@ table1(na.is.category = FALSE, overall = FALSE,
        stratified_formula(vars, column_var),
        # render.continuous = c(.="N", .="Mean (SD)", .="Median [Min,  Max]"),
        data = v1_usable |> 
-         dplyr::filter(`Any tremor (excluding head)` == "Some tremors recorded"))
+         dplyr::filter(`any tremor (excluding head)` == "Some tremors recorded"))
 ```
 
 ```{r}
 #| label: tbl-ataxia-AO-by-cgg
 #| tbl-cap: "Ataxia age of onset by CGG level"
 vars = c(
-  # "Ataxia",
-  # "Ataxia: severity",
-  # "Ataxia: severity*"
-  "Ataxia: Age of onset"
-  # "Ataxia: Age of onset: missingness reasons"
+  # "ataxia exam",
+  # "ataxia severity exam",
+  # "ataxia severity*"
+  "ataxia age of onset hx"
+  # "ataxia age of onset hx: missingness reasons"
 )
 
 table1(na.is.category = FALSE, overall = FALSE,
