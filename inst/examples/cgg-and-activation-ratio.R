@@ -1,3 +1,5 @@
+#| label: graph of activation ratio among premutation females
+
 library(tidyverse)
 fd <- trax_gp34_v1 |>
   dplyr::filter(
