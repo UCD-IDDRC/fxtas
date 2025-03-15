@@ -1,0 +1,26 @@
+::: {#supptbl-stage-vs-pk-ft}
+
+```{r}
+v1_usable_cases |>
+  mutate(
+    Stage_3plus =
+      if_else(
+        `FXTAS Stage` %in% c(3:5),
+        "3+",
+        "0-2") |>
+      labelled::set_label_attribute("FXTAS Stage"),
+    `parkinsonian features` = `parkinsonian features`
+  ) |>
+  select(`parkinsonian features`, Stage_3plus) |>
+  gtsummary::tbl_summary(
+    by = `parkinsonian features`) |>
+  gtsummary::add_overall() |>
+  gtsummary::modify_spanning_header(c("stat_1", "stat_2") ~ "**parkinsonian features**") |> 
+  gtsummary::as_flex_table() |> 
+  shared_flextable_settings()
+
+```
+
+**Prevalence of parkinsonian features by FXTAS Stage among premutation carriers**
+
+:::

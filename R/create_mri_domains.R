@@ -20,8 +20,8 @@ create_mri_domains <- function(
   # cerebellum variables
   cerebellum_vars <- c(
     "Cerebellar Atrophy",
-    "Cerebellar WM Hyperintensity"
-    # "MCP-WM Hyperintensity"
+    "Cerebellar WM Hyperintensity",
+    "MCP-WM Hyperintensity"
   )
   # cereberal variables
   cerebral_vars <- c(

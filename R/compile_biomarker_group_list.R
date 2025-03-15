@@ -41,7 +41,7 @@ compile_biomarker_group_list <- function(dataset)
     # "Cerebellar Atrophy",
     # "Cerebral WM Hyperintensity",
     # "Cerebellar WM Hyperintensity",
-    "MCP-WM Hyperintensity",
+    # "MCP-WM Hyperintensity",
     # "Pons-WM Hyperintensity",
     # "Sub-Insular WM Hyperintensity",
     # "Periventricular WM Hyperintensity",

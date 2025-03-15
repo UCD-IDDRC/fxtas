@@ -7,13 +7,12 @@ library(dplyr)
 library(vroom)
 #Read Data
 dataset=vroom::vroom(
-  'inst/extdata/CTSC3704GP4GenotypeP-FXTASEventSequence10_DATA_2025-02-27_1709.csv',
+  'inst/extdata/CTSC3704GP4GenotypeP-FXTASEventSequence10_DATA_2024-03-21_1020.csv',
   col_types = cols(
     dem_date = col_date(),
     new_mds_med_can_other = col_integer(),
     new_mds_med_anes1 = col_character(),
     medic_surg_anes = col_character(),
-    # did we remove these variables?
     kin_l_resttrem = col_double(),
     kin_l_posttrem = col_double(),
     kin_l_kintrem  = col_double(),
@@ -266,13 +265,6 @@ dataset$scid_som40 = factor(dataset$scid_som40,levels=c("777","1","2","3"))
 # edu variable
 dataset$dem_edlev = factor(dataset$dem_edlev,levels=c("1","2","3","4","5","6","7","999"))
 
-# new variables
-dataset$new_mds_ne_head = factor(dataset$new_mds_ne_head,levels=c("0","1","999","888","777"))
-dataset$new_mds_ne_rt = factor(dataset$new_mds_ne_rt,levels=c("0","1","999","888","777"))
-dataset$new_mds_ne_it = factor(dataset$new_mds_ne_it,levels=c("0","1","999","777"))
-dataset$new_mds_ne_pt = factor(dataset$new_mds_ne_pt,levels=c("0","1","999","777"))
-dataset$new_mds_ne_tand = factor(dataset$new_mds_ne_tand,levels=c("1","2","3","999","777"))
-
 # dataset$new_mds_psy_dri = factor(dataset$new_mds_psy_dri)
 # levels(dataset$new_mds_psy_dri) = levels(dataset$new_mds_psy_dri) |> sub(pattern = "888", "")
 
@@ -324,6 +316,7 @@ levels(dataset$mri_genu_wm_hyper)=c("No","Yes","Missing/Refused (999)")
 levels(dataset$mri_corp_call_thick)=c("Normal","Thin","Missing/Refused (999)")
 levels(dataset$dem_race)=c("American Indian/Alaska Native","Asian","Black or African American","Native Hawaiian or Other Pacific Islander","White","Australian Aborigine","More Than One Race","Unknown / Not Reported")
 levels(dataset$dem_eth)=c("Hispanic or Latino","Not Hispanic or Latino","Unknown / Not Reported")
+
 
 levels(dataset$new_mds_med_anes1)=c("Local","General","None","No Response (999)","NA (888)","Question not asked at time of data entry; check records (777)")
 levels(dataset$medic_surg_anes)=c("None","Local","General","Other","Missing/Refused (999)")
@@ -394,14 +387,6 @@ levels(dataset$scid_som39)=c("Inadequate Info","Absent","Sub-Threshold","Thresho
 levels(dataset$scid_som40)=c("Inadequate Info","Absent","Sub-Threshold","Threshold")
 # edu variable
 levels(dataset$dem_edlev)=c("K-7","8-9","10-11","High School/GED","Partial College","BA/BS","MA/MS/PhD/MD","No dataset")
-# new variables
-levels(dataset$new_mds_ne_head)=c("No","Yes","No Response","NA","Question not asked at time of data entry; check records")
-levels(dataset$new_mds_ne_rt)=c("No","Yes","No Response","NA","Question not asked at time of data entry; check records")
-levels(dataset$new_mds_ne_it)=c("No","Yes","No Response","Question not asked at time of data entry; check records")
-levels(dataset$new_mds_ne_pt)=c("No","Yes","No Response","Question not asked at time of data entry; check records")
-levels(dataset$new_mds_ne_tand)=c("Normal","Steps (Abnormal, < 10)","Unable (Absent)","No data","question not asked at time of data entry; check records")
-
-
 
 #Setting Labels
 
@@ -409,7 +394,7 @@ labels = c(subj_id = "FXS ID",
            redcap_event_name = "Event Name",
            new_mds_med_anes1="Anesthesia (new_mds_med_anes1)",
            medic_surg_anes="Anesthesia (medic_surg_anes)",
-           # pp_t1rlb_total ="Purdue pegboard 1st Trial Total, R+L+B",
+           pp_t1rlb_total ="Purdue pegboard 1st Trial Total, R+L+B",
            new_mds_med_can_notes ="Cancer Notes",
            new_mds_med_thy ="Thyroid problems",
            new_mds_med_hyothy ="Hypothyroid",
@@ -495,12 +480,12 @@ labels = c(subj_id = "FXS ID",
            new_mds_med_sur3 = "Surgery 3: Type/Age",
            new_mds_med_sur4 = "Surgery 4: Type/Age",
            new_mds_med_sur5 = "Surgery 5: Type/Age",
-           new_mds_neu_trem_int = "Hx Intention tremor",
-           new_mds_neu_trem_rest = "Hx Resting tremor",
-           new_mds_neu_trem_pos = "Hx Postural tremor",
+           new_mds_neu_trem_int = "Intention tremor",
+           new_mds_neu_trem_rest = "Resting tremor",
+           new_mds_neu_trem_pos = "Postural tremor",
            new_mds_neu_trem_irm = "Intermittent tremor",
            new_mds_neu_trem_age = "Tremor: Age of onset",
-           new_mds_neu_trem_head = "Hx Head tremor",
+           new_mds_neu_trem_head = "Head tremor",
            new_mds_neu_trem_age2 = "Head Tremor: Age of onset",
            new_mds_neu_atax = "Walking/ataxia Problems",
            new_mds_neu_atax_age = "Ataxia: Age of onset",
@@ -593,25 +578,10 @@ labels = c(subj_id = "FXS ID",
            kin_r_resttrem="Kinesia Right Rest Tremor",
            kin_r_posttrem="Kinesia Right Postural Tremor",
            kin_r_kintrem ="Kinesia Right Kinetic Tremor",
-           # moca_tot_score ="MOCA Total score",
-
-           # new vars
-           mol_mos_meth = "Fraction of Methylation (0.0-1.0)",
-           mol_act_ratio = "Activation Ratio (0.0-1.0)",
-           new_mds_ne_head = "Exam Head tremor",
-           new_mds_ne_rt = "Exam Resting tremor",
-           new_mds_ne_rts = "Tremor severity",
-           new_mds_ne_it = "Exam Intention tremor",
-           new_mds_ne_pt = "Exam Postural tremor",
-           new_mds_ne_tand = "Tandem Walk"
+           moca_tot_score ="MOCA Total score"
 )
 
-if(!isTRUE(setequal(names(dataset), names(labels)))) {
-
-  print(setdiff(names(dataset), names(labels)))
-  print(setdiff(names(labels), names(dataset)))
-  browser(message('why is there a mismatch?'))
-}
+if(!isTRUE(setequal(names(dataset), names(labels)))) browser(message('why is there a mismatch?'))
 
 names(dataset) = labels[names(dataset)]
 
