@@ -51,7 +51,9 @@ add_labels <- function(data) {
 
       `Activation Ratio (0.0-1.0)` =
         .data$`Activation Ratio (0.0-1.0)` |>
-        set_label_attribute("Activation ratio")
+        set_label_attribute("Activation ratio"),
+      fxtas_dx = .data$fxtas_dx |>
+      set_label_attribute("FXTAS diagnosis")
     ) |>
     set_mri_var_labels()
 }

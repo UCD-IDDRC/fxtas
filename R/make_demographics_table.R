@@ -14,7 +14,8 @@
 make_demographics_table <- function(
     data,
     strata = "Gender",
-    vars = c(# "Study",
+    vars = c(
+      # "Study",
       "Age at visit",
       # "# visits",
       # column_var,

@@ -786,6 +786,7 @@ v1_usable |> make_demographics_table(
     "Age at visit",
     "Primary Race/Ethnicity",
     "FXTAS Stage",
+    # "fxtas_dx",
     "CGG"
     # "Activation Ratio (0.0-1.0)"
   )

@@ -1,0 +1,35 @@
+```{r}
+v1_usable |> select(Study, `FX*`, fxtas_dx) |> table(useNA = 'ifany') |> ftable()
+```
+
+
+```{r}
+records_with_issues <- 
+  v1_usable |>
+  filter(
+    Study %in% c("GP3", "GP4"),
+    CGG >= 55,
+    fxtas_dx |> is.na()
+  ) |>
+  select(`FXS ID`, `Event Name`, Study, CGG, 
+         mds_fxtas_dx, new_mds_fxtas_dx, fxtas_dx)
+
+records_with_issues
+```
+
+let's check one record at random:
+
+```{r}
+trax_gp34_all |>
+  semi_join(records_with_issues, by = "FXS ID") |> 
+  # filter(
+  #   `FXS ID` == "100482-100"
+  # ) |>
+  select(`FXS ID`, `Event Name`, `Visit Date`, Study, CGG, 
+         mds_fxtas_dx, new_mds_fxtas_dx, fxtas_dx, `FXTAS Stage`) |> 
+  arrange(`FXS ID`, `Event Name`)
+```
+
+I checked several records of 100482-100; there was no fxtas dx value 
+filled in before gp4 visit 2.
+There are a lot of incomplete forms in their record.
