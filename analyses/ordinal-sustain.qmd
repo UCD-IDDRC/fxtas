@@ -335,7 +335,7 @@ results_v1 <- extract_results_from_pickles(
   n_s = 1:N_S_max,
   rda_filename = "data.RData",
   dataset_name = "sample_data",
-  output_folder = "output/output.fixed_CV"
+  output_folder = output_folder
 )
 
 results_females_first = extract_results_from_pickle(
@@ -360,7 +360,7 @@ fig_females_first <- extract_figs_from_pickle(
   n_s = 1,
   rda_filename = "data.RData",
   dataset_name = "females",
-  output_folder = "output/output.fixed_CV"
+  output_folder = output_folder
 )
 
 fig_males_first <- extract_figs_from_pickle(
@@ -369,7 +369,7 @@ fig_males_first <- extract_figs_from_pickle(
   n_s = 1,
   rda_filename = "data.RData",
   dataset_name = "males",
-  output_folder = "output/output.fixed_CV"
+  output_folder = output_folder
 )
 
 fig_both_first <- extract_figs_from_pickle(
@@ -378,7 +378,7 @@ fig_both_first <- extract_figs_from_pickle(
   n_s = 1,
   rda_filename = "data.RData",
   dataset_name = "sample_data",
-  output_folder = "output/output.fixed_CV"
+  output_folder = output_folder
 )
 
 fig_both_first2 <-
@@ -475,7 +475,7 @@ at baseline visit for `r report_sex_differences(biomarkers_table)`.
 
 ```{r}
 #| label: p-val-test-sex
-output_folder <- "output/output.fixed_CV/"
+output_folder <- output_folder
 
 permuted_test_stats <- collect_permutation_test_stats(
   output_folder = output_folder,
@@ -522,7 +522,7 @@ also appear to begin at earlier FXTAS stages for males than for females.
 
 ```{r}
 #| label: p-val-test-sex-under100
-output_folder <- "output/output.fixed_CV/"
+output_folder <- output_folder
 
 permuted_test_stats <- collect_permutation_test_stats(
   output_folder = output_folder,
@@ -544,7 +544,7 @@ pval_under100_sex_gp34_v1 <- permutation_test(
 
 ```{r}
 #| label: p-val-test-sex-over100
-output_folder <- "output/output.fixed_CV/"
+output_folder <- output_folder
 
 permuted_test_stats <- collect_permutation_test_stats(
   output_folder = output_folder,
@@ -582,7 +582,7 @@ among those with CGG ≥ 100 (p = `r pval_over100_sex_gp34_v1`)
 
 ```{r}
 #| label: p-val-test-cgg-male
-output_folder <- "output/output.fixed_CV/"
+output_folder <- output_folder
 
 permuted_test_stats <- collect_permutation_test_stats(
   output_folder = output_folder,
@@ -605,7 +605,7 @@ pval_male_cgg_gp34_v1 <- permutation_test(
 
 ```{r}
 #| label: p-val-test-cgg-female
-output_folder <- "output/output.fixed_CV/"
+output_folder <- output_folder
 
 permuted_test_stats <- collect_permutation_test_stats(
   output_folder = output_folder,
