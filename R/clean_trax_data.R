@@ -49,7 +49,7 @@ clean_trax_data <- function(dataset) {
     # dplyr::relocate(contains("CGG"), .after = contains("ApoE")) |> # nolint: commented_code_linter
 
     fix_FXTAS_stage() |>
-    # clean_fxtas_dx() |>
+    # clean_fxtas_dx() |> # nolint: commented_code_linter
 
     fix_demographics() |>
 
