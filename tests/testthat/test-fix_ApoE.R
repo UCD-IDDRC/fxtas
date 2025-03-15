@@ -1,11 +1,23 @@
 test_that("results are consistent", {
-    testthat::skip_if_not(exists("gp3"))
+
+  file_path <- testthat::test_path("fixtures", "gp34_raw.rds")
+
+  skip_if_not(file.exists(file_path))
 
   withr::local_package("dplyr")
-  gp34 <-
-    bind_rows("GP3" = gp3, "GP4" = gp4, .id = "Study")
 
-  apoe <- gp34 |> fix_ApoE()
+  apoe <- file_path |>
+    readr::read_rds() |>
+    dplyr::select(
+      all_of(
+        c(
+          "FXS ID",
+          "Event Name",
+          "ApoE"
+        )
+      )
+    ) |>
+    fix_ApoE()
 
   apoe |>
     pull("ApoE") |>
@@ -14,7 +26,7 @@ test_that("results are consistent", {
 
   apoe |>
     arrange(`FXS ID`, `Event Name`) |>
-    select(`FXS ID`, `Event Name`, ApoE, `ApoE (original)`) |>
+    select(`FXS ID`, ApoE, `ApoE (original)`) |>
     ssdtools:::expect_snapshot_data(name = "real_data")
 
 })
