@@ -14,12 +14,7 @@ v1_usable <-
   dplyr::filter(CGG < 200) |>
   dplyr::mutate(
     `FX3*` = .data$`FX3*` |>
-      forcats::fct_drop() |>
-      labelled::set_label_attribute("CGG Repeat Level"),
-    Parkinsons = Parkinsons |>
-      labelled::set_label_attribute("Parkinson's disease"),
-    `FXTAS Stage` = `FXTAS Stage` |>
-      labelled::set_label_attribute("FXTAS Stage")
+      forcats::fct_drop()
   ) |> 
   add_default_labels()
 

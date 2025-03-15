@@ -14,7 +14,7 @@ add_labels <- function(data) {
       Parkinsons = .data$Parkinsons |>
         labelled::set_label_attribute("Parkinson's disease"),
       `FXTAS Stage` = .data$`FXTAS Stage` |>
-        labelled::set_label_attribute("FXTAS Stage"),
+        labelled::set_label_attribute("FXTAS stage"),
       `ataxia severity*` = .data$`ataxia severity*` |>
         labelled::set_label_attribute("Ataxia severity"),
       `MMSE total score*` = .data$`MMSE total score*` |>
@@ -53,7 +53,9 @@ add_labels <- function(data) {
         .data$`Activation Ratio (0.0-1.0)` |>
         set_label_attribute("Activation ratio"),
       fxtas_dx = .data$fxtas_dx |>
-      set_label_attribute("FXTAS diagnosis")
+        set_label_attribute("FXTAS diagnosis"),
+      `Primary Race/Ethnicity` = .data$`Primary Race/Ethnicity` |>
+        set_label_attribute("Primary race/ethnicity")
     ) |>
     set_mri_var_labels()
 }

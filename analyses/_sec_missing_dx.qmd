@@ -37,6 +37,7 @@ There are a lot of incomplete forms in their record.
 
 ```{r}
 v1_usable |> 
+  filter(CGG >= 55) |> 
   select(fxtas_dx, `FXTAS Stage`) |> 
   table(useNA = 'ifany') |> 
   ftable()

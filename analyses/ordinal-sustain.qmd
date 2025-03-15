@@ -141,12 +141,7 @@ v1_usable <-
   dplyr::filter(CGG < 200) |>
   dplyr::mutate(
     `FX3*` = .data$`FX3*` |>
-      forcats::fct_drop() |>
-      labelled::set_label_attribute("CGG Repeat Level"),
-    Parkinsons = Parkinsons |>
-      labelled::set_label_attribute("Parkinson's disease"),
-    `FXTAS Stage` = `FXTAS Stage` |>
-      labelled::set_label_attribute("FXTAS Stage")
+      forcats::fct_drop()
   )
 
 v1_usable_males <- v1_usable |> dplyr::filter(Gender == "Male")
@@ -786,7 +781,7 @@ v1_usable |> make_demographics_table(
     "Age at visit",
     "Primary Race/Ethnicity",
     "FXTAS Stage",
-    "fxtas_dx",
+    # "fxtas_dx",
     "CGG"
     # "Activation Ratio (0.0-1.0)"
   )

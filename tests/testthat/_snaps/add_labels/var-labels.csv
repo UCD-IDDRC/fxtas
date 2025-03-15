@@ -10,7 +10,7 @@ Cerebral Atrophy,Cerebral Atrophy
 Cerebral WM Hyperintensity,Cerebral White Matter Hyperintensity
 Corpus Callosum-Thickness,Corpus Callosum-Thickness
 FX3*,CGG repeat level
-FXTAS Stage,FXTAS Stage
+FXTAS Stage,FXTAS stage
 Gender,Sex
 Genu (CC)-WM Hyperintensity,Genu (Corpus Callosum) White Matter Hyperintensity
 MCP-WM Hyperintensity,MCP White Matter Hyperintensity
@@ -19,13 +19,14 @@ PAL Total errors (adjusted)*,PAL total errors
 Parkinsons,Parkinson's disease
 Periventricular WM Hyperintensity,Periventricular White Matter Hyperintensity
 Pons-WM Hyperintensity,Pons White Matter Hyperintensity
-RTI Five-choice movement time*,RTI Five-choice movement time
-SWM Between errors*,SWM Between errors
+Primary Race/Ethnicity,Primary race/ethnicity
+RTI Five-choice movement time*,RTI five-choice movement time
+SWM Between errors*,SWM between errors
 Splenium (CC)-WM Hyperintensity,Splenium (Corpus Callosum) White Matter Hyperintensity
 Sub-Insular WM Hyperintensity,Sub-Insular White Matter Hyperintensity
 Tandem Walk,tandem walk
 any autoimmune disorder,autoimmune diagnoses or symptoms
-ataxia,ataxia
+ataxia,gait ataxia
 ataxia severity,ataxia severity
 ataxia severity*,Ataxia severity
 fxtas_dx,FXTAS diagnosis
