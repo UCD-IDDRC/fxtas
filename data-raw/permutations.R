@@ -88,7 +88,7 @@ load("data/trax_gp34_v1.rda")
 v1_usable <-
   trax_gp34_v1 |>
   add_labels() |>
-  add_missing_labels() |>
+  add_default_labels() |>
   dplyr::filter(CGG < 200) |>
   dplyr::mutate(
     `FX3*` = .data$`FX3*` |>

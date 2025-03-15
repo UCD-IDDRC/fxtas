@@ -21,7 +21,7 @@ v1_usable <-
     `FXTAS Stage` = `FXTAS Stage` |>
       labelled::set_label_attribute("FXTAS Stage")
   ) |> 
-  add_missing_labels()
+  add_default_labels()
 
 
 outcomes_name <- "symptom"

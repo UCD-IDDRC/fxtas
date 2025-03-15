@@ -1,6 +1,6 @@
 test_that("results are stable", {
   iris |>
-    add_missing_labels() |>
+    add_default_labels() |>
     labelled::var_label(unlist = TRUE) |>
     unname() |>
     expect_equal(

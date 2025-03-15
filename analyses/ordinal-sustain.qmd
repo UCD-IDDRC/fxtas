@@ -130,7 +130,7 @@ load("data/trax_gp34_v1.rda")
 full_data <-
   trax_gp34_v1 |>
   add_labels() |> 
-  add_missing_labels()
+  add_default_labels()
 n_missing_CGG <- # nolint: object_name_linter
   full_data$CGG |>
   is.na() |>
@@ -789,7 +789,7 @@ Supplementary material is available at Brain online.
 #|    by Sex and CGG repeat level.**
 
 v1_usable |> make_demographics_table(
-  var = c(
+  vars = c(
     "Age at visit",
     "Primary Race/Ethnicity",
     "FXTAS Stage",
