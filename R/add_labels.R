@@ -47,7 +47,11 @@ add_labels <- function(data) {
         set_label_attribute("Corpus Callosum Thickness"),
       `any autoimmune disorder` =
         .data$`any autoimmune disorder` |>
-        set_label_attribute("autoimmune diagnoses or symptoms")
+        set_label_attribute("autoimmune diagnoses or symptoms"),
+
+      `Activation Ratio (0.0-1.0)` =
+        .data$`Activation Ratio (0.0-1.0)` |>
+        set_label_attribute("Activation ratio")
     ) |>
     set_mri_var_labels()
 }
