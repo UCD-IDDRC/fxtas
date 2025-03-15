@@ -2,6 +2,8 @@ clean_ataxia <- function(data) {
   to_return <-
     data |>
     dplyr::mutate(
+      `ataxia age of onset hx` = .data$`ataxia age of onset hx` |>
+        clean_numeric(),
       across(
         any_of(c("ataxia exam", "ataxia hx")),
         replace_missing_codes

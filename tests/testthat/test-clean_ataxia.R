@@ -7,7 +7,7 @@ test_that("results are consistent", {
   d1 <- readr::read_rds(file_path) |>
     dplyr::select(
       contains("ataxia", ignore.case = TRUE),
-      -contains("age of onset")
+      # -contains("age of onset")
     ) |>
     distinct()
 

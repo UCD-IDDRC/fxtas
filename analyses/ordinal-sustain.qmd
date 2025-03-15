@@ -1,7 +1,7 @@
 ---
 title: |
-Progression of fragile X-associated tremor/ataxia syndrome 
-revealed by subtype and stage inference
+  Progression of fragile X-associated tremor/ataxia syndrome 
+  revealed by subtype and stage inference
 format:
   html:
     echo: false
@@ -220,14 +220,7 @@ nlevs <-
 max_levels <- nlevs |> max()
 ```
 
-<!-- [Target journal:  -->
-<!-- [Brain (Original Articles)](https://academic.oup.com/brain/pages/general_instructions). -->
-<!-- Word limit for main text: 6000. -->
-<!-- Figure + table limit: 8.]{.mark} -->
-
 # Abstract {.unnumbered}
-
-<!-- [Abstract word limit: 400]{.mark} -->
 
 {{< include _sec_abstract.qmd >}}
 
@@ -793,8 +786,8 @@ v1_usable |> make_demographics_table(
     "Age at visit",
     "Primary Race/Ethnicity",
     "FXTAS Stage",
-    "CGG",
-    "Activation Ratio (0.0-1.0)"
+    "CGG"
+    # "Activation Ratio (0.0-1.0)"
   )
 )
 ```

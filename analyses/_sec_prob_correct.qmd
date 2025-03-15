@@ -12,7 +12,7 @@ prob_correct |>
   attr("data") |>
   flextable::flextable() |> 
   shared_flextable_settings() |>
-  width(width = 1)
+  flextable::width(width = 1)
 ```
 
 **Percentages of controls at baseline levels, 

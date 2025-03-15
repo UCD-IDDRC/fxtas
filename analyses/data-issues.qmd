@@ -497,8 +497,8 @@ See my previous responses on the matter.
 ```{r}
 
 vars = c(
-  "ataxia exam",
-  "ataxia severity exam",
+  "ataxia",
+  "ataxia severity",
   "ataxia severity*"
   # "ataxia age of onset hx",
   # "ataxia age of onset hx: missingness reasons"
@@ -508,9 +508,18 @@ table1(na.is.category = FALSE,
   NA.label = NA.label1,
   stratified_formula(vars, column_var),
   # render.continuous = c(.="N", .="Mean (SD)", .="Median [Min,  Max]"),
-  data = visit1)
+  data = visit1 |> filter(CGG < 200))
 
 ```
+
+```{r}
+v1_usable |> 
+  filter(ataxia == "Yes", `ataxia severity` == 0) |> 
+  select("FXS ID", "Event Name", contains("ataxia")) |> 
+  relocate(sort(tidyselect::peek_vars())) |> 
+  relocate(c("FXS ID", "Event Name"), .before = everything())
+```
+
 
 <br>
 

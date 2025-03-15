@@ -556,7 +556,10 @@ trax <- dplyr::bind_rows(
   "Trax Phase 2" = data_arm2,
   .id = "Study"
 ) |>
-  mutate(`Tandem Walk` = NA) |>
+  mutate(
+    `Tandem Walk` = NA,
+    `Activation Ratio (0.0-1.0)` = NA
+  ) |>
   # clean trax data
   clean_trax_data()
 

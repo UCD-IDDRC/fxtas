@@ -172,7 +172,7 @@ v1_usable_capital_labels |>
 vars <- c(
   "Tandem Walk",
   "ataxia",
-  "ataxia severity"
+  "ataxia severity*"
   # "ataxia age of onset",
   # "ataxia age of onset: missingness reasons"
 )

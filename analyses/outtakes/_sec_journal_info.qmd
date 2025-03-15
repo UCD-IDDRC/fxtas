@@ -1,0 +1,6 @@
+[Target journal:
+[Brain (Original Articles)](https://academic.oup.com/brain/pages/general_instructions).
+Word limit for main text: 6000.
+Figure + table limit: 8.]{.mark}
+
+[Abstract word limit: 400]{.mark}
