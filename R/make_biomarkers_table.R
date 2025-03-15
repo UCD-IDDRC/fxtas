@@ -55,7 +55,8 @@ make_biomarkers_table <- function(data,
     pvals[cur] <-
       data |>
       dplyr::mutate(
-        above_baseline = .data[[cur]] != levels(.data[[cur]])[1]) |>
+        above_baseline = .data[[cur]] != levels(.data[[cur]])[1]
+      ) |>
       dplyr::select(all_of(c(
         "above_baseline", stratifying_var_names
       ))) |>
@@ -83,8 +84,7 @@ make_biomarkers_table <- function(data,
       # probably want to apply formatting here (after pivoting)
       # rather than during the summarize step,
       # so that accuracy is applied per-column:
-      `Pr(above_baseline)` =
-        .data$`Pr(above_baseline)` |>
+      `Pr(above_baseline)` = .data$`Pr(above_baseline)` |>
         formattable::percent(drop0trailing = TRUE, digits = 1)
     )
 
@@ -103,20 +103,23 @@ make_biomarkers_table <- function(data,
                            "biomarker", "levels"))) |>
     slice_head(by = "biomarker") |>
     dplyr::filter(.data$category != "Stage") |>
-    left_join(y = probs_above_baseline_by_gender,
-              by = "biomarker",
-              relationship = "one-to-one") |>
-    dplyr::mutate(biomarker =
-                    .data$biomarker |>
-                    sub(
-                      pattern = "*",
-                      replacement = "",
-                      fixed = TRUE
-                    ) |>
-                    stringr::str_replace(
-                      stringr::fixed("SCID: "),
-                      ""
-                    ))
+    left_join(
+      y = probs_above_baseline_by_gender,
+      by = "biomarker",
+      relationship = "one-to-one"
+    ) |>
+    dplyr::mutate(
+      biomarker = .data$biomarker |>
+        sub(
+          pattern = "*",
+          replacement = "",
+          fixed = TRUE
+        ) |>
+        stringr::str_replace(
+          stringr::fixed("SCID: "),
+          ""
+        )
+    )
 
   table_out |>
     structure(class = union("biomarkers_table", class(table_out)))
