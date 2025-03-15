@@ -21,6 +21,7 @@ for latent subtype clustering analysis
 
 ## Graphics
 
+* added red reference line at 3 obs per stage in `stage_barplot()` (#91)
 * added grayscale legend to PVDs (#83)
 * added test for `pvd_lineplot()` (#68)
 * added `biomarker_order` argument to `compact_pvd_data_prep()` 
