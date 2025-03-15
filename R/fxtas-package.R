@@ -88,6 +88,7 @@
 #' @importFrom labelled get_variable_labels
 #' @importFrom labelled set_label_attribute
 #' @importFrom labelled set_variable_labels
+#' @importFrom labelled var_label
 #' @importFrom lubridate date
 #' @importFrom lubridate days
 #' @importFrom magrittr set_names

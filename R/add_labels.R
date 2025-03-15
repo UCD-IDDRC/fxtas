@@ -9,34 +9,41 @@
 add_labels <- function(data) {
   data |>
     dplyr::mutate(
+      `Masked faces` = .data$`Masked faces` |>
+        set_label_attribute("masked faces"), # "facies" would also be correct;
+      # see https://www.ninds.nih.gov/health-information/clinical-trials/masked-faces-parkinson-disease-mechanism-and-treatment # nolint: line_length_linter
+      "Increased tone" = .data$`Increased tone` |>
+        set_label_attribute("increased tone"),
+      "Stiff gait" = .data$`Stiff gait` |>
+        set_label_attribute("stiff gait"),
       `FX3*` = .data$`FX3*` |>
-        labelled::set_label_attribute("CGG repeat level"),
+        set_label_attribute("CGG repeat level"),
       Parkinsons = .data$Parkinsons |>
-        labelled::set_label_attribute("Parkinson's disease"),
+        set_label_attribute("Parkinson's disease"),
       `FXTAS Stage` = .data$`FXTAS Stage` |>
-        labelled::set_label_attribute("FXTAS stage"),
+        set_label_attribute("FXTAS stage"),
       `ataxia severity*` = .data$`ataxia severity*` |>
-        labelled::set_label_attribute("Ataxia severity"),
+        set_label_attribute("ataxia severity"),
       `MMSE total score*` = .data$`MMSE total score*` |>
-        labelled::set_label_attribute("MMSE total score"),
+        set_label_attribute("MMSE total score"),
       `BDS-2 Total Score*` = .data$`BDS-2 Total Score*` |>
-        labelled::set_label_attribute("BDS-2 total score"),
+        set_label_attribute("BDS-2 total score"),
       `BDS-2 Total Score` = .data$`BDS-2 Total Score` |>
-        labelled::set_label_attribute("BDS-2 total score"),
+        set_label_attribute("BDS-2 total score"),
       `PAL Total errors (adjusted)*` =
         .data$`PAL Total errors (adjusted)*` |>
-        labelled::set_label_attribute("PAL total errors"),
+        set_label_attribute("PAL total errors"),
       `SWM Between errors*` =
         .data$`SWM Between errors*` |>
-        labelled::set_label_attribute("SWM between errors"),
+        set_label_attribute("SWM between errors"),
       `RTI Five-choice movement time*` =
         .data$`RTI Five-choice movement time*` |>
-        labelled::set_label_attribute(
+        set_label_attribute(
           "RTI five-choice movement time"
         ),
       `Tandem Walk` =
         .data$`Tandem Walk` |>
-        labelled::set_label_attribute("tandem walk"),
+        set_label_attribute("tandem walk"),
       ataxia = .data$ataxia |> set_label_attribute("gait ataxia"),
       `ataxia severity` =
         .data$`ataxia severity` |>
@@ -52,10 +59,14 @@ add_labels <- function(data) {
       `Activation Ratio (0.0-1.0)` =
         .data$`Activation Ratio (0.0-1.0)` |>
         set_label_attribute("Activation ratio"),
-      fxtas_dx = .data$fxtas_dx |>
+      fxtas_dx =
+        .data$fxtas_dx |>
         set_label_attribute("FXTAS diagnosis"),
-      `Primary Race/Ethnicity` = .data$`Primary Race/Ethnicity` |>
+      `Primary Race/Ethnicity` =
+        .data$`Primary Race/Ethnicity` |>
         set_label_attribute("Primary race/ethnicity")
     ) |>
-    set_mri_var_labels()
+    set_mri_var_labels() |>
+    add_default_labels() |>
+    set_scid_labels()
 }

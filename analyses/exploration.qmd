@@ -15,8 +15,7 @@ v1_usable <-
   dplyr::mutate(
     `FX3*` = .data$`FX3*` |>
       forcats::fct_drop()
-  ) |> 
-  add_default_labels()
+  )
 
 
 outcomes_name <- "symptom"
@@ -29,18 +28,13 @@ column_var <- c("Gender", "FX3*")
 v1_usable_capital_labels <- 
   v1_usable 
 
-
-capitalize_label <- function(x) {
-  if (is.null(x)) {
-    NULL
-  } else {
-    stringr::str_replace(x, "([[:alpha:]])", toupper)
-  }
-}
+capitalize_labels <- FALSE
+if(capitalize_labels) {
 
 labelled::var_label(v1_usable_capital_labels) <- 
   labelled::var_label(v1_usable_capital_labels) |> 
   lapply(FUN = capitalize_label)
+}
 ```
 
 
@@ -190,7 +184,11 @@ table1(
 ::: {#supptbl-parkinsons-by-cgg}
 
 ```{r}
-vars <- grep("Parkinson", value = TRUE, names(trax_gp34_all))
+vars <- c(
+  "Parkinsons",
+  c("parkinsonian features", "Masked faces", 
+        "Increased tone", "pill-rolling tremor", "Stiff gait")
+)
 
 if (!show_missingness_reasons) {
   vars <- vars |> remove_missingness_reason_vars()

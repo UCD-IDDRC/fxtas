@@ -129,8 +129,7 @@ output_folder <-
 load("data/trax_gp34_v1.rda")
 full_data <-
   trax_gp34_v1 |>
-  add_labels() |> 
-  add_default_labels()
+  add_labels()
 n_missing_CGG <- # nolint: object_name_linter
   full_data$CGG |>
   is.na() |>

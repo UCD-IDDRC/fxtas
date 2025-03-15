@@ -3,8 +3,6 @@ output_path =
 
 pickle_folder <- fs::path(output_path, "pickle_files")
 
-skip_if_not(dir.exists(pickle_folder))
-
 picklename = "sample_data_subtype2.pickle"
 results00 =
   output_path |>
