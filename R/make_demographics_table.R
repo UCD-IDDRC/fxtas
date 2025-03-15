@@ -23,6 +23,7 @@ make_demographics_table <- function(
       # "Primary Race",
       "FXTAS Stage",
       "CGG"
+      # "Activation Ratio (0.0-1.0)"
       # "ApoE")
     ),
     make_ft = TRUE,
@@ -87,6 +88,7 @@ table_function <- function(data) {
         `Age at visit` ~ c(1, 2, 0, 0, 0),
         CGG ~ c(1, 2, 0, 0, 0)
       ),
+      missing_stat = "{N_miss} ({p_miss}%)",
       missing_text = "Missing"
     )
 }

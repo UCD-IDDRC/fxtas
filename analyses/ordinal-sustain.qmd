@@ -1,7 +1,7 @@
 ---
 title: |
-       Progression of fragile X-associated tremor/ataxia syndrome 
-       revealed by subtype and stage inference
+Progression of fragile X-associated tremor/ataxia syndrome 
+revealed by subtype and stage inference
 format:
   html:
     echo: false
@@ -350,7 +350,7 @@ results_males_first = extract_results_from_pickle(
   dataset_name = "males",
   output_folder = output_folder
 )
-  
+
 fig_females_first <- extract_figs_from_pickle(
   use_rds = use_rds,
   size.y = size.y,
@@ -788,7 +788,15 @@ Supplementary material is available at Brain online.
 #|    **Descriptive statistics of patient characteristics
 #|    by Sex and CGG repeat level.**
 
-v1_usable |> make_demographics_table()
+v1_usable |> make_demographics_table(
+  var = c(
+    "Age at visit",
+    "Primary Race/Ethnicity",
+    "FXTAS Stage",
+    "CGG",
+    "Activation Ratio (0.0-1.0)"
+  )
+)
 ```
 
 {{< pagebreak >}}
