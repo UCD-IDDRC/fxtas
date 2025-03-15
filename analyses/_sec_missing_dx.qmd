@@ -33,3 +33,12 @@ trax_gp34_all |>
 I checked several records of 100482-100; there was no fxtas dx value 
 filled in before gp4 visit 2.
 There are a lot of incomplete forms in their record.
+
+
+```{r}
+v1_usable |> 
+  select(fxtas_dx, `FXTAS Stage`) |> 
+  table(useNA = 'ifany') |> 
+  ftable()
+```
+

@@ -28,23 +28,23 @@ add_labels <- function(data) {
         labelled::set_label_attribute("PAL total errors"),
       `SWM Between errors*` =
         .data$`SWM Between errors*` |>
-        labelled::set_label_attribute("SWM Between errors"),
+        labelled::set_label_attribute("SWM between errors"),
       `RTI Five-choice movement time*` =
         .data$`RTI Five-choice movement time*` |>
         labelled::set_label_attribute(
-          "RTI Five-choice movement time"
+          "RTI five-choice movement time"
         ),
       `Tandem Walk` =
         .data$`Tandem Walk` |>
         labelled::set_label_attribute("tandem walk"),
-      ataxia = .data$ataxia |> set_label_attribute("ataxia"),
+      ataxia = .data$ataxia |> set_label_attribute("gait ataxia"),
       `ataxia severity` =
         .data$`ataxia severity` |>
         set_label_attribute("ataxia severity"),
       `head tremor` = .data$`head tremor` |> set_label_attribute("head tremor"),
       `Corpus Callosum-Thickness` =
         .data$`Corpus Callosum-Thickness` |>
-        set_label_attribute("Corpus Callosum Thickness"),
+        set_label_attribute("Corpus callosum thickness"),
       `any autoimmune disorder` =
         .data$`any autoimmune disorder` |>
         set_label_attribute("autoimmune diagnoses or symptoms"),

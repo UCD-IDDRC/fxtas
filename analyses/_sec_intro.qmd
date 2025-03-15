@@ -23,11 +23,13 @@ sequestration of proteins important to neuronal function
 @gohel2021expression;
 @robin2017/10.1093/hmg/ddx148
 ].
-Eosinophilic, tau-negative intranuclear inclusions are present
-in neurons and astrocytes throughout the CNS and
-in the peripheral nervous system (PNS) 
+Eosinophilic, tau-negative intranuclear inclusions 
+are present in neurons and astrocytes 
+throughout the CNS 
+and in the peripheral nervous system (PNS) 
 [@greco2006neuropathology; @hunter2012capturing].
-FXTAS is a late-onset disorder, usually occurring in the 60s
+FXTAS is a late-onset disorder, 
+usually occurring in the 60s
 though some patients have an earlier onset,
 and its signs and symptoms worsen with age.
 As premutation carriers age,
@@ -55,7 +57,7 @@ ataxia,
 neuropathy, 
 cognitive decline, 
 and depressive and anxiety disorders
-[@hagerman2001intention].
+[@hagerman2001intention, @Leehey2006].
 Both the type and severity of FXTAS symptoms vary among patients. 
 Some patients with FXTAS have multiple symptoms that 
 progress rapidly in severity, 
