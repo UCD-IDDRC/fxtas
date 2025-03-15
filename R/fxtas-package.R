@@ -14,6 +14,7 @@
 #' @importFrom dplyr bind_rows
 #' @importFrom dplyr case_match
 #' @importFrom dplyr case_when
+#' @importFrom dplyr coalesce
 #' @importFrom dplyr count
 #' @importFrom dplyr cur_column
 #' @importFrom dplyr desc

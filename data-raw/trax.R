@@ -558,7 +558,9 @@ trax <- dplyr::bind_rows(
 ) |>
   mutate(
     `Tandem Walk` = NA,
-    `Activation Ratio (0.0-1.0)` = NA
+    `Activation Ratio (0.0-1.0)` = NA,
+    # mds_fxtas_dx = NA,
+    # new_mds_fxtas_dx = NA
   ) |>
   # clean trax data
   clean_trax_data()

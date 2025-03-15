@@ -54,6 +54,7 @@ clean_data <- function(dataset) {
     dplyr::relocate(contains("CGG"), .after = contains("ApoE")) |>
 
     fix_FXTAS_stage() |>
+    clean_fxtas_dx() |>
 
     fix_demographics() |>
 

@@ -8,8 +8,9 @@ library(vroom)
 devtools::load_all()
 #Read Data
 dataset=vroom::vroom(
-  'inst/extdata/CTSC3704GP4GenotypeP-FXTASEventSequence10_DATA_2025-03-12_1507.csv',
+  'inst/extdata/CTSC3704GP4GenotypeP-FXTASEventSequence10_DATA_2025-03-14_2119.csv',
   col_types = cols(
+    new_mds_fxtas_dx = col_integer(),
     new_mds_ne_gas = col_integer(),
     mol_mos_meth = col_skip(),
     dem_date = col_date(),
@@ -279,8 +280,8 @@ dataset$new_mds_ne_tand = factor(dataset$new_mds_ne_tand,levels=c("1","2","3","9
 # dataset$new_mds_psy_dri = factor(dataset$new_mds_psy_dri)
 # levels(dataset$new_mds_psy_dri) = levels(dataset$new_mds_psy_dri) |> sub(pattern = "888", "")
 
-
-
+dataset$new_mds_fxtas_dx = factor(dataset$new_mds_fxtas_dx,levels=c("0","1","2","3","888","999"))
+levels(dataset$new_mds_fxtas_dx)=c("No","Possible","Probable","Definite","NA (888)","No Response (999)")
 levels(dataset$redcap_event_name)=c("GP4 - Visit 1","GP4 - Visit 2","GP4 - Visit 3","GP4 - Visit 4","GP4 - Single Visit","GP4 - Participant Survey")
 levels(dataset$sex)=c("Female","Male")
 levels(dataset$new_mds_psy_drug)=c("None","Past Only","Present","No Response (999)","NA (888)","Question not asked at time of data entry; check records (777)")
@@ -611,7 +612,8 @@ labels = c(subj_id = "FXS ID",
            new_mds_ne_rts = "tremor severity",
            new_mds_ne_it = "intention tremor exam",
            new_mds_ne_pt = "postural tremor exam",
-           new_mds_ne_tand = "Tandem Walk"
+           new_mds_ne_tand = "Tandem Walk",
+           new_mds_fxtas_dx = "new_mds_fxtas_dx"
 )
 
 if(!isTRUE(setequal(names(dataset), names(labels)))) {

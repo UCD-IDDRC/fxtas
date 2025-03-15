@@ -19,8 +19,10 @@ conflicts_prefer(vroom::col_double)
 conflicts_prefer(vroom::col_logical)
 conflicts_prefer(vroom::col_skip)
 dataset=vroom::vroom(
-  'inst/extdata/GPGenotypePhenotypeR-FXTASEventSequence10_DATA_2025-02-19_2044.csv',
+  'inst/extdata/GPGenotypePhenotypeR-FXTASEventSequence10_DATA_2025-03-14_2119.csv',
   col_types = cols(
+    mds_fxtas_dx = col_integer(),
+    new_mds_fxtas_dx = col_integer(),
     mds_ne_gas = col_integer(),
     mol_mos_meth = col_skip(),
     dem_date = col_date(),
@@ -274,9 +276,13 @@ dataset$mds_ne_tand = factor(dataset$mds_ne_tand,levels=c("1","2","3","999","777
 dataset$mds_neu_trem_int = factor(dataset$mds_neu_trem_int,levels=c("0","1","999","888","777"))
 dataset$mds_neu_trem_rest = factor(dataset$mds_neu_trem_rest,levels=c("0","1","999","888","777"))
 dataset$mds_neu_trem_pos = factor(dataset$mds_neu_trem_pos,levels=c("0","1","999","888","777"))
+dataset$new_mds_fxtas_dx = factor(dataset$new_mds_fxtas_dx,levels=c("0","1","2","3","888","999"))
+dataset$mds_fxtas_dx = factor(dataset$mds_fxtas_dx,levels=c("0","1","2","3","888","999"))
 
+levels(dataset$new_mds_fxtas_dx)=c("No","Possible","Probable","Definite","NA (888)","No Response (999)")
+levels(dataset$mds_fxtas_dx)=c("No","Possible","Probable","Definite","NA (888)","No Response (999)")
 
-levels(dataset$scid_admin)=c("No","Yes","Follow up","N/A")
+levels(dataset$scid_admin)=c("No","Yes","Follow up","NA (888)")
 levels(dataset$new_mds_med_anes1)=c("None","Local","General","No Response (999)","NA (888)","Question not asked at time of data entry; check records (777)")
 levels(dataset$medic_surg_anes)=c("None","Local","General","Other","Missing/Refused (999)")
 levels(dataset$mds_med_thy)=c("No","Yes","No Response (999)","NA","Question not asked at time of data entry; check records (777)")
@@ -617,7 +623,9 @@ labels = c(subj_id = "FXS ID",
            # Neurological History tremor variables
            mds_neu_trem_int = "intention tremor hx",
            mds_neu_trem_rest = "resting tremor hx",
-           mds_neu_trem_pos = "postural tremor hx")
+           mds_neu_trem_pos = "postural tremor hx",
+           mds_fxtas_dx = "mds_fxtas_dx",
+           new_mds_fxtas_dx = "new_mds_fxtas_dx")
 
 if(!isTRUE(setequal(names(dataset), names(labels)))) {
 
