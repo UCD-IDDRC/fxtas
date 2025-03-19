@@ -10,7 +10,8 @@ add_labels <- function(data) {
   data |>
     dplyr::mutate(
       `Masked faces` = .data$`Masked faces` |>
-        set_label_attribute("masked faces"), # "facies" would also be correct;
+        set_label_attribute("masked facies"),
+      # "faces" or "facies" both seem correct;
       # see https://www.ninds.nih.gov/health-information/clinical-trials/masked-faces-parkinson-disease-mechanism-and-treatment # nolint: line_length_linter
       "Increased tone" = .data$`Increased tone` |>
         set_label_attribute("increased tone"),

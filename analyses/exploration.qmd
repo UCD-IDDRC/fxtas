@@ -184,20 +184,20 @@ table1(
 ::: {#supptbl-parkinsons-by-cgg}
 
 ```{r}
-vars <- c(
+pk_vars <- c(
   "Parkinsons",
   c("parkinsonian features", "Masked faces", 
         "Increased tone", "pill-rolling tremor", "Stiff gait")
 )
 
 if (!show_missingness_reasons) {
-  vars <- vars |> remove_missingness_reason_vars()
+  pk_vars <- pk_vars |> remove_missingness_reason_vars()
 }
 
 table1(
   na.is.category = FALSE, overall = FALSE,
   NA.label = na_label_1,
-  stratified_formula(vars, column_var),
+  stratified_formula(pk_vars, column_var),
   data = v1_usable_capital_labels
 ) |> 
   table1::t1flex() |>
