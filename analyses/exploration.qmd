@@ -406,7 +406,7 @@ vars <- c(
   # "ANA positive",
   # "Sjogrens Syndrome",
   # "Raynauds Syndrome",
-  # "Pulmonary Fibrosis",
+  "Pulmonary Fibrosis",
   "any autoimmune disorder"
 )
 
