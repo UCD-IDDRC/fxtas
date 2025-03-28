@@ -30,6 +30,10 @@ dataset <- vroom::vroom(
     new_mds_ne_tand = "i",
     mol_activ_ratio = "d",
     mol_perct_methyl = "d",
+    new_mds_ne_rt = "i",
+    new_mds_ne_rts = "i",
+    new_mds_ne_it = "i",
+
     # key: integer = "i", character = "c", double = "d", date = "D",
     #   factor = "f", logical = "l", skip = "_", guess = "?"
     study_id = "i",
