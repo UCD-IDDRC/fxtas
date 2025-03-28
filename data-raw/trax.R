@@ -24,8 +24,12 @@ conflicted::conflict_prefer("not", "magrittr")
 conflicted::conflicts_prefer(dplyr::filter)
 
 dataset <- vroom::vroom(
-  "inst/extdata/CTSC1647Trajectories-Ezra_DATA_2024-03-27_0920.csv",
+  "inst/extdata/CTSC1647Trajectories-Ezra_DATA_2025-03-24_1045.csv",
   col_types = c(
+    mds_ne_tand = "i",
+    new_mds_ne_tand = "i",
+    mol_activ_ratio = "d",
+    mol_perct_methyl = "d",
     # key: integer = "i", character = "c", double = "d", date = "D",
     #   factor = "f", logical = "l", skip = "_", guess = "?"
     study_id = "i",
