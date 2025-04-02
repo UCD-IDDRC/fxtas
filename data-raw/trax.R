@@ -550,11 +550,11 @@ labels_arm1 <- create_trax_labels(data_arm1)
 labels_arm2 <- create_trax_labels(data_arm2)
 
 # if column names and label names match -> update names with labels
-if (!isTRUE(setequal(names(data_arm1), names(labels_arm1)))) browser(message("why is there a mismatch?"))
+compare_names_and_labels(names(data_arm1), labels_arm1)
 names(data_arm1) <- labels_arm1[names(data_arm1)]
 
 
-if (!isTRUE(setequal(names(data_arm2), names(labels_arm2)))) browser(message("why is there a mismatch?"))
+compare_names_and_labels(names(data_arm2), labels_arm2)
 names(data_arm2) <- labels_arm2[names(data_arm2)]
 
 

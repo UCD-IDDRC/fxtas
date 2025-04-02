@@ -5,6 +5,7 @@
 
 #Clear existing data and graphics
 rm(list=ls())
+devtools::load_all()
 #Load Hmisc library
 library(Hmisc)
 library(dplyr)
