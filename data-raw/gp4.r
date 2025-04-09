@@ -10,6 +10,7 @@ devtools::load_all()
 dataset=vroom::vroom(
   'inst/extdata/CTSC3704GP4GenotypeP-FXTASEventSequence10_DATA_2025-03-14_2119.csv',
   col_types = cols(
+    new_mds_ne_it = col_integer(),
     new_mds_fxtas_dx = col_integer(),
     new_mds_ne_gas = col_integer(),
     mol_mos_meth = col_skip(),

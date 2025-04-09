@@ -16,12 +16,14 @@ set_factor_levels_trax <- function(dataset) {
   dataset$mds_med_sur <- factor(dataset$mds_med_sur, levels = c("0", "1", "999", "777"))
   dataset$mds_med_thy <- factor(dataset$mds_med_thy, levels = c("0", "1", "999", "777"))
   dataset$mds_med_thyca <- factor(dataset$mds_med_thyca, levels = c("0", "1", "999", "888", "777"))
+  dataset$new_mds_ne_it <- factor(dataset$new_mds_ne_it, levels = c("0", "1", "999", "777"))
   dataset$mds_ne_it <- factor(dataset$mds_ne_it, levels = c("0", "1", "999", "777"))
   dataset$mds_ne_pfit <- factor(dataset$mds_ne_pfit, levels = c("0", "1", "999", "777"))
   dataset$mds_ne_pfmf <- factor(dataset$mds_ne_pfmf, levels = c("0", "1", "999", "777"))
   dataset$mds_ne_pfprt <- factor(dataset$mds_ne_pfprt, levels = c("0", "1", "999", "777"))
   dataset$mds_ne_pfsg <- factor(dataset$mds_ne_pfsg, levels = c("0", "1", "999", "777"))
   dataset$mds_ne_pt <- factor(dataset$mds_ne_pt, levels = c("0", "1", "999", "777"))
+  dataset$new_mds_ne_pt <- factor(dataset$new_mds_ne_pt, levels = c("0", "1", "999", "777"))
   dataset$mds_ne_rt <- factor(dataset$mds_ne_rt, levels = c("0", "1", "999", "888", "777"))
   dataset$mds_neu_atax <- factor(dataset$mds_neu_atax, levels = c("0", "1", "999", "888", "777"))
   dataset$mds_neu_trem_irm <- factor(dataset$mds_neu_trem_irm, levels = c("0", "1", "999", "888", "777"))
@@ -134,7 +136,20 @@ set_factor_levels_trax <- function(dataset) {
   dataset$scid_som39 <- factor(dataset$scid_som39, levels = c("777", "1", "2", "3"))
   dataset$scid_som40 <- factor(dataset$scid_som40, levels = c("777", "1", "2", "3"))
 
+  dataset$mds_fxtas_dx = factor(dataset$mds_fxtas_dx,levels=c("0","1","2","3","888","999"))
+  levels(dataset$mds_fxtas_dx)=c("No","Possible","Probable","Definite","NA (888)","No Response (999)")
+
+  dataset$new_mds_fxtas_dx = factor(dataset$new_mds_fxtas_dx,levels=c("0","1","2","3","888","999"))
+  levels(dataset$new_mds_fxtas_dx)=c("No","Possible","Probable","Definite","NA (888)","No Response (999)")
+
+
+  dataset$new_mds_ne_rt = factor(dataset$new_mds_ne_rt,levels=c("0","1","999","888","777"))
+  levels(dataset$new_mds_ne_rt)=c("No","Yes","No Response (999)","NA","Question not asked at time of data entry; check records")
+
   # set factor levels
+  levels(dataset$new_mds_ne_pt)=c("No","Yes","No Response (999)","Question not asked at time of data entry; check records (777)")
+  levels(dataset$new_mds_ne_it)=c("No","Yes","No Response (999)","Question not asked at time of data entry; check records (777)")
+
   levels(dataset$redcap_event_name) <- c("Visit 1 (Arm 1: Phase 1)", "Visit 2 (Arm 1: Phase 1)", "Visit 3 (Arm 1: Phase 1)", "Visit 1 (Arm 2: Phase 2)", "Visit 2 (Arm 2: Phase 2)", "Visit 3 (Arm 2: Phase 2)", "Visit 4 (Arm 2: Phase 2)")
   levels(dataset$dem_trax_gender) <- c("Female", "Male")
   levels(dataset$dem_trax_race) <- c("American Indian/Alaska Native", "Asian", "Native Hawaiian or Other Pacific Islander", "Black or African American", "White", "More Than One Race", "Unknown / Not Reported")

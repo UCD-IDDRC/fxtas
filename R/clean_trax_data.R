@@ -7,7 +7,7 @@ clean_trax_data <- function(dataset) {
     remove_unneeded_records() |>
     dplyr::relocate("Visit Date", .after = "Event Name") |>
     dplyr::relocate("FXS ID", .before = "Event Name") |>
-    # clean_head_tremor_onset() |> # nolint: commented_code_linter
+    clean_head_tremor_onset() |>
 
     combine_tremor() |>
     fix_tremor_onsets() |>
@@ -49,7 +49,7 @@ clean_trax_data <- function(dataset) {
     # dplyr::relocate(contains("CGG"), .after = contains("ApoE")) |> # nolint: commented_code_linter
 
     fix_FXTAS_stage() |>
-    # clean_fxtas_dx() |> # nolint: commented_code_linter
+    clean_fxtas_dx() |>
 
     fix_demographics() |>
 

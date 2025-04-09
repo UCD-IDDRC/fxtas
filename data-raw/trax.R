@@ -60,10 +60,18 @@ if (all(is.na(dataset$mol_cggrep02))) {
 data_arm1 <- dataset |>
   dplyr::filter(stringr::str_detect(redcap_event_name, "Arm 1")) |>
   # remove new_mds/new_ds variables
-  dplyr::select(-c(
-    starts_with("new_mds"), starts_with("new_ds"),
-    otspsfc, paltea28, rtifmdmt, sstmrtg, rvpa, swmbe468
-  ))
+  dplyr::select(
+    -c(
+      starts_with("new_mds"),
+      starts_with("new_ds"),
+      otspsfc,
+      paltea28,
+      rtifmdmt,
+      sstmrtg,
+      rvpa,
+      swmbe468
+    )
+  )
 
 data_arm2 <- dataset |>
   dplyr::filter(stringr::str_detect(redcap_event_name, "Arm 2")) |>

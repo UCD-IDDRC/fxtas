@@ -1,5 +1,4 @@
-create_trax_labels <- function(
-  dataset,
+create_trax_labels <- function(dataset) {
   labels = c(
     study_id = "Study ID Number",
     redcap_event_name = "Event Name",
@@ -241,8 +240,8 @@ create_trax_labels <- function(
     new_mds_ne_tand = "Tandem Walk",
     mol_activ_ratio = "Activation Ratio (0.0-1.0)",
     mol_perct_methyl = "Fraction of Methylation (0.0-1.0)",
-    mds_fxtas_dx = "fxtas_dx",
-    new_mds_fxtas_dx = "fxtas_dx",
+    mds_fxtas_dx = "mds_fxtas_dx",
+    new_mds_fxtas_dx = "new_mds_fxtas_dx",
     new_mds_ne_rt = "resting tremor exam",
     new_mds_ne_rts = "resting tremor severity",
     new_mds_ne_it = "intention tremor exam",
@@ -256,6 +255,6 @@ create_trax_labels <- function(
     # scid_fu_interviewer_diag7="Interviewers Diagnosis 7", # nolint: commented_code_linter
     # scid_fu_interviewer_diag8="Interviewers Diagnosis 8" # nolint: commented_code_linter
   )
-) {
+
   labels[names(labels) %in% colnames(dataset)]
 }
