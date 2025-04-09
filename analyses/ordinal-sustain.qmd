@@ -64,6 +64,8 @@ library(knitr)
 
 max_prob_correct <- .95
 
+do_collapse_scid_levels <- TRUE
+
 fit_models <- TRUE
 run_cv <- TRUE
 
@@ -127,9 +129,15 @@ output_folder <-
 ```{r}
 #| label: subset-data
 load("data/trax_gp34_v1.rda")
+
+if (do_collapse_scid_levels) {
+  trax_gp34_v1 <- trax_gp34_v1 |> collapse_scid_levels()
+}
+
 full_data <-
   trax_gp34_v1 |>
   add_labels()
+
 n_missing_CGG <- # nolint: object_name_linter
   full_data$CGG |>
   is.na() |>
