@@ -28,6 +28,8 @@ fit_models = TRUE
 run_cv =  TRUE
 # run_cv = FALSE
 
+do_collapse_scid_levels <- TRUE
+
 N_startpoints = 10L
 use_parallel_startpoints = TRUE
 use_parallel_startpoints = FALSE
@@ -70,6 +72,10 @@ output_folder =
 
 # March 2024, main analysis now uses Trax/GP34 Visit 1 data replacing previous version using only GP34
 load("data/trax_gp34_v1.rda")
+if (do_collapse_scid_levels) {
+  trax_gp34_v1 <- trax_gp34_v1 |> collapse_scid_levels()
+}
+
 df =
   trax_gp34_v1 |>
   dplyr::filter(
