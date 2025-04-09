@@ -38,7 +38,7 @@ collapse_scid_levels <- function(dataset, ...) {
 collapse_scid_level <- function(x, levels = c("Absent", "Sub-Threshold")) {
   x |>
     forcats::fct_collapse(
-      "Absent/Sub-Threshold" =
+      "Absent/Sub-Threshold" = levels
     )
 
 }
