@@ -7,7 +7,8 @@ clean_trax_data <- function(dataset) {
     remove_unneeded_records() |>
     dplyr::relocate("Visit Date", .after = "Event Name") |>
     dplyr::relocate("FXS ID", .before = "Event Name") |>
-    clean_head_tremor_onset() |>
+    # no need to call `clean_head_tremor_onset() |>`;
+    # in trax, it's already numeric
 
     combine_tremor() |>
     fix_tremor_onsets() |>
