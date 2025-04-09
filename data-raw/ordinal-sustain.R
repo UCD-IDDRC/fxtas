@@ -3,10 +3,16 @@
 cli::cli_alert_info('\nStarting at: {Sys.time()}')
 
 library(reticulate)
-reticulate::py_require(packages = c("git+https://github.com/ucl-pond/kde_ebm",
-                                    "git+https://github.com/d-morrison/pySuStaIn"),
-                       python_version = "3.9")
-# reticulate::use_condaenv("fxtas39", required = TRUE)
+reticulate::py_require(
+  packages = c(
+    "git+https://github.com/ucl-pond/kde_ebm",
+    "git+https://github.com/d-morrison/pySuStaIn"
+  ),
+  python_version = "3.9"
+)
+
+if(interactive()) reticulate::use_condaenv("fxtas39", required = TRUE)
+
 reticulate::py_config()
 
 devtools::load_all()
@@ -326,7 +332,7 @@ sustain_output_cgg100minus_females = run_and_save_OSA(
   prob_correct = prob_correct,
   patient_data = patient_data |>
     dplyr::filter(`CGG` < 100,
-           Gender == "Female"),
+                  Gender == "Female"),
   SuStaInLabels = SuStaInLabels,
   N_startpoints = N_startpoints,
   N_S_max = N_S_max_stratified,

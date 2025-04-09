@@ -42,7 +42,17 @@ if(is.null(stratifying_variables))
 }
 
 library(reticulate)
+reticulate::py_require(
+  packages = c(
+    "git+https://github.com/ucl-pond/kde_ebm",
+    "git+https://github.com/d-morrison/pySuStaIn"
+  ),
+  python_version = "3.9"
+)
 if(interactive()) reticulate::use_condaenv("fxtas39", required = TRUE)
+cli::cli_alert_info('\nStarting at: {Sys.time()}')
+
+reticulate::py_config()
 py_config()
 
 devtools::load_all()
