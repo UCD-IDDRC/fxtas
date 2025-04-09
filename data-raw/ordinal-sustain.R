@@ -3,7 +3,7 @@
 cli::cli_alert_info('\nStarting at: {Sys.time()}')
 
 library(reticulate)
-# reticulate::use_condaenv("fxtas39", required = TRUE)
+reticulate::use_condaenv("fxtas39", required = TRUE)
 py_config()
 
 devtools::load_all()
