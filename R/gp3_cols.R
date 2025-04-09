@@ -1,4 +1,4 @@
-gp3_cols <- cols(
+gp3_cols <- vroom::cols(
     mds_fxtas_dx = col_integer(),
     new_mds_fxtas_dx = col_integer(),
     mds_ne_gas = col_integer(),
