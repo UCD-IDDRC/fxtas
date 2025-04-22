@@ -40,7 +40,10 @@ compact_pvd_data_prep <- function(figs, biomarker_order = NULL) {
     # ) |>
     arrange(across(all_of("event order"))) |>
     dplyr::mutate(
-      biomarker = .data$biomarker |> forcats::fct_inorder()
+      biomarker = .data$biomarker |>
+        tools::toTitleCase() |>
+        Hmisc::capitalize() |>
+        forcats::fct_inorder()
     ) |>
     dplyr::select(
       all_of(c("biomarker", "event order"))
@@ -53,15 +56,15 @@ compact_pvd_data_prep <- function(figs, biomarker_order = NULL) {
   # update biomarker levels in dataset
   plot_dataset <- dataset |>
     # convert biomarker to factor with event order levels
-    dplyr::mutate(biomarker = factor(.data$biomarker, levels = biomarker_order)) |>
+    dplyr::mutate(biomarker = .data$biomarker |>
+                    tools::toTitleCase() |>
+                    Hmisc::capitalize() |>
+                    factor(levels = biomarker_order)) |>
     # arrange by biomarker levels
     arrange(across(all_of("biomarker"))) |>
     # create biomarker labels for figure
     dplyr::mutate(
-      biomarker_cap = biomarker |>
-        tools::toTitleCase() |>
-        Hmisc::capitalize(),
-      biomarker_label = glue::glue("<i style='color:{group_color}'>{biomarker_cap}</i>") |>
+      biomarker_label = glue::glue("<i style='color:{group_color}'>{biomarker}</i>") |>
         forcats::fct_inorder()
     ) |>
     dplyr::select(all_of(
