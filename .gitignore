@@ -34,4 +34,4 @@ docs
 README.html
 README_files
 **/real_data**
-**/*.new.*
+tests/testthat/_snaps/*/*.new.*
