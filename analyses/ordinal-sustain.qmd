@@ -297,24 +297,26 @@ prob_correct <-
 #| message: false
 #| label: model-all-subgroups-first-visits
 #| include: false
-#| eval: !expr fit_models
 
-sustain_output <- run_and_save_OSA(
-  biomarker_levels = biomarker_levels,
-  prob_correct = prob_correct,
-  SuStaInLabels = biomarker_varnames,
-  N_startpoints = N_startpoints,
-  N_S_max = N_S_max,
-  N_iterations_MCMC = N_iterations_MCMC,
-  output_folder = output_folder,
-  dataset_name = dataset_name,
-  use_parallel_startpoints = use_parallel_startpoints,
-  seed = 1,
-  plot = plot_python,
-  rerun = rerun,
-  patient_data = patient_data,
-  N_CV_folds = N_CV_folds
-)
+if (fit_models) {
+  
+  sustain_output <- run_and_save_OSA(
+    biomarker_levels = biomarker_levels,
+    prob_correct = prob_correct,
+    SuStaInLabels = biomarker_varnames,
+    N_startpoints = N_startpoints,
+    N_S_max = N_S_max,
+    N_iterations_MCMC = N_iterations_MCMC,
+    output_folder = output_folder,
+    dataset_name = dataset_name,
+    use_parallel_startpoints = use_parallel_startpoints,
+    seed = 1,
+    plot = plot_python,
+    rerun = rerun,
+    patient_data = patient_data,
+    N_CV_folds = N_CV_folds
+  )
+}
 ```
 
 {{< include _sec_run_stratified_models.qmd >}}
