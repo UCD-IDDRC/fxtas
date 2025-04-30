@@ -39,9 +39,7 @@ plot_positional_var <- function(
     samples_f = results$samples_f,
     n_samples = results$ml_subtype |> nrow(),
     score_vals = build_score_vals(biomarker_levels),
-    biomarker_labels = names(biomarker_levels) |>
-      tools::toTitleCase() |>
-      Hmisc::capitalize(),
+    biomarker_labels = names(biomarker_levels),
     biomarker_groups = NULL,
     biomarker_levels = NULL,
     biomarker_events_table =
