@@ -9,9 +9,9 @@ simplify_biomarker_names <- function(dataset, cols = "event name")
         remove_CC() |>
         numeric_five() |>
         stringr::str_replace(stringr::fixed("*"), "") |>
-        stringr::str_replace(stringr::fixed(" (0-5)"), "") |>
-        tools::toTitleCase() |>
-        Hmisc::capitalize()
+        stringr::str_replace(stringr::fixed(" (0-5)"), "") # |>
+        # tools::toTitleCase() |>
+        # Hmisc::capitalize()
     ))
 }
 

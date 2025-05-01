@@ -6,7 +6,6 @@ format:
   html:
     echo: false
   docx: default
-reference-doc: ../Brain_template_2022.docx
 ---
 
 Correspondence to: Douglas Ezra Morrison

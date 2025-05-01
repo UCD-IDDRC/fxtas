@@ -1,7 +1,7 @@
 #' Construct biomarker events table
 #'
 #' @param biomarker_levels todo
-#'
+#' @param do_factor whether to turn `biomarker` column into factor and sort on it, after `level`
 #' @returns a [tibble::tbl_df]
 #' @export
 #' @examples
@@ -16,7 +16,7 @@
 #'   get_levels(biomarker_varnames, keep_labels = TRUE)
 #'
 #' get_biomarker_events_table(biomarker_levels)
-get_biomarker_events_table <- function(biomarker_levels) {
+get_biomarker_events_table <- function(biomarker_levels, do_factor = TRUE) {
   to_return <-
     biomarker_levels |>
     tibble::enframe() |>
@@ -38,8 +38,24 @@ get_biomarker_events_table <- function(biomarker_levels) {
       levels = paste(.data$level, collapse = ", "),
       level = dplyr::row_number()
     ) |>
-    dplyr::filter(.data$level > 1) |>
-    arrange(across(all_of(c("level", "biomarker"))))
+    dplyr::filter(.data$level > 1)
+
+  if (do_factor) {
+    to_return <- to_return |>
+    dplyr::mutate(
+      biomarker = .data$biomarker |> factor(levels = names(biomarker_levels))
+    ) |>
+      arrange(across(all_of(c("level", "biomarker")))) |>
+      dplyr::mutate(
+        biomarker = .data$biomarker |> as.character()
+      )
+
+
+  } else
+  {
+    to_return <- to_return |>
+      arrange(across(all_of(c("level"))))
+  }
 
   to_return
 }
