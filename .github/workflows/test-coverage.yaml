@@ -36,14 +36,15 @@ jobs:
         run: |
 
           library(reticulate)
-
-          path_to_venv <- virtualenv_create(
-            envname = "fxtas39",
-            python = Sys.which("python"), # placed on PATH by the setup-python action
+          reticulate::py_require(
             packages = c(
+              "git+https://github.com/ucl-pond/kde_ebm",
               "git+https://github.com/d-morrison/pySuStaIn"
-            )
+            ),
+            python_version = "3.9"
           )
+
+          reticulate::py_config()
 
           writeLines(
             paste0("RETICULATE_PYTHON=", virtualenv_python(path_to_venv)),
