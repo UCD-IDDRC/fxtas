@@ -94,6 +94,31 @@ project:
   execute-dir: project
 
 format:
+  docx:
+    keep-md: true
+    notes-after-punctuation: true
+    reference-doc: vignettes/Brain_template_2022.docx
+    csl: vignettes/american-medical-association.csl
+    toc: false
+    echo: false
+    fig-format: svg # seems to break things
+    fig-dpi: 300
+    # dpi: 300
+    toc-depth: 4
+    cap-location: top
+    fig-cap-location: top
+    appendix-title: "Sup."
+    tbl-cap-location: top
+    number-sections: false
+    number-depth: 3
+    link-citations: true
+    # date: last-modified
+    # date-format: "[Last modified:] YYYY-MM-DD: H:mm:ss (A)"
+    embed-resources: false
+    appendix-style: plain
+    mainfont: serif
+  pdf:
+    documentclass: scrartcl
   html:
     toc: true
     notes-after-punctuation: true
@@ -122,31 +147,6 @@ format:
     echo: false
     date: last-modified
     date-format: "[Last modified:] YYYY-MM-DD: H:mm:ss (A)"
-  docx:
-    keep-md: true
-    notes-after-punctuation: true
-    reference-doc: vignettes/Brain_template_2022.docx
-    csl: vignettes/american-medical-association.csl
-    toc: false
-    echo: false
-    # fig-format: svg # seems to break things
-    fig-dpi: 300
-    # dpi: 300
-    toc-depth: 4
-    cap-location: top
-    fig-cap-location: top
-    appendix-title: "Sup."
-    tbl-cap-location: top
-    number-sections: false
-    number-depth: 3
-    link-citations: true
-    # date: last-modified
-    # date-format: "[Last modified:] YYYY-MM-DD: H:mm:ss (A)"
-    embed-resources: false
-    appendix-style: plain
-    mainfont: serif
-  pdf:
-    documentclass: scrartcl
 bibliography: vignettes/references.bib
 knitr:
   opts_chunk:

@@ -4,7 +4,7 @@ create_any_tremor <- function(
     "intention tremor",
     "resting tremor",
     "postural tremor",
-    "intermittent tremor"
+    "intermittent tremor hx"
   )
 ) {
   dataset |>
@@ -16,7 +16,7 @@ create_any_tremor <- function(
         ) ~ "Some tremors recorded",
         dplyr::if_all(
           .cols = all_of(tremor_types),
-          .fns = ~ is.na(.) | . %in% c("NA (888)", "No Response (999)")
+          .fns = ~  . %in% c(NA, "NA (888)", "No Response (999)")
         ) ~ NA,
         TRUE ~ "No tremors recorded"
       ) |>

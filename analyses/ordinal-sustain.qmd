@@ -6,6 +6,11 @@ format:
   html:
     echo: false
   docx: default
+reference-doc: Brain_template_2022.docx
+knitr:
+  opts_chunk:
+    fig.path: ordinal-sustain_files/figure-docx/
+    # see https://github.com/quarto-dev/quarto-cli/discussions/4254
 ---
 
 Correspondence to: Douglas Ezra Morrison
@@ -468,7 +473,6 @@ at baseline visit for `r report_sex_differences(biomarkers_table)`.
 
 ```{r}
 #| label: p-val-test-sex
-output_folder <- "output/output.fixed_CV/"
 
 permuted_test_stats <- collect_permutation_test_stats(
   output_folder = output_folder,
@@ -515,7 +519,6 @@ also appear to begin at earlier FXTAS stages for males than for females.
 
 ```{r}
 #| label: p-val-test-sex-under100
-output_folder <- "output/output.fixed_CV/"
 
 permuted_test_stats <- collect_permutation_test_stats(
   output_folder = output_folder,
@@ -537,7 +540,6 @@ pval_under100_sex_gp34_v1 <- permutation_test(
 
 ```{r}
 #| label: p-val-test-sex-over100
-output_folder <- "output/output.fixed_CV/"
 
 permuted_test_stats <- collect_permutation_test_stats(
   output_folder = output_folder,
@@ -575,7 +577,6 @@ among those with CGG ≥ 100 (p = `r pval_over100_sex_gp34_v1`)
 
 ```{r}
 #| label: p-val-test-cgg-male
-output_folder <- "output/output.fixed_CV/"
 
 permuted_test_stats <- collect_permutation_test_stats(
   output_folder = output_folder,
@@ -598,7 +599,6 @@ pval_male_cgg_gp34_v1 <- permutation_test(
 
 ```{r}
 #| label: p-val-test-cgg-female
-output_folder <- "output/output.fixed_CV/"
 
 permuted_test_stats <- collect_permutation_test_stats(
   output_folder = output_folder,
@@ -657,6 +657,7 @@ n_s_selected <- 4
 
 results_cv_max <- extract_results_from_pickle(
   n_s = n_s_selected,
+  use_rds = use_rds,
   dataset_name = dataset_name,
   output_folder = output_folder
 )
@@ -938,16 +939,10 @@ plot_compact_pvd_est2(
 
 {{< pagebreak >}}
 
-:::{#fig-stage-barplot-latent-subtypes}
+::: {#fig-stage-barplot_chosen_subtypes}
 
 ```{r}
-results <- extract_results_from_pickle(
-  n_s = n_s_selected,
-  dataset_name = dataset_name,
-  output_folder = output_folder
-)
-
-results$subtype_and_stage_table |> 
+results_cv_max$subtype_and_stage_table |> 
   filter(ml_subtype != "Type 0") |>
   stage_barplot()
 ```

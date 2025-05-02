@@ -1,4 +1,10 @@
-test_that("`extract_subtype_and_stage_table()` produces consistent results", {
+test_that("results are consistent", {
+
+  reticulate::py_discover_config(
+    required_module = "pySuStaIn"
+  )$required_module_path |>
+    is.null() |>
+    testthat::skip_if()
 
   results00 <- readr::read_rds(
     testthat::test_path("fixtures", "results00.rds")

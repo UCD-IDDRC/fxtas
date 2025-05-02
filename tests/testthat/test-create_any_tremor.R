@@ -1,17 +1,20 @@
 test_that(
-  "`any tremor (excluding head)` is consistent with the individual tremor variables",
-  {
-    skip_if_not(exists("trax_gp34_all"))
-    library(dplyr)
-    tremor_types = c(
+  desc = "composite variable matches the individual tremor variables",
+  code = {
+    withr::local_package("dplyr")
+    tremor_types <- c(
       "intention tremor",
       "resting tremor",
       "postural tremor",
       "intermittent tremor hx"
     )
 
-    inconsistent =
-      trax_gp34_all |>
+    tremor_data <- testthat::test_path("fixtures", "tremor_data.rds") |>
+      readr::read_rds()
+
+    inconsistent <-
+      tremor_data |>
+      create_any_tremor() |>
       dplyr::filter(`any tremor (excluding head)` %in%
                       "No tremors recorded",
                     if_all(all_of(tremor_types), is.na)) |>
@@ -23,4 +26,5 @@ test_that(
       )))
 
     expect_equal(object = nrow(inconsistent), expected = 0)
-  })
+  }
+)

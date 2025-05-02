@@ -18,6 +18,8 @@ dataset=vroom::vroom(
     new_mds_med_can_other = col_integer(),
     new_mds_med_anes1 = col_character(),
     medic_surg_anes = col_character(),
+    mol_act_ratio = col_double(),
+    mol_mos_meth = col_double(),
     # did we remove these variables?
     kin_l_resttrem = col_double(),
     kin_l_posttrem = col_double(),
