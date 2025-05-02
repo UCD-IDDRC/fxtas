@@ -230,14 +230,6 @@ max_levels <- nlevs |> max()
 
 {{< include _sec_abstract.qmd >}}
 
-**Keywords:** 
-Fragile X-associated tremor/ataxia syndrome;
-Subtype and Stage Inference;
-sequential events; 
-disease development and progression;
-sex differences;
-latent subgroups
-
 {{< pagebreak >}}
 
 # Introduction
