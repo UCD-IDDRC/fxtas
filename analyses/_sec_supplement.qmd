@@ -29,3 +29,7 @@
 <!-- ## Results with repeated measures {#sec-longitudinal-results .appendix} -->
 
 <!-- {{< include longitudinal-results.qmd >}} -->
+
+## Prevalence of parkinsonian features by FXTAS Stage {.appendix #sec-pk-ft-by-stage}
+
+{{< include _sec_stage_vs_pk_ft.qmd >}}
