@@ -42,8 +42,7 @@ jobs:
             ),
             python_version = "3.9"
           )
-
-          pyconfig <- reticulate::py_config() |> print()
+          reticulate::py_config()
 
           cov <- covr::package_coverage(
             quiet = FALSE,
