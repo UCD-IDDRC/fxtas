@@ -1,0 +1,21 @@
+```{r}
+library(gtsummary)
+v1_usable_cases |> 
+  mutate(Stage_3plus = 
+      if_else(
+        `FXTAS Stage` %in% c(3:5),
+        "3+",
+        "0-2") |> 
+      labelled::set_label_attribute("FXTAS Stage")) |>  
+  select(Gender, Stage_3plus) |> 
+  gtsummary::tbl_summary(
+    by = Stage_3plus,
+    percent = "row") |> 
+  gtsummary::modify_header(all_stat_cols() ~ "**{level}**, N={n} ({style_percent(p)}%)") |> 
+  gtsummary::add_overall() |> 
+  gtsummary::modify_spanning_header(c("stat_1", "stat_2") ~ "**FXTAS Stage**")
+  
+
+```
+
+{{< include _sec_stage_vs_pk_ft.qmd >}}
