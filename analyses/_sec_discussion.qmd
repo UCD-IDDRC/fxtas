@@ -105,6 +105,8 @@ or in the periventricular area,
 then this demonstrates the onset of the neuropathology of FXTAS,
 even if there is no tremor or ataxia yet.
 
+{{< include _sec_disc_splenium_cc_sign.qmd >}}
+
 This suggests that the diagnostic criteria for FXTAS
 may need to be somewhat altered in females compared to males,
 particularly for early cases.
