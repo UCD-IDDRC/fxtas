@@ -30,7 +30,6 @@ execute:
 library(fxtas)
 library(tidyverse)
 library(reticulate)
-library(reticulate)
 reticulate::py_require(
   packages = c(
     "git+https://github.com/ucl-pond/kde_ebm",
