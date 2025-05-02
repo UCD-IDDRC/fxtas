@@ -44,10 +44,11 @@ jobs:
             python_version = "3.9"
           )
 
-          reticulate::py_config()
+          pyconfig <- reticulate::py_config() |> print()
+          path_to_venv <- pyconfig$python
 
           writeLines(
-            paste0("RETICULATE_PYTHON=", virtualenv_python(path_to_venv)),
+            paste0("RETICULATE_PYTHON=", path_to_venv),
             Sys.getenv("GITHUB_ENV"))
 
 
