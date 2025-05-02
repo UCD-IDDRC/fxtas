@@ -1,13 +1,13 @@
 pandoc: 3.1.11
-pkgdown: 2.1.1.9000
-pkgdown_sha: 739380ac569123aa88cbeab64ba4f42105f88c00
+pkgdown: 2.1.2.9000
+pkgdown_sha: 99457e7fa7f36696ae743b06aca59c0fdd97a7d6
 articles:
   articles/demo-table-subtype-by-demographics: demo-table-subtype-by-demographics.html
   articles/test-quarto-article: test-quarto-article.html
   test-quarto-vignette: test-quarto-vignette.html
   articles/test-rmarkdown-article: test-rmarkdown-article.html
   test-rmarkdown-vignette: test-rmarkdown-vignette.html
-last_built: 2025-03-15T01:03Z
+last_built: 2025-05-02T08:21Z
 urls:
   reference: https://UCD-IDDRC.github.io/fxtas/reference
   article: https://UCD-IDDRC.github.io/fxtas/articles
