@@ -1,4 +1,4 @@
-tremor_types = c(
+tremor_types <- c(
   "Hx Intention tremor",
   "Exam Intention tremor",
   "Hx Resting tremor",
@@ -11,7 +11,8 @@ tremor_types = c(
 tremor_data <-
   trax_gp34_all |>
   dplyr::select(
-    dplyr::contains("tremor") & !dplyr::contains("onset")) |>
+    dplyr::contains("tremor") & !dplyr::contains("onset")
+  ) |>
   dplyr::distinct()
 
 tremor_data |>

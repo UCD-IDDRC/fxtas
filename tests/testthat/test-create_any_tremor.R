@@ -1,8 +1,8 @@
 test_that(
-  "`Any tremor (excluding head)` matches the individual tremor variables",
-  {
+  desc = "composite variable matches the individual tremor variables",
+  code = {
     withr::local_package("dplyr")
-    tremor_types = c(
+    tremor_types <- c(
       "Hx Intention tremor",
       "Exam Intention tremor",
       "Hx Resting tremor",
@@ -29,4 +29,5 @@ test_that(
       )))
 
     expect_equal(object = nrow(inconsistent), expected = 0)
-  })
+  }
+)

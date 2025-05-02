@@ -1,16 +1,15 @@
 create_any_tremor <- function(
-    dataset,
-    tremor_types = c(
-      "Hx Intention tremor",
-      "Exam Intention tremor",
-      "Hx Resting tremor",
-      "Exam Resting tremor",
-      "Hx Postural tremor",
-      "Exam Postural tremor",
-      "Intermittent tremor"
-    )
-)
-{
+  dataset,
+  tremor_types = c(
+    "Hx Intention tremor",
+    "Exam Intention tremor",
+    "Hx Resting tremor",
+    "Exam Resting tremor",
+    "Hx Postural tremor",
+    "Exam Postural tremor",
+    "Intermittent tremor"
+  )
+) {
   dataset |>
     dplyr::mutate(
       "Any tremor (excluding head)" = case_when(
