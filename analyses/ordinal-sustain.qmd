@@ -810,15 +810,9 @@ flex_biomarkers_table(biomarkers_table)
 
 {{< pagebreak >}}
 
+::: {#tbl-sg_demos}
+
 ```{r}
-#| tbl-cap: !expr
-#|     glue::glue(
-#|        "**Demographics of {n_s_selected} latent subtype clusters
-#|        identified by Ordinal SuStaIn.**
-#|        {n_type_0} patients had experienced too few events
-#|        to be accurately classified into a subtype
-#|        and were excluded from this table.")
-#| label: tbl-sg_demos
 #| results: asis
 
 set.seed(2)
@@ -841,6 +835,14 @@ tbl_sg_demos |>
   flextable::width(j = 2:6, width = 0.75) |>
   flextable::width(j = 7, width = 1)
 ```
+
+**Demographics of `r n_s_selected` latent subtype clusters
+identified by Ordinal SuStaIn.**
+`r n_type_0` patients had experienced too few events
+to be accurately classified into a subtype
+and were excluded from this table.
+
+:::
 
 {{< pagebreak >}}
 
