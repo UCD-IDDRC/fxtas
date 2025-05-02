@@ -9,7 +9,7 @@ clean_fxtas_dx <- function(data) {
         ),
         replace_missing_codes_with_NAs
       ),
-      fxtas_dx = coalesce(new_mds_fxtas_dx, mds_fxtas_dx) |>
+      fxtas_dx = coalesce(.data$new_mds_fxtas_dx, .data$mds_fxtas_dx) |>
         ordered() |>
         set_label_attribute("FXTAS diagnosis")
     )
