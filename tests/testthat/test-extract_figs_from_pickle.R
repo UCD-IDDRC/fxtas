@@ -1,6 +1,6 @@
 test_that("`extract_figs_from_pickle()` produces stable results", {
 
-  py_discover_config(required_module = "pySuStaIn")$required_module_path |>
+  reticulate::py_discover_config(required_module = "pySuStaIn")$required_module_path |>
     is.null() |>
     skip_if()
 
