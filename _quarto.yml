@@ -101,7 +101,7 @@ format:
     csl: vignettes/american-medical-association.csl
     toc: false
     echo: false
-    fig-format: svg # seems to break things
+    # fig-format: svg # seems to break things
     fig-dpi: 300
     # dpi: 300
     toc-depth: 4
