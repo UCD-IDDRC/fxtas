@@ -28,8 +28,8 @@ tmp_data_prep <- function(x) {
     # ) |>
     arrange(across(all_of("event order"))) |>
     dplyr::mutate(biomarker = .data$biomarker |>
-                    # tools::toTitleCase() |>
-                    # Hmisc::capitalize() |>
+                    tools::toTitleCase() |>
+                    Hmisc::capitalize() |>
                     forcats::fct_inorder()) |>
     dplyr::select(
       c("biomarker", "event order") |> all_of()
@@ -66,8 +66,8 @@ tmp_data_prep <- function(x) {
     # convert biomarker to factor with event order levels
     dplyr::mutate(
       biomarker = .data$biomarker |>
-        # tools::toTitleCase() |>
-        # Hmisc::capitalize() |>
+        tools::toTitleCase() |>
+        Hmisc::capitalize() |>
         factor(levels = levels(event_order$biomarker))
     ) |>
     # arrange by biomarker levels

@@ -41,8 +41,8 @@ compact_pvd_data_prep <- function(figs, biomarker_order = NULL) {
     arrange(across(all_of("event order"))) |>
     dplyr::mutate(
       biomarker = .data$biomarker |>
-        # tools::toTitleCase() |>
-        # Hmisc::capitalize() |>
+        tools::toTitleCase() |>
+        Hmisc::capitalize() |>
         forcats::fct_inorder()
     ) |>
     dplyr::select(
@@ -57,8 +57,8 @@ compact_pvd_data_prep <- function(figs, biomarker_order = NULL) {
   plot_dataset <- dataset |>
     # convert biomarker to factor with event order levels
     dplyr::mutate(biomarker = .data$biomarker |>
-                    # tools::toTitleCase() |>
-                    # Hmisc::capitalize() |>
+                    tools::toTitleCase() |>
+                    Hmisc::capitalize() |>
                     factor(levels = biomarker_order)) |>
     # arrange by biomarker levels
     arrange(across(all_of("biomarker"))) |>

@@ -873,6 +873,8 @@ list(
   plot_compact_pvd(y_text_size = y_text_size)
 ```
 
+:::{#fig-stage-barplot-by-sex}
+
 ```{r}
 results_list_by_sex <- list(
   "Males" = results_males_first,
@@ -882,6 +884,10 @@ results_list_by_sex <- list(
 results_list_by_sex |> stage_barplot()
 ```
 
+**Distribution of estimated disease stage, stratified by sex**. 
+Red horizontal line indicates minimum sample size
+recommended for the Ordinal SuStaIn algorithm,
+three observations per stage [@young2021ordinal].
 
 {{< pagebreak >}}
 
@@ -929,6 +935,29 @@ plot_compact_pvd_est2(
   title_size = 8
 )
 ```
+
+{{< pagebreak >}}
+
+:::{#fig-stage-barplot-latent-subtypes}
+
+```{r}
+results <- extract_results_from_pickle(
+  n_s = n_s_selected,
+  dataset_name = dataset_name,
+  output_folder = output_folder
+)
+
+results$subtype_and_stage_table |> 
+  filter(ml_subtype != "Type 0") |>
+  stage_barplot()
+```
+
+**Distribution of estimated disease stage, stratified by latent subtype**. 
+Red horizontal line indicates minimum sample size
+recommended for the Ordinal SuStaIn algorithm,
+three observations per stage [@young2021ordinal].
+
+:::
 
 {{< pagebreak >}}
 
