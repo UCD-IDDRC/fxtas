@@ -59,6 +59,8 @@ Stage 5 is requiring a wheelchair;
 and Stage 6 is bedridden
 (no participants at Stage 6 were included in the study).
 
+{{< include _sec_symptom_scales.qmd >}}
+
 The primary sequence analysis of symptomatic events 
 included baseline visit data 
 from `r nrow(v1_usable)` participants from the GP and TRAX cohorts,
