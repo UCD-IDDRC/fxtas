@@ -1,0 +1,22 @@
+Parkinson’s disease (PD) was defined as having a diagnosis of PD prior to the study enrollment. The diagnosis of PD was made by the patient’s physician or neurologist, outside of the study; we documented if this diagnosis was made, in the medical history section of the study records.
+
+Parkinsonian features were characterized by the presence of at least one of the following signs at examination: 
+masked facies, 
+increased, tone, 
+pill-rolling tremor, or 
+stiff gait. 
+Stiff gait means the individual lacked the normal flow of movement and looked stiff but was not spastic.
+
+Tremor severity was assessed using elements of the Unified Parkinson’s Disease Rating Scale (UPDRS) with scores interpretated as: 
+0 = no tremor,
+1 = minimal tremor, 
+2 = mild tremor noticeable during activities, 
+3 = moderate tremor affecting multiple tasks, 
+and 4 = severe tremor significantly impairing daily function.
+
+Similarly, ataxia severity was evaluated using The International Cooperative Ataxia Rating Scale (ICARS) scoring interpreted as: 
+0 = no ataxia, 
+1 = slight abnormality, 
+2 = moderate abnormality (noticeable but does not interfere significantly),
+3 = marked impairment (function slightly affected), and 
+4 = severe impairment (complete inability to perform the task) [@Berry-KravisElizabeth2003Taai].
