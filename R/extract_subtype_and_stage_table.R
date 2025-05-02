@@ -1,16 +1,17 @@
-extract_subtype_and_stage_table <- function(results) {
-
-  reticulate::py_discover_config(required_module = "pySuStaIn")$required_module_path |>
+extract_subtype_and_stage_table <- function(results) { # nolint: object_name_linter
+  reticulate::py_discover_config(
+    required_module = "pySuStaIn"
+  )$required_module_path |>
     is.null() |>
-    skip_if()
+    testthat::skip_if()
 
-  n_s = get_n_subtypes(results)
+  n_s <- get_n_subtypes(results)
 
   tibble(
-    ml_subtype = results$ml_subtype[,1] + 1,
-    ml_stage = results$ml_stage[,1],
-    prob_ml_subtype = results$prob_ml_subtype[,1],
-    prob_ml_stage = results$prob_ml_stage[,1]
+    ml_subtype = results$ml_subtype[, 1] + 1,
+    ml_stage = results$ml_stage[, 1],
+    prob_ml_subtype = results$prob_ml_subtype[, 1],
+    prob_ml_stage = results$prob_ml_stage[, 1]
   ) |>
     dplyr::mutate(
       ml_subtype = if_else(
