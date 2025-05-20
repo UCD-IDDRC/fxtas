@@ -559,7 +559,7 @@ trax <- dplyr::bind_rows(
   # clean trax data
   clean_trax_data()
 
-if (exists("fxtas::trax")) {
+if (data_exists("trax")) {
 
   test <- waldo::compare(
     y = trax,
@@ -591,7 +591,9 @@ trax_gp34_all <-
   clean_gender() |> # re-add label
   add_labels() # `bind_rows()` removes them
 
-visit1 <- trax_gp34_v1 <- trax_gp34_all |>
+visit1 <-
+  trax_gp34_v1 <-
+  trax_gp34_all |>
   get_visit1()
 
 trax_gp34_multivisit_only <-

@@ -3,8 +3,17 @@
 cli::cli_alert_info('\nStarting at: {Sys.time()}')
 
 library(reticulate)
-# reticulate::use_condaenv("fxtas39", required = TRUE)
-py_config()
+reticulate::py_require(
+  packages = c(
+    "git+https://github.com/ucl-pond/kde_ebm",
+    "git+https://github.com/d-morrison/pySuStaIn"
+  ),
+  python_version = "3.9"
+)
+
+if(interactive()) reticulate::use_condaenv("fxtas39", required = TRUE)
+
+reticulate::py_config()
 
 devtools::load_all()
 library(tidyverse)
@@ -69,6 +78,7 @@ output_folder =
 # previously `nrow(v1_usable_cases)` was 221, which was based on incorrectly filtering on a version of CGG that hadn't been backfilled.
 
 # March 2024, main analysis now uses Trax/GP34 Visit 1 data replacing previous version using only GP34
+load("data/trax_gp34_v1.rda")
 df =
   trax_gp34_v1 |>
   dplyr::filter(

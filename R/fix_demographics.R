@@ -4,21 +4,25 @@ fix_demographics <- function(dataset)
     dplyr::mutate(
 
       `Birth Date` =
-        (`Visit Date` - days(round(`Age at visit` * 365.25))) |>
+        (.data$`Visit Date` - days(round(.data$`Age at visit` * 365.25))) |>
         lubridate::date(), # causes problems for eg 	100399-100
 
 
     ) |>
 
-    group_by(`FXS ID`) |>
+    group_by(across(all_of("FXS ID"))) |>
 
     tidyr::fill(
-      `Primary Race`,
-      `Primary Ethnicity`,
-      Gender,
+      all_of(
+        c(
+          "Primary Race",
+          "Primary Ethnicity",
+          "Gender"
+        )
+      ),
       .direction = "downup") |>
     dplyr::mutate(
-      `Recruited in study phase` = first(Study)
+      `Recruited in study phase` = first(.data$Study)
     ) |>
     ungroup()
 }

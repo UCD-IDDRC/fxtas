@@ -19,6 +19,7 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![R-CMD-check](https://github.com/UCD-IDDRC/fxtas/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/UCD-IDDRC/fxtas/actions/workflows/R-CMD-check.yaml)
+[![Codecov test coverage](https://codecov.io/gh/UCD-IDDRC/fxtas/graph/badge.svg)](https://app.codecov.io/gh/UCD-IDDRC/fxtas)
 <!-- badges: end -->
 
 The goal of `fxtas` is to apply the Ordinal SuStaIn algorithm 
@@ -43,22 +44,26 @@ devtools::install_github("UCD-IDDRC/fxtas")
 
 The manuscript 
 is implemented in the file `ordinal-sustain.qmd` 
-in the `vignettes/articles` subfolder, 
+in the `analyses` subfolder, 
 which incorporates several subfiles in this repository.
 The `data-raw` folder contains numerous auxiliary scripts, including:
 
-* data preprocessing scripts, which be run in the following order (after extracting the necessary files from the GP, GP4, and Trax research databases):
-    - `gp3.r`
-    - `gp4.r`
-    - `gp34.R`
-    - `trax.R`
+* data preprocessing scripts, which be run in the following order 
+(after extracting the necessary files from the GP, GP4, and Trax 
+research databases):
+
+  - `gp3.r`
+  - `gp4.r`
+  - `gp34.R`
+  - `trax.R`
 
 * [SLURM](https://slurm.schedmd.com/documentation.html)
 batch scripts and corresponding R scripts 
 for pre-running the computation-heavy sections of the analysis
 on an appropriately-preconfigured distributed computing server.
-    - If the corresponding output files have not been pre-generated, 
-        `ordinal-sustain.qmd` should produce them 
+
+If the corresponding output files have not been pre-generated, 
+`ordinal-sustain.qmd` should produce them.
 
 # References {.unnumbered}
 

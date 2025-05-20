@@ -5,7 +5,10 @@
 #' @returns a [tibble::tbl_df]
 #' @export
 #'
-#' @examples search_articles("FXTAS")
+#' @examples
+#' \dontrun{
+#' search_articles("FXTAS")
+#' }
 search_articles <- function(query) {
   # First, get the total number of results
   search_results <- rentrez::entrez_search(

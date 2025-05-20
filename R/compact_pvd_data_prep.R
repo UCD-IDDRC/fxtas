@@ -38,20 +38,24 @@ compact_pvd_data_prep <- function(figs, biomarker_order = NULL) {
     # dplyr::select(
     #   biomarker, position
     # ) |>
-    arrange(`event order`) |>
-    dplyr::mutate(biomarker = forcats::fct_inorder(.data$biomarker)) |>
-    dplyr::select(all_of(c("biomarker", "event order"))) |>
+    arrange(across(all_of("event order"))) |>
+    dplyr::mutate(
+      biomarker = .data$biomarker |> forcats::fct_inorder()
+    ) |>
+    dplyr::select(
+      all_of(c("biomarker", "event order"))
+    ) |>
     unique()
 
   if (is.null(biomarker_order)) {
-    biomarker_order <- levels(event_order$biomarker)
+    biomarker_order <- event_order$biomarker |> levels()
   }
   # update biomarker levels in dataset
   plot_dataset <- dataset |>
     # convert biomarker to factor with event order levels
-    dplyr::mutate(biomarker = factor(biomarker, levels = biomarker_order)) |>
+    dplyr::mutate(biomarker = factor(.data$biomarker, levels = biomarker_order)) |>
     # arrange by biomarker levels
-    arrange(biomarker) |>
+    arrange(across(all_of("biomarker"))) |>
     # create biomarker labels for figure
     dplyr::mutate(
       biomarker_label = glue::glue("<i style='color:{group_color}'>{biomarker}</i>") |>

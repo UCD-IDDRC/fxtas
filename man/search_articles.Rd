@@ -16,5 +16,7 @@ a \link[tibble:tbl_df-class]{tibble::tbl_df}
 Search PubMed for FXTAS-related articles
 }
 \examples{
+\dontrun{
 search_articles("FXTAS")
+}
 }

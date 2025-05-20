@@ -27,7 +27,7 @@ run_OSA_permuted <- function(
     permuted_variable_combinations =
       patient_data |> distinct(across(all_of(permuting_variables)))
 
-    for (cur_level in 1:nrow(permuted_variable_combinations))
+    for (cur_level in seq_len(nrow(permuted_variable_combinations)))
     {
       message('current permuted group being analyzed:')
       print(permuted_variable_combinations[cur_level,])

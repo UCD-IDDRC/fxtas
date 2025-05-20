@@ -39,15 +39,15 @@ $run_dev.*
 ^extdata/Missing CGG repeat import_24Mar23\.xlsx$
 ^extdata/GP3 & GP4 - Missing CGG Data Samples Table - 10-9-2023-mdp\.xlsx$
 ^extdata/inconsistent ataxia\.csv$
-^gp3$
-^gp34$
-^gp34_multivisit_only$
-^gp34_v1$
-^gp4$
-^males_gp34_trax\.rda$
-^males_gp34_trax_v1\.rda$
-^trax\.rda$
-^trax_visit1\.rda$
+^data/gp3\.rda$
+^data/gp34\.rda$
+^data/gp34_multivisit_only\.rda$
+^data/gp34_v1\.rda$
+^data/gp4\.rda$
+^data/males_gp34_trax\.rda$
+^data/males_gp34_trax_v1\.rda$
+^data/trax\.rda$
+^data/trax_visit1\.rda$
 ^visit1\.rda$
 ^vignettes/\.quarto$
 ^_quarto\.yml$
@@ -62,6 +62,15 @@ $run_dev.*
 ^vignettes/articles/\.quarto$
 ^vignettes/articles/*_files$
 ^vignettes/*_files$
+^analyses$
+^codecov\.yml$
+^data/gp4\.rda$
+^data/gp3\.rda$
+^data/gp34_v1\.rda$
+^data/trax_gp34_all\.rda$
+^inst/extdata/inconsistent_ataxia\.csv$
+^data/trax_gp34_v1\.rda$
+^inst/extdata/sim_data/pickle_files$
 ^man/compact_pvd_figure\.Rd$
 ^man/format_demographics_table_as_flextable\.Rd$
 ^man/get_title_i_2\.Rd$

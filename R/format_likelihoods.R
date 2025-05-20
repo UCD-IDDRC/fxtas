@@ -8,12 +8,21 @@
 
 format_likelihoods <- function(likelihoods)
 {
-  colnames = 1:ncol(likelihoods) |>
-    paste0(" subtype", if_else(1:ncol(likelihoods) == 1, "", "s"))
+  n_subtypes <- ncol(likelihoods)
+  colnames <-
+    seq_len(n_subtypes) |>
+    paste0(
+      " subtype",
+      if_else(
+        seq_len(n_subtypes) == 1,
+        "",
+        "s"
+      )
+    )
 
   likelihoods |>
+    magrittr::set_colnames(colnames) |>
     as_tibble() |>
-    setNames(colnames) |>
     dplyr::mutate(Iteration = dplyr::row_number()) |>
-    tidyr::pivot_longer(cols = colnames)
+    tidyr::pivot_longer(cols = all_of(colnames))
 }

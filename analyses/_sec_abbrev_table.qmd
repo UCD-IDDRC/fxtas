@@ -1,0 +1,15 @@
+::: {#tbl-abbrevs}
+
+```{r}
+read.csv("analyses/abbreviations.csv") |> 
+  flextable::as_flextable(
+    show_coltype = FALSE,
+    max_row = Inf,
+  ) |> 
+  shared_flextable_settings()
+```
+
+
+**Table of abbreviations**
+
+:::

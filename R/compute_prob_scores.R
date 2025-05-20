@@ -23,7 +23,7 @@ compute_prob_scores <- function(
 {
   prob_score_dims =
     list(
-      ID = dataset |> dplyr::pull(`FXS ID`),
+      ID = dataset |> dplyr::pull("FXS ID"),
       Biomarker = biomarker_varnames,
       model = ModelScores
     )
@@ -51,7 +51,7 @@ compute_prob_scores <- function(
       as.character() |>
       stringr::str_replace_na()
 
-    prob_score0[ , biomarker, 1:ncol(cur_confusion_matrix)] =
+    prob_score0[ , biomarker, seq_len(ncol(cur_confusion_matrix))] =
       cur_confusion_matrix[cur_observed_scores, ]
 
   }

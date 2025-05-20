@@ -91,6 +91,7 @@ biomarker_varnames =
   dplyr::pull("biomarker")
 
 # April 2024, main analysis now uses Trax/GP34 Visit 1 data replacing previous version using only GP34
+load("data/trax_gp34_v1.rda")
 df =
   trax_gp34_v1 |>
   dplyr::filter(

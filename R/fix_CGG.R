@@ -1,30 +1,30 @@
 fix_CGG <- function(dataset)
 {
   missingCGG = readxl::read_excel(
-    "inst/extdata/Missing CGG repeat import_24Mar23.xlsx",
+    "inst/extdata/Missing_CGG_repeat_import_24Mar23.xlsx",
     sheet = "missing_CGG")
 
   colnames(missingCGG)[3] = "CGG (recovered)"
 
   # import additiona missingCGG data (10/2023)
   updatedCGG = readxl::read_xlsx(
-    "inst/extdata/GP3 & GP4 - Missing CGG Data Samples Table - 10-9-2023-mdp.xlsx"
+    "inst/extdata/GP34_Missing_CGG_Data_Samples_Table_10-9-2023-mdp.xlsx"
   ) |>
     dplyr::mutate(
-      Study = substr(`Event Name`, start = 1, stop = 3),
+      Study = substr(.data$`Event Name`, start = 1, stop = 3),
       # remove second FXS ID from "500011-608/108094-100" for now
-      `FXS ID` = substr(`FXS ID`, start = 1, stop = 10),
+      `FXS ID` = substr(.data$`FXS ID`, start = 1, stop = 10),
       # convert "NA" string to NA_character
       `CGG (backfilled)` = dplyr::na_if(
-        `CGG (backfilled)`,
+        .data$`CGG (backfilled)`,
         "NA"
       )
     ) |>
     dplyr::relocate(
-      Study, .before = `FXS ID`
+      "Study", .before = "FXS ID"
     ) |>
     dplyr::rename(
-      `CGG (recovered)` = `CGG (backfilled)`
+      `CGG (recovered)` = "CGG (backfilled)"
     ) |>
     dplyr::select(
       all_of(colnames(missingCGG))
@@ -33,68 +33,67 @@ fix_CGG <- function(dataset)
   # combine previous and updated missingCGG data
   # additional update should contain duplicates from previous missingCGG
   newCGG <- rbind(missingCGG, updatedCGG) |>
-    arrange(`FXS ID`) |>
+    arrange(across(all_of("FXS ID"))) |>
     # remove non-unique rows, e.g. still missing CGG
     unique() |>
     # add count
-    add_count(`FXS ID`) |>
+    add_count(.data$`FXS ID`) |>
     # if count == 2, remove obs with missing CGG
     dplyr::filter(
-      !(n == 2 & is.na(`CGG (recovered)`))
+      !(n == 2 & is.na(.data$`CGG (recovered)`))
     ) |>
     # remove count variable
-    dplyr::select(-n)
+    dplyr::select(-all_of("n"))
 
 
 
-  duplicates = newCGG |> count(`FXS ID`) |> dplyr::filter(n != 1)
+  duplicates =
+    newCGG |>
+    count(.data$`FXS ID`) |>
+    dplyr::filter(.data$n != 1)
 
   if(nrow(duplicates) != 0) browser(message("why are there duplicates?"))
 
   dataset =
     dataset |>
     left_join(
-      newCGG |> dplyr::select(-Study),
+      newCGG |> dplyr::select(-all_of("Study")),
       by = "FXS ID",
       relationship = "many-to-one"
     ) |>
     dplyr::mutate(
       `Floras Non-Sortable Allele Size (CGG) Results` =
         if_else(
-          is.na(`Floras Non-Sortable Allele Size (CGG) Results`),
-          `CGG (recovered)`,
-          `Floras Non-Sortable Allele Size (CGG) Results`
+          is.na(.data$`Floras Non-Sortable Allele Size (CGG) Results`),
+          .data$`CGG (recovered)`,
+          .data$`Floras Non-Sortable Allele Size (CGG) Results`
         ),
       `CGG (recovered)` = NULL,
       CGG =
-        `Floras Non-Sortable Allele Size (CGG) Results` |>
+        .data$`Floras Non-Sortable Allele Size (CGG) Results` |>
         parse_CGG(),
 
       `CGG: missingness reasons` =
         missingness_reasons.numeric(
-          x = `Floras Non-Sortable Allele Size (CGG) Results`,
-          x.clean = CGG
+          x = .data$`Floras Non-Sortable Allele Size (CGG) Results`,
+          x.clean = .data$CGG
         ),
-      `CGG (backfilled)` = CGG
+      `CGG (backfilled)` = .data$CGG
     )  |>
     dplyr::relocate(
-      `CGG (backfilled)`, .after = "CGG"
+      "CGG (backfilled)", .after = "CGG"
     ) |>
-    group_by(`FXS ID`) |>
-    tidyr::fill(
-      `CGG (backfilled)`,
-      .direction = "downup") |>
-    ungroup()  |>
     dplyr::mutate(
-      .by = `FXS ID`,
-      `CGG (backfilled)` = `CGG (backfilled)` |> last() # more recent assays may be more accurate
+      .by = "FXS ID",
+      `CGG (backfilled)` = .data$`CGG (backfilled)` |> last(na_rm = TRUE)
+      # more recent assays may be more accurate
     ) |>
     rename(
-      `CGG (before backfill)` = CGG,
-      CGG = `CGG (backfilled)`
+      `CGG (before backfill)` = "CGG",
+      CGG = "CGG (backfilled)"
     ) |>
     dplyr::mutate(
-      CGG = CGG |> structure(label = "CGG repeats")
+      CGG = .data$CGG |> structure(label = "CGG repeats")
     )
 
   return(dataset)

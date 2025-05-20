@@ -15,7 +15,7 @@ event_order_heatmap <- function(
     verbose = FALSE)
 {
   if (verbose) cli::cli_alert("starting `event_order_heatmap()`")
-  positions = paste0("P", 1:length(biomarkers))
+  positions = paste0("P", seq_len(biomarkers))
 
   if (inherits(samples[[1]]$ordering, "symbol"))
     browser(cli::cli_inform("not sure why `inherits(samples[[1]]$ordering, 'symbol)`"))
@@ -23,7 +23,7 @@ event_order_heatmap <- function(
   b =
     samples |>
     sapply(X = _,
-           FUN <- function(x)
+           FUN = function(x)
              c(
                (x$ordering + 1) |> setNames(positions),
                score = x$score)
@@ -44,13 +44,13 @@ event_order_heatmap <- function(
     names_to = "x",
     values_to = "y"
   ) |>
-    count(x,y, wt = n) |>
+    count(across(all_of(c("x", "y", "wt" = "n")))) |>
     dplyr::mutate(
-      x = x |> factor(levels = positions),
+      x = .data$x |> factor(levels = positions),
       y =
-        biomarkers[y] |>
+        biomarkers[.data$y] |>
         factor(levels = biomarkers[b2[1,positions] |> unlist()]),
-      heat = n/length(samples)
+      heat = n / length(samples)
     )
 
 
@@ -65,5 +65,7 @@ event_order_heatmap <- function(
   #                       names_to = "y",
   #                       values_to = "heat") |>
   #   dplyr::mutate(y = factor(y, levels = rev(colnames(b3))))
+
+  return(b3)
 
 }

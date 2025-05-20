@@ -11,8 +11,7 @@ extract_figs_from_pickle <- function(
     rda_filename = "data.RData",
     picklename = paste0(dataset_name, "_subtype", n_s - 1, ".pickle"),
     use_rds = TRUE,
-    ...)
-{
+    ...) {
 
   results = extract_results_from_pickle(
     n_s = n_s,

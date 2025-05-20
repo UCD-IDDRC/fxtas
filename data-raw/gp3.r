@@ -1,6 +1,10 @@
+# notes:
+# neu: NEUROLOGICAL HISTORY
+# ne: NEUROLOGICAL EXAM
+# (at least in GP3)
+
 #Clear existing data and graphics
 rm(list=ls())
-graphics.off()
 #Load Hmisc library
 library(Hmisc)
 library(dplyr)
@@ -15,9 +19,10 @@ conflicts_prefer(vroom::col_double)
 conflicts_prefer(vroom::col_logical)
 conflicts_prefer(vroom::col_skip)
 dataset=vroom::vroom(
-  'inst/extdata/GPGenotypePhenotypeR-FXTASEventSequence10_DATA_2024-03-20_1146.csv',
+  'inst/extdata/GPGenotypePhenotypeR-FXTASEventSequence10_DATA_2025-02-19_2044.csv',
   col_types = cols(
     dem_date = col_date(),
+    mds_ne_tand = col_integer(),
     mds_med_ca_other = col_character(),
     new_mds_med_can_other = col_integer(),
     new_mds_med_anes1 = col_character(),
@@ -261,6 +266,13 @@ dataset$scid_som40 = factor(dataset$scid_som40,levels=c("777","1","2","3"))
 dataset$scid_som39 = factor(dataset$scid_som39,levels=c("777","1","2","3"))
 # edu variable
 dataset$dem_edlev = factor(dataset$dem_edlev,levels=c("1","2","3","4","5","6","7","999"))
+# new variables
+dataset$mds_ne_ga = factor(dataset$mds_ne_ga,levels=c("0","1","999","777"))
+dataset$mds_ne_tand = factor(dataset$mds_ne_tand,levels=c("1","2","3","999","777"))
+dataset$mds_neu_trem_int = factor(dataset$mds_neu_trem_int,levels=c("0","1","999","888","777"))
+dataset$mds_neu_trem_rest = factor(dataset$mds_neu_trem_rest,levels=c("0","1","999","888","777"))
+dataset$mds_neu_trem_pos = factor(dataset$mds_neu_trem_pos,levels=c("0","1","999","888","777"))
+
 
 levels(dataset$scid_admin)=c("No","Yes","Follow up","N/A")
 levels(dataset$new_mds_med_anes1)=c("None","Local","General","No Response (999)","NA (888)","Question not asked at time of data entry; check records (777)")
@@ -387,11 +399,22 @@ levels(dataset$mri_peri_wm_hyper)=c("None","Mild","Moderate","Severe","Missing/R
 levels(dataset$mri_splen_wm_hyper)=c("None","Mild","Moderate","Severe","Missing/Refused (999)")
 levels(dataset$mri_genu_wm_hyper)=c("No","Yes","Missing/Refused (999)")
 levels(dataset$mri_corp_call_thick)=c("Normal","Thin","Missing/Refused (999)")
+# new variables
+levels(dataset$mds_ne_ga)=c("No","Yes","No Response","Question not asked at time of data entry; check records")
+levels(dataset$mds_ne_tand)=c("Normal","Steps (Abnormal, < 10)","Cannot (Absent)","No data","question not asked at time of data entry; check records")
+levels(dataset$mds_neu_trem_int)=c("No","Yes","No Response","NA","Question not asked at time of data entry; check records")
+levels(dataset$mds_neu_trem_rest)=c("No","Yes","No Response","NA","Question not asked at time of data entry; check records")
+levels(dataset$mds_neu_trem_pos)=c("No","Yes","No Response","NA","Question not asked at time of data entry; check records")
+
+
 
 #Setting Labels
 # browser()
 
-labels = c(subj_id = "FXS ID", redcap_event_name = "Event Name", visit_age = "Age at visit",
+labels = c(subj_id = "FXS ID",
+           mds_ne_tand = "Tandem Walk",
+           redcap_event_name = "Event Name",
+           visit_age = "Age at visit",
            mds_med_ca_other="Other Cancer (detailed)",
            new_mds_med_can_other="Other Cancer",
 
@@ -408,6 +431,8 @@ labels = c(subj_id = "FXS ID", redcap_event_name = "Event Name", visit_age = "Ag
            sex = "Gender",
            mol_apoe = "ApoE",
            mol_dna_result = "Floras Non-Sortable Allele Size (CGG) Results",
+           mol_act_ratio = "Activation Ratio (0.0-1.0)",
+           mol_mos_meth = "Fraction of Methylation (0.0-1.0)",
            mds_psy_drug = "Drug use",
            mds_psy_drug_notes = "Drugs used",
            new_mds_psy_drug_marij = "Marijuana use",
@@ -422,12 +447,13 @@ labels = c(subj_id = "FXS ID", redcap_event_name = "Event Name", visit_age = "Ag
            new_mds_med_sur1 = "Surgery: Type/Age",
            new_mds_med_sur2 = "Surgery 2: Type/Age",
            new_mds_med_sur3 = "Surgery 3: Type/Age",
-           mds_ne_it = "Intention tremor",
-           mds_ne_rt = "Resting tremor",
-           mds_ne_pt = "Postural tremor",
+           # Neurological Exam Tremors
+           mds_ne_it = "Exam Intention tremor",
+           mds_ne_rt = "Exam Resting tremor",
+           mds_ne_pt = "Exam Postural tremor",
            mds_neu_trem_irm = "Intermittent tremor",
            mds_neu_trem_age = "Tremor: Age of onset",
-           new_mds_neu_trem_head = "Head tremor",
+           new_mds_neu_trem_head = "Hx Head tremor",
            new_mds_neu_trem_age2 = "Head Tremor: Age of onset",
            mds_neu_atax = "Ataxia",
            mds_neu_atax_age = "Ataxia: Age of onset",
@@ -503,11 +529,11 @@ labels = c(subj_id = "FXS ID", redcap_event_name = "Event Name", visit_age = "Ag
            dem_eth="Primary Ethnicity",
            dem_date="Visit Date",
 
-           mds_med_thy = "Thyroid problems",
+           # mds_med_thy = "Thyroid problems",
            # new_mds_med_thy = "Thyroid problems",
-           mds_med_hyothy = "Hypothyroid",
+           # mds_med_hyothy = "Hypothyroid",
            # new_mds_med_hyothy = "Hypothyroid",
-           mds_med_hyethy = "Hyperthyroid",
+           # mds_med_hyethy = "Hyperthyroid",
            # new_mds_med_hyethy = "Hyperthyroid",
            scid_admin = "Was SCID completed?",
            scid_reason = "If No, please comment:",
@@ -573,9 +599,21 @@ labels = c(subj_id = "FXS ID", redcap_event_name = "Event Name", visit_age = "Ag
            scid_som39 = "Hypochondriasis (SOM39)",
            # edu variables
            dem_edlev = "Education Level",
-           dem_edyr = "Years of Education")
+           dem_edyr = "Years of Education",
+           # new variables
+           mds_ne_ga = "Gait: Ataxia",
+           mds_ne_gas = "Gait: Ataxia severity",
+           # Neurological History tremor variables
+           mds_neu_trem_int = "Hx Intention tremor",
+           mds_neu_trem_rest = "Hx Resting tremor",
+           mds_neu_trem_pos = "Hx Postural tremor")
 
-if(!isTRUE(setequal(names(dataset), names(labels)))) browser(message('why is there a mismatch?'))
+if(!isTRUE(setequal(names(dataset), names(labels)))) {
+
+  print(setdiff(names(dataset), names(labels)))
+  print(setdiff(names(labels), names(dataset)))
+  browser(message('why is there a mismatch?'))
+}
 
 names(dataset) = labels[names(dataset)]
 
@@ -686,7 +724,7 @@ if(FALSE)
 
 gp3 = tibble(dataset)
 
-if (exists("fxtas::gp3")) {
+if (data_exists("gp3")) {
 
   test = waldo::compare(y = gp3,
                         x = fxtas::gp3,
