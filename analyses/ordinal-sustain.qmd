@@ -69,6 +69,7 @@ library(knitr)
 max_prob_correct <- .95
 
 do_collapse_scid_levels <- TRUE
+do_collapse_mri_levels <- TRUE
 
 fit_models <- TRUE
 run_cv <- TRUE
@@ -136,6 +137,10 @@ load("data/trax_gp34_v1.rda")
 
 if (do_collapse_scid_levels) {
   trax_gp34_v1 <- trax_gp34_v1 |> collapse_scid_levels()
+}
+
+if (do_collapse_mri_levels) {
+  trax_gp34_v1 <- trax_gp34_v1 |> collapse_mri_levels()
 }
 
 full_data <-
