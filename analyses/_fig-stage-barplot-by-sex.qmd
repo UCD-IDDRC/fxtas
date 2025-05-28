@@ -1,0 +1,18 @@
+:::{#fig-stage-barplot-by-sex}
+
+```{r}
+#| label: stage-barplot-by-sex
+results_list_by_sex <- list(
+  "Males" = results_males_first,
+  "Females" = results_females_first
+)
+
+results_list_by_sex |> stage_barplot()
+```
+
+**Distribution of estimated disease stage, stratified by sex**.
+Red horizontal line indicates minimum sample size
+recommended for the Ordinal SuStaIn algorithm,
+three observations per stage [@young2021ordinal].
+
+:::
