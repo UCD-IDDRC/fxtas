@@ -38,6 +38,7 @@ run_cv =  TRUE
 # run_cv = FALSE
 
 do_collapse_scid_levels <- TRUE
+do_collapse_mri_levels <- TRUE
 
 N_startpoints = 10L
 use_parallel_startpoints = TRUE
@@ -83,6 +84,10 @@ output_folder =
 load("data/trax_gp34_v1.rda")
 if (do_collapse_scid_levels) {
   trax_gp34_v1 <- trax_gp34_v1 |> collapse_scid_levels()
+}
+
+if (do_collapse_mri_levels) {
+  trax_gp34_v1 <- trax_gp34_v1 |> collapse_mri_levels()
 }
 
 df =
