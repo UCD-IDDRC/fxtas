@@ -40,6 +40,16 @@ indicates that the estimated models are plausible.
 
 {{< include _sec_CVIC_graphs.qmd >}}
 
+{{< pagebreak >}}
+
+{{< include _fig-pvd_chosen_subtypes.qmd >}}
+
+{{< pagebreak >}}
+
+{{< include _fig-stage-barplot_chosen_subtypes.qmd >}}
+
+{{< pagebreak >}}
+
 {{< include _fig_stage_by_age_latent.qmd >}}
 
 {{< pagebreak >}}

@@ -32,7 +32,7 @@ compute_prob_dist <- function(
           true = cur_levels))
 
     diag(cur_confusion_matrix) = cur_prob_correct
-    cur_confusion_matrix["NA",] = 1/n_levels
+    cur_confusion_matrix["NA",] = 1/n_levels # impute using uniform distribution
     confusion_matrices[[cur_biomarker]] = cur_confusion_matrix
 
   }

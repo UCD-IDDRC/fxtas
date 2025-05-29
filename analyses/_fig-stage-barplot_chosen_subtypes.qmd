@@ -1,0 +1,16 @@
+
+::: {#suppfig-stage-barplot_chosen_subtypes}
+
+```{r}
+#| label: stage-barplot-by-subtype
+results_cv_max$subtype_and_stage_table |> 
+  filter(ml_subtype != "Type 0") |>
+  stage_barplot()
+```
+
+**Distribution of estimated disease stage, stratified by latent subtype**. 
+Red horizontal line indicates minimum sample size
+recommended for the Ordinal SuStaIn algorithm,
+three observations per stage [@young2021ordinal].
+
+:::

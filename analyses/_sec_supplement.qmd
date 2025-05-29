@@ -14,6 +14,10 @@
 
 {{< include _sec_subtypes_appendix.qmd >}}
 
+## Analyses stratified by sex {.appendix #sec-supp-methods-strat-sex}
+
+{{< include _fig-stage-barplot-by-sex.qmd >}}
+
 ## Analyses stratified by CGG repeats {.appendix #sec-methods-strat-cgg}
 
 {{< include _sec_results_by_cgg.qmd >}}
