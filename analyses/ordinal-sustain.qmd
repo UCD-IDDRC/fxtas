@@ -74,6 +74,7 @@ do_collapse_mri_levels <- TRUE
 fit_models <- TRUE
 run_cv <- TRUE
 
+verbose <- TRUE
 rerun <- TRUE
 use_rds <- !rerun
 
@@ -301,6 +302,7 @@ prob_correct <-
 if (fit_models) {
   
   sustain_output <- run_and_save_OSA(
+    verbose = verbose,
     biomarker_levels = biomarker_levels,
     prob_correct = prob_correct,
     SuStaInLabels = biomarker_varnames,
