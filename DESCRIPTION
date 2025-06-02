@@ -3,9 +3,7 @@ Title: FXTAS
 Version: 0.0.0.9027
 Authors@R: c(
     person("Douglas Ezra", "Morrison", , "demorrison@ucdavis.edu", role = c("cre", "aut")),
-    person("Matthew", "Ponzini", , "mdponzini@ucdavis.edu", role = c("aut"))
-)
-    
+    person("Matthew", "Ponzini", , "mdponzini@ucdavis.edu", role = c("aut")))
 Description: PKG_DESC.
 License: MIT + file LICENSE
 URL: https://github.com/ucd-iddrc/fxtas, https://ucd-iddrc.github.io/fxtas/
