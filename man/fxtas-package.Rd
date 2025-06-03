@@ -20,5 +20,10 @@ Useful links:
 \author{
 \strong{Maintainer}: Douglas Ezra Morrison \email{demorrison@ucdavis.edu}
 
+Authors:
+\itemize{
+  \item Matthew Ponzini \email{mdponzini@ucdavis.edu}
+}
+
 }
 \keyword{internal}

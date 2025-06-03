@@ -6,6 +6,7 @@
 \usage{
 plot_compact_pvd_est2(
   figs,
+  show_uncert = TRUE,
   tile_height = 1,
   tile_width = 1,
   y_text_size = 9,
@@ -17,6 +18,8 @@ plot_compact_pvd_est2(
 }
 \arguments{
 \item{figs}{todo}
+
+\item{show_uncert}{Show the uncertainty in the sequential order. Logical.}
 
 \item{tile_height}{todo}
 
