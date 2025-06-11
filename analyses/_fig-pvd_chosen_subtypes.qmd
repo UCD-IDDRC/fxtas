@@ -1,0 +1,25 @@
+:::{#suppfig-pvd_chosen_subtypes}
+
+```{r}
+#| fig-height: 7
+#| fig-width: !expr pvd_width
+#| fig-cap-location: top
+
+figs <- extract_figs_from_pickle(
+  size.y = size.y,
+  n_s = n_s_selected,
+  dataset_name = dataset_name,
+  output_folder = output_folder
+)
+
+plot_compact_pvd(
+  figs = figs,
+  tile_height = 1,
+  y_text_size = 6
+  # title_size = 8
+)
+```
+
+**Event sequences for {n_s_selected} latent subtypes.** `r compact_fig_caption`
+
+:::

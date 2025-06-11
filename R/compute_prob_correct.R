@@ -114,7 +114,7 @@ compute_prob_correct <- function(dataset, biomarker_levels, max_prob = 1) {
 
   to_return <- probs |>
     structure(
-      class = "prob_correct",
+      class = union("prob_correct", class(probs)),
       data = results
     )
 
