@@ -1,5 +1,6 @@
 #' @title Plot SuStaIn Sequential Estimate
 #' @inheritParams plot_compact_pvd_est
+#' @param show_uncert Show the uncertainty in the sequential order. Logical.
 #' @param tile_width todo
 #' @param rel_heights relative heights of the plot and the legend
 #' @param ... arguments passed to `tmp_func()`
@@ -8,6 +9,7 @@
 #'
 plot_compact_pvd_est2 <- function(
     figs,
+    show_uncert = TRUE,
     tile_height = 1,
     tile_width = 1,
     y_text_size = 9,
@@ -17,10 +19,18 @@ plot_compact_pvd_est2 <- function(
     ...) {
   # prepare data from figure list
   #   unlike the other functions, the data will remain in a list, not combined
-  figs_plot <- lapply(
-    figs,
-    function(x) tmp_data_prep(x)
-  )
+  if (show_uncert) {
+    figs_plot <- lapply(
+      figs,
+      function(x) tmp_data_prep(x, show_uncert)
+    )
+  } else {
+    figs_plot <- lapply(
+      figs,
+      function(x) tmp_data_prep(x, show_uncert)
+    )
+  }
+
   # add the figure title as list names
   names(figs_plot) <- c(
     figs[[1]]$labels$title,

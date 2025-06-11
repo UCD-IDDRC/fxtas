@@ -894,6 +894,52 @@ list(
 
 {{< pagebreak >}}
 
+```{r}
+#| label: fig-pvd_chosen_subtypes
+#| fig-height: 7
+#| fig-width: !expr pvd_width
+#| fig-cap: !expr
+#|     glue::glue(
+#|     "**Event sequences for {n_s_selected} latent subtypes.**
+#|     {compact_fig_caption}")
+#| fig-cap-location: top
+
+figs <- extract_figs_from_pickle(
+  size.y = size.y,
+  n_s = n_s_selected,
+  dataset_name = dataset_name,
+  output_folder = output_folder
+)
+
+plot_compact_pvd_est2(
+  figs = figs,
+  show_uncert = TRUE,
+  tile_height = 1,
+  y_text_size = 6,
+  title_size = 8
+)
+```
+
+{{< pagebreak >}}
+
+::: {#fig-stage-barplot_chosen_subtypes}
+
+```{r}
+#| label: stage-barplot-by-subtype
+results_cv_max$subtype_and_stage_table |> 
+  filter(ml_subtype != "Type 0") |>
+  stage_barplot()
+```
+
+**Distribution of estimated disease stage, stratified by latent subtype**. 
+Red horizontal line indicates minimum sample size
+recommended for the Ordinal SuStaIn algorithm,
+three observations per stage [@young2021ordinal].
+
+:::
+
+{{< pagebreak >}}
+
 
 # Supplementary material
 

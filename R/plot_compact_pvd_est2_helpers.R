@@ -1,85 +1,55 @@
 #' @title data prep function
 #' @dev
-tmp_data_prep <- function(x) {
-  tmp <- x$data
-  # determine biomarker event order
-  event_order <- tmp |>
-    dplyr::select(
-      all_of(
-        c(
-          "row number and name",
-          "event name",
-          "biomarker"
-        )
-      )
-    ) |>
-    dplyr::mutate(
-      Order =
-        .data$`row number and name` |>
-        sub("\\D*(\\d+).*", "\\1", x = _) |>
-        as.numeric()
-    ) |>
-    dplyr::mutate(
-      `event order` = min(.data$Order),
-      .by = all_of("biomarker")
-    ) |>
-    # dplyr::select(
-    #   biomarker, position
-    # ) |>
-    arrange(across(all_of("event order"))) |>
-    dplyr::mutate(biomarker = .data$biomarker |>
-                    tools::toTitleCase() |>
-                    Hmisc::capitalize() |>
-                    forcats::fct_inorder()) |>
-    dplyr::select(
-      c("biomarker", "event order") |> all_of()
-    ) |>
-    unique()
+tmp_data_prep <- function(x, show_uncert) {
+  if (show_uncert) {
+    tmp <- x$data
 
-  event_order_facet <- tmp |>
-    dplyr::select(
-      all_of(
-        c(
-          "row number and name",
-          "event name",
-          "biomarker"
-        )
-      )
-    ) |>
-    dplyr::mutate(
-      Order = .data$`row number and name` |>
-        sub("\\D*(\\d+).*", "\\1", x = _) |>
-        as.numeric()
-    ) |>
-    unique()
+    event_order <- tmp |>
+      dplyr::select(all_of(c(
+        "row number and name", "event name", "biomarker"
+      ))) |>
+      dplyr::mutate(
+        Order =
+          sub("\\D*(\\d+).*", "\\1", .data$`row number and name`) |>
+          as.numeric()
+      ) |>
+      dplyr::mutate(
+        `event order` = min(.data$Order),
+        .by = "biomarker"
+      ) |>
+      # dplyr::select(
+      #   biomarker, position
+      # ) |>
+      arrange(across(all_of("event order"))) |>
+      dplyr::mutate(
+        biomarker = .data$biomarker |>
+          tools::toTitleCase() |>
+          Hmisc::capitalize() |>
+          forcats::fct_inorder()
+      ) |>
+      dplyr::select(
+        all_of(c("biomarker", "event order"))
+      ) |>
+      unique()
 
-  plot_dataset <- merge(
-    event_order_facet,
-    tmp,
-    by = c(
-      "row number and name",
-      "event name",
-      "biomarker"
-    )
-  ) |>
-    dplyr::filter(.data$position == .data$Order) |>
-    # convert biomarker to factor with event order levels
-    dplyr::mutate(
-      biomarker = .data$biomarker |>
-        tools::toTitleCase() |>
-        Hmisc::capitalize() |>
-        factor(levels = levels(event_order$biomarker))
-    ) |>
-    # arrange by biomarker levels
-    arrange(pick("biomarker")) |>
-    # create biomarker labels for figure
-    dplyr::mutate(
-      biomarker_label =
-        glue::glue("<i style='color:{group_color}'>{biomarker}</i>") |>
-        forcats::fct_inorder()
-    ) |>
-    dplyr::select(
-      all_of(
+
+    biomarker_order <- event_order$biomarker |> levels()
+
+    # update biomarker levels in tmp
+    plot_dataset <- tmp |>
+      # convert biomarker to factor with event order levels
+      dplyr::mutate(biomarker = .data$biomarker |>
+                      tools::toTitleCase() |>
+                      Hmisc::capitalize() |>
+                      factor(levels = biomarker_order)) |>
+      # arrange by biomarker levels
+      arrange(across(all_of("biomarker"))) |>
+      # create biomarker labels for figure
+      dplyr::mutate(
+        biomarker_label = glue::glue("<i style='color:{group_color}'>{biomarker}</i>") |>
+          forcats::fct_inorder()
+      ) |>
+      dplyr::select(all_of(
         c(
           "biomarker",
           "biomarker_label",
@@ -87,8 +57,99 @@ tmp_data_prep <- function(x) {
           "proportion",
           "level"
         )
+      ))
+  }
+
+  if (!show_uncert) {
+    tmp <- x$data
+    # determine biomarker event order
+    event_order <- tmp |>
+      dplyr::select(
+        all_of(
+          c(
+            "row number and name",
+            "event name",
+            "biomarker"
+          )
+        )
+      ) |>
+      dplyr::mutate(
+        Order =
+          .data$`row number and name` |>
+          sub("\\D*(\\d+).*", "\\1", x = _) |>
+          as.numeric()
+      ) |>
+      dplyr::mutate(
+        `event order` = min(.data$Order),
+        .by = all_of("biomarker")
+      ) |>
+      # dplyr::select(
+      #   biomarker, position
+      # ) |>
+      arrange(across(all_of("event order"))) |>
+      dplyr::mutate(biomarker = .data$biomarker |>
+                      tools::toTitleCase() |>
+                      Hmisc::capitalize() |>
+                      forcats::fct_inorder()) |>
+      dplyr::select(
+        c("biomarker", "event order") |> all_of()
+      ) |>
+      unique()
+
+    event_order_facet <- tmp |>
+      dplyr::select(
+        all_of(
+          c(
+            "row number and name",
+            "event name",
+            "biomarker"
+          )
+        )
+      ) |>
+      dplyr::mutate(
+        Order = .data$`row number and name` |>
+          sub("\\D*(\\d+).*", "\\1", x = _) |>
+          as.numeric()
+      ) |>
+      unique()
+
+    plot_dataset <- merge(
+      event_order_facet,
+      tmp,
+      by = c(
+        "row number and name",
+        "event name",
+        "biomarker"
       )
-    )
+    ) |>
+      dplyr::filter(.data$position == .data$Order) |>
+      # convert biomarker to factor with event order levels
+      dplyr::mutate(
+        biomarker = .data$biomarker |>
+          tools::toTitleCase() |>
+          Hmisc::capitalize() |>
+          factor(levels = levels(event_order$biomarker))
+      ) |>
+      # arrange by biomarker levels
+      arrange(pick("biomarker")) |>
+      # create biomarker labels for figure
+      dplyr::mutate(
+        biomarker_label =
+          glue::glue("<i style='color:{group_color}'>{biomarker}</i>") |>
+          forcats::fct_inorder()
+      ) |>
+      dplyr::select(
+        all_of(
+          c(
+            "biomarker",
+            "biomarker_label",
+            "position",
+            "proportion",
+            "level"
+          )
+        )
+      )
+  }
 
   return(plot_dataset)
 }
