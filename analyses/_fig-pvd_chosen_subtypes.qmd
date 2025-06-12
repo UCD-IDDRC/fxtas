@@ -21,6 +21,6 @@ plot_compact_pvd_est2(
 )
 ```
 
-**Event sequences for {n_s_selected} latent subtypes.** `r compact_fig_caption`
+**Event sequences for `r n_s_selected` latent subtypes.** `r compact_fig_caption`
 
 :::

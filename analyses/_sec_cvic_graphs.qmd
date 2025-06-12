@@ -1,4 +1,3 @@
-
 ::: {#suppfig-cvic layout-ncol="2"}
 
 ```{r}

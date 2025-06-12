@@ -38,7 +38,11 @@ indicates that the estimated models are plausible.
 
 {{< include _fig_loglik_mcmc.qmd >}}
 
+::: landscape
+
 {{< include _sec_CVIC_graphs.qmd >}}
+
+:::
 
 {{< pagebreak >}}
 

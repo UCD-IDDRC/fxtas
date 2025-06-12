@@ -1,6 +1,10 @@
 ## Summary data tables {.appendix}
 
+::: landscape
+
 {{< include exploration.qmd >}}
+
+:::
 
 ## Estimates of event scoring accuracy {.appendix}
 
