@@ -33,15 +33,17 @@ library(dplyr)
 library(magrittr)
 library(scales)
 
+data1 <- trax_gp34_all
+
 NA.label1 = "Missing (see breakdown below)"
-conflicts_prefer(scales::percent)
+conflicted::conflicts_prefer(scales::percent)
 # load_all()
 ```
 
 ## ApoE
 
 ```{r}
-apoe.n = gp34 |> missing_pattern_by_ID(variable = "ApoE")
+apoe.n = data1 |> missing_pattern_by_ID(variable = "ApoE")
 ```
 
 Many participants (`r sum(apoe.n$all_missing)` of `r nrow(apoe.n)`, `r apoe.n$all_missing |> mean() |> percent(.1)`) have no ApoE results.
@@ -49,7 +51,7 @@ Many participants (`r sum(apoe.n$all_missing)` of `r nrow(apoe.n)`, `r apoe.n$al
 ## CGG
 
 ```{r}
-cgg.n = gp34 |> missing_pattern_by_ID(variable = "CGG")
+cgg.n = data1 |> missing_pattern_by_ID(variable = "CGG")
 ```
 
 Many participants (`r sum(cgg.n$all_missing)` of `r nrow(cgg.n)`, `r cgg.n$all_missing |> mean() |> percent(.1)`) have no CGG results.
@@ -126,7 +128,7 @@ vars =
     # "Surgery 4: Type/Age",
     # "Surgery 5: Type/Age",
   )
-# grep(pattern = "surgery", ignore.case = TRUE, x = names(gp34), value = TRUE)
+# grep(pattern = "surgery", ignore.case = TRUE, x = names(data1), value = TRUE)
 
 library(table1)
 table1(na.is.category = FALSE, 
@@ -146,7 +148,7 @@ vars = c(
   "Resting tremor",
   "Postural tremor",
   "Intermittent tremor",
-  "Any tremor",
+  "Any Tremor",
   "Tremor: Age of onset"
   # "Tremor: Age of onset: missingness reasons"
 )
@@ -227,7 +229,7 @@ table1(na.is.category = FALSE,
 
 ```{r}
 
-vars = grep("Parkinson", value = TRUE, names(gp34))
+vars = grep("Parkinson", value = TRUE, names(data1))
 
 table1(na.is.category = FALSE, 
   NA.label = NA.label1,
@@ -249,7 +251,7 @@ table1(na.is.category = FALSE,
   stratified_formula(vars, "Recruited in study phase"),
   data = visit1)
 
-# gp34 |> 
+# data1 |> 
 #   dplyr::filter(`FXTAS Stage (0-5)` %in% c(NA, "No Response (999)", "Missing (empty in RedCap)")) |> 
 #   dplyr::select(`FXS ID`, `Event Name`, `Visit Date`) |> 
 #   arrange() |> 
@@ -263,7 +265,7 @@ table1(na.is.category = FALSE,
 
 ```{r}
 
-vars = grep("BDS-2 Total Score", value = TRUE, names(gp34), fixed = TRUE)
+vars = grep("BDS-2 Total Score", value = TRUE, names(data1), fixed = TRUE)
 
 table1(na.is.category = FALSE, 
   NA.label = NA.label1,
@@ -278,7 +280,7 @@ table1(na.is.category = FALSE,
 
 ```{r}
 
-vars = grep("MMSE total score", value = TRUE, names(gp34), fixed = TRUE)
+vars = grep("MMSE total score", value = TRUE, names(data1), fixed = TRUE)
 
 table1(na.is.category = FALSE, 
   NA.label = NA.label1,
@@ -330,19 +332,19 @@ table1(na.is.category = FALSE,
 ```{r}
 
 vars = c(
-  # grep("score", value = TRUE, names(gp34), ignore.case = TRUE) |> sort(),
-  grep(value = TRUE, fixed = TRUE, names(gp34), pattern = "SCL90: Somatization"),
-  grep(value = TRUE, fixed = TRUE, names(gp34), pattern = "SCL90: Obsessive-Compulsive"),
-  grep(value = TRUE, fixed = TRUE, names(gp34), pattern = "SCL90: Depression"), 
-  grep(value = TRUE, fixed = TRUE, names(gp34), pattern = "SCL90: Anxiety"),
-  grep(value = TRUE, fixed = TRUE, names(gp34), pattern = "SCL90: Hostility"),
-  grep(value = TRUE, fixed = TRUE, names(gp34), pattern = "SCL90: Phobia"),
-  grep(value = TRUE, fixed = TRUE, names(gp34), pattern = "SCL90: Paranoid Ideation",),
-  grep(value = TRUE, fixed = TRUE, names(gp34), pattern = "SCL90: Psychoticism"),
-  grep(value = TRUE, fixed = TRUE, names(gp34), pattern = "SCL90: Global Severity Index"),
-  grep(value = TRUE, fixed = TRUE, names(gp34), pattern = "SCL90: Interpersonal Sensitivity"),
-  grep(value = TRUE, fixed = TRUE, names(gp34), pattern = "SCL90: Positive Symptom Distress Index"),
-  grep(value = TRUE, fixed = TRUE, names(gp34), pattern = "SCL90: Positive Symptom Total")
+  # grep("score", value = TRUE, names(data1), ignore.case = TRUE) |> sort(),
+  grep(value = TRUE, fixed = TRUE, names(data1), pattern = "SCL90: Somatization"),
+  grep(value = TRUE, fixed = TRUE, names(data1), pattern = "SCL90: Obsessive-Compulsive"),
+  grep(value = TRUE, fixed = TRUE, names(data1), pattern = "SCL90: Depression"), 
+  grep(value = TRUE, fixed = TRUE, names(data1), pattern = "SCL90: Anxiety"),
+  grep(value = TRUE, fixed = TRUE, names(data1), pattern = "SCL90: Hostility"),
+  grep(value = TRUE, fixed = TRUE, names(data1), pattern = "SCL90: Phobia"),
+  grep(value = TRUE, fixed = TRUE, names(data1), pattern = "SCL90: Paranoid Ideation",),
+  grep(value = TRUE, fixed = TRUE, names(data1), pattern = "SCL90: Psychoticism"),
+  grep(value = TRUE, fixed = TRUE, names(data1), pattern = "SCL90: Global Severity Index"),
+  grep(value = TRUE, fixed = TRUE, names(data1), pattern = "SCL90: Interpersonal Sensitivity"),
+  grep(value = TRUE, fixed = TRUE, names(data1), pattern = "SCL90: Positive Symptom Distress Index"),
+  grep(value = TRUE, fixed = TRUE, names(data1), pattern = "SCL90: Positive Symptom Total")
 )
 
 table1(na.is.category = FALSE, 
@@ -519,7 +521,7 @@ We also started looking at the longitudinal data, and had some questions about t
 
 ```{r}
 
-tab = gp34 |> dplyr::filter(is.na(`Visit Date`)) |> 
+tab = data1 |> dplyr::filter(is.na(`Visit Date`)) |> 
   dplyr::select(Study:`Visit Date`)
 
 ```
@@ -538,7 +540,7 @@ pander(tab)
 
 ```{r}
 
-tab = gp34 |> 
+tab = data1 |> 
   group_by(`FXS ID`, `Visit Date`) |> 
   dplyr::filter(n() > 1, !is.na(`Visit Date`[1])) |> 
   dplyr::select(Study:`Visit Date`) |> 
@@ -559,7 +561,7 @@ pander(tab)
 ## Visits out of event sequence
 
 ```{r}
-ooo = gp34 |>
+ooo = data1 |>
   dplyr::select(`FXS ID`, `Visit Date`, `Event Name`) |>
   group_by(`FXS ID`) |>
   dplyr::filter(is.unsorted(`Event Name`[`Event Name` != "GP4 - Single Visit"])) |>

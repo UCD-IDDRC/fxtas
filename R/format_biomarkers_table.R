@@ -5,8 +5,7 @@
 #' @returns a [flextable::flextable()]
 #' @export
 #'
-flex_biomarkers_table <- function(x)
-{
+flex_biomarkers_table <- function(x) {
   x |>
     dplyr::mutate(
       biomarker = Hmisc::capitalize(.data$biomarker),
@@ -16,7 +15,7 @@ flex_biomarkers_table <- function(x)
     flextable::set_header_labels(
       values = c(
         "Category",
-        "Biomarker",
+        "Symptom",
         "Defined Ordered Levels",
         "Female",
         "Male",
@@ -26,7 +25,11 @@ flex_biomarkers_table <- function(x)
     flextable::width(j = ~ biomarker, width = 3) |>
     flextable::width(j = ~ category + levels, width = 2) |>
     flextable::theme_booktabs() |>
-    flextable::align(j = ~ biomarker + levels, align = "center", part = "all") |>
+    flextable::align(
+      j = ~ biomarker + levels,
+      align = "center",
+      part = "all"
+    ) |>
     flextable::footnote(
       i = 1,
       j = 4:5,
@@ -38,9 +41,9 @@ flex_biomarkers_table <- function(x)
     flextable::footnote(
       i = 1,
       j = 6,
-      value = "p-value for significance of sex difference by Fisher's exact test" |>
+      value = "p-value for significance of sex difference by Fisher's exact test" |> # nolint: line_length-linter
         flextable::as_paragraph(),
-      ref_symbols = 'b',
+      ref_symbols = "b",
       part = "header"
     ) |>
     shared_flextable_settings()
