@@ -85,7 +85,8 @@ clean_data <- function(dataset) {
 
     drop_levels(except = exceptions_to_droplevels) |>
 
-    clean_gender() # droplevels() removes attributes
+    clean_gender() |>  # droplevels() removes attributes
+    fix_parkinsonian_features()
 
   to_return <- to_return |>
     add_labels()

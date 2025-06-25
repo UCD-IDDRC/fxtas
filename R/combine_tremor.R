@@ -48,10 +48,8 @@ combine_tremor <- function(
       ),
 
       # there's no `intermittent tremor exam` variable
-      `intermittent tremor` = .data$`intermittent tremor hx`,
+      `intermittent tremor` = .data$`intermittent tremor hx`
 
-      # there's no `pill-rolling tremor exam` variable
-      `pill-rolling tremor` = .data$`pill-rolling tremor exam`
     ) |>
     combine_head_tremor(method = "new") |>
     create_any_tremor()

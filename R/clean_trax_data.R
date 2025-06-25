@@ -84,6 +84,7 @@ clean_trax_data <- function(dataset) {
     ) |>
     clean_gender() |>
     dplyr::mutate(`MMSE total score*` = NA) |>
+    fix_parkinsonian_features() |>
     add_labels()
 
 
