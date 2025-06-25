@@ -65,7 +65,10 @@ add_labels <- function(data) {
         set_label_attribute("FXTAS diagnosis"),
       `Primary Race/Ethnicity` =
         .data$`Primary Race/Ethnicity` |>
-        set_label_attribute("Primary race/ethnicity")
+        set_label_attribute("Primary race/ethnicity"),
+      Stage_3plus =
+        .data$Stage_3plus |>
+        labelled::set_label_attribute("FXTAS Stage")
     ) |>
     set_mri_var_labels() |>
     add_default_labels() |>

@@ -3,16 +3,13 @@
 ```{r}
 v1_usable_cases |>
   mutate(
-    Stage_3plus =
-      if_else(
-        `FXTAS Stage` %in% c(3:5),
-        "3+",
-        "0-2") |>
-      labelled::set_label_attribute("FXTAS Stage"),
-    `parkinsonian features` = `parkinsonian features`
+    `parkinsonian features` = 
+      `parkinsonian features` |> 
+      forcats::fct_na_value_to_level(level = "Missing")
   ) |>
   select(`parkinsonian features`, Stage_3plus) |>
   gtsummary::tbl_summary(
+    missing_text = "Missing",
     by = `parkinsonian features`) |>
   gtsummary::add_overall() |>
   gtsummary::modify_spanning_header(c("stat_1", "stat_2") ~ "**parkinsonian features**") |> 

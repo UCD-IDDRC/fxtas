@@ -437,7 +437,7 @@ fig_over100_females <- extract_figs_from_pickle(
 ```{r}
 #| label: basic-summary-stats
 stages <- v1_usable_cases |>
-  dplyr::select(`FXTAS Stage`) |>
+  dplyr::select(all_of("FXTAS Stage")) |>
   table()
 biomarkers_table <-
   v1_usable |>
@@ -447,26 +447,9 @@ biomarkers_table <-
   )
 ```
 
-@tbl-demographics describes summary statistics of patient characteristics 
-included in the analysis. 
-Our data included: 
-`r nrow(v1_usable_cases)` fragile X premutation carriers and 
-`r nrow(controls_v1)` controls;
-`r nrow(v1_usable_males)` males and `r nrow(v1_usable_females)` females;
-and `r and::and(stages)` carriers at 
-FXTAS stages `r names(stages) |> and::and()`, respectively. 
-We found no differences between males and females in 
-age at baseline visit, 
-ethnicity/race, 
-FXTAS stage, or
-CGG repeat length.
-@tbl-biomarker-list lists the `r outcomes_name`s and their ordinal levels
-and reports percentages of clinically elevated levels at baseline visit, 
-stratified by sex.
-We found significant sex differences in 
-percentages of clinically elevated (non-reference) 
-`r outcomes_name` levels 
-at baseline visit for `r report_sex_differences(biomarkers_table)`.
+{{< include _sec-results-pk-missing-issues.qmd > }}
+
+{{< include _sec-results-demographics >}}
 
 ## Sex differences in sequential orders {#sec-methods-strat-sex}
 

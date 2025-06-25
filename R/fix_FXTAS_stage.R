@@ -20,7 +20,16 @@ fix_FXTAS_stage <- function(dataset)
       `FXTAS Stage (0-5): missingness reasons` =
         missingness_reasons.numeric(.data$`FXTAS Stage (0-5)`),
 
-      `FXTAS Stage (0-5)` = .data$`FXTAS Stage (0-5)` |> clean_numeric()
+      `FXTAS Stage (0-5)` = .data$`FXTAS Stage (0-5)` |> clean_numeric(),
+
+      Stage_3plus =
+        case_when(
+          `FXTAS Stage` %in% (3:5) ~ "3+",
+          `FXTAS Stage` %in% c(0:2) ~"0-2",
+          .default = NA) |>
+        factor(levels = c("0-2", "3+")) |>
+        labelled::set_label_attribute("FXTAS Stage"),
+
 
     )
 

@@ -323,6 +323,8 @@ Somatization Disorder (SOM36): missingness reasons,Somatization Disorder (SOM36)
 "Specific Phobia (ANX29), Lifetime: missingness reasons","Specific Phobia (ANX29), Lifetime: missingness reasons"
 Splenium (CC)-WM Hyperintensity,Splenium (Corpus Callosum) White Matter Hyperintensity
 Splenium (CC)-WM Hyperintensity: missingness reasons,Splenium (CC)-WM Hyperintensity: missingness reasons
+Stage_3plus,FXTAS Stage
+Stage_3plus: missingness reasons,Stage_3plus: missingness reasons
 Stiff gait,stiff gait
 Stiff gait: missingness reasons,Stiff gait: missingness reasons
 Stimulants (SUD20) Current,Stimulants (SUD20) Current
@@ -408,10 +410,10 @@ new_mds_fxtas_dx,new_mds_fxtas_dx
 new_mds_fxtas_dx: missingness reasons,new_mds_fxtas_dx: missingness reasons
 parkinsonian features,parkinsonian features
 parkinsonian features: missingness reasons,parkinsonian features: missingness reasons
+pfs_original,pfs_original
 pill-rolling tremor,pill-rolling tremor
 pill-rolling tremor exam,pill-rolling tremor exam
 pill-rolling tremor exam: missingness reasons,pill-rolling tremor exam: missingness reasons
-pill-rolling tremor: missingness reasons,pill-rolling tremor: missingness reasons
 postural tremor,postural tremor
 postural tremor exam,postural tremor exam
 postural tremor exam: missingness reasons,postural tremor exam: missingness reasons

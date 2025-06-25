@@ -8,6 +8,7 @@ test_that("results are consistent", {
   )
 
   fig <- plot_compact_pvd_est2(
+    show_uncert = FALSE,
     figs = figs,
     tile_height = 1,
     y_text_size = 6,

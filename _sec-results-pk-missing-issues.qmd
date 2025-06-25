@@ -1,0 +1,42 @@
+
+```{r}
+parkinsons_na_mean <-
+  v1_usable$Parkinsons |> is.na() |> mean()
+
+parkinsons_na_pct <-
+  round(parkinsons_na_mean * 100, 1)
+
+pf_na_mean <-
+  v1_usable$`parkinsonian features` |> is.na.() |> mean()
+
+pf_na_pct <-
+  round(pf_na_mean * 100, 1)
+
+```
+
+
+@tbl-demographics describes summary statistics of patient characteristics
+included in the analysis.
+Our data included:
+`r nrow(v1_usable_cases)` fragile X premutation carriers and
+`r nrow(controls_v1)` controls;
+`r nrow(v1_usable_males)` males and `r nrow(v1_usable_females)` females;
+and `r and::and(stages)` carriers at
+FXTAS stages `r names(stages) |> and::and()`, respectively.
+36% of premutation carriers were at FXTAS Stages 3-5
+at the time of their baseline visit (Table 1).
+89% of premutation carriers at FXTAS Stages 3-5 had parkinsonian features,
+while 3% of premutation carriers at FXTAS Stages 0-2 had parkinsonian features
+(Supplementary Table 13).
+Note that an estimated 21% of female participants had Parkinsons Disease,
+whereas only 15% of female participants had parkinsonian features
+(@supptbl-parkinsons-by-cgg).
+The apparent discrepancy is due to different proportions of missing data;
+`r parkinsons_na_pct`% of the “Parkinson's disease” variable is missing,
+whereas `r pf_na_pct`% of the “parkinsonian features” variable is missing.
+Parkinson's disease diagnoses were made by
+the participants’ primary physicians or neurologists,
+outside of the GP and TRAX studies,
+whereas parkinsonian features were assessed as part of the study protocols.
+All nine participants with recorded Parkinsons Disease diagnoses
+also had at least one parkinsonian feature.
