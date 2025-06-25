@@ -17,10 +17,11 @@ We created a composite variable named "any autoimmune disorder" combining
 systemic lupus erythematosus, 
 rheumatoid arthritis, 
 multiple sclerosis, 
-anti-nuclear antibody (ANA) positivity, 
+positive anti-nuclear antibody (ANA), 
 Sjogren's syndrome, 
+or 
 Raynaud's syndrome, 
-and pulmonary fibrosis, 
+<!-- and pulmonary fibrosis,  -->
 since these conditions were too rare to analyze separately
 (details in Supplementary material, [Any autoimmune disorder](#sec-any-autoimmune)).
 We also created composite variables for four domains of 
