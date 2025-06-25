@@ -1,6 +1,6 @@
-Parkinson’s disease (PD) was defined as 
+Parkinson's disease (PD) was defined as 
 having a diagnosis of PD prior to the study enrollment. 
-The diagnosis of PD was made by the patient’s physician or neurologist, 
+The diagnosis of PD was made by the patient's physician or neurologist, 
 outside of the study; 
 we documented if this diagnosis was made, 
 in the medical history section of the study records.
@@ -15,7 +15,7 @@ Stiff gait means the individual lacked the normal flow of movement
 and looked stiff but was not spastic.
 
 Tremor severity was assessed using elements of 
-the Unified Parkinson’s Disease Rating Scale (UPDRS) 
+the Unified Parkinson's Disease Rating Scale (UPDRS) 
 with scores interpretated as: 
 0 = no tremor,
 1 = minimal tremor, 
