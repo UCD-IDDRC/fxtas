@@ -16,3 +16,21 @@ Color intensity represents the Bayesian posterior probability
 of sequence position.
 That is, a brighter color indicates a more probable sequence position,
 and a paler color indicates a less probable position.
+
+We visualized differences in event sequences by 
+sex, 
+CGG repeat size, or 
+latent subgroup 
+using “positional difference graphs” (PDGs). 
+PDGs consist of two juxtaposed lists of symptoms in each of two subgroups, 
+with each list ordered by most likely sequence position in that subgroup. 
+Lines connect the locations of the same symptoms between the subgroups. 
+The colors of the connecting lines indicate whether the event occurs at 
+an earlier position in the righthand subgroup compared to the lefthand subgroup 
+(blue line), 
+at a later position (red line), 
+or the same position (grey line). 
+FXTAS stages are connected by black lines, 
+in order to highlight which symptoms occur in different FXTAS stages 
+between the two subgroups 
+(that is, which symptom lines cross one or more stage lines).
