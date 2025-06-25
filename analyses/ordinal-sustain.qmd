@@ -105,8 +105,9 @@ outcomes_name_sentence_start <- stringr::str_to_sentence(outcomes_name)
 compact_fig_caption <- paste(
   "The different colors (red, blue, purple, green, magenta)",
   "indicate the ordinal levels of symptom progression.",
-  "Color gradient intensity represents the likelihood of sequence position.",
-  "The brighter the color, the more likely that the corresponding",
+  "Color gradient intensity represents the Bayesian posterior probability", 
+  "of the sequence position.",
+  "The brighter the color, the more probable that the corresponding",
   outcomes_name,
   "event occurs in that position in the sequence."
 )
@@ -732,7 +733,7 @@ Compared to Subtype 1, Subtype 2 appeared to experience
 white matter disease phenotypes earlier (between Stages 2 and 4),
 memory impairment (assessed by SWM) earlier (Stage 3-4 versus 4-5),
 and psychiatric disorders later (between Stages 3 and 5).
-Subtype 2 might be described as "memory-first".
+Subtype 2 might be described as "memory-early".
 Subtype 3 appeared to experience
 white matter disease phenotypes early (between Stages 1 and 3),
 and mood disorders late (Stages 4-5).

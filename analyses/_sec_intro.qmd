@@ -57,7 +57,7 @@ ataxia,
 neuropathy, 
 cognitive decline, 
 and depressive and anxiety disorders
-[@hagerman2001intention, @Leehey2006].
+[@hagerman2001intention; @LeeheyMaureenA.2007Pota].
 Both the type and severity of FXTAS symptoms vary among patients. 
 Some patients with FXTAS have multiple symptoms that 
 progress rapidly in severity, 
@@ -68,7 +68,7 @@ but it could help us to understand the disease process and its variability acros
 Therefore, the present study attempts to address the following questions:
 1) In what sequential order do 
 FXTAS symptoms and brain changes typically appear?
-2) How does that sequence vary among patients?
+2) How does that sequence vary between males and females?
 and 3) Do specific baseline characteristics predict the order of presentation?
 
 Here, we applied the ordinal-outcomes version of the
@@ -78,10 +78,10 @@ to model sequential orders of clinically manifest FXTAS symptoms
 in a cohort of FXTAS patients.
 SuStaIn is a data-driven analytic approach
 which was originally developed to
-analyze cross-sectional biomarker data
+analyze cross-sectional data
 to simultaneously
-(1) estimate the ordering of onset 
-for biomarkers of disease progression events and
+(1) estimate the ordering of disease `r events_name`
+and
 (2) cluster study participants into 
 latent subtypes with different event orderings.
 The SuStaIn modeling approach has been applied to

@@ -60,7 +60,8 @@ fig_both_mv_only = extract_figs_from_pickle(size.y = size.y,
 
 ### Males {.appendix}
 
-@fig-males shows estimated event sequences for males, depending on which subset of the data we use to fit the model.
+@fig-males shows estimated event sequences for males, 
+depending on which subset of the data we use to fit the model.
 
 ```{r}
 #| label: fig-males

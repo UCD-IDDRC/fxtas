@@ -30,7 +30,7 @@ list(
 ```
 
 **Event sequences stratified by sex, for CGG repeats <100.**
-**(a)** `r glue::glue("{compact_fig_caption}")`
+**(a)** `r compact_fig_caption`
 **(b)** Differences in event sequences by sex, for CGG repeats <100.
 
 :::
@@ -70,7 +70,7 @@ list(
 ```
 
 **Event sequences stratified by sex, for CGG repeats ≥100.**
-**(a)** `r glue::glue("{compact_fig_caption}")`
+**(a)** `r compact_fig_caption`
 **(b)** Differences in event sequences by sex, for CGG repeats ≥100.
 :::
 

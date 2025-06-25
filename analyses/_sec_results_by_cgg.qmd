@@ -66,7 +66,9 @@ plot_compact_pvd(
 
 ```
 
-`r glue::glue("**Event sequences stratified by CGG repeats (<100 vs 100+).** {compact_fig_caption}")`
+**Event sequences stratified by CGG repeats (<100 vs 100+).** 
+`r compact_fig_caption`
+
 :::
 
 ::: {#suppfig-diff-by-cgg}
