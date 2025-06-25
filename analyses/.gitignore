@@ -1,2 +1,4 @@
 *.html
 ordinal-sustain.docx.md
+*_files/
+*.md

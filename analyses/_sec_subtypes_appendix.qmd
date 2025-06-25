@@ -44,8 +44,6 @@ indicates that the estimated models are plausible.
 
 :::
 
-{{< pagebreak >}}
-
 {{< include _fig-pvd_chosen_subtypes.qmd >}}
 
 {{< pagebreak >}}

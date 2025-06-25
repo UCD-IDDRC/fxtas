@@ -2,14 +2,29 @@
 title: "reference hyperlink example"
 ---
 
-# main text
+::: landscape
 
-reference here [@hagerman2001intention].
+::: {#suppfig-cvic layout-ncol="2"}
 
-the CVIC criterion 
-(@young2018uncovering; summarized in Supplementary material) 
+```{r}
+#| label: fig-cvic-1
+#| fig-cap: ""
 
-# references {.unnumbered}
+plot(1:10)
+```
 
-::: {#refs}
+```{r}
+#| label: fig-cvic-2
+#| fig-cap: ""
+
+plot(10:1)
+```
+
+**Selection criteria for number of latent subtypes**
+**(a)** Cross-validation information criterion (CVIC)
+**(b)** Test set log-likelihood across cross-validation folds 
+(Out-Of-Fold Log-Likelihood criterion, OOFLL)
+
+:::
+
 :::

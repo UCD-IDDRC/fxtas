@@ -181,6 +181,8 @@ table1(
 
 :::
 
+{{< pagebreak >}}
+
 ::: {#supptbl-parkinsons-by-cgg}
 
 ```{r}
