@@ -1,5 +1,5 @@
 We visualized the results of Ordinal SuStaIn analysis
-using "positional variance diagrams" (PVDs).
+using "positional variance diagrams" (PVDs) [@fonteijn2011event; @fonteijn2012event].
 PVDs are heatmaps with `r events_name` on the y-axis
 and sequence positions of events on the x-axis.
 Each event is estimated to occur at some point in continuing time
