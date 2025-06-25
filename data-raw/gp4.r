@@ -406,7 +406,7 @@ levels(dataset$new_mds_ne_head)=c("No","Yes","No Response (999)","NA","Question 
 levels(dataset$new_mds_ne_rt)=c("No","Yes","No Response (999)","NA","Question not asked at time of data entry; check records")
 levels(dataset$new_mds_ne_it)=c("No","Yes","No Response (999)","Question not asked at time of data entry; check records (777)")
 levels(dataset$new_mds_ne_pt)=c("No","Yes","No Response (999)","Question not asked at time of data entry; check records (777)")
-levels(dataset$new_mds_ne_tand)=c("Normal","Steps (Abnormal, < 10)","Unable (Absent)","No Response (999)",
+levels(dataset$new_mds_ne_tand)=c("Normal","Abnormal (<10 steps)","Unable (Absent)","No Response (999)",
                                   "Question not asked at time of data entry; check records (777)")
 
 dataset <- dataset |>
