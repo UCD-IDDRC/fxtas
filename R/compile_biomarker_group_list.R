@@ -32,11 +32,11 @@ compile_biomarker_group_list <- function(dataset) {
 
   parkinsonian_vars <-
     c(
-      # "parkinsonian features",
-      "Masked faces",
-      "Increased tone",
-      "pill-rolling tremor",
-      "Stiff gait"
+      "parkinsonian features"
+      # "Masked faces",
+      # "Increased tone",
+      # "pill-rolling tremor",
+      # "Stiff gait"
     )
 
 
