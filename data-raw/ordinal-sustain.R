@@ -43,7 +43,7 @@ do_collapse_mri_levels <- TRUE
 N_startpoints = 10L
 use_parallel_startpoints = TRUE
 use_parallel_startpoints = FALSE
-N_S_max = 8L
+N_S_max = 12L
 N_S_max_stratified = 2L
 N_CV_folds = 10L
 rerun = TRUE
