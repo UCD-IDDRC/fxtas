@@ -23,11 +23,11 @@ Our data included:
 `r nrow(v1_usable_males)` males and `r nrow(v1_usable_females)` females;
 and `r and::and(stages)` carriers at
 FXTAS stages `r names(stages) |> and::and()`, respectively.
-36% of premutation carriers were at FXTAS Stages 3-5
+39% of premutation carriers were at FXTAS Stages 3-5
 at the time of their baseline visit (Table 1).
-89% of premutation carriers at FXTAS Stages 3-5 had parkinsonian features,
+79% of premutation carriers at FXTAS Stages 3-5 had parkinsonian features,
 while 3% of premutation carriers at FXTAS Stages 0-2 had parkinsonian features
-(Supplementary Table 13).
+(@supptbl-stage-vs-pk-ft).
 Note that an estimated 21% of female participants had Parkinsons Disease,
 whereas only 15% of female participants had parkinsonian features
 (@supptbl-parkinsons-by-cgg).

@@ -210,6 +210,8 @@ table1(
 
 :::
 
+{{< pagebreak >}}
+
 ::: {#supptbl-fxtas-stage-by-cgg}
 
 ```{r}

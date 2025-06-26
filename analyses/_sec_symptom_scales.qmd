@@ -23,7 +23,9 @@ with scores interpretated as:
 3 = moderate tremor affecting multiple tasks, 
 and 4 = severe tremor significantly impairing daily function.
 
-Similarly, ataxia severity was evaluated using The International Cooperative Ataxia Rating Scale (ICARS) scoring interpreted as: 
+Similarly, ataxia severity was evaluated using 
+the International Cooperative Ataxia Rating Scale (ICARS) scoring, 
+interpreted as: 
 0 = no ataxia, 
 1 = slight abnormality, 
 2 = moderate abnormality (noticeable but does not interfere significantly),
