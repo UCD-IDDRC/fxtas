@@ -52,8 +52,8 @@ ggplot2::theme_set(ggplot2::theme_bw())
 ```{r}
 #| label: libraries
 #| message: false
-library(fxtas)
 reticulate::use_condaenv("fxtas39", required = TRUE)
+library(fxtas)
 library(tidyverse)
 library(reticulate)
 library(pander)
@@ -75,7 +75,7 @@ fit_models <- TRUE
 run_cv <- TRUE
 
 verbose <- TRUE
-rerun <- FALSE
+rerun <- TRUE
 use_rds <- !rerun
 
 plot_python <- TRUE
@@ -92,7 +92,7 @@ size.y <- 8 # nolint: object_name_linter
 y_text_size <- 6
 N_startpoints <- 10L # nolint: object_name_linter
 use_parallel_startpoints <- FALSE # couldn't get parallel to work, 2024/06/15
-N_S_max <- 8L # nolint: object_name_linter
+N_S_max <- 10L # nolint: object_name_linter
 N_S_max_stratified <- 2L # nolint: object_name_linter
 N_CV_folds <- 10L # nolint: object_name_linter
 

@@ -1,12 +1,15 @@
-Although no neuropathological studies have examined the splenium of the corpus callosum (CCS), 
-several in vivo MRI studies have reported signal changes in the CCS in patients with FXTAS. 
+Although no neuropathological studies have examined 
+the splenium of the corpus callosum (CCS), 
+several in vivo MRI studies have reported 
+signal changes in the CCS in patients with FXTAS. 
 Apartis et al., 2012 [@apartis2012fxtas] 
 was the first study reporting that CCS hyperintensity occurred 
 as frequently as middle cerebellar peduncle (MCP) hyperintensity 
 in 22 patients with FXTAS (4 women, 18 men) 
-and proposed to add CCS hyperintensity as a new major radiologic criterion for FXTAS. 
+and proposed to add CCS hyperintensity 
+as a new major radiologic criterion for FXTAS. 
 Subsequently, 
-Renaud et al., 2014 [@RenaudMathilde2015Rocc] 
+Renaud et al., 2015 [@RenaudMathilde2015Rocc] 
 confirmed the finding from Apartis et al., 
 and further reported that the combination of CCS and MCP hyperintensity 
 was more common in FXTAS than in other neurodegenerative disorders; 
@@ -14,15 +17,18 @@ namely,
 multiple system atrophy of cerebellar type, 
 Parkinson's disease, and 
 Alzheimer's disease. 
-In the third study addressing the prevalence of CCS in FXTAS compared 15 men and 7 women with FXTAS,
+The third study addressing the prevalence of CCS in FXTAS 
+compared 15 men and 7 women with FXTAS
 to 15 male and 7 female controls [@HallDeborahA.2017TCCS]. 
-This study showed that the CCS sign occurred more frequently in men with FXTAS compared with controls but not in women with FXTAS.
+This study showed that the CCS sign occurred more frequently 
+in men with FXTAS compared with controls 
+but not in women with FXTAS.
 Compared with the MCP sign, 
 the CCS sign showed higher sensitivity in men and women with FXTAS, 
 but lower specificity in both men and women with FXTAS. 
-The Schneider et al. 20202 paper 
-about women with FXTAS [@schneider2020women]
+Schneider et al. 2020 [@schneider2020women]
 found that the white matter hyperintensity of the CCS was seen 
-in 34/53 of these women 
-and in only 2/55 age matched control women 
+in 34 of 53 women with FXTAS
+and in only 2 of 55 age-matched control women 
 and was the most common MRI abnormality in females with FXTAS.
+

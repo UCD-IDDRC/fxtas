@@ -188,8 +188,13 @@ table1(
 ```{r}
 pk_vars <- c(
   "Parkinsons",
-  c("parkinsonian features", "Masked faces", 
-        "Increased tone", "pill-rolling tremor", "Stiff gait")
+  c(
+    "parkinsonian features" # see note from March 19, 2025 in 2025-02-19 draft
+    # "Masked faces", 
+    # "Increased tone", 
+    # "pill-rolling tremor", 
+    # "Stiff gait"
+  )
 )
 
 if (!show_missingness_reasons) {

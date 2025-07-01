@@ -109,6 +109,11 @@ particularly in the splenium of the corpus callosum
 or in the periventricular area,
 then this demonstrates the onset of the neuropathology of FXTAS,
 even if there is no tremor or ataxia yet.
+[
+@apartis2012fxtas;
+@RenaudMathilde2015Rocc;
+@HallDeborahA.2017TCCS
+] 
 
 {{< include _sec_disc_splenium_cc_sign.qmd >}}
 

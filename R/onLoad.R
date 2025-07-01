@@ -10,6 +10,13 @@ pySuStaIn = NULL
 .onLoad <- function(...)
 {
   reticulate::use_virtualenv("r-pySuStaIn", required = FALSE)
+  # reticulate::py_require(
+  #   packages = c(
+  #     "git+https://github.com/ucl-pond/kde_ebm",
+  #     "git+https://github.com/d-morrison/pySuStaIn"
+  #   ),
+  #   python_version = "3.9"
+  # )
   # reticulate::use_virtualenv("r-pySuStaIn", required = TRUE)
 
   # reticulate::use_condaenv("r-pySuStaIn", required = TRUE)
