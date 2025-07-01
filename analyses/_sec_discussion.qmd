@@ -94,7 +94,11 @@ and the stress involved with mood disorders may be a precipitating feature
 for the onset of FXTAS.
 In addition, females may experience early cognitive impairment,
 particularly involving executive dysfunction and memory
-(as measured by the BDS-2 total score and the CANTAB SWM instrument).
+(as measured by 
+the BDS-2 total score 
+and 
+the CANTAB SWM instrument, 
+respectively).
 From a clinical perspective,
 we have seen significant psychiatric illness comorbid with
 some cognitive deficits in memory and EF abilities,
