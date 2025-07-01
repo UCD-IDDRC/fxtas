@@ -13,8 +13,13 @@ test_that(
 
     skip_if_not("fxtas39" %in% reticulate::conda_list()$name)
 
-    reticulate::use_condaenv("fxtas39", required = TRUE) |>
-      suppressWarnings()
+    reticulate::py_require(
+      packages = c(
+        "git+https://github.com/ucl-pond/kde_ebm",
+        "git+https://github.com/d-morrison/pySuStaIn"
+      ),
+      python_version = "3.9"
+    )
 
     results =
       extract_results_from_pickle(
