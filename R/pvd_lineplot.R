@@ -2,6 +2,8 @@
 #'
 #' @param figs a [list] of todo
 #' @param facet_labels todo
+#' @param events_to_highlight todo
+#' @param highlight_color todo
 #' @param y_title_size todo
 #' @param text_size todo
 #' @param y_text_size todo
@@ -14,6 +16,8 @@
 #' @export
 #' @example inst/examples/exm-pvd_lineplot.R
 pvd_lineplot <- function(figs,
+                         events_to_highlight = NULL,
+                         highlight_color = NA,
                          min_alpha = 0.25,
                          max_alpha = 1,
                          stage_alpha = 1,
@@ -110,7 +114,12 @@ pvd_lineplot <- function(figs,
         Change == 0 ~ 0,
         Change > 0 ~ 1,
       ) |>
-        factor(levels = c(-2, -1, 0, 1))
+        factor(levels = c(-2, -1, 0, 1)),
+      background = dplyr::if_else(
+        condition = `event name` %in% events_to_highlight,
+        true = highlight_color,
+        false = NA
+      )
     )
 
   # alpha scaling #
@@ -141,12 +150,14 @@ pvd_lineplot <- function(figs,
     ggtext::geom_richtext(
       aes(
         label = .data$`event label`,
-        hjust = .data$hjust
+        hjust = .data$hjust,
+        fill = .data$background
       ),
-      fill = NA,
       label.color = NA,
+      label.padding = grid::unit(rep(1, 4), "pt"),
       size = text_size
     ) +
+    scale_fill_identity() +
     geom_line(
       aes(
         group = .data$`event name`,
