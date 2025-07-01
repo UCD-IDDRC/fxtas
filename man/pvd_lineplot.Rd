@@ -6,6 +6,8 @@
 \usage{
 pvd_lineplot(
   figs,
+  events_to_highlight = NULL,
+  highlight_color = NA,
   min_alpha = 0.25,
   max_alpha = 1,
   stage_alpha = 1,
@@ -19,6 +21,10 @@ pvd_lineplot(
 }
 \arguments{
 \item{figs}{a \link{list} of todo}
+
+\item{events_to_highlight}{todo}
+
+\item{highlight_color}{todo}
 
 \item{min_alpha}{todo}
 
