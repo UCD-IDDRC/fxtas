@@ -44,7 +44,7 @@ extract_results_from_pickle <- function(
 
     results00 =
       fs::path(output_folder, "pickle_files", picklename) |>
-      py_load_object() |>
+      py_load_object(convert = TRUE) |>
       force()
 
     biomarker_levels =
