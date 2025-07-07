@@ -633,8 +633,8 @@ given the limited sample size of only `r n_over_100_female` females with CGG ≥
 
 ```{r}
 #| label: set-optimal-subtypes
-temp <- sustain_output |> attr("CV")
-n_s_min_CVIC <- which.min(temp$CVIC) # nolint: object_name_linter
+sustain_output_CV <- sustain_output |> attr("CV")
+n_s_min_CVIC <- which.min(sustain_output_CV$CVIC) # nolint: object_name_linter
 n_s_selected <- 4
 
 results_cv_max <- extract_results_from_pickle(
@@ -761,11 +761,9 @@ Supplementary material is available at Brain online.
 
 {{< pagebreak >}}
 
+:::{#tbl-demographics}
+
 ```{r}
-#| label: "tbl-demographics"
-#| tbl-cap: |
-#|    **Descriptive statistics of patient characteristics
-#|    by Sex and CGG repeat level.**
 
 v1_usable |> make_demographics_table(
   vars = c(
@@ -779,6 +777,9 @@ v1_usable |> make_demographics_table(
 )
 ```
 
+**Descriptive statistics of patient characteristics by Sex and CGG repeat level.**
+
+:::
 {{< pagebreak >}}
 
 ```{r}
