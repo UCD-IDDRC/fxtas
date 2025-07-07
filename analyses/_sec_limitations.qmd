@@ -54,3 +54,5 @@ diverse racial/ethnic identities to accurately estimate
 stratified models by race/ethnicity.
 A larger study including a more diverse set of participants 
 is warranted to support analyses with increased external validity.
+
+{{< include _sec-permutation-test-limitations >}}

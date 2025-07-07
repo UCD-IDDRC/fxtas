@@ -75,7 +75,7 @@ fit_models <- TRUE
 run_cv <- TRUE
 
 verbose <- TRUE
-rerun <- TRUE
+rerun <- FALSE
 use_rds <- !rerun
 
 plot_python <- TRUE
