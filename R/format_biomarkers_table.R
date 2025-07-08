@@ -8,7 +8,7 @@
 flex_biomarkers_table <- function(x) {
   x |>
     dplyr::mutate(
-      biomarker = Hmisc::capitalize(.data$biomarker),
+      biomarker = .data$biomarker |> Hmisc::capitalize(),
       "p-value" = .data$`p-value` |> scales::label_pvalue()()
     ) |>
     flextable::flextable() |>
@@ -22,8 +22,9 @@ flex_biomarkers_table <- function(x) {
         "p-value"
       )
     ) |>
-    flextable::width(j = ~ biomarker, width = 3) |>
-    flextable::width(j = ~ category + levels, width = 2) |>
+    flextable::width(j = ~ biomarker, width = 2) |>
+    flextable::width(j = ~ category, width = 0.8) |>
+    flextable::width(j = ~ levels, width = 2) |>
     flextable::theme_booktabs() |>
     flextable::align(
       j = ~ biomarker + levels,

@@ -60,5 +60,4 @@ sim_data |> make_biomarkers_table(
   biomarker_varnames = biomarker_varnames,
   stratifying_var_names = "Sex"
 )
-
 }

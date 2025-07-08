@@ -11,36 +11,7 @@
 #' @returns a [flextable::flextable()]
 #' @export
 #'
-#' @examples
-#' biomarker_group_list <- list(
-#'   "group 1" = c("Biomarker 1", "Biomarker 2"),
-#'   "group 2" = c("Biomarker 3", "Biomarker 4"),
-#'   "group 3" = "Biomarker 5"
-#' )
-#' biomarker_groups <- compile_biomarker_groups_table(
-#'   dataset = sim_data,
-#'   biomarker_group_list = biomarker_group_list
-#' )
-#'
-#' biomarker_varnames <-
-#'   biomarker_groups |>
-#'   dplyr::pull("biomarker")
-#'
-#' biomarker_levels <-
-#'   sim_data |>
-#'   get_levels(biomarker_varnames)
-#'
-#' biomarker_events_table <-
-#'   construct_biomarker_events_table(
-#'     biomarker_levels,
-#'     biomarker_groups = biomarker_groups
-#'   )
-#'
-#' sim_data |> make_biomarkers_table(
-#'   biomarker_events_table = biomarker_events_table,
-#'   biomarker_varnames = biomarker_varnames,
-#'   stratifying_var_names = "Sex"
-#' )
+#' @example inst/examples/exm-make_biomarkers_table.R
 #'
 make_biomarkers_table <- function(data,
                                   biomarker_varnames =
@@ -67,10 +38,13 @@ make_biomarkers_table <- function(data,
 
   probs_above_baseline_by_gender <-
     data |>
-    dplyr::summarize(.by = all_of(stratifying_var_names), across(
-      all_of(biomarker_varnames),
-      ~ mean(.x != levels(.x)[1], na.rm = TRUE)
-    ))
+    dplyr::summarize(
+      .by = all_of(stratifying_var_names),
+      across(
+        all_of(biomarker_varnames),
+        ~ mean(.x != levels(.x)[1], na.rm = TRUE)
+      )
+    )
 
   probs_above_baseline_by_gender <-
     probs_above_baseline_by_gender |>

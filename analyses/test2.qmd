@@ -6,31 +6,224 @@ title: "reference hyperlink example"
 devtools::load_all()
 ```
 
-{{< include _sec_abbrev_table.qmd >}}
-
-::: landscape
-
-::: {#suppfig-cvic layout-ncol=2}
-
 ```{r}
-#| label: fig-cvic-1
-#| fig-cap: ""
-
-plot(1:10)
+#| include: false
+#| label: setup
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  include = TRUE
+)
+pander::panderOptions("table.split.table", Inf)
+ggplot2::theme_set(ggplot2::theme_bw())
 ```
 
 ```{r}
-#| label: fig-cvic-2
-#| fig-cap: ""
-
-plot(10:1)
+#| label: libraries
+#| message: false
+reticulate::use_condaenv("fxtas39", required = TRUE)
+library(fxtas)
+library(tidyverse)
+library(reticulate)
+library(pander)
+library(table1)
+library(magrittr)
+library(knitr)
 ```
 
-**Selection criteria for number of latent subtypes**
-**(a)** Cross-validation information criterion (CVIC)
-**(b)** Test set log-likelihood across cross-validation folds 
-(Out-Of-Fold Log-Likelihood criterion, OOFLL)
 
-:::
+```{r}
+#| label: "set run parameters"
 
-:::
+max_prob_correct <- .95
+
+do_collapse_scid_levels <- TRUE
+do_collapse_mri_levels <- TRUE
+
+fit_models <- TRUE
+run_cv <- TRUE
+
+verbose <- TRUE
+rerun <- FALSE
+use_rds <- !rerun
+
+plot_python <- TRUE
+fig_size <- c(20, 10)
+
+pvd_height <- 5.5
+pvd_width <- 6
+pvd_subfig_width <- pvd_width - 1
+pvd_line_height <- 7
+pvd_line_width <- 8
+pvd_line_subfig_width <- pvd_line_width
+lineplot_text_size <- 3.4
+size.y <- 8 # nolint: object_name_linter
+y_text_size <- 10
+N_startpoints <- 10L # nolint: object_name_linter
+use_parallel_startpoints <- FALSE # couldn't get parallel to work, 2024/06/15
+N_S_max <- 12L # nolint: object_name_linter
+N_S_max_stratified <- 2L # nolint: object_name_linter
+N_CV_folds <- 10L # nolint: object_name_linter
+
+n_permutations <- 1000
+
+outcomes_name <- "symptom"
+events_name <- "symptomatic events"
+outcomes_name_sentence_start <- stringr::str_to_sentence(outcomes_name)
+
+compact_fig_caption <- paste(
+  "The different colors (red, blue, purple, green, magenta)",
+  "indicate the ordinal levels of symptom progression.",
+  "Color gradient intensity represents the Bayesian posterior probability", 
+  "of the sequence position.",
+  "The brighter the color, the more probable that the corresponding",
+  outcomes_name,
+  "event occurs in that position in the sequence."
+)
+
+compact_fig_cap2 <- glue::glue(
+  "Red lines indicate {outcomes_name}s that moved to later positions ",
+  "between the left-hand subgroup and the right-hand subgroup. ",
+  "Blue lines indicate ",
+  "{outcomes_name}s that moved to earlier positions. ",
+  "Line opacity levels indicate the number of positions changed ",
+  "(higher opacity represents more positions changed)."
+)
+
+column_var <- c("Gender", "FX3*")
+
+N_iterations_MCMC <- 1e5L # nolint: object_name_linter
+dataset_name <- "sample_data"
+root_dir <- here::here()
+setwd(root_dir)
+output_folder <-
+  "output/output.fixed_CV/" |>
+  fs::dir_create()
+```
+
+```{r}
+#| label: subset-data
+load("data/trax_gp34_v1.rda")
+
+if (do_collapse_scid_levels) {
+  trax_gp34_v1 <- trax_gp34_v1 |> collapse_scid_levels()
+}
+
+if (do_collapse_mri_levels) {
+  trax_gp34_v1 <- trax_gp34_v1 |> collapse_mri_levels()
+}
+
+full_data <-
+  trax_gp34_v1 |>
+  add_labels()
+
+n_missing_CGG <- # nolint: object_name_linter
+  full_data$CGG |>
+  is.na() |>
+  sum()
+n_above_200 <- sum(full_data$CGG >= 200, na.rm = TRUE)
+v1_usable <-
+  full_data |>
+  dplyr::filter(CGG < 200) |>
+  dplyr::mutate(
+    `FX3*` = .data$`FX3*` |>
+      forcats::fct_drop()
+  )
+
+v1_usable_males <- v1_usable |> dplyr::filter(Gender == "Male")
+v1_usable_females <- v1_usable |> dplyr::filter(Gender == "Female")
+v1_usable_cases <- v1_usable |> dplyr::filter(CGG >= 55)
+v1_usable_male_cases <-
+  v1_usable |>
+  dplyr::filter(
+    Gender == "Male",
+    CGG >= 55
+  )
+
+v1_usable_female_cases <-
+  v1_usable |>
+  dplyr::filter(
+    Gender == "Female",
+    CGG >= 55
+  )
+
+v1_usable_male_controls <-
+  v1_usable |>
+  dplyr::filter(
+    Gender == "Male",
+    CGG < 55
+  )
+
+v1_usable_female_controls <-
+  v1_usable |>
+  dplyr::filter(
+    Gender == "Female",
+    CGG < 55
+  )
+# note: there are 231 records in `visit1` with CGG >= 55, but 4 have CGG >= 200
+# previously `nrow(v1_usable_cases)` was 221,
+# which was based on incorrectly filtering on a version of CGG
+# that hadn't been backfilled.
+
+controls_v1 <- v1_usable |> dplyr::filter(CGG < 55)
+year_range <- v1_usable$`Visit Date` |>
+  year() |>
+  range()
+min_year <- min(year_range)
+max_year <- max(year_range)
+
+control_data <- controls_v1
+patient_data <- v1_usable_cases
+```
+
+```{r}
+#| label: "biomarker-events"
+biomarker_groups <- compile_biomarker_groups_table(
+  dataset = v1_usable
+)
+
+biomarker_varnames <-
+  biomarker_groups |>
+  dplyr::pull("biomarker")
+
+biomarker_levels <-
+  v1_usable |>
+  get_levels(biomarker_varnames)
+
+biomarker_events_table <-
+  construct_biomarker_events_table(
+    biomarker_levels,
+    biomarker_groups = biomarker_groups
+  )
+
+nlevs <-
+  biomarker_levels |> sapply(length)
+max_levels <- nlevs |> max()
+```
+
+
+```{r}
+#| label: basic-summary-stats
+biomarkers_table <-
+  v1_usable |>
+  make_biomarkers_table(
+    biomarker_varnames = biomarker_varnames,
+    biomarker_events_table = biomarker_events_table
+  )
+```
+
+```{r}
+#| tbl-cap: |
+#|    **Symptoms included in analysis.**
+#|    The first level listed in each row of column
+#|    "Defined Ordered Levels"
+#|    is the "reference level" for the corresponding symptom,
+#|    and subsequent levels are considered
+#|    "clinically elevated levels".
+#|    Columns "Female" and "Male" list percentages of
+#|    clinically elevated levels
+#|    at baseline visit, stratified by sex.
+#| label: tbl-biomarker-list
+
+flex_biomarkers_table(biomarkers_table)
+```
