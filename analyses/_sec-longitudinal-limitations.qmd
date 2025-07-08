@@ -1,0 +1,8 @@
+Longitudinal data with more frequent follow-up visits 
+would also enable us to answer questions about 
+patients’ responses to receiving FXTAS diagnoses; 
+in particular, it would be interesting to observe whether 
+anxiety and depression symptoms increase 
+close or shortly following the onset of FXTAS. 
+So far, our studies show that anxiety and depression worsen with age 
+and particularly before the onset of FXTAS. [@hagerman2018]

@@ -11,6 +11,7 @@ BugReports: https://github.com/ucd-iddrc/fxtas/issues
 Imports: 
     and,
     base,
+    broman,
     broom,
     cli,
     colorspace,

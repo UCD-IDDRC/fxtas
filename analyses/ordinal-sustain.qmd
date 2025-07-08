@@ -780,6 +780,7 @@ v1_usable |> make_demographics_table(
 **Descriptive statistics of patient characteristics by Sex and CGG repeat level.**
 
 :::
+
 {{< pagebreak >}}
 
 ```{r}
