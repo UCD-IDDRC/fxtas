@@ -648,7 +648,7 @@ results_cv_max <- extract_results_from_pickle(
 We conducted latent subtype classification analysis to cluster participants 
 that are relatively homogeneous within the same cluster 
 and heterogeneous from other clusters 
-based on similarities and difference in sequential patterns. 
+based on similarities and differences in sequential patterns. 
 Based on the CVIC criterion (Supplementary material, [Detecting latent subtypes](#sec-subtypes)), 
 `r n_s_min_CVIC` subtypes were suggested to be the optimal number for the full, 
 unstratified dataset 
@@ -657,10 +657,10 @@ The out-of-fold log-likelihood ("OOFLL") (Supplementary material, [Detecting lat
 showed substantial fold-to-fold variation 
 ([Supplementary Fig. @fig-cvic-2]).
 Between `r broman::spell_out(n_s_selected)` and `r broman::spell_out(N_S_max)` 
-latent subgroups, 
+latent subtypes, 
 the distribution of OOFLL appears to be
 approximately unchanging and the CVIC appears approximately flat, 
-and thus for easier clinical interpretation
+and thus for clinical interpretation
 and in consideration of the principle of parsimony, 
 we chose to classify participants into `r n_s_selected` subtypes.
 The subtypes are numbered 1-4 in order of estimated relative frequency
@@ -684,12 +684,15 @@ patients had experienced too few events
 to be accurately classified into a subtype 
 and were excluded from @tbl-sg_demos.
 Subtype clustering analysis showed that 
-subtypes were mainly classified by sex and CGG repeat size, 
-supporting the results above. 
-Subtype 1 appeared more biased towards males (65.1%) 
-and lower CGG repeat size (83.2 ± 15.8) 
+two known risk factors of FXTAS,
+sex and CGG repeat size, 
+were contributors to the segregation of subtypes 
+and variations between subtypes.
+Males and individuals with lower CGG repeats
+were over-represented in Subtype 1
+(65.1% males; CGG repeat size (83.2 ± 15.8)
 compared to the overall study population 
-(64.5% of males; CGG repeat size = 87.3  ± 18.9) and other subtypes; 
+(64.5% of males; CGG repeat size mean = 87.3  ± 18.9) and other subtypes; 
 Subtype 2 appeared biased towards females (53.1% of males) 
 and higher CGG repeat size (90.2 ± 22.3); 
 Subtype 3 appeared over-represented by males (82% of males) 

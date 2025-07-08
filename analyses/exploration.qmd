@@ -156,6 +156,8 @@ v1_usable_capital_labels |>
 
 :::
 
+{{< pagebreak >}}
+
 ::: {#supptbl-ataxia-by-cgg}
 
 ```{r}
@@ -181,8 +183,6 @@ table1(
 **Ataxia by CGG status**
 
 :::
-
-{{< pagebreak >}}
 
 ::: {#supptbl-parkinsons-by-cgg}
 
@@ -216,6 +216,8 @@ table1(
 
 :::
 
+{{< pagebreak >}}
+
 ::: {#supptbl-fxtas-stage-by-cgg}
 
 ```{r}
@@ -239,8 +241,6 @@ table1(
 
 :::
 
-{{< pagebreak >}}
-
 ::: {#supptbl-bds2}
 
 ```{r}
@@ -261,6 +261,8 @@ table1(
 **Behavior Dyscontrol Scale - Second Edition (BDS-2)**
 
 :::
+
+{{< pagebreak >}}
 
 ::: {#supptbl-mmse}
 
@@ -292,8 +294,6 @@ table1(
 **Mini-Mental State Examination (MMSE)**
 
 :::
-
-{{< pagebreak >}}
 
 ::: {#supptbl-scid}
 
