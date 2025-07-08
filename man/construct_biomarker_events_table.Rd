@@ -2,7 +2,7 @@
 % Please edit documentation in R/construct_biomarker_events_table.R
 \name{construct_biomarker_events_table}
 \alias{construct_biomarker_events_table}
-\title{Title}
+\title{Construct biomarker events table}
 \usage{
 construct_biomarker_events_table(biomarker_levels, biomarker_groups)
 }
@@ -15,5 +15,23 @@ construct_biomarker_events_table(biomarker_levels, biomarker_groups)
 a \link[tibble:tbl_df-class]{tibble::tbl_df}
 }
 \description{
-Title
+Construct biomarker events table
+}
+\examples{
+biomarker_groups <- compile_biomarker_groups_table(
+  dataset = test_data_v1
+)
+
+biomarker_varnames <-
+  biomarker_groups |>
+  dplyr::pull("biomarker")
+
+biomarker_levels <-
+  v1_usable |>
+  get_levels(biomarker_varnames)
+
+construct_biomarker_events_table(
+  biomarker_levels,
+  biomarker_groups
+)
 }

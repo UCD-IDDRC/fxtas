@@ -1,11 +1,11 @@
-#' Title
+#' Construct biomarker events table
 #'
 #' @param biomarker_levels  todo
 #' @param biomarker_groups todo
 #'
 #' @returns a [tibble::tbl_df]
 #' @export
-#'
+#' @example inst/examples/exm-construct_biomarker_events_table.R
 construct_biomarker_events_table <- function(
     biomarker_levels,
     biomarker_groups
