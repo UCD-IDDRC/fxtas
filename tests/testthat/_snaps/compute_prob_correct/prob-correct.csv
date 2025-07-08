@@ -1,13 +1,13 @@
 Symptom,# controls with data,# at baseline,% at baseline,Est. Pr(correct)
-head tremor,30,23,76.7%,76.7%
+head tremor,22,15,68.2%,68.2%
 intention tremor,46,20,43.5%,43.5%
 resting tremor,52,47,90.4%,90.4%
 postural tremor,50,35,70%,70%
 intermittent tremor,45,30,66.7%,66.7%
 Tandem Walk,25,11,44%,44%
 ataxia severity*,52,38,73.1%,73.1%
-FXTAS Stage,52,16,30.8%,30.8%
-parkinsonian features,24,18,75%,75%
+FXTAS Stage,52,18,34.6%,34.6%
+parkinsonian features,42,33,78.6%,78.6%
 Parkinsons,12,12,100%,95%
 MCP-WM Hyperintensity,21,12,57.1%,57.1%
 MRI: Cerebellar,18,9,50%,50%
@@ -16,7 +16,7 @@ Splenium (CC)-WM Hyperintensity,8,1,12.5%,12.5%
 Genu (CC)-WM Hyperintensity,16,11,68.8%,68.8%
 Corpus Callosum-Thickness,22,12,54.5%,54.5%
 MMSE total score*,23,20,87%,87%
-BDS-2 Total Score*,50,38,76%,76%
+BDS-2 Total Score*,50,40,80%,80%
 SCID: mood disorders,26,13,50%,50%
 SCID: substance use disorders,35,28,80%,80%
 SCID: anxiety disorders,28,13,46.4%,46.4%
@@ -26,4 +26,4 @@ PAL Total errors (adjusted)*,27,11,40.7%,40.7%
 RTI Five-choice movement time*,39,27,69.2%,69.2%
 Hypothyroid,44,38,86.4%,86.4%
 Hyperthyroid,38,37,97.4%,95%
-any autoimmune disorder,50,42,84%,84%
+any autoimmune disorder,46,40,87%,87%
