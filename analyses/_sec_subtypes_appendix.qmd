@@ -1,9 +1,32 @@
+The Ordinal SuStaIn algorithm clusters observations into subgroups 
+based on their shared compatibility with particular event sequences. 
+As a simplified example, 
+if participants A, B, and C all had experienced ataxia but no tremors
+by the time when they were assessed for the study, 
+and participants D, E, and F had all experienced tremors but not ataxia, 
+then participants A, B, and C would be grouped as a subgroup cluster
+in which ataxia precedes tremor, 
+and participants D, E, and F would be clustered into 
+a “tremor before ataxia” subgroup. 
+If participants G, H, and I displayed 
+both ataxia and tremors at the time of assessment, 
+then the Ordinal SuStaIn algorithm might be 
+unable to confidently determine which latent subgroup they belonged to, 
+at least on the basis of these two symptoms. 
+However, their other symptoms help the algorithm refine the clustering. 
+On the other hand, 
+if participants J, K, and L displayed neither ataxia nor tremors, 
+they would also not be classified into 
+either of the two clusters described above 
+and would be assigned to a new cluster “Subgroup 0”, 
+representing individuals whose disease has not yet begun to progress 
+by the time when they were assessed for the study.
 
-In order to use the Ordinal SuStaIn modeling algorithm, 
-we must specify how many latent subtypes to include in the model. 
-There are several metrics for determining 
-the optimal number of subtypes for a given data set, 
-including the likelihood of the data for the fitted model 
+To cluster observations in a given data set into latent subtypes 
+using the Ordinal SuStaIn modeling algorithm, 
+we choose the optimal number of clusters based on cross-validation metrics.
+Those metrics include 
+the likelihood of the data for the fitted model 
 while varying the number of subtypes used to fit the model
 and the Cross-Validation Information Criterion (CVIC)
 described in Young *et al.* [-@young2018uncovering].

@@ -37,11 +37,12 @@ labelled::var_label(v1_usable_capital_labels) <-
 }
 ```
 
-
 The following supplementary tables 
 [-@supptbl-tremors] - [-@supptbl-autoimmune] 
 summarize the distributions of the `r outcomes_name`s
 that we analyzed in this paper, stratified by sex and CGG level.
+
+::: landscape
 
 ```{r}
 #| label: exploration-setup
@@ -215,8 +216,6 @@ table1(
 
 :::
 
-{{< pagebreak >}}
-
 ::: {#supptbl-fxtas-stage-by-cgg}
 
 ```{r}
@@ -239,6 +238,8 @@ table1(
 **FXTAS Stage by CGG level**
 
 :::
+
+{{< pagebreak >}}
 
 ::: {#supptbl-bds2}
 
@@ -292,6 +293,8 @@ table1(
 
 :::
 
+{{< pagebreak >}}
+
 ::: {#supptbl-scid}
 
 ```{r}
@@ -312,6 +315,8 @@ table1(
 **Structured Clinical Interview for DSM Disorders (SCID)**
 
 :::
+
+{{< pagebreak >}}
 
 ::: {#supptbl-mri}
 
@@ -347,6 +352,8 @@ table1(
 **MRI variables by Sex and CGG level**
 
 :::
+
+{{< pagebreak >}}
 
 ::: {#supptbl-cantab}
 
@@ -396,11 +403,12 @@ table1(
 ```
 
 **Cambridge Neuropsychological Test Automated Battery (CANTAB)**
+We used categorization cutoffs taken from Talebi et al 2020 
+[@talebi2020cambridge].
 
 :::
 
-We used categorization cutoffs taken from Talebi et al 2020 [@talebi2020cambridge].
-
+{{< pagebreak >}}
 
 ::: {#supptbl-autoimmune}
 
@@ -435,3 +443,4 @@ table1(
 :::
 
 
+:::

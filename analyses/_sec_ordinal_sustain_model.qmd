@@ -49,8 +49,10 @@ and we thus estimated the percentages of FXTAS-related symptoms
 as the percentage of controls 
 who were assessed as being at the reference level
 (@supptbl-prob-correct).
-We limited the estimated probability of correct scoring to `r max_prob_correct *100`%
-in order to allow for a plausible probability of elevated symptom levels unrelated to FXTAS progression.
+We limited the estimated probability of correct scoring to 
+`r max_prob_correct *100`%
+in order to allow for a plausible probability of symptoms 
+unrelated to FXTAS progression.
 
 Ordinal SuStaIn then uses 
 Markov Chain Monte Carlo (MCMC) sampling [@gelfand1990sampling]

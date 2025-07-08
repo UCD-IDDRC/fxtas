@@ -9,6 +9,7 @@ v1_usable_cases |>
   ) |>
   select(`parkinsonian features`, Stage_3plus) |>
   gtsummary::tbl_summary(
+    percent = "row",
     missing_text = "Missing",
     by = `parkinsonian features`) |>
   gtsummary::add_overall() |>

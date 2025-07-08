@@ -7,7 +7,7 @@ parkinsons_na_pct <-
   round(parkinsons_na_mean * 100, 1)
 
 pf_na_mean <-
-  v1_usable$`parkinsonian features` |> is.na.() |> mean()
+  v1_usable$`parkinsonian features` |> is.na() |> mean()
 
 pf_na_pct <-
   round(pf_na_mean * 100, 1)
@@ -25,13 +25,13 @@ pct_pf_stage3plus <- round(pr_pf_stage3plus * 100, 1)
   
 
 parkinsons_female_mean <- 
-  mean(v1_usable_females$Parkinsons == "Yes", na.rm = TRUE)
+  mean(v1_usable_female_cases$Parkinsons == "Yes", na.rm = TRUE)
 
 parkinsons_female_pct <- 
   round(parkinsons_female_mean * 100, 1)
 
 pf_female_mean <- 
-  mean(v1_usable_females$`parkinsonian features` == "Yes", na.rm = TRUE)
+  mean(v1_usable_female_cases$`parkinsonian features` == "Yes", na.rm = TRUE)
 
 pf_female_pct <- 
   round(pf_female_mean * 100, 1)
@@ -56,10 +56,10 @@ while `r pct_pf_stage3plus["0-2", "Yes"]`%
 of premutation carriers at FXTAS Stages 0-2 had parkinsonian features
 (@supptbl-stage-vs-pk-ft).
 Note that an estimated 
-`r parkinsons_female_pct`% of female participants 
+`r parkinsons_female_pct`% of female premutation carriers 
 had Parkinsons Disease,
-whereas only `r pf_female_pct`% of female participants had parkinsonian features
-(@supptbl-parkinsons-by-cgg).
+whereas only `r pf_female_pct`% of female premutation carriers
+had parkinsonian features (@supptbl-parkinsons-by-cgg).
 The apparent discrepancy is due to different proportions of missing data;
 `r parkinsons_na_pct`% of the “Parkinson's disease” variable is missing,
 whereas `r pf_na_pct`% of the “parkinsonian features” variable is missing.

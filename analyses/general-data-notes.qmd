@@ -3,8 +3,10 @@
 Due to the rare nature of individual autoimmune diseases, a composite 
 variable (`"any autoimmune disorder"`) was created for analysis: 
 `"Yes"` if a patient had any of lupus, rheumatoid arthritis, 
-multiple sclerosis, ANA (anti-nuclear antibody) positive, Sjogren's Syndrome, Raynaud's Syndrome, 
-or pulmonary fibrosis; otherwise, 
+multiple sclerosis, ANA (anti-nuclear antibody) positive, 
+Sjogren's Syndrome, 
+or Raynaud's Syndrome; 
+otherwise, 
 `"No"` for no autoimmune diseases recorded.
 
 ### MRI variables {.appendix #sec-MRI-composites}

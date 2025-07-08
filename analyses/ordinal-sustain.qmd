@@ -447,7 +447,7 @@ biomarkers_table <-
   )
 ```
 
-{{< include _sec-results-pk-missing-issues.qmd > }}
+{{< include _sec-results-pk-missing-issues.qmd >}}
 
 {{< include _sec-results-demographics.qmd >}}
 
