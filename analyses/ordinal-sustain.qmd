@@ -855,11 +855,11 @@ and were excluded from this table.
 #| fig-cap-location: top
 
 list(
-  "Males: " = fig_males_first,
-  "Females: " = fig_females_first
+  "Males:" = fig_males_first,
+  "Females:" = fig_females_first
 ) |>
   plot_compact_pvd_est2()
-  # plot_compact_pvd(y_text_size = y_text_size)
+  
 
 ```
 
