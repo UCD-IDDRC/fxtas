@@ -30,15 +30,16 @@ collapse_scid_levels <- function(dataset, ...) {
 #'
 #' @param x a scid variable ([factor])
 #' @param levels [character] string vector of levels to collapse
-#'
+#' @param newlevel [character] string for new collapsed level name
 #' @returns a modified version of `x`
 #' @export
 #' @keywords internal
 #'
-collapse_scid_level <- function(x, levels = c("Absent", "Sub-Threshold")) {
+collapse_scid_level <- function(
+    x,
+    levels = c("Absent", "Sub-Threshold"),
+    new_level = paste(levels, collapse = "/")) {
   x |>
-    forcats::fct_collapse(
-      "Absent/Sub-Threshold" = levels
-    )
+    forcats::fct_collapse(!!new_level := levels)
 
 }

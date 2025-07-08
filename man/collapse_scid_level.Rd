@@ -4,12 +4,18 @@
 \alias{collapse_scid_level}
 \title{Collapse levels of a single scid variable}
 \usage{
-collapse_scid_level(x, levels = c("Absent", "Sub-Threshold"))
+collapse_scid_level(
+  x,
+  levels = c("Absent", "Sub-Threshold"),
+  new_level = paste(levels, collapse = "/")
+)
 }
 \arguments{
 \item{x}{a scid variable (\link{factor})}
 
 \item{levels}{\link{character} string vector of levels to collapse}
+
+\item{newlevel}{\link{character} string for new collapsed level name}
 }
 \value{
 a modified version of \code{x}
