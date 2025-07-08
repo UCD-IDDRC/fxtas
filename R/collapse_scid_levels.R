@@ -20,7 +20,7 @@ collapse_scid_levels <- function(dataset, ...) {
     mutate(
       across(
         .cols = all_of(scid_vars),
-        .fns = collapse_scid_level
+        .fns = ~ collapse_scid_level(.x, ...)
       )
     )
 
