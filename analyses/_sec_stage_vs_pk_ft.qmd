@@ -2,11 +2,6 @@
 
 ```{r}
 v1_usable_cases |>
-  mutate(
-    `parkinsonian features` = 
-      `parkinsonian features` |> 
-      forcats::fct_na_value_to_level(level = "Missing")
-  ) |>
   select(`parkinsonian features`, Stage_3plus) |>
   gtsummary::tbl_summary(
     percent = "row",
