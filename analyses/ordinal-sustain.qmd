@@ -706,7 +706,7 @@ n_events <- nrow(biomarker_events_table)
 ```
 
 Using the FXTAS Stage transitions as reference points,
-we examined the differences in the appearing symptoms
+we explored the differences in the appearing symptoms
 relative to these FXTAS Stage transitions.
 Roughly speaking:
 Subtype 1 appeared to experience 

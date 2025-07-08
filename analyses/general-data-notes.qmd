@@ -1,9 +1,15 @@
 ### Any autoimmune disorder {.appendix #sec-any-autoimmune}
 
-Due to the rare nature of individual autoimmune diseases, a composite 
-variable (`"any autoimmune disorder"`) was created for analysis: 
-`"Yes"` if a patient had any of lupus, rheumatoid arthritis, 
-multiple sclerosis, ANA (anti-nuclear antibody) positive, 
+Due to the rare nature of individual autoimmune diseases, 
+a composite variable 
+("any autoimmune disorder" 
+or a positive ANA associated with autoimmune symptoms)
+was created for analysis: 
+`"Yes"` if a patient had any of 
+lupus, 
+rheumatoid arthritis, 
+multiple sclerosis, 
+positive ANA (anti-nuclear antibody), 
 Sjogren's Syndrome, 
 or Raynaud's Syndrome; 
 otherwise, 

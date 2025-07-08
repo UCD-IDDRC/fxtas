@@ -5,6 +5,12 @@ the differences between subtypes,
 especially given the relatively small sample sizes per subtype
 and the correspondingly large amounts of uncertainty
 in their event orderings.
+Larger sample sizes would enable us to 
+precisely estimate models with more stratifying variables. 
+In particular, the current dataset consists of 
+60% males and 40% females among premutation carriers. 
+The ongoing recruitment for the GP study focuses on recruiting more females, 
+which will help add precision to models for females in the future.
 We had substantial amounts of missing data.
 As described in the methods ([Imputation of missing data](#sec-incomplete-data)),
 we used the marginal distribution of
@@ -58,3 +64,5 @@ A larger study including a more diverse set of participants
 is warranted to support analyses with increased external validity.
 
 {{< include _sec-permutation-test-limitations.qmd >}}
+
+{{< include _sec-limitation-cgg-cutoff-wrong.qmd >}}

@@ -1,0 +1,32 @@
+
+```{r}
+#| label: p-val-test-cgg
+output_folder = "output/output.fixed_CV/"
+
+permuted_test_stats = collect_permutation_test_stats(
+  output_folder = output_folder,
+  permuting_variables = "FX3")
+
+observed_test_stat = get_observed_permutation_test_stat(
+  output_folder,
+  dataset_names = c('under100', 'over100'))
+
+pval_cgg_gp34_v1 = permutation_test(
+  observed_test_stat = observed_test_stat,
+  permuted_test_stats = permuted_test_stats,
+  n_permutations = n_permutations
+)
+
+```
+
+When we compared
+between 55-99 vs 100-200 CGG repeats in males and females combined,
+no significant difference was found
+(p = `r pval_cgg_gp34_v1`)
+(@suppfig-pvd-by-cgg).
+The finding of only minimal differences
+between 55-99 vs 100-200 CGG repeats is surprising,
+since several studies have found that the higher the CGG repeats,
+the earlier the onset and the faster the progression of FXTAS
+[@greco2006neuropathology; @leehey2008fmr1; @tassone2023insight].
+Perhaps the cut-off of 100 is too high for this distinction to be made.

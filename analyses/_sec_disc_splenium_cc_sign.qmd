@@ -1,6 +1,6 @@
 Although no neuropathological studies have examined 
 the splenium of the corpus callosum (CCS), 
-several in vivo MRI studies have reported 
+several *in vivo* MRI studies have reported 
 signal changes in the CCS in patients with FXTAS. 
 Apartis et al., 2012 [@apartis2012fxtas] 
 was the first study reporting that CCS hyperintensity occurred 
@@ -17,7 +17,7 @@ namely,
 multiple system atrophy of cerebellar type, 
 Parkinson's disease, and 
 Alzheimer's disease. 
-The third study addressing the prevalence of CCS in FXTAS 
+A third study addressing the prevalence of CCS in FXTAS 
 compared 15 men and 7 women with FXTAS
 to 15 male and 7 female controls [@HallDeborahA.2017TCCS]. 
 This study showed that the CCS sign occurred more frequently 
