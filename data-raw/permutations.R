@@ -99,7 +99,8 @@ output_folder =
 # April 2024, main analysis now uses Trax/GP34 Visit 1 data replacing previous version using only GP34
 load("data/trax_gp34_v1.rda")
 if (do_collapse_scid_levels) {
-  trax_gp34_v1 <- trax_gp34_v1 |> collapse_scid_levels()
+  scid_levels_to_collapse <- c("Absent", "Sub-Threshold")
+  trax_gp34_v1 <- trax_gp34_v1 |> collapse_scid_levels(scid_levels_to_collapse)
 }
 
 if (do_collapse_mri_levels) {
