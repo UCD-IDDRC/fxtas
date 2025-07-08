@@ -17,7 +17,7 @@ for latent subtype clustering analysis
 
 ## Analysis
 
-* removed individual parkinsonian features from OS model
+* removed individual parkinsonian features from OS model (#106)
 * added info about displayed statistics to rows for `compute_prob_correct()` (#56)
 
 ## Graphics
