@@ -8,13 +8,13 @@
 #' @examples
 #' head(iris) |> flextable::flextable() |> shared_flextable_settings()
 #'
-shared_flextable_settings = function(x, padding = 0) {
+shared_flextable_settings <- function(x, padding = 0) {
   x |>
     flextable::padding(padding.top = padding,
                        padding.bottom = padding,
                        part = "all") |>
     flextable::fontsize(size = 8, part = "all") |>
-    flextable::font(fontname = "Gill sans MT", part = 'all') |>
+    flextable::font(fontname = "Gill sans MT", part = "all") |>
     flextable::height_all(height = 0.45, part = "all", unit = "cm") |>
     flextable::bold(part = "header")
 
