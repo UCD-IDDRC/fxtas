@@ -15,18 +15,19 @@
 #'
 #' @export
 #' @example inst/examples/exm-pvd_lineplot.R
-pvd_lineplot <- function(figs,
-                         events_to_highlight = NULL,
-                         highlight_color = NA,
-                         min_alpha = 0.25,
-                         max_alpha = 1,
-                         stage_alpha = 1,
-                         facet_labels = names(figs),
-                         text_size = 3.4,
-                         y_lab = "Sequential order",
-                         y_title_size = 9,
-                         y_text_size = 8,
-                         x_text_size = 8) {
+pvd_lineplot <- function(
+    figs,
+    events_to_highlight = NULL,
+    highlight_color = NA,
+    min_alpha = 0.25,
+    max_alpha = 1,
+    stage_alpha = 1,
+    facet_labels = names(figs),
+    text_size = 3.4,
+    y_lab = "Sequential order",
+    y_title_size = 9,
+    y_text_size = 8,
+    x_text_size = 8) {
   if (length(figs) == 1) {
     # extract data from pvd fig object
     dataset <- dplyr::bind_rows(figs[[1]]$data, .id = "facet")
@@ -116,7 +117,7 @@ pvd_lineplot <- function(figs,
       ) |>
         factor(levels = c(-2, -1, 0, 1)),
       background = dplyr::if_else(
-        condition = `event name` %in% events_to_highlight,
+        condition = .data$`event name` %in% events_to_highlight,
         true = highlight_color,
         false = NA
       )
@@ -177,7 +178,9 @@ pvd_lineplot <- function(figs,
         "grey25",
         "#F8766D",
         "grey70",
-        "#00BFC4")) +
+        "#00BFC4"
+      )
+    ) +
     scale_y_discrete(limits = rev, breaks = NULL) +
     labs(y = y_lab) +
     theme_classic() +

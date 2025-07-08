@@ -6,10 +6,17 @@ fix_parkinsonian_features <- function(data) {
       `pill-rolling tremor` = .data$`pill-rolling tremor exam`
     )
 
-  pfs <- c("parkinsonian features", "Stiff gait", "Masked faces", "Increased tone", "pill-rolling tremor")
+  pfs <- c( # nolint: object_usage_linter
+    "parkinsonian features",
+    "Stiff gait",
+    "Masked faces",
+    "Increased tone",
+    "pill-rolling tremor"
+  )
+
   data <- data |>
     mutate(
-      pfs_original = `parkinsonian features`,
+      pfs_original = .data$`parkinsonian features`,
       `parkinsonian features` =
         case_when(
           if_any(all_of(pfs), .fns = ~.x == "Yes") ~ "Yes",

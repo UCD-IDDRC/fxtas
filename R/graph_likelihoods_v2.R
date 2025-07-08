@@ -14,8 +14,7 @@ graph_likelihoods_v2 <- function(
     likelihoods,
     alpha = 0.5,
     facet = FALSE,
-    legend = FALSE)
-{
+    legend = FALSE) {
 
   data <-
     likelihoods |>
@@ -25,7 +24,7 @@ graph_likelihoods_v2 <- function(
 
   labels <- data |>
     slice_tail(n = 1, by = "name") |>
-    mutate(Iteration = Iteration * 1.05)
+    mutate(Iteration = .data$Iteration * 1.05)
 
   plot1 <-
     data |>
@@ -39,25 +38,23 @@ graph_likelihoods_v2 <- function(
     ggplot2::geom_text(
       data = labels,
       aes(
-        hjust = 'outward',
+        hjust = "outward",
         vjust = 0,
-
-        # x = 10000,
-        # y = labels$value,
-        label = .data$name)
+        label = .data$name
+      )
     ) +
     ylab("log-likelihood") +
     ggplot2::scale_x_continuous(
       limits = c(0, xmax),
-      breaks = seq(0, max(data$Iteration), length.out = 5)) +
+      breaks = seq(0, max(data$Iteration), length.out = 5)
+    ) +
     theme_bw()
 
   if (legend) {
     plot1 <- plot1 +
       theme(legend.position = "bottom") +
       labs(color = "# latent subtypes")
-  } else
-  {
+  } else {
     plot1 <- plot1 +
       theme(legend.position = "none")
   }
