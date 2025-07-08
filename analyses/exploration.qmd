@@ -152,7 +152,7 @@ v1_usable_capital_labels |>
   shared_flextable_settings()
 ```
 
-**Head tremors**
+**Head tremors by CGG level and sex**
 
 :::
 
@@ -237,7 +237,7 @@ table1(
 
 ```
 
-**FXTAS Stage by CGG level**
+**FXTAS Stage by CGG level and sex**
 
 :::
 
