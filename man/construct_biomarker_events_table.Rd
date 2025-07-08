@@ -27,7 +27,7 @@ biomarker_varnames <-
   dplyr::pull("biomarker")
 
 biomarker_levels <-
-  v1_usable |>
+  test_data_v1 |>
   get_levels(biomarker_varnames)
 
 construct_biomarker_events_table(
