@@ -89,7 +89,7 @@ pvd_line_width <- 8
 pvd_line_subfig_width <- pvd_line_width
 lineplot_text_size <- 3.4
 size.y <- 8 # nolint: object_name_linter
-y_text_size <- 6
+y_text_size <- 10
 N_startpoints <- 10L # nolint: object_name_linter
 use_parallel_startpoints <- FALSE # couldn't get parallel to work, 2024/06/15
 N_S_max <- 12L # nolint: object_name_linter
@@ -858,7 +858,9 @@ list(
   "Males <br>" = fig_males_first,
   "Females <br>" = fig_females_first
 ) |>
-  plot_compact_pvd(y_text_size = y_text_size)
+  plot_compact_pvd_est2()
+  # plot_compact_pvd(y_text_size = y_text_size)
+
 ```
 
 {{< pagebreak >}}

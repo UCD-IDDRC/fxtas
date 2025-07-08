@@ -13,6 +13,7 @@ plot_compact_pvd_est2(
   legend.position = "none",
   scale_colors = c("red", "blue", "purple4", "darkgreen", "magenta"),
   rel_heights = c(1, 0.1),
+  facet_label_prefix = names(figs),
   ...
 )
 }
@@ -32,6 +33,8 @@ plot_compact_pvd_est2(
 \item{scale_colors}{todo}
 
 \item{rel_heights}{relative heights of the plot and the legend}
+
+\item{facet_label_prefix}{todo}
 
 \item{...}{arguments passed to \code{tmp_func()}}
 }

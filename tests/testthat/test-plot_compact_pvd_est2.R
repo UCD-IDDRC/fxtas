@@ -8,6 +8,7 @@ test_that("results are consistent", {
   )
 
   fig <- plot_compact_pvd_est2(
+    facet_label_prefix = rep("", 4),
     show_uncert = FALSE,
     figs = figs,
     tile_height = 1,

@@ -16,6 +16,7 @@ plot_compact_pvd_est2 <- function(
     legend.position = "none", # nolint: object_name_linter
     scale_colors = c("red", "blue", "purple4", "darkgreen", "magenta"),
     rel_heights = c(1, 0.1),
+    facet_label_prefix = names(figs),
     ...) {
   # prepare data from figure list
   #   unlike the other functions, the data will remain in a list, not combined
@@ -32,11 +33,9 @@ plot_compact_pvd_est2 <- function(
   }
 
   # add the figure title as list names
-  names(figs_plot) <- c(
-    figs[[1]]$labels$title,
-    figs[[2]]$labels$title,
-    figs[[3]]$labels$title,
-    figs[[4]]$labels$title
+  names(figs_plot) <- compact_pvd_facet_labels(
+    figs = figs,
+    facet_label_prefix = facet_label_prefix
   )
 
   # create plot for each panel
@@ -63,7 +62,7 @@ plot_compact_pvd_est2 <- function(
 
   cowplot::plot_grid(
     plotlist = p,
-    nrow = 2,
+    nrow = length(figs) / 2,
     ncol = 2
   ) |>
     cowplot::plot_grid(

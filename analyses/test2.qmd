@@ -2,6 +2,12 @@
 title: "reference hyperlink example"
 ---
 
+```{r}
+devtools::load_all()
+```
+
+{{< include _sec_abbrev_table.qmd >}}
+
 ::: landscape
 
 ::: {#suppfig-cvic layout-ncol=2}

@@ -17,3 +17,7 @@ a modified \link[flextable:flextable]{flextable::flextable}
 \description{
 Apply flextable settings to match Brain journal requirements
 }
+\examples{
+head(iris) |> flextable::flextable() |> shared_flextable_settings()
+
+}
