@@ -78,6 +78,7 @@ stage_barplot.list <- function(object, ...) {
       FUN = function(x) purrr::pluck(x, "subtype_and_stage_table")
     ) |>
     dplyr::bind_rows(.id = "stratum") |>
-    stage_barplot.default() +
+    dplyr::mutate(stratum = factor(stratum, levels = names(object))) |>
+    stage_barplot.default(...) +
     facet_wrap(~ stratum)
 }
