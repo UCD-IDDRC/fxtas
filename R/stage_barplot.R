@@ -15,15 +15,18 @@ stage_barplot <- function(object, ...) {
 #'
 #' @param object a `subtype_and_stage_table` object
 #' (a type of data.frame)
+#' @param xmax largest x-value to display
 #' @param ... unused
 #' @param include_type_0 [logical] whether to include Type 0 in the plot
 #'
 #' @returns a [ggplot2::ggplot]
 #' @export
 #' @examples sim_subtype_and_stage_table |> stage_barplot()
-stage_barplot.default <- function(object,
-                                  include_type_0 = TRUE,
-                                  ...) {
+stage_barplot.default <- function(
+    object,
+    include_type_0 = TRUE,
+    xmax = max(object$ml_stage, na.rm = TRUE),
+    ...) {
 
   multiple_subtypes <-
     "Type 2" %in% object$ml_subtype
@@ -51,6 +54,7 @@ stage_barplot.default <- function(object,
       )
     ) +
     theme_bw() +
+    ggplot2::expand_limits(x = xmax) +
     theme(legend.position = "bottom") +
     labs(color = "")
 

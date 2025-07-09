@@ -103,7 +103,7 @@ events_name <- "symptomatic events"
 outcomes_name_sentence_start <- stringr::str_to_sentence(outcomes_name)
 
 compact_fig_caption <- paste(
-  "The different colors (red, blue, purple, green, magenta)",
+  "The different colors (red, blue, magenta, green, purple)",
   "indicate the ordinal levels of symptom progression.",
   "Color gradient intensity represents the Bayesian posterior probability", 
   "of the sequence position.",
@@ -469,7 +469,20 @@ pval_sex_gp34_v1 <- permutation_test(
   permuted_test_stats = permuted_test_stats,
   n_permutations = n_permutations
 )
+
+pval_sex_gp34_v1_formatted <- pval_sex_gp34_v1 |> scales::label_pvalue()()
+
 ```
+
+
+```{r}
+#| eval: false
+#| label: plot-permutation-test-sex
+plot_permutation_results(
+    permuted_test_stats,
+    observed_test_stat)
+```
+
 
 @fig-first-only-pvd shows 
 the estimated sequential orders
@@ -478,12 +491,10 @@ in males and females,
 and @fig-first-only-diffs shows differences in those orders.
 We found statistically significant evidence of a 
 difference in sequences of `r events_name`
-between males and females (p = `r pval_sex_gp34_v1`). 
+between males and females (p `r pval_sex_gp34_v1_formatted`). 
 It appears that 
 female premutation carriers developed 
-SCID mood disorder symptoms, 
-both sub-threshold-level and threshold-level,
-prior to FXTAS Stage 1 diagnosis,
+mood disorder symptoms prior to FXTAS Stage 1 diagnosis,
 whereas male carriers experienced these symptoms much later 
 (often between FXTAS Stages 3 and 4) (@fig-first-only-diffs).
 Ataxia occurred prior to Stage 1 for females 
