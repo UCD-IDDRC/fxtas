@@ -14,30 +14,27 @@ cli::cli_alert_info('\nStarting at: {Sys.time()}')
 args = commandArgs(trailingOnly = TRUE)
 message("args = ", args |> paste(collapse = "; "))
 
-if(length(args) == 0)
-{
+if (length(args) == 0) {
   message('no arguments found')
   permutation_seeds = 1:1020
   permuting_variables = "Gender"
   stratifying_variables = NULL
 
-} else
-{
+} else {
 
   permutation_seeds = as.integer(as.character(args[1]))
   permuting_variables = args[2]
   stratifying_variables = args[3]
-  if(is.na(stratifying_variables) || stratifying_variables == "") stratifying_variables = NULL
-
+  if (is.na(stratifying_variables) || stratifying_variables == "") {
+    stratifying_variables = NULL
+  }
 }
 
 cli::cli_alert_info("permuting variables: {permuting_variables}")
 
-if(is.null(stratifying_variables))
-{
+if(is.null(stratifying_variables)) {
   cli::cli_alert_info("no stratifying variables provided")
-} else
-{
+} else {
   cli::cli_alert_info("stratifying variables: {stratifying_variables}")
 }
 
@@ -53,7 +50,6 @@ if(interactive()) reticulate::use_condaenv("fxtas39", required = TRUE)
 cli::cli_alert_info('\nStarting at: {Sys.time()}')
 
 reticulate::py_config()
-py_config()
 
 devtools::load_all()
 library(tidyverse)
@@ -61,8 +57,7 @@ library(pander)
 library(dplyr)
 
 
-if(!reticulate::py_module_available("pySuStaIn"))
-{
+if(!reticulate::py_module_available("pySuStaIn")) {
   stop("pySuStaIn is not installed correctly.")
 }
 
@@ -82,7 +77,7 @@ do_collapse_scid_levels <- TRUE
 do_collapse_mri_levels <- TRUE
 
 N_startpoints = 10L
-N_S_max = 8L
+N_S_max = 1L
 N_S_max_stratified = 1L
 
 
@@ -216,7 +211,7 @@ for (cur_stratum in 1:nrow(strata))
     patient_data = cur_data,
     permutation_seeds = permutation_seeds,
     N_startpoints = N_startpoints,
-    N_S_max = 1L,
+    N_S_max = N_S_max,
     N_iterations_MCMC = N_iterations_MCMC,
     output_folder = output_folder1,
     use_parallel_startpoints = FALSE,

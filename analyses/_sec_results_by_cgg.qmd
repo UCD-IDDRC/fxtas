@@ -71,6 +71,8 @@ plot_compact_pvd(
 
 :::
 
+{{< pagebreak >}}
+
 ::: {#suppfig-diff-by-cgg}
 
 ```{r}
