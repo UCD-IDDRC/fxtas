@@ -110,7 +110,7 @@ biomarker_levels =
   lapply(df[,biomarker_varnames], F = levels)
 
 biomarker_events_table =
-  construct_biomarker_events_table(
+  make_biomarker_events_table(
     biomarker_levels,
     biomarker_groups)
 

@@ -10,7 +10,7 @@ biomarker_levels <-
   test_data_v1 |>
   get_levels(biomarker_varnames)
 
-construct_biomarker_events_table(
+make_biomarker_events_table(
   biomarker_levels,
   biomarker_groups
 )

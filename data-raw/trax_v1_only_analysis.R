@@ -57,7 +57,7 @@ biomarker_levels =
   lapply(FUN = levels)
 
 biomarker_events_table =
-  construct_biomarker_events_table(
+  make_biomarker_events_table(
     biomarker_levels,
     biomarker_groups)
 

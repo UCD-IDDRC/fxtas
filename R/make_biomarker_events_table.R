@@ -5,12 +5,11 @@
 #'
 #' @returns a [tibble::tbl_df]
 #' @export
-#' @example inst/examples/exm-construct_biomarker_events_table.R
-construct_biomarker_events_table <- function(
-    biomarker_levels,
-    biomarker_groups
-)
-{
+#' @example inst/examples/exm-make_biomarker_events_table.R
+make_biomarker_events_table <- function(
+  biomarker_levels,
+  biomarker_groups
+) {
   biomarker_events_table =
     biomarker_levels |>
     get_biomarker_events_table()

@@ -1,7 +1,7 @@
 #' Make biomarkers table
 #'
 #' @param biomarker_events_table [data.frame] from
-#' [construct_biomarker_events_table()]
+#' [make_biomarker_events_table()]
 #' @param data a [data.frame()] containing the columns specified by
 #' `biomarker_varnames` as well as `stratifying_var_names`
 #' @param biomarker_varnames a [character] vector matching a subset of
@@ -13,12 +13,14 @@
 #'
 #' @example inst/examples/exm-make_biomarkers_table.R
 #'
-make_biomarkers_table <- function(data,
-                                  biomarker_varnames =
-                                    compile_biomarker_groups_table() |>
-                                    dplyr::pull("biomarker"),
-                                  biomarker_events_table,
-                                  stratifying_var_names = "Gender") {
+make_biomarkers_table <- function(
+  data,
+  biomarker_varnames =
+    compile_biomarker_groups_table() |>
+    dplyr::pull("biomarker"),
+  biomarker_events_table,
+  stratifying_var_names = "Gender"
+) {
   # compute p-values by gender
   pvals <- numeric()
 
