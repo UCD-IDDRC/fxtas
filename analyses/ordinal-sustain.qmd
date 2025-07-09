@@ -784,21 +784,24 @@ v1_usable |> make_demographics_table(
 
 {{< pagebreak >}}
 
-```{r}
-#| tbl-cap: |
-#|    **Symptoms included in analysis.**
-#|    The first level listed in each row of column
-#|    "Defined Ordered Levels"
-#|    is the "reference level" for the corresponding symptom,
-#|    and subsequent levels are considered
-#|    "clinically elevated levels".
-#|    Columns "Female" and "Male" list percentages of
-#|    clinically elevated levels
-#|    at baseline visit, stratified by sex.
-#| label: tbl-biomarker-list
+:::{#tbl-biomarker-list}
 
+```{r}
 flex_biomarkers_table(biomarkers_table)
 ```
+
+**Symptoms included in analysis.**
+The first level listed 
+in each row of the
+"Defined Ordered Levels" column
+is the "reference level" for the corresponding symptom,
+and subsequent levels are considered
+"clinically elevated levels".
+Columns "Female" and "Male" list percentages of
+clinically elevated levels
+at baseline visit, stratified by sex.
+
+:::
 
 {{< pagebreak >}}
 

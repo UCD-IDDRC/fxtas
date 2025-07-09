@@ -22,7 +22,8 @@ ggplot2::theme_set(ggplot2::theme_bw())
 #| label: libraries
 #| message: false
 reticulate::use_condaenv("fxtas39", required = TRUE)
-library(fxtas)
+# library(fxtas)
+devtools::load_all()
 library(tidyverse)
 library(reticulate)
 library(pander)
@@ -178,6 +179,20 @@ patient_data <- v1_usable_cases
 ```
 
 ```{r}
+v1_usable |> make_demographics_table(
+  vars = c(
+    "Age at visit",
+    "Primary Race/Ethnicity",
+    "FXTAS Stage",
+    # "fxtas_dx",
+    "CGG"
+    # "Activation Ratio (0.0-1.0)"
+  )
+)
+```
+
+
+```{r}
 #| label: "biomarker-events"
 biomarker_groups <- compile_biomarker_groups_table(
   dataset = v1_usable
@@ -213,18 +228,23 @@ biomarkers_table <-
   )
 ```
 
-```{r}
-#| tbl-cap: |
-#|    **Symptoms included in analysis.**
-#|    The first level listed in each row of column
-#|    "Defined Ordered Levels"
-#|    is the "reference level" for the corresponding symptom,
-#|    and subsequent levels are considered
-#|    "clinically elevated levels".
-#|    Columns "Female" and "Male" list percentages of
-#|    clinically elevated levels
-#|    at baseline visit, stratified by sex.
-#| label: tbl-biomarker-list
+{{< pagebreak >}}
 
+:::{#tbl-biomarker-list}
+
+```{r}
 flex_biomarkers_table(biomarkers_table)
 ```
+
+**Symptoms included in analysis.**
+The first level listed 
+in each row of the
+"Defined Ordered Levels" column
+is the "reference level" for the corresponding symptom,
+and subsequent levels are considered
+"clinically elevated levels".
+Columns "Female" and "Male" list percentages of
+clinically elevated levels
+at baseline visit, stratified by sex.
+
+:::
