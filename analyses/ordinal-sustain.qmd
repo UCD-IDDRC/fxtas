@@ -435,6 +435,16 @@ fig_over100_females <- extract_figs_from_pickle(
 )
 ```
 
+```{r}
+#| label: basic-summary-stats
+biomarkers_table <-
+  v1_usable |>
+  make_biomarkers_table(
+    biomarker_varnames = biomarker_varnames,
+    biomarker_events_table = biomarker_events_table
+  )
+```
+
 {{< include _sec-results-pk-missing-issues.qmd >}}
 
 {{< include _sec-results-demographics.qmd >}}
@@ -773,16 +783,6 @@ v1_usable |> make_demographics_table(
 :::
 
 {{< pagebreak >}}
-
-```{r}
-#| label: basic-summary-stats
-biomarkers_table <-
-  v1_usable |>
-  make_biomarkers_table(
-    biomarker_varnames = biomarker_varnames,
-    biomarker_events_table = biomarker_events_table
-  )
-```
 
 ```{r}
 #| tbl-cap: |

@@ -10,7 +10,7 @@ make_biomarker_events_table <- function(
   biomarker_levels,
   biomarker_groups
 ) {
-  biomarker_events_table =
+  biomarker_events_table <-
     biomarker_levels |>
     get_biomarker_events_table()
 

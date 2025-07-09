@@ -36,7 +36,9 @@ pf_female_mean <-
 pf_female_pct <- 
   round(pf_female_mean * 100, 1)
 
-
+stages <- v1_usable_cases |>
+  dplyr::select(all_of("FXTAS Stage")) |>
+  table()
 ```
 
 
