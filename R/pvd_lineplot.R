@@ -39,8 +39,7 @@ pvd_lineplot <- function(
     highlight_color)
 
   # alpha scaling #
-  max_order <- max(plot_dataset$Order)
-  alpha_mult <- ((max_alpha - min_alpha) / (max_order - 1))
+  alpha_mult <- calc_alpha_mult(plot_dataset, max_alpha, min_alpha)
 
   plot_dataset <- plot_dataset |>
     dplyr::mutate(
