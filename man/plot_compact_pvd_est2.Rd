@@ -11,7 +11,7 @@ plot_compact_pvd_est2(
   tile_width = 1,
   y_text_size = 9,
   legend.position = "none",
-  scale_colors = c("red", "blue", "purple4", "darkgreen", "magenta"),
+  scale_colors = c("red", "blue", "magenta", "darkgreen", "purple4"),
   rel_heights = c(1, 0.1),
   facet_label_prefix = names(figs),
   ...

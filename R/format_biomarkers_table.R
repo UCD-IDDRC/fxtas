@@ -22,9 +22,12 @@ flex_biomarkers_table <- function(x) {
         "p-value"
       )
     ) |>
-    flextable::width(j = ~ biomarker, width = 2) |>
+    flextable::width(j = ~ biomarker, width = 1.3) |>
     flextable::width(j = ~ category, width = 0.8) |>
-    flextable::width(j = ~ levels, width = 2) |>
+    flextable::width(j = ~ levels, width = 1.4) |>
+    flextable::width(j = ~ Female, width = .6) |>
+    flextable::width(j = ~ Male, width = .6) |>
+    flextable::width(j = ~ `p-value`, width = .6) |>
     flextable::theme_booktabs() |>
     flextable::align(
       j = ~ biomarker + levels,
@@ -47,6 +50,6 @@ flex_biomarkers_table <- function(x) {
       ref_symbols = "b",
       part = "header"
     ) |>
-    shared_flextable_settings()
+    shared_flextable_settings(padding = 1)
 
 }

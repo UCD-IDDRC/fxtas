@@ -16,7 +16,7 @@ plot_compact_pvd <- function(
     y_text_size = 9,
     facet_label_prefix = names(figs),
     legend.position = "none", # nolint: object_name_linter
-    scale_colors = c("red", "blue", "purple4", "darkgreen", "magenta"),
+    scale_colors = c("red", "blue", "magenta", "darkgreen", "purple4"),
     ...) {
   # extract and prep data from fig list
   plot_dataset <- compact_pvd_data_prep(figs = figs, ...)
