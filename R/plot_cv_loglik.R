@@ -16,13 +16,13 @@ plot_cv_loglik <- function(cv_loglik, y_text_size = 8)
     tidyr::pivot_longer(
       cols = cv_loglik |> ncol() |> seq_len() |> as.character(),
       values_to = "loglik",
-      names_to = "# subgroups"
+      names_to = "# subtypes"
     ) |>
     ggplot() +
-    aes(x = .data$`# subgroups`,
+    aes(x = .data$`# subtypes` |> factor(levels = unique(.data$`# subtypes`)),
         y = .data$loglik,
         col = .data$fold) +
-    xlab("# subtypes") +
+    xlab("# latent subtypes") +
     geom_point() +
     geom_line(aes(group = .data$fold, linetype = .data$fold)) +
     # geom_boxplot() +

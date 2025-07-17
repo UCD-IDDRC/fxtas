@@ -14,7 +14,7 @@ plot_CVIC <- function(CVIC) {
   ) |>
     ggplot() +
     aes(
-      x = .data$`# subtypes` |> factor(),
+      x = .data$`# subtypes` |> factor(levels = .data$`# subtypes`),
       y = .data$CVIC,
       group = 1
     ) +
