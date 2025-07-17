@@ -35,7 +35,7 @@ collect_permutation_test_stats <- function(
     by = 20)
 {
 
-# ---------------------------------------------------------------
+  # ---------------------------------------------------------------
 
   first_seeds = seq(min(seeds), max(seeds), by = by)
   last_seeds = first_seeds + by - 1
@@ -51,9 +51,12 @@ collect_permutation_test_stats <- function(
 
   if(length(missing_files) > 0)
   {
-    message('missing files:')
-    print(missing_files)
-    stop("missing files")
+    cli::cli_abort(
+      c(
+        'missing files:',
+        missing_files
+      )
+    )
   }
 
   for (cur_file in files)
