@@ -55,13 +55,12 @@ pvd_lineplot <- function(
   )
 
   # plot
-  ggplot(
-    plot_dataset,
+  plot_dataset |>
+    ggplot() +
     aes(
       x = .data$facet_order,
       y = .data$Order |> factor()
-    )
-  ) +
+    ) +
     ggtext::geom_richtext(
       aes(
         label = .data$`event label`,
