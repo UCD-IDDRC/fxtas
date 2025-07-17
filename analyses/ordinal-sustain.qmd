@@ -128,14 +128,14 @@ dataset_name <- "sample_data"
 root_dir <- here::here()
 setwd(root_dir)
 output_folder <-
-  "output/output.fixed_CV-with-thres/" |>
+  "output/output.fixed_CV-scid-with-thres/" |>
   fs::dir_create()
 ```
 
 ```{r}
 #| label: subset-data
 load("data/trax_gp34_v1.rda")
-
+  
 if (do_collapse_scid_levels) {
   scid_levels_to_collapse <- c("Sub-Threshold", "Threshold")
   trax_gp34_v1 <- trax_gp34_v1 |> collapse_scid_levels(scid_levels_to_collapse)
