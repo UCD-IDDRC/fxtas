@@ -81,100 +81,19 @@ pvd_subtype_lineplot <- function(
         x = `event label`)
     )
 
-  facet_x_labels <- c(
-    glue::glue('<p "style = text-align: right">{facet_labels[1]}</p>'),
-    glue::glue('<p "style = text-align: left">{facet_labels[2]}</p>'),
-    glue::glue('<p "style = text-align: left">{facet_labels[3]}</p>'),
-    glue::glue('<p "style = text-align: left">{facet_labels[4]}</p>')
-  )
-
-  # get data for segments
-  sub_data1 <- extract_lineplot_data(figs[1:2], facet_labels[1:2]) |>
-    pvd_lineplot_preprocessing(
-      facet_labels[1:2], events_to_highlight, highlight_color
-    ) |>
-    dplyr::mutate(
-      # NEED TO FIX
-      alpha = dplyr::case_when(
-        .data$biomarker == "FXTAS Stage" ~ stage_alpha,
-        .default = (0.5 * alpha_mult) + min_alpha
-      )
-    ) |>
-    dplyr::mutate(Order = factor(Order)) |>
-    tidyr::pivot_wider(
-      id_cols = c(`event name`, linesize, alpha),
-      names_from = facet,
-      values_from = Order
-    ) |>
-    dplyr::mutate(
-      x = mean(subtype_x[1:2]) - 0.1,
-      xend = mean(subtype_x[1:2]) + 0.1
-    ) |>
-    # filter to only show lines for the highlighted events?
-    dplyr::filter(
-      `event name` %in% c(events_to_highlight, fxtas_stages)
-    )
-
-
-  sub_data2 <- extract_lineplot_data(figs[2:3], facet_labels[2:3]) |>
-    pvd_lineplot_preprocessing(
-      facet_labels[2:3], events_to_highlight, highlight_color
-    ) |>
-    dplyr::mutate(
-      # NEED TO FIX
-      alpha = dplyr::case_when(
-        .data$biomarker == "FXTAS Stage" ~ stage_alpha,
-        .default = (0.5 * alpha_mult) + min_alpha
-      )
-    ) |>
-    dplyr::mutate(Order = factor(Order)) |>
-    tidyr::pivot_wider(
-      id_cols = c(`event name`, linesize, alpha),
-      names_from = facet,
-      values_from = Order
-    ) |>
-    dplyr::mutate(
-      x = mean(subtype_x[2:3]) - 0.1,
-      xend = mean(subtype_x[2:3]) + 0.1
-    ) |>
-    # filter to only show lines for the highlighted events?
-    dplyr::filter(
-      `event name` %in% c(events_to_highlight, fxtas_stages)
-    )
-
-  sub_data3 <- extract_lineplot_data(figs[3:4], facet_labels[3:4]) |>
-    pvd_lineplot_preprocessing(
-      facet_labels[3:4], events_to_highlight, highlight_color
-    ) |>
-    dplyr::mutate(
-      # NEED TO FIX
-      alpha = dplyr::case_when(
-        .data$biomarker == "FXTAS Stage" ~ stage_alpha,
-        .default = (0.5 * alpha_mult) + min_alpha
-      )
-    ) |>
-    dplyr::mutate(Order = factor(Order)) |>
-    tidyr::pivot_wider(
-      id_cols = c(`event name`, linesize, alpha),
-      names_from = facet,
-      values_from = Order
-    ) |>
-    dplyr::mutate(
-      x = mean(subtype_x[3:4]) - 0.1,
-      xend = mean(subtype_x[3:4]) + 0.1
-    ) |>
-    # filter to only show lines for the highlighted events?
-    dplyr::filter(
-      `event name` %in% c(events_to_highlight, fxtas_stages)
-    )
-
-
   # plot
   plot_dataset |>
     ggplot() +
     aes(
       x = .data$facet_order,
       y = .data$Order |> factor()
+    ) +
+    ggbump::geom_bump(
+      data = plot_dataset |>
+        dplyr::filter(
+          `event name` %in% c(events_to_highlight, fxtas_stages)
+        ),
+      aes(group = `event name`)
     ) +
     ggtext::geom_richtext(
       aes(
@@ -183,70 +102,18 @@ pvd_subtype_lineplot <- function(
         fill = .data$background
       ),
       label.color = NA,
-      label.padding = grid::unit(rep(1, 4), "pt"),
+      label.padding = grid::unit(rep(0, 4), "pt"),
       size = text_size
     ) +
     scale_fill_identity() +
-    # segment from group 1 to 2
-    geom_segment(
-      data = sub_data1,
-      aes(
-        x = x,
-        xend = xend,
-        y = `Group 1`,
-        yend = `Group 2`
-      ),
-      # arrow = grid::arrow(
-      #   angle = 10,
-      #   length = unit(5, "points"),
-      #   type = "closed",
-      #   ends = "both"
-      # ),
-      linewidth = sub_data1$linesize,
-      alpha = sub_data1$alpha
-    ) +
-    # segment from group 2 to 3
-    geom_segment(
-      data = sub_data2,
-      aes(
-        x = x,
-        xend = xend,
-        y = `Group 2`,
-        yend = `Group 3`
-      ),
-      # arrow = grid::arrow(
-      #   angle = 10,
-      #   length = unit(5, "points"),
-      #   type = "closed",
-      #   ends = "both"
-      # ),
-      linewidth = sub_data2$linesize,
-      alpha = sub_data3$alpha
-    ) +
-    # segment from group 3 to 4
-    geom_segment(
-      data = sub_data3,
-      aes(
-        x = x,
-        xend = xend,
-        y = `Group 3`,
-        yend = `Group 4`
-      ),
-      # arrow = grid::arrow(
-      #   angle = 10,
-      #   length = unit(5, "points"),
-      #   type = "closed",
-      #   ends = "both"
-      # ),
-      linewidth = sub_data3$linesize,
-      alpha = sub_data3$alpha
-    ) +
     scale_x_continuous(
-      expand = expansion(add = 1),
+      expand = expansion(mult = 0.1),
       breaks = subtype_x,
       labels = facet_x_labels
     ) +
-    scale_y_discrete(limits = rev, breaks = NULL) +
+    scale_y_discrete(
+      limits = rev, breaks = NULL
+    ) +
     labs(y = y_lab) +
     theme_classic() +
     theme(
@@ -316,7 +183,7 @@ pvd_subtype_lineplot_preprocessing <- function(
       background = dplyr::if_else(
         condition = .data$`event name` %in% events_to_highlight,
         true = highlight_color,
-        false = NA
+        false = "#FFF"
       )
     )
 }
