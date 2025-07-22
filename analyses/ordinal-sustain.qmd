@@ -135,7 +135,7 @@ output_folder <-
 ```{r}
 #| label: subset-data
 load("data/trax_gp34_v1.rda")
-
+  
 if (do_collapse_scid_levels) {
   scid_levels_to_collapse <- c("Absent", "Sub-Threshold")
   trax_gp34_v1 <- trax_gp34_v1 |> collapse_scid_levels(scid_levels_to_collapse)
@@ -333,7 +333,7 @@ results_v1 <- extract_results_from_pickles(
   n_s = 1:N_S_max,
   rda_filename = "data.RData",
   dataset_name = "sample_data",
-  output_folder = "output/output.fixed_CV"
+  output_folder = output_folder
 )
 
 results_females_first = extract_results_from_pickle(
@@ -358,7 +358,7 @@ fig_females_first <- extract_figs_from_pickle(
   n_s = 1,
   rda_filename = "data.RData",
   dataset_name = "females",
-  output_folder = "output/output.fixed_CV"
+  output_folder = output_folder
 )
 
 fig_males_first <- extract_figs_from_pickle(
@@ -367,7 +367,7 @@ fig_males_first <- extract_figs_from_pickle(
   n_s = 1,
   rda_filename = "data.RData",
   dataset_name = "males",
-  output_folder = "output/output.fixed_CV"
+  output_folder = output_folder
 )
 
 fig_both_first <- extract_figs_from_pickle(
@@ -376,7 +376,7 @@ fig_both_first <- extract_figs_from_pickle(
   n_s = 1,
   rda_filename = "data.RData",
   dataset_name = "sample_data",
-  output_folder = "output/output.fixed_CV"
+  output_folder = output_folder
 )
 
 fig_both_first2 <-
