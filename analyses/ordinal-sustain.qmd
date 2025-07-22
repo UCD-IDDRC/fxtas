@@ -128,7 +128,7 @@ dataset_name <- "sample_data"
 root_dir <- here::here()
 setwd(root_dir)
 output_folder <-
-  "output/output.fixed_CV-scid-no-subthres/" |>
+  "output/output.fixed_CV-scid-with-thres/" |>
   fs::dir_create()
 ```
 
