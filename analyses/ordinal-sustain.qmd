@@ -52,7 +52,9 @@ ggplot2::theme_set(ggplot2::theme_bw())
 ```{r}
 #| label: libraries
 #| message: false
-reticulate::use_condaenv("fxtas39", required = TRUE)
+
+reticulate::use_condaenv("fxtas39", required = TRUE, conda = "~/miniforge3/condabin/conda")
+# reticulate::use_condaenv("fxtas39", required = TRUE)
 library(fxtas)
 library(tidyverse)
 library(reticulate)
@@ -128,7 +130,7 @@ dataset_name <- "sample_data"
 root_dir <- here::here()
 setwd(root_dir)
 output_folder <-
-  "output/output.fixed_CV-scid-with-thres/" |>
+  "output/output.fixed_CV-scid-no-subthres/" |>
   fs::dir_create()
 ```
 

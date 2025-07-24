@@ -1,5 +1,7 @@
 test_that("results are consistent", {
 
+  reticulate::use_condaenv("fxtas39", required = TRUE,
+                           conda = "~/miniforge3/condabin/conda")
   reticulate::py_discover_config(
     required_module = "pySuStaIn"
   )$required_module_path |>
