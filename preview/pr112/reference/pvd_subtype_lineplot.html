@@ -55,9 +55,7 @@
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">pvd_subtype_lineplot</span><span class="op">(</span></span>
 <span>  <span class="va">figs</span>,</span>
-<span>  events_to_highlight_groups <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  events_to_highlight <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/unlist.html" class="external-link">unlist</a></span><span class="op">(</span><span class="va">events_to_highlight_groups</span><span class="op">)</span>,</span>
-<span>  highlight_color <span class="op">=</span> <span class="cn">NA</span>,</span>
+<span>  <span class="va">events_to_highlight</span>,</span>
 <span>  min_alpha <span class="op">=</span> <span class="fl">0.25</span>,</span>
 <span>  max_alpha <span class="op">=</span> <span class="fl">1</span>,</span>
 <span>  stage_alpha <span class="op">=</span> <span class="fl">1</span>,</span>
@@ -68,7 +66,8 @@
 <span>  y_text_size <span class="op">=</span> <span class="fl">8</span>,</span>
 <span>  x_text_size <span class="op">=</span> <span class="fl">8</span>,</span>
 <span>  subtype_x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">3</span>, <span class="fl">5</span>, <span class="fl">7</span><span class="op">)</span>,</span>
-<span>  mult <span class="op">=</span> <span class="fl">0.2</span></span>
+<span>  mult <span class="op">=</span> <span class="fl">0.2</span>,</span>
+<span>  <span class="va">...</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -80,15 +79,7 @@
 <dd><p>A <a href="https://rdrr.io/r/base/list.html" class="external-link">list</a> of todo</p></dd>
 
 
-<dt id="arg-events-to-highlight-groups">events_to_highlight_groups<a class="anchor" aria-label="anchor" href="#arg-events-to-highlight-groups"></a></dt>
-<dd><p><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></p></dd>
-
-
 <dt id="arg-events-to-highlight">events_to_highlight<a class="anchor" aria-label="anchor" href="#arg-events-to-highlight"></a></dt>
-<dd><p>todo</p></dd>
-
-
-<dt id="arg-highlight-color">highlight_color<a class="anchor" aria-label="anchor" href="#arg-highlight-color"></a></dt>
 <dd><p>todo</p></dd>
 
 
@@ -129,12 +120,16 @@
 
 
 <dt id="arg-subtype-x">subtype_x<a class="anchor" aria-label="anchor" href="#arg-subtype-x"></a></dt>
-<dd><p>Vector of x-axis value for the subtypes.
-Default = c(1, 1.15, 1.75, 2.35)</p></dd>
+<dd><p>Vector of x-axis value for the subtypes.</p></dd>
 
 
 <dt id="arg-mult">mult<a class="anchor" aria-label="anchor" href="#arg-mult"></a></dt>
 <dd><p><a href="https://rdrr.io/r/base/numeric.html" class="external-link">numeric</a> vector</p></dd>
+
+
+<dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
+<dd><p>additional arguments passed to <a href="https://rdrr.io/pkg/ggbump/man/geom_bump.html" class="external-link">ggbump::geom_bump</a>
+Default = c(1, 1.15, 1.75, 2.35)</p></dd>
 
 </dl></div>
 
