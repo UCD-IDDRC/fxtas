@@ -133,7 +133,8 @@ pvd_subtype_lineplot <- function(
       axis.title.y = ggtext::element_markdown(size = y_title_size),
       axis.text.y = ggtext::element_markdown(size = y_text_size),
       axis.text.x = ggtext::element_markdown(size = x_text_size)
-    )
+    ) +
+    scale_color_identity()
 
   return(to_return)
 }
