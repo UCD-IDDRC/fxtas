@@ -1,6 +1,7 @@
 #' @title Display Sequential Order of Events by Subtype
 #' @param figs A [list] of todo
 #' @param facet_labels todo
+#' @param events_to_highlight_groups [list]
 #' @param events_to_highlight todo
 #' @param highlight_color todo
 #' @param y_title_size todo
@@ -18,7 +19,8 @@
 
 pvd_subtype_lineplot <- function(
     figs,
-    events_to_highlight = NULL,
+    events_to_highlight_groups = NULL,
+    events_to_highlight = unlist(events_to_highlight_groups),
     highlight_color = NA,
     min_alpha = 0.25,
     max_alpha = 1,
@@ -81,12 +83,18 @@ pvd_subtype_lineplot <- function(
         replacement = .data$padded_event,
         x = .data$`event label`
       ),
-      color = group_color
+      # color = group_color
       # color = if_else(
       #   .data$biomarker == "FXTAS Stage",
       #   "black",
       #   "green"
       # )
+    )
+
+  plot_dataset <- plot_dataset |>
+    left_join(
+      events_to_highlight_groups |> stack(),
+      by = c("event name" = "values")
     )
 
   # plot
@@ -102,7 +110,7 @@ pvd_subtype_lineplot <- function(
           .data$`event name` %in% c(events_to_highlight, fxtas_stages)
         ),
       aes(
-        color = .data$color,
+        color = .data$ind,
         group = .data$`event name`)
     ) +
     ggtext::geom_richtext(
