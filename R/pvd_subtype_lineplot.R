@@ -12,6 +12,7 @@
 #' @param max_alpha todo
 #' @param stage_alpha todo
 #' @param y_lab todo
+#' @param mult [numeric] vector
 #' @param subtype_x Vector of x-axis value for the subtypes.
 #' Default = c(1, 1.15, 1.75, 2.35)
 #'
@@ -31,7 +32,8 @@ pvd_subtype_lineplot <- function(
     y_title_size = 9,
     y_text_size = 8,
     x_text_size = 8,
-    subtype_x = c(1, 3, 5, 7)) {
+    subtype_x = c(1, 3, 5, 7),
+    mult = .2) {
   dataset <- extract_lineplot_data(figs, facet_labels)
   fxtas_stages <- c("FXTAS Stage: 1",
                     "FXTAS Stage: 2",
@@ -125,12 +127,12 @@ pvd_subtype_lineplot <- function(
     ) +
     scale_fill_identity() +
     scale_x_continuous(
-      expand = expansion(mult = 0.1),
+      expand = expansion(mult = mult),
       breaks = subtype_x,
       labels = facet_labels
     ) +
     scale_y_reverse(
-      # limits = rev,
+      expand = expansion(add = 1),
       breaks = NULL
     ) +
     labs(y = y_lab) +

@@ -18,7 +18,8 @@ pvd_subtype_lineplot(
   y_title_size = 9,
   y_text_size = 8,
   x_text_size = 8,
-  subtype_x = c(1, 3, 5, 7)
+  subtype_x = c(1, 3, 5, 7),
+  mult = 0.2
 )
 }
 \arguments{
@@ -50,6 +51,8 @@ pvd_subtype_lineplot(
 
 \item{subtype_x}{Vector of x-axis value for the subtypes.
 Default = c(1, 1.15, 1.75, 2.35)}
+
+\item{mult}{\link{numeric} vector}
 }
 \description{
 Display Sequential Order of Events by Subtype

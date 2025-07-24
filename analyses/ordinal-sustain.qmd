@@ -834,7 +834,7 @@ tbl_sg_demos <- table_subtype_by_demographics(
     results_cv_max$subtype_and_stage_table |> 
     mutate(
       ml_subtype = 
-        ml_subtype |> 
+        .data$ml_subtype |> 
         forcats::fct_recode(
           "Type 4" = "Type 2",
           "Type 2" = "Type 3",

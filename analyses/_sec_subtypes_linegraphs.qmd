@@ -24,7 +24,7 @@ figs |>
         "SCID: Mood Disorders: Threshold",
         "Corpus Callosum-Thickness: Thin",
         "Splenium WM Hyperintensity: Mild",
-        "Genu WM Hyperintensity",
+        "Genu WM Hyperintensity"
         ),
       "green" = c(
         "Parkinsonian Features",
