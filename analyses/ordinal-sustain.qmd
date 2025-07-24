@@ -1,8 +1,8 @@
 ---
 title: |
-Progression of fragile X-associated tremor/ataxia syndrome 
+  Progression of fragile X-associated tremor/ataxia syndrome 
   revealed by subtype and stage inference
-  format:
+format:
   html:
     echo: false
   docx: default
@@ -77,7 +77,7 @@ fit_models <- TRUE
 run_cv <- TRUE
 
 verbose <- TRUE
-rerun <- FALSE
+rerun <- TRUE
 use_rds <- !rerun
 
 plot_python <- TRUE

@@ -19,19 +19,24 @@ figs |>
     events_to_highlight_groups = list(
       "orange" = c(
         "MRI: Cerebellar: Mild",
-        "SWM Between Errors: > 26",
         "MRI: Cerebral: Moderate/Severe",
-        "SCID: Anxiety Disorders: Sub-Threshold"),
+        "SCID: Anxiety Disorders: Threshold",
+        "SCID: Mood Disorders: Threshold"
+        ),
       "green" = c(
         "Parkinsonian Features",
         "Parkinsons"),
-      "red" = paste("FXTAS Stage:", 1:5)
+      "red" = paste("FXTAS Stage:", 1:5),
+      "purple" = "SWM Between Errors: > 26"
     ),
     # highlight_color = "orange"
     highlight_color = "#FFF"
   )
 ```
 
+
+**Differences in event sequences between pairs of latent subtypes.**
+`r compact_fig_cap2`
 
 :::
 
