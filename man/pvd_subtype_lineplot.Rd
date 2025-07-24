@@ -6,9 +6,7 @@
 \usage{
 pvd_subtype_lineplot(
   figs,
-  events_to_highlight_groups = NULL,
-  events_to_highlight = unlist(events_to_highlight_groups),
-  highlight_color = NA,
+  events_to_highlight,
   min_alpha = 0.25,
   max_alpha = 1,
   stage_alpha = 1,
@@ -19,17 +17,14 @@ pvd_subtype_lineplot(
   y_text_size = 8,
   x_text_size = 8,
   subtype_x = c(1, 3, 5, 7),
-  mult = 0.2
+  mult = 0.2,
+  ...
 )
 }
 \arguments{
 \item{figs}{A \link{list} of todo}
 
-\item{events_to_highlight_groups}{\link{list}}
-
 \item{events_to_highlight}{todo}
-
-\item{highlight_color}{todo}
 
 \item{min_alpha}{todo}
 
@@ -49,10 +44,12 @@ pvd_subtype_lineplot(
 
 \item{x_text_size}{todo}
 
-\item{subtype_x}{Vector of x-axis value for the subtypes.
-Default = c(1, 1.15, 1.75, 2.35)}
+\item{subtype_x}{Vector of x-axis value for the subtypes.}
 
 \item{mult}{\link{numeric} vector}
+
+\item{...}{additional arguments passed to \link[ggbump:geom_bump]{ggbump::geom_bump}
+Default = c(1, 1.15, 1.75, 2.35)}
 }
 \description{
 Display Sequential Order of Events by Subtype

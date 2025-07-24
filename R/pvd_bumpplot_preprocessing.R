@@ -3,8 +3,14 @@ pvd_bumpplot_preprocessing <- function(
     data,
     facet_labels,
     events_to_highlight,
-    highlight_color,
     subtype_x) {
+
+  data <- data |>
+    left_join(
+      events_to_highlight,
+      by = c("event name" = "event_name")
+    )
+
   data |>
     dplyr::mutate(
       # extract order number
@@ -34,7 +40,9 @@ pvd_bumpplot_preprocessing <- function(
           "biomarker",
           "group_color",
           "event label",
-          "hjust"
+          "hjust",
+          "highlight_color",
+          "line_color"
         )
       )
     ) |>
@@ -52,10 +60,6 @@ pvd_bumpplot_preprocessing <- function(
         facet == facet_labels[3] ~ subtype_x[3],
         facet == facet_labels[4] ~ subtype_x[4]
       ),
-      background = dplyr::if_else(
-        condition = .data$`event name` %in% events_to_highlight,
-        true = highlight_color,
-        false = "#FFF"
-      )
+      background = .data$highlight_color |> tidyr::replace_na("#FFF")
     )
 }

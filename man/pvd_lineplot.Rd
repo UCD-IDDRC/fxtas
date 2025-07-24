@@ -16,7 +16,8 @@ pvd_lineplot(
   y_lab = "Sequential order",
   y_title_size = 9,
   y_text_size = 8,
-  x_text_size = 8
+  x_text_size = 8,
+  expand = 0.25
 )
 }
 \arguments{
@@ -43,6 +44,8 @@ pvd_lineplot(
 \item{y_text_size}{todo}
 
 \item{x_text_size}{todo}
+
+\item{expand}{\link{numeric} how much to pad the sides}
 }
 \description{
 Plot change in Stage ranking

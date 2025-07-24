@@ -1,9 +1,7 @@
 #' @title Display Sequential Order of Events by Subtype
 #' @param figs A [list] of todo
 #' @param facet_labels todo
-#' @param events_to_highlight_groups [list]
 #' @param events_to_highlight todo
-#' @param highlight_color todo
 #' @param y_title_size todo
 #' @param text_size todo
 #' @param y_text_size todo
@@ -14,15 +12,14 @@
 #' @param y_lab todo
 #' @param mult [numeric] vector
 #' @param subtype_x Vector of x-axis value for the subtypes.
+#' @param ... additional arguments passed to [ggbump::geom_bump]
 #' Default = c(1, 1.15, 1.75, 2.35)
 #'
 #' @export
 
 pvd_subtype_lineplot <- function(
     figs,
-    events_to_highlight_groups = NULL,
-    events_to_highlight = unlist(events_to_highlight_groups),
-    highlight_color = NA,
+    events_to_highlight,
     min_alpha = 0.25,
     max_alpha = 1,
     stage_alpha = 1,
@@ -33,7 +30,9 @@ pvd_subtype_lineplot <- function(
     y_text_size = 8,
     x_text_size = 8,
     subtype_x = c(1, 3, 5, 7),
-    mult = .2) {
+    mult = .2,
+    ...) {
+
   dataset <- extract_lineplot_data(figs, facet_labels)
   fxtas_stages <- c("FXTAS Stage: 1",
                     "FXTAS Stage: 2",
@@ -45,7 +44,6 @@ pvd_subtype_lineplot <- function(
     pvd_bumpplot_preprocessing(
       facet_labels,
       events_to_highlight,
-      highlight_color,
       subtype_x
     )
 
@@ -93,11 +91,7 @@ pvd_subtype_lineplot <- function(
       # )
     )
 
-  plot_dataset <- plot_dataset |>
-    left_join(
-      events_to_highlight_groups |> stack(),
-      by = c("event name" = "values")
-    )
+
 
   # plot
   to_return <- plot_dataset |>
@@ -109,11 +103,12 @@ pvd_subtype_lineplot <- function(
     ggbump::geom_bump(
       data = plot_dataset |>
         dplyr::filter(
-          .data$`event name` %in% c(events_to_highlight, fxtas_stages)
+          .data$`event name` %in% c(events_to_highlight$event_name)
         ),
       aes(
-        color = .data$ind,
-        group = .data$`event name`)
+        color = .data$line_color,
+        group = .data$`event name`),
+      ...
     ) +
     ggtext::geom_richtext(
       aes(

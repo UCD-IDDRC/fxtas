@@ -916,7 +916,8 @@ list(
   "Males" = fig_males_first,
   "Females" = fig_females_first
 ) |>
-  pvd_subtype_lineplot(
+  pvd_lineplot(
+    expand = 0,
     text_size = lineplot_text_size,
     events_to_highlight = c(
       "SCID: Mood Disorders: Threshold",

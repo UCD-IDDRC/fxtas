@@ -12,6 +12,7 @@
 #' @param max_alpha todo
 #' @param stage_alpha todo
 #' @param y_lab todo
+#' @param expand [numeric] how much to pad the sides
 #'
 #' @export
 #' @example inst/examples/exm-pvd_lineplot.R
@@ -27,7 +28,8 @@ pvd_lineplot <- function(
     y_lab = "Sequential order",
     y_title_size = 9,
     y_text_size = 8,
-    x_text_size = 8) {
+    x_text_size = 8,
+    expand = 0.25) {
 
   dataset <- extract_lineplot_data(figs, facet_labels)
 
@@ -81,6 +83,7 @@ pvd_lineplot <- function(
       alpha = plot_dataset$alpha
     ) +
     scale_x_continuous(
+      expand = ggplot2::expansion(add = c(expand)),
       limits = c(0.65, 1.5),
       breaks = c(1, 1.15),
       labels = facet_x_labels
