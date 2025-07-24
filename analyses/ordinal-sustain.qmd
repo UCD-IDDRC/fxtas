@@ -818,17 +818,16 @@ at baseline visit, stratified by sex.
 
 ::: {#tbl-sg_demos}
 
-```{r}
-#| results: asis
 
+```{r}
 set.seed(2)
 tbl_sg_demos <- table_subtype_by_demographics(
   demographic_vars = c(
       "CGG",
-      "CGG 55-99",
+      "Age at visit" , 
       "Male",
-      "Primary Race/Ethnicity",
-      "Age at visit"
+      "Primary Race/Ethnicity"
+      
     ),
   patient_data = patient_data,
   subtype_and_stage_table =
@@ -850,6 +849,14 @@ tbl_sg_demos <- table_subtype_by_demographics(
     `Primary Race/Ethnicity` = c(0, 1)
   )
 )
+```
+
+
+```{r}
+#| results: asis
+
+
+
 
 tbl_sg_demos |>
   gtsummary::as_flex_table() |>
