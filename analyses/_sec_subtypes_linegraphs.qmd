@@ -1,6 +1,3 @@
-
-::: {#suppfig-pvd_chosen_subtypes_linegraphs}
-
 ```{r}
 #| label: extract-figs-from-pickle-n-s-selected
 figs =
@@ -8,9 +5,32 @@ figs =
     size.y = size.y,
     n_s = n_s_selected,
     dataset_name = dataset_name,
-    output_folder = output_folder) |>
-  rlang::set_names(paste("Subtype", 1:length(figs)))
+    output_folder = output_folder)
+  
+figs <- figs[subtype_order] |>   
+  rlang::set_names(paste("Subtype", 1:n_s_selected))
 ```
+
+::: {#suppfig-pvd_chosen_subtypes_bumpplot}
+
+```{r}
+figs |> 
+  pvd_subtype_lineplot(
+    events_to_highlight = c(
+      "MRI: Cerebellar: Mild",
+      "SWM Between Errors: > 26",
+      "Parkinsonian Features"
+    ),
+    # highlight_color = "orange"
+    highlight_color = "#FFF"
+  )
+```
+
+
+:::
+
+
+::: {#suppfig-pvd_chosen_subtypes_linegraphs}
 
 ```{r}
 #| label: fig-pvd_chosen_subtypes_linegraphs-1

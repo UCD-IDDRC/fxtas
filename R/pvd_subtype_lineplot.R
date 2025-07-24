@@ -11,7 +11,8 @@
 #' @param max_alpha todo
 #' @param stage_alpha todo
 #' @param y_lab todo
-#' @param subtype_x Vector of x-axis value for the subtypes. Default = c(1, 1.15, 1.75, 2.35)
+#' @param subtype_x Vector of x-axis value for the subtypes.
+#' Default = c(1, 1.15, 1.75, 2.35)
 #'
 #' @export
 
@@ -28,8 +29,7 @@ pvd_subtype_lineplot <- function(
     y_title_size = 9,
     y_text_size = 8,
     x_text_size = 8,
-    subtype_x = c(1, 3, 5, 7)
-) {
+    subtype_x = c(1, 3, 5, 7)) {
   dataset <- extract_lineplot_data(figs, facet_labels)
   fxtas_stages <- c("FXTAS Stage: 1",
                     "FXTAS Stage: 2",
@@ -38,11 +38,12 @@ pvd_subtype_lineplot <- function(
                     "FXTAS Stage: 5")
   # additional processing
   plot_dataset <- dataset |>
-    pvd_subtype_lineplot_preprocessing(
+    pvd_bumpplot_preprocessing(
       facet_labels,
       events_to_highlight,
       highlight_color,
-      subtype_x)
+      subtype_x
+    )
 
   # alpha scaling #
   alpha_mult <- calc_alpha_mult(plot_dataset, max_alpha, min_alpha)
@@ -77,23 +78,32 @@ pvd_subtype_lineplot <- function(
       padded_label = mapply(
         gsub,
         pattern = tmp_labels,
-        replacement = padded_event,
-        x = `event label`)
+        replacement = .data$padded_event,
+        x = .data$`event label`
+      ),
+      color = group_color
+      # color = if_else(
+      #   .data$biomarker == "FXTAS Stage",
+      #   "black",
+      #   "green"
+      # )
     )
 
   # plot
-  plot_dataset |>
+  to_return <- plot_dataset |>
     ggplot() +
     aes(
       x = .data$facet_order,
-      y = .data$Order |> factor()
+      y = .data$Order
     ) +
     ggbump::geom_bump(
       data = plot_dataset |>
         dplyr::filter(
-          `event name` %in% c(events_to_highlight, fxtas_stages)
+          .data$`event name` %in% c(events_to_highlight, fxtas_stages)
         ),
-      aes(group = `event name`)
+      aes(
+        color = .data$color,
+        group = .data$`event name`)
     ) +
     ggtext::geom_richtext(
       aes(
@@ -109,10 +119,11 @@ pvd_subtype_lineplot <- function(
     scale_x_continuous(
       expand = expansion(mult = 0.1),
       breaks = subtype_x,
-      labels = facet_x_labels
+      labels = facet_labels
     ) +
-    scale_y_discrete(
-      limits = rev, breaks = NULL
+    scale_y_reverse(
+      # limits = rev,
+      breaks = NULL
     ) +
     labs(y = y_lab) +
     theme_classic() +
@@ -123,67 +134,6 @@ pvd_subtype_lineplot <- function(
       axis.text.y = ggtext::element_markdown(size = y_text_size),
       axis.text.x = ggtext::element_markdown(size = x_text_size)
     )
-}
 
-
-# helpers
-pvd_subtype_lineplot_preprocessing <- function(
-    data,
-    facet_labels,
-    events_to_highlight,
-    highlight_color,
-    subtype_x) {
-  data |>
-    dplyr::mutate(
-      # extract order number
-      Order =
-        .data$`row number and name` |>
-        stringi::stri_extract_first_regex("[0-9]+") |>
-        as.integer(),
-      # right justify left facet, left justify right facet
-      hjust = ifelse(
-        (.data$facet == facet_labels[1] | .data$facet == facet_labels[3]),
-        1,
-        0
-      ),
-      # made FXTAS Stage label bold
-      `event label` = ifelse(
-        .data$biomarker == "FXTAS Stage",
-        paste0("<b>", .data$`event label`, "</b>"),
-        as.character(.data$`event label`)
-      )
-    ) |>
-    dplyr::select(
-      all_of(
-        c(
-          "event name",
-          "facet",
-          "Order",
-          "biomarker",
-          "group_color",
-          "event label",
-          "hjust"
-        )
-      )
-    ) |>
-    unique() |>
-    arrange(.data$`event name`, .data$facet) |>
-    dplyr::mutate(
-      linesize = ifelse(
-        .data$biomarker == "FXTAS Stage",
-        1.5,
-        1
-      ),
-      facet_order = case_when(
-        facet == facet_labels[1] ~ subtype_x[1],
-        facet == facet_labels[2] ~ subtype_x[2],
-        facet == facet_labels[3] ~ subtype_x[3],
-        facet == facet_labels[4] ~ subtype_x[4]
-      ),
-      background = dplyr::if_else(
-        condition = .data$`event name` %in% events_to_highlight,
-        true = highlight_color,
-        false = "#FFF"
-      )
-    )
+  return(to_return)
 }

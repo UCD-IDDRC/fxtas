@@ -1,8 +1,8 @@
 ---
 title: |
-  Progression of fragile X-associated tremor/ataxia syndrome 
+Progression of fragile X-associated tremor/ataxia syndrome 
   revealed by subtype and stage inference
-format:
+  format:
   html:
     echo: false
   docx: default
@@ -137,7 +137,7 @@ output_folder <-
 ```{r}
 #| label: subset-data
 load("data/trax_gp34_v1.rda")
-  
+
 if (do_collapse_scid_levels) {
   scid_levels_to_collapse <- c("Absent", "Sub-Threshold")
   trax_gp34_v1 <- trax_gp34_v1 |> collapse_scid_levels(scid_levels_to_collapse)
@@ -481,8 +481,8 @@ pval_sex_gp34_v1_formatted <- pval_sex_gp34_v1 |> scales::label_pvalue()()
 #| eval: false
 #| label: plot-permutation-test-sex
 plot_permutation_results(
-    permuted_test_stats,
-    observed_test_stat)
+  permuted_test_stats,
+  observed_test_stat)
 ```
 
 
@@ -643,7 +643,7 @@ given the limited sample size of only `r n_over_100_female` females with CGG ≥
 sustain_output_CV <- sustain_output |> attr("CV")
 n_s_min_CVIC <- which.min(sustain_output_CV$CVIC) # nolint: object_name_linter
 n_s_selected <- 4
-
+subtype_order <- c(1,3,4,2)
 results_cv_max <- extract_results_from_pickle(
   n_s = n_s_selected,
   use_rds = use_rds,
@@ -821,9 +821,26 @@ at baseline visit, stratified by sex.
 
 set.seed(2)
 tbl_sg_demos <- table_subtype_by_demographics(
-  patient_data,
+  demographic_vars = c(
+      "CGG",
+      "CGG 55-99",
+      "Male",
+      "Primary Race/Ethnicity",
+      "Age at visit"
+    ),
+  patient_data = patient_data,
   subtype_and_stage_table =
-    results_cv_max$subtype_and_stage_table,
+    results_cv_max$subtype_and_stage_table |> 
+    mutate(
+      ml_subtype = 
+        ml_subtype |> 
+        forcats::fct_recode(
+          "Type 4" = "Type 2",
+          "Type 2" = "Type 3",
+          "Type 3" = "Type 4"
+        ) |> 
+        factor(levels = paste("Type", 0:4))
+    ),
   digits = list(
     CGG = 1,
     `FX3*` = c(0, 1),
@@ -890,7 +907,7 @@ list(
   "Males" = fig_males_first,
   "Females" = fig_females_first
 ) |>
-  pvd_lineplot(
+  pvd_subtype_lineplot(
     text_size = lineplot_text_size,
     events_to_highlight = c(
       "SCID: Mood Disorders: Threshold",

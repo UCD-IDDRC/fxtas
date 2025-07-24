@@ -10,7 +10,7 @@ figs <- extract_figs_from_pickle(
   n_s = n_s_selected,
   dataset_name = dataset_name,
   output_folder = output_folder
-)
+)[subtype_order]
 
 plot_compact_pvd_est2(
   figs = figs,
