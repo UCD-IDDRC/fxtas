@@ -20,6 +20,7 @@ tbl_pf_stage3plus <-
   select(Stage_3plus, `parkinsonian features`) |> 
   table()
 
+n_pf_s3plus <- tbl_pf_stage3plus["3+" ,"Yes"]
 pr_pf_stage3plus <- tbl_pf_stage3plus |> proportions(m = 1)
 pct_pf_stage3plus <- round(pr_pf_stage3plus * 100, 1)
   
@@ -30,6 +31,7 @@ parkinsons_female_mean <-
 parkinsons_female_pct <- 
   round(parkinsons_female_mean * 100, 1)
 
+
 pf_female_mean <- 
   mean(v1_usable_female_cases$`parkinsonian features` == "Yes", na.rm = TRUE)
 
@@ -39,6 +41,9 @@ pf_female_pct <-
 stages <- v1_usable_cases |>
   dplyr::select(all_of("FXTAS Stage")) |>
   table()
+
+n_pf_screened_cases <- 
+  sum(!is.na(v1_usable_cases$`parkinsonian features`))
 ```
 
 
@@ -48,26 +53,24 @@ Our data included:
 `r nrow(v1_usable_cases)` fragile X premutation carriers and
 `r nrow(controls_v1)` controls;
 `r nrow(v1_usable_males)` males and `r nrow(v1_usable_females)` females;
-and `r and::and(stages)` carriers at
+and `r and::and(stages)` premutation carriers at
 FXTAS stages `r names(stages) |> and::and()`, respectively.
 `r pct_stage_3plus`% of premutation carriers were at FXTAS Stages 3-5
-at the time of their baseline visit (Table 1).
-`r pct_pf_stage3plus["3+", "Yes"]`% 
+at the time of their baseline visit (@tbl-demographics).
+Of `r n_pf_screened_cases` premutation carriers screened for parkinsonian features,
+`r n_pf_s3plus` carriers
+(`r pct_pf_stage3plus["3+", "Yes"]`% of `r sum(tbl_pf_stage3plus["3+",])`)
 of premutation carriers at FXTAS Stages 3-5 had parkinsonian features,
-while `r pct_pf_stage3plus["0-2", "Yes"]`% 
-of premutation carriers at FXTAS Stages 0-2 had parkinsonian features
+while `r tbl_pf_stage3plus["0-2", "Yes"]` premutation carriers
+(`r pct_pf_stage3plus["0-2", "Yes"]`% of `r `)
+at FXTAS Stages 0-2 had parkinsonian features
 (@supptbl-stage-vs-pk-ft).
+
 Note that an estimated 
 `r parkinsons_female_pct`% of female premutation carriers 
 had Parkinsons Disease,
 whereas only `r pf_female_pct`% of female premutation carriers
 had parkinsonian features (@supptbl-parkinsons-by-cgg).
-The apparent discrepancy is due to different proportions of missing data;
-`r parkinsons_na_pct`% of the “Parkinson's disease” variable is missing,
-whereas `r pf_na_pct`% of the “parkinsonian features” variable is missing.
-Parkinson's disease diagnoses were made by
-the participants’ primary physicians or neurologists,
-outside of the GP and TRAX studies,
-whereas parkinsonian features were assessed as part of the study protocols.
+
 All nine participants with recorded Parkinsons Disease diagnoses
 also had at least one parkinsonian feature.

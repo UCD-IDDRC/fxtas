@@ -21,7 +21,10 @@ figs |>
         "MRI: Cerebellar: Mild",
         "MRI: Cerebral: Moderate/Severe",
         "SCID: Anxiety Disorders: Threshold",
-        "SCID: Mood Disorders: Threshold"
+        "SCID: Mood Disorders: Threshold",
+        "Corpus Callosum-Thickness: Thin",
+        "Splenium WM Hyperintensity: Mild",
+        "Genu WM Hyperintensity",
         ),
       "green" = c(
         "Parkinsonian Features",

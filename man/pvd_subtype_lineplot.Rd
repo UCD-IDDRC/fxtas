@@ -6,7 +6,8 @@
 \usage{
 pvd_subtype_lineplot(
   figs,
-  events_to_highlight = NULL,
+  events_to_highlight_groups = NULL,
+  events_to_highlight = unlist(events_to_highlight_groups),
   highlight_color = NA,
   min_alpha = 0.25,
   max_alpha = 1,
@@ -22,6 +23,8 @@ pvd_subtype_lineplot(
 }
 \arguments{
 \item{figs}{A \link{list} of todo}
+
+\item{events_to_highlight_groups}{\link{list}}
 
 \item{events_to_highlight}{todo}
 
