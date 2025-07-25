@@ -220,8 +220,6 @@ table1(
 
 {{< include _sec_stage_vs_pk_ft.qmd >}}
 
-{{< pagebreak >}}
-
 ::: {#supptbl-fxtas-stage-by-cgg}
 
 ```{r}
