@@ -60,7 +60,7 @@
 <span>  biomarker_events_table <span class="op">=</span> <span class="fu"><a href="get_biomarker_events_table.html">get_biomarker_events_table</a></span><span class="op">(</span><span class="va">biomarker_levels</span><span class="op">)</span>,</span>
 <span>  biomarker_event_names <span class="op">=</span> <span class="va">biomarker_events_table</span><span class="op">$</span><span class="va">biomarker_level</span>,</span>
 <span>  format_sst <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>  n_s <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">results</span><span class="op">$</span><span class="va">sample_sequence</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>,</span>
+<span>  n_s <span class="op">=</span> <span class="fu">get_n_subtypes</span><span class="op">(</span><span class="va">results</span><span class="op">)</span>,</span>
 <span>  subtype_order <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq_len</a></span><span class="op">(</span><span class="va">n_s</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
