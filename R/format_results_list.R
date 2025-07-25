@@ -8,6 +8,8 @@
 #' @param biomarker_event_names vector of biomarker event names
 #' @param format_sst should the subtype and stage table be formatted?
 #' (doesn't work for cross-validation fold pickle-files)
+#' @param n_s number of latent subgroups
+#' @param subtype_order [integer] indicating how to reorder the subtypes
 #'
 #' @returns a `"SuStaIn_model"` object (extends [list()])
 #'
@@ -17,7 +19,10 @@ format_results_list <- function(
     biomarker_levels = NULL,
     biomarker_events_table = get_biomarker_events_table(biomarker_levels),
     biomarker_event_names = biomarker_events_table$biomarker_level,
-    format_sst = TRUE) {
+    format_sst = TRUE,
+    n_s = dim(results$sample_sequence)[1],
+    subtype_order = seq_len(n_s)
+    ) {
 
   results$samples_sequence <-
     results$samples_sequence |>

@@ -24,6 +24,14 @@ n_pf_s3plus <- tbl_pf_stage3plus["3+" ,"Yes"]
 pr_pf_stage3plus <- tbl_pf_stage3plus |> proportions(m = 1)
 pct_pf_stage3plus <- round(pr_pf_stage3plus * 100, 1)
   
+pd_count <- 
+  sum(v1_usable_cases$Parkinsons == "Yes", na.rm = TRUE)
+
+pd_count_male <- 
+  sum(v1_usable_male_cases$Parkinsons == "Yes", na.rm = TRUE)
+
+pd_count_female <- 
+  sum(v1_usable_female_cases$Parkinsons == "Yes", na.rm = TRUE)
 
 parkinsons_female_mean <- 
   mean(v1_usable_female_cases$Parkinsons == "Yes", na.rm = TRUE)
@@ -44,6 +52,12 @@ stages <- v1_usable_cases |>
 
 n_pf_screened_cases <- 
   sum(!is.na(v1_usable_cases$`parkinsonian features`))
+
+cases_pf <- v1_usable_cases |> 
+  filter(`parkinsonian features` == "Yes") |> 
+  select(Gender) |> 
+  table()
+
 ```
 
 
@@ -60,17 +74,19 @@ at the time of their baseline visit (@tbl-demographics).
 Of `r n_pf_screened_cases` premutation carriers screened for parkinsonian features,
 `r n_pf_s3plus` carriers
 (`r pct_pf_stage3plus["3+", "Yes"]`% of `r sum(tbl_pf_stage3plus["3+",])`)
-of premutation carriers at FXTAS Stages 3-5 had parkinsonian features,
+at FXTAS Stages 3-5 had parkinsonian features,
 while `r tbl_pf_stage3plus["0-2", "Yes"]` premutation carriers
-(`r pct_pf_stage3plus["0-2", "Yes"]`% of `r `)
+(`r pct_pf_stage3plus["0-2", "Yes"]`% of `r sum(tbl_pf_stage3plus["0-2",])`)
 at FXTAS Stages 0-2 had parkinsonian features
 (@supptbl-stage-vs-pk-ft).
-
-Note that an estimated 
-`r parkinsons_female_pct`% of female premutation carriers 
-had Parkinsons Disease,
-whereas only `r pf_female_pct`% of female premutation carriers
-had parkinsonian features (@supptbl-parkinsons-by-cgg).
-
+`r pd_count |> broman::spell_out() |> Hmisc::capitalize()`
+premutation carriers
+(`r pd_count_male` male and `r pd_count_female`)
+were diagnosed with Parkinsons Disease
+by the participants' primary physicians or neurologists,
+whereas `r sum(cases_pf)` premutation carriers 
+(`r cases_pf["Male"]` male and `r cases_pf["Female"]` female)
+had parkinsonian features assessed as part of the study protocols
+(@supptbl-parkinsons-by-cgg).
 All nine participants with recorded Parkinsons Disease diagnoses
 also had at least one parkinsonian feature.

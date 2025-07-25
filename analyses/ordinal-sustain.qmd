@@ -487,12 +487,14 @@ plot_permutation_results(
   observed_test_stat)
 ```
 
-
+We first characterized 
+sequential orders of FXTAS symptoms by sex 
+and sex differences in the estimated sequential orders.
 @fig-first-only-pvd shows 
 the estimated sequential orders
 of FXTAS `r outcomes_name`s 
 in males and females, 
-and @fig-first-only-diffs shows differences in those orders.
+and @fig-first-only-diffs highlights sex differences in those orders.
 We found statistically significant evidence of a 
 difference in sequences of `r events_name`
 between males and females (p `r pval_sex_gp34_v1_formatted`). 
@@ -652,6 +654,18 @@ results_cv_max <- extract_results_from_pickle(
   dataset_name = dataset_name,
   output_folder = output_folder
 )
+```
+
+```{r}
+#| label: extract-figs-from-pickle-n-s-selected
+figs <- extract_figs_from_pickle(
+    size.y = size.y,
+    n_s = n_s_selected,
+    dataset_name = dataset_name,
+    output_folder = output_folder)
+
+figs <- figs[subtype_order] |>   
+  rlang::set_names(paste("Subtype", 1:n_s_selected))
 ```
 
 We conducted latent subtype classification analysis to cluster participants 

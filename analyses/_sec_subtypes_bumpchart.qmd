@@ -1,0 +1,51 @@
+```{r}
+#| label: extract-figs-from-pickle-n-s-selected
+figs =
+  extract_figs_from_pickle(
+    size.y = size.y,
+    n_s = n_s_selected,
+    dataset_name = dataset_name,
+    output_folder = output_folder)
+
+figs <- figs[subtype_order] |>
+  rlang::set_names(paste("Subtype", 1:n_s_selected))
+```
+
+:::: landscape
+
+::: {#suppfig-pvd_chosen_subtypes_bumpplot}
+
+```{r}
+#| fig-height: !expr pvd_line_height
+#| fig-width: 15
+color_info <- tibble::tribble(
+  ~event_name, ~line_color, ~highlight_color,
+  "MRI: Cerebellar: Mild",  "orange", "#FFF",
+  "MRI: Cerebral: Moderate/Severe", "orange", "#FFF",
+  # "SCID: Anxiety Disorders: Threshold", "orange", "#FFF",
+  "SCID: Mood Disorders: Threshold", "orange", "#FFF",
+  "Corpus Callosum-Thickness: Thin", "orange", "#FFF",
+  "Splenium WM Hyperintensity: Mild", "orange", "#FFF",
+  "Genu WM Hyperintensity", "orange", "#FFF",
+  "Parkinsonian Features", "green", "#FFF",
+  "Parkinsons", "green", "#FFF",
+  "FXTAS Stage: 1", "black", "yellow",
+  "FXTAS Stage: 2", "black", "yellow",
+  "FXTAS Stage: 3", "black", "yellow",
+  "FXTAS Stage: 4", "black", "yellow",
+  "FXTAS Stage: 5", "black", "yellow",
+  "SWM Between Errors: > 26", "purple", "#FFF",
+  "Postural Tremor", "red", "#FFF",
+  "Head Tremor", "cyan3", "#FFF"
+)
+
+figs |> pvd_subtype_lineplot(
+  smooth = 30,
+  events_to_highlight = color_info)
+```
+
+
+**Differences in event sequences between pairs of latent subtypes.**
+`r compact_fig_cap2`
+
+:::

@@ -212,9 +212,13 @@ table1(
   shared_flextable_settings()
 ```
 
-**Parkinson's disease by CGG status**
+**Parkinson's disease and parkinsonian features, by CGG status**
 
 :::
+
+{{< pagebreak >}}
+
+{{< include _sec_stage_vs_pk_ft.qmd >}}
 
 {{< pagebreak >}}
 

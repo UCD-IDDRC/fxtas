@@ -79,7 +79,9 @@ indicates that the estimated models are plausible.
 
 {{< pagebreak >}}
 
-{{< include _sec_subtypes_linegraphs.qmd >}}
+{{< include _sec_subtypes_bumpchart.qmd >}}
+
+<!-- {{< include _sec_subtypes_linegraphs.qmd >}} -->
 
 {{< pagebreak >}}
 

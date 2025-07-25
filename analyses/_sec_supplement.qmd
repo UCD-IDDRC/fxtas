@@ -35,7 +35,3 @@
 <!-- {{< include longitudinal-results.qmd >}} -->
 
 {{< pagebreak >}}
-
-## Prevalence of parkinsonian features by FXTAS Stage {.appendix #sec-pk-ft-by-stage}
-
-{{< include _sec_stage_vs_pk_ft.qmd >}}
