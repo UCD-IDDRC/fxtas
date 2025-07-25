@@ -1,6 +1,7 @@
 @suppfig-pvd-by-cgg shows the estimated sequences 
 stratified by CGG repeat level.
-We did not find statistically significant evidence of a difference in event sequences
+We did not find statistically significant evidence of 
+a difference in event sequences
 between CGG < 100 and CGG ≥ 100 (p = `r pval_cgg_gp34_v1`),
 but some potential differences were noted
 (@suppfig-pvd-by-cgg and @suppfig-diff-by-cgg).
@@ -22,7 +23,8 @@ the earlier the onset and the faster the progression of FXTAS
 Perhaps the cut off of 100 is too high for this distinction to be made.
 
 These differences were more evident among males than females
-(Supplementary material, [Comparing CGG levels stratified by sex](#sec-cgg-strat-sex)).
+(Supplementary material, 
+[Comparing CGG levels stratified by sex](#sec-cgg-strat-sex)).
 When we fitted models for subgroup analyses by sex and CGG repeats level,
 the models for males showed the same patterns described above,
 except for head tremor
@@ -30,7 +32,6 @@ except for head tremor
 @suppfig-pvd-by-cgg-male
 shows the corresponding stratified models and
 compares the estimates of the sequences for these two subgroups.
-
 
 We did not find statistically significant evidence of
 a difference between CGG <100 and CGG ≥100 among females

@@ -26,6 +26,8 @@
 
 {{< include _results_by_sex_strat_cgg.qmd >}}
 
+{{< pagebreak >}}
+
 ## Comparing CGG levels stratified by sex {.appendix #sec-cgg-strat-sex}
 
 {{< include _results_cgg_strat_sex.qmd >}}

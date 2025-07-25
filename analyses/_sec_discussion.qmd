@@ -120,7 +120,7 @@ even if there is no tremor or ataxia yet.
 {{< include _sec_disc_splenium_cc_sign.qmd >}}
 
 This suggests that the diagnostic criteria for FXTAS
-may need to be somewhat altered in females compared to males,
+may need to be altered in females compared to males,
 particularly for early cases.
 Indeed, the diagnostic criteria for FXTAS 
 were determined with the study of males only
