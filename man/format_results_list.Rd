@@ -11,7 +11,7 @@ format_results_list(
   biomarker_events_table = get_biomarker_events_table(biomarker_levels),
   biomarker_event_names = biomarker_events_table$biomarker_level,
   format_sst = TRUE,
-  n_s = dim(results$sample_sequence)[1],
+  n_s = get_n_subtypes(results),
   subtype_order = seq_len(n_s)
 )
 }

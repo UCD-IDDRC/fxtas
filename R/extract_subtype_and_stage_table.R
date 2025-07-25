@@ -22,7 +22,8 @@ extract_subtype_and_stage_table <- function( # nolint: object_length_linter
         0,
         .data$ml_subtype
       ),
-      ml_subtype = subtype_map[as.character(ml_subtype)],
+      ml_subtype_old = .data$ml_subtype,
+      ml_subtype = subtype_map[as.character(.data$ml_subtype)],
       ml_subtype =
         paste("Type", .data$ml_subtype) |>
         factor(
