@@ -3,7 +3,14 @@ extract_subtype_and_stage_table <- function( # nolint: object_length_linter
     n_s = get_n_subtypes(results),
     subtype_order = seq_len(n_s)) {
 
-  tibble(
+  subtype_order_with_0 <-
+    c(0, subtype_order)
+
+  subtype_map <-
+    (0:n_s) |>
+    setNames(subtype_order_with_0)
+
+  to_return <- tibble(
     ml_subtype = results$ml_subtype[, 1] + 1,
     ml_stage = results$ml_stage[, 1],
     prob_ml_subtype = results$prob_ml_subtype[, 1],
@@ -15,6 +22,7 @@ extract_subtype_and_stage_table <- function( # nolint: object_length_linter
         0,
         .data$ml_subtype
       ),
+      ml_subtype = subtype_map[as.character(ml_subtype)],
       ml_subtype =
         paste("Type", .data$ml_subtype) |>
         factor(
@@ -22,4 +30,7 @@ extract_subtype_and_stage_table <- function( # nolint: object_length_linter
         ) |>
         magrittr::set_attr("n_s", n_s)
     )
+
+  return(to_return)
+
 }
