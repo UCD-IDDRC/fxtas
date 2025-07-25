@@ -39,6 +39,10 @@ pvd_subtype_lineplot <- function(
                     "FXTAS Stage: 3",
                     "FXTAS Stage: 4",
                     "FXTAS Stage: 5")
+
+  # truncate subtype_x to length(figs) - add check to force lengths to match?
+  subtype_x = subtype_x[1:length(figs)]
+
   # additional processing
   plot_dataset <- dataset |>
     pvd_bumpplot_preprocessing(

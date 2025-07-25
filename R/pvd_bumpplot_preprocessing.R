@@ -19,11 +19,11 @@ pvd_bumpplot_preprocessing <- function(
         stringi::stri_extract_first_regex("[0-9]+") |>
         as.integer(),
       # right justify left facet, left justify right facet
-      hjust = ifelse(
-        (.data$facet == facet_labels[1] | .data$facet == facet_labels[3]),
-        1,
-        0
-      ),
+      # hjust = ifelse(
+      #   (.data$facet == facet_labels[1] | .data$facet == facet_labels[3]),
+      #   1,
+      #   0
+      # ),
       # made FXTAS Stage label bold
       `event label` = ifelse(
         .data$biomarker == "FXTAS Stage",
@@ -40,7 +40,7 @@ pvd_bumpplot_preprocessing <- function(
           "biomarker",
           "group_color",
           "event label",
-          "hjust",
+          # "hjust",
           "highlight_color",
           "line_color"
         )
@@ -54,12 +54,15 @@ pvd_bumpplot_preprocessing <- function(
         1.5,
         1
       ),
-      facet_order = case_when(
-        facet == facet_labels[1] ~ subtype_x[1],
-        facet == facet_labels[2] ~ subtype_x[2],
-        facet == facet_labels[3] ~ subtype_x[3],
-        facet == facet_labels[4] ~ subtype_x[4]
-      ),
       background = .data$highlight_color |> tidyr::replace_na("#FFF")
+    ) |>
+    dplyr::left_join(
+      x = _,
+      y  = data.frame(
+        facet_label = facet_labels,
+        facet_order = subtype_x
+      ),
+      by = c("facet" = "facet_label")
     )
+
 }
