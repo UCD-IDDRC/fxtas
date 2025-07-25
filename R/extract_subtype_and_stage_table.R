@@ -1,6 +1,7 @@
 extract_subtype_and_stage_table <- function( # nolint: object_length_linter
     results,
-    n_s = get_n_subtypes(results)) {
+    n_s = get_n_subtypes(results),
+    subtype_order = seq_len(n_s)) {
 
   tibble(
     ml_subtype = results$ml_subtype[, 1] + 1,

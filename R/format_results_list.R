@@ -28,13 +28,14 @@ format_results_list <- function(
     results$samples_sequence |>
     format_samples_sequence(
       results = results,
-      biomarker_event_names = biomarker_event_names
+      biomarker_event_names = biomarker_event_names,
+      subtype_order = subtype_order
     )
 
   if (format_sst) {
     results$subtype_and_stage_table <-
       results |>
-      extract_subtype_and_stage_table()
+      extract_subtype_and_stage_table(subtype_order = subtype_order)
   }
 
   class(results) <- c("SuStaIn_model", class(results))

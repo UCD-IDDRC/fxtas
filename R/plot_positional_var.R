@@ -252,7 +252,7 @@ plot_positional_var <- function(
   if (length(figs) == 1) {
     figs <- figs[[1]]
   } else {
-    names(figs) <- paste("Group", seq_along(figs))
+    names(figs) <- paste("Subtype", seq_along(figs))
     class(figs) <- c("PVD.list", class(figs))
   }
 

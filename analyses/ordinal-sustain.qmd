@@ -846,18 +846,7 @@ tbl_sg_demos <- table_subtype_by_demographics(
       
     ),
   patient_data = patient_data,
-  subtype_and_stage_table =
-    results_cv_max$subtype_and_stage_table |> 
-    mutate(
-      ml_subtype = 
-        .data$ml_subtype |> 
-        forcats::fct_recode(
-          "Type 4" = "Type 2",
-          "Type 2" = "Type 3",
-          "Type 3" = "Type 4"
-        ) |> 
-        factor(levels = paste("Type", 0:4))
-    ),
+  subtype_and_stage_table = results_cv_max$subtype_and_stage_table,
   digits = list(
     CGG = 1,
     `FX3*` = c(0, 1),

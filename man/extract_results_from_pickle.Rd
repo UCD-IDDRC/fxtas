@@ -18,7 +18,7 @@ extract_results_from_pickle(
 )
 }
 \arguments{
-\item{n_s}{helps construct \code{picklename} by identifying number of latent subgroups}
+\item{n_s}{number of latent subgroups; helps construct \code{picklename}}
 
 \item{dataset_name}{root name of dataset}
 
@@ -50,7 +50,7 @@ a \code{"SuStaIn_model"} object (extends \code{\link[=list]{list()}})
 Extract results from pickle file
 }
 \examples{
-output_path =
+output_path <-
   fs::path_package("extdata/sim_data", package = "fxtas")
-results = extract_results_from_pickle(output_folder = output_path)
+results <- extract_results_from_pickle(output_folder = output_path)
 }

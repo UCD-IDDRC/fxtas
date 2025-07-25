@@ -18,7 +18,7 @@ extract_results_from_pickles(
 )
 }
 \arguments{
-\item{n_s}{helps construct \code{picklename} by identifying number of latent subgroups}
+\item{n_s}{number of latent subgroups; helps construct \code{picklename}}
 
 \item{dataset_name}{root name of dataset}
 
