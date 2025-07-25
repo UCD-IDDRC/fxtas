@@ -59,7 +59,9 @@
 <span>  biomarker_levels <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  biomarker_events_table <span class="op">=</span> <span class="fu"><a href="get_biomarker_events_table.html">get_biomarker_events_table</a></span><span class="op">(</span><span class="va">biomarker_levels</span><span class="op">)</span>,</span>
 <span>  biomarker_event_names <span class="op">=</span> <span class="va">biomarker_events_table</span><span class="op">$</span><span class="va">biomarker_level</span>,</span>
-<span>  format_sst <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span>  format_sst <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  n_s <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">results</span><span class="op">$</span><span class="va">sample_sequence</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>,</span>
+<span>  subtype_order <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq_len</a></span><span class="op">(</span><span class="va">n_s</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -91,6 +93,14 @@
 <dt id="arg-format-sst">format_sst<a class="anchor" aria-label="anchor" href="#arg-format-sst"></a></dt>
 <dd><p>should the subtype and stage table be formatted?
 (doesn't work for cross-validation fold pickle-files)</p></dd>
+
+
+<dt id="arg-n-s">n_s<a class="anchor" aria-label="anchor" href="#arg-n-s"></a></dt>
+<dd><p>number of latent subgroups</p></dd>
+
+
+<dt id="arg-subtype-order">subtype_order<a class="anchor" aria-label="anchor" href="#arg-subtype-order"></a></dt>
+<dd><p><a href="https://rdrr.io/r/base/integer.html" class="external-link">integer</a> indicating how to reorder the subtypes</p></dd>
 
 </dl></div>
     <div class="section level2">
