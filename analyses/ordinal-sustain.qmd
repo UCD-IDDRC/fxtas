@@ -77,7 +77,7 @@ fit_models <- TRUE
 run_cv <- TRUE
 
 verbose <- TRUE
-rerun <- TRUE
+rerun <- FALSE
 use_rds <- !rerun
 
 plot_python <- TRUE
@@ -337,7 +337,8 @@ results_v1 <- extract_results_from_pickles(
   n_s = 1:N_S_max,
   rda_filename = "data.RData",
   dataset_name = "sample_data",
-  output_folder = output_folder
+  output_folder = output_folder,
+  verbose = verbose
 )
 
 results_females_first = extract_results_from_pickle(

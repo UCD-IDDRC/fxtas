@@ -83,7 +83,7 @@ output_folder <-
 ```
 
 ```{r}
-#| label: subset-data
+#| label: subset-data_sec-longitudinal
 load("data/trax_gp34_v1.rda")
 
 if (do_collapse_scid_levels) {

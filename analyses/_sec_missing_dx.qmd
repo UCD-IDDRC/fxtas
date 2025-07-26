@@ -1,4 +1,5 @@
 ```{r}
+#| label: load-data
 load("data/trax_gp34_v1.rda")
 full_data <-
   trax_gp34_v1 |>
