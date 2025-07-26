@@ -18,7 +18,10 @@
 #' @examples
 #' output_path <-
 #'   fs::path_package("extdata/sim_data", package = "fxtas")
-#' results <- extract_results_from_pickle(output_folder = output_path)
+#' results <- extract_results_from_pickle(
+#'   n = 3,
+#'   output_folder = output_path, use_rds = FALSE
+#' )
 extract_results_from_pickle <- function(
     n_s = 1,
     dataset_name = "sample_data",

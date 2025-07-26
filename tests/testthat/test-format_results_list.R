@@ -21,11 +21,26 @@ test_that(
       python_version = "3.9"
     )
 
+    biomarker_levels <-
+      output_path |>
+      fs::path("biomarker_levels.rds") |>
+      readr::read_rds()
+
+    biomarker_groups <-
+      output_path |>
+      fs::path("biomarker_groups.rds") |>
+      readr::read_rds()
+
     results <-
       extract_results_from_pickle(
         output_folder = output_path,
         use_rds = FALSE,
-        n_s = 2
+        format_results = FALSE,
+        n_s = 3
+      ) |>
+      format_results_list(
+        biomarker_levels = biomarker_levels,
+        biomarker_groups = biomarker_groups
       )
 
     results |>

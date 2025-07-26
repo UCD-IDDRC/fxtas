@@ -38,7 +38,8 @@ format_results_list <- function(
       extract_subtype_and_stage_table(subtype_order = subtype_order)
   }
 
-  results$samples_f
+  results$samples_f <- results$samples_f |>
+    format_samples_f(subtype_order = subtype_order)
 
   results <- results |>
     structure(

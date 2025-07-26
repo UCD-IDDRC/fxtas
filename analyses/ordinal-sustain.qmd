@@ -666,10 +666,10 @@ results_cv_max <- extract_results_from_pickle(
 ```{r}
 figs <- results_cv_max |> 
   plot_positional_var(subtype_order = NULL)
-figs |> 
-  pvd_subtype_lineplot(
-    smooth = 30,
-    events_to_highlight = color_info)
+# figs |> 
+#   pvd_subtype_lineplot(
+#     smooth = 30,
+#     events_to_highlight = color_info)
 ```
 
 

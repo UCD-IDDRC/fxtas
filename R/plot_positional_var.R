@@ -47,10 +47,9 @@ plot_positional_var <- function(
     biomarker_event_names =
       biomarker_events_table |> dplyr::pull("biomarker_level"),
     biomarker_plot_order = NULL,
-    ml_f_EM = NULL,
+    ml_f_EM = results$ml_f_EM,
     cval = FALSE,
     subtype_order = seq_len(dim(samples_sequence)[1]),
-    # subtype_order = NULL,
     biomarker_order = NULL,
     title_font_size = 12,
     stage_font_size = 10,
