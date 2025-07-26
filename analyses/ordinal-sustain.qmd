@@ -660,16 +660,6 @@ results_cv_max <- extract_results_from_pickle(
   output_folder = output_folder,
   subtype_order = subtype_order
 )
-
-
-results_cv_max00 <- extract_results_from_pickle(
-  n_s = n_s_selected,
-  use_rds = use_rds,
-  dataset_name = dataset_name,
-  output_folder = output_folder,
-  subtype_order = subtype_order,
-  format_results = FALSE
-)
 ```
 
 ```{r}
