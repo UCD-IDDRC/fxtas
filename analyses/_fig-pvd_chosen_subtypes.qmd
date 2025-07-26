@@ -5,13 +5,6 @@
 #| fig-width: !expr pvd_width
 #| fig-cap-location: top
 
-figs <- extract_figs_from_pickle(
-  size.y = size.y,
-  n_s = n_s_selected,
-  dataset_name = dataset_name,
-  output_folder = output_folder
-)[subtype_order]
-
 plot_compact_pvd_est2(
   figs = figs,
   show_uncert = TRUE,
