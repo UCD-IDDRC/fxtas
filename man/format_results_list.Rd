@@ -13,7 +13,7 @@ format_results_list(
   format_sst = TRUE,
   n_s = get_n_subtypes(results),
   subtype_order = seq_len(n_s),
-  biomarker_groupss
+  biomarker_groups
 )
 }
 \arguments{

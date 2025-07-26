@@ -16,7 +16,7 @@ plot_positional_var(
   biomarker_events_table = get_biomarker_events_table(biomarker_levels),
   biomarker_event_names = dplyr::pull(biomarker_events_table, "biomarker_level"),
   biomarker_plot_order = NULL,
-  ml_f_EM = NULL,
+  ml_f_EM = results$ml_f_EM,
   cval = FALSE,
   subtype_order = seq_len(dim(samples_sequence)[1]),
   biomarker_order = NULL,
