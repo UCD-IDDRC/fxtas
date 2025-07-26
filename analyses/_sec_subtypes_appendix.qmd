@@ -2,11 +2,9 @@
 
 {{< include _fig_loglik_mcmc.qmd >}}
 
-::: landscape
-
 {{< include _sec_CVIC_graphs.qmd >}}
 
-:::
+{{< pagebreak >}}
 
 {{< include _fig-pvd_chosen_subtypes.qmd >}}
 

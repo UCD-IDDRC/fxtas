@@ -1,24 +1,28 @@
-::: {#suppfig-cvic layout-ncol="2"}
+:::{#suppfig-cvic-1}
 
 ```{r}
-#| label: fig-cvic-1
-#| fig-cap: ""
 #| eval: !expr fit_models
 
 sustain_output_CV$CVIC |> plot_CVIC()
 ```
 
+**Selection criteria for number of latent subtypes:**
+Cross-validation information criterion (CVIC)
+
+:::
+
+{{< pagebreak >}}
+
+:::{#suppfig-cvic-2}
+
 ```{r}
-#| label: fig-cvic-2
-#| fig-cap: ""
 #| eval: !expr fit_models
 
 sustain_output_CV$loglike_matrix |> plot_cv_loglik(y_text_size = y_text_size)
 ```
 
-**Selection criteria for number of latent subtypes**
-**(a)** Cross-validation information criterion (CVIC)
-**(b)** Test set log-likelihood across cross-validation folds 
+**Selection criteria for number of latent subtypes:**
+Test set log-likelihood across cross-validation folds 
 (Out-Of-Fold Log-Likelihood criterion, OOFLL)
 
 :::
