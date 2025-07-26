@@ -24,6 +24,7 @@ format_ml_subtype <- function(
     factor(
       levels = glue::glue("Type {0:n_subtypes}")
     ) |>
-    magrittr::set_attr("n_s", n_subtypes)
+    magrittr::set_attr("n_s", n_subtypes) |>
+    magrittr::set_attr("subtype_map", subtype_map)
   return(ml_subtype)
 }
