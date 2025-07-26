@@ -24,6 +24,14 @@ format_results_list <- function(
     subtype_order = seq_len(n_s),
     biomarker_groups) {
 
+  results <- results |>
+    structure(
+      class = union("SuStaIn_model", class(results)),
+      n_s = n_s,
+      biomarker_groups = biomarker_groups,
+      biomarker_levels = biomarker_levels
+    )
+
   results$samples_sequence <-
     results$samples_sequence |>
     format_samples_sequence(
@@ -61,13 +69,6 @@ format_results_list <- function(
 
   results$ml_sequence_prev_EM <- results$ml_sequence_prev_EM |>
     format_ml_sequence_EM(subtype_order = subtype_order)
-
-  results <- results |>
-    structure(
-      class = union("SuStaIn_model", class(results)),
-      biomarker_groups = biomarker_groups,
-      biomarker_levels = biomarker_levels
-    )
 
   return(results)
 }
