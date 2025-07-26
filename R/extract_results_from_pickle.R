@@ -73,7 +73,9 @@ extract_results_from_pickle <- function(
       fs::path("biomarker_groups.rds") |>
       readr::read_rds()
 
-    if (format_results) {
+    if (!format_results) {
+      return(results00)
+    } else {
       results <-
         results00 |>
         format_results_list(
@@ -81,12 +83,8 @@ extract_results_from_pickle <- function(
           biomarker_groups = biomarker_groups,
           ...
         )
-
-    } else {
-      results <- results00
+     results |> saveRDS(file = rds_path)
     }
-
-    results |> saveRDS(file = rds_path)
   }
 
   return(results)
