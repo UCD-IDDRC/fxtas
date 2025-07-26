@@ -41,6 +41,27 @@ format_results_list <- function(
   results$samples_f <- results$samples_f |>
     format_samples_f(subtype_order = subtype_order)
 
+  results$ml_f_EM <- results$ml_f_EM |>
+    format_ml_f_EM(subtype_order = subtype_order)
+
+  results$ml_f_prev_EM <- results$ml_f_prev_EM |>
+    format_ml_f_EM(subtype_order = subtype_order)
+
+  results$prob_subtype <- results$prob_subtype |>
+    format_prob_subtype(subtype_order = subtype_order)
+
+  results$prob_stage <- results$prob_stage |>
+    format_prob_stage()
+
+  results$prob_subtype_stage <- results$prob_subtype_stage |>
+    format_prob_subtype_stage(subtype_order = subtype_order)
+
+  results$ml_sequence_EM <- results$ml_sequence_EM |>
+    format_ml_sequence_EM(subtype_order = subtype_order)
+
+  results$ml_sequence_prev_EM <- results$ml_sequence_prev_EM |>
+    format_ml_sequence_EM(subtype_order = subtype_order)
+
   results <- results |>
     structure(
       class = union("SuStaIn_model", class(results)),

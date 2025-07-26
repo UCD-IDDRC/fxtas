@@ -42,10 +42,10 @@ plot_positional_var <- function(
     biomarker_labels = names(biomarker_levels),
     biomarker_groups = results |> attr("biomarker_groups"),
     biomarker_levels = results |> attr("biomarker_levels"),
-    biomarker_events_table =
-      biomarker_levels |> get_biomarker_events_table(),
-    biomarker_event_names =
-      biomarker_events_table |> dplyr::pull("biomarker_level"),
+    biomarker_events_table = biomarker_levels |>
+      get_biomarker_events_table(),
+    biomarker_event_names = biomarker_events_table |>
+      dplyr::pull("biomarker_level"),
     biomarker_plot_order = NULL,
     ml_f_EM = results$ml_f_EM,
     cval = FALSE,
@@ -152,8 +152,7 @@ plot_positional_var <- function(
   # Container for all figure objects
   figs <- list()
   # Loop over figures
-  for (i in 1:N_S)
-  {
+  for (i in 1:N_S) {
     # Create the figure and axis for this subtype loop
 
     # confus_matrix_c =

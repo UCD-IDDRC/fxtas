@@ -19,7 +19,7 @@ format_samples_sequence <- function(
 
   dimnames(samples_sequence) <-
     list(
-      "subgroup" = paste("Subtype", 1:n_s),
+      "subtype" = paste("Subtype", 1:n_s),
       "position" = seq_len(dim(samples_sequence)[2]) |> as.character(),
       "iteration" = NULL
     )
