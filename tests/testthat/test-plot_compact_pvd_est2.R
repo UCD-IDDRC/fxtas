@@ -1,11 +1,10 @@
 test_that("results are consistent", {
 
-  figs <- extract_figs_from_pickle(
-    n_s = 4,
-    dataset_name = "sample_data",
-    output_folder = fs::path_package("fxtas", "extdata/sim_data/"),
-    use_rds = TRUE
-  )
+  # generate from make-sim_figs_4.R:
+  figs  <-
+    readr::read_rds(
+      testthat::test_path("fixtures", "sim-figs-4.rds")
+    )
 
   fig <- plot_compact_pvd_est2(
     facet_label_prefix = rep("", 4),
