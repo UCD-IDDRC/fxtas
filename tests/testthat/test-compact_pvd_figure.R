@@ -2,7 +2,6 @@ test_that("`compact_pvd_figure()` produces consistent results", {
   size.y = 11
   figs = extract_figs_from_pickle(
     size.y = size.y,
-    subtype_order = NULL,
     use_rds = TRUE,
     n_s = 3,
     rda_filename = "data.RData",
