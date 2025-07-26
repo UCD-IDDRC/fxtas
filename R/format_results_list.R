@@ -46,6 +46,15 @@ format_results_list <- function(
       extract_subtype_and_stage_table(subtype_order = subtype_order)
   }
 
+
+  results$ml_subtype_old <- results$ml_subtype[,1]
+
+  results$ml_subtype <- results$ml_subtype[,1] |>
+    format_ml_subtype(
+      n_subtypes = n_s,
+      ml_stage = results$ml_stage[,1],
+      subtype_order = subtype_order)
+
   results$samples_f <- results$samples_f |>
     format_samples_f(subtype_order = subtype_order)
 

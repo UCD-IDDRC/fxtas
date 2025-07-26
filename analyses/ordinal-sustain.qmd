@@ -651,7 +651,7 @@ given the limited sample size of only `r n_over_100_female` females with CGG ≥
 sustain_output_CV <- sustain_output |> attr("CV")
 n_s_min_CVIC <- which.min(sustain_output_CV$CVIC) # nolint: object_name_linter
 n_s_selected <- 4
-subtype_order <- c(1,3,4,2)
+# subtype_order <- c(1,3,4,2)
 subtype_order <- 1:4
 results_cv_max <- extract_results_from_pickle(
   n_s = n_s_selected,
@@ -661,6 +661,15 @@ results_cv_max <- extract_results_from_pickle(
   subtype_order = subtype_order
 )
 
+
+results_cv_max00 <- extract_results_from_pickle(
+  n_s = n_s_selected,
+  use_rds = use_rds,
+  dataset_name = dataset_name,
+  output_folder = output_folder,
+  subtype_order = subtype_order,
+  format_results = FALSE
+)
 ```
 
 ```{r}
