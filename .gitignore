@@ -35,3 +35,4 @@ README.html
 README_files
 **/real_data**
 tests/testthat/_snaps/*/*.new.*
+Rplot.png
