@@ -663,16 +663,6 @@ results_cv_max <- extract_results_from_pickle(
 figs <- results_cv_max |> plot_positional_var()
 ```
 
-```{r}
-#| label: extract-figs-from-pickle-n-s-selected
-figs <- extract_figs_from_pickle(
-    size.y = size.y,
-    n_s = n_s_selected,
-    dataset_name = dataset_name,
-    output_folder = output_folder)
-
-```
-
 We conducted latent subtype classification analysis to cluster participants 
 that are relatively homogeneous within the same cluster 
 and heterogeneous from other clusters 

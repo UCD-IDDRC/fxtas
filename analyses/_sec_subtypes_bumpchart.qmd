@@ -33,7 +33,8 @@ figs |> pvd_subtype_lineplot(
 
 
 **Differences in event sequences between pairs of latent subtypes.**
-`r compact_fig_cap2`
+Lines are used to show patterns of clinical interest.
+Text colors indicate symptoms grouped by measurement type.
 
 :::
 
