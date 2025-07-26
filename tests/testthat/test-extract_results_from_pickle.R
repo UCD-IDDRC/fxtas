@@ -29,6 +29,12 @@ test_that(
 
     results$samples_sequence = NULL
     results$samples_f = NULL
+
+    results |>
+      dplyr::glimpse() |>
+      expect_snapshot()
+
     results |>
       expect_snapshot_value(style = "serialize")
+
   })

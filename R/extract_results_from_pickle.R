@@ -65,13 +65,20 @@ extract_results_from_pickle <- function(
       fs::path("biomarker_levels.rds") |>
       readr::read_rds()
 
+    biomarker_groups <-
+      output_folder |>
+      fs::path("biomarker_groups.rds") |>
+      readr::read_rds()
+
     if (format_results) {
       results <-
         results00 |>
         format_results_list(
           biomarker_levels = biomarker_levels,
+          biomarker_groups = biomarker_groups,
           ...
         )
+
     } else {
       results <- results00
     }

@@ -40,8 +40,8 @@ plot_positional_var <- function(
     n_samples = results$ml_subtype |> nrow(),
     score_vals = build_score_vals(biomarker_levels),
     biomarker_labels = names(biomarker_levels),
-    biomarker_groups = NULL,
-    biomarker_levels = NULL,
+    biomarker_groups = results |> attr("biomarker_groups"),
+    biomarker_levels = results |> attr("biomarker_levels"),
     biomarker_events_table =
       biomarker_levels |> get_biomarker_events_table(),
     biomarker_event_names =
@@ -49,7 +49,8 @@ plot_positional_var <- function(
     biomarker_plot_order = NULL,
     ml_f_EM = NULL,
     cval = FALSE,
-    subtype_order = NULL,
+    subtype_order = seq_len(dim(samples_sequence)[1]),
+    # subtype_order = NULL,
     biomarker_order = NULL,
     title_font_size = 12,
     stage_font_size = 10,
@@ -169,13 +170,13 @@ plot_positional_var <- function(
     #   )
 
     if (!is.null(subtype_titles)) {
-      title_i <- subtype_titles[i]
+      title_i <- subtype_titles[subtype_order[i]]
     } else {
       title_i <- get_title_i_2(
         subtype_and_stage_table =
           results$subtype_and_stage_table,
         cval = cval,
-        i = i
+        i = subtype_order[i]
       )
     }
 
@@ -198,35 +199,10 @@ plot_positional_var <- function(
 
     PFs <-
       samples_sequence[subtype_order[i], , ] |>
-      t() |>
-      compute_position_frequencies() |>
-      simplify_biomarker_names(cols = "event name") |>
-      # get biomarker names
-      left_join(
-        biomarker_events_table |>
-          simplify_biomarker_names(cols = c("biomarker", "biomarker_level")),
-        by = c("event name" = "biomarker_level")
-      ) |>
-      # get biomarker groups and colors
-      left_join(
-        biomarker_groups |>
-          simplify_biomarker_names(cols = "biomarker"),
-        by = c("biomarker")
-      ) |>
-      arrange_position_frequencies(
-        biomarker_order = biomarker_plot_order
-      ) |>
-      dplyr::mutate(
-        `event label` =
-          glue("<i style='color:{group_color}'>{`row number and name`}</i>"),
-        `event label` = if_else(
-          .data$biomarker_group == "stage",
-          paste0("**", .data$`event label`, "**"),
-          .data$`event label`
-        ),
-        `event label` =
-          .data$`event label` |>
-            factor(levels = .data$`event label` |> unique())
+      extract_PFs(
+        biomarker_events_table = biomarker_events_table,
+        biomarker_plot_order = biomarker_plot_order,
+        biomarker_groups = biomarker_groups
       )
 
 
@@ -252,7 +228,12 @@ plot_positional_var <- function(
   if (length(figs) == 1) {
     figs <- figs[[1]]
   } else {
-    names(figs) <- paste("Subtype", seq_along(figs))
+    subtype_names0 <- dimnames(samples_sequence)[[1]]
+    if (!is.null(subtype_names0)) {
+      names(figs) <- subtype_names0[subtype_order]
+    } else {
+      names(figs) <- paste("Subtype", seq_along(figs))
+    }
     class(figs) <- c("PVD.list", class(figs))
   }
 

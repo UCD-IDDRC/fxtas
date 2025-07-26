@@ -16,7 +16,9 @@ test_that("`compact_pvd_figure()` produces consistent results", {
   scale_colors = c("red", "blue", "purple4")
   plot_dataset <- compact_pvd_data_prep(figs = figs)
   # facet labels
-  facet_names <- compact_pvd_facet_labels(figs = figs, facet_label_prefix = facet_label_prefix)
+  facet_names <- compact_pvd_facet_labels(
+    figs = figs,
+    facet_label_prefix = NULL)
   # generate figure
   compact_pvd_figure(
     plot_dataset,

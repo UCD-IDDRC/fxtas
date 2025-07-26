@@ -10,7 +10,7 @@
 #' (doesn't work for cross-validation fold pickle-files)
 #' @param n_s number of latent subgroups
 #' @param subtype_order [integer] indicating how to reorder the subtypes
-#'
+#' @param biomarker_groups a [list]
 #' @returns a `"SuStaIn_model"` object (extends [list()])
 #'
 format_results_list <- function(
@@ -21,8 +21,8 @@ format_results_list <- function(
     biomarker_event_names = biomarker_events_table$biomarker_level,
     format_sst = TRUE,
     n_s = get_n_subtypes(results),
-    subtype_order = seq_len(n_s)
-    ) {
+    subtype_order = seq_len(n_s),
+    biomarker_groups) {
 
   results$samples_sequence <-
     results$samples_sequence |>
@@ -38,7 +38,14 @@ format_results_list <- function(
       extract_subtype_and_stage_table(subtype_order = subtype_order)
   }
 
-  class(results) <- c("SuStaIn_model", class(results))
+  results$samples_f
+
+  results <- results |>
+    structure(
+      class = union("SuStaIn_model", class(results)),
+      biomarker_groups = biomarker_groups,
+      biomarker_levels = biomarker_levels
+    )
 
   return(results)
 }

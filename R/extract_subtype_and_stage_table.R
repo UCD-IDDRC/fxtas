@@ -30,7 +30,8 @@ extract_subtype_and_stage_table <- function( # nolint: object_length_linter
           levels = glue::glue("Type {0:n_s}")
         ) |>
         magrittr::set_attr("n_s", n_s)
-    )
+    ) |>
+    magrittr::set_attr("subtype_map", subtype_map)
 
   return(to_return)
 

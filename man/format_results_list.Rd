@@ -12,7 +12,8 @@ format_results_list(
   biomarker_event_names = biomarker_events_table$biomarker_level,
   format_sst = TRUE,
   n_s = get_n_subtypes(results),
-  subtype_order = seq_len(n_s)
+  subtype_order = seq_len(n_s),
+  biomarker_groupss
 )
 }
 \arguments{
@@ -33,6 +34,8 @@ format_results_list(
 \item{n_s}{number of latent subgroups}
 
 \item{subtype_order}{\link{integer} indicating how to reorder the subtypes}
+
+\item{biomarker_groups}{a \link{list}}
 }
 \value{
 a \code{"SuStaIn_model"} object (extends \code{\link[=list]{list()}})

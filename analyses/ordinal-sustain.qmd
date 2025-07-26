@@ -652,6 +652,7 @@ sustain_output_CV <- sustain_output |> attr("CV")
 n_s_min_CVIC <- which.min(sustain_output_CV$CVIC) # nolint: object_name_linter
 n_s_selected <- 4
 subtype_order <- c(1,3,4,2)
+subtype_order <- 1:4
 results_cv_max <- extract_results_from_pickle(
   n_s = n_s_selected,
   use_rds = use_rds,
@@ -659,7 +660,18 @@ results_cv_max <- extract_results_from_pickle(
   output_folder = output_folder,
   subtype_order = subtype_order
 )
+
 ```
+
+```{r}
+figs <- results_cv_max |> 
+  plot_positional_var(subtype_order = NULL)
+figs |> 
+  pvd_subtype_lineplot(
+    smooth = 30,
+    events_to_highlight = color_info)
+```
+
 
 ```{r}
 #| label: extract-figs-from-pickle-n-s-selected
@@ -669,8 +681,6 @@ figs <- extract_figs_from_pickle(
     dataset_name = dataset_name,
     output_folder = output_folder)
 
-figs <- figs[subtype_order] |>   
-  rlang::set_names(paste("Subtype", 1:n_s_selected))
 ```
 
 We conducted latent subtype classification analysis to cluster participants 
@@ -703,7 +713,9 @@ n_type_0 <- results_cv_max$subtype_and_stage_table |>
 
 @suppfig-pvd_chosen_subtypes shows the estimated sequential event orders
 for each of the subtype clusters.
-@suppfig-pvd_chosen_subtypes_linegraphs shows 
+<!-- @suppfig-pvd_chosen_subtypes_linegraphs  -->
+@suppfig-pvd_chosen_subtypes_bumpplot
+shows 
 differences in event sequences between subtypes. 
 @tbl-sg_demos shows 
 the demographics of the patients clustered in each subtype. 
@@ -846,7 +858,6 @@ tbl_sg_demos <- table_subtype_by_demographics(
       "Age at visit" , 
       "Male",
       "Primary Race/Ethnicity"
-      
     ),
   patient_data = patient_data,
   subtype_and_stage_table = results_cv_max$subtype_and_stage_table,
@@ -862,9 +873,6 @@ tbl_sg_demos <- table_subtype_by_demographics(
 
 ```{r}
 #| results: asis
-
-
-
 
 tbl_sg_demos |>
   gtsummary::as_flex_table() |>
