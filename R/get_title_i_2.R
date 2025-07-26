@@ -9,22 +9,18 @@
 get_title_i_2 <- function(
     subtype_and_stage_table,
     cval = FALSE,
-    i)
-{
+    i) {
 
   subtype = paste("Type", i)
   n_s = attr(subtype_and_stage_table$ml_subtype, "n_s")
 
-  if(n_s == 1)
-  {
+  if (n_s == 1) {
     n_samples = nrow(subtype_and_stage_table)
     title_i = glue::glue("n = {n_samples}")
-  } else if(cval)
-  {
+  } else if(cval) {
     title_i = glue::glue("Subtype {i} cross-validated")
 
-  } else
-  {
+  } else {
     subtype_and_stage_table =
       subtype_and_stage_table |>
       dplyr::filter(.data$ml_subtype != "Type 0")

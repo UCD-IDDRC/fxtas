@@ -5,9 +5,11 @@ test_that("results are consistent", {
 
   results <-
     output_folder |>
-    extract_results_from_pickle(output_folder = _,
-                                n_s = 1,
-                                use_rds = TRUE)
+    extract_results_from_pickle(
+      output_folder = _,
+      n_s = 1,
+      use_rds = TRUE
+    )
 
   biomarker_groups =
     output_folder |>
@@ -37,9 +39,11 @@ test_that("results are consistent with three groups", {
 
   results <-
     output_folder |>
-    extract_results_from_pickle(output_folder = _,
-                                n_s = 3,
-                                use_rds = TRUE)
+    extract_results_from_pickle(
+      output_folder = _,
+      n_s = 3,
+      use_rds = TRUE
+    )
 
   biomarker_groups =
     output_folder |>
@@ -58,5 +62,5 @@ test_that("results are consistent with three groups", {
       biomarker_levels = biomarker_levels)
 
   plot1[[1]] |>
-    vdiffr::expect_doppelganger(title = "plot1")
+    vdiffr::expect_doppelganger(title = "plot3.1")
 })
