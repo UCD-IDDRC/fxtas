@@ -28,7 +28,7 @@ format_results_list <- function(
   # here's what the python code does to reorder the subtype and stage labels:
   temp_mean_f <- results$samples_f |> rowMeans()
   ix <- order(temp_mean_f, decreasing = TRUE)
-
+  order_sst <- order(ix)[subtype_order]
   results <- results |>
     structure(
       class = union("SuStaIn_model", class(results)),
@@ -50,7 +50,7 @@ format_results_list <- function(
   if (format_sst) {
     results$subtype_and_stage_table <-
       results |>
-      extract_subtype_and_stage_table(subtype_order = order(ix))
+      extract_subtype_and_stage_table(subtype_order = order_sst)
   }
 
   results$ml_subtype_old <- results$ml_subtype[,1]
@@ -59,7 +59,7 @@ format_results_list <- function(
     format_ml_subtype(
       n_subtypes = n_s,
       ml_stage = results$ml_stage[,1],
-      subtype_order = order(ix))
+      subtype_order = order_sst)
 
   results$samples_f <- results$samples_f |>
     format_samples_f(subtype_order = subtype_order)
@@ -71,7 +71,7 @@ format_results_list <- function(
     format_ml_f_EM(subtype_order = subtype_order)
 
   results$prob_subtype <- results$prob_subtype |>
-    format_prob_subtype(subtype_order = order(ix))
+    format_prob_subtype(subtype_order = order_sst)
 
   results$prob_stage <- results$prob_stage |>
     format_prob_stage()
@@ -80,7 +80,7 @@ format_results_list <- function(
   results$prob_ml_subtype <- results$prob_ml_subtype[, 1]
 
   results$prob_subtype_stage <- results$prob_subtype_stage |>
-    format_prob_subtype_stage(subtype_order = order(ix))
+    format_prob_subtype_stage(subtype_order = order_sst)
 
   results$ml_sequence_EM <- results$ml_sequence_EM |>
     format_ml_sequence_EM(subtype_order = subtype_order)

@@ -104,7 +104,7 @@ test_that(
       format_results_list(
         biomarker_levels = biomarker_levels,
         biomarker_groups = biomarker_groups,
-        subtype_order = c(3,1,2)
+        subtype_order = c(2, 1, 3)
       )
 
     results |>
