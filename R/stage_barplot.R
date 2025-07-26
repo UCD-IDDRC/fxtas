@@ -29,7 +29,7 @@ stage_barplot.default <- function(
     ...) {
 
   multiple_subtypes <-
-    "Type 2" %in% object$ml_subtype
+    "Type 2" %in% levels(object$ml_subtype)
 
   if (multiple_subtypes && !include_type_0) {
     object <-
@@ -78,7 +78,7 @@ stage_barplot.list <- function(object, ...) {
       FUN = function(x) purrr::pluck(x, "subtype_and_stage_table")
     ) |>
     dplyr::bind_rows(.id = "stratum") |>
-    dplyr::mutate(stratum = factor(stratum, levels = names(object))) |>
+    dplyr::mutate(stratum = factor(.data$stratum, levels = names(object))) |>
     stage_barplot.default(...) +
     facet_wrap(~ stratum)
 }
