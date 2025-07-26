@@ -29,7 +29,8 @@ format_results_list <- function(
       class = union("SuStaIn_model", class(results)),
       n_s = n_s,
       biomarker_groups = biomarker_groups,
-      biomarker_levels = biomarker_levels
+      biomarker_levels = biomarker_levels,
+      subtype_order = subtype_order
     )
 
   results$samples_sequence <-
@@ -46,6 +47,11 @@ format_results_list <- function(
       extract_subtype_and_stage_table(subtype_order = subtype_order)
   }
 
+  # here's what the python code does
+  # temp_mean_f = np.mean(samples_f, axis=1)
+  temp_mean_f <- results$samples_f |> rowMeans()
+  # ix = np.argsort(temp_mean_f)[::-1]
+  ix <- order(temp_mean_f, decreasing = TRUE)
 
   results$ml_subtype_old <- results$ml_subtype[,1]
 

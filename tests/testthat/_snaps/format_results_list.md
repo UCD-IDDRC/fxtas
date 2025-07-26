@@ -69,6 +69,7 @@
         ..$ Biomarker 3: int [1:4] 0 1 2 3
         ..$ Biomarker 4: int [1:4] 0 1 2 3
         ..$ Biomarker 5: int [1:4] 0 1 2 3
+       - attr(*, "subtype_order")= int [1:3] 1 2 3
 
 ---
 
@@ -379,7 +380,8 @@
     DQAAAAQAAAAAAAAAAQAAAAIAAAADAAAADQAAAAQAAAAAAAAAAQAAAAIAAAADAAAADQAAAAQA
     AAAAAAAAAQAAAAIAAAADAAAEAgAABv8AAAAQAAAABQAEAAkAAAALQmlvbWFya2VyIDEABAAJ
     AAAAC0Jpb21hcmtlciAyAAQACQAAAAtCaW9tYXJrZXIgMwAEAAkAAAALQmlvbWFya2VyIDQA
-    BAAJAAAAC0Jpb21hcmtlciA1AAAA/gAAAP4=
+    BAAJAAAAC0Jpb21hcmtlciA1AAAA/gAABAIAAAABAAQACQAAAA1zdWJ0eXBlX29yZGVyAAAA
+    DQAAAAMAAAABAAAAAgAAAAMAAAD+
 
 # results are consistent with custom ordering
 
@@ -395,7 +397,7 @@
         .. ..$ iteration: NULL
        $ samples_f              : 'samples_f' num [1:3, 1:100000] 0.593 0.177 0.23 0.593 0.177 ...
         ..- attr(*, "dimnames")=List of 2
-        .. ..$ subtype  : chr [1:3] "Subtype 3" "Subtype 1" "Subtype 2"
+        .. ..$ subtype  : chr [1:3] "Subtype 1" "Subtype 2" "Subtype 3"
         .. ..$ iteration: NULL
        $ samples_likelihood     : num [1:100000, 1] -94 -94 -94 -94 -96.7 ...
        $ ml_subtype             : Factor w/ 4 levels "Type 0","Type 1",..: 3 1 3 3 3 3 3 3 3 3 ...
@@ -406,7 +408,7 @@
        $ prob_subtype           : 'prob_subtype' num [1:20, 1:3] 0.0155 0.1524 0.0141 0.0141 0.0141 ...
         ..- attr(*, "dimnames")=List of 2
         .. ..$ ID     : NULL
-        .. ..$ subtype: chr [1:3] "Subtype 3" "Subtype 1" "Subtype 2"
+        .. ..$ subtype: chr [1:3] "Subtype 1" "Subtype 2" "Subtype 3"
        $ prob_stage             : num [1:20, 1:16] 0.000141 0.907681 0.000058 0.000058 0.000058 ...
         ..- attr(*, "dimnames")=List of 2
         .. ..$ ID   : NULL
@@ -415,21 +417,21 @@
         ..- attr(*, "dimnames")=List of 3
         .. ..$ ID     : NULL
         .. ..$ Stage  : chr [1:16] "Stage 0" "Stage 1" "Stage 2" "Stage 3" ...
-        .. ..$ subtype: chr [1:3] "Subtype 3" "Subtype 1" "Subtype 2"
-       $ ml_sequence_EM         : num [1:3, 1:15] 1 4 3 0 9 8 3 1 1 2 ...
+        .. ..$ subtype: chr [1:3] "Subtype 1" "Subtype 2" "Subtype 3"
+       $ ml_sequence_EM         : num [1:3, 1:15] 3 1 4 8 0 9 1 3 1 4 ...
         ..- attr(*, "dimnames")=List of 2
-        .. ..$ subtype : chr [1:3] "Subtype 3" "Subtype 1" "Subtype 2"
+        .. ..$ subtype : chr [1:3] "Subtype 1" "Subtype 2" "Subtype 3"
         .. ..$ position: NULL
-       $ ml_sequence_prev_EM    : num [1:3, 1:15] 1 4 3 0 9 8 3 1 1 2 ...
+       $ ml_sequence_prev_EM    : num [1:3, 1:15] 3 1 4 8 0 9 1 3 1 4 ...
         ..- attr(*, "dimnames")=List of 2
-        .. ..$ subtype : chr [1:3] "Subtype 3" "Subtype 1" "Subtype 2"
+        .. ..$ subtype : chr [1:3] "Subtype 1" "Subtype 2" "Subtype 3"
         .. ..$ position: NULL
        $ ml_f_EM                : 'ml_f_EM' num [1:3(1d)] 0.593 0.177 0.23
         ..- attr(*, "dimnames")=List of 1
-        .. ..$ subtype: chr [1:3] "Subtype 3" "Subtype 1" "Subtype 2"
+        .. ..$ subtype: chr [1:3] "Subtype 1" "Subtype 2" "Subtype 3"
        $ ml_f_prev_EM           : 'ml_f_EM' num [1:3(1d)] 0.593 0.177 0.23
         ..- attr(*, "dimnames")=List of 1
-        .. ..$ subtype: chr [1:3] "Subtype 3" "Subtype 1" "Subtype 2"
+        .. ..$ subtype: chr [1:3] "Subtype 1" "Subtype 2" "Subtype 3"
        $ subtype_and_stage_table: tibble [20 x 5] (S3: tbl_df/tbl/data.frame)
         ..$ ml_subtype     : Factor w/ 4 levels "Type 0","Type 1",..: 3 1 3 3 3 3 3 3 3 3 ...
         .. ..- attr(*, "n_s")= int 3
@@ -452,4 +454,5 @@
         ..$ Biomarker 3: int [1:4] 0 1 2 3
         ..$ Biomarker 4: int [1:4] 0 1 2 3
         ..$ Biomarker 5: int [1:4] 0 1 2 3
+       - attr(*, "subtype_order")= num [1:3] 3 1 2
 
