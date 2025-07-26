@@ -1,5 +1,5 @@
 test_that(
-  desc = "results are consistent",
+  desc = "results are consistent with three groups",
   code = {
 
     skip_on_ci()

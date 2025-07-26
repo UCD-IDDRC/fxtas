@@ -1,4 +1,4 @@
-# results are consistent
+# results are consistent with three groups
 
     Code
       dplyr::glimpse(results)

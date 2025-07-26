@@ -3,7 +3,7 @@ format_prob_subtype_stage <- function(
     n_subtypes = dim(prob_subtype_stage)[3],
     subtype_order = seq_len(n_subtypes)) {
 
-  prob_subtype_stage <- prob_subtype_stage[ , , subtype_order]
+  prob_subtype_stage <- prob_subtype_stage[ , , subtype_order, drop = FALSE]
   n_stages <- dim(prob_subtype_stage)[2] - 1
   dimnames(prob_subtype_stage) <- list(
      ID = NULL,
