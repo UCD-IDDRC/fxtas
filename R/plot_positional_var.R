@@ -47,9 +47,11 @@ plot_positional_var <- function(
     biomarker_event_names = biomarker_events_table |>
       dplyr::pull("biomarker_level"),
     biomarker_plot_order = NULL,
-    ml_f_EM = results$ml_f_EM,
+    # ml_f_EM = results$ml_f_EM,
+    ml_f_EM = NULL,
     cval = FALSE,
-    subtype_order = seq_len(dim(samples_sequence)[1]),
+    # subtype_order = seq_len(dim(samples_sequence)[1]),
+    subtype_order = NULL,
     biomarker_order = NULL,
     title_font_size = 12,
     stage_font_size = 10,
@@ -174,7 +176,8 @@ plot_positional_var <- function(
         subtype_and_stage_table =
           results$subtype_and_stage_table,
         cval = cval,
-        i = subtype_order[i]
+        # i = subtype_order[i]
+        i = i
       )
     }
 
@@ -227,9 +230,10 @@ plot_positional_var <- function(
     figs <- figs[[1]]
   } else {
     subtype_names0 <- dimnames(samples_sequence)[[1]]
-    if (!is.null(subtype_names0)) {
-      names(figs) <- subtype_names0[subtype_order]
-    } else {
+    # if (!is.null(subtype_names0)) {
+    #   names(figs) <- subtype_names0[subtype_order]
+    # } else
+    {
       names(figs) <- paste("Subtype", seq_along(figs))
     }
     class(figs) <- c("PVD.list", class(figs))
