@@ -34,6 +34,8 @@ extract_subtype_and_stage_table <- function( # nolint: object_length_linter
     ) |>
     magrittr::set_attr("subtype_map", subtype_map)
 
+  class(to_return) <- union("SuSt_table", class(to_return))
+
   return(to_return)
 
 }

@@ -689,6 +689,7 @@ The subtypes are numbered 1-4 in order of estimated relative frequency
 n_type_0 <- results_cv_max$subtype_and_stage_table |>
   dplyr::filter(ml_subtype == "Type 0") |>
   nrow()
+
 ```
 
 @suppfig-pvd_chosen_subtypes shows the estimated sequential event orders
@@ -705,10 +706,10 @@ to be accurately classified into a subtype
 and were excluded from @tbl-sg_demos.
 Subtype clustering analysis showed that 
 CGG repeat size,
-a known risk factors of FXTAS,
+a known risk factor of FXTAS,
 contributed to the segregation of subtypes 
 and variations between subtypes.
-Females and individuals with higher CGG repeats
+Individuals with higher CGG repeats
 were over-represented in Subtype 1
 (65.1% males; CGG repeat size (83.2 ± 15.8)
 compared to the overall study population 
