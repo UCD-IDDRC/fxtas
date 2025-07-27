@@ -1,8 +1,8 @@
 ::: {#suppfig-pvd_chosen_subtypes_bumpplot}
 
 ```{r}
-#| fig-height: 8
-#| fig-width: 15
+#| fig-height: 10
+#| fig-width: 8
 color_info <- tibble::tribble(
   ~event_name, ~line_color, ~highlight_color,
   "MRI: Cerebellar: Mild",  "orange", "#FFF",
@@ -23,11 +23,15 @@ color_info <- tibble::tribble(
   "Postural Tremor", "red", "#FFF",
   "Head Tremor", "cyan3", "#FFF",
   "Tandem Walk: Abnormal (<10 Steps)", "magenta", "#FFF",
-  "Ataxia Severity: 1", "magenta", "#FFF"
+  "Ataxia Severity: 1", "magenta", "#FFF",
+  "Intermittent Tremor", "brown", "#FFF",
+  "Intention Tremor", "brown", "#FFF",
 )
 
 figs |> pvd_subtype_lineplot(
   smooth = 30,
+  y_lab = "",
+  align_stage = TRUE,
   events_to_highlight = color_info)
 ```
 

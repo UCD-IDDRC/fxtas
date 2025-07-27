@@ -12,6 +12,7 @@
 #' @param y_lab todo
 #' @param mult [numeric] vector
 #' @param subtype_x Vector of x-axis value for the subtypes.
+#' @param align_stage [logical] whether to align by FXTAS stage
 #' @param ... additional arguments passed to [ggbump::geom_bump]
 #' Default = c(1, 1.15, 1.75, 2.35)
 #'
@@ -31,6 +32,7 @@ pvd_subtype_lineplot <- function(
     x_text_size = 8,
     subtype_x = c(1, 3, 5, 7),
     mult = .2,
+    align_stage = TRUE,
     ...) {
 
   dataset <- extract_lineplot_data(figs, facet_labels)
@@ -96,13 +98,15 @@ pvd_subtype_lineplot <- function(
     )
 
 
+  plot_dataset <- plot_dataset |>
+    compute_bumpplot_y_positions()
 
   # plot
   to_return <- plot_dataset |>
     ggplot() +
     aes(
       x = .data$facet_order,
-      y = .data$Order
+      y = if (align_stage) .data$y else .data$Order
     ) +
     ggbump::geom_bump(
       data = plot_dataset |>

@@ -18,6 +18,7 @@ pvd_subtype_lineplot(
   x_text_size = 8,
   subtype_x = c(1, 3, 5, 7),
   mult = 0.2,
+  align_stage = TRUE,
   ...
 )
 }
@@ -47,6 +48,8 @@ pvd_subtype_lineplot(
 \item{subtype_x}{Vector of x-axis value for the subtypes.}
 
 \item{mult}{\link{numeric} vector}
+
+\item{align_stage}{\link{logical} whether to align by FXTAS stage}
 
 \item{...}{additional arguments passed to \link[ggbump:geom_bump]{ggbump::geom_bump}
 Default = c(1, 1.15, 1.75, 2.35)}
