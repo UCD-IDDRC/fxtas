@@ -1,0 +1,32 @@
+```{r}
+subtype_data <- combine_subtype_and_demos(
+  patient_data,
+  results_cv_max$subtype_and_stage_table) |> 
+  filter(ml_subtype != "Type 0")
+```
+
+```{r}
+subtype_data |> 
+  ggplot2::ggplot() + 
+  aes(
+    x = CGG,
+    fill = sex
+  ) +
+  geom_histogram(alpha = .4) +
+  facet_wrap(~ml_subtype, ncol = 1) +
+  theme(legend.position = "bottom")
+```
+
+
+```{r}
+|> 
+  ggplot2::ggplot() + 
+  aes(
+    x = CGG,
+    fill = sex
+  ) +
+  geom_histogram(alpha = .4) +
+  facet_wrap(~ml_subtype, ncol = 1) +
+  theme(legend.position = "bottom")
+```
+

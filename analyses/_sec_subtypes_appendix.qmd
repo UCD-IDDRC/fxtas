@@ -1,6 +1,10 @@
 {{< include _sec_subtypes_methods-details.qmd >}}
 
+{{< pagebreak >}}
+
 {{< include _fig_loglik_mcmc.qmd >}}
+
+{{< pagebreak >}}
 
 {{< include _sec_CVIC_graphs.qmd >}}
 

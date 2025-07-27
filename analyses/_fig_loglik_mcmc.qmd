@@ -12,7 +12,7 @@ lliks |>
 
 ```
 
-**log-likelihood of training data set**,
+**Log-likelihood of training data set**,
 by MCMC iteration and number of latent subtypes.
 
 :::

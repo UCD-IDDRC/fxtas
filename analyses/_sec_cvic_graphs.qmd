@@ -7,7 +7,7 @@ sustain_output_CV$CVIC |> plot_CVIC()
 ```
 
 **Selection criteria for number of latent subtypes:**
-Cross-validation information criterion (CVIC)
+cross-validation information criterion (CVIC)
 
 :::
 
@@ -22,7 +22,7 @@ sustain_output_CV$loglike_matrix |> plot_cv_loglik(y_text_size = y_text_size)
 ```
 
 **Selection criteria for number of latent subtypes:**
-Test set log-likelihood across cross-validation folds 
+test set log-likelihood across cross-validation folds 
 (Out-Of-Fold Log-Likelihood criterion, OOFLL)
 
 :::

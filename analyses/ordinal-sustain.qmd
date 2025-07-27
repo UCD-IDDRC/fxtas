@@ -704,9 +704,9 @@ patients had experienced too few events
 to be accurately classified into a subtype 
 and were excluded from @tbl-sg_demos.
 Subtype clustering analysis showed that 
-two known risk factors of FXTAS,
-sex and CGG repeat size, 
-were contributors to the segregation of subtypes 
+CGG repeat size,
+a known risk factors of FXTAS,
+contributed to the segregation of subtypes 
 and variations between subtypes.
 Females and individuals with higher CGG repeats
 were over-represented in Subtype 1
