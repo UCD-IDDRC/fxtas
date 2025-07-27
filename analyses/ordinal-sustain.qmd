@@ -681,8 +681,6 @@ approximately unchanging and the CVIC appears approximately flat,
 and thus for clinical interpretation
 and in consideration of the principle of parsimony, 
 we chose to classify participants into `r n_s_selected` subtypes.
-The subtypes are numbered 1-4 in order of estimated relative frequency
-(that is, in order of how many participants were clustered into each subtype).
 
 ```{r}
 #| label: compute-n-in-subtype-0

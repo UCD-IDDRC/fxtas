@@ -1,8 +1,8 @@
 ::: {#suppfig-pvd_chosen_subtypes_bumpplot}
 
 ```{r}
-#| fig-height: 7
-#| fig-width: 9
+#| fig-height: 9
+#| fig-width: 15
 color_info <- tibble::tribble(
   ~event_name, ~line_color, ~highlight_color,
   "MRI: Cerebellar: Mild",  "orange", "#FFF",
@@ -21,11 +21,12 @@ color_info <- tibble::tribble(
   "FXTAS Stage: 5", "black", "yellow",
   "SWM Between Errors: > 26", "purple", "#FFF",
   "Postural Tremor", "red", "#FFF",
+  "Intermittent Tremor", "brown", "#FFF",
+  "Intention Tremor", "brown", "#FFF",
   "Head Tremor", "cyan3", "#FFF",
   "Tandem Walk: Abnormal (<10 Steps)", "magenta", "#FFF",
   "Ataxia Severity: 1", "magenta", "#FFF",
-  "Intermittent Tremor", "brown", "#FFF",
-  "Intention Tremor", "brown", "#FFF",
+  
 )
 
 figs |> pvd_subtype_lineplot(
@@ -44,9 +45,11 @@ Text colors indicate symptoms grouped by measurement type.
 
 {{< pagebreak >}}
 
-:::{#fig-bump-aligned}
+:::{#suppfig-bump-aligned}
 
 ```{r}
+#| fig-height: 9
+#| fig-width: 15
 figs |> pvd_subtype_lineplot(
   smooth = 30,
   y_lab = "",
