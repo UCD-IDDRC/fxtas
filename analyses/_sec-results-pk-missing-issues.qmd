@@ -71,7 +71,8 @@ and `r and::and(stages)` premutation carriers at
 FXTAS stages `r names(stages) |> and::and()`, respectively.
 `r pct_stage_3plus`% of premutation carriers were at FXTAS Stages 3-5
 at the time of their baseline visit (@tbl-demographics).
-Of `r n_pf_screened_cases` premutation carriers screened for parkinsonian features,
+Out of `r n_pf_screened_cases` premutation carriers 
+who were screened for parkinsonian features,
 `r n_pf_s3plus` carriers
 (`r pct_pf_stage3plus["3+", "Yes"]`% of `r sum(tbl_pf_stage3plus["3+",])`)
 at FXTAS Stages 3-5 had parkinsonian features,

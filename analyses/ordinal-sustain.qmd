@@ -13,22 +13,6 @@ knitr:
     # see https://github.com/quarto-dev/quarto-cli/discussions/4254
 ---
 
-Correspondence to: Douglas Ezra Morrison
-Medical Sciences 1C #113
-One Shields Ave
-Davis, CA 95616
-<demorrison@ucdavis.edu>
-
-**Running title:** Progression of FXTAS symptoms{{< pagebreak >}}
-
-**Keywords:** 
-fragile X-associated tremor/ataxia syndrome; 
-subtype and stage inference; 
-sequential events; 
-disease development and progression; 
-sex differences; 
-latent subgroups
-
 ```{=html}
 <style>
 .quarto-figure-center > figure {
@@ -240,6 +224,24 @@ max_levels <- nlevs |> max()
 # Abstract {.unnumbered}
 
 {{< include _sec_abstract.qmd >}}
+
+{{< pagebreak >}}
+
+Correspondence to: Douglas Ezra Morrison  
+Medical Sciences 1C #113  
+One Shields Ave  
+Davis, CA 95616  
+<demorrison@ucdavis.edu>  
+
+**Running title:** Progression of FXTAS symptoms
+
+**Keywords:** 
+fragile X-associated tremor/ataxia syndrome; 
+subtype and stage inference; 
+sequential events; 
+disease development and progression; 
+sex differences; 
+latent subgroups
 
 {{< pagebreak >}}
 

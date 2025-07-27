@@ -122,7 +122,8 @@ table1(
   data = v1_usable_capital_labels
 ) |> 
   table1::t1flex() |>
-  shared_flextable_settings()
+  shared_flextable_settings()  |> 
+  flextable::width(width = .9)
 ```
 
 **Tremors by CGG level and sex**
@@ -153,7 +154,8 @@ v1_usable_capital_labels |>
     data = _
   ) |> 
   table1::t1flex() |>
-  shared_flextable_settings()
+  shared_flextable_settings()  |> 
+  flextable::width(width = .9)
 ```
 
 **Head tremors by CGG level and sex**
@@ -181,7 +183,8 @@ table1(
   data = v1_usable_capital_labels
 ) |> 
   table1::t1flex() |>
-  shared_flextable_settings()
+  shared_flextable_settings() |> 
+  flextable::width(width = .9)
 ```
 
 **Ataxia by CGG status**
@@ -195,9 +198,9 @@ pk_vars <- c(
   "Parkinsons",
   c(
     "parkinsonian features" # see note from March 19, 2025 in 2025-02-19 draft
-    # "Masked faces", 
-    # "Increased tone", 
-    # "pill-rolling tremor", 
+    # "Masked faces",
+    # "Increased tone",
+    # "pill-rolling tremor",
     # "Stiff gait"
   )
 )
@@ -213,7 +216,8 @@ table1(
   data = v1_usable_capital_labels
 ) |> 
   table1::t1flex() |>
-  shared_flextable_settings()
+  shared_flextable_settings() |> 
+  flextable::width(width = .9)
 ```
 
 **Parkinson's disease and parkinsonian features, by CGG status**
@@ -239,13 +243,16 @@ table1(
   data = v1_usable_capital_labels
 ) |> 
   table1::t1flex() |>
-  shared_flextable_settings()
+  shared_flextable_settings() |> 
+  flextable::width(width = .9)
 
 ```
 
 **FXTAS Stage by CGG level and sex**
 
 :::
+
+{{< pagebreak >}}
 
 ::: {#supptbl-bds2}
 
@@ -261,14 +268,13 @@ table1(
   data = v1_usable_capital_labels
 ) |> 
   table1::t1flex() |>
-  shared_flextable_settings()
+  shared_flextable_settings() |> 
+  flextable::width(width = .9)
 ```
 
 **Behavior Dyscontrol Scale - Second Edition (BDS-2)**
 
 :::
-
-{{< pagebreak >}}
 
 ::: {#supptbl-mmse}
 
@@ -294,12 +300,16 @@ table1(
   data = v1_usable_capital_labels
 ) |> 
   table1::t1flex() |>
-  shared_flextable_settings()
+  shared_flextable_settings() |> 
+  flextable::width(width = .9) |> 
+  flextable::width(j = 1, width = 1.6)
 ```
 
 **Mini-Mental State Examination (MMSE)**
 
 :::
+
+{{< pagebreak >}}
 
 ::: {#supptbl-scid}
 
@@ -315,7 +325,8 @@ table1(
   data = v1_usable_capital_labels
 ) |> 
   table1::t1flex() |>
-  shared_flextable_settings()
+  shared_flextable_settings() |> 
+  flextable::width(width = .9)
 ```
 
 **Structured Clinical Interview for DSM Disorders (SCID)**
@@ -352,7 +363,9 @@ table1(
   data = v1_usable_capital_labels
 ) |> 
   table1::t1flex() |>
-  shared_flextable_settings()
+  shared_flextable_settings() |> 
+  flextable::width(width = .7) |> 
+  flextable::width(j = 1, width = 2) 
 ```
 
 **MRI variables by Sex and CGG level**
@@ -441,7 +454,8 @@ table1(
   data = v1_usable_capital_labels
 ) |> 
   table1::t1flex() |>
-  shared_flextable_settings()
+  shared_flextable_settings() |> 
+  flextable::width(width = .9)
 ```
 
 **Thyroid and autoimmune diseases**

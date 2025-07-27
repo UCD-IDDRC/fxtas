@@ -2,6 +2,8 @@
 
 ```{r}
 #| label: stage-barplot-by-sex
+#| fig-height: 5
+#| fig-width: !expr pvd_width
 results_list_by_sex <- list(
   "Males" = results_males_first,
   "Females" = results_females_first
