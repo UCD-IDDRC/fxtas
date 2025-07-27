@@ -12,11 +12,11 @@
 
 {{< include _fig-pvd_chosen_subtypes.qmd >}}
 
-{{< pagebreak >}}
+::: landscape
 
 {{< include _sec_subtypes_bumpchart.qmd >}}
 
-{{< pagebreak >}}
+:::
 
 {{< include _fig-stage-barplot_chosen_subtypes.qmd >}}
 

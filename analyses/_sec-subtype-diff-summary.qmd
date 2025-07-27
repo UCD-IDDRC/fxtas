@@ -10,28 +10,12 @@ Subtype 2 appeared to experience
 early intermittent tremors and intention tremors 
 (before FXTAS Stage 1).
 Subtype 3 appeared to experience
-early ataxia onset
+early ataxia
 (between FXTAS Stages 1 and 2)
 and tremor onsets
 (between FXTAS Stages 1 and 3).
-Subtype 4
-
-Subtype 3 appeared to experience early ataxia 
-(between FXTAS Stages 1 and 2).
-Subtypes 1 and 2 
-who only showed MRI abnormalities 
-ataxia between Stages 2 and 3,
-head tremors between Stages 3 and 4,
-parkinsonian features between Stages 3 and 4,
-and white matter disease between Stages 4 and 5.
-Compared to Subtype 1, Subtype 2 appeared to experience
-white matter disease phenotypes earlier (between Stages 2 and 4),
-memory impairment (assessed by SWM) earlier (Stage 3-4 versus 4-5),
-and psychiatric disorders later (between Stages 3 and 5).
-Subtype 2 might be described as "memory-early".
-Subtype 3 appeared to experience
-white matter disease phenotypes early (between Stages 1 and 3),
-and mood disorders late (Stages 4-5).
-Subtype 4 had the fewest participants and was difficult to interpret.
-It may represent a mixture of smaller latent subtypes and/or
+This subtype had the fewest participants, 
+and may represent a mixture of smaller latent subtypes and/or
 include outlier individuals with unusual event sequences.
+Subtype 4 appeared to have later onset of the included symptoms,
+with none prior to FXTAS Stage 1.
