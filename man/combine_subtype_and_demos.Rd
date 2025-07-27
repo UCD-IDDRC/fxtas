@@ -18,7 +18,8 @@ via \code{\link[dplyr:bind_cols]{dplyr::bind_cols()}}
 (assuming they were provided in the same row-order)
 }
 \description{
-Combine demographic data with latent subtype classifications
+was originally going to be more useful, but got reduced to spaghetti.
+probably can be deleted
 }
 \examples{
 sim_data |>
@@ -27,3 +28,4 @@ sim_data |>
     subtype_data = sim_subtype_and_stage_table
   )
 }
+\keyword{internal}
