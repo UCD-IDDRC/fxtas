@@ -686,9 +686,42 @@ The subtypes are numbered 1-4 in order of estimated relative frequency
 
 ```{r}
 #| label: compute-n-in-subtype-0
-n_type_0 <- results_cv_max$subtype_and_stage_table |>
+
+sust_data <- results_cv_max$subtype_and_stage_table |> 
+  bind_cols(patient_data)
+
+n_type_0 <- sust_data |>
   dplyr::filter(ml_subtype == "Type 0") |>
   nrow()
+
+cgg_by_subtype <- sust_data |> 
+  dplyr::summarize(
+    .by = ml_subtype, 
+    mean = mean(.data$CGG, na.rm = TRUE) |> round(1),
+    sd = sd(.data$CGG, na.rm = TRUE) |> round(1)
+  ) |> 
+  as.data.frame()
+rownames(cgg_by_subtype) = cgg_by_subtype$ml_subtype
+
+cgg_overall <- sust_data |> 
+  dplyr::summarize(
+    mean = mean(.data$CGG, na.rm = TRUE) |> round(1),
+    sd = sd(.data$CGG, na.rm = TRUE) |> round(1)
+  )
+
+test_sex <- 
+  sust_data |> 
+  filter(.data$ml_subtype != "Type 0") |> 
+  droplevels() |> 
+  select("ml_subtype", "Gender") |> 
+  table() |> 
+  prop.test()
+
+test_cgg <- 
+  sust_data |> 
+  dplyr::filter(.data$ml_subtype != "Type 0") |> 
+  stats::oneway.test(CGG ~ ml_subtype, data = _)
+
 
 ```
 
@@ -708,18 +741,23 @@ Subtype clustering analysis showed that
 CGG repeat size,
 a known risk factor of FXTAS,
 contributed to the segregation of subtypes 
-and variations between subtypes.
+and variations between subtypes 
+(p-value = `r test_cgg$p.value |> scales::pvalue()`).
+We labeled the subtypes in descending order of mean CGG; 
 Individuals with higher CGG repeats
-were over-represented in Subtype 1
-(65.1% males; CGG repeat size (83.2 ± 15.8)
+are over-represented in Subtype 1
+(CGG repeat size mean = 
+`r cgg_by_subtype["Type 1", "mean"]` ± `r cgg_by_subtype["Type 1", "sd"]`)
 compared to the overall study population 
-(64.5% of males; CGG repeat size mean = 87.3  ± 18.9) and other subtypes; 
-Subtype 2 appeared biased towards females (53.1% of males) 
-and higher CGG repeat size (90.2 ± 22.3); 
-Subtype 3 appeared over-represented by males (82% of males) 
-and high CGG repeat size (92.4 ± 17.4); 
-and Subtype 4 was biased towards females (60% of males) 
-and lower CGG repeat (82.7 ± 17.3). 
+(CGG repeat size mean = `r cgg_overall$mean`  ± `r cgg_overall$sd`) 
+and other subtypes.
+Subtype 2 had CGG repeat sizes close to the overall study population 
+(`r cgg_by_subtype["Type 2", "mean"]` ± `r cgg_by_subtype["Type 2", "sd"]`).
+Subtype 3 had lower CGG repeat sizes than the overall study population
+(`r cgg_by_subtype["Type 3", "mean"]` ± `r cgg_by_subtype["Type 3", "sd"]`).
+and 
+Subtype 4 had the lowest CGG repeat sizes
+(`r cgg_by_subtype["Type 4", "mean"]` ± `r cgg_by_subtype["Type 4", "sd"]`).
 
 ```{r}
 #| label: get-n-events
