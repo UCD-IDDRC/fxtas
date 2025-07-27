@@ -1,7 +1,7 @@
 ::: {#suppfig-pvd_chosen_subtypes_bumpplot}
 
 ```{r}
-#| fig-height: 10
+#| fig-height: 8
 #| fig-width: 15
 color_info <- tibble::tribble(
   ~event_name, ~line_color, ~highlight_color,

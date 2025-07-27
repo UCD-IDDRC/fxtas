@@ -764,27 +764,7 @@ Subtype 4 had the lowest CGG repeat sizes
 n_events <- nrow(biomarker_events_table)
 ```
 
-Using the FXTAS Stage transitions as reference points,
-we explored the differences in the appearing symptoms
-relative to these FXTAS Stage transitions.
-Roughly speaking:
-Subtype 1 appeared to experience 
-early mood disorders (before FXTAS Stage 1),
-ataxia between Stages 2 and 3,
-head tremors between Stages 3 and 4,
-parkinsonian features between Stages 3 and 4,
-and white matter disease between Stages 4 and 5.
-Compared to Subtype 1, Subtype 2 appeared to experience 
-white matter disease phenotypes earlier (between Stages 2 and 4),
-memory impairment (assessed by SWM) earlier (Stage 3-4 versus 4-5),
-and psychiatric disorders later (between Stages 3 and 5).
-Subtype 2 might be described as "memory-early".
-Subtype 3 appeared to experience
-white matter disease phenotypes early (between Stages 1 and 3),
-and mood disorders late (Stages 4-5).
-Subtype 4 had the fewest participants and was difficult to interpret.
-It may represent a mixture of smaller latent subtypes and/or
-include outlier individuals with unusual event sequences.
+{{< include _sec-subtype-diff-summary.qmd >}}
 
 # Discussion
 

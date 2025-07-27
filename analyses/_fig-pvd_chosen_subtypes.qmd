@@ -7,6 +7,7 @@
 
 plot_compact_pvd_est2(
   figs = figs,
+  facet_label_prefix = NULL,
   show_uncert = TRUE,
   tile_height = 1,
   y_text_size = 6,
