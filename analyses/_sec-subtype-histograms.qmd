@@ -19,13 +19,14 @@ subtype_data |>
 
 
 ```{r}
-|> 
+subtype_data |> 
   ggplot2::ggplot() + 
   aes(
     x = CGG,
-    fill = sex
+    col = sex,
+    y = age
   ) +
-  geom_histogram(alpha = .4) +
+  geom_point(alpha = .4) +
   facet_wrap(~ml_subtype, ncol = 1) +
   theme(legend.position = "bottom")
 ```
