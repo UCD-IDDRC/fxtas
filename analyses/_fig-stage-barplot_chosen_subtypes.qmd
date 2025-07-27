@@ -4,7 +4,7 @@
 ```{r}
 #| label: stage-barplot-by-subtype
 #| fig-height: 5
-#| fig-width: !expr pvd_width
+#| fig-width: 5.5
 results_cv_max$subtype_and_stage_table |> 
   filter(ml_subtype != "Type 0") |>
   stage_barplot(xmax = n_events)

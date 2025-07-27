@@ -417,8 +417,8 @@ table1(
 ) |> 
   table1::t1flex() |>
   shared_flextable_settings() |>
-  flextable::width(width = 2) |>
-  flextable::width(j = 2:7, width = 1.25)
+  flextable::width(width = .9) |>
+  flextable::width(j = 1, width = 1.7)
 ```
 
 **Cambridge Neuropsychological Test Automated Battery (CANTAB)**
