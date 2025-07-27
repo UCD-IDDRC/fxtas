@@ -745,7 +745,7 @@ and variations between subtypes
 (p-value = `r test_cgg$p.value |> scales::pvalue()`).
 We labeled the subtypes in descending order of mean CGG; 
 Individuals with higher CGG repeats
-are over-represented in Subtype 1
+were over-represented in Subtype 1
 (CGG repeat size mean = 
 `r cgg_by_subtype["Type 1", "mean"]` ± `r cgg_by_subtype["Type 1", "sd"]`)
 compared to the overall study population 
