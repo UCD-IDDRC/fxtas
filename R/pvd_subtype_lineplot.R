@@ -98,8 +98,10 @@ pvd_subtype_lineplot <- function(
     )
 
 
-  plot_dataset <- plot_dataset |>
-    compute_bumpplot_y_positions()
+  if (align_stage) {
+    plot_dataset <- plot_dataset |>
+      compute_bumpplot_y_positions()
+  }
 
   # plot
   to_return <- plot_dataset |>

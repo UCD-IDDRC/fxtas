@@ -1,4 +1,4 @@
-reticulate::use_condaenv("fxtas39", required = TRUE, conda = "~/miniforge3/condabin/conda")
+reticulate::use_condaenv("fxtas39", required = TRUE, conda = "auto")
 
 results <- extract_results_from_pickle(
   n_s = 4,

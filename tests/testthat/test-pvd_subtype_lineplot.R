@@ -12,11 +12,15 @@ test_that("results are consistent", {
 
 
   figs |>
-    pvd_subtype_lineplot(events_to_highlight = events_to_highlight) |>
+    pvd_subtype_lineplot(
+      align_stage = FALSE,
+      events_to_highlight = events_to_highlight) |>
     vdiffr::expect_doppelganger(title = "sim-data-4")
 
   figs[1:3] |>
-    pvd_subtype_lineplot(events_to_highlight = events_to_highlight) |>
+    pvd_subtype_lineplot(
+      align_stage = FALSE,
+      events_to_highlight = events_to_highlight) |>
     vdiffr::expect_doppelganger(title = "sim-data-3")
 
 })
