@@ -22,6 +22,7 @@ Imports:
     formattable,
     formulaic,
     fs,
+    gert,
     ggbump,
     ggnewscale,
     ggplot2,
@@ -78,7 +79,7 @@ Suggests:
     VennDiagram,
     viridis,
     webshot2,
-    withr, 
+    withr,
     writexl,
     chromote
 Config/testthat/edition: 3

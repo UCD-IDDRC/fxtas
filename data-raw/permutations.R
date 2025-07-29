@@ -89,6 +89,7 @@ output_folder =
   "output/output.fixed_CV" |>
   fs::dir_create()
 
+if (1 %in% permutation_seeds) save_run_info(output_folder)
 
 ## ----------------------------------------------------------------------------------------------------
 # April 2024, main analysis now uses Trax/GP34 Visit 1 data replacing previous version using only GP34

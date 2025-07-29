@@ -51,22 +51,6 @@ rerun = TRUE
 plot_python = TRUE
 fig_size = c(20, 10)
 
-args = commandArgs(trailingOnly = TRUE)
-message("args = ", args |> paste(collapse = "; "))
-if(N_CV_folds == 0)
-{
-  CV_fold_nums = NULL
-} else if(length(args) == 0 & N_CV_folds > 0)
-{
-
-  CV_fold_nums = 1:N_CV_folds
-
-} else
-{
-
-  CV_fold_nums = as.integer(as.character(args[1]))
-
-}
 N_iterations_MCMC = 1e5L
 dataset_name = 'sample_data'
 root_dir = here::here()
@@ -74,6 +58,24 @@ setwd(root_dir)
 output_folder =
   "output/output.fixed_CV" |>
   fs::dir_create()
+
+
+args = commandArgs(trailingOnly = TRUE)
+message("args = ", args |> paste(collapse = "; "))
+if (N_CV_folds == 0) {
+  CV_fold_nums = NULL
+} else if(length(args) == 0 & N_CV_folds > 0) {
+
+  CV_fold_nums = 1:N_CV_folds
+
+} else {
+
+  CV_fold_nums = as.integer(as.character(args[1]))
+
+  if (1 %in% CV_fold_nums) save_run_info(output_folder)
+
+}
+
 
 
 ## ----------------------------------------------------------------------------------------------------
