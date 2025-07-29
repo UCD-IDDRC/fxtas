@@ -26,7 +26,21 @@ list(
     "CGG &lt; 100, Males" = fig_under100_males,
     "CGG &lt; 100, Females" = fig_under100_females
   ) |> 
-  pvd_lineplot(text_size = lineplot_text_size)
+  pvd_lineplot(
+    text_size = lineplot_text_size,
+    events_to_highlight = c(
+      "SCID: Mood Disorders: Threshold",
+      "Tandem Walk: Abnormal (<10 Steps)",
+      "Postural Tremor",
+      "Splenium WM Hyperintensity: Mild",
+      "Genu WM Hyperintensity",
+      "MRI: Cerebral: Mild",
+      "MRI: Cerebellar: Mild",
+      "MRI: Cerebellar: Moderate/Severe",
+      "MCP-WM Hyperintensity: Mild",
+      "MCP-WM Hyperintensity: Moderate/SEver"
+    ),
+    highlight_color = "yellow")
 ```
 
 **Event sequences stratified by sex, for CGG repeats <100.**

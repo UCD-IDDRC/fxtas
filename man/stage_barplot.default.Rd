@@ -4,13 +4,20 @@
 \alias{stage_barplot.default}
 \title{Plot estimated stage counts}
 \usage{
-\method{stage_barplot}{default}(object, include_type_0 = TRUE, ...)
+\method{stage_barplot}{default}(
+  object,
+  include_type_0 = TRUE,
+  xmax = max(object$ml_stage, na.rm = TRUE),
+  ...
+)
 }
 \arguments{
 \item{object}{a \code{subtype_and_stage_table} object
 (a type of data.frame)}
 
 \item{include_type_0}{\link{logical} whether to include Type 0 in the plot}
+
+\item{xmax}{largest x-value to display}
 
 \item{...}{unused}
 }

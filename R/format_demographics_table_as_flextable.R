@@ -19,5 +19,6 @@ format_demographics_table_as_flextable <- function(x, ...) { # nolint: object_le
     ) |>
     # update lower header label: 'p-value' to 'p-value*'
     # reset p-value header column to bold font
-    flextable::bold(part = "header", j = 6)
+    flextable::bold(part = "header", j = 6) |>
+    flextable::width(width = 1)
 }

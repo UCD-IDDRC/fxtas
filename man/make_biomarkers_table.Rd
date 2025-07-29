@@ -19,7 +19,7 @@ make_biomarkers_table(
 the column names in \code{data}}
 
 \item{biomarker_events_table}{\link{data.frame} from
-\code{\link[=construct_biomarker_events_table]{construct_biomarker_events_table()}}}
+\code{\link[=make_biomarker_events_table]{make_biomarker_events_table()}}}
 
 \item{stratifying_var_names}{a \link{character} vector specifying
 variables to stratify by}
@@ -50,7 +50,7 @@ biomarker_levels <-
   get_levels(biomarker_varnames)
 
 biomarker_events_table <-
-  construct_biomarker_events_table(
+  make_biomarker_events_table(
     biomarker_levels,
     biomarker_groups = biomarker_groups
   )

@@ -10,7 +10,7 @@ plot_compact_pvd_est <- function(
     # facet_label_size = 8,
     facet_label_prefix = names(figs),
     legend.position = "none",
-    scale_colors = c("red", "blue", "purple4", "darkgreen", "magenta")
+    scale_colors = c("red", "blue", "magenta", "darkgreen", "purple4")
 ){
   # extract and prep data from fig list
   plot_dataset <- compact_pvd_est_data_prep(figs = figs)
