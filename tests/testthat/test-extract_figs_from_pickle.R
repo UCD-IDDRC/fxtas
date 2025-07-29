@@ -1,7 +1,7 @@
 test_that("`extract_figs_from_pickle()` produces stable results", {
 
   reticulate::use_condaenv("fxtas39", required = TRUE,
-                           conda = "~/miniforge3/condabin/conda")
+                           conda = "auto")
   reticulate::py_require(
     packages = c(
       "git+https://github.com/ucl-pond/kde_ebm",

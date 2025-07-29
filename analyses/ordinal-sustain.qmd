@@ -37,8 +37,8 @@ ggplot2::theme_set(ggplot2::theme_bw())
 #| label: libraries
 #| message: false
 
-reticulate::use_condaenv("fxtas39", required = TRUE, conda = "~/miniforge3/condabin/conda")
-# reticulate::use_condaenv("fxtas39", required = TRUE)
+# reticulate::use_condaenv("fxtas39", required = TRUE, conda = "auto")
+reticulate::use_condaenv("fxtas39", required = TRUE)
 library(fxtas)
 library(tidyverse)
 library(reticulate)
@@ -61,7 +61,7 @@ fit_models <- TRUE
 run_cv <- TRUE
 
 verbose <- TRUE
-rerun <- FALSE
+rerun <- TRUE
 use_rds <- !rerun
 
 plot_python <- TRUE
@@ -535,6 +535,14 @@ pval_under100_sex_gp34_v1 <- permutation_test(
 ```
 
 ```{r}
+#| eval: false
+#| label: plot-permutation-test-sex-under100
+plot_permutation_results(
+  permuted_test_stats,
+  observed_test_stat)
+```
+
+```{r}
 #| label: p-val-test-sex-over100
 
 permuted_test_stats <- collect_permutation_test_stats(
@@ -553,6 +561,14 @@ pval_over100_sex_gp34_v1 <- permutation_test(
   permuted_test_stats = permuted_test_stats,
   n_permutations = n_permutations
 )
+```
+
+```{r}
+#| eval: false
+#| label: plot-permutation-test-sex-over-100
+plot_permutation_results(
+  permuted_test_stats,
+  observed_test_stat)
 ```
 
 To study whether observed sex differences were modulated by CGG repeats, 
@@ -594,6 +610,13 @@ pval_male_cgg_gp34_v1 <- permutation_test(
 )
 ```
 
+```{r}
+#| eval: false
+#| label: plot-permutation-test-cgg-male
+plot_permutation_results(
+  permuted_test_stats,
+  observed_test_stat)
+```
 
 ```{r}
 #| label: p-val-test-cgg-female
@@ -622,6 +645,14 @@ n_over_100_female <-
     CGG >= 100
   ) |>
   nrow()
+```
+
+```{r}
+#| eval: false
+#| label: plot-permutation-test-cgg-female
+plot_permutation_results(
+  permuted_test_stats,
+  observed_test_stat)
 ```
 
 We did not find significant evidence of an overall difference between CGG <100
