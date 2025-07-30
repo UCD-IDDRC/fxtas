@@ -50,7 +50,7 @@ and brain MRI
 @elias2024enlarged].
 After the clinical and MRI evaluation,
 each patient received a stage designation of FXTAS ranging from 0 to 6 
-according to stages identified by Bacalman *et al.* 2006 
+according to stages identified by Bacalman et al. 2006 
 [@bacalman2006psychiatric] 
 based on tremor and ataxia severity. 
 Stage 1 represents subclinical or uncertain tremor; 

@@ -10,12 +10,12 @@ and proposed to add CCS hyperintensity
 as a new major radiologic criterion for FXTAS. 
 Subsequently, 
 Renaud et al., 2015 [@RenaudMathilde2015Rocc] 
-confirmed the finding from Apartis et al., 
+confirmed the finding from Apartis et al., 2012 
 and further reported that the combination of CCS and MCP hyperintensity 
 was more common in FXTAS than in other neurodegenerative disorders; 
-namely, 
-multiple system atrophy of cerebellar type, 
-Parkinson's disease, and 
+e.g.,
+multiple system atrophy of the cerebellar type, 
+Parkinson's disease,  
 Alzheimer's disease. 
 A third study addressing the prevalence of CCS in FXTAS 
 compared 15 men and 7 women with FXTAS

@@ -50,7 +50,7 @@ seen in more advanced premutation conditions like FXTAS.
 As such, the high lifetime burden of psychiatric illness in this population
 cannot be plausibly attributed solely (perhaps substantially) to
 an “emotional reaction”
-to the loss of function associated with these functional impairments,
+to the loss of function associated with these functional impairments
 but rather should be understood as 
 at least partially 
 a component of the premutation carrier state *itself*.
@@ -60,7 +60,7 @@ is a significant component of the carrier state.
 Furthermore, as only a small proportion of the patients
 had MMSE scores in the impaired range,
 it is also unlikely that the high rates of
-depressive, anxiety (and other) psychiatric illness
+depressive and anxiety disorders (and other psychiatric illnesses)
 could be attributed *solely* to complications of FXTAS dementia,
 as most patients had normal MMSE scores.
 For example, depressive disorders
@@ -130,7 +130,7 @@ were modified [@hall2014emerging]
 to include the involvement of the splenium,
 which is seen in the majority of females with FXTAS
 [@apartis2012fxtas; @schneider2020women].
-Hall *et al.* [-@hall2014emerging] also added
+Hall et al. [-@hall2014emerging] also added
 the feature of neuropathy,
 which occurs in the majority of FXTAS patients,
 but it is a common finding in the elderly with many causes,
