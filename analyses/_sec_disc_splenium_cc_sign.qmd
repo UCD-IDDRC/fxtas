@@ -24,8 +24,8 @@ This study showed that the CCS sign occurred more frequently
 in men with FXTAS compared with controls 
 but not in women with FXTAS.
 Compared with the MCP sign, 
-the CCS sign showed higher sensitivity in men and women with FXTAS, 
-but lower specificity in both men and women with FXTAS. 
+the CCS sign showed higher sensitivity but lower specificity in 
+both men and women with FXTAS.
 Schneider et al. 2020 [@schneider2020women]
 found that the white matter hyperintensity of the CCS was seen 
 in 34 of 53 women with FXTAS

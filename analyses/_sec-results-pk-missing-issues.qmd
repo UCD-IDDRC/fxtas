@@ -83,11 +83,11 @@ at FXTAS Stages 0-2 had parkinsonian features
 `r pd_count |> broman::spell_out() |> Hmisc::capitalize()`
 premutation carriers
 (`r pd_count_male` male and `r pd_count_female` female)
-were diagnosed with Parkinsons Disease
-by the participants' primary physicians or neurologists,
+were diagnosed with Parkinson's disease
+by the participants' primary care physicians or neurologists,
 whereas `r sum(cases_pf)` premutation carriers 
 (`r cases_pf["Male"]` male and `r cases_pf["Female"]` female)
 had parkinsonian features assessed as part of the study protocols
 (@supptbl-parkinsons-by-cgg).
-All nine participants with recorded Parkinsons Disease diagnoses
+All nine participants with recorded Parkinson's disease diagnoses
 also had parkinsonian features recorded.
