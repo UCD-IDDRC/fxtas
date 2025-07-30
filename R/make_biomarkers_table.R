@@ -8,18 +8,21 @@
 #' the column names in `data`
 #' @param stratifying_var_names a [character] vector specifying
 #' variables to stratify by
+#' @param whether to use the biomarker labels or
+#' the unlabelled biomarker variable names
 #' @returns a [flextable::flextable()]
 #' @export
 #'
 #' @example inst/examples/exm-make_biomarkers_table.R
 #'
 make_biomarkers_table <- function(
-  data,
-  biomarker_varnames =
-    compile_biomarker_groups_table() |>
-    dplyr::pull("biomarker"),
-  biomarker_events_table,
-  stratifying_var_names = "Gender"
+    data,
+    biomarker_varnames =
+      compile_biomarker_groups_table() |>
+      dplyr::pull("biomarker"),
+    biomarker_events_table,
+    stratifying_var_names = "Gender",
+    use_labels = TRUE
 ) {
   # compute p-values by gender
   pvals <- numeric()
@@ -75,8 +78,15 @@ make_biomarkers_table <- function(
 
   table_out <-
     biomarker_events_table |>
-    dplyr::select(all_of(c("category" = "biomarker_group",
-                           "biomarker", "levels"))) |>
+    dplyr::select(
+      all_of(
+        c(
+          "category" = "biomarker_group",
+          "biomarker" = if (use_labels) "biomarker_label" else "biomarker",
+          "levels"
+        )
+      )
+    ) |>
     slice_head(by = "biomarker") |>
     dplyr::filter(.data$category != "Stage") |>
     left_join(
@@ -94,7 +104,8 @@ make_biomarkers_table <- function(
         stringr::str_replace(
           stringr::fixed("SCID: "),
           ""
-        )
+        ) |>
+        Hmisc::capitalize()
     )
 
   table_out |>

@@ -140,7 +140,7 @@ compile_biomarker_group_list <- function(dataset) {
       Ataxia = ataxia,
       Stage = "FXTAS Stage",
       Parkinsonian = parkinsonian_vars,
-      Parkinsons = "Parkinsons",
+      `Parkinson's disease` = "Parkinsons",
       # cancer = cancer_vars, # nolint
       MRI = mri_vars,
       Scores = scores,

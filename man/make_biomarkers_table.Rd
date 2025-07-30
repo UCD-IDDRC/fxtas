@@ -8,7 +8,8 @@ make_biomarkers_table(
   data,
   biomarker_varnames = dplyr::pull(compile_biomarker_groups_table(), "biomarker"),
   biomarker_events_table,
-  stratifying_var_names = "Gender"
+  stratifying_var_names = "Gender",
+  use_labels = TRUE
 )
 }
 \arguments{
@@ -23,6 +24,9 @@ the column names in \code{data}}
 
 \item{stratifying_var_names}{a \link{character} vector specifying
 variables to stratify by}
+
+\item{whether}{to use the biomarker labels or
+the unlabelled biomarker variable names}
 }
 \value{
 a \code{\link[flextable:flextable]{flextable::flextable()}}

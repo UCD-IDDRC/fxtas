@@ -3,7 +3,7 @@
     structure(list(Tremors = c("head tremor", "intention tremor", 
     "resting tremor", "postural tremor", "intermittent tremor"), 
         Ataxia = c("Tandem Walk", "ataxia severity*"), Stage = "FXTAS Stage", 
-        Parkinsonian = "parkinsonian features", Parkinsons = "Parkinsons", 
+        Parkinsonian = "parkinsonian features", "Parkinson's disease" = "Parkinsons", 
         MRI = c("MCP-WM Hyperintensity", "MRI: Cerebellar", "MRI: Cerebral", 
         "Splenium (CC)-WM Hyperintensity", "Genu (CC)-WM Hyperintensity", 
         "Corpus Callosum-Thickness"), Scores = c("MMSE total score*", 
