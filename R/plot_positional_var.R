@@ -32,7 +32,7 @@
 #' @inheritDotParams autoplot.PF
 #' @returns a `"PVD.list` (a [list] of `PVD` objects from [autoplot.PF()])
 #' @export
-#'
+#' @example inst/examples/exm-plot_positional_var.R
 plot_positional_var <- function(
     results,
     samples_sequence = results$samples_sequence,
