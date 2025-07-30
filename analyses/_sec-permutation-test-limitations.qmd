@@ -5,5 +5,6 @@ a desired method particularly when the true null distribution is unknown.
 The permutation test approach is based on 
 the empirical sampling distribution of its own data 
 to calculate a test statistic and its respective p-value. 
-Its performance in this application could be validated 
-either mathematically or through simulations.
+Its performance in this application could be validated
+with a large study where the empirical distribution of data 
+tends to reflect the true distribution more closely.

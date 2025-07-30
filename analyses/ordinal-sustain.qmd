@@ -60,7 +60,7 @@ fit_models <- TRUE
 run_cv <- TRUE
 
 verbose <- TRUE
-rerun <- TRUE
+rerun <- FALSE
 use_rds <- !rerun
 
 plot_python <- TRUE
@@ -711,17 +711,18 @@ We conducted latent subtype classification analysis to cluster participants
 that are relatively homogeneous within the same cluster 
 and heterogeneous from other clusters 
 based on similarities and differences in sequential patterns. 
-Based on the CVIC criterion (Supplementary material, [Detecting latent subtypes](#sec-subtypes)), 
-`r n_s_min_CVIC` subtypes were suggested to be the optimal number for the full, 
-unstratified dataset 
-([Supplementary Fig. @suppfig-cvic-1]). 
+The cross-validation procedure
+(Supplementary material, [Detecting latent subtypes](#sec-subtypes))
+suggested `r n_s_min_CVIC` subtypes to be the optimal number for the full, 
+unstratified dataset ([Supplementary Fig. @suppfig-cvic-1]).
 The out-of-fold log-likelihood ("OOFLL") (Supplementary material, [Detecting latent subtypes](#sec-subtypes)) 
 showed substantial fold-to-fold variation 
 ([Supplementary Fig. @suppfig-cvic-2]).
 Between `r broman::spell_out(n_s_selected)` and `r broman::spell_out(N_S_max)` 
 latent subtypes, 
-the distribution of OOFLL appears to be
-approximately unchanging and the CVIC appears approximately flat, 
+the distribution of OOFLL appeared to be
+approximately unchanging and the cross-validation information criterion (CVIC)
+appeared approximately flat, 
 and thus for clinical interpretation
 and in consideration of the principle of parsimony, 
 we chose to classify participants into `r n_s_selected` subtypes.
@@ -785,20 +786,20 @@ a known risk factor of FXTAS,
 contributed to the segregation of subtypes 
 and variations between subtypes 
 (p-value = `r test_cgg$p.value |> scales::pvalue()`).
-We labeled the subtypes in descending order of mean CGG; 
+We labeled the subtypes in descending order of mean CGG repeats. 
 Individuals with higher CGG repeats
 were over-represented in Subtype 1
-(CGG repeat size mean = 
+(CGG repeats mean = 
 `r cgg_by_subtype["Type 1", "mean"]` ± `r cgg_by_subtype["Type 1", "sd"]`)
 compared to the overall study population 
-(CGG repeat size mean = `r cgg_overall$mean`  ± `r cgg_overall$sd`) 
+(CGG repeats mean = `r cgg_overall$mean`  ± `r cgg_overall$sd`) 
 and other subtypes.
-Subtype 2 had CGG repeat sizes close to the overall study population 
+Subtype 2 had CGG repeats close to the overall study population 
 (`r cgg_by_subtype["Type 2", "mean"]` ± `r cgg_by_subtype["Type 2", "sd"]`).
-Subtype 3 had lower CGG repeat sizes than the overall study population
-(`r cgg_by_subtype["Type 3", "mean"]` ± `r cgg_by_subtype["Type 3", "sd"]`).
+Subtype 3 had fewer CGG repeats than the overall study population
+(`r cgg_by_subtype["Type 3", "mean"]` ± `r cgg_by_subtype["Type 3", "sd"]`),
 and 
-Subtype 4 had the lowest CGG repeat sizes
+Subtype 4 had the fewest CGG repeats
 (`r cgg_by_subtype["Type 4", "mean"]` ± `r cgg_by_subtype["Type 4", "sd"]`).
 
 ```{r}

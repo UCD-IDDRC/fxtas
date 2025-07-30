@@ -10,7 +10,8 @@ precisely estimate models with more stratifying variables.
 In particular, the current dataset consists of 
 60% males and 40% females among premutation carriers. 
 The ongoing recruitment for the GP study focuses on recruiting more females, 
-which will help add precision to models for females in the future.
+which will help add precision to models for females and rare events 
+in the future.
 We had substantial amounts of missing data.
 As described in the methods ([Imputation of missing data](#sec-incomplete-data)),
 we used the marginal distribution of
@@ -33,6 +34,7 @@ which are longitudinal cohort studies
 with infrequent follow-up visits.
 These studies do not collect precise information
 about timing of symptom onsets,
+particularly for historical symptoms,
 so it is not feasible to use the time-to-event data
 to confirm the results from the Ordinal SuStaIn analysis.
 In our analysis approach,

@@ -32,27 +32,6 @@ color_info <- tibble::tribble(
 figs |> pvd_subtype_lineplot(
   smooth = 30,
   y_lab = "",
-  align_stage = FALSE,
-  events_to_highlight = color_info)
-```
-
-
-**Differences in event sequences between latent subtypes.**
-Lines are used to show patterns of clinical interest.
-Text colors indicate symptoms grouped by measurement type.
-
-:::
-
-{{< pagebreak >}}
-
-:::{#suppfig-bump-aligned}
-
-```{r}
-#| fig-height: 9
-#| fig-width: 15
-figs |> pvd_subtype_lineplot(
-  smooth = 30,
-  y_lab = "",
   align_stage = TRUE,
   events_to_highlight = color_info)
 ```
@@ -63,4 +42,3 @@ Lines are used to show patterns of clinical interest.
 Text colors indicate symptoms grouped by measurement type.
 
 :::
-
