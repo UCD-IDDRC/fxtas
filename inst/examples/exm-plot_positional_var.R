@@ -7,7 +7,7 @@
     extract_results_from_pickle(
       output_folder = _,
       n_s = 1,
-      use_rds = FALSE
+      use_rds = TRUE
     )
 
   plot1 <-
