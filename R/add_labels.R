@@ -17,6 +17,8 @@ add_labels <- function(data) {
       # see https://www.ninds.nih.gov/health-information/clinical-trials/masked-faces-parkinson-disease-mechanism-and-treatment # nolint: line_length_linter
       "Increased tone" = .data$`Increased tone` |>
         set_label_attribute("increased tone"),
+      "Pulmonary Fibrosis" = .data$`Pulmonary Fibrosis` |>
+        set_label_attribute("pulmonary fibrosis"),
       "Stiff gait" = .data$`Stiff gait` |>
         set_label_attribute("stiff gait"),
       `FX3*` = .data$`FX3*` |>

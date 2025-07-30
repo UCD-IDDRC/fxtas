@@ -46,8 +46,6 @@ The following supplementary tables
 summarize the distributions of the `r outcomes_name`s
 that we analyzed in this paper, stratified by sex and CGG level.
 
-::: landscape
-
 ```{r}
 #| label: exploration-setup
 #| include: false
@@ -73,6 +71,7 @@ library(magrittr)
 na_label_1 <- "Missing"
 show_missingness_reasons <- FALSE
 footnote1 <- 'Codes `777`, `888`, and `999` are counted as "Missing" (NA).'
+width1 = .8
 ```
 
 
@@ -107,6 +106,7 @@ vars <- c(
 #   shared_flextable_settings()
 # }
 
+
 table1(
   na.is.category = FALSE, 
   overall = FALSE,
@@ -121,7 +121,7 @@ table1(
 ) |> 
   table1::t1flex() |>
   shared_flextable_settings()  |> 
-  flextable::width(width = .9)
+  flextable::width(width = width1)
 ```
 
 **Tremors by CGG level and sex**
@@ -153,7 +153,7 @@ v1_usable_capital_labels |>
   ) |> 
   table1::t1flex() |>
   shared_flextable_settings()  |> 
-  flextable::width(width = .9)
+  flextable::width(width = width1)
 ```
 
 **Head tremors by CGG level and sex**
@@ -182,7 +182,7 @@ table1(
 ) |> 
   table1::t1flex() |>
   shared_flextable_settings() |> 
-  flextable::width(width = .9)
+  flextable::width(width = width1)
 ```
 
 **Ataxia by CGG status**
@@ -215,14 +215,13 @@ table1(
 ) |> 
   table1::t1flex() |>
   shared_flextable_settings() |> 
-  flextable::width(width = .9)
+  flextable::width(width = width1) |> 
+  flextable::width(j = 1, width = .9)
 ```
 
 **Parkinson's disease and parkinsonian features, by CGG status**
 
 :::
-
-{{< pagebreak >}}
 
 {{< include _sec_stage_vs_pk_ft.qmd >}}
 
@@ -242,15 +241,13 @@ table1(
 ) |> 
   table1::t1flex() |>
   shared_flextable_settings() |> 
-  flextable::width(width = .9)
+  flextable::width(width = width1)
 
 ```
 
 **FXTAS Stage by CGG level and sex**
 
 :::
-
-{{< pagebreak >}}
 
 ::: {#supptbl-bds2}
 
@@ -267,7 +264,7 @@ table1(
 ) |> 
   table1::t1flex() |>
   shared_flextable_settings() |> 
-  flextable::width(width = .9)
+  flextable::width(width = width1)
 ```
 
 **Behavior Dyscontrol Scale - Second Edition (BDS-2)**
@@ -299,7 +296,7 @@ table1(
 ) |> 
   table1::t1flex() |>
   shared_flextable_settings() |> 
-  flextable::width(width = .9) |> 
+  flextable::width(width = width1) |> 
   flextable::width(j = 1, width = 1.6)
 ```
 
@@ -324,7 +321,7 @@ table1(
 ) |> 
   table1::t1flex() |>
   shared_flextable_settings() |> 
-  flextable::width(width = .9)
+  flextable::width(width = width1)
 ```
 
 **Structured Clinical Interview for DSM Disorders (SCID)**
@@ -415,7 +412,7 @@ table1(
 ) |> 
   table1::t1flex() |>
   shared_flextable_settings() |>
-  flextable::width(width = .9) |>
+  flextable::width(width = width1) |>
   flextable::width(j = 1, width = 1.7)
 ```
 
@@ -453,12 +450,10 @@ table1(
 ) |> 
   table1::t1flex() |>
   shared_flextable_settings() |> 
-  flextable::width(width = .9)
+  flextable::width(width = width1) |> 
+  flextable::width(j = 1, width = .9)
 ```
 
 **Thyroid and autoimmune diseases**
-
-:::
-
 
 :::

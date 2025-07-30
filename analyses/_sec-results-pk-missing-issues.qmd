@@ -89,5 +89,5 @@ whereas `r sum(cases_pf)` premutation carriers
 (`r cases_pf["Male"]` male and `r cases_pf["Female"]` female)
 had parkinsonian features assessed as part of the study protocols
 (@supptbl-parkinsons-by-cgg).
-All nine participants with recorded Parkinson's disease diagnoses
-also had parkinsonian features recorded.
+<!-- All nine participants with recorded Parkinson's disease diagnoses -->
+<!-- also had parkinsonian features recorded. -->
