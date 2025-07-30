@@ -61,6 +61,19 @@ add_labels <- function(data) {
       `Corpus Callosum-Thickness` =
         .data$`Corpus Callosum-Thickness` |>
         set_label_attribute("corpus callosum thickness"),
+      `Genu (CC)-WM Hyperintensity` =
+        .data$`Genu (CC)-WM Hyperintensity` |>
+        set_label_attribute(
+          "genu white matter hyperintensity"
+        ),
+      `Splenium (CC)-WM Hyperintensity` =
+        .data$`Splenium (CC)-WM Hyperintensity` |>
+        set_label_attribute(
+          "splenium white matter hyperintensity"
+        ),
+      `MCP-WM Hyperintensity` =
+        .data$`MCP-WM Hyperintensity` |>
+        set_label_attribute("MCP white matter hyperintensity"),
       `any autoimmune disorder` =
         .data$`any autoimmune disorder` |>
         set_label_attribute("autoimmune diagnoses or symptoms"),

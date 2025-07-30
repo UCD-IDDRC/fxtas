@@ -111,7 +111,7 @@ Gender,Sex
 Gender: missingness reasons,Gender: missingness reasons
 "Generalized Anxiety (ANX32), Current Only","Generalized Anxiety (ANX32), Current Only"
 "Generalized Anxiety (ANX32), Current Only: missingness reasons","Generalized Anxiety (ANX32), Current Only: missingness reasons"
-Genu (CC)-WM Hyperintensity,Genu (Corpus Callosum) White Matter Hyperintensity
+Genu (CC)-WM Hyperintensity,genu white matter hyperintensity
 Genu (CC)-WM Hyperintensity: missingness reasons,Genu (CC)-WM Hyperintensity: missingness reasons
 "Hallucinogenics/ PCP (SUD23), Current","Hallucinogenics/ PCP (SUD23), Current"
 "Hallucinogenics/ PCP (SUD23), Current: missingness reasons","Hallucinogenics/ PCP (SUD23), Current: missingness reasons"
@@ -153,7 +153,7 @@ Kinesia Right postural tremor,Kinesia Right postural tremor
 Kinesia Right postural tremor*,Kinesia Right postural tremor*
 Lupus,Lupus
 Lupus: missingness reasons,Lupus: missingness reasons
-MCP-WM Hyperintensity,MCP White Matter Hyperintensity
+MCP-WM Hyperintensity,MCP white matter hyperintensity
 MCP-WM Hyperintensity: missingness reasons,MCP-WM Hyperintensity: missingness reasons
 MMSE total score,MMSE total score
 MMSE total score*,MMSE total score
@@ -321,7 +321,7 @@ Somatization Disorder (SOM36): missingness reasons,Somatization Disorder (SOM36)
 "Specific Phobia (ANX29), Current: missingness reasons","Specific Phobia (ANX29), Current: missingness reasons"
 "Specific Phobia (ANX29), Lifetime","Specific Phobia (ANX29), Lifetime"
 "Specific Phobia (ANX29), Lifetime: missingness reasons","Specific Phobia (ANX29), Lifetime: missingness reasons"
-Splenium (CC)-WM Hyperintensity,Splenium (Corpus Callosum) White Matter Hyperintensity
+Splenium (CC)-WM Hyperintensity,splenium white matter hyperintensity
 Splenium (CC)-WM Hyperintensity: missingness reasons,Splenium (CC)-WM Hyperintensity: missingness reasons
 Stage_3plus,FXTAS Stage
 Stage_3plus: missingness reasons,Stage_3plus: missingness reasons
