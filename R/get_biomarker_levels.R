@@ -12,7 +12,11 @@
 #'
 #' @examples
 #' get_levels(iris, "Species")
-get_levels <- function(data, varnames = names(data), keep_labels = FALSE) {
+get_levels <- function(
+    data,
+    varnames = names(data),
+    keep_labels = TRUE) {
+
   vars <- data |>
     dplyr::select(all_of(varnames))
 

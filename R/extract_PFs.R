@@ -2,9 +2,11 @@ extract_PFs <- function(
     samples_sequence,
     biomarker_events_table,
     biomarker_plot_order,
-    biomarker_groups) {
+    biomarker_groups,
+    ...) {
   samples_sequence |>
     t() |>
+    as_tibble() |>
     compute_position_frequencies() |>
     simplify_biomarker_names(cols = "event name") |>
     # get biomarker names
@@ -20,7 +22,8 @@ extract_PFs <- function(
       by = c("biomarker")
     ) |>
     arrange_position_frequencies(
-      biomarker_order = biomarker_plot_order
+      biomarker_order = biomarker_plot_order,
+      ...
     ) |>
     dplyr::mutate(
       `event label` =

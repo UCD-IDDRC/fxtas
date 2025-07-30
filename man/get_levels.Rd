@@ -4,7 +4,7 @@
 \alias{get_levels}
 \title{Extract levels from a set of variable names}
 \usage{
-get_levels(data, varnames = names(data), keep_labels = FALSE)
+get_levels(data, varnames = names(data), keep_labels = TRUE)
 }
 \arguments{
 \item{data}{a \link{data.frame}}

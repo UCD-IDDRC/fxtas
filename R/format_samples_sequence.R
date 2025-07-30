@@ -10,7 +10,8 @@ format_samples_sequence <- function(
   stopifnot(n_events == length(biomarker_event_names))
   stopifnot(is.numeric(samples_sequence))
 
-  samples_sequence[] <- biomarker_event_names[samples_sequence + 1]
+  replacements <- biomarker_event_names[as.vector(samples_sequence) + 1]
+  samples_sequence[] <- replacements
   samples_sequence <- structure(
     samples_sequence[subtype_order, , , drop = FALSE],
     subtype_order = subtype_order,

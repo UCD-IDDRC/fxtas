@@ -13,8 +13,7 @@
   plot1 <-
     plot_positional_var(
       results = results,
-      biomarker_groups = biomarker_groups,
-      biomarker_levels = biomarker_levels)
+      use_labels = TRUE)
 
   plot1 |>
     vdiffr::expect_doppelganger(title = "plot1")

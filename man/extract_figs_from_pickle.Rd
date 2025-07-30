@@ -59,6 +59,7 @@ extract_figs_from_pickle(
     \item{\code{biomarker_event_names}}{todo}
     \item{\code{biomarker_plot_order}}{todo}
     \item{\code{synchronize_y_axes}}{todo}
+    \item{\code{use_labels}}{whether to use biomarker labels or variable names}
   }}
 }
 \value{

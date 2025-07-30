@@ -107,9 +107,9 @@ SuStaInLabels =
   biomarker_groups |>
   dplyr::pull("biomarker")
 
-
 biomarker_levels =
-  lapply(df[,biomarker_varnames], F = levels)
+  df |>
+  get_levels(biomarker_varnames)
 
 biomarker_events_table =
   make_biomarker_events_table(

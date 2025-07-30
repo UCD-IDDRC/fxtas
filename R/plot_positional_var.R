@@ -29,6 +29,7 @@
 #' @param biomarker_event_names todo
 #' @param biomarker_plot_order todo
 #' @param synchronize_y_axes todo
+#' @param use_labels whether to use biomarker labels or variable names
 #' @inheritDotParams autoplot.PF
 #' @returns a `"PVD.list` (a [list] of `PVD` objects from [autoplot.PF()])
 #' @export
@@ -67,6 +68,7 @@ plot_positional_var <- function(
     save_path = NULL,
     save_kwargs = NULL,
     synchronize_y_axes = FALSE,
+    use_labels = FALSE,
     ...) {
   # Get the number of subtypes
   N_S <- dim(samples_sequence)[1]
@@ -203,7 +205,8 @@ plot_positional_var <- function(
       extract_PFs(
         biomarker_events_table = biomarker_events_table,
         biomarker_plot_order = biomarker_plot_order,
-        biomarker_groups = biomarker_groups
+        biomarker_groups = biomarker_groups,
+        use_labels = use_labels
       )
 
 

@@ -34,6 +34,7 @@ plot_positional_var(
   save_path = NULL,
   save_kwargs = NULL,
   synchronize_y_axes = FALSE,
+  use_labels = FALSE,
   ...
 )
 }
@@ -96,6 +97,8 @@ plot_positional_var(
 
 \item{synchronize_y_axes}{todo}
 
+\item{use_labels}{whether to use biomarker labels or variable names}
+
 \item{...}{
   Arguments passed on to \code{\link[=autoplot.PF]{autoplot.PF}}
   \describe{
@@ -109,4 +112,26 @@ a \verb{"PVD.list} (a \link{list} of \code{PVD} objects from \code{\link[=autopl
 }
 \description{
 Plot positional variance diagram
+}
+\examples{
+\dontrun{
+  output_folder <-
+    "output/output.fixed_CV-scid-no-subthres/"
+
+  results <-
+    output_folder |>
+    extract_results_from_pickle(
+      output_folder = _,
+      n_s = 1,
+      use_rds = TRUE
+    )
+
+  plot1 <-
+    plot_positional_var(
+      results = results,
+      use_labels = TRUE)
+
+  plot1 |>
+    vdiffr::expect_doppelganger(title = "plot1")
+}
 }
