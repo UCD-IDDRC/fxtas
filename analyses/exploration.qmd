@@ -42,9 +42,10 @@ capitalize_label <- function(x) {
 capitalize_labels <- TRUE
 if (capitalize_labels) {
   
-  labelled::var_label(v1_usable_capital_labels) <- 
-    labelled::var_label(v1_usable_capital_labels) |> 
+  capitalized_labels <- labelled::var_label(v1_usable_capital_labels) |> 
     lapply(FUN = capitalize_label)
+  labelled::var_label(v1_usable_capital_labels) <- 
+    capitalized_labels
 }
 ```
 
