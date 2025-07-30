@@ -31,8 +31,15 @@ column_var <- c("Gender", "FX3*")
 ```{r}
 v1_usable_capital_labels <- 
   v1_usable 
+capitalize_label <- function(x) {
+  if (is.null(x)) {
+    NULL
+  } else {
+    stringr::str_replace(x, "([[:alpha:]])", toupper)
+  }
+}
 
-capitalize_labels <- FALSE
+capitalize_labels <- TRUE
 if (capitalize_labels) {
   
   labelled::var_label(v1_usable_capital_labels) <- 
