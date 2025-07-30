@@ -19,9 +19,8 @@ rheumatoid arthritis,
 multiple sclerosis, 
 positive anti-nuclear antibody (ANA), 
 Sjogren's syndrome, 
-or 
+and 
 Raynaud's syndrome, 
-<!-- and pulmonary fibrosis,  -->
 since these conditions were too rare to analyze separately
 (details in Supplementary material, 
 [Any autoimmune disorder](#sec-any-autoimmune)).
