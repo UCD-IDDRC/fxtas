@@ -56,7 +56,7 @@ dataset_name = 'sample_data'
 root_dir = here::here()
 setwd(root_dir)
 output_folder =
-  "output/output.fixed_CV" |>
+  "output/output.fixed_CV/pickle_files" |>
   fs::dir_create()
 
 
