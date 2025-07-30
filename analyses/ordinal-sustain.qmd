@@ -37,8 +37,7 @@ ggplot2::theme_set(ggplot2::theme_bw())
 #| label: libraries
 #| message: false
 
-# reticulate::use_condaenv("fxtas39", required = TRUE, conda = "auto")
-reticulate::use_condaenv("fxtas39", required = TRUE)
+reticulate::use_condaenv("fxtas39", required = TRUE, conda = "auto")
 library(fxtas)
 library(tidyverse)
 library(reticulate)

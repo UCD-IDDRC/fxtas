@@ -11,3 +11,23 @@ test_that("`plot_compact_pvd()` produces consistent results", {
 
 
 })
+
+
+test_that(
+  desc = "`plot_compact_pvd()` produces consistent results with fxtas results",
+  code = {
+
+    pvd_list_by_sex <-
+      readr::read_rds(
+        testthat::test_path("fixtures", "pvd_list_by_sex.rds")
+      )
+
+    fig2 <-
+      pvd_list_by_sex |>
+      plot_compact_pvd()
+
+    fig2 |> vdiffr::expect_doppelganger(title = "pvd-fxtas-by-sex")
+
+
+  }
+)
