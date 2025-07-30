@@ -102,7 +102,7 @@ format:
     toc: false
     echo: false
     # fig-format: svg # seems to break things
-    fig-dpi: 300
+    fig-dpi: 600
     # dpi: 300
     toc-depth: 4
     cap-location: top

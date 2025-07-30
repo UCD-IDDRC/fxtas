@@ -4,7 +4,6 @@
 #| fig-height: 7
 #| fig-width: !expr pvd_width
 #| fig-cap-location: top
-
 plot_compact_pvd_est2(
   figs = figs,
   facet_label_prefix = NULL,
