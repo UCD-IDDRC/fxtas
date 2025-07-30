@@ -2,6 +2,8 @@
 
 {{< include exploration.qmd >}}
 
+{{< pagebreak >}}
+
 ## Estimates of event scoring accuracy {.appendix}
 
 {{< include _sec_prob_correct.qmd >}}

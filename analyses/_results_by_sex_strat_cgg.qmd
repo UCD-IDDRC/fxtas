@@ -3,13 +3,13 @@
 ```{r}
 #| label: fig-pvd-by-gender-cgg_under100-1
 #| fig-height: !expr pvd_height
-#| fig-width: !expr pvd_subfig_width
+#| fig-width: !expr pvd_width
 #| fig-cap: ""
 
 # compact pvd
 list(
-    "CGG &lt; 100, Males  <br>" = fig_under100_males,
-    "CGG &lt; 100, Females  <br>" = fig_under100_females
+    "CGG &lt; 100, Males:" = fig_under100_males,
+    "CGG &lt; 100, Females:" = fig_under100_females
   ) |> 
   plot_compact_pvd(y_text_size = y_text_size)
 
@@ -56,13 +56,13 @@ list(
 ```{r}
 #| label: fig-pvd-by-gender-cgg_over100-1
 #| fig-height: !expr pvd_height
-#| fig-width: !expr pvd_subfig_width
+#| fig-width: !expr pvd_width
 #| fig-cap: ""
 
 # compact pvd
 list(
-    "CGG &ge; 100, Males  <br>" = fig_over100_males,
-    "CGG &ge; 100, Females  <br>" = fig_over100_females
+    "CGG &ge; 100, Males:" = fig_over100_males,
+    "CGG &ge; 100, Females:" = fig_over100_females
   ) |> 
   plot_compact_pvd(y_text_size = y_text_size)
 ```

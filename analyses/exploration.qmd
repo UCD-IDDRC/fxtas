@@ -33,11 +33,11 @@ v1_usable_capital_labels <-
   v1_usable 
 
 capitalize_labels <- FALSE
-if(capitalize_labels) {
-
-labelled::var_label(v1_usable_capital_labels) <- 
-  labelled::var_label(v1_usable_capital_labels) |> 
-  lapply(FUN = capitalize_label)
+if (capitalize_labels) {
+  
+  labelled::var_label(v1_usable_capital_labels) <- 
+    labelled::var_label(v1_usable_capital_labels) |> 
+    lapply(FUN = capitalize_label)
 }
 ```
 
@@ -71,7 +71,7 @@ library(magrittr)
 na_label_1 <- "Missing"
 show_missingness_reasons <- FALSE
 footnote1 <- 'Codes `777`, `888`, and `999` are counted as "Missing" (NA).'
-width1 = .8
+width1 = .85
 ```
 
 
@@ -223,6 +223,8 @@ table1(
 
 :::
 
+{{< pagebreak >}}
+
 {{< include _sec_stage_vs_pk_ft.qmd >}}
 
 ::: {#supptbl-fxtas-stage-by-cgg}
@@ -271,6 +273,8 @@ table1(
 
 :::
 
+{{< pagebreak >}}
+
 ::: {#supptbl-mmse}
 
 ```{r}
@@ -304,8 +308,6 @@ table1(
 
 :::
 
-{{< pagebreak >}}
-
 ::: {#supptbl-scid}
 
 ```{r}
@@ -321,10 +323,49 @@ table1(
 ) |> 
   table1::t1flex() |>
   shared_flextable_settings() |> 
-  flextable::width(width = width1)
+  flextable::width(width = width1) |> 
+  flextable::width(j = 1, width = 1)
 ```
 
 **Structured Clinical Interview for DSM Disorders (SCID)**
+
+:::
+
+{{< pagebreak >}}
+
+::: {#supptbl-mood-disorders}
+
+```{r}
+library(rex)
+scid_md_vars <- 
+  c(
+    "Bipolar I Disorder (MD01), Lifetime", 
+    "Bipolar II Disorder (MD02), Lifetime", 
+    "Other Bipolar Disorder (MD03), Lifetime", 
+    "Major Depressive Disorder (MD04), Lifetime", 
+    "Dysthymic Disorder (MD05), Lifetime", 
+    "Depressive Disorder NOS (MD06), Lifetime",
+    "Mood Disorder Due to GMC (MD07), Lifetime", 
+    "Substance-Induced Mood Dis. (MD08), Lifetime"
+  )
+
+table1(
+  na.is.category = FALSE,
+  overall = FALSE,
+  NA.label = na_label_1,
+  droplevels = FALSE,
+  x = stratified_formula(scid_md_vars, column_var),
+  data = v1_usable_capital_labels
+) |> 
+  table1::t1flex() |>
+  shared_flextable_settings() |> 
+  flextable::width(width = width1) |> 
+  flextable::width(j = 1, width = 1.45)
+```
+
+**Variables contributing to the "Mood Disorders" composite variable,**
+**by Sex and CGG level**
+
 
 :::
 

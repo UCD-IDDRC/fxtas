@@ -67,7 +67,7 @@ plot_python <- TRUE
 fig_size <- c(20, 10)
 
 pvd_height <- 5.5
-pvd_width <- 5.5
+pvd_width <- 6
 pvd_subfig_width <- pvd_width - 1
 pvd_line_height <- 7
 pvd_line_width <- 8.1
@@ -676,7 +676,8 @@ in males with CGG repeats ≥ 100
 ([Supplementary Fig. @fig-pvd-by-cgg-male-2]). 
 Postural, 
 resting, 
-and intermittent tremor 
+and 
+intermittent tremor 
 occurred in earlier FXTAS stages in those with CGG repeats <100 
 compared to those with CGG repeats ≥100.
 SCID substance use disorders and somatoform disorders
@@ -687,7 +688,8 @@ We also did not find a significant difference between CGG <100 and CGG ≥100
 among females (p = `r pval_female_cgg_gp34_v1`) 
 (@suppfig-pvd-by-cgg-female). 
 It should be noted that this comparison lacked statistical power 
-given the limited sample size of only `r n_over_100_female` females with CGG ≥100.
+given the limited sample size of only 
+`r n_over_100_female` females with CGG ≥100.
 
 ## Subtype clustering
 

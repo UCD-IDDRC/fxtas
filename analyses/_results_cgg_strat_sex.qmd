@@ -9,8 +9,8 @@
 
 # compact pvd
 list(
-    "Males, CGG &lt; 100 <br>" = fig_under100_males,
-    "Males, CGG &ge; 100  <br>" = fig_over100_males
+    "Males, CGG &lt; 100:" = fig_under100_males,
+    "Males, CGG &ge; 100:" = fig_over100_males
   ) |>
 plot_compact_pvd(y_text_size = y_text_size)
 
@@ -26,7 +26,7 @@ list(
     "Males, CGG &lt; 100" = fig_under100_males,
     "Males, CGG &ge; 100" = fig_over100_males
   ) |>
-pvd_lineplot(text_size = lineplot_text_size)
+  pvd_lineplot(text_size = lineplot_text_size)
 ```
 
 **Event sequences stratified by CGG repeats, among males.**
@@ -44,14 +44,14 @@ between CGG repeat levels. `r compact_fig_cap2`
 
 ```{r}
 #| label: fig-pvd-by-cgg-female-1
-#| fig-height: !expr pvd_line_height
-#| fig-width: !expr pvd_line_width
+#| fig-height: !expr pvd_height
+#| fig-width: !expr pvd_width
 #| fig-cap: ""
 
 # compact pvd
 list(
-    "Females, CGG &lt; 100  <br>" = fig_under100_females,
-    "Females, CGG &ge; 100  <br>" = fig_over100_females
+    "Females, CGG &lt; 100:" = fig_under100_females,
+    "Females, CGG &ge; 100:" = fig_over100_females
   ) |> 
   plot_compact_pvd(y_text_size = y_text_size)
 
@@ -59,7 +59,6 @@ list(
 
 ```{r}
 #| label: fig-pvd-by-cgg-female-2
-#| column: page
 #| fig-height: !expr pvd_line_height
 #| fig-width: !expr pvd_line_width
 #| fig-cap: ""

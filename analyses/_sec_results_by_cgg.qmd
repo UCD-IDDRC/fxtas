@@ -56,11 +56,10 @@ the available data included only `r n_over_100_female` females with CGG ≥100.
 #| fig-width: !expr pvd_width
 
 list(
-    fig_under100,
-    fig_over100
+    "CGG &lt; 100:" = fig_under100,
+    "CGG &ge; 100:" = fig_over100
   ) |> 
 plot_compact_pvd(
-  facet_label_prefix = c("CGG &lt; 100 <br>", "CGG &ge; 100 <br>"),
   y_text_size = y_text_size
 )
 
