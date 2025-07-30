@@ -82,7 +82,8 @@ make_biomarkers_table <- function(
       all_of(
         c(
           "category" = "biomarker_group",
-          "biomarker" = if (use_labels) "biomarker_label" else "biomarker",
+          "biomarker",
+          "biomarker_label",
           "levels"
         )
       )
@@ -95,6 +96,8 @@ make_biomarkers_table <- function(
       relationship = "one-to-one"
     ) |>
     dplyr::mutate(
+      biomarker  = if (use_labels) .data$biomarker_label else .data$biomarker,
+      biomarker_label = NULL,
       biomarker = .data$biomarker |>
         sub(
           pattern = "*",
@@ -104,8 +107,7 @@ make_biomarkers_table <- function(
         stringr::str_replace(
           stringr::fixed("SCID: "),
           ""
-        ) |>
-        Hmisc::capitalize()
+        )
     )
 
   table_out |>

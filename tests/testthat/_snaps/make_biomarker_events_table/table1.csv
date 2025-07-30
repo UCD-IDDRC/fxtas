@@ -22,8 +22,8 @@ MRI: Cerebral,MRI: Cerebral,4,MRI: Cerebral: Severe,MRI: Cerebral: Severe,"None,
 Splenium (CC)-WM Hyperintensity,Splenium (Corpus Callosum) White Matter Hyperintensity,2,Splenium (CC)-WM Hyperintensity: Mild,Splenium (Corpus Callosum) White Matter Hyperintensity: Mild,"None, Mild, Moderate, Severe",MRI,#00A396
 Splenium (CC)-WM Hyperintensity,Splenium (Corpus Callosum) White Matter Hyperintensity,3,Splenium (CC)-WM Hyperintensity: Moderate,Splenium (Corpus Callosum) White Matter Hyperintensity: Moderate,"None, Mild, Moderate, Severe",MRI,#00A396
 Splenium (CC)-WM Hyperintensity,Splenium (Corpus Callosum) White Matter Hyperintensity,4,Splenium (CC)-WM Hyperintensity: Severe,Splenium (Corpus Callosum) White Matter Hyperintensity: Severe,"None, Mild, Moderate, Severe",MRI,#00A396
+Parkinsons,Parkinson's disease,2,Parkinsons,Parkinson's disease,"No, Yes",Parkinson's disease,#45A271
 parkinsonian features,parkinsonian features,2,parkinsonian features,parkinsonian features,"No, Yes",Parkinsonian,#7B9B4F
-Parkinsons,Parkinson's disease,2,Parkinsons,Parkinson's disease,"No, Yes",Parkinsons,#45A271
 SCID: anxiety disorders,anxiety disorders,2,SCID: anxiety disorders: Sub-Threshold,anxiety disorders: Sub-Threshold,"Absent, Sub-Threshold, Threshold",SCID,#7591C6
 SCID: anxiety disorders,anxiety disorders,3,SCID: anxiety disorders: Threshold,anxiety disorders: Threshold,"Absent, Sub-Threshold, Threshold",SCID,#7591C6
 SCID: mood disorders,mood disorders,2,SCID: mood disorders: Sub-Threshold,mood disorders: Sub-Threshold,"Absent, Sub-Threshold, Threshold",SCID,#7591C6

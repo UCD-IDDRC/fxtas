@@ -7,7 +7,9 @@
 #'
 #' @examples test_data |> add_labels()
 add_labels <- function(data) {
-  data |>
+  to_return <- data |>
+    set_mri_var_labels() |>
+    set_scid_labels() |>
     dplyr::mutate(
       `Masked faces` = .data$`Masked faces` |>
         set_label_attribute("masked facies"),
@@ -42,6 +44,12 @@ add_labels <- function(data) {
         set_label_attribute(
           "RTI five-choice movement time"
         ),
+      `Hypothyroid` =
+        .data$`Hypothyroid` |>
+        set_label_attribute("hypothyroid"),
+      `Hyperthyroid` =
+        .data$`Hyperthyroid` |>
+        set_label_attribute("hyperthyroid"),
       `Tandem Walk` =
         .data$`Tandem Walk` |>
         set_label_attribute("tandem walk"),
@@ -52,25 +60,26 @@ add_labels <- function(data) {
       `head tremor` = .data$`head tremor` |> set_label_attribute("head tremor"),
       `Corpus Callosum-Thickness` =
         .data$`Corpus Callosum-Thickness` |>
-        set_label_attribute("Corpus callosum thickness"),
+        set_label_attribute("corpus callosum thickness"),
       `any autoimmune disorder` =
         .data$`any autoimmune disorder` |>
         set_label_attribute("autoimmune diagnoses or symptoms"),
 
       `Activation Ratio (0.0-1.0)` =
         .data$`Activation Ratio (0.0-1.0)` |>
-        set_label_attribute("Activation ratio"),
+        set_label_attribute("activation ratio"),
       fxtas_dx =
         .data$fxtas_dx |>
         set_label_attribute("FXTAS diagnosis"),
       `Primary Race/Ethnicity` =
         .data$`Primary Race/Ethnicity` |>
-        set_label_attribute("Primary race/ethnicity"),
+        set_label_attribute("primary race/ethnicity"),
       Stage_3plus =
         .data$Stage_3plus |>
         labelled::set_label_attribute("FXTAS Stage")
-    ) |>
-    set_mri_var_labels() |>
-    add_default_labels() |>
-    set_scid_labels()
+    )
+  to_return <- to_return |>
+    add_default_labels()
+
+
 }

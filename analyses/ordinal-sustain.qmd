@@ -135,7 +135,10 @@ if (do_collapse_mri_levels) {
 full_data <-
   trax_gp34_v1 |>
   add_labels()
+```
 
+```{r}
+#| label: get-subsets
 n_missing_CGG <- # nolint: object_name_linter
   full_data$CGG |>
   is.na() |>

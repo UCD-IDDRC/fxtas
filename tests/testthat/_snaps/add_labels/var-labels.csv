@@ -3,7 +3,7 @@ vars,labels
 # of drinks per day now: missingness reasons,# of drinks per day now: missingness reasons
 ANA positive,ANA positive
 ANA positive: missingness reasons,ANA positive: missingness reasons
-Activation Ratio (0.0-1.0),Activation ratio
+Activation Ratio (0.0-1.0),activation ratio
 Age at visit,Age at visit
 "Agoraphobia without Panic (ANX27), Current","Agoraphobia without Panic (ANX27), Current"
 "Agoraphobia without Panic (ANX27), Current: missingness reasons","Agoraphobia without Panic (ANX27), Current: missingness reasons"
@@ -69,7 +69,7 @@ Cocaine (SUD22) Current,Cocaine (SUD22) Current
 Cocaine (SUD22) Current: missingness reasons,Cocaine (SUD22) Current: missingness reasons
 "Cocaine (SUD22), Lifetime","Cocaine (SUD22), Lifetime"
 "Cocaine (SUD22), Lifetime: missingness reasons","Cocaine (SUD22), Lifetime: missingness reasons"
-Corpus Callosum-Thickness,Corpus Callosum-Thickness
+Corpus Callosum-Thickness,corpus callosum thickness
 Corpus Callosum-Thickness: missingness reasons,Corpus Callosum-Thickness: missingness reasons
 Current Medications 1,Current Medications 1
 Current Medications 10,Current Medications 10
@@ -117,11 +117,11 @@ Genu (CC)-WM Hyperintensity: missingness reasons,Genu (CC)-WM Hyperintensity: mi
 "Hallucinogenics/ PCP (SUD23), Current: missingness reasons","Hallucinogenics/ PCP (SUD23), Current: missingness reasons"
 "Hallucinogenics/ PCP (SUD23), Lifetime","Hallucinogenics/ PCP (SUD23), Lifetime"
 "Hallucinogenics/ PCP (SUD23), Lifetime: missingness reasons","Hallucinogenics/ PCP (SUD23), Lifetime: missingness reasons"
-Hyperthyroid,Hyperthyroid
+Hyperthyroid,hyperthyroid
 Hyperthyroid: missingness reasons,Hyperthyroid: missingness reasons
 Hypochondriasis (SOM39),Hypochondriasis (SOM39)
 Hypochondriasis (SOM39): missingness reasons,Hypochondriasis (SOM39): missingness reasons
-Hypothyroid,Hypothyroid
+Hypothyroid,hypothyroid
 Hypothyroid: missingness reasons,Hypothyroid: missingness reasons
 "If No, please comment:","If No, please comment:"
 Immunological Notes,Immunological Notes
@@ -233,7 +233,7 @@ Primary Ethnicity: missingness reasons,Primary Ethnicity: missingness reasons
 "Primary Psychotic Symptoms (PS01), Lifetime","Primary Psychotic Symptoms (PS01), Lifetime"
 "Primary Psychotic Symptoms (PS01), Lifetime: missingness reasons","Primary Psychotic Symptoms (PS01), Lifetime: missingness reasons"
 Primary Race,Primary Race
-Primary Race/Ethnicity,Primary race/ethnicity
+Primary Race/Ethnicity,primary race/ethnicity
 Primary Race: missingness reasons,Primary Race: missingness reasons
 Processing Speed: Composite Score (PSI),Processing Speed: Composite Score (PSI)
 Processing Speed: Composite Score (PSI): missingness reasons,Processing Speed: Composite Score (PSI): missingness reasons
