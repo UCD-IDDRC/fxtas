@@ -1,8 +1,8 @@
 ::: {#fig-pvd_chosen_subtypes_bumpplot}
 
 ```{r}
-#| fig-height: 9
-#| fig-width: 15
+#| fig-height: 6.5
+#| fig-width: 9
 #| label: bumpplot-pvd-chosen-subtypes
 color_info <- tibble::tribble(
   ~event_name, ~line_color, ~highlight_color,
@@ -33,8 +33,10 @@ color_info <- tibble::tribble(
 figs |> pvd_subtype_lineplot(
   smooth = 30,
   y_lab = "",
+  text_size = 2,
   align_stage = TRUE,
   events_to_highlight = color_info)
+  # ggview::canvas(width = 9, height= 6.5, units = "in", dpi = 600)
 ```
 
 **Differences in event sequences between latent subtypes,**
