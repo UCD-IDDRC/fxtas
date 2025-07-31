@@ -1,3 +1,8 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
 ```{r}
 #| label: load-data-exploration.qmd
 library(fxtas)
@@ -293,7 +298,8 @@ table1(
 ) |> 
   table1::t1flex() |>
   shared_flextable_settings() |> 
-  flextable::width(width = width1)
+  flextable::width(width = width1) |> 
+  flextable::width(j = 1, width = 1.1)
 ```
 
 **Behavior Dyscontrol Scale - Second Edition (BDS-2)**
@@ -330,9 +336,10 @@ table1(
   table1::t1flex() |>
   shared_flextable_settings() |> 
   flextable::width(width = width1) |> 
-  flextable::width(j = 1, width = 1.6) |> 
-  flextable::width(j = c(2, 5), width = 0.8) |> 
-  flextable::width(j = c(3, 4, 6, 7), width = 1)
+  flextable::width(j = 1, width = 1.545) |> 
+  flextable::width(j = c(2, 5), width = 0.75) |> 
+  flextable::width(j = c(3, 6), width = 0.8) |> 
+  flextable::width(j = c(4, 7), width = 0.85)
 ```
 
 **Mini-Mental State Examination (MMSE)**
@@ -392,7 +399,9 @@ table1(
   shared_flextable_settings() |> 
   flextable::width(width = width1) |> 
   flextable::width(j = 1, width = 1.45) |> 
-  flextable::width(j = 2:7, width = 0.9)
+  flextable::width(j = c(2, 5), width = 0.75) |> 
+  flextable::width(j = c(3, 6), width = 0.8) |> 
+  flextable::width(j = c(4, 7), width = 0.85)
 ```
 
 **Variables contributing to the "Mood Disorders" composite variable,**
@@ -503,8 +512,10 @@ table1(
   table1::t1flex() |>
   shared_flextable_settings() |>
   flextable::width(width = width1) |>
-  flextable::width(j = 1, width = 1.35) |> 
-  flextable::width(j = 2:7, width = 1.05)
+  flextable::width(j = 1, width = 1.4) |> 
+  flextable::width(j = c(2, 5), width = 0.8) |> 
+  flextable::width(j = c(3, 6), width = 0.8) |> 
+  flextable::width(j = c(4, 7), width = 0.85)
 ```
 
 **Cambridge Neuropsychological Test Automated Battery (CANTAB)**
