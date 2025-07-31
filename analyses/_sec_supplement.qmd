@@ -37,5 +37,3 @@
 <!-- ## Results with repeated measures {#sec-longitudinal-results .appendix} -->
 
 <!-- {{< include longitudinal-results.qmd >}} -->
-
-{{< pagebreak >}}

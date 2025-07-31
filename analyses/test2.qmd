@@ -1,32 +1,60 @@
 ---
 title: "reference hyperlink example"
+authors: default
+affiliations: default
 ---
 
-:::{#fig-fig1}
-
-:::{#fig-fig1a}
-
 ```{r}
-plot(1:10)
+#| fig-height: 6.5
+#| fig-width: 9
+#| label: bumpplot-pvd-chosen-subtypes
+#| fig-cap: test 123
+
+devtools::load_all()
+output_folder <-
+    "output/output.fixed_CV-scid-no-subthres/"
+  figs <-
+    readr::read_rds(
+      testthat::test_path("fixtures", "fxtas-figs4.rds")
+    )
+
+  
+color_info <- tibble::tribble(
+  ~event_name, ~line_color, ~highlight_color,
+  "MRI: Cerebellar: Mild",  "orange", "#FFF",
+  "MRI: Cerebral: Moderate/Severe", "orange", "#FFF",
+  # "SCID: Anxiety Disorders: Threshold", "orange", "#FFF",
+  "SCID: Mood Disorders: Threshold", "orange", "#FFF",
+  "Corpus Callosum-Thickness: Thin", "orange", "#FFF",
+  "Splenium WM Hyperintensity: Mild", "orange", "#FFF",
+  "Genu WM Hyperintensity", "orange", "#FFF",
+  "Parkinsonian Features", "green", "#FFF",
+  "Parkinsons", "green", "#FFF",
+  "FXTAS Stage: 1", "black", "yellow",
+  "FXTAS Stage: 2", "black", "yellow",
+  "FXTAS Stage: 3", "black", "yellow",
+  "FXTAS Stage: 4", "black", "yellow",
+  "FXTAS Stage: 5", "black", "yellow",
+  "SWM Between Errors: > 26", "purple", "#FFF",
+  "Postural Tremor", "red", "#FFF",
+  "Intermittent Tremor", "brown", "#FFF",
+  "Intention Tremor", "brown", "#FFF",
+  "Head Tremor", "cyan3", "#FFF",
+  "Tandem Walk: Abnormal (<10 Steps)", "magenta", "#FFF",
+  "Ataxia Severity: 1", "magenta", "#FFF",
+  
+)
+
+bump <- figs |> 
+  pvd_subtype_lineplot(
+    smooth = 30,
+    y_lab = "",
+    text_size = 2.5,
+    x_text_size = 8,
+    align_stage = TRUE,
+    events_to_highlight = color_info
+  )
+
+bump
+# ggview::canvas(width = 9, height= 6.5, units = "in", dpi = 600)
 ```
-
-Plot 1a
-
-:::
-
-{{< pagebreak >}}
-
-:::{#fig-fig1b}
-
-```{r}
-plot(10:1)
-```
-
-Plot 1b
-
-:::
-
-Two plots
-
-:::
-

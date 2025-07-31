@@ -1,8 +1,8 @@
 ::: {#fig-pvd_chosen_subtypes_bumpplot}
 
 ```{r}
-#| fig-height: 6.5
-#| fig-width: 9
+#| fig-height: 10
+#| fig-width: 8
 #| label: bumpplot-pvd-chosen-subtypes
 color_info <- tibble::tribble(
   ~event_name, ~line_color, ~highlight_color,
@@ -34,20 +34,22 @@ bump <- figs |>
   pvd_subtype_lineplot(
     smooth = 30,
     y_lab = "",
-    text_size = 4.5,
-    x_text_size = 12,
+    text_size = 2.5,
+    x_text_size = 8,
     align_stage = TRUE,
     events_to_highlight = color_info
   )
 
+bump
+
 ggsave(
-  "bump.jpeg", 
+  "bump.png", 
   plot = bump, 
-  device = "jpeg", 
+  device = "png", 
   height = 20, width = 18, units = "in", 
   dpi = 600
 )
-bump
+
 # ggview::canvas(width = 9, height= 6.5, units = "in", dpi = 600)
 ```
 
