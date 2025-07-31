@@ -30,11 +30,21 @@ color_info <- tibble::tribble(
   
 )
 
-figs |> pvd_subtype_lineplot(
+bump <- figs |> pvd_subtype_lineplot(
   smooth = 30,
   y_lab = "",
+  text_size = 4.5,
+  x_text_size = 12,
   align_stage = TRUE,
   events_to_highlight = color_info)
+
+ggsave(
+  "bump.jpeg", 
+  plot = bump, 
+  device = "jpeg", 
+  height = 20, width = 18, units = "in", 
+  dpi = 600
+)
 ```
 
 **Differences in event sequences between latent subtypes,**
