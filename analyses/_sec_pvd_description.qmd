@@ -31,6 +31,6 @@ an earlier position in the righthand subgroup compared to the lefthand subgroup
 at a later position (red line), 
 or the same position (grey line). 
 FXTAS stages are connected by black lines, 
-in order to highlight which symptoms occur in different FXTAS stages 
+to highlight which symptoms occur in different FXTAS stages 
 between the two subgroups 
-(that is, which symptom lines cross one or more stage lines).
+(i.e., which symptom lines cross one or more stage lines).
