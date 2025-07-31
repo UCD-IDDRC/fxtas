@@ -264,11 +264,30 @@ table1(
 ```{r}
 vars <- c("BDS-2 Total Score", "BDS-2 Total Score*")
 
+# https://stackoverflow.com/questions/71035743/r-is-there-a-way-to-round-to-1-decimal-place-in-table1-for-continuous-variables
+my.render.cont <- function(x) {
+    with(stats.default(x), 
+         c("",
+           
+          "Mean (SD)" = sprintf("%s (%s)",
+                                round_pad(MEAN, 1),
+                                round_pad(SD, 1)),
+         
+          "Median (Min, Max)" = sprintf("%s (%s, %s)",
+                                       round_pad(MEDIAN, 1), 
+                                       round_pad(MIN, 0), 
+                                       round_pad(MAX, 0)))
+    )
+}
+
+
 table1(
-  na.is.category = FALSE, overall = FALSE,
-  NA.label = na_label_1,
+  # na.is.category = FALSE, 
+  overall = FALSE,
+  # NA.label = na_label_1,
   stratified_formula(vars, column_var),
   # render.continuous = c(.="N", .="Mean (SD)", .="Median [Min,  Max]"),
+  render.continuous = my.render.cont,
   # footnote = footnote1,
   data = v1_usable_capital_labels
 ) |> 
@@ -299,17 +318,21 @@ vars <- c(
 )
 
 table1(
-  na.is.category = FALSE, overall = FALSE,
-  NA.label = na_label_1,
+  # na.is.category = FALSE, 
+  overall = FALSE,
+  # NA.label = na_label_1,
   stratified_formula(vars, column_var),
   # footnote = footnote1,
   # render.continuous = c(.="N", .="Mean (SD)", .="Median [Min,  Max]"),
+  render.continuous = my.render.cont,
   data = v1_usable_capital_labels
 ) |> 
   table1::t1flex() |>
   shared_flextable_settings() |> 
   flextable::width(width = width1) |> 
-  flextable::width(j = 1, width = 1.6)
+  flextable::width(j = 1, width = 1.6) |> 
+  flextable::width(j = c(2, 5), width = 0.8) |> 
+  flextable::width(j = c(3, 4, 6, 7), width = 1)
 ```
 
 **Mini-Mental State Examination (MMSE)**
@@ -322,9 +345,9 @@ table1(
 vars <- scid_vars_for_table1()
 
 table1(
-  na.is.category = FALSE, 
+  # na.is.category = FALSE, 
   overall = FALSE,
-  NA.label = na_label_1,
+  # NA.label = na_label_1,
   stratified_formula(vars, column_var),
   # render.continuous = c(.="N", .="Mean (SD)", .="Median [Min,  Max]"),
   data = v1_usable_capital_labels
@@ -368,7 +391,8 @@ table1(
   table1::t1flex() |>
   shared_flextable_settings() |> 
   flextable::width(width = width1) |> 
-  flextable::width(j = 1, width = 1.45)
+  flextable::width(j = 1, width = 1.45) |> 
+  flextable::width(j = 2:7, width = 0.9)
 ```
 
 **Variables contributing to the "Mood Disorders" composite variable,**
@@ -426,6 +450,21 @@ table1(
 #   stratified_formula("Drugs used", column_var),
 #   data = v1_usable_capital_labels)
 
+my.render.cont_cantab <- function(x) {
+    with(stats.default(x), 
+         c("",
+           
+          "Mean (SD)" = sprintf("%s (%s)",
+                                round_pad(MEAN, 1),
+                                round_pad(SD, 1)),
+         
+          "Median (Min, Max)" = sprintf("%s\n(%s, %s)",
+                                       round_pad(MEDIAN, 1), 
+                                       round_pad(MIN, 1), 
+                                       round_pad(MAX, 1)))
+    )
+}
+
 
 cantab_vars <- c(
   "SWM Between errors",
@@ -453,16 +492,19 @@ cantab_vars <- c(
 
 
 table1(
-  na.is.category = FALSE, overall = FALSE,
-  NA.label = "Missing (empty in RedCap)",
+  # na.is.category = FALSE,
+  overall = FALSE,
+  # NA.label = "Missing (empty in RedCap)",
   stratified_formula(cantab_vars, column_var),
   # render.continuous = c(.="N", .="Mean (SD)", .="Median [Min,  Max]"),
+  render.continuous = my.render.cont_cantab,
   data = v1_usable_capital_labels
 ) |> 
   table1::t1flex() |>
   shared_flextable_settings() |>
   flextable::width(width = width1) |>
-  flextable::width(j = 1, width = 1.45)
+  flextable::width(j = 1, width = 1.35) |> 
+  flextable::width(j = 2:7, width = 1.05)
 ```
 
 **Cambridge Neuropsychological Test Automated Battery (CANTAB)**
