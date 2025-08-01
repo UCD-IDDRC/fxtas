@@ -335,15 +335,6 @@ if (fit_models) {
 ```{r}
 #| label: extract-figs
 
-results_v1.1 <- extract_results_from_pickle(
-  use_rds = use_rds,
-  n_s = 1,
-  rda_filename = "data.RData",
-  dataset_name = "sample_data",
-  output_folder = output_folder,
-  verbose = verbose
-)
-
 results_v1 <- extract_results_from_pickles(
   use_rds = use_rds,
   n_s = 1:N_S_max,
