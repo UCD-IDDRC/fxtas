@@ -13,6 +13,8 @@
 #' @param mult [numeric] vector
 #' @param subtype_x Vector of x-axis value for the subtypes.
 #' @param align_stage [logical] whether to align by FXTAS stage
+#' @param use_group_color [logical]: whether to use existing group colors
+#' or custom line colors from `events_to_highlight` argument
 #' @param ... additional arguments passed to [ggbump::geom_bump]
 #' Default = c(1, 1.15, 1.75, 2.35)
 #'
@@ -33,6 +35,7 @@ pvd_subtype_lineplot <- function(
     subtype_x = c(1, 3, 5, 7),
     mult = .2,
     align_stage = TRUE,
+    use_group_colors = FALSE,
     ...) {
 
   dataset <- extract_lineplot_data(figs, facet_labels)
@@ -116,7 +119,7 @@ pvd_subtype_lineplot <- function(
           .data$`event name` %in% c(events_to_highlight$event_name)
         ),
       aes(
-        color = .data$line_color,
+        color = if (use_group_colors) .data$group_color else .data$line_color,
         group = .data$`event name`),
       ...
     ) +

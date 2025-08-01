@@ -4,6 +4,36 @@ authors: default
 affiliations: default
 ---
 
+[Blue]{color="#0000FF"} # US
+
+```{r}
+scale_colors1 <- c("#882255", "#332288", "#44AA99", "#999933", "#117733") |> 
+  setNames(
+    c("violet red", "royal blue", "cadet blue", "khaki", "forest green"
+    ) 
+  )
+
+color_list <- glue::glue(
+  '[{{names(scale_colors1)}}]{color="{{scale_colors1}}"}', 
+  .open = "{{", 
+  .close = "}}"
+)
+outcomes_name <- "symptom"
+compact_fig_caption <- paste0(
+  "The different colors (",
+  color_list |> paste(collapse = ", "),
+  ") indicate the ordinal levels of symptom progression. ",
+  "Color gradient intensity represents the Bayesian posterior probability ",
+  "of the sequence position.",
+  "The brighter the color, the more probable that the corresponding ",
+  outcomes_name,
+  " event occurs in that position in the sequence."
+)
+```
+
+`r compact_fig_caption`
+
+
 ```{r}
 devtools::load_all()
 ```

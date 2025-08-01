@@ -83,7 +83,8 @@ Suggests:
     withr,
     writexl,
     chromote,
-    ggview
+    ggview,
+    loon
 Config/testthat/edition: 3
 Encoding: UTF-8
 Language: en-US

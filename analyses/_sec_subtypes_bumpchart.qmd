@@ -4,29 +4,49 @@
 #| fig-height: 5.2
 #| fig-width: 8.27
 #| label: bumpplot-pvd-chosen-subtypes
+
+stage_line_color <- "black"
+# stage_line_color <- "#FFF"
+stage_highlight_color <- "yellow"
+# stage_highlight_color <- "#FFF"
+scale_colors2 <- rcartocolor::carto_pal(name = "Safe")
+group_1_color <- "orange"
+group_2_color <- "green"
+group_3_color <- "purple"
+group_4_color <- "red"
+group_5_color <- "brown"
+group_6_color <- "cyan3"
+group_7_color <- "magenta"
+group_1_color <- scale_colors2[1]
+group_2_color <- scale_colors2[2]
+group_3_color <- scale_colors2[3]
+group_4_color <- scale_colors2[4]
+group_5_color <- scale_colors2[5]
+group_6_color <- scale_colors2[6]
+group_7_color <- scale_colors2[7]
 color_info <- tibble::tribble(
   ~event_name, ~line_color, ~highlight_color,
-  "MRI: Cerebellar: Mild",  "orange", "#FFF",
-  "MRI: Cerebral: Moderate/Severe", "orange", "#FFF",
-  # "SCID: Anxiety Disorders: Threshold", "orange", "#FFF",
-  "SCID: Mood Disorders: Threshold", "orange", "#FFF",
-  "Corpus Callosum-Thickness: Thin", "orange", "#FFF",
-  "Splenium WM Hyperintensity: Mild", "orange", "#FFF",
-  "Genu WM Hyperintensity", "orange", "#FFF",
-  "Parkinsonian Features", "green", "#FFF",
-  "Parkinsons", "green", "#FFF",
-  "FXTAS Stage: 1", "black", "yellow",
-  "FXTAS Stage: 2", "black", "yellow",
-  "FXTAS Stage: 3", "black", "yellow",
-  "FXTAS Stage: 4", "black", "yellow",
-  "FXTAS Stage: 5", "black", "yellow",
-  "SWM Between Errors: > 26", "purple", "#FFF",
-  "Postural Tremor", "red", "#FFF",
-  "Intermittent Tremor", "brown", "#FFF",
-  "Intention Tremor", "brown", "#FFF",
-  "Head Tremor", "cyan3", "#FFF",
-  "Tandem Walk: Abnormal (<10 Steps)", "magenta", "#FFF",
-  "Ataxia Severity: 1", "magenta", "#FFF",
+  "MRI: Cerebellar: Mild",  group_1_color, "#FFF",
+  "MRI: Cerebral: Moderate/Severe", group_1_color, "#FFF",
+  # "SCID: Anxiety Disorders: Threshold", group_1_color, "#FFF",
+  "SCID: Mood Disorders: Threshold", group_1_color, "#FFF",
+  "Corpus Callosum-Thickness: Thin", group_1_color, "#FFF",
+  "Splenium WM Hyperintensity: Mild", group_1_color, "#FFF",
+  "Genu WM Hyperintensity", group_1_color, "#FFF",
+  "Parkinsonian Features", group_2_color, "#FFF",
+  "Parkinsons", group_2_color, "#FFF",
+  "FXTAS Stage: 1", stage_line_color, stage_highlight_color,
+  "FXTAS Stage: 2", stage_line_color, stage_highlight_color,
+  "FXTAS Stage: 3", stage_line_color, stage_highlight_color,
+  "FXTAS Stage: 4", stage_line_color, stage_highlight_color,
+  "FXTAS Stage: 5", stage_line_color, stage_highlight_color,
+  "SWM Between Errors: > 26", group_3_color, "#FFF",
+  "Postural Tremor", group_4_color, "#FFF",
+  "Intermittent Tremor", group_5_color, "#FFF",
+  "Intention Tremor", group_5_color, "#FFF",
+  "Head Tremor", group_6_color, "#FFF",
+  "Tandem Walk: Abnormal (<10 Steps)", group_7_color, "#FFF",
+  "Ataxia Severity: 1", group_7_color, "#FFF",
   
 )
 
@@ -46,7 +66,7 @@ ggsave(
   "analyses/bump.png", 
   plot = bump, 
   device = "png", 
-  height = 8.27, width = 5.2, units = "in", 
+  width = 8.27, height = 5.2, units = "in", 
   dpi = 600
 )
 

@@ -19,6 +19,7 @@ pvd_subtype_lineplot(
   subtype_x = c(1, 3, 5, 7),
   mult = 0.2,
   align_stage = TRUE,
+  use_group_colors = FALSE,
   ...
 )
 }
@@ -53,6 +54,9 @@ pvd_subtype_lineplot(
 
 \item{...}{additional arguments passed to \link[ggbump:geom_bump]{ggbump::geom_bump}
 Default = c(1, 1.15, 1.75, 2.35)}
+
+\item{use_group_color}{\link{logical}: whether to use existing group colors
+or custom line colors from \code{events_to_highlight} argument}
 }
 \description{
 Display Sequential Order of Events by Subtype
