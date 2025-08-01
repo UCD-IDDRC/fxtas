@@ -43,7 +43,7 @@ bump <- figs |>
 bump
 
 ggsave(
-  "bump.png", 
+  "analyses/bump.png", 
   plot = bump, 
   device = "png", 
   height = 8.27, width = 5.2, units = "in", 
