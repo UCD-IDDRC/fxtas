@@ -89,7 +89,12 @@ output_folder =
   "output/output.fixed_CV/pickle_files" |>
   fs::dir_create()
 
-if (1 %in% permutation_seeds) save_run_info(output_folder)
+if (1 %in% permutation_seeds) {
+  save_run_info(
+    output_folder,
+    script = "permutations.R"
+  )
+}
 
 ## ----------------------------------------------------------------------------------------------------
 # April 2024, main analysis now uses Trax/GP34 Visit 1 data replacing previous version using only GP34

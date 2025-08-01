@@ -4,10 +4,12 @@
 \alias{save_run_info}
 \title{Save run info to file}
 \usage{
-save_run_info(output_folder)
+save_run_info(output_folder, script = "ordinal-sustain.R")
 }
 \arguments{
 \item{output_folder}{a \link{character} indicating where to save info}
+
+\item{script}{\link{character}: name of script to copy}
 }
 \value{
 \link{TRUE}, invisibly

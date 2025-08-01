@@ -60,13 +60,14 @@ fit_models <- TRUE
 run_cv <- TRUE
 
 verbose <- TRUE
-rerun <- FALSE
+rerun <- TRUE
+# rerun <- FALSE
 use_rds <- !rerun
 
 plot_python <- TRUE
-fig_size <- c(20, 10)
-# scale_colors1 = c("red", "blue", "magenta", "orange", "purple4")
+fig_size <- c(20, 10) # passed to pySuStaIn
 
+# scale_colors1 = c("red", "blue", "magenta", "orange", "purple4")
 scale_colors0 <- rcartocolor::carto_pal(name = "Safe")[c(9, 5, 7, 8, 4)]
 scale_colors1 <- c("#882255", "#332288", "#44AA99", "#999933", "#117733") |> 
   setNames(
