@@ -388,10 +388,10 @@ fig_both_first <- extract_figs_from_pickle(
 )
 
 fig_both_first2 <-
-  list("all" = fig_both_first) |>
+  list(fig_both_first) |>
   plot_compact_pvd()
 
-fig_both_first2 |> ggsave(filename = "output/thumbnail.jpeg")
+fig_both_first2 |> ggplot2::ggsave(filename = "output/thumbnail.jpeg")
 
 fig_under100 <- extract_figs_from_pickle(
   use_rds = use_rds,
@@ -793,11 +793,6 @@ Subtype 3 had fewer CGG repeats than the overall study population
 and 
 Subtype 4 had the fewest CGG repeats
 (`r cgg_by_subtype["Type 4", "mean"]` ± `r cgg_by_subtype["Type 4", "sd"]`).
-
-```{r}
-#| label: get-n-events
-n_events <- nrow(biomarker_events_table)
-```
 
 {{< include _sec-subtype-diff-summary.qmd >}}
 
