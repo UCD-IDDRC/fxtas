@@ -391,7 +391,14 @@ fig_both_first2 <-
   list(fig_both_first) |>
   plot_compact_pvd()
 
-fig_both_first2 |> ggplot2::ggsave(filename = "output/thumbnail.jpeg")
+fig_both_first2 |> 
+  ggplot2::ggsave(
+  height = 120, 
+  width = 120,
+  units = "mm", 
+  dpi = 600,
+  filename = "output/thumbnail.jpeg"
+)
 
 fig_under100 <- extract_figs_from_pickle(
   use_rds = use_rds,
@@ -937,12 +944,23 @@ and were excluded from this table.
 #|    {compact_fig_caption}")
 #| fig-cap-location: top
 
-list(
+pvdc_sex <- list(
   "Males:" = fig_males_first,
   "Females:" = fig_females_first
 ) |>
   # plot_compact_pvd_est2()
   plot_compact_pvd(y_text_size = y_text_size)
+
+print(pvdc_sex)
+
+pvdc_sex |> 
+  ggplot2::ggsave(
+  height = 120, 
+  width = 120,
+  units = "mm", 
+  dpi = 600,
+  filename = "output/pvd_sex.pdf"
+)
 
 ```
 
