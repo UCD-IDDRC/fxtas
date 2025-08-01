@@ -80,7 +80,7 @@ pvd_lineplot <- function(
       aes(
         group = .data$`event name`,
         color = .data$Change_color,
-        alpha = .data$alpha,
+        alpha = .data$abs_change,
         linewidth = .data$linesize
       )
 

@@ -59,8 +59,8 @@ pvd_lineplot_preprocessing <- function(
       Change_color = dplyr::case_when(
         `biomarker` == "FXTAS Stage" ~ "(stage)",
         Change < 0 ~ "down",
-        Change == 0 ~ "up",
-        Change > 0 ~ "neutral",
+        Change == 0 ~ "neutral",
+        Change > 0 ~ "up",
       ) |>
         factor(levels = c("(stage)", "down", "neutral", "up")),
       background = dplyr::if_else(
