@@ -12,7 +12,7 @@ list(
     "Males, CGG &lt; 100:" = fig_under100_males,
     "Males, CGG &ge; 100:" = fig_over100_males
   ) |>
-plot_compact_pvd(y_text_size = y_text_size)
+plot_compact_pvd(scale_colors = scale_colors1, y_text_size = y_text_size)
 
 ```
 
@@ -53,7 +53,7 @@ list(
     "Females, CGG &lt; 100:" = fig_under100_females,
     "Females, CGG &ge; 100:" = fig_over100_females
   ) |> 
-  plot_compact_pvd(y_text_size = y_text_size)
+  plot_compact_pvd(scale_colors = scale_colors1, y_text_size = y_text_size)
 
 ```
 

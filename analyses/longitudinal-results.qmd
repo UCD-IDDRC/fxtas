@@ -79,7 +79,7 @@ list(
     "Males, First Visit Only" = fig_males_first,
     "Males, All Visits" = fig_males_all
   ) |> 
-plot_compact_pvd(y_text_size = y_text_size)
+plot_compact_pvd(scale_colors = scale_colors1, y_text_size = y_text_size)
 
 list(
     "Males, First Visit Only" = fig_males_first,
@@ -102,7 +102,7 @@ list(
     "Females, First Visit Only" = fig_females_first,
     "Females, All Visits" = fig_females_all
   ) |> 
-plot_compact_pvd(y_text_size = y_text_size)
+plot_compact_pvd(scale_colors = scale_colors1, y_text_size = y_text_size)
 ```
 
 {{< pagebreak >}}
@@ -145,7 +145,7 @@ list(
     "Males" = fig_males_all,
     "Females" = fig_females_all
   ) |> 
-plot_compact_pvd(y_text_size = y_text_size)
+plot_compact_pvd(scale_colors = scale_colors1, y_text_size = y_text_size)
 ```
 
 {{< pagebreak >}}

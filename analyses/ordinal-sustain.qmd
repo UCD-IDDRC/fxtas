@@ -65,7 +65,7 @@ use_rds <- !rerun
 
 plot_python <- TRUE
 fig_size <- c(20, 10)
-
+scale_colors1 = c("red", "blue", "magenta", "orange", "purple4")
 pvd_height <- 5.5
 pvd_width <- 6
 pvd_subfig_width <- pvd_width - 1
@@ -88,7 +88,7 @@ events_name <- "symptomatic events"
 outcomes_name_sentence_start <- stringr::str_to_sentence(outcomes_name)
 
 compact_fig_caption <- paste(
-  "The different colors (red, blue, magenta, green, purple)",
+  "The different colors (red, blue, magenta, orange, purple)",
   "indicate the ordinal levels of symptom progression.",
   "Color gradient intensity represents the Bayesian posterior probability", 
   "of the sequence position.",
@@ -389,7 +389,9 @@ fig_both_first <- extract_figs_from_pickle(
 
 fig_both_first2 <-
   list(fig_both_first) |>
-  plot_compact_pvd()
+  plot_compact_pvd(
+    scale_colors = scale_colors1
+  )
 
 fig_both_first2 |> 
   ggplot2::ggsave(
@@ -949,7 +951,7 @@ pvdc_sex <- list(
   "Females:" = fig_females_first
 ) |>
   # plot_compact_pvd_est2()
-  plot_compact_pvd(y_text_size = y_text_size)
+  plot_compact_pvd(scale_colors = scale_colors1, y_text_size = y_text_size)
 
 print(pvdc_sex)
 
