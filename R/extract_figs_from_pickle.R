@@ -1,5 +1,7 @@
 #' @title Extact PVDs from pickle file
 #' @inheritParams extract_results_from_pickle
+#' @param biomarker_groups [data.frame] with group colors, etc
+#' @param biomarker_levels [list] containing biomarker ordinal level info
 #' @inheritDotParams plot_positional_var
 #' @inherit plot_positional_var return
 #' @export
@@ -11,6 +13,15 @@ extract_figs_from_pickle <- function(
     rda_filename = "data.RData",
     picklename = paste0(dataset_name, "_subtype", n_s - 1, ".pickle"),
     use_rds = TRUE,
+    biomarker_groups =
+      output_folder |>
+      fs::path("biomarker_groups.rds") |>
+      readr::read_rds(),
+
+    biomarker_levels =
+      output_folder |>
+      fs::path("biomarker_levels.rds") |>
+      readr::read_rds(),
     ...) {
 
   results = extract_results_from_pickle(
@@ -21,15 +32,7 @@ extract_figs_from_pickle <- function(
     picklename = picklename,
     use_rds = use_rds)
 
-  biomarker_groups =
-    output_folder |>
-    fs::path("biomarker_groups.rds") |>
-    readr::read_rds()
 
-  biomarker_levels =
-    output_folder |>
-    fs::path("biomarker_levels.rds") |>
-    readr::read_rds()
 
 
   plot_positional_var(

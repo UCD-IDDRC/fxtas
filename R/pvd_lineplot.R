@@ -12,6 +12,7 @@
 #' @param max_alpha todo
 #' @param stage_alpha todo
 #' @param y_lab todo
+#' @param direction_colors a [character] vector of length 4
 #' @param expand [numeric] how much to pad the sides
 #'
 #' @export
@@ -29,6 +30,14 @@ pvd_lineplot <- function(
     y_title_size = 9,
     y_text_size = 8,
     x_text_size = 8,
+    direction_colors = c(
+      "grey25",
+      # "#F8766D",
+      "#DC3220",
+      "grey70",
+      # "#00BFC4"
+      "#005AB5"
+    ),
     expand = 0.25) {
 
   dataset <- extract_lineplot_data(figs, facet_labels)
@@ -110,12 +119,7 @@ pvd_lineplot <- function(
     scale_color_manual(
       name = "Direction",
       drop = FALSE,
-      values = c(
-        "grey25",
-        "#F8766D",
-        "grey70",
-        "#00BFC4"
-      )
+      values = direction_colors
     ) +
     scale_y_discrete(
       name = y_lab,

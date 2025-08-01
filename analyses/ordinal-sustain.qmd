@@ -30,7 +30,9 @@ knitr::opts_chunk$set(
   include = TRUE
 )
 pander::panderOptions("table.split.table", Inf)
-ggplot2::theme_set(ggplot2::theme_bw())
+ggplot2::theme_set(
+  ggplot2::theme_bw(base_family = "Arial")
+)
 ```
 
 ```{r}
@@ -60,7 +62,7 @@ fit_models <- TRUE
 run_cv <- TRUE
 
 verbose <- TRUE
-rerun <- TRUE
+rerun <- FALSE
 # rerun <- FALSE
 use_rds <- !rerun
 
@@ -222,6 +224,7 @@ patient_data <- v1_usable_cases
 biomarker_groups <- compile_biomarker_groups_table(
   dataset = v1_usable
 )
+# biomarker_groups |> saveRDS(file = fs::path(output_folder, "biomarker_groups.rds"))
 
 biomarker_varnames <-
   biomarker_groups |>
@@ -380,6 +383,7 @@ results_males_first = extract_results_from_pickle(
 )
 
 fig_females_first <- extract_figs_from_pickle(
+  biomarker_groups = biomarker_groups,
   use_rds = use_rds,
   size.y = size.y,
   n_s = 1,
@@ -389,6 +393,7 @@ fig_females_first <- extract_figs_from_pickle(
 )
 
 fig_males_first <- extract_figs_from_pickle(
+  biomarker_groups = biomarker_groups,
   use_rds = use_rds,
   size.y = size.y,
   n_s = 1,
@@ -398,6 +403,7 @@ fig_males_first <- extract_figs_from_pickle(
 )
 
 fig_both_first <- extract_figs_from_pickle(
+  biomarker_groups = biomarker_groups,
   use_rds = use_rds,
   size.y = size.y,
   n_s = 1,
@@ -422,6 +428,7 @@ fig_both_first2 |>
   )
 
 fig_under100 <- extract_figs_from_pickle(
+  biomarker_groups = biomarker_groups,
   use_rds = use_rds,
   size.y = size.y,
   n_s = 1,
@@ -430,6 +437,7 @@ fig_under100 <- extract_figs_from_pickle(
 )
 
 fig_over100 <- extract_figs_from_pickle(
+  biomarker_groups = biomarker_groups,
   use_rds = use_rds,
   size.y = size.y,
   n_s = 1,
@@ -438,6 +446,7 @@ fig_over100 <- extract_figs_from_pickle(
 )
 
 fig_under100_males <- extract_figs_from_pickle(
+  biomarker_groups = biomarker_groups,
   use_rds = use_rds,
   size.y = size.y,
   n_s = 1,
@@ -446,6 +455,7 @@ fig_under100_males <- extract_figs_from_pickle(
 )
 
 fig_over100_males <- extract_figs_from_pickle(
+  biomarker_groups = biomarker_groups,
   use_rds = use_rds,
   size.y = size.y,
   n_s = 1,
@@ -455,6 +465,7 @@ fig_over100_males <- extract_figs_from_pickle(
 
 
 fig_under100_females <- extract_figs_from_pickle(
+  biomarker_groups = biomarker_groups,
   use_rds = use_rds,
   size.y = size.y,
   n_s = 1,
@@ -463,6 +474,7 @@ fig_under100_females <- extract_figs_from_pickle(
 )
 
 fig_over100_females <- extract_figs_from_pickle(
+  biomarker_groups = biomarker_groups,
   use_rds = use_rds,
   size.y = size.y,
   n_s = 1,
@@ -724,7 +736,9 @@ results_cv_max <- extract_results_from_pickle(
   output_folder = output_folder,
   subtype_order = subtype_order
 )
-figs <- results_cv_max |> plot_positional_var()
+figs <- results_cv_max |> plot_positional_var(
+  biomarker_groups = biomarker_groups
+)
 ```
 
 We conducted latent subtype classification analysis to cluster participants 

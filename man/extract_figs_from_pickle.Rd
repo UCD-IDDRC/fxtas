@@ -11,6 +11,8 @@ extract_figs_from_pickle(
   rda_filename = "data.RData",
   picklename = paste0(dataset_name, "_subtype", n_s - 1, ".pickle"),
   use_rds = TRUE,
+  biomarker_groups = readr::read_rds(fs::path(output_folder, "biomarker_groups.rds")),
+  biomarker_levels = readr::read_rds(fs::path(output_folder, "biomarker_levels.rds")),
   ...
 )
 }
@@ -26,6 +28,10 @@ extract_figs_from_pickle(
 \item{picklename}{the name of the pickle file to open}
 
 \item{use_rds}{\link{logical} whether to use previously cached results}
+
+\item{biomarker_groups}{\link{data.frame} with group colors, etc}
+
+\item{biomarker_levels}{\link{list} containing biomarker ordinal level info}
 
 \item{...}{
   Arguments passed on to \code{\link[=plot_positional_var]{plot_positional_var}}
@@ -53,8 +59,6 @@ extract_figs_from_pickle(
     \item{\code{save_path}}{todo}
     \item{\code{save_kwargs}}{todo}
     \item{\code{results}}{todo}
-    \item{\code{biomarker_levels}}{doesn't do much right now}
-    \item{\code{biomarker_groups}}{biomarker groupings}
     \item{\code{biomarker_events_table}}{todo}
     \item{\code{biomarker_event_names}}{todo}
     \item{\code{biomarker_plot_order}}{todo}

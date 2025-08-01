@@ -8,7 +8,13 @@ choose_biomarker_group_colors <- function(
       # group_color = rainbow()
       group_color =
         # RColorBrewer::brewer.pal(n = n(), name = "Paired")
-        rcartocolor::carto_pal(n = dplyr::n(), "Safe")
+        rcartocolor::carto_pal(n = dplyr::n(), "Safe"),
       # colorspace::qualitative_hcl(n = dplyr::n(), "Dark2")
+      group_color = if_else(
+        biomarker_group == "Stage",
+        "black",
+        group_color
+      )
     )
+
 }
