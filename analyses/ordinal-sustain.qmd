@@ -240,7 +240,6 @@ Davis, CA 95616
 **Keywords:** 
 fragile X-associated tremor/ataxia syndrome; 
 subtype and stage inference; 
-sequential events; 
 disease development and progression; 
 sex differences; 
 latent subgroups
