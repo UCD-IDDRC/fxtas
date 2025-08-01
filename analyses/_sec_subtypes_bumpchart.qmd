@@ -50,7 +50,7 @@ ggsave(
   dpi = 600
 )
 
-bump + ggview::canvas(width = 8.27, height= 5.2, units = "in", dpi = 600)
+# bump + ggview::canvas(width = 8.27, height= 5.2, units = "in", dpi = 600)
 ```
 
 **Differences in event sequences between latent subtypes,**
