@@ -923,6 +923,10 @@ and were excluded from this table.
 
 {{< pagebreak >}}
 
+{{< include _tbl-critical-findings.qmd >}}
+
+{{< pagebreak >}}
+
 ```{r}
 #| label: fig-first-only-pvd
 #| fig-height: !expr pvd_height
@@ -979,11 +983,11 @@ list(
   )
 ```
 
-{{< pagebreak >}}
+::: landscape
 
 {{< include _sec_subtypes_bumpchart.qmd >}}
 
-{{< pagebreak >}}
+:::
 
 # Supplementary material
 
