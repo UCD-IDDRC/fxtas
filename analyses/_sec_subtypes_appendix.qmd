@@ -2,9 +2,9 @@
 
 {{< pagebreak >}}
 
-{{< include _fig_loglik_mcmc.qmd >}}
+<!-- {{< include _fig_loglik_mcmc.qmd >}} -->
 
-{{< pagebreak >}}
+<!-- {{< pagebreak >}} -->
 
 {{< include _sec_CVIC_graphs.qmd >}}
 

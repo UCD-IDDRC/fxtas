@@ -13,6 +13,12 @@ lliks |>
 ```
 
 **Log-likelihood of training data set**,
-by MCMC iteration and number of latent subtypes.
+**by MCMC iteration and number of latent subtypes.**
+Adding up to 6 clusters substantially improves the log-likelihood.
 
 :::
+
+@suppfig-mcmc-loglik shows the distribution of log-likelihoods
+from the MCMC samples for the full dataset
+(not stratified by sex or CGG repeats).
+Adding up to 6 clusters substantially improves the log-likelihood.

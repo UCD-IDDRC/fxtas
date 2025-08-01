@@ -25,6 +25,7 @@ format_results_list <- function(
     biomarker_groups) {
 
 
+  n_events <- nrow(biomarker_events_table)
   # here's what the python code does to reorder the subtype and stage labels:
   temp_mean_f <- results$samples_f |> rowMeans()
   ix <- order(temp_mean_f, decreasing = TRUE)
@@ -36,7 +37,8 @@ format_results_list <- function(
       biomarker_groups = biomarker_groups,
       biomarker_levels = biomarker_levels,
       subtype_order = subtype_order,
-      ix = ix
+      ix = ix,
+      n_events = n_events
     )
 
   results$samples_sequence <-

@@ -30,10 +30,10 @@ list(
 ```
 
 **Event sequences stratified by CGG repeats, among males.**
-**(a)** Estimated event sequences, 
+**(A)** Estimated event sequences, 
 stratified by CGG repeats (<100 vs 100+).
 `r compact_fig_caption`
-**(b)** Positional differences in estimated event sequence 
+**(B)** Positional differences in estimated event sequence 
 between CGG repeat levels. `r compact_fig_cap2`
 
 :::
@@ -74,9 +74,9 @@ list(
 ```
 
 **Event sequences stratified by CGG repeats, among females.**
-**(a)** Estimated event sequences, stratified by CGG repeats 
+**(A)** Estimated event sequences, stratified by CGG repeats 
 (<100 vs 100+). `r compact_fig_caption`
-**(b)** Positional differences in estimated event sequence
+**(B)** Positional differences in estimated event sequence
 between CGG repeats. `r compact_fig_cap2`
 
 :::

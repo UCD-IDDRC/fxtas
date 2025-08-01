@@ -9,7 +9,7 @@ results_list_by_sex <- list(
   "Females" = results_females_first
 )
 
-results_list_by_sex |> stage_barplot(xmax = n_events)
+results_list_by_sex |> stage_barplot()
 ```
 
 **Distribution of estimated disease stage, stratified by sex**.

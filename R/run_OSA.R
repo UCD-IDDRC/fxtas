@@ -90,9 +90,8 @@ run_OSA <- function(
     "samples_likelihoods"
   )
 
-  if(keep_data) sustain_output$patient_data = patient_data
-  if(N_CV_folds > 0)
-  {
+  if (keep_data) sustain_output$patient_data = patient_data
+  if (N_CV_folds > 0) {
     # generate stratified cross-validation training and test set splits
     labels = rep(1L, times = nrow(patient_data))
     sklearn = reticulate::import("sklearn")
@@ -119,8 +118,7 @@ run_OSA <- function(
     #   invert = TRUE
     # )
 
-    if(verbose)
-    {
+    if (verbose) {
       message('Starting cross-validation of ', dataset_name)
       message("here are the current folds: ")
       print(splits) # can't easily rbind; potentially uneven lengths in folds

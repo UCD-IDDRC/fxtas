@@ -7,7 +7,7 @@
 #| fig-width: 5.5
 results_cv_max$subtype_and_stage_table |> 
   filter(ml_subtype != "Type 0") |>
-  stage_barplot(xmax = n_events)
+  stage_barplot()
 ```
 
 **Distribution of estimated disease stage, stratified by latent subtype**. 

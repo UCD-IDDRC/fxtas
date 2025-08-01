@@ -1,0 +1,10 @@
+This graph is a model diagnostic; if the model fits the data well,
+then older patients should on average be classified as being farther
+along in their disease progression, resulting in an upwards trend.
+Types 1, 3 and 4 appear to show such an upwards trend.
+Type 2 has a less clear trend, but does not show substantial evidence
+of lack of fit.
+In all four subtypes, patients whose visit occurred at a later age
+tend to be at a later estimated stage of disease progression.
+The upwards trend of progression stage with age
+indicates that the estimated models are plausible.

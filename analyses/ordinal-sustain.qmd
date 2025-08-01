@@ -69,10 +69,10 @@ fig_size <- c(20, 10)
 pvd_height <- 5.5
 pvd_width <- 6
 pvd_subfig_width <- pvd_width - 1
-pvd_line_height <- 7
+pvd_line_height <- 6.69
 pvd_line_width <- 8.1
 pvd_line_subfig_width <- pvd_line_width
-lineplot_text_size <- 3.4
+lineplot_text_size <- 3
 size.y <- 8 # nolint: object_name_linter
 y_text_size <- 10
 N_startpoints <- 10L # nolint: object_name_linter
@@ -240,7 +240,6 @@ Davis, CA 95616
 **Keywords:** 
 fragile X-associated tremor/ataxia syndrome; 
 subtype and stage inference; 
-sequential events; 
 disease development and progression; 
 sex differences; 
 latent subgroups
@@ -336,15 +335,6 @@ if (fit_models) {
 ```{r}
 #| label: extract-figs
 
-results_v1.1 <- extract_results_from_pickle(
-  use_rds = use_rds,
-  n_s = 1,
-  rda_filename = "data.RData",
-  dataset_name = "sample_data",
-  output_folder = output_folder,
-  verbose = verbose
-)
-
 results_v1 <- extract_results_from_pickles(
   use_rds = use_rds,
   n_s = 1:N_S_max,
@@ -398,10 +388,17 @@ fig_both_first <- extract_figs_from_pickle(
 )
 
 fig_both_first2 <-
-  list("all" = fig_both_first) |>
+  list(fig_both_first) |>
   plot_compact_pvd()
 
-fig_both_first2 |> ggsave(filename = "output/thumbnail.jpeg")
+fig_both_first2 |> 
+  ggplot2::ggsave(
+  height = 120, 
+  width = 120,
+  units = "mm", 
+  dpi = 600,
+  filename = "output/thumbnail.jpeg"
+)
 
 fig_under100 <- extract_figs_from_pickle(
   use_rds = use_rds,
@@ -804,11 +801,6 @@ and
 Subtype 4 had the fewest CGG repeats
 (`r cgg_by_subtype["Type 4", "mean"]` ± `r cgg_by_subtype["Type 4", "sd"]`).
 
-```{r}
-#| label: get-n-events
-n_events <- nrow(biomarker_events_table)
-```
-
 {{< include _sec-subtype-diff-summary.qmd >}}
 
 # Discussion
@@ -934,9 +926,11 @@ and were excluded from this table.
 
 :::
 
+{{< include _sec_abbrev_table.qmd >}}
+
 {{< pagebreak >}}
 
-{{< include _sec_abbrev_table.qmd >}}
+{{< include _tbl-critical-findings.qmd >}}
 
 {{< pagebreak >}}
 
@@ -950,12 +944,23 @@ and were excluded from this table.
 #|    {compact_fig_caption}")
 #| fig-cap-location: top
 
-list(
+pvdc_sex <- list(
   "Males:" = fig_males_first,
   "Females:" = fig_females_first
 ) |>
   # plot_compact_pvd_est2()
   plot_compact_pvd(y_text_size = y_text_size)
+
+print(pvdc_sex)
+
+pvdc_sex |> 
+  ggplot2::ggsave(
+  height = 120, 
+  width = 120,
+  units = "mm", 
+  dpi = 600,
+  filename = "output/pvd_sex.pdf"
+)
 
 ```
 
@@ -996,11 +1001,11 @@ list(
   )
 ```
 
-{{< pagebreak >}}
+::: landscape
 
 {{< include _sec_subtypes_bumpchart.qmd >}}
 
-{{< pagebreak >}}
+:::
 
 # Supplementary material
 

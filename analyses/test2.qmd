@@ -1,16 +1,33 @@
 ---
-title: "reference hyperlink example"
+title: test
 authors: default
 affiliations: default
 ---
 
 ```{r}
-#| fig-height: 6.5
-#| fig-width: 9
-#| label: bumpplot-pvd-chosen-subtypes
-#| fig-cap: test 123
-
 devtools::load_all()
+```
+
+```{r}
+
+"analyses/critical-findings.csv" |> 
+  readr::read_csv(name_repair = "minimal") |> 
+  flextable::flextable() |> 
+  shared_flextable_settings() |> 
+  flextable::width(j = 1, width = 1) |> 
+  flextable::width(j = 3, width = 3.5) |> 
+  flextable::width(j = 2, width = 1.2)
+```
+
+::: landscape
+
+::: {#fig-pvd_chosen_subtypes_bumpplot}
+
+```{r}
+#| fig-height: 5.2
+#| fig-width: 9
+
+
 output_folder <-
     "output/output.fixed_CV-scid-no-subthres/"
   figs <-
@@ -49,12 +66,21 @@ bump <- figs |>
   pvd_subtype_lineplot(
     smooth = 30,
     y_lab = "",
-    text_size = 2.5,
+    text_size = 2.1,
     x_text_size = 8,
     align_stage = TRUE,
     events_to_highlight = color_info
   )
-
 bump
-# ggview::canvas(width = 9, height= 6.5, units = "in", dpi = 600)
+# bump + ggview::canvas(width = 9, height = 5.2, units = "in", dpi = 600)
 ```
+
+
+**Differences in event sequences between latent subtypes,**
+**aligned by FXTAS stage.**
+Lines are used to show patterns of clinical interest.
+Text colors indicate symptoms grouped by measurement type.
+
+:::
+
+:::

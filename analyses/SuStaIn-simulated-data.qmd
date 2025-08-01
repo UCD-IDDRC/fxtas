@@ -290,7 +290,9 @@ cvic_sim_data$loglike_matrix |> plot_cv_loglik()
 
 :::
 
-**Cross-validation information criterion (CVIC)**
+**Cross-validation information criterion (CVIC)**, 
+by number of latent subtype clusters.
+N = `r nrow(v1_usable_cases)` observations.
 
 :::
 

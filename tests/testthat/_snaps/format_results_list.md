@@ -74,6 +74,7 @@
         ..$ Biomarker 5: int [1:4] 0 1 2 3
        - attr(*, "subtype_order")= int 1
        - attr(*, "ix")= int 1
+       - attr(*, "n_events")= int 15
 
 # results are consistent with three groups
 
@@ -151,6 +152,7 @@
         ..$ Biomarker 5: int [1:4] 0 1 2 3
        - attr(*, "subtype_order")= int [1:3] 1 2 3
        - attr(*, "ix")= int [1:3] 3 1 2
+       - attr(*, "n_events")= int 15
 
 ---
 
@@ -473,7 +475,8 @@
     AAACAAAAAwAABAIAAAX/AAAAEAAAAAUABAAJAAAAC0Jpb21hcmtlciAxAAQACQAAAAtCaW9t
     YXJrZXIgMgAEAAkAAAALQmlvbWFya2VyIDMABAAJAAAAC0Jpb21hcmtlciA0AAQACQAAAAtC
     aW9tYXJrZXIgNQAAAP4AAAQCAAAAAQAEAAkAAAANc3VidHlwZV9vcmRlcgAAAA0AAAADAAAA
-    AQAAAAIAAAADAAAEAgAAAAEABAAJAAAAAml4AAAADQAAAAMAAAADAAAAAQAAAAIAAAD+
+    AQAAAAIAAAADAAAEAgAAAAEABAAJAAAAAml4AAAADQAAAAMAAAADAAAAAQAAAAIAAAQCAAAA
+    AQAEAAkAAAAIbl9ldmVudHMAAAANAAAAAQAAAA8AAAD+
 
 # results are consistent with custom ordering
 
@@ -551,4 +554,5 @@
         ..$ Biomarker 5: int [1:4] 0 1 2 3
        - attr(*, "subtype_order")= num [1:3] 2 1 3
        - attr(*, "ix")= int [1:3] 3 1 2
+       - attr(*, "n_events")= int 15
 

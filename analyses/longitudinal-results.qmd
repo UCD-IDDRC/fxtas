@@ -68,7 +68,7 @@ depending on which subset of the data we use to fit the model.
 #| column: page
 #| fig-height: !expr pvd_line_height
 #| fig-width: !expr pvd_line_width
-#| fig-cap: !expr glue::glue("**Event sequences models for males, by data subset. (a)** {compact_fig_caption} **(b)** Change in estimated event sequences for males by data subset.")
+#| fig-cap: !expr glue::glue("**Event sequences models for males, by data subset. (A)** {compact_fig_caption} **(B)** Change in estimated event sequences for males by data subset.")
 #| fig-cap-location: top
 #| layout-ncol: 1
 #| fig-subcap: 
