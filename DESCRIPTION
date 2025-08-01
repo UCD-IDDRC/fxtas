@@ -39,6 +39,7 @@ Imports:
     magrittr,
     pander,
     purrr,
+    rcartocolor,
     readr,
     readxl,
     reticulate,

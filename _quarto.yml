@@ -160,6 +160,7 @@ execute:
   cache: false
   freeze: false  # re-render only when source changes
 filters:
+  - highlight-text
   - authors-block
   - at: post-quarto
     path: analyses/appendix_numbering.lua
