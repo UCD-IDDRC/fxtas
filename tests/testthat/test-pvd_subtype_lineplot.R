@@ -22,18 +22,21 @@ test_that("results are consistent with fxtas data", {
 
   figs |>
     pvd_subtype_lineplot(
+      facet_label_prefixes = NULL,
       align_stage = FALSE,
       events_to_highlight = color_info) |>
     vdiffr::expect_doppelganger(title = "fxtas-data-4")
 
   figs[1:3] |>
     pvd_subtype_lineplot(
+      facet_label_prefixes = NULL,
       align_stage = FALSE,
       events_to_highlight = color_info) |>
     vdiffr::expect_doppelganger(title = "fxtas-data-3")
 
   figs[1:2] |>
     pvd_subtype_lineplot(
+      facet_label_prefixes = NULL,
       align_stage = FALSE,
       events_to_highlight = color_info) |>
     vdiffr::expect_doppelganger(title = "fxtas-data-2")
@@ -56,12 +59,14 @@ test_that("results are consistent with simulated data", {
 
   figs |>
     pvd_subtype_lineplot(
+      facet_label_prefixes = NULL,
       align_stage = FALSE,
       events_to_highlight = events_to_highlight) |>
     vdiffr::expect_doppelganger(title = "sim-data-4")
 
   figs[1:3] |>
     pvd_subtype_lineplot(
+      facet_label_prefixes = NULL,
       align_stage = FALSE,
       events_to_highlight = events_to_highlight) |>
     vdiffr::expect_doppelganger(title = "sim-data-3")

@@ -9,6 +9,10 @@ graph_stage_by_age <- function(data,
                                alpha = .7) {
   graph <- data |>
     dplyr::filter(.data$ml_subtype != "Type 0") |>
+    mutate(
+      .by = "ml_subtype",
+      ml_subtype = paste0(.data$ml_subtype, ": N = ", n())
+    ) |>
     ggplot() +
     aes(
       x = .data$age,
@@ -19,9 +23,15 @@ graph_stage_by_age <- function(data,
       alpha = alpha,
       if ("sex" %in% names(data)) aes(col = .data$sex)
     ) +
-    geom_smooth(method = "loess", formula = y ~ x) +
-    xlab("Age at visit (years)") +
-    ylab("Estimated sequence stage") +
+    geom_smooth(
+      aes(linetype = "LOESS"),
+      method = "loess", formula = y ~ x) +
+    labs(
+      x = "Age at visit (years)",
+      y = "Estimated sequence stage",
+      linetype = "",
+      col = ""
+    ) +
     ggplot2::theme_bw() +
     theme(legend.position = "bottom")
 

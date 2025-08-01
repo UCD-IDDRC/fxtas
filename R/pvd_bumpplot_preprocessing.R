@@ -1,6 +1,7 @@
 # helpers
 pvd_bumpplot_preprocessing <- function(
     data,
+    facet_names,
     facet_labels,
     events_to_highlight,
     subtype_x) {
@@ -55,14 +56,17 @@ pvd_bumpplot_preprocessing <- function(
         1
       ),
       background = .data$highlight_color |> tidyr::replace_na("#FFF")
-    ) |>
+    ) -> temp
+
+  temp |>
     dplyr::left_join(
       x = _,
       y  = data.frame(
+        facet_names = facet_names,
         facet_label = facet_labels,
         facet_order = subtype_x
       ),
-      by = c("facet" = "facet_label")
+      by = c("facet" = "facet_names")
     )
 
 }

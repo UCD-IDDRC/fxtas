@@ -1,6 +1,7 @@
 #' @title Display Sequential Order of Events by Subtype
 #' @param figs A [list] of todo
 #' @param facet_labels todo
+#' @param facet_names [character]: facet names
 #' @param events_to_highlight todo
 #' @param y_title_size todo
 #' @param text_size todo
@@ -26,7 +27,8 @@ pvd_subtype_lineplot <- function(
     min_alpha = 0.25,
     max_alpha = 1,
     stage_alpha = 1,
-    facet_labels = names(figs),
+    facet_names = names(figs),
+    facet_label_prefixes = names(figs),
     text_size = 3.4,
     y_lab = "Sequential order",
     y_title_size = 9,
@@ -38,7 +40,7 @@ pvd_subtype_lineplot <- function(
     use_group_colors = FALSE,
     ...) {
 
-  dataset <- extract_lineplot_data(figs, facet_labels)
+  dataset <- extract_lineplot_data(figs, facet_names)
   fxtas_stages <- c("FXTAS Stage: 1",
                     "FXTAS Stage: 2",
                     "FXTAS Stage: 3",
@@ -48,12 +50,19 @@ pvd_subtype_lineplot <- function(
   # truncate subtype_x to length(figs) - add check to force lengths to match?
   subtype_x = subtype_x[1:length(figs)]
 
+  facet_labels <- compact_pvd_facet_labels(
+    figs = figs,
+    facet_label_prefix = facet_label_prefixes
+  ) |>
+    unlist()
+
   # additional processing
   plot_dataset <- dataset |>
     pvd_bumpplot_preprocessing(
-      facet_labels,
-      events_to_highlight,
-      subtype_x
+      facet_names = facet_names,
+      facet_labels = facet_labels,
+      events_to_highlight = events_to_highlight,
+      subtype_x = subtype_x
     )
 
   # alpha scaling #

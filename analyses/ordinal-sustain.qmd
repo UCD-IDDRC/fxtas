@@ -30,6 +30,38 @@ knitr::opts_chunk$set(
   include = TRUE
 )
 pander::panderOptions("table.split.table", Inf)
+
+```
+
+```{r}
+#| include: false
+
+fig_size <- c(20, 10) # passed to pySuStaIn
+
+# scale_colors1 = c("red", "blue", "magenta", "orange", "purple4")
+scale_colors0 <- rcartocolor::carto_pal(name = "Safe")[c(9, 5, 7, 8, 4)]
+scale_colors1 <- c("#882255", "#332288", "#44AA99", "#999933", "#117733") |> 
+  setNames(
+    c("violet red", "royal blue", "cadet blue", "khaki", "forest green"
+    ) 
+  )
+
+color_list <- glue::glue(
+  '[{{names(scale_colors1)}}]{color="{{scale_colors1}}"}', 
+  .open = "{{", 
+  .close = "}}"
+)
+
+library(rex)
+color_names1 <- 
+  loon::l_colorName(c("#882255", "#332288", "#44AA99", "#999933", "#117733")) |>  
+  stringr::str_remove_all(pattern = rex::rex(digits))
+
+options(
+  ggplot2.discrete.fill = rcartocolor::carto_pal(name = "Safe"),
+  ggplot2.discrete.colour = rcartocolor::carto_pal(name = "Safe")
+)
+ 
 ggplot2::theme_set(
   ggplot2::theme_bw(base_family = "Arial")
 )
@@ -67,26 +99,7 @@ rerun <- FALSE
 use_rds <- !rerun
 
 plot_python <- TRUE
-fig_size <- c(20, 10) # passed to pySuStaIn
 
-# scale_colors1 = c("red", "blue", "magenta", "orange", "purple4")
-scale_colors0 <- rcartocolor::carto_pal(name = "Safe")[c(9, 5, 7, 8, 4)]
-scale_colors1 <- c("#882255", "#332288", "#44AA99", "#999933", "#117733") |> 
-  setNames(
-    c("violet red", "royal blue", "cadet blue", "khaki", "forest green"
-    ) 
-  )
-
-color_list <- glue::glue(
-  '[{{names(scale_colors1)}}]{color="{{scale_colors1}}"}', 
-  .open = "{{", 
-  .close = "}}"
-)
-
-library(rex)
-color_names1 <- 
-  loon::l_colorName(c("#882255", "#332288", "#44AA99", "#999933", "#117733")) |>  
-  stringr::str_remove_all(pattern = rex::rex(digits))
 pvd_height <- 5.5
 pvd_width <- 6
 pvd_subfig_width <- pvd_width - 1
@@ -108,14 +121,15 @@ outcomes_name <- "symptom"
 events_name <- "symptomatic events"
 outcomes_name_sentence_start <- stringr::str_to_sentence(outcomes_name)
 
-compact_fig_caption <- paste(
-  "The different colors (red, blue, magenta, orange, purple)",
-  "indicate the ordinal levels of symptom progression.",
-  "Color gradient intensity represents the Bayesian posterior probability", 
+compact_fig_caption <- paste0(
+  "The different colors (",
+  color_list |> paste(collapse = ", "),
+  ") indicate the ordinal levels of symptom progression. ",
+  "Color gradient intensity represents the Bayesian posterior probability ",
   "of the sequence position.",
-  "The brighter the color, the more probable that the corresponding",
+  "The brighter the color, the more probable that the corresponding ",
   outcomes_name,
-  "event occurs in that position in the sequence."
+  " event occurs in that position in the sequence."
 )
 
 compact_fig_cap2 <- glue::glue(
@@ -1020,8 +1034,8 @@ list(
 #| fig-cap-location: top
 
 list(
-  "Males" = fig_males_first,
-  "Females" = fig_females_first
+  "Males," = fig_males_first,
+  "Females," = fig_females_first
 ) |>
   pvd_lineplot(
     expand = 0,

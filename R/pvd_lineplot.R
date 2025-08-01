@@ -61,9 +61,14 @@ pvd_lineplot <- function(
       )
     )
 
+  facet_names <- compact_pvd_facet_labels(
+    figs = figs,
+    facet_label_prefix = facet_labels
+  )
+
   facet_x_labels <- c(
-    glue::glue('<p "style = text-align: right">{facet_labels[1]}</p>'),
-    glue::glue('<p "style = text-align: left">{facet_labels[2]}</p>')
+    glue::glue('<p "style = text-align: right">{facet_names[1]}</p>'),
+    glue::glue('<p "style = text-align: left">{facet_names[2]}</p>')
   )
 
   # plot
