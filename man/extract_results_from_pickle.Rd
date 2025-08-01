@@ -8,7 +8,6 @@ extract_results_from_pickle(
   n_s = 1,
   dataset_name = "sample_data",
   output_folder = "output",
-  rda_filename = "data.RData",
   basename = paste0(dataset_name, "_subtype", n_s - 1),
   picklename = paste0(basename, ".pickle"),
   format_results = TRUE,
@@ -25,8 +24,6 @@ extract_results_from_pickle(
 \item{dataset_name}{root name of dataset}
 
 \item{output_folder}{where to find the dataset}
-
-\item{rda_filename}{name of rda file containing environment used to run analyses}
 
 \item{basename}{base of pickle file name (without \code{.pickle} suffix)}
 

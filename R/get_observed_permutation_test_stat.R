@@ -16,7 +16,6 @@ get_observed_permutation_test_stat <- function(
   {
     results = extract_results_from_pickle(
       n_s = 1,
-      rda_filename = "data.RData",
       dataset_name = cur,
       output_folder = output_folder)
 

@@ -13,14 +13,12 @@ output_folder =
 fig_females_first = extract_figs_from_pickle(
   n_s = 1,
   size.y = size.y,
-  rda_filename = "data.RData",
   dataset_name = "females",
   output_folder = "output/output.fixed_CV")
 
 fig_males_first = extract_figs_from_pickle(
   n_s = 1,
   size.y = size.y,
-  rda_filename = "data.RData",
   dataset_name = "males",
   output_folder = "output/output.fixed_CV")
 ```

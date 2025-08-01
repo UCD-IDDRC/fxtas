@@ -55,7 +55,6 @@ extract_permuted_likelihoods <- function(
 
       results_cur_level = extract_results_from_pickle(
         n_s = 1,
-        rda_filename = "data.RData",
         dataset_name = paste(cur_level, p, sep = "_p"),
         output_folder = output_folder)
 

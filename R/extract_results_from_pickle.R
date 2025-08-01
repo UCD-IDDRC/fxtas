@@ -5,8 +5,6 @@
 #' @param dataset_name root name of dataset
 #' @param output_folder where to find the dataset
 #' @param picklename the name of the pickle file to open
-#' @param rda_filename
-#' name of rda file containing environment used to run analyses
 #' @param format_results
 #' whether to apply [format_results_list()] to results before returning
 #' @param verbose whether to print messages
@@ -29,7 +27,6 @@ extract_results_from_pickle <- function(
     n_s = 1,
     dataset_name = "sample_data",
     output_folder = "output",
-    rda_filename = "data.RData",
     basename = paste0(dataset_name, "_subtype", n_s - 1),
     picklename = paste0(basename, ".pickle"),
     format_results = TRUE,

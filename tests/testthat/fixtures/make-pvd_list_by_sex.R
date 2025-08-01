@@ -10,7 +10,6 @@ fig_females_first <- extract_figs_from_pickle(
   use_rds = FALSE,
   size.y = size.y,
   n_s = 1,
-  rda_filename = "data.RData",
   dataset_name = "females",
   output_folder = output_folder
 )
@@ -19,7 +18,6 @@ fig_males_first <- extract_figs_from_pickle(
   use_rds = FALSE,
   size.y = size.y,
   n_s = 1,
-  rda_filename = "data.RData",
   dataset_name = "males",
   output_folder = output_folder
 )

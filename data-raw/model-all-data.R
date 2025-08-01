@@ -92,7 +92,7 @@ biomarker_groups |> saveRDS(file = fs::path(output_folder, "biomarker_groups.rds
 #| label: model-all-data
 #| include: false
 sustain_output = run_and_save_OSA(
-  rda_filename = rda_filename,
+  
   biomarker_levels = biomarker_levels,
   prob_correct = prob_correct,
   SuStaInLabels = SuStaInLabels,
@@ -114,7 +114,7 @@ sustain_output = run_and_save_OSA(
 #| label: model-males
 #| include: false
 sustain_output_males = run_and_save_OSA(
-  rda_filename = rda_filename,
+  
   biomarker_levels = biomarker_levels,
   prob_correct = prob_correct,
   patient_data = patient_data |> dplyr::filter(Gender == "Male"),
@@ -135,7 +135,7 @@ sustain_output_males = run_and_save_OSA(
 #| label: model-females
 #| include: false
 sustain_output_females = run_and_save_OSA(
-  rda_filename = rda_filename,
+  
   biomarker_levels = biomarker_levels,
   prob_correct = prob_correct,
   patient_data =
@@ -158,7 +158,7 @@ sustain_output_females = run_and_save_OSA(
 #| label: "cgg_over_100"
 #| include: false
 sustain_output_cgg100plus = run_and_save_OSA(
-  rda_filename = rda_filename,
+  
   biomarker_levels = biomarker_levels,
   prob_correct = prob_correct,
   patient_data = patient_data |>
@@ -181,7 +181,7 @@ sustain_output_cgg100plus = run_and_save_OSA(
 #| label: "cgg_under_100"
 #| include: false
 sustain_output_cgg100minus = run_and_save_OSA(
-  rda_filename = rda_filename,
+  
   biomarker_levels = biomarker_levels,
   prob_correct = prob_correct,
   patient_data = patient_data |>

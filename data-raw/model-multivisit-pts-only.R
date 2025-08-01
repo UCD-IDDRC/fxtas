@@ -97,14 +97,13 @@ save.image(file = fs::path(output_folder, paste0(dataset_name, ".RData")))
 patient_data     |> saveRDS(file = fs::path(output_folder, "data.rds"))
 biomarker_levels |> saveRDS(file = fs::path(output_folder, "biomarker_levels.rds"))
 biomarker_groups |> saveRDS(file = fs::path(output_folder, "biomarker_groups.rds"))
-rda_filename = paste0(dataset_name, ".RData")
 
 ## ----"run OSA from R"--------------------------------------------------------------------------------
 #| message: false
 #| label: model-all-data
 #| include: false
 sustain_output = run_and_save_OSA(rerun = rerun,
-  rda_filename = rda_filename,
+
   biomarker_levels = biomarker_levels,
   prob_correct = prob_correct,
   patient_data = patient_data,
@@ -128,7 +127,7 @@ sustain_output = run_and_save_OSA(rerun = rerun,
 #| label: model-males
 #| include: false
 sustain_output_males = run_and_save_OSA(rerun = rerun,
-  rda_filename = rda_filename,
+
   biomarker_levels = biomarker_levels,
   prob_correct = prob_correct,
   patient_data = patient_data |>
@@ -151,7 +150,7 @@ sustain_output_males = run_and_save_OSA(rerun = rerun,
 #| label: model-females
 #| include: false
 sustain_output_females = run_and_save_OSA(rerun = rerun,
-  rda_filename = rda_filename,
+
   biomarker_levels = biomarker_levels,
   prob_correct = prob_correct,
   patient_data = patient_data |> dplyr::filter(Gender == "Female"),
@@ -173,7 +172,7 @@ sustain_output_females = run_and_save_OSA(rerun = rerun,
 #| label: "cgg_over_100"
 #| include: false
 sustain_output_cgg100plus = run_and_save_OSA(rerun = rerun,
-  rda_filename = rda_filename,
+
   biomarker_levels = biomarker_levels,
   prob_correct = prob_correct,
   patient_data = patient_data |>
@@ -196,7 +195,7 @@ sustain_output_cgg100plus = run_and_save_OSA(rerun = rerun,
 #| label: "cgg_under_100"
 #| include: false
 sustain_output_cgg100minus = run_and_save_OSA(rerun = rerun,
-  rda_filename = rda_filename,
+
   biomarker_levels = biomarker_levels,
   prob_correct = prob_correct,
   patient_data = patient_data |>

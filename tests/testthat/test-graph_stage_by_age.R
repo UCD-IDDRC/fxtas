@@ -5,7 +5,6 @@ test_that("results are consistent", {
 
   results <- extract_results_from_pickle(
     n_s = 3,
-    rda_filename = "data.RData",
     dataset_name = "sample_data",
     output_folder = output_path
   )

@@ -4,7 +4,6 @@
 #' figs <- extract_figs_from_pickle(
 #'   size.y = size.y,
 #'   n_s = 3,
-#'   rda_filename = "data.RData",
 #'   dataset_name = "sample_data",
 #'   output_folder = fs::path_package("extdata/sim_data", package = "fxtas")
 #' )

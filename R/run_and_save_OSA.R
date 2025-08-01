@@ -14,7 +14,6 @@ run_and_save_OSA <- function(# nolint: object_name_linter
     verbose = TRUE,
     N_S_max, # nolint: object_name_linter
     rerun = FALSE,
-    rda_filename = "data.RData",
     ...) {
   rds_filebase <- glue::glue("{dataset_name}_1-{N_S_max}")
   rds_path <- build_rds_path(rds_filebase, output_folder)
@@ -51,7 +50,6 @@ run_and_save_OSA <- function(# nolint: object_name_linter
   # create extra rds files:
   extract_results_from_pickles(
     n_s = 1:N_S_max,
-    rda_filename = rda_filename,
     dataset_name = dataset_name,
     output_folder = output_folder
   )

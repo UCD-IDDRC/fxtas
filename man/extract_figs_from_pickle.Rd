@@ -21,8 +21,6 @@ extract_figs_from_pickle(
 
 \item{output_folder}{where to find the dataset}
 
-\item{rda_filename}{name of rda file containing environment used to run analyses}
-
 \item{picklename}{the name of the pickle file to open}
 
 \item{use_rds}{\link{logical} whether to use previously cached results}
