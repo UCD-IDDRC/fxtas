@@ -57,7 +57,8 @@ bump <- figs |>
     text_size = 2.1,
     x_text_size = 8,
     align_stage = TRUE,
-    events_to_highlight = color_info
+    events_to_highlight = color_info,
+    use_group_colors = TRUE
   )
 
 bump
