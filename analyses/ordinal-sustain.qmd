@@ -993,13 +993,15 @@ list(
   "Females:" = fig_females_first
 ) |>
   # plot_compact_pvd_est2()
-  plot_compact_pvd(scale_colors = scale_colors1, y_text_size = 12) |> 
+  plot_compact_pvd(
+    scale_colors = scale_colors1, 
+    y_text_size = 10) |> 
   ggplot2::ggsave(
     height = 120, 
     width = 120,
     units = "mm", 
     dpi = 600,
-    filename = "output/pvd_sex.pdf"
+    filename = "analyses/pvd_sex.pdf"
   )
 
 ```
