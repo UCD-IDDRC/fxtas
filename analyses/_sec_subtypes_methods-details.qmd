@@ -24,11 +24,8 @@ by the time when they were assessed for the study.
 
 To cluster observations in a given data set into latent subtypes
 using the Ordinal SuStaIn modeling algorithm,
-we choose the optimal number of clusters based on cross-validation metrics.
-Those metrics include
-the likelihood of the data for the fitted model
-while varying the number of subtypes used to fit the model
-and the Cross-Validation Information Criterion (CVIC)
+we determined the optimal number of clusters based on 
+the Cross-Validation Information Criterion (CVIC)
 described in Young et al. [-@young2018uncovering].
 We also evaluated the consistency of our cross-validation procedure
 by looking at the distribution of

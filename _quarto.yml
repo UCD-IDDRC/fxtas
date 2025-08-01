@@ -165,6 +165,7 @@ filters:
     path: analyses/appendix_numbering.lua
 
 crossref:
+  subref-labels: alpha A
   appendix-title: "Supplementary material" # doesn't seem to work
   custom:
     - kind: float
