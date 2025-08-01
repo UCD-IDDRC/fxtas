@@ -933,8 +933,6 @@ and were excluded from this table.
 
 :::
 
-{{< pagebreak >}}
-
 {{< include _sec_abbrev_table.qmd >}}
 
 {{< pagebreak >}}

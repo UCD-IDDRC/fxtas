@@ -4,8 +4,8 @@
 read.csv("analyses/abbreviations.csv") |> 
   flextable::flextable() |> 
   shared_flextable_settings() |> 
-  flextable::width(j = ~ Abbreviation, width = .75) |> 
-  flextable::width(j = ~ Meaning, width = 4.2) |> 
+  flextable::width(j = ~ Abbreviation, width = 1) |> 
+  flextable::width(j = ~ Meaning, width = 3.5) |> 
   flextable::width(j = ~ Context, width = 1.2)
 ```
 
