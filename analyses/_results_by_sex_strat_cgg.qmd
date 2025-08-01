@@ -22,7 +22,7 @@ list(
 #| fig-cap: ""
 
 # lineplot of event sequences
-list(
+plot1 <- list(
     "CGG &lt; 100, Males" = fig_under100_males,
     "CGG &lt; 100, Females" = fig_under100_females
   ) |> 
@@ -41,6 +41,10 @@ list(
       "MCP-WM Hyperintensity: Moderate/SEver"
     ),
     highlight_color = "yellow")
+plot1
+# plot1 + ggview::canvas(units = "in", 
+#                        width = pvd_line_height,
+#                        height = 6.69)
 ```
 
 **Event sequences stratified by sex, for CGG repeats <100.**
