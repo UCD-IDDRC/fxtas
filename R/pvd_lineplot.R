@@ -45,9 +45,10 @@ pvd_lineplot <- function(
 
   plot_dataset <- plot_dataset |>
     dplyr::mutate(
+      abs_change = abs(.data$Change),
       alpha = dplyr::case_when(
         .data$biomarker == "FXTAS Stage" ~ stage_alpha,
-        .default = (abs(.data$Change) * alpha_mult) + min_alpha
+        .default = (.data$abs_change * alpha_mult) + min_alpha
       )
     )
 
@@ -75,12 +76,30 @@ pvd_lineplot <- function(
     ) +
     scale_fill_identity() +
     geom_line(
+      data = plot_dataset |> filter(.data$biomarker != "FXTAS Stage"),
       aes(
         group = .data$`event name`,
-        color = .data$Change_color
+        color = .data$Change_color,
+        alpha = .data$alpha,
+        linewidth = .data$linesize
+      )
+
+    ) +
+    geom_line(
+      data = plot_dataset |> filter(.data$biomarker == "FXTAS Stage"),
+      aes(
+        group = .data$`event name`,
+        color = .data$Change_color,
+        linewidth = .data$linesize
       ),
-      linewidth = plot_dataset$linesize,
-      alpha = plot_dataset$alpha
+      alpha = stage_alpha,
+
+
+    ) +
+    ggplot2::scale_linewidth_identity(guide = "none") +
+    ggplot2::scale_alpha_continuous(
+      name = "Distance",
+      range = c(min_alpha, max_alpha)
     ) +
     scale_x_continuous(
       expand = ggplot2::expansion(add = c(expand)),
@@ -89,6 +108,7 @@ pvd_lineplot <- function(
       labels = facet_x_labels
     ) +
     scale_color_manual(
+      name = "Direction",
       drop = FALSE,
       values = c(
         "grey25",
@@ -97,11 +117,13 @@ pvd_lineplot <- function(
         "#00BFC4"
       )
     ) +
-    scale_y_discrete(limits = rev, breaks = NULL) +
-    labs(y = y_lab) +
+    scale_y_discrete(
+      name = y_lab,
+      limits = rev,
+      breaks = NULL) +
     theme_classic() +
     theme(
-      legend.position = "none",
+      legend.position = "bottom",
       axis.title.x = ggplot2::element_blank(),
       axis.title.y = ggtext::element_markdown(size = y_title_size),
       axis.text.y = ggtext::element_markdown(size = y_text_size),

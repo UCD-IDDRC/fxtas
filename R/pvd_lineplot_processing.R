@@ -57,12 +57,12 @@ pvd_lineplot_preprocessing <- function(
       ),
       # colors of choice
       Change_color = dplyr::case_when(
-        `biomarker` == "FXTAS Stage" ~ -2,
-        Change < 0 ~ -1,
-        Change == 0 ~ 0,
-        Change > 0 ~ 1,
+        `biomarker` == "FXTAS Stage" ~ "(stage)",
+        Change < 0 ~ "down",
+        Change == 0 ~ "up",
+        Change > 0 ~ "neutral",
       ) |>
-        factor(levels = c(-2, -1, 0, 1)),
+        factor(levels = c("(stage)", "down", "neutral", "up")),
       background = dplyr::if_else(
         condition = .data$`event name` %in% events_to_highlight,
         true = highlight_color,
