@@ -21,15 +21,18 @@ graph_stage_by_age <- function(data,
     ) +
     geom_point(
       alpha = alpha,
-      if ("sex" %in% names(data)) aes(col = .data$sex)
+      if ("sex" %in% names(data)) aes(col = .data$sex, shape = .data$sex)
     ) +
     geom_smooth(
       aes(linetype = "LOESS"),
-      method = "loess", formula = y ~ x) +
+      method = "loess",
+      formula = y ~ x
+    ) +
     labs(
       x = "Age at visit (years)",
       y = "Estimated sequence stage",
       linetype = "",
+      shape = "",
       col = ""
     ) +
     ggplot2::theme_bw() +

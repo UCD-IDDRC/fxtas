@@ -23,14 +23,22 @@ plot_cv_loglik <- function(cv_loglik, y_text_size = 8)
         y = .data$loglik,
         col = .data$fold) +
     xlab("# latent subtypes") +
-    geom_point() +
-    geom_line(aes(group = .data$fold, linetype = .data$fold)) +
+    geom_point(aes(shape = .data$fold)) +
+    geom_line(aes(group = .data$fold,
+                  linetype = .data$fold)) +
     # geom_boxplot() +
     theme_bw() +
-    theme(legend.position = "none",
-          axis.text.y = ggtext::element_markdown(
-            size = y_text_size
-          )) +
+    labs(
+      col = "Cross-validation fold",
+      shape = "Cross-validation fold",
+      linetype = "Cross-validation fold"
+    ) +
+    theme(
+      legend.position = "bottom",
+      axis.text.y = ggtext::element_markdown(
+        size = y_text_size
+      )
+    ) +
     ylab("Log-likelihood of CV test folds")
 
 
