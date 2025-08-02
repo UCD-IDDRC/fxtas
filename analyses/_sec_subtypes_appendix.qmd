@@ -1,6 +1,6 @@
 {{< include _sec_subtypes_methods-details.qmd >}}
 
-{{< pagebreak >}}
+<!-- {{< pagebreak >}} -->
 
 <!-- {{< include _fig_loglik_mcmc.qmd >}} -->
 

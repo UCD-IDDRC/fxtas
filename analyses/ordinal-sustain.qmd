@@ -38,13 +38,16 @@ pander::panderOptions("table.split.table", Inf)
 #| label: set-colors
 
 # scale_colors1 = c("red", "blue", "magenta", "orange", "purple4")
-scale_colors0 <- rcartocolor::carto_pal(name = "Safe")[c(9, 5, 7, 8, 4)]
+scale_color_indices <- c(9, 5, 7, 8, 4)
+scale_colors0 <- rcartocolor::carto_pal(name = "Safe")[scale_color_indices]
 library(rex)
+# rcartocolor::carto_pal(name = "Safe") |> 
+#   colorblindcheck::palette_plot()
 color_names1 <- 
-  scale_colors0 |> 
+  rcartocolor::carto_pal(name = "Safe") |> 
   loon::l_colorName() |>  
   stringr::str_remove_all(pattern = rex::rex(digits))
-
+color_names1
 scale_colors1 <- scale_colors0 |> 
   setNames(
     c("violet red", "royal blue", "cadet blue", "khaki", "forest green"
@@ -139,7 +142,7 @@ outcomes_name_sentence_start <- stringr::str_to_sentence(outcomes_name)
 biomarker_text_color_info <- 
   glue::glue(
     "Text colors indicate {outcomes_name} categories ",
-    "(as defined in @tbl-biomarker-list)."
+    "(@tbl-biomarker-list)."
   )
 
 
@@ -148,7 +151,7 @@ compact_fig_caption <- paste0(
   color_list |> paste(collapse = ", "),
   ") indicate the ordinal levels of symptom progression. ",
   "Color gradient intensity represents the Bayesian posterior probability ",
-  "of the sequence position.",
+  "of the sequence position. ",
   "The brighter the color, the more probable that the corresponding ",
   outcomes_name,
   " event occurs in that position in the sequence. ",
