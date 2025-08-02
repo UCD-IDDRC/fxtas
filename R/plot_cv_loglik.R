@@ -23,14 +23,13 @@ plot_cv_loglik <- function(cv_loglik, y_text_size = 8)
         y = .data$loglik,
         col = .data$fold) +
     xlab("# latent subtypes") +
-    geom_point(aes(shape = .data$fold)) +
+    geom_point() + # note: shape can't handle more than 6 values well
     geom_line(aes(group = .data$fold,
                   linetype = .data$fold)) +
     # geom_boxplot() +
     theme_bw() +
     labs(
       col = "Cross-validation fold",
-      shape = "Cross-validation fold",
       linetype = "Cross-validation fold"
     ) +
     theme(
