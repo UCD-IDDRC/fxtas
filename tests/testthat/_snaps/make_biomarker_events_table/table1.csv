@@ -1,50 +1,50 @@
 biomarker,biomarker_label,level,biomarker_level,level_labelled,levels,biomarker_group,group_color
-Tandem Walk,tandem walk,2,Tandem Walk: Abnormal (<10 steps),tandem walk: Abnormal (<10 steps),"Normal, Abnormal (<10 steps), Unable (Absent)",Ataxia,#BC8463
-Tandem Walk,tandem walk,3,Tandem Walk: Unable (Absent),tandem walk: Unable (Absent),"Normal, Abnormal (<10 steps), Unable (Absent)",Ataxia,#BC8463
-ataxia severity*,ataxia severity,2,ataxia severity*: 1,ataxia severity: 1,"0, 1, 2, 3, 4",Ataxia,#BC8463
-ataxia severity*,ataxia severity,3,ataxia severity*: 2,ataxia severity: 2,"0, 1, 2, 3, 4",Ataxia,#BC8463
-ataxia severity*,ataxia severity,4,ataxia severity*: 3,ataxia severity: 3,"0, 1, 2, 3, 4",Ataxia,#BC8463
-ataxia severity*,ataxia severity,5,ataxia severity*: 4,ataxia severity: 4,"0, 1, 2, 3, 4",Ataxia,#BC8463
-PAL Total errors (adjusted)*,PAL total errors,2,PAL Total errors (adjusted)*: > 13,PAL total errors: > 13,"≤ 13, > 13",CANTAB,#A782C3
-RTI Five-choice movement time*,RTI five-choice movement time,2,RTI Five-choice movement time*: > 368.57,RTI five-choice movement time: > 368.57,"≤ 368.57, > 368.57",CANTAB,#A782C3
-SWM Between errors*,SWM between errors,2,SWM Between errors*: > 26,SWM between errors: > 26,"≤ 26, > 26",CANTAB,#A782C3
-Corpus Callosum-Thickness,Corpus Callosum-Thickness,2,Corpus Callosum-Thickness: Thin,Corpus Callosum-Thickness: Thin,"Normal, Thin",MRI,#00A396
-Genu (CC)-WM Hyperintensity,Genu (Corpus Callosum) White Matter Hyperintensity,2,Genu (CC)-WM Hyperintensity,Genu (Corpus Callosum) White Matter Hyperintensity,"No, Yes",MRI,#00A396
-MCP-WM Hyperintensity,MCP White Matter Hyperintensity,2,MCP-WM Hyperintensity: Mild,MCP White Matter Hyperintensity: Mild,"None, Mild, Moderate, Severe",MRI,#00A396
-MCP-WM Hyperintensity,MCP White Matter Hyperintensity,3,MCP-WM Hyperintensity: Moderate,MCP White Matter Hyperintensity: Moderate,"None, Mild, Moderate, Severe",MRI,#00A396
-MCP-WM Hyperintensity,MCP White Matter Hyperintensity,4,MCP-WM Hyperintensity: Severe,MCP White Matter Hyperintensity: Severe,"None, Mild, Moderate, Severe",MRI,#00A396
-MRI: Cerebellar,MRI: Cerebellar,2,MRI: Cerebellar: Mild,MRI: Cerebellar: Mild,"None, Mild, Moderate, Severe",MRI,#00A396
-MRI: Cerebellar,MRI: Cerebellar,3,MRI: Cerebellar: Moderate,MRI: Cerebellar: Moderate,"None, Mild, Moderate, Severe",MRI,#00A396
-MRI: Cerebellar,MRI: Cerebellar,4,MRI: Cerebellar: Severe,MRI: Cerebellar: Severe,"None, Mild, Moderate, Severe",MRI,#00A396
-MRI: Cerebral,MRI: Cerebral,2,MRI: Cerebral: Mild,MRI: Cerebral: Mild,"None, Mild, Moderate, Severe",MRI,#00A396
-MRI: Cerebral,MRI: Cerebral,3,MRI: Cerebral: Moderate,MRI: Cerebral: Moderate,"None, Mild, Moderate, Severe",MRI,#00A396
-MRI: Cerebral,MRI: Cerebral,4,MRI: Cerebral: Severe,MRI: Cerebral: Severe,"None, Mild, Moderate, Severe",MRI,#00A396
-Splenium (CC)-WM Hyperintensity,Splenium (Corpus Callosum) White Matter Hyperintensity,2,Splenium (CC)-WM Hyperintensity: Mild,Splenium (Corpus Callosum) White Matter Hyperintensity: Mild,"None, Mild, Moderate, Severe",MRI,#00A396
-Splenium (CC)-WM Hyperintensity,Splenium (Corpus Callosum) White Matter Hyperintensity,3,Splenium (CC)-WM Hyperintensity: Moderate,Splenium (Corpus Callosum) White Matter Hyperintensity: Moderate,"None, Mild, Moderate, Severe",MRI,#00A396
-Splenium (CC)-WM Hyperintensity,Splenium (Corpus Callosum) White Matter Hyperintensity,4,Splenium (CC)-WM Hyperintensity: Severe,Splenium (Corpus Callosum) White Matter Hyperintensity: Severe,"None, Mild, Moderate, Severe",MRI,#00A396
-Parkinsons,Parkinson's disease,2,Parkinsons,Parkinson's disease,"No, Yes",Parkinson's disease,#45A271
-parkinsonian features,parkinsonian features,2,parkinsonian features,parkinsonian features,"No, Yes",Parkinsonian,#7B9B4F
-SCID: anxiety disorders,anxiety disorders,2,SCID: anxiety disorders: Sub-Threshold,anxiety disorders: Sub-Threshold,"Absent, Sub-Threshold, Threshold",SCID,#7591C6
-SCID: anxiety disorders,anxiety disorders,3,SCID: anxiety disorders: Threshold,anxiety disorders: Threshold,"Absent, Sub-Threshold, Threshold",SCID,#7591C6
-SCID: mood disorders,mood disorders,2,SCID: mood disorders: Sub-Threshold,mood disorders: Sub-Threshold,"Absent, Sub-Threshold, Threshold",SCID,#7591C6
-SCID: mood disorders,mood disorders,3,SCID: mood disorders: Threshold,mood disorders: Threshold,"Absent, Sub-Threshold, Threshold",SCID,#7591C6
-SCID: somatoform disorders,somatoform disorders,2,SCID: somatoform disorders: Sub-Threshold,somatoform disorders: Sub-Threshold,"Absent, Sub-Threshold, Threshold",SCID,#7591C6
-SCID: somatoform disorders,somatoform disorders,3,SCID: somatoform disorders: Threshold,somatoform disorders: Threshold,"Absent, Sub-Threshold, Threshold",SCID,#7591C6
-SCID: substance use disorders,substance use disorders,2,SCID: substance use disorders: Sub-Threshold,substance use disorders: Sub-Threshold,"Absent, Sub-Threshold, Threshold",SCID,#7591C6
-SCID: substance use disorders,substance use disorders,3,SCID: substance use disorders: Threshold,substance use disorders: Threshold,"Absent, Sub-Threshold, Threshold",SCID,#7591C6
-BDS-2 Total Score*,BDS-2 total score,2,BDS-2 Total Score*: < 20,BDS-2 total score: < 20,"≥ 20, < 20",Scores,#2A9EB5
-MMSE total score*,MMSE total score,2,MMSE total score*: Mild impairment (20-25),MMSE total score: Mild impairment (20-25),"Normal (26-30), Mild impairment (20-25), Moderate impairment (10-19)",Scores,#2A9EB5
-MMSE total score*,MMSE total score,3,MMSE total score*: Moderate impairment (10-19),MMSE total score: Moderate impairment (10-19),"Normal (26-30), Mild impairment (20-25), Moderate impairment (10-19)",Scores,#2A9EB5
-FXTAS Stage,FXTAS stage,2,FXTAS Stage: 1,FXTAS stage: 1,"0, 1, 2, 3, 4, 5",Stage,#A29048
-FXTAS Stage,FXTAS stage,3,FXTAS Stage: 2,FXTAS stage: 2,"0, 1, 2, 3, 4, 5",Stage,#A29048
-FXTAS Stage,FXTAS stage,4,FXTAS Stage: 3,FXTAS stage: 3,"0, 1, 2, 3, 4, 5",Stage,#A29048
-FXTAS Stage,FXTAS stage,5,FXTAS Stage: 4,FXTAS stage: 4,"0, 1, 2, 3, 4, 5",Stage,#A29048
-FXTAS Stage,FXTAS stage,6,FXTAS Stage: 5,FXTAS stage: 5,"0, 1, 2, 3, 4, 5",Stage,#A29048
-Hyperthyroid,Hyperthyroid,2,Hyperthyroid,Hyperthyroid,"No, Yes",Thyroid,#C279AD
-Hypothyroid,Hypothyroid,2,Hypothyroid,Hypothyroid,"No, Yes",Thyroid,#C279AD
-any autoimmune disorder,autoimmune diagnoses or symptoms,2,any autoimmune disorder,autoimmune diagnoses or symptoms,"No, Yes",Thyroid,#C279AD
-head tremor,head tremor,2,head tremor,head tremor,"No, Yes",Tremors,#C87A8A
-intention tremor,intention tremor,2,intention tremor,intention tremor,"No, Yes",Tremors,#C87A8A
-intermittent tremor,intermittent tremor,2,intermittent tremor,intermittent tremor,"No, Yes",Tremors,#C87A8A
-postural tremor,postural tremor,2,postural tremor,postural tremor,"No, Yes",Tremors,#C87A8A
-resting tremor,resting tremor,2,resting tremor,resting tremor,"No, Yes",Tremors,#C87A8A
+Tandem Walk,tandem walk,2,Tandem Walk: Abnormal (<10 steps),tandem walk: Abnormal (<10 steps),"Normal, Abnormal (<10 steps), Unable (Absent)",Ataxia,#CC6677
+Tandem Walk,tandem walk,3,Tandem Walk: Unable (Absent),tandem walk: Unable (Absent),"Normal, Abnormal (<10 steps), Unable (Absent)",Ataxia,#CC6677
+ataxia severity*,ataxia severity,2,ataxia severity*: 1,ataxia severity: 1,"0, 1, 2, 3, 4",Ataxia,#CC6677
+ataxia severity*,ataxia severity,3,ataxia severity*: 2,ataxia severity: 2,"0, 1, 2, 3, 4",Ataxia,#CC6677
+ataxia severity*,ataxia severity,4,ataxia severity*: 3,ataxia severity: 3,"0, 1, 2, 3, 4",Ataxia,#CC6677
+ataxia severity*,ataxia severity,5,ataxia severity*: 4,ataxia severity: 4,"0, 1, 2, 3, 4",Ataxia,#CC6677
+PAL Total errors (adjusted)*,PAL total errors,2,PAL Total errors (adjusted)*: > 13,PAL total errors: > 13,"≤ 13, > 13",CANTAB,#882255
+RTI Five-choice movement time*,RTI five-choice movement time,2,RTI Five-choice movement time*: > 368.57,RTI five-choice movement time: > 368.57,"≤ 368.57, > 368.57",CANTAB,#882255
+SWM Between errors*,SWM between errors,2,SWM Between errors*: > 26,SWM between errors: > 26,"≤ 26, > 26",CANTAB,#882255
+Corpus Callosum-Thickness,Corpus Callosum-Thickness,2,Corpus Callosum-Thickness: Thin,Corpus Callosum-Thickness: Thin,"Normal, Thin",MRI,#AA4499
+Genu (CC)-WM Hyperintensity,Genu (Corpus Callosum) White Matter Hyperintensity,2,Genu (CC)-WM Hyperintensity,Genu (Corpus Callosum) White Matter Hyperintensity,"No, Yes",MRI,#AA4499
+MCP-WM Hyperintensity,MCP White Matter Hyperintensity,2,MCP-WM Hyperintensity: Mild,MCP White Matter Hyperintensity: Mild,"None, Mild, Moderate, Severe",MRI,#AA4499
+MCP-WM Hyperintensity,MCP White Matter Hyperintensity,3,MCP-WM Hyperintensity: Moderate,MCP White Matter Hyperintensity: Moderate,"None, Mild, Moderate, Severe",MRI,#AA4499
+MCP-WM Hyperintensity,MCP White Matter Hyperintensity,4,MCP-WM Hyperintensity: Severe,MCP White Matter Hyperintensity: Severe,"None, Mild, Moderate, Severe",MRI,#AA4499
+MRI: Cerebellar,MRI: Cerebellar,2,MRI: Cerebellar: Mild,MRI: Cerebellar: Mild,"None, Mild, Moderate, Severe",MRI,#AA4499
+MRI: Cerebellar,MRI: Cerebellar,3,MRI: Cerebellar: Moderate,MRI: Cerebellar: Moderate,"None, Mild, Moderate, Severe",MRI,#AA4499
+MRI: Cerebellar,MRI: Cerebellar,4,MRI: Cerebellar: Severe,MRI: Cerebellar: Severe,"None, Mild, Moderate, Severe",MRI,#AA4499
+MRI: Cerebral,MRI: Cerebral,2,MRI: Cerebral: Mild,MRI: Cerebral: Mild,"None, Mild, Moderate, Severe",MRI,#AA4499
+MRI: Cerebral,MRI: Cerebral,3,MRI: Cerebral: Moderate,MRI: Cerebral: Moderate,"None, Mild, Moderate, Severe",MRI,#AA4499
+MRI: Cerebral,MRI: Cerebral,4,MRI: Cerebral: Severe,MRI: Cerebral: Severe,"None, Mild, Moderate, Severe",MRI,#AA4499
+Splenium (CC)-WM Hyperintensity,Splenium (Corpus Callosum) White Matter Hyperintensity,2,Splenium (CC)-WM Hyperintensity: Mild,Splenium (Corpus Callosum) White Matter Hyperintensity: Mild,"None, Mild, Moderate, Severe",MRI,#AA4499
+Splenium (CC)-WM Hyperintensity,Splenium (Corpus Callosum) White Matter Hyperintensity,3,Splenium (CC)-WM Hyperintensity: Moderate,Splenium (Corpus Callosum) White Matter Hyperintensity: Moderate,"None, Mild, Moderate, Severe",MRI,#AA4499
+Splenium (CC)-WM Hyperintensity,Splenium (Corpus Callosum) White Matter Hyperintensity,4,Splenium (CC)-WM Hyperintensity: Severe,Splenium (Corpus Callosum) White Matter Hyperintensity: Severe,"None, Mild, Moderate, Severe",MRI,#AA4499
+Parkinsons,Parkinson's disease,2,Parkinsons,Parkinson's disease,"No, Yes",Parkinson's disease,#332288
+parkinsonian features,parkinsonian features,2,parkinsonian features,parkinsonian features,"No, Yes",Parkinsonian,#117733
+SCID: anxiety disorders,anxiety disorders,2,SCID: anxiety disorders: Sub-Threshold,anxiety disorders: Sub-Threshold,"Absent, Sub-Threshold, Threshold",SCID,#999933
+SCID: anxiety disorders,anxiety disorders,3,SCID: anxiety disorders: Threshold,anxiety disorders: Threshold,"Absent, Sub-Threshold, Threshold",SCID,#999933
+SCID: mood disorders,mood disorders,2,SCID: mood disorders: Sub-Threshold,mood disorders: Sub-Threshold,"Absent, Sub-Threshold, Threshold",SCID,#999933
+SCID: mood disorders,mood disorders,3,SCID: mood disorders: Threshold,mood disorders: Threshold,"Absent, Sub-Threshold, Threshold",SCID,#999933
+SCID: somatoform disorders,somatoform disorders,2,SCID: somatoform disorders: Sub-Threshold,somatoform disorders: Sub-Threshold,"Absent, Sub-Threshold, Threshold",SCID,#999933
+SCID: somatoform disorders,somatoform disorders,3,SCID: somatoform disorders: Threshold,somatoform disorders: Threshold,"Absent, Sub-Threshold, Threshold",SCID,#999933
+SCID: substance use disorders,substance use disorders,2,SCID: substance use disorders: Sub-Threshold,substance use disorders: Sub-Threshold,"Absent, Sub-Threshold, Threshold",SCID,#999933
+SCID: substance use disorders,substance use disorders,3,SCID: substance use disorders: Threshold,substance use disorders: Threshold,"Absent, Sub-Threshold, Threshold",SCID,#999933
+BDS-2 Total Score*,BDS-2 total score,2,BDS-2 Total Score*: < 20,BDS-2 total score: < 20,"≥ 20, < 20",Scores,#44AA99
+MMSE total score*,MMSE total score,2,MMSE total score*: Mild impairment (20-25),MMSE total score: Mild impairment (20-25),"Normal (26-30), Mild impairment (20-25), Moderate impairment (10-19)",Scores,#44AA99
+MMSE total score*,MMSE total score,3,MMSE total score*: Moderate impairment (10-19),MMSE total score: Moderate impairment (10-19),"Normal (26-30), Mild impairment (20-25), Moderate impairment (10-19)",Scores,#44AA99
+FXTAS Stage,FXTAS stage,2,FXTAS Stage: 1,FXTAS stage: 1,"0, 1, 2, 3, 4, 5",Stage,black
+FXTAS Stage,FXTAS stage,3,FXTAS Stage: 2,FXTAS stage: 2,"0, 1, 2, 3, 4, 5",Stage,black
+FXTAS Stage,FXTAS stage,4,FXTAS Stage: 3,FXTAS stage: 3,"0, 1, 2, 3, 4, 5",Stage,black
+FXTAS Stage,FXTAS stage,5,FXTAS Stage: 4,FXTAS stage: 4,"0, 1, 2, 3, 4, 5",Stage,black
+FXTAS Stage,FXTAS stage,6,FXTAS Stage: 5,FXTAS stage: 5,"0, 1, 2, 3, 4, 5",Stage,black
+Hyperthyroid,Hyperthyroid,2,Hyperthyroid,Hyperthyroid,"No, Yes",Thyroid,#888888
+Hypothyroid,Hypothyroid,2,Hypothyroid,Hypothyroid,"No, Yes",Thyroid,#888888
+any autoimmune disorder,autoimmune diagnoses or symptoms,2,any autoimmune disorder,autoimmune diagnoses or symptoms,"No, Yes",Thyroid,#888888
+head tremor,head tremor,2,head tremor,head tremor,"No, Yes",Tremors,#88CCEE
+intention tremor,intention tremor,2,intention tremor,intention tremor,"No, Yes",Tremors,#88CCEE
+intermittent tremor,intermittent tremor,2,intermittent tremor,intermittent tremor,"No, Yes",Tremors,#88CCEE
+postural tremor,postural tremor,2,postural tremor,postural tremor,"No, Yes",Tremors,#88CCEE
+resting tremor,resting tremor,2,resting tremor,resting tremor,"No, Yes",Tremors,#88CCEE
