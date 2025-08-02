@@ -1,28 +1,10 @@
+:::{#fig-fig1}
 
-
-```{R}
-lineplot_direction_colors <- c(
-      "Dark gray" = "grey25",
-      # "#F8766D",
-      "Red" = "#DC3220",
-      "Light gray" = "grey70",
-      # "#00BFC4"
-      "Blue" = "#005AB5"
-    )
-outcomes_name = "banana"
-compact_fig_cap2 <- glue::glue(
-  '[{{names(lineplot_direction_colors)[2]}}]{color="{{lineplot_direction_colors[2]}}"}',
-  " lines indicate {{outcomes_name}}s that moved to later positions ",
-  "between the left-hand subgroup and the right-hand subgroup. ",
-  '[{{names(lineplot_direction_colors)[4]}}]{color="{{lineplot_direction_colors[4]}}"}',
-  " lines indicate {{outcomes_name}}s that moved to earlier positions. ",
-  '[{{names(lineplot_direction_colors)[3]}}]{color="{{lineplot_direction_colors[3]}}"}',
-  " lines indicate {{outcomes_name}}s that did not change positions.",
-  " Line opacity levels indicate the number of positions changed ",
-  "(higher opacity represents more positions changed).",
-  .open = "{{",
-  .close = "}}"
-)
+```{r}
+plot(1:10)
 ```
 
-`r compact_fig_cap2`
+{{< include _caption-text-colors.qmd >}}
+Permutation test statistic (log-likelihood):  
+
+:::

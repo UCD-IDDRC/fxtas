@@ -136,6 +136,13 @@ outcomes_name <- "symptom"
 events_name <- "symptomatic events"
 outcomes_name_sentence_start <- stringr::str_to_sentence(outcomes_name)
 
+biomarker_text_color_info <- 
+  glue::glue(
+    "Text colors indicate {outcomes_name} categories ",
+    "(as defined in @tbl-biomarker-list)."
+  )
+
+
 compact_fig_caption <- paste0(
   "The different colors (",
   color_list |> paste(collapse = ", "),
@@ -144,7 +151,8 @@ compact_fig_caption <- paste0(
   "of the sequence position.",
   "The brighter the color, the more probable that the corresponding ",
   outcomes_name,
-  " event occurs in that position in the sequence."
+  " event occurs in that position in the sequence. ",
+  biomarker_text_color_info
 )
 
 # note: if we moved all the captions out of chunk options, 
@@ -153,15 +161,16 @@ compact_fig_caption <- paste0(
 compact_fig_cap2 <- glue::glue(
   '[{{names(lineplot_direction_colors)[2]}}]{color="{{lineplot_direction_colors[2]}}"}',
   " lines indicate {{outcomes_name}}s that moved to later positions ",
-  "between the left-hand subgroup and the right-hand subgroup. ",
+  "between the left-hand subgroup and the right-hand subgroup.\n",
   '[{{names(lineplot_direction_colors)[4]}}]{color="{{lineplot_direction_colors[4]}}"}',
-  " lines indicate {{outcomes_name}}s that moved to earlier positions. ",
+  " lines indicate {{outcomes_name}}s that moved to earlier positions.\n",
   '[{{names(lineplot_direction_colors)[3]}}]{color="{{lineplot_direction_colors[3]}}"}',
-  " lines indicate {{outcomes_name}}s that did not change positions.",
+  " lines indicate {{outcomes_name}}s that did not change positions.\n",
   '[{{names(lineplot_direction_colors)[1]}}]{color="{{lineplot_direction_colors[1]}}"}',
-  " lines indicate FXTAS Stages.",
-  " Line opacity levels indicate the number of positions changed ",
-  "(higher opacity represents more positions changed).",
+  " lines indicate FXTAS stages.\n",
+  "Line opacity levels indicate the number of positions changed ",
+  "(higher opacity represents more positions changed).\n",
+  biomarker_text_color_info,
   .open = "{{",
   .close = "}}"
 )
@@ -944,8 +953,7 @@ flex_biomarkers_table(biomarkers_table)
 ```
 
 **Symptoms included in analysis.**
-The first level listed 
-in each row of the
+The first level listed in each row of the
 "Defined Ordered Levels" column
 is the "reference level" for the corresponding symptom,
 and subsequent levels are considered
@@ -1045,7 +1053,6 @@ list(
 
 **Event sequences of FXTAS symptoms stratified by sex.**
 `r compact_fig_caption`.
-{{< include _caption-text-colors.qmd >}}
 Permutation test statistic (log-likelihood): 
 `r observed_test_stat_sex`.
 p-value = `r pval_sex_gp34_v1_formatted`.
