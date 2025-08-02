@@ -28,7 +28,7 @@ pvd_subtype_lineplot <- function(
     max_alpha = 1,
     stage_alpha = 1,
     facet_names = names(figs),
-    facet_label_prefixes = names(figs),
+    facet_label_prefixes = "",
     text_size = 3.4,
     y_lab = "Sequential order",
     y_title_size = 9,

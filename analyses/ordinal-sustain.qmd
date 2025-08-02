@@ -133,9 +133,9 @@ compact_fig_caption <- paste0(
 )
 
 compact_fig_cap2 <- glue::glue(
-  "Red lines indicate {outcomes_name}s that moved to later positions ",
+  "[Red]{color='red'} lines indicate {outcomes_name}s that moved to later positions ",
   "between the left-hand subgroup and the right-hand subgroup. ",
-  "Blue lines indicate ",
+  "[Blue]{color='blue'} lines indicate ",
   "{outcomes_name}s that moved to earlier positions. ",
   "Line opacity levels indicate the number of positions changed ",
   "(higher opacity represents more positions changed)."
@@ -750,9 +750,10 @@ results_cv_max <- extract_results_from_pickle(
   output_folder = output_folder,
   subtype_order = subtype_order
 )
-figs <- results_cv_max |> plot_positional_var(
-  biomarker_groups = biomarker_groups
-)
+figs <- results_cv_max |> 
+  plot_positional_var(
+    biomarker_groups = biomarker_groups
+  )
 ```
 
 We conducted latent subtype classification analysis to cluster participants 

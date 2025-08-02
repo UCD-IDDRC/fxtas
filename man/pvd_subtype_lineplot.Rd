@@ -10,7 +10,8 @@ pvd_subtype_lineplot(
   min_alpha = 0.25,
   max_alpha = 1,
   stage_alpha = 1,
-  facet_labels = names(figs),
+  facet_names = names(figs),
+  facet_label_prefixes = "",
   text_size = 3.4,
   y_lab = "Sequential order",
   y_title_size = 9,
@@ -34,7 +35,7 @@ pvd_subtype_lineplot(
 
 \item{stage_alpha}{todo}
 
-\item{facet_labels}{todo}
+\item{facet_names}{\link{character}: facet names}
 
 \item{text_size}{todo}
 
@@ -54,6 +55,8 @@ pvd_subtype_lineplot(
 
 \item{...}{additional arguments passed to \link[ggbump:geom_bump]{ggbump::geom_bump}
 Default = c(1, 1.15, 1.75, 2.35)}
+
+\item{facet_labels}{todo}
 
 \item{use_group_color}{\link{logical}: whether to use existing group colors
 or custom line colors from \code{events_to_highlight} argument}

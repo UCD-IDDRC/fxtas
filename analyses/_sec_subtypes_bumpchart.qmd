@@ -1,10 +1,10 @@
 ::: {#fig-pvd_chosen_subtypes_bumpplot}
 
 ```{r}
-#| fig-height: 5.2
+#| fig-height: 6.0
 #| fig-width: 8.27
 #| label: bumpplot-pvd-chosen-subtypes
-
+# max size: 170 mm x 210 mm = 6.69 x 8.27 inches 
 stage_line_color <- "black"
 # stage_line_color <- "#FFF"
 stage_highlight_color <- "yellow"
@@ -34,7 +34,7 @@ color_info <- tibble::tribble(
   "Splenium WM Hyperintensity: Mild", group_1_color, "#FFF",
   "Genu WM Hyperintensity", group_1_color, "#FFF",
   "Parkinsonian Features", group_2_color, "#FFF",
-  "Parkinsons", group_2_color, "#FFF",
+  "Parkinson's", group_2_color, "#FFF",
   "FXTAS Stage: 1", stage_line_color, stage_highlight_color,
   "FXTAS Stage: 2", stage_line_color, stage_highlight_color,
   "FXTAS Stage: 3", stage_line_color, stage_highlight_color,
@@ -67,7 +67,7 @@ ggsave(
   "analyses/bump.png", 
   plot = bump, 
   device = "png", 
-  width = 8.27, height = 5.2, units = "in", 
+  width = 8.27, height = 6.0, units = "in", 
   dpi = 600
 )
 
