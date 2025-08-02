@@ -11,7 +11,7 @@ pvd_subtype_lineplot(
   max_alpha = 1,
   stage_alpha = 1,
   facet_names = names(figs),
-  facet_label_prefixes = "",
+  facet_label_prefixes = NULL,
   text_size = 3.4,
   y_lab = "Sequential order",
   y_title_size = 9,
