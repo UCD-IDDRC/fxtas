@@ -1,7 +1,7 @@
 **Characteristic**,"**Overall**  
-N = 18","**Type 1**  
-N = 17","**Type 2**  
-N = 1",**p-value**
+N = 18","**Subtype 1**  
+N = 1","**Subtype 3**  
+N = 17",**p-value**
 "__Sex, n (%)__",NA,NA,NA,1.000
-Female,9 (50%),8 (47%),1 (100%),NA
-Male,9 (50%),9 (53%),0 (0%),NA
+Female,9 (50%),1 (100%),8 (47%),NA
+Male,9 (50%),0 (0%),9 (53%),NA

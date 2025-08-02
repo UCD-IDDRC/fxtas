@@ -11,7 +11,7 @@ get_title_i_2 <- function(
     cval = FALSE,
     i) {
 
-  subtype = paste("Type", i)
+  subtype = paste("Subtype", i)
   n_s = attr(subtype_and_stage_table$ml_subtype, "n_s")
 
   if (n_s == 1) {
@@ -23,7 +23,7 @@ get_title_i_2 <- function(
   } else {
     subtype_and_stage_table =
       subtype_and_stage_table |>
-      dplyr::filter(.data$ml_subtype != "Type 0")
+      dplyr::filter(.data$ml_subtype != "Subtype 0")
 
     n_samples = nrow(subtype_and_stage_table)
     n_i = sum(

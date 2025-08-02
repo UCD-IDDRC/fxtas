@@ -1,3 +1,4 @@
+# should be called `format_subtype_and_stage_table`
 extract_subtype_and_stage_table <- function( # nolint: object_length_linter
     results,
     n_s = get_n_subtypes(results),
@@ -26,9 +27,9 @@ extract_subtype_and_stage_table <- function( # nolint: object_length_linter
       ml_subtype_old = .data$ml_subtype,
       ml_subtype = subtype_map[as.character(.data$ml_subtype)],
       ml_subtype =
-        paste("Type", .data$ml_subtype) |>
+        paste("Subtype", .data$ml_subtype) |>
         factor(
-          levels = glue::glue("Type {0:n_s}")
+          levels = glue::glue("Subtype {0:n_s}")
         ) |>
         magrittr::set_attr("n_s", n_s)
     ) |>

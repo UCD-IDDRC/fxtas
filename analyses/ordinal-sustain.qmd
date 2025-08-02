@@ -35,12 +35,17 @@ pander::panderOptions("table.split.table", Inf)
 
 ```{r}
 #| include: false
-
-fig_size <- c(20, 10) # passed to pySuStaIn
+#| label: set-colors
 
 # scale_colors1 = c("red", "blue", "magenta", "orange", "purple4")
 scale_colors0 <- rcartocolor::carto_pal(name = "Safe")[c(9, 5, 7, 8, 4)]
-scale_colors1 <- c("#882255", "#332288", "#44AA99", "#999933", "#117733") |> 
+library(rex)
+color_names1 <- 
+  scale_colors0 |> 
+  loon::l_colorName() |>  
+  stringr::str_remove_all(pattern = rex::rex(digits))
+
+scale_colors1 <- scale_colors0 |> 
   setNames(
     c("violet red", "royal blue", "cadet blue", "khaki", "forest green"
     ) 
@@ -52,9 +57,18 @@ color_list <- glue::glue(
   .close = "}}"
 )
 
-library(rex)
-color_names1 <- 
-  loon::l_colorName(c("#882255", "#332288", "#44AA99", "#999933", "#117733")) |>  
+lineplot_direction_colors <- c(
+      "Dark gray" = "grey25",
+      # "#F8766D",
+      "Red" = "#DC3220",
+      "Light gray" = "grey70",
+      # "#00BFC4"
+      "Blue" = "#005AB5"
+    )
+
+lineplot_direction_color_names1 <- 
+  lineplot_direction_colors |> 
+  loon::l_colorName() |>  
   stringr::str_remove_all(pattern = rex::rex(digits))
 
 options(
@@ -94,11 +108,12 @@ fit_models <- TRUE
 run_cv <- TRUE
 
 verbose <- TRUE
-rerun <- FALSE
+rerun <- TRUE
 # rerun <- FALSE
 use_rds <- !rerun
 
 plot_python <- TRUE
+fig_size <- c(20, 10) # passed to pySuStaIn
 
 pvd_height <- 5.5
 pvd_width <- 6
@@ -133,12 +148,17 @@ compact_fig_caption <- paste0(
 )
 
 compact_fig_cap2 <- glue::glue(
-  "[Red]{color='red'} lines indicate {outcomes_name}s that moved to later positions ",
+  '[{{names(lineplot_direction_colors)[2]}}]{color="{{lineplot_direction_colors[2]}}"}',
+  " lines indicate {{outcomes_name}}s that moved to later positions ",
   "between the left-hand subgroup and the right-hand subgroup. ",
-  "[Blue]{color='blue'} lines indicate ",
-  "{outcomes_name}s that moved to earlier positions. ",
-  "Line opacity levels indicate the number of positions changed ",
-  "(higher opacity represents more positions changed)."
+  '[{{names(lineplot_direction_colors)[4]}}]{color="{{lineplot_direction_colors[4]}}"}',
+  " lines indicate {{outcomes_name}}s that moved to earlier positions. ",
+  '[{{names(lineplot_direction_colors)[3]}}]{color="{{lineplot_direction_colors[3]}}"}',
+  " lines indicate {{outcomes_name}}s that did not change positions.",
+  " Line opacity levels indicate the number of positions changed ",
+  "(higher opacity represents more positions changed).",
+  .open = "{{",
+  .close = "}}"
 )
 
 column_var <- c("Gender", "FX3*")
@@ -783,7 +803,7 @@ sust_data <- results_cv_max$subtype_and_stage_table |>
   bind_cols(patient_data)
 
 n_type_0 <- sust_data |>
-  dplyr::filter(ml_subtype == "Type 0") |>
+  dplyr::filter(ml_subtype == "Subtype 0") |>
   nrow()
 
 cgg_by_subtype <- sust_data |> 
@@ -803,7 +823,7 @@ cgg_overall <- sust_data |>
 
 test_sex <- 
   sust_data |> 
-  filter(.data$ml_subtype != "Type 0") |> 
+  filter(.data$ml_subtype != "Subtype 0") |> 
   droplevels() |> 
   select("ml_subtype", "Gender") |> 
   table() |> 
@@ -811,7 +831,7 @@ test_sex <-
 
 test_cgg <- 
   sust_data |> 
-  dplyr::filter(.data$ml_subtype != "Type 0") |> 
+  dplyr::filter(.data$ml_subtype != "Subtype 0") |> 
   stats::oneway.test(CGG ~ ml_subtype, data = _)
 
 
@@ -839,17 +859,17 @@ We labeled the subtypes in descending order of mean CGG repeats.
 Individuals with higher CGG repeats
 were over-represented in Subtype 1
 (CGG repeats mean = 
-`r cgg_by_subtype["Type 1", "mean"]` ± `r cgg_by_subtype["Type 1", "sd"]`)
+`r cgg_by_subtype["Subtype 1", "mean"]` ± `r cgg_by_subtype["Subtype 1", "sd"]`)
 compared to the overall study population 
 (CGG repeats mean = `r cgg_overall$mean`  ± `r cgg_overall$sd`) 
 and other subtypes.
 Subtype 2 had CGG repeats close to the overall study population 
-(`r cgg_by_subtype["Type 2", "mean"]` ± `r cgg_by_subtype["Type 2", "sd"]`).
+(`r cgg_by_subtype["Subtype 2", "mean"]` ± `r cgg_by_subtype["Subtype 2", "sd"]`).
 Subtype 3 had fewer CGG repeats than the overall study population
-(`r cgg_by_subtype["Type 3", "mean"]` ± `r cgg_by_subtype["Type 3", "sd"]`),
+(`r cgg_by_subtype["Subtype 3", "mean"]` ± `r cgg_by_subtype["Subtype 3", "sd"]`),
 and 
 Subtype 4 had the fewest CGG repeats
-(`r cgg_by_subtype["Type 4", "mean"]` ± `r cgg_by_subtype["Type 4", "sd"]`).
+(`r cgg_by_subtype["Subtype 4", "mean"]` ± `r cgg_by_subtype["Subtype 4", "sd"]`).
 
 {{< include _sec-subtype-diff-summary.qmd >}}
 

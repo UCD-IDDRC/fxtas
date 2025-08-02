@@ -27,11 +27,13 @@ test_that("results are consistent with fxtas data", {
       events_to_highlight = color_info) |>
     vdiffr::expect_doppelganger(title = "fxtas-data-4")
 
-  figs[1:3] |>
+  fig3 <- figs[1:3] |>
     pvd_subtype_lineplot(
       facet_label_prefixes = NULL,
       align_stage = FALSE,
-      events_to_highlight = color_info) |>
+      events_to_highlight = color_info)
+
+  fig3 |>
     vdiffr::expect_doppelganger(title = "fxtas-data-3")
 
   figs[1:2] |>
@@ -50,6 +52,7 @@ test_that("results are consistent with simulated data", {
 
   figs = extract_figs_from_pickle(
     output_folder = output_path,
+    use_rds = FALSE,
     n = 4)
 
   events_to_highlight <- tibble::tribble(

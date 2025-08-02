@@ -29,12 +29,12 @@ stage_barplot.default <- function(
     ...) {
 
   multiple_subtypes <-
-    "Type 2" %in% levels(object$ml_subtype)
+    "Subtype 2" %in% levels(object$ml_subtype)
 
   if (multiple_subtypes && !include_type_0) {
     object <-
       object |>
-      dplyr::filter(.data$ml_subtype != "Type 0") |>
+      dplyr::filter(.data$ml_subtype != "Subtype 0") |>
       dplyr::mutate(
         ml_subtype = .data$ml_subtype |> droplevels()
       )

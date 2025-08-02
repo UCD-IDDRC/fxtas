@@ -33,7 +33,7 @@ table_subtype_by_demographics <- function(
 
   to_return <-
     patient_data2 |>
-    dplyr::filter(.data$ml_subtype != "Type 0") |>
+    dplyr::filter(.data$ml_subtype != "Subtype 0") |>
     drop_levels() |>
     dplyr::select(
       all_of(

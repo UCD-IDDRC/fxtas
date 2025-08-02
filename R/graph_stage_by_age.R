@@ -8,7 +8,7 @@
 graph_stage_by_age <- function(data,
                                alpha = .7) {
   graph <- data |>
-    dplyr::filter(.data$ml_subtype != "Type 0") |>
+    dplyr::filter(.data$ml_subtype != "Subtype 0") |>
     mutate(
       .by = "ml_subtype",
       ml_subtype = paste0(.data$ml_subtype, ": N = ", n())
@@ -39,7 +39,7 @@ graph_stage_by_age <- function(data,
     theme(legend.position = "bottom")
 
   n_subtypes <- data |>
-    dplyr::filter(.data$ml_subtype != "Type 0") |>
+    dplyr::filter(.data$ml_subtype != "Subtype 0") |>
     dplyr::pull("ml_subtype") |>
     dplyr::n_distinct()
 

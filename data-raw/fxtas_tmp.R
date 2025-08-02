@@ -30,19 +30,19 @@ pairwise_prop <- function(tbl_obj, var, var_level, subtype, p_0){
 
 subtype1 <- pairwise_prop(
   tbl_obj = test_obj, var = "FX3*", var_level = "CGG 100-199",
-  subtype = "Type 1", p_0 = p_0
+  subtype = "Subtype 1", p_0 = p_0
 )
 subtype2 <- pairwise_prop(
   tbl_obj = test_obj, var = "FX3*", var_level = "CGG 100-199",
-  subtype = "Type 2", p_0 = p_0
+  subtype = "Subtype 2", p_0 = p_0
 )
 subtype3 <- pairwise_prop(
   tbl_obj = test_obj, var = "FX3*", var_level = "CGG 100-199",
-  subtype = "Type 3", p_0 = p_0
+  subtype = "Subtype 3", p_0 = p_0
 )
 subtype4 <- pairwise_prop(
   tbl_obj = test_obj, var = "FX3*", var_level = "CGG 100-199",
-  subtype = "Type 4", p_0 = p_0
+  subtype = "Subtype 4", p_0 = p_0
 )
 
 
@@ -69,17 +69,17 @@ one_samp_ttest <- function(x, s, n, mu_0){
 # sub-type 1
 one_samp_ttest(
   x = test_obj$meta_data$df_stats$CGG |>
-    dplyr::filter(by == "Type 1") |>
+    dplyr::filter(by == "Subtype 1") |>
     dplyr::pull(mean) |>
     as.character() |>
     as.numeric(),
   s = test_obj$meta_data$df_stats$CGG |>
-    dplyr::filter(by == "Type 1") |>
+    dplyr::filter(by == "Subtype 1") |>
     dplyr::pull(sd) |>
     as.character() |>
     as.numeric(),
   n = test_obj$meta_data$df_stats$CGG |>
-    dplyr::filter(by == "Type 1") |>
+    dplyr::filter(by == "Subtype 1") |>
     dplyr::pull(N_nonmiss) |>
     as.character() |>
     as.numeric(),
@@ -92,17 +92,17 @@ one_samp_ttest(
 # sub-type 2
 one_samp_ttest(
   x = test_obj$meta_data$df_stats$CGG |>
-    dplyr::filter(by == "Type 2") |>
+    dplyr::filter(by == "Subtype 2") |>
     dplyr::pull(mean) |>
     as.character() |>
     as.numeric(),
   s = test_obj$meta_data$df_stats$CGG |>
-    dplyr::filter(by == "Type 2") |>
+    dplyr::filter(by == "Subtype 2") |>
     dplyr::pull(sd) |>
     as.character() |>
     as.numeric(),
   n = test_obj$meta_data$df_stats$CGG |>
-    dplyr::filter(by == "Type 2") |>
+    dplyr::filter(by == "Subtype 2") |>
     dplyr::pull(N_nonmiss) |>
     as.character() |>
     as.numeric(),
@@ -115,17 +115,17 @@ one_samp_ttest(
 # sub-type 3
 one_samp_ttest(
   x = test_obj$meta_data$df_stats$CGG |>
-    dplyr::filter(by == "Type 3") |>
+    dplyr::filter(by == "Subtype 3") |>
     dplyr::pull(mean) |>
     as.character() |>
     as.numeric(),
   s = test_obj$meta_data$df_stats$CGG |>
-    dplyr::filter(by == "Type 3") |>
+    dplyr::filter(by == "Subtype 3") |>
     dplyr::pull(sd) |>
     as.character() |>
     as.numeric(),
   n = test_obj$meta_data$df_stats$CGG |>
-    dplyr::filter(by == "Type 3") |>
+    dplyr::filter(by == "Subtype 3") |>
     dplyr::pull(N_nonmiss) |>
     as.character() |>
     as.numeric(),
@@ -138,17 +138,17 @@ one_samp_ttest(
 # sub-type 4
 one_samp_ttest(
   x = test_obj$meta_data$df_stats$CGG |>
-    dplyr::filter(by == "Type 4") |>
+    dplyr::filter(by == "Subtype 4") |>
     dplyr::pull(mean) |>
     as.character() |>
     as.numeric(),
   s = test_obj$meta_data$df_stats$CGG |>
-    dplyr::filter(by == "Type 4") |>
+    dplyr::filter(by == "Subtype 4") |>
     dplyr::pull(sd) |>
     as.character() |>
     as.numeric(),
   n = test_obj$meta_data$df_stats$CGG |>
-    dplyr::filter(by == "Type 4") |>
+    dplyr::filter(by == "Subtype 4") |>
     dplyr::pull(N_nonmiss) |>
     as.character() |>
     as.numeric(),
@@ -274,7 +274,7 @@ View(test_flex$body$dataset)
 
 
 
-subtype_cgg_aov <- aov(CGG ~ ml_subtype, data = patient_data2 |> dplyr::filter(ml_subtype != "Type 0"))
+subtype_cgg_aov <- aov(CGG ~ ml_subtype, data = patient_data2 |> dplyr::filter(ml_subtype != "Subtype 0"))
 summary(subtype_cgg_aov)
 
 ## kyoungmi wants this updated to pairwise without correction ##
@@ -296,7 +296,7 @@ subtype_table <- function(
     bind_cols(subtype_and_stage_table)
 
   tbl <- patient_data2 |>
-    dplyr::filter(ml_subtype != "Type 0") |>
+    dplyr::filter(ml_subtype != "Subtype 0") |>
     droplevels() |>
     dplyr::select(ml_subtype, CGG, `FX3*`, Gender, `Primary Race/Ethnicity`) |>
     gtsummary::tbl_summary(

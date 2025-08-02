@@ -1,4 +1,5 @@
-
+devtools::load_all()
+dataset_name <- "sample_data"
 reticulate::use_condaenv("fxtas39", required = TRUE, conda = "auto")
 output_folder <-
   "output/output.fixed_CV-scid-no-subthres/"
