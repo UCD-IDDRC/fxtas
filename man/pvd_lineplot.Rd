@@ -8,7 +8,7 @@ pvd_lineplot(
   figs,
   events_to_highlight = NULL,
   highlight_color = NA,
-  min_alpha = 0.25,
+  min_alpha = 0.4,
   max_alpha = 1,
   stage_alpha = 1,
   facet_labels = names(figs),

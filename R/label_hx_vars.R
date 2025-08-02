@@ -2,7 +2,7 @@ label_hx_vars <- function(data) {
   data |>
     mutate(
       across(
-        .cols = matches(" ?hx ?"),
+        .cols = dplyr::matches(" ?hx ?"),
         .fns =
           ~ set_label_attribute(
             .x,

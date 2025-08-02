@@ -108,8 +108,8 @@ fit_models <- TRUE
 run_cv <- TRUE
 
 verbose <- TRUE
-rerun <- TRUE
-# rerun <- FALSE
+# rerun <- TRUE
+rerun <- FALSE
 use_rds <- !rerun
 
 plot_python <- TRUE
@@ -314,7 +314,7 @@ latent subgroups
 
 {{< include _sec_study_cohorts.qmd >}}
 
-### `r outcomes_name_sentence_start`s of neurodegenerative events
+### `r outcomes_name_sentence_start`s of neurodegenerative events {#sec-outcome-vars}
 
 {{< include _sec_biomarkers.qmd >}}
 
@@ -1043,16 +1043,12 @@ list(
 
 {{< pagebreak >}}
 
+:::{#fig-first-only-diffs}
+
 ```{r}
-#| label: fig-first-only-diffs
+#| label: 
 #| fig-height: !expr pvd_line_height
 #| fig-width: !expr pvd_line_width
-#| fig-cap: !expr
-#|    glue::glue(
-#|    "**Positional differences in estimated event sequence between
-#|    males and females.**
-#|    {compact_fig_cap2}")
-#| fig-cap-location: top
 
 list(
   "Males," = fig_males_first,
@@ -1060,6 +1056,7 @@ list(
 ) |>
   pvd_lineplot(
     expand = 0,
+    min_alpha = 0.5,
     text_size = lineplot_text_size,
     events_to_highlight = c(
       "SCID: Mood Disorders: Threshold",
@@ -1077,6 +1074,11 @@ list(
     highlight_color = "yellow"
   )
 ```
+
+**Positional differences in estimated event sequence between males and females.**
+`r compact_fig_cap2`
+
+:::
 
 ::: landscape
 

@@ -47,7 +47,16 @@ Hypochondriasis (SOM39).
 
 - "SCID: psychotic symptoms" consists of only Primary Psychotic Symptoms (PS01), Lifetime.
 
-@supptbl-mood-disorders shows the individual SCID items included in the
+We then combined the "Absent" and "Sub-Threshold" levels
+in order to reduce the number of stages in the model,
+due to our limited sample size 
+(as described in the main text, @sec-outcome-vars),
+and since very relatively participants had composite SCID variables
+at the sub-threshold levels (@supptbl-scid).
+
+@supptbl-mood-disorders shows contingency tables 
+for the individual SCID items included in the
 "mood disorders" composite variable.
 Most participants with mood disorders had Major Depressive Disorder (MD04);
 a few had bipolar disorders (MD01, MD02, MD03).
+
