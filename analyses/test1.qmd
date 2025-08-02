@@ -1,10 +1,13 @@
-:::{#fig-fig1}
-
 ```{r}
-plot(1:10)
+#| results: "asis"
+tab1 <- tibble::tibble(
+  
+  c1 = c("<i style='color:#88CCEE'>Biomarker 2</i>", 
+  '[test]{color="red"}'),
+  # c2C = c(colorize("apple", "red"), colorize("banana", "blue"))
+)
+
+temp <- tab1 |> flextable::flextable()
 ```
 
-{{< include _caption-text-colors.qmd >}}
-Permutation test statistic (log-likelihood):  
-
-:::
+[test]{color="red"}

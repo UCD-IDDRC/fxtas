@@ -949,7 +949,12 @@ v1_usable |> make_demographics_table(
 :::{#tbl-biomarker-list}
 
 ```{r}
-flex_biomarkers_table(biomarkers_table)
+biomarkers_table |> 
+  left_join(
+    biomarker_groups |> distinct(biomarker_group, group_color),
+    by = c("category" = "biomarker_group")
+  ) |> 
+flex_biomarkers_table()
 ```
 
 **Symptoms included in analysis.**

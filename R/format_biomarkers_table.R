@@ -19,9 +19,11 @@ flex_biomarkers_table <- function(x) {
         "Defined Ordered Levels",
         "Female",
         "Male",
-        "p-value"
+        "p-value",
+        "group_color"
       )
     ) |>
+    flextable::color(j = 1:2, color = x$group_color) |>
     flextable::width(j = ~ biomarker, width = 1.3) |>
     flextable::width(j = ~ category, width = 0.8) |>
     flextable::width(j = ~ levels, width = 1.4) |>
@@ -34,6 +36,7 @@ flex_biomarkers_table <- function(x) {
       align = "center",
       part = "all"
     ) |>
+    flextable::delete_columns(j = 7) |>
     flextable::footnote(
       i = 1,
       j = 4:5,

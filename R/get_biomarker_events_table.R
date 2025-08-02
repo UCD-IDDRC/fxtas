@@ -66,7 +66,8 @@ get_biomarker_events_table <- function(biomarker_levels, do_factor = TRUE) {
   if (do_factor) {
     to_return <- to_return |>
       dplyr::mutate(
-        biomarker = .data$biomarker |> factor(levels = names(biomarker_levels))
+        biomarker = .data$biomarker |>
+          factor(levels = names(biomarker_levels))
       ) |>
       arrange(across(all_of(c("level", "biomarker")))) |>
       dplyr::mutate(
