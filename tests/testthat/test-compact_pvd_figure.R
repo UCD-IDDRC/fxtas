@@ -21,7 +21,7 @@ test_that("`compact_pvd_figure()` produces consistent results", {
     figs = figs,
     facet_label_prefix = NULL)
   # generate figure
-  compact_pvd_figure(
+  plot1 <- compact_pvd_figure(
     plot_dataset,
     tile_height = tile_height,
     y_text_size = y_text_size,
@@ -29,7 +29,9 @@ test_that("`compact_pvd_figure()` produces consistent results", {
     # facet_label_size = facet_label_size,
     legend.position = legend.position,
     scale_colors = scale_colors
-  ) |>
+  )
+
+  plot1 |>
     vdiffr::expect_doppelganger(title = "compact_pvd_figure")
 
 })

@@ -9,12 +9,12 @@ compact_pvd_facet_labels <- function(
 ){
 
   # extract fig titles
-  if(length(figs) == 1){
+  if (length(figs) == 1) {
     # facet names
     tmp <- as.list(figs[[1]]$labels$title)
   }
 
-  if(length(figs) > 1){
+  if (length(figs) > 1) {
     # facet names
     tmp <- lapply(
       X = figs,
