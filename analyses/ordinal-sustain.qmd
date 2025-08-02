@@ -435,6 +435,7 @@ results_males_first = extract_results_from_pickle(
 
 fig_females_first <- extract_figs_from_pickle(
   biomarker_groups = biomarker_groups,
+  biomarker_levels = biomarker_levels,
   use_rds = use_rds,
   size.y = size.y,
   n_s = 1,
@@ -445,6 +446,7 @@ fig_females_first <- extract_figs_from_pickle(
 
 fig_males_first <- extract_figs_from_pickle(
   biomarker_groups = biomarker_groups,
+  biomarker_levels = biomarker_levels,
   use_rds = use_rds,
   size.y = size.y,
   n_s = 1,
@@ -455,6 +457,7 @@ fig_males_first <- extract_figs_from_pickle(
 
 fig_both_first <- extract_figs_from_pickle(
   biomarker_groups = biomarker_groups,
+  biomarker_levels = biomarker_levels,
   use_rds = use_rds,
   size.y = size.y,
   n_s = 1,
@@ -480,6 +483,7 @@ fig_both_first2 |>
 
 fig_under100 <- extract_figs_from_pickle(
   biomarker_groups = biomarker_groups,
+  biomarker_levels = biomarker_levels,
   use_rds = use_rds,
   size.y = size.y,
   n_s = 1,
@@ -489,6 +493,7 @@ fig_under100 <- extract_figs_from_pickle(
 
 fig_over100 <- extract_figs_from_pickle(
   biomarker_groups = biomarker_groups,
+  biomarker_levels = biomarker_levels,
   use_rds = use_rds,
   size.y = size.y,
   n_s = 1,
@@ -498,6 +503,7 @@ fig_over100 <- extract_figs_from_pickle(
 
 fig_under100_males <- extract_figs_from_pickle(
   biomarker_groups = biomarker_groups,
+  biomarker_levels = biomarker_levels,
   use_rds = use_rds,
   size.y = size.y,
   n_s = 1,
@@ -507,6 +513,7 @@ fig_under100_males <- extract_figs_from_pickle(
 
 fig_over100_males <- extract_figs_from_pickle(
   biomarker_groups = biomarker_groups,
+  biomarker_levels = biomarker_levels,
   use_rds = use_rds,
   size.y = size.y,
   n_s = 1,
@@ -517,6 +524,7 @@ fig_over100_males <- extract_figs_from_pickle(
 
 fig_under100_females <- extract_figs_from_pickle(
   biomarker_groups = biomarker_groups,
+  biomarker_levels = biomarker_levels,
   use_rds = use_rds,
   size.y = size.y,
   n_s = 1,
@@ -526,6 +534,7 @@ fig_under100_females <- extract_figs_from_pickle(
 
 fig_over100_females <- extract_figs_from_pickle(
   biomarker_groups = biomarker_groups,
+  biomarker_levels = biomarker_levels,
   use_rds = use_rds,
   size.y = size.y,
   n_s = 1,
@@ -789,7 +798,8 @@ results_cv_max <- extract_results_from_pickle(
 )
 figs <- results_cv_max |> 
   plot_positional_var(
-    biomarker_groups = biomarker_groups
+    biomarker_groups = biomarker_groups,
+    biomarker_levels = biomarker_levels,
   )
 ```
 
@@ -1062,7 +1072,7 @@ list(
 **Event sequences of FXTAS symptoms stratified by sex.**
 `r compact_fig_caption`.
 Permutation test statistic (log-likelihood): 
-`r observed_test_stat_sex`.
+`r observed_test_stat_sex |> round(1)`;
 p-value = `r pval_sex_gp34_v1_formatted`.
 (N = `r nrow(v1_usable_cases)`.)
 
@@ -1104,7 +1114,7 @@ list(
 **Positional differences in estimated event sequence between males and females.**
 `r compact_fig_cap2`
 Permutation test statistic (log-likelihood): 
-`r observed_test_stat_sex`.
+`r observed_test_stat_sex |> round(1)`;
 p-value = `r pval_sex_gp34_v1_formatted`.
 (N = `r nrow(v1_usable_cases)`.)
 

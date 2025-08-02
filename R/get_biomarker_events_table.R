@@ -19,7 +19,9 @@
 #' get_biomarker_events_table(biomarker_levels)
 get_biomarker_events_table <- function(biomarker_levels, do_factor = TRUE) {
 
-  var_labels <- biomarker_levels |> get_var_labels1()
+  var_labels <- biomarker_levels |> get_var_labels1() |>
+    expand_PAL() |>
+    expand_RTI()
   var_labels_reversed <- names(biomarker_levels) |> setNames(var_labels)
   to_return <-
     biomarker_levels |>
