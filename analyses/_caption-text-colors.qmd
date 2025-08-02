@@ -1,0 +1,2 @@
+Text colors indicate symptoms grouped by category
+(as defined in @tbl-biomarker-list).

@@ -77,6 +77,5 @@ ggsave(
 **Differences in event sequences between latent subtypes,**
 **aligned by FXTAS stage.**
 Lines are used to show patterns of clinical interest.
-Text colors indicate symptoms grouped by measurement type.
-
+{{< include _caption-text-colors.qmd >}}
 :::
