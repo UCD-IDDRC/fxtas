@@ -309,6 +309,20 @@ prob_correct <-
   )
 ```
 
+```{r}
+#| label: basic-summary-stats
+biomarkers_table <-
+  v1_usable |>
+  make_biomarkers_table(
+    biomarker_varnames = biomarker_varnames,
+    biomarker_events_table = biomarker_events_table
+  ) |> 
+  left_join(
+    biomarker_groups |> distinct(.data$biomarker_group, .data$group_color),
+    by = c("category" = "biomarker_group")
+  )
+```
+
 # Abstract {.unnumbered}
 
 {{< include _sec_abstract.qmd >}}
@@ -507,16 +521,6 @@ fig_over100_females <- extract_figs_from_pickle(
   dataset_name = "over100_Female",
   output_folder = output_folder
 )
-```
-
-```{r}
-#| label: basic-summary-stats
-biomarkers_table <-
-  v1_usable |>
-  make_biomarkers_table(
-    biomarker_varnames = biomarker_varnames,
-    biomarker_events_table = biomarker_events_table
-  )
 ```
 
 {{< include _sec-results-pk-missing-issues.qmd >}}
@@ -959,10 +963,6 @@ v1_usable |> make_demographics_table(
 ```{r}
 #| label: biomarkers-tbl
 biomarkers_table |> 
-  left_join(
-    biomarker_groups |> distinct(biomarker_group, group_color),
-    by = c("category" = "biomarker_group")
-  ) |> 
   flex_biomarkers_table()
 ```
 
