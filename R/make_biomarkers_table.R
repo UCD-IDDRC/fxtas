@@ -24,57 +24,12 @@ make_biomarkers_table <- function(
     stratifying_var_names = "Gender",
     use_labels = TRUE
 ) {
-  # compute p-values by gender
-  pvals <- numeric()
 
-  for (cur in biomarker_varnames) {
-    pvals[cur] <-
-      data |>
-      dplyr::mutate(
-        above_baseline = .data[[cur]] != levels(.data[[cur]])[1]
-      ) |>
-      dplyr::select(all_of(c(
-        "above_baseline", stratifying_var_names
-      ))) |>
-      table() |>
-      fisher.test() |>
-      magrittr::use_series("p.value")
-  }
-
-  probs_above_baseline_by_gender <-
-    data |>
-    dplyr::summarize(
-      .by = all_of(stratifying_var_names),
-      across(
-        all_of(biomarker_varnames),
-        ~ mean(.x != levels(.x)[1], na.rm = TRUE)
-      )
-    )
-
-  probs_above_baseline_by_gender <-
-    probs_above_baseline_by_gender |>
-    pivot_longer(cols = -all_of(c(stratifying_var_names)),
-                 names_to = "biomarker",
-                 values_to = "Pr(above_baseline)")
-
-  probs_above_baseline_by_gender <-
-    probs_above_baseline_by_gender |>
-    dplyr::mutate(
-      # probably want to apply formatting here (after pivoting)
-      # rather than during the summarize step,
-      # so that accuracy is applied per-column:
-      `Pr(above_baseline)` = .data$`Pr(above_baseline)` |>
-        formattable::percent(drop0trailing = TRUE, digits = 1)
-    )
-
-  probs_above_baseline_by_gender <-
-    probs_above_baseline_by_gender |>
-    pivot_wider(
-      id_cols = "biomarker",
-      names_from = all_of(stratifying_var_names),
-      values_from = all_of("Pr(above_baseline)")
-    ) |>
-    dplyr::mutate("p-value" = pvals[.data$biomarker])
+  probs_above_baseline_by_gender <- compute_probs_above_baseline_by_gender(
+    data,
+    stratifying_var_names,
+    biomarker_varnames
+  )
 
   table_out <-
     biomarker_events_table |>
@@ -83,7 +38,8 @@ make_biomarkers_table <- function(
         c(
           "category" = "biomarker_group",
           "biomarker",
-          "biomarker_label",
+          # "biomarker_label",
+          "biomarker_label_long",
           "levels"
         )
       )
@@ -96,8 +52,8 @@ make_biomarkers_table <- function(
       relationship = "one-to-one"
     ) |>
     dplyr::mutate(
-      biomarker  = if (use_labels) .data$biomarker_label else .data$biomarker,
-      biomarker_label = NULL,
+      biomarker  = if (use_labels) .data$biomarker_label_long else .data$biomarker,
+      biomarker_label_long = NULL,
       biomarker = .data$biomarker |>
         sub(
           pattern = "*",
