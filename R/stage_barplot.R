@@ -54,6 +54,7 @@ stage_barplot.default <- function(
       )
     ) +
     theme_bw() +
+    ggplot2::scale_color_manual(values = "red") +
     ggplot2::expand_limits(x = xmax) +
     theme(legend.position = "bottom") +
     labs(color = "")

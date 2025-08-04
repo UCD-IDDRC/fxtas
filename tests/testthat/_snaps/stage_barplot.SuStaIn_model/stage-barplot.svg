@@ -46,7 +46,7 @@
 <polyline points='176.62,505.91 176.62,39.43 ' style='stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;' />
 <polyline points='242.88,505.91 242.88,39.43 ' style='stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;' />
 <rect x='38.14' y='315.08' width='11.93' height='169.63' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #595959;' />
-<line x1='27.90' y1='230.27' x2='253.12' y2='230.27' style='stroke-width: 1.07; stroke: #F8766D; stroke-linecap: butt;' />
+<line x1='27.90' y1='230.27' x2='253.12' y2='230.27' style='stroke-width: 1.07; stroke: #FF0000; stroke-linecap: butt;' />
 <rect x='27.90' y='39.43' width='225.22' height='466.48' style='stroke-width: 1.07; stroke: #333333;' />
 </g>
 <g clip-path='url(#cpMC4wMHw3MjAuMDB8MC4wMHw1NzYuMDA=)'>
@@ -77,7 +77,7 @@
 <polyline points='407.32,505.91 407.32,39.43 ' style='stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;' />
 <polyline points='473.58,505.91 473.58,39.43 ' style='stroke-width: 1.07; stroke: #EBEBEB; stroke-linecap: butt;' />
 <rect x='348.35' y='399.90' width='11.93' height='84.81' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #595959;' />
-<line x1='258.60' y1='230.27' x2='483.82' y2='230.27' style='stroke-width: 1.07; stroke: #F8766D; stroke-linecap: butt;' />
+<line x1='258.60' y1='230.27' x2='483.82' y2='230.27' style='stroke-width: 1.07; stroke: #FF0000; stroke-linecap: butt;' />
 <rect x='258.60' y='39.43' width='225.22' height='466.48' style='stroke-width: 1.07; stroke: #333333;' />
 </g>
 <g clip-path='url(#cpMC4wMHw3MjAuMDB8MC4wMHw1NzYuMDA=)'>
@@ -114,7 +114,7 @@
 <rect x='618.81' y='315.08' width='11.93' height='169.63' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #595959;' />
 <rect x='632.06' y='230.27' width='11.93' height='254.44' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #595959;' />
 <rect x='645.31' y='399.90' width='11.93' height='84.81' style='stroke-width: 1.07; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #595959;' />
-<line x1='489.30' y1='230.27' x2='714.52' y2='230.27' style='stroke-width: 1.07; stroke: #F8766D; stroke-linecap: butt;' />
+<line x1='489.30' y1='230.27' x2='714.52' y2='230.27' style='stroke-width: 1.07; stroke: #FF0000; stroke-linecap: butt;' />
 <rect x='489.30' y='39.43' width='225.22' height='466.48' style='stroke-width: 1.07; stroke: #333333;' />
 </g>
 <g clip-path='url(#cpMC4wMHw3MjAuMDB8MC4wMHw1NzYuMDA=)'>
@@ -191,7 +191,7 @@
 <text transform='translate(13.05,272.67) rotate(-90)' text-anchor='middle' style='font-size: 11.00px; font-family: sans;' textLength='158.39px' lengthAdjust='spacingAndGlyphs'>Number of observations in stage</text>
 <rect x='240.80' y='542.28' width='260.82' height='28.24' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' />
 <rect x='251.76' y='547.76' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' />
-<line x1='253.49' y1='556.40' x2='267.31' y2='556.40' style='stroke-width: 1.07; stroke: #F8766D; stroke-linecap: butt;' />
+<line x1='253.49' y1='556.40' x2='267.31' y2='556.40' style='stroke-width: 1.07; stroke: #FF0000; stroke-linecap: butt;' />
 <text x='274.52' y='559.43' style='font-size: 8.80px; font-family: sans;' textLength='221.62px' lengthAdjust='spacingAndGlyphs'>recommended sample size: three observations per stage</text>
 <text x='27.90' y='14.56' style='font-size: 13.20px; font-family: sans;' textLength='77.05px' lengthAdjust='spacingAndGlyphs'>stage-barplot</text>
 </g>

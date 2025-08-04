@@ -87,8 +87,8 @@ list(
 pvd_lineplot(text_size = lineplot_text_size)
 ```
 
-**Event sequences stratified by CGG repeats (<100 vs 100+).** 
-Differences in event sequences between CGG repeat sizes.
+**Positional differences in event sequences**
+**stratified by CGG repeat sizes (<100 vs 100+).**
 `r compact_fig_cap2`
 
 :::

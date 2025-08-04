@@ -5,8 +5,8 @@ ataxia severity*,ataxia severity,2,ataxia severity*: 1,ataxia severity: 1,"0, 1,
 ataxia severity*,ataxia severity,3,ataxia severity*: 2,ataxia severity: 2,"0, 1, 2, 3, 4",Ataxia,#CC6677
 ataxia severity*,ataxia severity,4,ataxia severity*: 3,ataxia severity: 3,"0, 1, 2, 3, 4",Ataxia,#CC6677
 ataxia severity*,ataxia severity,5,ataxia severity*: 4,ataxia severity: 4,"0, 1, 2, 3, 4",Ataxia,#CC6677
-PAL Total errors (adjusted)*,PAL total errors,2,PAL Total errors (adjusted)*: > 13,PAL total errors: > 13,"≤ 13, > 13",CANTAB,#999933
-RTI Five-choice movement time*,RTI five-choice movement time,2,RTI Five-choice movement time*: > 368.57,RTI five-choice movement time: > 368.57,"≤ 368.57, > 368.57",CANTAB,#999933
+PAL Total errors (adjusted)*,Paired Associates Learning (PAL): total errors,2,PAL Total errors (adjusted)*: > 13,Paired Associates Learning (PAL): total errors: > 13,"≤ 13, > 13",CANTAB,#999933
+RTI Five-choice movement time*,Reaction Time (RTI): five-choice movement time,2,RTI Five-choice movement time*: > 368.57,Reaction Time (RTI): five-choice movement time: > 368.57,"≤ 368.57, > 368.57",CANTAB,#999933
 SWM Between errors*,SWM between errors,2,SWM Between errors*: > 26,SWM between errors: > 26,"≤ 26, > 26",CANTAB,#999933
 Corpus Callosum-Thickness,Corpus Callosum-Thickness,2,Corpus Callosum-Thickness: Thin,Corpus Callosum-Thickness: Thin,"Normal, Thin",MRI,#332288
 Genu (CC)-WM Hyperintensity,Genu (Corpus Callosum) White Matter Hyperintensity,2,Genu (CC)-WM Hyperintensity,Genu (Corpus Callosum) White Matter Hyperintensity,"No, Yes",MRI,#332288
