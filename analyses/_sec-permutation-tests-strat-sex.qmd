@@ -92,7 +92,7 @@ occurred later in the event sequence in participants with CGG repeats <100
 compared to those with CGG repeats ≥100.
 We also did not find a significant difference between CGG <100 and CGG ≥100
 among females (p = `r pval_female_cgg_gp34_v1`)
-(@suppfig-pvd-by-cgg-female).
+(@suppfig-pvd-by-cgg-female-1).
 It should be noted that this comparison lacked statistical power
 given the limited sample size of only
 `r n_over_100_female` females with CGG ≥100.

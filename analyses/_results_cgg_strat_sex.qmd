@@ -46,13 +46,12 @@ list(
 
 {{< pagebreak >}}
 
-::: {#suppfig-pvd-by-cgg-female}
+::: {#suppfig-pvd-by-cgg-female-1}
 
 ```{r}
-#| label: fig-pvd-by-cgg-female-1
+#| label: supp-fig-pvd-by-cgg-female-1
 #| fig-height: !expr pvd_height
 #| fig-width: !expr pvd_width
-#| fig-cap: ""
 
 # compact pvd
 list(
@@ -63,11 +62,19 @@ list(
 
 ```
 
+
+**Event sequences stratified by CGG repeats (<100 vs 100+), among females.** 
+`r compact_fig_caption`
+`r test_female_cgg_summary`
+:::
+
+{{< pagebreak >}}
+
+:::{#suppfig-pvd-by-cgg-female-2}
 ```{r}
-#| label: fig-pvd-by-cgg-female-2
+#| label: supp-fig-pvd-by-cgg-female-2
 #| fig-height: !expr pvd_line_height
 #| fig-width: !expr pvd_line_width
-#| fig-cap: ""
 
 # lineplot of event sequences
 
@@ -79,11 +86,8 @@ list(
   
 ```
 
-**Event sequences stratified by CGG repeats, among females.**
-**(A)** Estimated event sequences, stratified by CGG repeats 
-(<100 vs 100+). `r compact_fig_caption`
-`r test_female_cgg_summary`
-**(B)** Positional differences in estimated event sequence
-between CGG repeats. `r compact_fig_cap2`
+**Positional differences in estimated event sequence**
+**between CGG repeats (<100 vs 100+)**. 
+`r compact_fig_cap2`
 `r test_female_cgg_summary`
 :::

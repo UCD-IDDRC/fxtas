@@ -37,9 +37,9 @@ compares the estimates of the sequences for these two subgroups.
 We did not find statistically significant evidence of
 a difference between CGG <100 and CGG ≥100 among females
 (p = `r pval_female_cgg_gp34_v1`).
-@suppfig-pvd-by-cgg-female
+@suppfig-pvd-by-cgg-female-1
 shows the estimated stratified models
-and compares the estimates.
+and @suppfig-pvd-by-cgg-female-2 compares the estimates.
 Females had later onset of SWM Between Errors for CGG repeats ≥100
 and later onset of intermittent tremors for CGG repeats <100,
 but did not show evidence of the other patterns observed for males and
