@@ -24,7 +24,7 @@ flex_biomarkers_table <- function(x) {
       )
     ) |>
     flextable::color(j = 1:2, color = x$group_color) |>
-    flextable::width(j = ~ biomarker, width = 1.3) |>
+    flextable::width(j = ~ biomarker, width = 1.4) |>
     flextable::width(j = ~ category, width = 0.8) |>
     flextable::width(j = ~ levels, width = 1.4) |>
     flextable::width(j = ~ Female, width = .6) |>

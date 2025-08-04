@@ -325,43 +325,7 @@ latent subgroups
 
 # Materials and methods
 
-## Data
-
-### Study cohorts
-
-{{< include _sec_study_cohorts.qmd >}}
-
-### `r outcomes_name_sentence_start`s of neurodegenerative events {#sec-outcome-vars}
-
-{{< include _sec_biomarkers.qmd >}}
-
-## Statistical analysis {#sec-Statistical-analysis}
-
-### Ordinal SuStaIn model {#sec-scored-events-model}
-
-{{< include _sec_ordinal_sustain_model.qmd >}}
-
-### Imputation of missing data {#sec-incomplete-data}
-
-{{< include _sec_incomplete_data.qmd >}}
-
-### Statistical hypothesis tests
-
-{{< include _sec_hypothesis_tests.qmd >}}
-
-### Latent subtype clustering {#sec-methods-latent-subtypes}
-
-{{< include _sec_methods_clustering.qmd >}}
-
-<!-- {{< include _methods_longitudinal.qmd >}} -->
-
-### Visualizing modeling results
-
-{{< include _sec_pvd_description.qmd >}}
-
-## Software
-
-{{< include _sec_software.qmd >}}
+{{< include _sec-materials-and-methods.qmd >}}
 
 # Results
 
@@ -799,7 +763,7 @@ results_cv_max <- extract_results_from_pickle(
 figs <- results_cv_max |> 
   plot_positional_var(
     biomarker_groups = biomarker_groups,
-    biomarker_levels = biomarker_levels,
+    biomarker_levels = biomarker_levels
   )
 ```
 
@@ -1070,9 +1034,9 @@ list(
 ```
 
 **Event sequences of FXTAS symptoms stratified by sex.**
-`r compact_fig_caption`.
+`r compact_fig_caption`
 Permutation test statistic (log-likelihood): 
-`r observed_test_stat_sex |> round(1)`;
+`r observed_test_stat_sex |> round(2)`;
 p-value = `r pval_sex_gp34_v1_formatted`.
 (N = `r nrow(v1_usable_cases)`.)
 
@@ -1114,7 +1078,7 @@ list(
 **Positional differences in estimated event sequence between males and females.**
 `r compact_fig_cap2`
 Permutation test statistic (log-likelihood): 
-`r observed_test_stat_sex |> round(1)`;
+`r observed_test_stat_sex |> round(2)`;
 p-value = `r pval_sex_gp34_v1_formatted`.
 (N = `r nrow(v1_usable_cases)`.)
 
