@@ -90,6 +90,6 @@ pvd_lineplot(text_size = lineplot_text_size)
 **Positional differences in event sequences**
 **stratified by CGG repeat sizes (<100 vs 100+).**
 `r compact_fig_cap2`
-
+`r test_cgg_summary`
 :::
 

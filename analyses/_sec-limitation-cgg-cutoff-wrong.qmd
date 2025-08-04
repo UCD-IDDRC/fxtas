@@ -15,7 +15,8 @@ pval_cgg_gp34_v1 = permutation_test(
   n_permutations = n_permutations
 )
 
-test_cgg_summary <- pval_cgg_gp34_v1 |> summary(N = nrow(v1_usable_cases))
+test_cgg_summary <- pval_cgg_gp34_v1 |> 
+  summary(N = nrow(v1_usable_cases))
 ```
 
 ```{r}

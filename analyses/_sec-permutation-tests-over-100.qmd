@@ -20,7 +20,7 @@ pval_over100_sex_gp34_v1 <- permutation_test(
 )
 
 test_over100_sex_summary <- pval_over100_sex_gp34_v1 |>
-  summary(N = nrow(v1_usable_cases |> filter(CGG >= 100)))
+  summary(N = v1_usable_cases |> filter(CGG >= 100) |> nrow())
 ```
 
 ```{r}

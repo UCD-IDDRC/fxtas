@@ -20,7 +20,7 @@ pval_male_cgg_gp34_v1 <- permutation_test(
 )
 
 test_male_cgg_summary <- pval_male_cgg_gp34_v1 |>
-  summary(N = nrow(v1_usable_cases))
+  summary(N = nrow(v1_usable_male_cases))
 ```
 
 ```{r}
@@ -59,8 +59,9 @@ n_over_100_female <-
   ) |>
   nrow()
 
+N_female <- v1_usable_cases |> filter(Gender == "Female") |> nrow()
 test_female_cgg_summary <- pval_female_cgg_gp34_v1 |>
-  summary(N = nrow(v1_usable_cases))
+  summary(N = nrow(v1_usable_female_cases))
 ```
 
 ```{r}
