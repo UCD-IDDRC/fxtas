@@ -520,7 +520,10 @@ table1(
 
 **Cambridge Neuropsychological Test Automated Battery (CANTAB)**
 We used categorization cutoffs taken from Talebi et al 2020 
-[@talebi2020cambridge].
+[@talebi2020cambridge]. 
+SWM = Spatial Working Memory. 
+PAL = Paired Associates Learning.
+RTI = Reaction Time.
 
 :::
 

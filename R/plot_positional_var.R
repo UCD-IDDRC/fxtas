@@ -40,7 +40,11 @@ plot_positional_var <- function(
     samples_f = results$samples_f,
     n_samples = results$ml_subtype |> nrow(),
     score_vals = build_score_vals(biomarker_levels),
-    biomarker_labels = names(biomarker_levels),
+    biomarker_labels = biomarker_levels |>
+      labelled:::var_label.data.frame(
+        null_action = "fill",
+        unlist = TRUE
+      ),
     biomarker_groups = results |> attr("biomarker_groups"),
     biomarker_levels = results |> attr("biomarker_levels"),
     biomarker_events_table = biomarker_levels |>
@@ -117,7 +121,8 @@ plot_positional_var <- function(
   if (!is.null(biomarker_order)) {
     # self._plot_biomarker_order is not suited to this version
     # Ignore for compatability, for now
-    # One option is to reshape, sum position, and lowest->highest determines order
+    # One option is to reshape,
+    # sum position, and lowest->highest determines order
     if (length(biomarker_order) > N_bio) {
       biomarker_order <- 1:N_bio
     }
@@ -214,19 +219,19 @@ plot_positional_var <- function(
       biomarker_plot_order <- PFs |> attr("biomarker_order")
     }
 
-    PF.plot <-
+    PF_plot <-
       PFs |>
       autoplot.PF(...) +
       ggplot2::ggtitle(title_i)
 
 
     figs[[i]] <- structure(
-      PF.plot,
+      PF_plot,
       biomarker_order = PFs |> attr("biomarker_order"),
       # alt_plot = plot1,
       title = title_i
     )
-    # https://medium.com/@tobias.stalder.geo/plot-rgb-satellite-imagery-in-true-color-with-ggplot2-in-r-10bdb0e4dd1f
+    # https://medium.com/@tobias.stalder.geo/plot-rgb-satellite-imagery-in-true-color-with-ggplot2-in-r-10bdb0e4dd1f # nolint
   }
 
   if (length(figs) == 1) {

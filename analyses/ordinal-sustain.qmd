@@ -550,7 +550,7 @@ results_cv_max <- extract_results_from_pickle(
   output_folder = output_folder,
   subtype_order = subtype_order
 )
-figs <- results_cv_max |> 
+figs_n_s_selected <- results_cv_max |> 
   plot_positional_var(
     biomarker_groups = biomarker_groups,
     biomarker_levels = biomarker_levels
@@ -722,7 +722,7 @@ biomarkers_table |>
 ```
 
 **Symptoms included in analysis.**
-The first level listed in each row of the
+The first level in each cell of the
 "Defined Ordered Levels" column
 is the "reference level" for the corresponding symptom,
 and subsequent levels are considered

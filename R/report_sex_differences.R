@@ -55,7 +55,7 @@ report_sex_differences <- function(table, cutoff = 0.05) {
       p_val_formatted =
         .data$`p-value` |>
         scales::label_pvalue(
-          prefix = paste(c("<", "=", ">"), "")
+          prefix = c("< ", "= ", "> ")
         )(),
 
       comparison = glue::glue(

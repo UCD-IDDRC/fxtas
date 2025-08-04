@@ -6,7 +6,7 @@
 #| fig-cap-location: top
 plot_compact_pvd_est2(
   scale_colors = scale_colors1,
-  figs = figs,
+  figs = figs_n_s_selected,
   facet_label_prefix = NULL,
   show_uncert = TRUE,
   tile_height = 1,

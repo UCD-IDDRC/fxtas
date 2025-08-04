@@ -4,10 +4,12 @@
 \alias{flex_biomarkers_table}
 \title{Print method for \code{biomarkers_table}}
 \usage{
-flex_biomarkers_table(x)
+flex_biomarkers_table(x, width_biomarkers = 1.5)
 }
 \arguments{
 \item{x}{a "biomarkers_table" object from \code{make_biomarkers_table()}}
+
+\item{width_biomarkers}{\link{numeric}: width for \code{Symptom} column}
 }
 \value{
 a \code{\link[flextable:flextable]{flextable::flextable()}}

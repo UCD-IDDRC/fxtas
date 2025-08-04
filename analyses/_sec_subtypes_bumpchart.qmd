@@ -50,7 +50,7 @@ color_info <- tibble::tribble(
   
 )
 
-bump <- figs |> 
+bump <- figs_n_s_selected |> 
   pvd_subtype_lineplot(
     smooth = 30,
     y_lab = "",
@@ -78,4 +78,6 @@ ggsave(
 **aligned by FXTAS stage.**
 Lines are used to show patterns of clinical interest.
 `r biomarker_text_color_info`
+@tbl-sg_demos includes exploratory hypothesis test results
+for differences in demographic characteristics by latent subtype.
 :::

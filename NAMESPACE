@@ -2,6 +2,7 @@
 
 S3method(autoplot,PF)
 S3method(autoplot,permutation_test)
+S3method(labels,list)
 S3method(pander,prob_correct)
 S3method(print,permutation_test)
 S3method(rowMax,character)

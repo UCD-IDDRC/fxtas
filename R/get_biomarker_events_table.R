@@ -19,24 +19,40 @@
 #' get_biomarker_events_table(biomarker_levels)
 get_biomarker_events_table <- function(biomarker_levels, do_factor = TRUE) {
 
-  var_labels <- biomarker_levels |> get_var_labels1() |>
+  var_labels <- biomarker_levels |>
+    get_var_labels1()
+
+  var_labels_long <-
+    var_labels |>
     expand_PAL() |>
-    expand_RTI()
+    expand_RTI() |>
+    expand_SWM() |>
+    expand_BDS2() |>
+    expand_MMSE() |>
+    expand_MCP()
+
   var_labels_reversed <- names(biomarker_levels) |> setNames(var_labels)
   to_return <-
     biomarker_levels |>
     tibble::enframe() |>
     dplyr::mutate(
-      label = var_labels
+      label = var_labels,
+      label_long = var_labels_long
     ) |>
     labelled::set_value_labels(name = var_labels_reversed) |>
     tidyr::unnest_longer("value") |>
     dplyr::rename(
       biomarker = "name",
       biomarker_label = "label",
+      biomarker_label_long = "label_long",
       level = "value"
     ) |>
-    dplyr::relocate("biomarker", "biomarker_label", .before = everything()) |>
+    dplyr::relocate(
+      "biomarker",
+      "biomarker_label",
+      "biomarker_label_long",
+      .before = everything()
+    ) |>
     dplyr::mutate(
       biomarker_level = if_else(
         .data$level == "Yes",
