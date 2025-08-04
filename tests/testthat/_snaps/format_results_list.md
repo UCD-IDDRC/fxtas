@@ -62,7 +62,7 @@
        $ ml_subtype_old         : num [1:20] 0 0 0 0 0 0 0 0 0 0 ...
        - attr(*, "class")= chr [1:2] "SuStaIn_model" "list"
        - attr(*, "n_s")= int 1
-       - attr(*, "biomarker_groups")= tibble [5 x 3] (S3: tbl_df/tbl/data.frame)
+       - attr(*, "biomarker_groups")= bmrkr_g_ [5 x 3] (S3: biomarker_groups_table/tbl_df/tbl/data.frame)
         ..$ biomarker      : chr [1:5] "Biomarker 1" "Biomarker 2" "Biomarker 3" "Biomarker 4" ...
         ..$ biomarker_group: chr [1:5] "group 1" "group 1" "group 2" "group 2" ...
         ..$ group_color    : chr [1:5] "#88CCEE" "#88CCEE" "#CC6677" "#CC6677" ...
@@ -72,6 +72,7 @@
         ..$ Biomarker 3: int [1:4] 0 1 2 3
         ..$ Biomarker 4: int [1:4] 0 1 2 3
         ..$ Biomarker 5: int [1:4] 0 1 2 3
+        ..- attr(*, "class")= chr [1:2] "levels_list" "list"
        - attr(*, "subtype_order")= int 1
        - attr(*, "ix")= int 1
        - attr(*, "n_events")= int 15
@@ -140,7 +141,7 @@
        $ ml_subtype_old         : num [1:20] 0 0 0 0 0 0 0 0 0 0 ...
        - attr(*, "class")= chr [1:2] "SuStaIn_model" "list"
        - attr(*, "n_s")= int 3
-       - attr(*, "biomarker_groups")= tibble [5 x 3] (S3: tbl_df/tbl/data.frame)
+       - attr(*, "biomarker_groups")= bmrkr_g_ [5 x 3] (S3: biomarker_groups_table/tbl_df/tbl/data.frame)
         ..$ biomarker      : chr [1:5] "Biomarker 1" "Biomarker 2" "Biomarker 3" "Biomarker 4" ...
         ..$ biomarker_group: chr [1:5] "group 1" "group 1" "group 2" "group 2" ...
         ..$ group_color    : chr [1:5] "#88CCEE" "#88CCEE" "#CC6677" "#CC6677" ...
@@ -150,6 +151,7 @@
         ..$ Biomarker 3: int [1:4] 0 1 2 3
         ..$ Biomarker 4: int [1:4] 0 1 2 3
         ..$ Biomarker 5: int [1:4] 0 1 2 3
+        ..- attr(*, "class")= chr [1:2] "levels_list" "list"
        - attr(*, "subtype_order")= int [1:3] 1 2 3
        - attr(*, "ix")= int [1:3] 3 1 2
        - attr(*, "n_events")= int 15
@@ -468,16 +470,17 @@
     dXAgMwAAABAAAAAFAAQACQAAAAcjODhDQ0VFAAQACQAAAAcjODhDQ0VFAAQACQAAAAcjQ0M2
     Njc3AAQACQAAAAcjQ0M2Njc3AAQACQAAAAcjODg4ODg4AAAEAgAABf8AAAAQAAAAAwAEAAkA
     AAAJYmlvbWFya2VyAAQACQAAAA9iaW9tYXJrZXJfZ3JvdXAABAAJAAAAC2dyb3VwX2NvbG9y
-    AAAEAgAACP8AAAANAAAAAoAAAAD////7AAAEAgAAAv8AAAAQAAAAAwAEAAkAAAAGdGJsX2Rm
-    AAQACQAAAAN0YmwABAAJAAAACmRhdGEuZnJhbWUAAAD+AAAEAgAAAAEABAAJAAAAEGJpb21h
-    cmtlcl9sZXZlbHMAAAITAAAABQAAAA0AAAAEAAAAAAAAAAEAAAACAAAAAwAAAA0AAAAEAAAA
+    AAAEAgAACP8AAAANAAAAAoAAAAAAAAAFAAAEAgAAAv8AAAAQAAAABAAEAAkAAAAWYmlvbWFy
+    a2VyX2dyb3Vwc190YWJsZQAEAAkAAAAGdGJsX2RmAAQACQAAAAN0YmwABAAJAAAACmRhdGEu
+    ZnJhbWUAAAD+AAAEAgAAAAEABAAJAAAAEGJpb21hcmtlcl9sZXZlbHMAAAMTAAAABQAAAA0A
+    AAAEAAAAAAAAAAEAAAACAAAAAwAAAA0AAAAEAAAAAAAAAAEAAAACAAAAAwAAAA0AAAAEAAAA
     AAAAAAEAAAACAAAAAwAAAA0AAAAEAAAAAAAAAAEAAAACAAAAAwAAAA0AAAAEAAAAAAAAAAEA
-    AAACAAAAAwAAAA0AAAAEAAAAAAAAAAEAAAACAAAAAwAABAIAAAX/AAAAEAAAAAUABAAJAAAA
-    C0Jpb21hcmtlciAxAAQACQAAAAtCaW9tYXJrZXIgMgAEAAkAAAALQmlvbWFya2VyIDMABAAJ
-    AAAAC0Jpb21hcmtlciA0AAQACQAAAAtCaW9tYXJrZXIgNQAAAP4AAAQCAAAAAQAEAAkAAAAN
-    c3VidHlwZV9vcmRlcgAAAA0AAAADAAAAAQAAAAIAAAADAAAEAgAAAAEABAAJAAAAAml4AAAA
-    DQAAAAMAAAADAAAAAQAAAAIAAAQCAAAAAQAEAAkAAAAIbl9ldmVudHMAAAANAAAAAQAAAA8A
-    AAD+
+    AAACAAAAAwAABAIAAAX/AAAAEAAAAAUABAAJAAAAC0Jpb21hcmtlciAxAAQACQAAAAtCaW9t
+    YXJrZXIgMgAEAAkAAAALQmlvbWFya2VyIDMABAAJAAAAC0Jpb21hcmtlciA0AAQACQAAAAtC
+    aW9tYXJrZXIgNQAABAIAAAL/AAAAEAAAAAIABAAJAAAAC2xldmVsc19saXN0AAQACQAAAARs
+    aXN0AAAA/gAABAIAAAABAAQACQAAAA1zdWJ0eXBlX29yZGVyAAAADQAAAAMAAAABAAAAAgAA
+    AAMAAAQCAAAAAQAEAAkAAAACaXgAAAANAAAAAwAAAAMAAAABAAAAAgAABAIAAAABAAQACQAA
+    AAhuX2V2ZW50cwAAAA0AAAABAAAADwAAAP4=
 
 # results are consistent with custom ordering
 
@@ -543,7 +546,7 @@
        $ ml_subtype_old         : num [1:20] 0 0 0 0 0 0 0 0 0 0 ...
        - attr(*, "class")= chr [1:2] "SuStaIn_model" "list"
        - attr(*, "n_s")= int 3
-       - attr(*, "biomarker_groups")= tibble [5 x 3] (S3: tbl_df/tbl/data.frame)
+       - attr(*, "biomarker_groups")= bmrkr_g_ [5 x 3] (S3: biomarker_groups_table/tbl_df/tbl/data.frame)
         ..$ biomarker      : chr [1:5] "Biomarker 1" "Biomarker 2" "Biomarker 3" "Biomarker 4" ...
         ..$ biomarker_group: chr [1:5] "group 1" "group 1" "group 2" "group 2" ...
         ..$ group_color    : chr [1:5] "#88CCEE" "#88CCEE" "#CC6677" "#CC6677" ...
@@ -553,6 +556,7 @@
         ..$ Biomarker 3: int [1:4] 0 1 2 3
         ..$ Biomarker 4: int [1:4] 0 1 2 3
         ..$ Biomarker 5: int [1:4] 0 1 2 3
+        ..- attr(*, "class")= chr [1:2] "levels_list" "list"
        - attr(*, "subtype_order")= num [1:3] 2 1 3
        - attr(*, "ix")= int [1:3] 3 1 2
        - attr(*, "n_events")= int 15

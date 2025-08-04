@@ -2,12 +2,14 @@
 #'
 #' @param x a "biomarkers_table" object from `make_biomarkers_table()`
 #' @param width_biomarkers [numeric]: width for `Symptom` column
+#' @param width_levels [numeric]: width for "Defined Ordered Levels" column
 #' @returns a [flextable::flextable()]
 #' @export
 #'
 flex_biomarkers_table <- function(
     x,
-    width_biomarkers = 1.5) {
+    width_biomarkers = 1.5,
+    width_levels = 1.45) {
   x |>
     dplyr::mutate(
       biomarker = .data$biomarker |> Hmisc::capitalize(),
@@ -28,7 +30,7 @@ flex_biomarkers_table <- function(
     flextable::color(j = 1:2, color = x$group_color) |>
     flextable::width(j = ~ biomarker, width = width_biomarkers) |>
     flextable::width(j = ~ category, width = 0.8) |>
-    flextable::width(j = ~ levels, width = 1.4) |>
+    flextable::width(j = ~ levels, width = width_levels) |>
     flextable::width(j = ~ Female, width = .6) |>
     flextable::width(j = ~ Male, width = .6) |>
     flextable::width(j = ~ `p-value`, width = .6) |>

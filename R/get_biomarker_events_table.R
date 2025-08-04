@@ -98,5 +98,11 @@ get_biomarker_events_table <- function(biomarker_levels, do_factor = TRUE) {
       arrange(across(all_of(c("level"))))
   }
 
-  to_return
+  to_return <-
+    to_return |>
+    structure(
+      class = union("biomarker_events_table", class(to_return))
+    )
+
+  return(to_return)
 }

@@ -34,5 +34,8 @@ get_levels <- function(
     }
   }
 
-  to_return
+  to_return <- to_return |>
+    structure(
+      class = union("levels_list", class(to_return))
+    )
 }

@@ -50,7 +50,7 @@ plot_positional_var <- function(
     biomarker_events_table = biomarker_levels |>
       get_biomarker_events_table(),
     biomarker_event_names = biomarker_events_table |>
-      dplyr::pull("biomarker_level"),
+      get_biomarker_event_names(),
     biomarker_plot_order = NULL,
     # ml_f_EM = results$ml_f_EM,
     ml_f_EM = NULL,

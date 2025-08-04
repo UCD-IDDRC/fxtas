@@ -9,7 +9,7 @@ format_results_list(
   biomarker_labels = names(biomarker_levels),
   biomarker_levels = NULL,
   biomarker_events_table = get_biomarker_events_table(biomarker_levels),
-  biomarker_event_names = biomarker_events_table$biomarker_level,
+  biomarker_event_names = get_biomarker_event_names(biomarker_events_table),
   format_sst = TRUE,
   n_s = get_n_subtypes(results),
   subtype_order = seq_len(n_s),

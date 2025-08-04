@@ -54,3 +54,39 @@ test_that("results are consistent with three groups", {
   plot1[[1]] |>
     vdiffr::expect_doppelganger(title = "plot3.1")
 })
+
+test_that(
+  desc = "results are consistent with fxtas results",
+  code = {
+
+    skip_on_ci()
+
+    output_folder <- fs::path(
+      here::here(),
+      "output/output.fixed_CV-scid-no-subthres/"
+    )
+
+    pickle_folder <- fs::path(
+      output_folder,
+      "pickle_files"
+    )
+
+    skip_if_not(dir.exists(output_folder))
+
+    n_s_selected <- 1
+    results <- extract_results_from_pickle(
+      n_s = n_s_selected,
+      use_rds = TRUE,
+      output_folder = output_folder
+    )
+    plot1 <- results |> plot_positional_var(use_labels = FALSE)
+
+    plot1 |>
+      vdiffr::expect_doppelganger(title = "plot1-fxtas")
+
+    plot1 <- results |> plot_positional_var(use_labels = TRUE)
+
+    plot1 |>
+      vdiffr::expect_doppelganger(title = "plot1-fxtas-labelled")
+  }
+)

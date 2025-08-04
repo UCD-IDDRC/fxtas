@@ -32,7 +32,7 @@ SCID: somatoform disorders,somatoform disorders,somatoform disorders,2,SCID: som
 SCID: somatoform disorders,somatoform disorders,somatoform disorders,3,SCID: somatoform disorders: Threshold,somatoform disorders: Threshold,"Absent, Sub-Threshold, Threshold",SCID,#44AA99
 SCID: substance use disorders,substance use disorders,substance use disorders,2,SCID: substance use disorders: Sub-Threshold,substance use disorders: Sub-Threshold,"Absent, Sub-Threshold, Threshold",SCID,#44AA99
 SCID: substance use disorders,substance use disorders,substance use disorders,3,SCID: substance use disorders: Threshold,substance use disorders: Threshold,"Absent, Sub-Threshold, Threshold",SCID,#44AA99
-BDS-2 Total Score*,BDS-2 total score,Behavior Dyscontrol Scale - Second Edition (BDS-2): total score,2,BDS-2 Total Score*: < 20,BDS-2 total score: < 20,"≥ 20, < 20",Scores,#AA4499
+BDS-2 Total Score*,BDS-2 total score,Behavior Dyscontrol Scale - 2nd Edition (BDS-2): total score,2,BDS-2 Total Score*: < 20,BDS-2 total score: < 20,"≥ 20, < 20",Scores,#AA4499
 MMSE total score*,MMSE total score,Mini-Mental State Examination (MMSE): total score,2,MMSE total score*: Mild impairment (20-25),MMSE total score: Mild impairment (20-25),"Normal (26-30), Mild impairment (20-25), Moderate impairment (10-19)",Scores,#AA4499
 MMSE total score*,MMSE total score,Mini-Mental State Examination (MMSE): total score,3,MMSE total score*: Moderate impairment (10-19),MMSE total score: Moderate impairment (10-19),"Normal (26-30), Mild impairment (20-25), Moderate impairment (10-19)",Scores,#AA4499
 FXTAS Stage,FXTAS stage,FXTAS stage,2,FXTAS Stage: 1,FXTAS stage: 1,"0, 1, 2, 3, 4, 5",Stage,black

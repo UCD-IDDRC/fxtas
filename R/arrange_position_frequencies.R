@@ -18,8 +18,11 @@ arrange_position_frequencies <- function(
       "event name" =
         .data[["event name"]] |>
         factor(levels = biomarker_order),
-      "row number and name" =
-        paste(as.numeric(.data[["event name"]]), .data[[name_var]], sep = ") ")
+      "row number and name" = paste(
+        as.numeric(.data[["event name"]]),
+        .data[[name_var]],
+        sep = ") "
+      )
     ) |>
     arrange(pick("event name")) |>
     relocate("row number and name", .before = "event name")

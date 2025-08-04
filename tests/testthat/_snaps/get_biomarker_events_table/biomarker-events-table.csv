@@ -16,7 +16,7 @@ Splenium (CC)-WM Hyperintensity,Splenium (Corpus Callosum) White Matter Hyperint
 Genu (CC)-WM Hyperintensity,Genu (Corpus Callosum) White Matter Hyperintensity,Genu (Corpus Callosum) White Matter Hyperintensity,2,Genu (CC)-WM Hyperintensity,Genu (Corpus Callosum) White Matter Hyperintensity,"No, Yes"
 Corpus Callosum-Thickness,Corpus Callosum-Thickness,Corpus Callosum-Thickness,2,Corpus Callosum-Thickness: Thin,Corpus Callosum-Thickness: Thin,"Normal, Thin"
 MMSE total score*,MMSE total score,Mini-Mental State Examination (MMSE): total score,2,MMSE total score*: Mild impairment (20-25),MMSE total score: Mild impairment (20-25),"Normal (26-30), Mild impairment (20-25), Moderate impairment (10-19)"
-BDS-2 Total Score*,BDS-2 total score,Behavior Dyscontrol Scale - Second Edition (BDS-2): total score,2,BDS-2 Total Score*: < 20,BDS-2 total score: < 20,"≥ 20, < 20"
+BDS-2 Total Score*,BDS-2 total score,Behavior Dyscontrol Scale - 2nd Edition (BDS-2): total score,2,BDS-2 Total Score*: < 20,BDS-2 total score: < 20,"≥ 20, < 20"
 SCID: mood disorders,mood disorders,mood disorders,2,SCID: mood disorders: Sub-Threshold,mood disorders: Sub-Threshold,"Absent, Sub-Threshold, Threshold"
 SCID: substance use disorders,substance use disorders,substance use disorders,2,SCID: substance use disorders: Sub-Threshold,substance use disorders: Sub-Threshold,"Absent, Sub-Threshold, Threshold"
 SCID: anxiety disorders,anxiety disorders,anxiety disorders,2,SCID: anxiety disorders: Sub-Threshold,anxiety disorders: Sub-Threshold,"Absent, Sub-Threshold, Threshold"
