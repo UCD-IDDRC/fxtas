@@ -41,11 +41,6 @@ pvd_subtype_lineplot <- function(
     ...) {
 
   dataset <- extract_lineplot_data(figs, facet_names)
-  fxtas_stages <- c("FXTAS Stage: 1",
-                    "FXTAS Stage: 2",
-                    "FXTAS Stage: 3",
-                    "FXTAS Stage: 4",
-                    "FXTAS Stage: 5")
 
   # truncate subtype_x to length(figs) - add check to force lengths to match?
   subtype_x = subtype_x[1:length(figs)]
@@ -100,7 +95,7 @@ pvd_subtype_lineplot <- function(
         pattern = tmp_labels,
         replacement = .data$padded_event,
         x = .data$`event label`
-      ),
+      ) ,
       # color = group_color
       # color = if_else(
       #   .data$biomarker == "FXTAS Stage",

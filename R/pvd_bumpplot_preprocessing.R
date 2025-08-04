@@ -29,7 +29,8 @@ pvd_bumpplot_preprocessing <- function(
       `event label` = ifelse(
         .data$biomarker == "FXTAS Stage",
         paste0("<b>", .data$`event label`, "</b>"),
-        as.character(.data$`event label`)
+        as.character(.data$`event label`)  |>
+        collapse_WM()
       )
     ) |>
     dplyr::select(

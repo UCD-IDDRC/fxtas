@@ -89,7 +89,8 @@ ggplot2::theme_set(
 #| message: false
 
 reticulate::use_condaenv("fxtas39", required = TRUE, conda = "auto")
-library(fxtas)
+# library(fxtas)
+devtools::load_all()
 library(tidyverse)
 library(reticulate)
 library(pander)
