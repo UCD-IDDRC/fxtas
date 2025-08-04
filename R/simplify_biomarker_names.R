@@ -1,7 +1,7 @@
 simplify_biomarker_names <- function(dataset, cols = "event name") {
   dataset |>
     dplyr::mutate(across(
-      .cols = all_of(cols),
+      .cols = any_of(cols),
       .fns = ~ .x |>
         simplify_pf_names() |>
         update_any_autoimmune_name() |>

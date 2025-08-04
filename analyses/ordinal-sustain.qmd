@@ -553,7 +553,8 @@ results_cv_max <- extract_results_from_pickle(
 figs_n_s_selected <- results_cv_max |> 
   plot_positional_var(
     biomarker_groups = biomarker_groups,
-    biomarker_levels = biomarker_levels
+    biomarker_levels = biomarker_levels,
+    use_labels = TRUE
   )
 ```
 

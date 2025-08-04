@@ -21,6 +21,8 @@ get_biomarker_event_names.levels_list <- function(
 
 #' @export
 get_biomarker_event_names.biomarker_events_table <- function(
-    object, ...) {
-  object |> dplyr::pull("level_labelled")
+    object,
+    var = "biomarker_level", # or "level_labelled"?
+    ...) {
+  object |> dplyr::pull(var)
 }

@@ -7,20 +7,29 @@ extract_PFs <- function(
   samples_sequence |>
     t() |>
     as_tibble() |>
-    compute_position_frequencies() |>
-    simplify_biomarker_names(cols = "event name") |>
+    compute_position_frequencies() -> temp
+
+  temp |>
     # get biomarker names
     left_join(
-      biomarker_events_table |>
-        simplify_biomarker_names(cols = c("biomarker", "biomarker_level")),
+      relationship = "many-to-one",
+      biomarker_events_table,
       by = c("event name" = "biomarker_level")
-    ) |>
+    ) -> temp
+
+  temp |>
     # get biomarker groups and colors
     left_join(
-      biomarker_groups |>
-        simplify_biomarker_names(cols = "biomarker"),
+      relationship = "many-to-one",
+      biomarker_groups,
       by = c("biomarker")
+    ) -> temp
+
+  temp |>
+    simplify_biomarker_names(
+      cols = c("event name", "biomarker_level", "level_labelled")
     ) |>
+
     arrange_position_frequencies(
       biomarker_order = biomarker_plot_order,
       ...
@@ -36,5 +45,6 @@ extract_PFs <- function(
       `event label` =
         .data$`event label` |>
         factor(levels = .data$`event label` |> unique())
-    )
+    ) -> to_return
+  return(to_return)
 }
