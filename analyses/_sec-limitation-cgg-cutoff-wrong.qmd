@@ -15,7 +15,17 @@ pval_cgg_gp34_v1 = permutation_test(
   n_permutations = n_permutations
 )
 
+test_cgg_summary <- pval_cgg_gp34_v1 |> summary(N = nrow(v1_usable_cases))
 ```
+
+```{r}
+#| eval: false
+#| label: plot-permutation-test-cgg
+plot_permutation_results(
+  permuted_test_stats,
+  observed_test_stat)
+```
+
 
 When we compared
 between 55-99 vs 100-200 CGG repeats in males and females combined,

@@ -10,6 +10,6 @@ read.csv("analyses/abbreviations.csv") |>
 ```
 
 
-**Table of abbreviations**
+**Abbreviations used in article**
 
 :::

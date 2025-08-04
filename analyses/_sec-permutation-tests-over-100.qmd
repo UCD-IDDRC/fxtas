@@ -1,0 +1,32 @@
+
+```{r}
+#| label: p-val-test-sex-over100
+
+permuted_test_stats <- collect_permutation_test_stats(
+  output_folder = output_folder,
+  stratifying_levels = "CGG 100-199",
+  permuting_variables = "Gender"
+)
+
+observed_test_stat <- get_observed_permutation_test_stat(
+  output_folder,
+  dataset_names = c("over100_Female", "over100_Male")
+)
+
+pval_over100_sex_gp34_v1 <- permutation_test(
+  observed_test_stat = observed_test_stat,
+  permuted_test_stats = permuted_test_stats,
+  n_permutations = n_permutations
+)
+
+test_over100_sex_summary <- pval_over100_sex_gp34_v1 |>
+  summary(N = nrow(v1_usable_cases |> filter(CGG >= 100)))
+```
+
+```{r}
+#| eval: false
+#| label: plot-permutation-test-sex-over-100
+plot_permutation_results(
+  permuted_test_stats,
+  observed_test_stat)
+```
