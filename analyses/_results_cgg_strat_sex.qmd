@@ -1,11 +1,9 @@
 
-::: {#suppfig-pvd-by-cgg-male}
+::: {#suppfig-pvd-by-cgg-male-1}
 
 ```{r}
-#| label: fig-pvd-by-cgg-male-1
 #| fig-height: !expr pvd_height
 #| fig-width: !expr pvd_width
-#| fig-cap: ""
 
 # compact pvd
 list(
@@ -16,12 +14,17 @@ plot_compact_pvd(scale_colors = scale_colors1, y_text_size = y_text_size)
 
 ```
 
+**Event sequences stratified by CGG repeats, among males.**
+`r compact_fig_caption`
+`r test_male_cgg_summary`
+:::
+
+:::{#suppfig-pvd-by-cgg-male-2}
+
 ```{r}
-#| label: fig-pvd-by-cgg-male-2
 #| fig-height: !expr pvd_line_height
 #| fig-width: !expr pvd_line_width
-#| fig-cap: ""
-# lineplot of event sequences
+#| label: lineplot-by-cgg-male
 list(
     "Males, CGG &lt; 100" = fig_under100_males,
     "Males, CGG &ge; 100" = fig_over100_males
@@ -29,14 +32,12 @@ list(
   pvd_lineplot(text_size = lineplot_text_size)
 ```
 
-**Event sequences stratified by CGG repeats, among males.**
-**(A)** Estimated event sequences, 
-stratified by CGG repeats (<100 vs 100+).
-`r compact_fig_caption`
-**(B)** Positional differences in estimated event sequence 
-between CGG repeat levels. `r compact_fig_cap2`
-
+**Positional differences in estimated event sequence**
+**between CGG repeat levels, among males**.
+`r compact_fig_cap2`
+`r test_male_cgg_summary`
 :::
+
 
 {{< pagebreak >}}
 
@@ -76,7 +77,8 @@ list(
 **Event sequences stratified by CGG repeats, among females.**
 **(A)** Estimated event sequences, stratified by CGG repeats 
 (<100 vs 100+). `r compact_fig_caption`
+`r test_female_cgg_summary`
 **(B)** Positional differences in estimated event sequence
 between CGG repeats. `r compact_fig_cap2`
-
+`r test_female_cgg_summary`
 :::

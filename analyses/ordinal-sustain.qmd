@@ -61,13 +61,13 @@ color_list <- glue::glue(
 )
 
 lineplot_direction_colors <- c(
-      "Black" = "black",
-      # "#F8766D",
-      "Red" = "#DC3220",
-      "Light gray" = "grey",
-      # "#00BFC4"
-      "Blue" = "#005AB5"
-    )
+  "Black" = "black",
+  # "#F8766D",
+  "Red" = "#DC3220",
+  "Light gray" = "grey",
+  # "#00BFC4"
+  "Blue" = "#005AB5"
+)
 
 lineplot_direction_color_names1 <- 
   lineplot_direction_colors |> 
@@ -78,7 +78,7 @@ options(
   ggplot2.discrete.fill = rcartocolor::carto_pal(name = "Safe"),
   ggplot2.discrete.colour = rcartocolor::carto_pal(name = "Safe")
 )
- 
+
 ggplot2::theme_set(
   ggplot2::theme_bw(base_family = "Arial")
 )
@@ -296,6 +296,17 @@ nlevs <-
 max_levels <- nlevs |> max()
 ```
 
+```{r}
+#| label: get-control-dists
+
+prob_correct <-
+  control_data |>
+  compute_prob_correct(
+    max_prob = max_prob_correct,
+    biomarker_levels = biomarker_levels
+  )
+```
+
 # Abstract {.unnumbered}
 
 {{< include _sec_abstract.qmd >}}
@@ -327,19 +338,6 @@ latent subgroups
 
 {{< include _sec-materials-and-methods.qmd >}}
 
-# Results
-
-```{r}
-#| label: get-control-dists
-
-prob_correct <-
-  control_data |>
-  compute_prob_correct(
-    max_prob = max_prob_correct,
-    biomarker_levels = biomarker_levels
-  )
-```
-
 ```{r}
 #| message: false
 #| label: model-all-subgroups-first-visits
@@ -368,6 +366,8 @@ if (fit_models) {
 ```
 
 {{< include _sec_run_stratified_models.qmd >}}
+
+# Results
 
 ```{r}
 #| label: extract-figs
@@ -524,6 +524,21 @@ biomarkers_table <-
 ## Sex differences in sequential orders {#sec-methods-strat-sex}
 
 ```{r}
+permutation_test_summary <- function(
+    test_stat,
+    pval,
+    N = nrow(v1_usable_cases)) {
+  
+  glue::glue(
+    "Permutation test statistic (log-likelihood): ",
+    "{test_stat |> round(2)}; ",
+    "p-value = {pval}. ",
+    "(N = {N}.)"
+  )
+}
+```
+
+```{r}
 #| label: p-val-test-sex
 
 permuted_test_stats_sex <- collect_permutation_test_stats(
@@ -543,6 +558,8 @@ pval_sex_gp34_v1 <- permutation_test(
 )
 
 pval_sex_gp34_v1_formatted <- pval_sex_gp34_v1 |> scales::label_pvalue()()
+
+test_sex_summary <- pval_sex_gp34_v1 |> summary(N = nrow(v1_usable_cases))
 
 ```
 
@@ -597,6 +614,9 @@ pval_under100_sex_gp34_v1 <- permutation_test(
   permuted_test_stats = permuted_test_stats,
   n_permutations = n_permutations
 )
+
+test_under100_sex_summary <- pval_under100_sex_gp34_v1 |> 
+  summary(N = nrow(v1_usable_cases))
 ```
 
 ```{r}
@@ -626,6 +646,9 @@ pval_over100_sex_gp34_v1 <- permutation_test(
   permuted_test_stats = permuted_test_stats,
   n_permutations = n_permutations
 )
+
+test_over100_sex_summary <- pval_over100_sex_gp34_v1 |> 
+  summary(N = nrow(v1_usable_cases))
 ```
 
 ```{r}
@@ -673,6 +696,9 @@ pval_male_cgg_gp34_v1 <- permutation_test(
   permuted_test_stats = permuted_test_stats,
   n_permutations = n_permutations
 )
+
+test_male_cgg_summary <- pval_male_cgg_gp34_v1 |> 
+  summary(N = nrow(v1_usable_cases))
 ```
 
 ```{r}
@@ -710,6 +736,9 @@ n_over_100_female <-
     CGG >= 100
   ) |>
   nrow()
+
+test_female_cgg_summary <- pval_female_cgg_gp34_v1 |> 
+  summary(N = nrow(v1_usable_cases))
 ```
 
 ```{r}
@@ -722,12 +751,12 @@ plot_permutation_results(
 
 We did not find significant evidence of an overall difference between CGG <100
 and CGG ≥100 among males (p = `r pval_male_cgg_gp34_v1`) 
-(@suppfig-pvd-by-cgg-male). 
+([Supplementary Fig. @suppfig-pvd-by-cgg-male-1]). 
 SCID anxiety disorders and SWM between errors occurred 
 prior to Stage 1 (1st and 2nd in sequence) in males with CGG repeats <100, 
 whereas they occurred between stage 4 and 5 (32nd and 27th in sequence) 
 in males with CGG repeats ≥ 100 
-([Supplementary Fig. @fig-pvd-by-cgg-male-2]). 
+([Supplementary Fig. @suppfig-pvd-by-cgg-male-2]). 
 Postural, 
 resting, 
 and 
@@ -904,7 +933,7 @@ Supplementary material is available at Brain online.
 :::{#tbl-demographics}
 
 ```{r}
-
+#| label: demographics-tbl
 v1_usable |> make_demographics_table(
   vars = c(
     "Age at visit",
@@ -926,12 +955,13 @@ v1_usable |> make_demographics_table(
 :::{#tbl-biomarker-list}
 
 ```{r}
+#| label: biomarkers-tbl
 biomarkers_table |> 
   left_join(
     biomarker_groups |> distinct(biomarker_group, group_color),
     by = c("category" = "biomarker_group")
   ) |> 
-flex_biomarkers_table()
+  flex_biomarkers_table()
 ```
 
 **Symptoms included in analysis.**
@@ -949,7 +979,6 @@ at baseline visit, stratified by sex.
 {{< pagebreak >}}
 
 ::: {#tbl-sg_demos}
-
 
 ```{r}
 set.seed(2)
@@ -1035,11 +1064,7 @@ list(
 
 **Event sequences of FXTAS symptoms stratified by sex.**
 `r compact_fig_caption`
-Permutation test statistic (log-likelihood): 
-`r observed_test_stat_sex |> round(2)`;
-p-value = `r pval_sex_gp34_v1_formatted`.
-(N = `r nrow(v1_usable_cases)`.)
-
+`r test_sex_summary`
 :::
 
 {{< pagebreak >}}
@@ -1077,10 +1102,7 @@ list(
 
 **Positional differences in estimated event sequence between males and females.**
 `r compact_fig_cap2`
-Permutation test statistic (log-likelihood): 
-`r observed_test_stat_sex |> round(2)`;
-p-value = `r pval_sex_gp34_v1_formatted`.
-(N = `r nrow(v1_usable_cases)`.)
+`r test_sex_summary`
 
 
 :::

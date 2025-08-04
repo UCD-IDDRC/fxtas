@@ -53,6 +53,7 @@ plot1
 **Event sequences stratified by sex, for CGG repeats <100.**
 **(A)** `r compact_fig_caption`
 **(B)** Differences in event sequences by sex, for CGG repeats <100.
+`r test_under100_sex_summary`
 
 :::
 
@@ -93,5 +94,6 @@ list(
 **Event sequences stratified by sex, for CGG repeats ≥100.**
 **(A)** `r compact_fig_caption`
 **(B)** Differences in event sequences by sex, for CGG repeats ≥100.
+`r test_over100_sex_summary`
 :::
 

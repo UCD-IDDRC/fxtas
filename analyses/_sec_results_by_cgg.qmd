@@ -29,8 +29,9 @@ When we fitted models for subgroup analyses by sex and CGG repeats level,
 the models for males showed the same patterns described above,
 except for head tremor
 (we found no difference in head tremor onset between CGG levels).
-@suppfig-pvd-by-cgg-male
+[Supplementary Fig. @suppfig-pvd-by-cgg-male-1]
 shows the corresponding stratified models and
+[Supplementary Fig. @suppfig-pvd-by-cgg-male-2]
 compares the estimates of the sequences for these two subgroups.
 
 We did not find statistically significant evidence of
