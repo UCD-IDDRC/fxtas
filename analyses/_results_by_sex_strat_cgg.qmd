@@ -1,10 +1,9 @@
-::: {#suppfig-pvd-by-gender-cgg_under100}
+:::{#suppfig-pvd-by-gender-cgg_under100-1}
 
 ```{r}
-#| label: fig-pvd-by-gender-cgg_under100-1
+#| label: supp-fig-pvd-by-gender-cgg_under100-1
 #| fig-height: !expr pvd_height
 #| fig-width: !expr pvd_width
-#| fig-cap: ""
 
 # compact pvd
 list(
@@ -18,11 +17,19 @@ list(
 
 ```
 
+**Event sequences stratified by sex, for CGG repeats <100.**
+`r compact_fig_caption`
+`r test_under100_sex_summary`
+
+
+:::
+
+:::{#suppfig-pvd-by-gender-cgg_under100-2}
+
 ```{r}
-#| label: fig-pvd-by-gender-cgg_under100-2
+#| label: supp-fig-pvd-by-gender-cgg_under100-2
 #| fig-height: !expr pvd_line_height
 #| fig-width: !expr pvd_line_subfig_width
-#| fig-cap: ""
 
 # lineplot of event sequences
 plot1 <- list(
@@ -50,22 +57,20 @@ plot1
 #                        height = 6.69)
 ```
 
-**Event sequences stratified by sex, for CGG repeats <100.**
-**(A)** `r compact_fig_caption`
-**(B)** Differences in event sequences by sex, for CGG repeats <100.
+**Positional differences in event sequences by sex, for CGG repeats <100.**
+`r compact_fig_cap2`
 `r test_under100_sex_summary`
 
 :::
 
 {{< pagebreak >}}
 
-::: {#suppfig-pvd-by-gender-cgg_over100}
+::: {#suppfig-pvd-by-gender-cgg_over100-1}
 
 ```{r}
-#| label: fig-pvd-by-gender-cgg_over100-1
+#| label: supp-fig-pvd-by-gender-cgg_over100-1
 #| fig-height: !expr pvd_height
 #| fig-width: !expr pvd_width
-#| fig-cap: ""
 
 # compact pvd
 list(
@@ -75,11 +80,17 @@ list(
   plot_compact_pvd(scale_colors = scale_colors1, y_text_size = y_text_size)
 ```
 
+**Event sequences stratified by sex, for CGG repeats ≥100.**
+`r compact_fig_caption`
+`r test_over100_sex_summary`
+:::
+
+:::{#suppfig-pvd-by-gender-cgg_over100-2}
+
 ```{r}
-#| label: fig-pvd-by-gender-cgg_over100-2
+#| label: supp-fig-pvd-by-gender-cgg_over100-2
 #| fig-height: !expr pvd_line_height
 #| fig-width: !expr pvd_line_subfig_width
-#| fig-cap: ""
 
 # lineplot of event sequences
 
@@ -91,9 +102,8 @@ list(
 
 ```
 
-**Event sequences stratified by sex, for CGG repeats ≥100.**
-**(A)** `r compact_fig_caption`
-**(B)** Differences in event sequences by sex, for CGG repeats ≥100.
+**Positional differences in event sequences by sex, for CGG repeats ≥100.**
+`r compact_fig_cap2`
 `r test_over100_sex_summary`
 :::
 

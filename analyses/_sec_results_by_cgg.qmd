@@ -61,6 +61,7 @@ list(
     "CGG &ge; 100:" = fig_over100
   ) |> 
 plot_compact_pvd(
+  scale_colors = scale_colors1,
   y_text_size = y_text_size
 )
 
@@ -92,5 +93,3 @@ Differences in event sequences between CGG repeat sizes.
 
 :::
 
-
-{{< pagebreak >}}

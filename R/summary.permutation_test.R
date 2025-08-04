@@ -21,7 +21,7 @@ summary.permutation_test <- function(
   glue::glue(
     "Permutation test statistic (log-likelihood): ",
     "{test_stat}; ",
-    "p-value = {pval}. ",
-    "(N = {N}.)"
+    "p-value = {pval} ",
+    "(N = {N})."
   )
 }

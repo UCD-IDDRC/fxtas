@@ -1,10 +1,11 @@
 :::{#suppfig-pvd_chosen_subtypes}
 
 ```{r}
-#| fig-height: 7
+#| fig-height: 6.5
 #| fig-width: !expr pvd_width
 #| fig-cap-location: top
 plot_compact_pvd_est2(
+  scale_colors = scale_colors1,
   figs = figs,
   facet_label_prefix = NULL,
   show_uncert = TRUE,

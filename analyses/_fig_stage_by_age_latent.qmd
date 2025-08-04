@@ -20,6 +20,7 @@ stages |>
 
 **Estimated progression stage by age and latent subtype.**
 The blue line is a Locally Estimated Scatterplot Smoothing (LOESS)
-non-parametric regression curve [@cleveland1992local].
+non-parametric regression curve [@cleveland1992local],
+and the gray ribbon is a 95% confidence interval for the LOESS curve.
 {{< include _sec-subtypes-by-age-summary.qmd >}}
 :::

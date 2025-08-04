@@ -141,18 +141,20 @@ outcomes_name_sentence_start <- stringr::str_to_sentence(outcomes_name)
 
 biomarker_text_color_info <- 
   glue::glue(
-    "Text colors indicate {outcomes_name} categories ",
+    "Y-axis label text colors indicate {outcomes_name} categories ",
     "(@tbl-biomarker-list)."
   )
 
 
 compact_fig_caption <- paste0(
-  "The different colors (",
+  "The heatmap colors (",
   color_list |> paste(collapse = ", "),
-  ") indicate the ordinal levels of symptom progression. ",
-  "Color gradient intensity represents the Bayesian posterior probability ",
-  "of the sequence position. ",
-  "The brighter the color, the more probable that the corresponding ",
+  ") indicate the ordinal levels of symptom progression",
+  " (@tbl-biomarker-list). ",
+  "Heatmap color gradient intensity ",
+  "represents the Bayesian posterior probability ",
+  "of the sequence position; ",
+  "the brighter the color, the more probable that the corresponding ",
   outcomes_name,
   " event occurs in that position in the sequence. ",
   biomarker_text_color_info
@@ -664,12 +666,12 @@ we conducted subgroup analyses by CGG repeat size.
 A statistically significant difference between males and females
 was found among those with lower CGG repeats < 100
 (CGG ; p = `r pval_under100_sex_gp34_v1`; 
-@suppfig-pvd-by-gender-cgg_under100),
+@suppfig-pvd-by-gender-cgg_under100-1),
 while a difference between males and females 
 was not statistically significant 
 among those with higher CGG repeats ≥ 100 
 (p = `r pval_over100_sex_gp34_v1`;
-@suppfig-pvd-by-gender-cgg_over100).
+@suppfig-pvd-by-gender-cgg_over100-1).
 Several psychiatric disorders (as assessed by SCID) 
 occurred prior to FXTAS Stage 1
 among females with < 100 CGG repeats,
@@ -1040,7 +1042,10 @@ pvdc_sex <- list(
   "Females:" = fig_females_first
 ) |>
   # plot_compact_pvd_est2()
-  plot_compact_pvd(scale_colors = scale_colors1, y_text_size = y_text_size)
+  plot_compact_pvd(
+    scale_colors = scale_colors1, 
+    y_text_size = y_text_size
+  )
 
 print(pvdc_sex)
 

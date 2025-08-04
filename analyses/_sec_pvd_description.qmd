@@ -10,7 +10,7 @@ cannot be determined by the method we used for this analysis.
 The PVD's color scale indicates the Bayesian posterior probability that
 a particular event (y-axis)
 appears at a particular position along the progression sequence (x-axis).
-The different colors (red, blue, magenta, orange, purple)
+The heatmap colors (red, blue, magenta, orange, purple)
 indicate the ordinal levels of symptom progression.
 Color intensity represents the Bayesian posterior probability 
 of sequence position.

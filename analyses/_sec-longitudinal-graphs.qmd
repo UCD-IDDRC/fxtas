@@ -53,7 +53,7 @@ events_name <- "symptomatic events"
 outcomes_name_sentence_start <- stringr::str_to_sentence(outcomes_name)
 
 compact_fig_caption <- paste(
-  "The different colors (",
+  "The heatmap colors (",
   color_list |> paste(collapse = ", "),
   "indicate the ordinal levels of symptom progression.",
   "Color gradient intensity represents the Bayesian posterior probability",

@@ -20,7 +20,7 @@ color_list <- glue::glue(
 )
 outcomes_name <- "symptom"
 compact_fig_caption <- paste0(
-  "The different colors (",
+  "The heatmap colors (",
   color_list |> paste(collapse = ", "),
   ") indicate the ordinal levels of symptom progression. ",
   "Color gradient intensity represents the Bayesian posterior probability ",
