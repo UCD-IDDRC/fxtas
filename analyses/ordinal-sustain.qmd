@@ -120,13 +120,13 @@ plot_python <- TRUE
 fig_size <- c(20, 10) # passed to pySuStaIn
 
 # max size: 170 mm x 210 mm = 6.69 x 8.27 inches 
-pvd_height <- 6.0
+pvd_height <- 6.5
 pvd_width <- 6
 pvd_subfig_width <- pvd_width - 1
 pvd_line_height <- 8
 pvd_line_width <- 6.5
 pvd_line_subfig_width <- pvd_line_width
-lineplot_text_size <- 3
+lineplot_text_size <- 4
 size.y <- 8 # nolint: object_name_linter
 y_text_size <- 10
 N_startpoints <- 10L # nolint: object_name_linter
