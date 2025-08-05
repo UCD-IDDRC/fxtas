@@ -1,10 +1,10 @@
 Abbreviation,Meaning,Context
-ADLs,Activities of daily living,
+ADLs,Activities of Daily Living,
 BDS-2,Behavior Dyscontrol Scale - Second Edition,
 CANTAB,Cambridge Neuropsychological Test Automated Battery,
-CC,Corpus Callosum,
+CC,Corpus Callosum, MRI
 DSM,Diagnostic and Statistical Manual of Mental Disorders,
-EF,Executive function
+EF,Executive function,
 FXTAS,Fragile X-associated tremor/ataxia syndrome,
 GP,Genotype-Phenotype Study in Fragile X Families,
 ICARS,International Cooperative Ataxia Rating Scale,
@@ -20,5 +20,5 @@ SuStaIn,Subtype and Stage Inference,
 SWM,Spatial Working Memory,CANTAB instrument
 TRAX,Trajectories and Markers of Neurodegeneration in Fragile X Premutation Carriers study,
 UPDRS,Unified Parkinson’s Disease Rating Scale,
-WM,White Matter,
+WM,White Matter, MRI
 WAIS IV,Wechsler Adult Intelligence Scale (Fourth Edition),
