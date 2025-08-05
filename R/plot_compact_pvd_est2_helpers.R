@@ -1,12 +1,16 @@
 #' @title data prep function
 #' @dev
-tmp_data_prep <- function(x, show_uncert) {
+tmp_data_prep <- function(x, show_uncert,  biomarker_var = "biomarker_label") {
+
+
+
   if (show_uncert) {
     tmp <- x$data
 
+
     event_order <- tmp |>
       dplyr::select(all_of(c(
-        "row number and name", "event name", "biomarker"
+        "row number and name", "event name", biomarker_var
       ))) |>
       dplyr::mutate(
         Order =
@@ -15,14 +19,14 @@ tmp_data_prep <- function(x, show_uncert) {
       ) |>
       dplyr::mutate(
         `event order` = min(.data$Order),
-        .by = "biomarker"
+        .by = biomarker_var
       ) |>
       # dplyr::select(
       #   biomarker, position
       # ) |>
       arrange(across(all_of("event order"))) |>
       dplyr::mutate(
-        biomarker = .data$biomarker |>
+        biomarker = .data[[biomarker_var]] |>
           tools::toTitleCase() |>
           Hmisc::capitalize() |>
           forcats::fct_inorder()
@@ -38,10 +42,11 @@ tmp_data_prep <- function(x, show_uncert) {
     # update biomarker levels in tmp
     plot_dataset <- tmp |>
       # convert biomarker to factor with event order levels
-      dplyr::mutate(biomarker = .data$biomarker |>
+      dplyr::mutate(biomarker = .data[[biomarker_var]] |>
                       tools::toTitleCase() |>
                       Hmisc::capitalize() |>
-                      factor(levels = biomarker_order)) |>
+                      factor(levels = biomarker_order)
+      ) |>
       # arrange by biomarker levels
       arrange(across(all_of("biomarker"))) |>
       # create biomarker labels for figure
@@ -58,9 +63,7 @@ tmp_data_prep <- function(x, show_uncert) {
           "level"
         )
       ))
-  }
-
-  if (!show_uncert) {
+  } else {
     tmp <- x$data
     # determine biomarker event order
     event_order <- tmp |>
@@ -69,7 +72,7 @@ tmp_data_prep <- function(x, show_uncert) {
           c(
             "row number and name",
             "event name",
-            "biomarker"
+            biomarker_var
           )
         )
       ) |>
@@ -81,13 +84,13 @@ tmp_data_prep <- function(x, show_uncert) {
       ) |>
       dplyr::mutate(
         `event order` = min(.data$Order),
-        .by = all_of("biomarker")
+        .by = all_of(biomarker_var)
       ) |>
       # dplyr::select(
       #   biomarker, position
       # ) |>
       arrange(across(all_of("event order"))) |>
-      dplyr::mutate(biomarker = .data$biomarker |>
+      dplyr::mutate(biomarker = .data[[biomarker_var]] |>
                       tools::toTitleCase() |>
                       Hmisc::capitalize() |>
                       forcats::fct_inorder()) |>
