@@ -4,6 +4,7 @@
 ```{r}
 #| label: graph_stage_by_age
 #| fig-width: 6
+#| fig-height: 3.8
 stages <-
   results_cv_max$subtype_and_stage_table |>
   dplyr::mutate(
