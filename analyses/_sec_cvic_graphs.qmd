@@ -7,7 +7,10 @@ sustain_output_CV$CVIC |> plot_CVIC()
 ```
 
 **Selection criteria for number of latent subtypes:**
-cross-validation information criterion (CVIC)
+**cross-validation information criterion (CVIC)**.
+Each data point represents the estimated CVIC (y-axis)
+for the model fit with a given number of latent subtypes (x-axis)
+on the full data set (N = `r nrow(v1_usable)`).
 
 :::
 
@@ -22,7 +25,9 @@ sustain_output_CV$loglike_matrix |> plot_cv_loglik(y_text_size = y_text_size)
 ```
 
 **Selection criteria for number of latent subtypes:**
-test set log-likelihood across cross-validation folds 
-(Out-Of-Fold Log-Likelihood criterion, OOFLL)
-
+**Out-Of-Fold Log-Likelihood criterion (OOFLL)**.
+Each data point represents the OOFLL statistic
+(i.e., the test set log-likelihood across cross-validation folds)
+for the Ordinal SuStaIn model fit with a given number of latent subtypes
+on the full data set (N = `r nrow(v1_usable)`).
 :::

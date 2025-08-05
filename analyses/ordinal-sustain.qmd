@@ -720,8 +720,11 @@ v1_usable |> make_demographics_table(
 ```{r}
 #| label: biomarkers-tbl
 biomarkers_table |> 
-  flex_biomarkers_table(width_biomarkers = 1.7,
-                        width_levels = 1.5)
+  flex_biomarkers_table(
+    width_biomarkers = 1.7,
+    width_levels = 1.5,
+    use_group_colors = FALSE
+  )
 ```
 
 **Symptoms included in analysis.**

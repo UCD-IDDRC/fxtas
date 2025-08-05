@@ -24,7 +24,7 @@ graph_stage_by_age <- function(data,
       if ("sex" %in% names(data)) aes(col = .data$sex, shape = .data$sex)
     ) +
     geom_smooth(
-      aes(linetype = "LOESS"),
+      aes(linetype = "LOESS curve (with 95% CI)"),
       method = "loess",
       formula = y ~ x
     ) +

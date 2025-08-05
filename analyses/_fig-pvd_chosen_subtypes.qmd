@@ -13,8 +13,12 @@ plot_compact_pvd_est2(
   y_text_size = 6,
   title_size = 8
 )
+n_s_text <- n_s_selected |> xfun::numbers_to_words()
 ```
 
-**Event sequences for `r n_s_selected` latent subtypes.** `r compact_fig_caption`
+**Event sequences for `r n_s_text` latent subtypes.** 
+`r compact_fig_caption`
+@tbl-sg_demos includes exploratory hypothesis test results
+for differences in demographic characteristics by latent subtype.
 
 :::
