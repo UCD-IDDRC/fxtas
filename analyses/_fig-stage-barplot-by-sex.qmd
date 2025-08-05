@@ -13,8 +13,6 @@ results_list_by_sex |> stage_barplot()
 ```
 
 **Distribution of estimated disease stage, stratified by sex**.
-Red horizontal line indicates minimum sample size
-recommended for the Ordinal SuStaIn algorithm,
-three observations per stage [@young2021ordinal].
+{{< include _stage-barplot-text.qmd >}}
 
 :::

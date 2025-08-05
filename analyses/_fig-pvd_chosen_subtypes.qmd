@@ -2,7 +2,7 @@
 
 ```{r}
 #| label: supp-fig-pvd_chosen_subtypes
-#| fig-height: 7
+#| fig-height: 6.5
 #| fig-width: !expr pvd_width
 #| fig-cap-location: top
 pvd_subtypes_compact <- plot_compact_pvd_est2(
@@ -11,7 +11,7 @@ pvd_subtypes_compact <- plot_compact_pvd_est2(
   facet_label_prefix = NULL,
   show_uncert = TRUE,
   tile_height = 1,
-  y_text_size = 7,
+  y_text_size = 6,
   title_size = 6
 )
 
@@ -21,7 +21,7 @@ ggsave(
   "analyses/pvd_subtypes_compact.png", 
   plot = pvd_subtypes_compact, 
   device = "png", 
-  width = 6, height = 7, units = "in", 
+  width = pvd_width, height = 6.5, units = "in", 
   dpi = 600
 )
 # max size: 170 mm x 210 mm = 6.69 x 8.27 inches 

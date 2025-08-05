@@ -1,0 +1,5 @@
+Red horizontal line indicates minimum sample size
+recommended for the Ordinal SuStaIn algorithm,
+three observations per stage [@young2021ordinal].
+Bar heights represent the number of premutation carriers (y-axis)
+clustered into each combination of subtype (panel) and stage (x-axis).

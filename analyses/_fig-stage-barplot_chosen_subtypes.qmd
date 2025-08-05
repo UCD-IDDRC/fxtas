@@ -11,8 +11,6 @@ results_cv_max$subtype_and_stage_table |>
 ```
 
 **Distribution of estimated disease stage, stratified by latent subtype**. 
-Red horizontal line indicates minimum sample size
-recommended for the Ordinal SuStaIn algorithm,
-three observations per stage [@young2021ordinal].
+{{< include _stage-barplot-text.qmd >}}
 
 :::
