@@ -14,6 +14,8 @@ plot_compact_pvd_est2(
   scale_colors = c("red", "blue", "magenta", "darkgreen", "purple4"),
   rel_heights = c(1, 0.1),
   facet_label_prefix = names(figs),
+  facet_labels = compact_pvd_facet_labels(figs = figs, facet_label_prefix =
+    facet_label_prefix),
   ...
 )
 }

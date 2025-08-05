@@ -2,7 +2,8 @@
 #'
 #' @param figs a [list] of PVDs
 #' @param facet_label_prefix a [character] string (length 1)
-
+#' @returns a [list] of labels
+#' @export
 compact_pvd_facet_labels <- function(
   figs,
   facet_label_prefix

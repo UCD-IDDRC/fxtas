@@ -3,6 +3,7 @@
 #' @param show_uncert Show the uncertainty in the sequential order. Logical.
 #' @param tile_width todo
 #' @param rel_heights relative heights of the plot and the legend
+#' @param facet_labels facet labels
 #' @param ... arguments passed to `tmp_func()`
 #' @export
 #' @example inst/examples/exm-plot_compact_pvd_est2.R
@@ -17,6 +18,10 @@ plot_compact_pvd_est2 <- function(
     scale_colors = c("red", "blue", "magenta", "darkgreen", "purple4"),
     rel_heights = c(1, 0.1),
     facet_label_prefix = names(figs),
+    facet_labels = compact_pvd_facet_labels(
+      figs = figs,
+      facet_label_prefix = facet_label_prefix
+    ),
     ...) {
   # prepare data from figure list
   #   unlike the other functions, the data will remain in a list, not combined
@@ -33,10 +38,7 @@ plot_compact_pvd_est2 <- function(
   }
 
   # add the figure title as list names
-  names(figs_plot) <- compact_pvd_facet_labels(
-    figs = figs,
-    facet_label_prefix = facet_label_prefix
-  )
+  names(figs_plot) <- facet_labels
 
   # create plot for each panel
   p <- lapply(

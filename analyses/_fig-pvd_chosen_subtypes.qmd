@@ -5,14 +5,31 @@
 #| fig-height: 7
 #| fig-width: !expr pvd_width
 #| fig-cap-location: top
+
+
+labels1 <- compact_pvd_facet_labels(
+    figs = figs_n_s_selected,
+    facet_label_prefix = NULL
+  ) |> unlist()
+
+labels2 <- 
+  paste0(
+     LETTERS[seq_along(figs_n_s_selected)],
+     ": ",
+     labels1
+  )
+
+labels3 <- paste0(labels2, collapse = ". ")
+
 pvd_subtypes_compact <- plot_compact_pvd_est2(
   scale_colors = scale_colors1,
   figs = figs_n_s_selected,
-  facet_label_prefix = NULL,
+  facet_labels = LETTERS[seq_along(figs_n_s_selected)],
   show_uncert = TRUE,
   tile_height = 1,
   y_text_size = 8,
-  title_size = 6
+  title_size = 8,
+  title_hjust = 0
 )
 
 pvd_subtypes_compact
@@ -32,5 +49,5 @@ n_s_text <- n_s_selected |> xfun::numbers_to_words()
 `r compact_fig_caption`
 @tbl-sg_demos includes exploratory hypothesis test results
 for differences in demographic characteristics by latent subtype.
-
+`r labels2`.
 :::

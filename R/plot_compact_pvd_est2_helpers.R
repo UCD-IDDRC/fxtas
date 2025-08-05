@@ -166,7 +166,8 @@ tmp_func <- function(plot_dataset,
                      tile_width,
                      y_text_size,
                      legend.position, # nolint: object_name_linter
-                     title_size = y_text_size) {
+                     title_size = y_text_size,
+                     title_hjust = 0.0) {
   # process color scales
   level2 <- colorRampPalette(c("white", scale_colors[1])) # level 2
   level3 <- colorRampPalette(c("white", scale_colors[2])) # level 3
@@ -322,7 +323,10 @@ tmp_func <- function(plot_dataset,
       axis.title.x = ggtext::element_markdown(size = title_size),
       axis.text.y = ggtext::element_markdown(size = y_text_size),
       # allow markdown for coloring
-      plot.title = ggtext::element_markdown(hjust = 0.5, size = title_size)
+      plot.title = ggtext::element_markdown(
+        hjust = title_hjust,
+        size = title_size
+      )
     )
 
   return(fig)
