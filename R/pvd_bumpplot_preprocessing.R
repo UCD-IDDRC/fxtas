@@ -19,18 +19,12 @@ pvd_bumpplot_preprocessing <- function(
         .data$`row number and name` |>
         stringi::stri_extract_first_regex("[0-9]+") |>
         as.integer(),
-      # right justify left facet, left justify right facet
-      # hjust = ifelse(
-      #   (.data$facet == facet_labels[1] | .data$facet == facet_labels[3]),
-      #   1,
-      #   0
-      # ),
       # made FXTAS Stage label bold
       `event label` = ifelse(
         .data$biomarker == "FXTAS Stage",
         paste0("<b>", .data$`event label`, "</b>"),
         as.character(.data$`event label`)  |>
-        collapse_WM()
+          collapse_WM()
       )
     ) |>
     dplyr::select(
@@ -57,9 +51,7 @@ pvd_bumpplot_preprocessing <- function(
         1
       ),
       background = .data$highlight_color |> tidyr::replace_na("#FFF")
-    ) -> temp
-
-  temp |>
+    ) |>
     dplyr::left_join(
       x = _,
       y  = data.frame(
