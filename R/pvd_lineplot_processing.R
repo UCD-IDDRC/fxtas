@@ -16,6 +16,7 @@ pvd_lineplot_preprocessing <- function(
         1,
         0
       ),
+      `event label` = .data$`event label` |> collapse_WM(),
       # made FXTAS Stage label bold
       `event label` = ifelse(
         .data$biomarker == "FXTAS Stage",

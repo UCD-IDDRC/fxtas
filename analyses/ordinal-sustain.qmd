@@ -123,10 +123,10 @@ fig_size <- c(20, 10) # passed to pySuStaIn
 pvd_height <- 6.5
 pvd_width <- 6
 pvd_subfig_width <- pvd_width - 1
-pvd_line_height <- 8
-pvd_line_width <- 6.5
+pvd_line_height <- 7
+pvd_line_width <- 6.69
 pvd_line_subfig_width <- pvd_line_width
-lineplot_text_size <- 3
+lineplot_text_size <- 2.75
 size.y <- 8 # nolint: object_name_linter
 y_text_size <- 10
 N_startpoints <- 10L # nolint: object_name_linter
@@ -416,26 +416,23 @@ results_males_first = extract_results_from_pickle(
   output_folder = output_folder
 )
 
-fig_females_first <- extract_figs_from_pickle(
+fig_females_first <- results_females_first |> 
+  plot_positional_var(
   biomarker_groups = biomarker_groups,
   biomarker_levels = biomarker_levels,
   use_rds = use_rds,
   size.y = size.y,
   n_s = 1,
-  rda_filename = "data.RData",
-  dataset_name = "females",
-  output_folder = output_folder
+  use_labels = TRUE
 )
 
-fig_males_first <- extract_figs_from_pickle(
+fig_males_first <- results_males_first |> 
+  plot_positional_var(
   biomarker_groups = biomarker_groups,
   biomarker_levels = biomarker_levels,
   use_rds = use_rds,
   size.y = size.y,
   n_s = 1,
-  rda_filename = "data.RData",
-  dataset_name = "males",
-  output_folder = output_folder,
   use_labels = TRUE
 )
 
@@ -842,7 +839,7 @@ list(
 #| fig-height: !expr pvd_line_height
 #| fig-width: !expr pvd_line_width
 
-list(
+lineplot_by_sex <- list(
   "Males," = fig_males_first,
   "Females," = fig_females_first
 ) |>
@@ -865,12 +862,21 @@ list(
     ),
     highlight_color = "yellow"
   )
+
+lineplot_by_sex
+
+# lineplot_by_sex +
+#  ggview::canvas(
+#    width = pvd_line_width, 
+#    height = pvd_line_height, 
+#    units = "in", 
+#    dpi = 600
+#  )
 ```
 
 **Positional differences in estimated event sequence between males and females.**
 `r compact_fig_cap2`
 `r test_sex_summary`
-
 
 :::
 
