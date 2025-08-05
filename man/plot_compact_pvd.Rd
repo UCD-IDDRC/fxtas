@@ -33,6 +33,7 @@ plot_compact_pvd(
   \describe{
     \item{\code{biomarker_order}}{a \link{character} vector specifying the
 order of biomarkers to use}
+    \item{\code{biomarker_var}}{either "biomarker" or "biomarker_label"}
   }}
 }
 \value{

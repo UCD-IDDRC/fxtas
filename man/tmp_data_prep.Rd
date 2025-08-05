@@ -4,7 +4,7 @@
 \alias{tmp_data_prep}
 \title{data prep function}
 \usage{
-tmp_data_prep(x, show_uncert)
+tmp_data_prep(x, show_uncert, biomarker_var = "biomarker_label")
 }
 \description{
 data prep function

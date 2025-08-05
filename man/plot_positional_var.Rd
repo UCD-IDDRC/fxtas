@@ -35,7 +35,7 @@ plot_positional_var(
   save_path = NULL,
   save_kwargs = NULL,
   synchronize_y_axes = FALSE,
-  use_labels = FALSE,
+  use_labels = TRUE,
   ...
 )
 }

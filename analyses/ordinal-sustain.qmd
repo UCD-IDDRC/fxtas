@@ -435,7 +435,8 @@ fig_males_first <- extract_figs_from_pickle(
   n_s = 1,
   rda_filename = "data.RData",
   dataset_name = "males",
-  output_folder = output_folder
+  output_folder = output_folder,
+  use_labels = TRUE
 )
 
 fig_both_first <- extract_figs_from_pickle(
@@ -686,7 +687,7 @@ The authors report no competing interests.
 
 # Supplementary material {.unnumbered}
 
-Supplementary material is available at Brain online.
+Supplementary material is available at Brain Communications online.
 
 # References {.unnumbered}
 

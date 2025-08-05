@@ -72,7 +72,7 @@ plot_positional_var <- function(
     save_path = NULL,
     save_kwargs = NULL,
     synchronize_y_axes = FALSE,
-    use_labels = FALSE,
+    use_labels = TRUE,
     ...) {
   # Get the number of subtypes
   N_S <- dim(samples_sequence)[1]
@@ -248,6 +248,7 @@ plot_positional_var <- function(
 
   figs <- figs |>
     structure(
+      biomarker_labels = biomarker_labels,
       biomarker_event_names = biomarker_event_names
     )
 
