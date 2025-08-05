@@ -119,6 +119,7 @@ use_rds <- !rerun
 plot_python <- TRUE
 fig_size <- c(20, 10) # passed to pySuStaIn
 
+# max size: 170 mm x 210 mm = 6.69 x 8.27 inches 
 pvd_height <- 5.5
 pvd_width <- 6
 pvd_subfig_width <- pvd_width - 1
