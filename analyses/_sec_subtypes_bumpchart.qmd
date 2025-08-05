@@ -1,4 +1,4 @@
-::: {#fig-pvd_chosen_subtypes_bumpplot}
+::: {#fig-pvd_chosen_subtypes_bumpplot custom-style="Caption"}
 
 ```{r}
 #| fig-height: 5.2

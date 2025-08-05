@@ -1,4 +1,4 @@
-::: {#suppfig-pvd_chosen_subtypes_linegraphs}
+::: {#suppfig-pvd_chosen_subtypes_linegraphs custom-style="Caption"}
 
 ```{r}
 #| label: fig-pvd_chosen_subtypes_linegraphs-1

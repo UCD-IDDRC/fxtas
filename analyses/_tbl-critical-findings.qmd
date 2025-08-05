@@ -1,4 +1,4 @@
-:::{#tbl-critical-findings}
+:::{#tbl-critical-findings custom-style="Caption"}
 
 ```{r}
 "analyses/critical-findings.csv" |>

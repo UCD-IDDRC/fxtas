@@ -1,4 +1,4 @@
-::: {#tbl-abbrevs}
+::: {#tbl-abbrevs custom-style="Caption"}
 
 ```{r}
 read.csv("analyses/abbreviations.csv") |> 

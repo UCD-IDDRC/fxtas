@@ -50,7 +50,7 @@ the available data included only `r n_over_100_female` females with CGG ≥100.
 
 {{< pagebreak >}}
 
-::: {#suppfig-pvd-by-cgg}
+::: {#suppfig-pvd-by-cgg custom-style="Caption"}
 
 ```{r}
 #| fig-height: !expr pvd_height
@@ -75,7 +75,7 @@ plot_compact_pvd(
 
 {{< pagebreak >}}
 
-::: {#suppfig-diff-by-cgg}
+::: {#suppfig-diff-by-cgg custom-style="Caption"}
 
 ```{r}
 #| fig-height: !expr pvd_line_height

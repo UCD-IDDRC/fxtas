@@ -1,5 +1,5 @@
 
-::: {#suppfig-pvd-by-cgg-male-1}
+::: {#suppfig-pvd-by-cgg-male-1 custom-style="Caption"}
 
 ```{r}
 #| fig-height: !expr pvd_height
@@ -24,7 +24,7 @@ plot_compact_pvd(
 
 {{< pagebreak >}}
 
-:::{#suppfig-pvd-by-cgg-male-2}
+:::{#suppfig-pvd-by-cgg-male-2 custom-style="Caption"}
 
 ```{r}
 #| fig-height: !expr pvd_line_height
@@ -46,7 +46,7 @@ list(
 
 {{< pagebreak >}}
 
-::: {#suppfig-pvd-by-cgg-female-1}
+::: {#suppfig-pvd-by-cgg-female-1 custom-style="Caption"}
 
 ```{r}
 #| label: supp-fig-pvd-by-cgg-female-1
@@ -70,7 +70,8 @@ list(
 
 {{< pagebreak >}}
 
-:::{#suppfig-pvd-by-cgg-female-2}
+:::{#suppfig-pvd-by-cgg-female-2 custom-style="Caption"}
+
 ```{r}
 #| label: supp-fig-pvd-by-cgg-female-2
 #| fig-height: !expr pvd_line_height

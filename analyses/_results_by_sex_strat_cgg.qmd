@@ -1,4 +1,4 @@
-:::{#suppfig-pvd-by-gender-cgg_under100-1}
+:::{#suppfig-pvd-by-gender-cgg_under100-1 custom-style="Caption"}
 
 ```{r}
 #| label: supp-fig-pvd-by-gender-cgg_under100-1
@@ -24,7 +24,7 @@ list(
 
 :::
 
-:::{#suppfig-pvd-by-gender-cgg_under100-2}
+:::{#suppfig-pvd-by-gender-cgg_under100-2 custom-style="Caption"}
 
 ```{r}
 #| label: supp-fig-pvd-by-gender-cgg_under100-2
@@ -65,7 +65,7 @@ plot1
 
 {{< pagebreak >}}
 
-::: {#suppfig-pvd-by-gender-cgg_over100-1}
+::: {#suppfig-pvd-by-gender-cgg_over100-1 custom-style="Caption"}
 
 ```{r}
 #| label: supp-fig-pvd-by-gender-cgg_over100-1
@@ -85,7 +85,7 @@ list(
 `r test_over100_sex_summary`
 :::
 
-:::{#suppfig-pvd-by-gender-cgg_over100-2}
+:::{#suppfig-pvd-by-gender-cgg_over100-2 custom-style="Caption"}
 
 ```{r}
 #| label: supp-fig-pvd-by-gender-cgg_over100-2

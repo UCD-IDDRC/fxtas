@@ -1,5 +1,5 @@
 
-::: {#suppfig-stage-barplot_chosen_subtypes}
+::: {#suppfig-stage-barplot_chosen_subtypes custom-style="Caption"}
 
 ```{r}
 #| label: stage-barplot-by-subtype

@@ -88,7 +88,7 @@ width1 = .85
 ```
 
 
-::: {#supptbl-tremors}
+::: {#supptbl-tremors custom-style="Caption"}
 
 ```{r}
 #| label: tab-tremors
@@ -141,7 +141,7 @@ table1(
 
 :::
 
-::: {#supptbl-head-tremors}
+::: {#supptbl-head-tremors custom-style="Caption"}
 
 ```{r}
 vars <- c(
@@ -175,7 +175,7 @@ v1_usable_capital_labels |>
 
 {{< pagebreak >}}
 
-::: {#supptbl-ataxia-by-cgg}
+::: {#supptbl-ataxia-by-cgg custom-style="Caption"}
 
 ```{r}
 vars <- c(
@@ -202,7 +202,7 @@ table1(
 
 :::
 
-::: {#supptbl-parkinsons-by-cgg}
+::: {#supptbl-parkinsons-by-cgg custom-style="Caption"}
 
 ```{r}
 pk_vars <- c(
@@ -240,7 +240,7 @@ table1(
 
 {{< include _sec_stage_vs_pk_ft.qmd >}}
 
-::: {#supptbl-fxtas-stage-by-cgg}
+::: {#supptbl-fxtas-stage-by-cgg custom-style="Caption"}
 
 ```{r}
 vars <- c(
@@ -264,7 +264,7 @@ table1(
 
 :::
 
-::: {#supptbl-bds2}
+::: {#supptbl-bds2 custom-style="Caption"}
 
 ```{r}
 vars <- c("BDS-2 Total Score", "BDS-2 Total Score*")
@@ -308,7 +308,7 @@ table1(
 
 {{< pagebreak >}}
 
-::: {#supptbl-mmse}
+::: {#supptbl-mmse custom-style="Caption"}
 
 ```{r}
 # vars = grep(
@@ -346,7 +346,7 @@ table1(
 
 :::
 
-::: {#supptbl-scid}
+::: {#supptbl-scid custom-style="Caption"}
 
 ```{r}
 vars <- scid_vars_for_table1()
@@ -371,7 +371,7 @@ table1(
 
 {{< pagebreak >}}
 
-::: {#supptbl-mood-disorders}
+::: {#supptbl-mood-disorders custom-style="Caption"}
 
 ```{r}
 library(rex)
@@ -412,7 +412,7 @@ table1(
 
 {{< pagebreak >}}
 
-::: {#supptbl-mri}
+::: {#supptbl-mri custom-style="Caption"}
 
 ```{r}
 vars <- c(
@@ -451,7 +451,7 @@ table1(
 
 {{< pagebreak >}}
 
-::: {#supptbl-cantab}
+::: {#supptbl-cantab custom-style="Caption"}
 
 ```{r}
 # table1(na.is.category = FALSE, overall = FALSE,
@@ -529,7 +529,7 @@ RTI = Reaction Time.
 
 {{< pagebreak >}}
 
-::: {#supptbl-autoimmune}
+::: {#supptbl-autoimmune custom-style="Caption"}
 
 ```{r}
 vars <- c(

@@ -1,4 +1,4 @@
-:::{#suppfig-pvd_chosen_subtypes}
+:::{#suppfig-pvd_chosen_subtypes custom-style="Caption"}
 
 ```{r}
 #| label: supp-fig-pvd_chosen_subtypes

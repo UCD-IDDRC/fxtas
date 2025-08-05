@@ -1,4 +1,4 @@
-::: {#suppfig-mcmc-loglik}
+::: {#suppfig-mcmc-loglik custom-style="Caption"}
 
 ```{r}
 #| eval: !expr fit_models

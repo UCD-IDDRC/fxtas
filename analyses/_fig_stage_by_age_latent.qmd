@@ -1,5 +1,5 @@
 
-::: {#suppfig-stage-by-age}
+::: {#suppfig-stage-by-age custom-style="Caption"}
 
 ```{r}
 #| label: graph_stage_by_age

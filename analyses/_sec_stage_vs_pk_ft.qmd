@@ -1,4 +1,4 @@
-::: {#supptbl-stage-vs-pk-ft}
+::: {#supptbl-stage-vs-pk-ft custom-style="Caption"}
 
 ```{r}
 v1_usable_cases |>

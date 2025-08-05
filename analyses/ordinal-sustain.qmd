@@ -143,7 +143,7 @@ outcomes_name_sentence_start <- stringr::str_to_sentence(outcomes_name)
 
 biomarker_text_color_info <- 
   glue::glue(
-    "Y-axis label text colors indicate {outcomes_name} categories ",
+    "Label text colors indicate {outcomes_name} categories ",
     "(@tbl-biomarker-list)."
   )
 
@@ -171,13 +171,14 @@ compact_fig_cap2 <- glue::glue(
   "between the left-hand subgroup and the right-hand subgroup.\n",
   '[{{names(lineplot_direction_colors)[4]}}]{color="{{lineplot_direction_colors[4]}}"}',
   " lines indicate {{outcomes_name}}s that moved to earlier positions.\n",
-  '[{{names(lineplot_direction_colors)[3]}}]{color="{{lineplot_direction_colors[3]}}"}',
+  '[{{names(lineplot_direction_colors)[3]}}]{color="gray"}',
   " lines indicate {{outcomes_name}}s that did not change positions.\n",
   '[{{names(lineplot_direction_colors)[1]}}]{color="{{lineplot_direction_colors[1]}}"}',
   " lines indicate FXTAS stages.\n",
   "Line opacity levels indicate the number of positions changed ",
   "(higher opacity represents more positions changed).\n",
   biomarker_text_color_info,
+  "\nYellow highlights indicate symptoms with clinically-significant positional differences between subgroups.",
   .open = "{{",
   .close = "}}"
 )
@@ -694,7 +695,7 @@ Supplementary material is available at Brain online.
 
 {{< pagebreak >}}
 
-:::{#tbl-demographics}
+:::{#tbl-demographics custom-style="Caption"}
 
 ```{r}
 #| label: demographics-tbl
@@ -716,7 +717,7 @@ v1_usable |> make_demographics_table(
 
 {{< pagebreak >}}
 
-:::{#tbl-biomarker-list}
+:::{#tbl-biomarker-list custom-style="Caption"}
 
 ```{r}
 #| label: biomarkers-tbl
@@ -742,7 +743,7 @@ at baseline visit, stratified by sex.
 
 {{< pagebreak >}}
 
-::: {#tbl-sg_demos}
+::: {#tbl-sg_demos custom-style="Caption"}
 
 ```{r}
 set.seed(2)
@@ -792,7 +793,7 @@ and were excluded from this table.
 
 {{< pagebreak >}}
 
-:::{#fig-first-only-pvd}
+:::{#fig-first-only-pvd custom-style="Caption"}
 
 ```{r}
 #| fig-height: !expr pvd_height
@@ -836,7 +837,7 @@ list(
 
 {{< pagebreak >}}
 
-:::{#fig-first-only-diffs}
+:::{#fig-first-only-diffs custom-style="Caption"}
 
 ```{r}
 #| fig-height: !expr pvd_line_height

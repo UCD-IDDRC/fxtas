@@ -1,4 +1,4 @@
-:::{#suppfig-cvic-1}
+:::{#suppfig-cvic-1 custom-style="Caption"}
 
 ```{r}
 #| eval: !expr fit_models
@@ -16,7 +16,7 @@ on the full data set (N = `r nrow(v1_usable_cases)`).
 
 {{< pagebreak >}}
 
-:::{#suppfig-cvic-2}
+:::{#suppfig-cvic-2 custom-style="Caption"}
 
 ```{r}
 #| eval: !expr fit_models

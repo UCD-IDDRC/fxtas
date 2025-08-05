@@ -2,7 +2,15 @@ something
 
 ::: landscape
 
-something else
+:::{#fig-one custom-style="Caption"}
+
+```{r}
+plot(1:10)
+```
+
+this is a caption
+
+:::
 
 :::
 

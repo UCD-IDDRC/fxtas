@@ -1,4 +1,4 @@
-:::{#suppfig-stage-barplot-by-sex}
+:::{#suppfig-stage-barplot-by-sex custom-style="Caption"}
 
 ```{r}
 #| label: stage-barplot-by-sex
