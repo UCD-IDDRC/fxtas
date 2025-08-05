@@ -164,7 +164,8 @@ tmp_func <- function(plot_dataset,
                      scale_colors,
                      tile_height,
                      tile_width,
-                     y_text_size,
+                     x_axis_title_size = 9,
+                     y_text_size = 9,
                      legend.position, # nolint: object_name_linter
                      title_size = y_text_size,
                      title_hjust = 0.5) {
@@ -320,7 +321,7 @@ tmp_func <- function(plot_dataset,
       legend.justification = ,
       legend.margin = ggplot2::margin(0, 0.15, 0, -0.45, "cm"),
       axis.title.y = ggplot2::element_blank(),
-      axis.title.x = ggtext::element_markdown(size = title_size),
+      axis.title.x = ggtext::element_markdown(size = x_axis_title_size),
       axis.text.y = ggtext::element_markdown(size = y_text_size),
       # allow markdown for coloring
       plot.title = ggtext::element_markdown(

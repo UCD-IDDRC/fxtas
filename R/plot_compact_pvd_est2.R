@@ -4,6 +4,7 @@
 #' @param tile_width todo
 #' @param rel_heights relative heights of the plot and the legend
 #' @param facet_labels facet labels
+#' @param facet_label_size [integer]: font size for cowplot facet labels
 #' @param vjust vjust for cowplot labels
 #' @param ... arguments passed to `tmp_func()`
 #' @export
@@ -23,7 +24,9 @@ plot_compact_pvd_est2 <- function(
       figs = figs,
       facet_label_prefix = facet_label_prefix
     ),
+    facet_label_size = 9,
     vjust = 1.5,
+
     ...) {
   # prepare data from figure list
   #   unlike the other functions, the data will remain in a list, not combined
@@ -69,6 +72,7 @@ plot_compact_pvd_est2 <- function(
     nrow = length(figs) / 2,
     ncol = 2,
     labels = "AUTO",
+    label_size = facet_label_size,
     vjust = vjust
   ) |>
     cowplot::plot_grid(

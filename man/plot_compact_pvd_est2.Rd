@@ -16,6 +16,7 @@ plot_compact_pvd_est2(
   facet_label_prefix = names(figs),
   facet_labels = compact_pvd_facet_labels(figs = figs, facet_label_prefix =
     facet_label_prefix),
+  facet_label_size = 9,
   vjust = 1.5,
   ...
 )
@@ -40,6 +41,8 @@ plot_compact_pvd_est2(
 \item{facet_label_prefix}{todo}
 
 \item{facet_labels}{facet labels}
+
+\item{facet_label_size}{\link{integer}: font size for cowplot facet labels}
 
 \item{vjust}{vjust for cowplot labels}
 

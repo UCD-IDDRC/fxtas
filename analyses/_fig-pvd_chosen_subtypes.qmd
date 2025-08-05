@@ -8,15 +8,15 @@
 
 
 labels1 <- compact_pvd_facet_labels(
-    figs = figs_n_s_selected,
-    facet_label_prefix = NULL
-  ) |> unlist()
+  figs = figs_n_s_selected,
+  facet_label_prefix = NULL
+) |> unlist()
 
 labels2 <- 
   paste0(
-     LETTERS[seq_along(figs_n_s_selected)],
-     ": ",
-     labels1
+    LETTERS[seq_along(figs_n_s_selected)],
+    ": ",
+    labels1
   )
 
 labels3 <- paste0(labels2, collapse = ". ")
@@ -31,10 +31,11 @@ pvd_subtypes_compact <- plot_compact_pvd_est2(
   y_text_size = 8,
   title_size = 5,
   title_hjust = 0.5,
-  vjust = 1
+  vjust = 1.25,
+  x_axis_title_size = 8
 ) 
 
-pvd_subtypes_compact
+
 
 ggsave(
   "analyses/pvd_subtypes_compact.png", 
@@ -44,9 +45,15 @@ ggsave(
   dpi = 600
 )
 
-pvd_subtypes_compact + ggview::canvas(units = "in",
-                       width = pvd_width,
-                       height = 7)
+if (interactive()) {
+  pvd_subtypes_compact + ggview::canvas(
+    units = "in",
+    width = pvd_width,
+    height = 7
+  )
+} else {
+  pvd_subtypes_compact
+}
 
 # max size: 170 mm x 210 mm = 6.69 x 8.27 inches 
 n_s_text <- n_s_selected |> xfun::numbers_to_words()

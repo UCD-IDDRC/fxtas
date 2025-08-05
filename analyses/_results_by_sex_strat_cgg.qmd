@@ -24,6 +24,8 @@ list(
 
 :::
 
+{{< pagebreak >}}
+
 :::{#suppfig-pvd-by-gender-cgg_under100-2 custom-style="Caption"}
 
 ```{r}
