@@ -167,7 +167,7 @@ tmp_func <- function(plot_dataset,
                      y_text_size,
                      legend.position, # nolint: object_name_linter
                      title_size = y_text_size,
-                     title_hjust = 0.0) {
+                     title_hjust = 0.5) {
   # process color scales
   level2 <- colorRampPalette(c("white", scale_colors[1])) # level 2
   level3 <- colorRampPalette(c("white", scale_colors[2])) # level 3

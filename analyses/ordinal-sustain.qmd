@@ -80,7 +80,7 @@ options(
 )
 
 ggplot2::theme_set(
-  ggplot2::theme_bw(base_family = "Arial")
+  ggplot2::theme_bw(base_family = "sans")
 )
 ```
 
@@ -723,7 +723,7 @@ biomarkers_table |>
   flex_biomarkers_table(
     width_biomarkers = 1.7,
     width_levels = 1.5,
-    use_group_colors = FALSE
+    use_group_colors = TRUE
   )
 ```
 
