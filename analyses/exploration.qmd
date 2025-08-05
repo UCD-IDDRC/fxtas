@@ -88,6 +88,31 @@ width1 = .85
 ```
 
 
+
+::: {#supptbl-fxtas-stage-by-cgg custom-style="Caption"}
+
+```{r}
+vars <- c(
+  "FXTAS Stage",
+  if (show_missingness_reasons) "FXTAS Stage: missingness reasons"
+)
+
+table1(
+  na.is.category = FALSE, overall = FALSE,
+  NA.label = na_label_1,
+  stratified_formula(vars, column_var),
+  data = v1_usable_capital_labels
+) |> 
+  table1::t1flex() |>
+  shared_flextable_settings() |> 
+  flextable::width(width = width1)
+
+```
+
+**FXTAS Stage by CGG level and sex**
+
+:::
+
 ::: {#supptbl-tremors custom-style="Caption"}
 
 ```{r}
@@ -236,33 +261,9 @@ table1(
 
 :::
 
-{{< pagebreak >}}
-
 {{< include _sec_stage_vs_pk_ft.qmd >}}
 
-::: {#supptbl-fxtas-stage-by-cgg custom-style="Caption"}
-
-```{r}
-vars <- c(
-  "FXTAS Stage",
-  if (show_missingness_reasons) "FXTAS Stage: missingness reasons"
-)
-
-table1(
-  na.is.category = FALSE, overall = FALSE,
-  NA.label = na_label_1,
-  stratified_formula(vars, column_var),
-  data = v1_usable_capital_labels
-) |> 
-  table1::t1flex() |>
-  shared_flextable_settings() |> 
-  flextable::width(width = width1)
-
-```
-
-**FXTAS Stage by CGG level and sex**
-
-:::
+{{< pagebreak >}}
 
 ::: {#supptbl-bds2 custom-style="Caption"}
 
@@ -305,8 +306,6 @@ table1(
 **Behavior Dyscontrol Scale - Second Edition (BDS-2)**
 
 :::
-
-{{< pagebreak >}}
 
 ::: {#supptbl-mmse custom-style="Caption"}
 
@@ -526,8 +525,6 @@ PAL = Paired Associates Learning.
 RTI = Reaction Time.
 
 :::
-
-{{< pagebreak >}}
 
 ::: {#supptbl-autoimmune custom-style="Caption"}
 

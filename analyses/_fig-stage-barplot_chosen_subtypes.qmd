@@ -3,7 +3,7 @@
 
 ```{r}
 #| label: stage-barplot-by-subtype
-#| fig-height: 5
+#| fig-height: 3.8
 #| fig-width: 5.5
 results_cv_max$subtype_and_stage_table |> 
   filter(ml_subtype != "Subtype 0") |>

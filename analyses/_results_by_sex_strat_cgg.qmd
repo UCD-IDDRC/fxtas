@@ -85,6 +85,8 @@ list(
 `r test_over100_sex_summary`
 :::
 
+{{< pagebreak >}}
+
 :::{#suppfig-pvd-by-gender-cgg_over100-2 custom-style="Caption"}
 
 ```{r}

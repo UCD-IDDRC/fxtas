@@ -120,11 +120,11 @@ plot_python <- TRUE
 fig_size <- c(20, 10) # passed to pySuStaIn
 
 # max size: 170 mm x 210 mm = 6.69 x 8.27 inches 
-pvd_height <- 5.5
+pvd_height <- 6.0
 pvd_width <- 6
 pvd_subfig_width <- pvd_width - 1
-pvd_line_height <- 6.69
-pvd_line_width <- 8.1
+pvd_line_height <- 8
+pvd_line_width <- 6.5
 pvd_line_subfig_width <- pvd_line_width
 lineplot_text_size <- 3
 size.y <- 8 # nolint: object_name_linter
@@ -787,8 +787,6 @@ and were excluded from this table.
 :::
 
 {{< include _sec_abbrev_table.qmd >}}
-
-{{< pagebreak >}}
 
 {{< include _tbl-critical-findings.qmd >}}
 
