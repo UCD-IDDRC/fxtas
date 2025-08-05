@@ -76,16 +76,16 @@
 <rect x='42.72' y='18.46' width='311.80' height='214.26' style='stroke-width: 1.07; stroke: #333333;' />
 </g>
 <g clip-path='url(#cpMC4wMHw3MjAuMDB8MC4wMHw1NzYuMDA=)'>
-<text x='5.48' y='209.49' style='font-size: 6.00px; font-style: italic; fill: #6B9D59; font-family: sans;' textLength='27.35px' lengthAdjust='spacingAndGlyphs'>Biomarker</text>
-<text x='34.45' y='209.49' style='font-size: 6.00px; font-style: italic; fill: #6B9D59; font-family: sans;' textLength='3.34px' lengthAdjust='spacingAndGlyphs'>3</text>
-<text x='5.48' y='168.29' style='font-size: 6.00px; font-style: italic; fill: #C87A8A; font-family: sans;' textLength='27.35px' lengthAdjust='spacingAndGlyphs'>Biomarker</text>
-<text x='34.45' y='168.29' style='font-size: 6.00px; font-style: italic; fill: #C87A8A; font-family: sans;' textLength='3.34px' lengthAdjust='spacingAndGlyphs'>1</text>
-<text x='5.48' y='127.09' style='font-size: 6.00px; font-style: italic; fill: #6B9D59; font-family: sans;' textLength='27.35px' lengthAdjust='spacingAndGlyphs'>Biomarker</text>
-<text x='34.45' y='127.09' style='font-size: 6.00px; font-style: italic; fill: #6B9D59; font-family: sans;' textLength='3.34px' lengthAdjust='spacingAndGlyphs'>4</text>
-<text x='5.48' y='85.88' style='font-size: 6.00px; font-style: italic; fill: #5F96C2; font-family: sans;' textLength='27.35px' lengthAdjust='spacingAndGlyphs'>Biomarker</text>
-<text x='34.45' y='85.88' style='font-size: 6.00px; font-style: italic; fill: #5F96C2; font-family: sans;' textLength='3.34px' lengthAdjust='spacingAndGlyphs'>5</text>
-<text x='5.48' y='44.68' style='font-size: 6.00px; font-style: italic; fill: #C87A8A; font-family: sans;' textLength='27.35px' lengthAdjust='spacingAndGlyphs'>Biomarker</text>
-<text x='34.45' y='44.68' style='font-size: 6.00px; font-style: italic; fill: #C87A8A; font-family: sans;' textLength='3.34px' lengthAdjust='spacingAndGlyphs'>2</text>
+<text x='5.48' y='209.49' style='font-size: 6.00px; font-style: italic; fill: #CC6677; font-family: sans;' textLength='27.35px' lengthAdjust='spacingAndGlyphs'>Biomarker</text>
+<text x='34.45' y='209.49' style='font-size: 6.00px; font-style: italic; fill: #CC6677; font-family: sans;' textLength='3.34px' lengthAdjust='spacingAndGlyphs'>3</text>
+<text x='5.48' y='168.29' style='font-size: 6.00px; font-style: italic; fill: #88CCEE; font-family: sans;' textLength='27.35px' lengthAdjust='spacingAndGlyphs'>Biomarker</text>
+<text x='34.45' y='168.29' style='font-size: 6.00px; font-style: italic; fill: #88CCEE; font-family: sans;' textLength='3.34px' lengthAdjust='spacingAndGlyphs'>1</text>
+<text x='5.48' y='127.09' style='font-size: 6.00px; font-style: italic; fill: #CC6677; font-family: sans;' textLength='27.35px' lengthAdjust='spacingAndGlyphs'>Biomarker</text>
+<text x='34.45' y='127.09' style='font-size: 6.00px; font-style: italic; fill: #CC6677; font-family: sans;' textLength='3.34px' lengthAdjust='spacingAndGlyphs'>4</text>
+<text x='5.48' y='85.88' style='font-size: 6.00px; font-style: italic; fill: #888888; font-family: sans;' textLength='27.35px' lengthAdjust='spacingAndGlyphs'>Biomarker</text>
+<text x='34.45' y='85.88' style='font-size: 6.00px; font-style: italic; fill: #888888; font-family: sans;' textLength='3.34px' lengthAdjust='spacingAndGlyphs'>5</text>
+<text x='5.48' y='44.68' style='font-size: 6.00px; font-style: italic; fill: #88CCEE; font-family: sans;' textLength='27.35px' lengthAdjust='spacingAndGlyphs'>Biomarker</text>
+<text x='34.45' y='44.68' style='font-size: 6.00px; font-style: italic; fill: #88CCEE; font-family: sans;' textLength='3.34px' lengthAdjust='spacingAndGlyphs'>2</text>
 <polyline points='39.98,208.00 42.72,208.00 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
 <polyline points='39.98,166.80 42.72,166.80 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
 <polyline points='39.98,125.59 42.72,125.59 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
@@ -161,16 +161,16 @@
 <polyline points='680.02,125.59 677.28,125.59 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
 <polyline points='680.02,84.39 677.28,84.39 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
 <polyline points='680.02,43.19 677.28,43.19 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
-<text x='682.21' y='209.49' style='font-size: 6.00px; font-style: italic; fill: #C87A8A; font-family: sans;' textLength='27.35px' lengthAdjust='spacingAndGlyphs'>Biomarker</text>
-<text x='711.18' y='209.49' style='font-size: 6.00px; font-style: italic; fill: #C87A8A; font-family: sans;' textLength='3.34px' lengthAdjust='spacingAndGlyphs'>1</text>
-<text x='682.21' y='168.29' style='font-size: 6.00px; font-style: italic; fill: #6B9D59; font-family: sans;' textLength='27.35px' lengthAdjust='spacingAndGlyphs'>Biomarker</text>
-<text x='711.18' y='168.29' style='font-size: 6.00px; font-style: italic; fill: #6B9D59; font-family: sans;' textLength='3.34px' lengthAdjust='spacingAndGlyphs'>3</text>
-<text x='682.21' y='127.09' style='font-size: 6.00px; font-style: italic; fill: #6B9D59; font-family: sans;' textLength='27.35px' lengthAdjust='spacingAndGlyphs'>Biomarker</text>
-<text x='711.18' y='127.09' style='font-size: 6.00px; font-style: italic; fill: #6B9D59; font-family: sans;' textLength='3.34px' lengthAdjust='spacingAndGlyphs'>4</text>
-<text x='682.21' y='85.88' style='font-size: 6.00px; font-style: italic; fill: #5F96C2; font-family: sans;' textLength='27.35px' lengthAdjust='spacingAndGlyphs'>Biomarker</text>
-<text x='711.18' y='85.88' style='font-size: 6.00px; font-style: italic; fill: #5F96C2; font-family: sans;' textLength='3.34px' lengthAdjust='spacingAndGlyphs'>5</text>
-<text x='682.21' y='44.68' style='font-size: 6.00px; font-style: italic; fill: #C87A8A; font-family: sans;' textLength='27.35px' lengthAdjust='spacingAndGlyphs'>Biomarker</text>
-<text x='711.18' y='44.68' style='font-size: 6.00px; font-style: italic; fill: #C87A8A; font-family: sans;' textLength='3.34px' lengthAdjust='spacingAndGlyphs'>2</text>
+<text x='682.21' y='209.49' style='font-size: 6.00px; font-style: italic; fill: #88CCEE; font-family: sans;' textLength='27.35px' lengthAdjust='spacingAndGlyphs'>Biomarker</text>
+<text x='711.18' y='209.49' style='font-size: 6.00px; font-style: italic; fill: #88CCEE; font-family: sans;' textLength='3.34px' lengthAdjust='spacingAndGlyphs'>1</text>
+<text x='682.21' y='168.29' style='font-size: 6.00px; font-style: italic; fill: #CC6677; font-family: sans;' textLength='27.35px' lengthAdjust='spacingAndGlyphs'>Biomarker</text>
+<text x='711.18' y='168.29' style='font-size: 6.00px; font-style: italic; fill: #CC6677; font-family: sans;' textLength='3.34px' lengthAdjust='spacingAndGlyphs'>3</text>
+<text x='682.21' y='127.09' style='font-size: 6.00px; font-style: italic; fill: #CC6677; font-family: sans;' textLength='27.35px' lengthAdjust='spacingAndGlyphs'>Biomarker</text>
+<text x='711.18' y='127.09' style='font-size: 6.00px; font-style: italic; fill: #CC6677; font-family: sans;' textLength='3.34px' lengthAdjust='spacingAndGlyphs'>4</text>
+<text x='682.21' y='85.88' style='font-size: 6.00px; font-style: italic; fill: #888888; font-family: sans;' textLength='27.35px' lengthAdjust='spacingAndGlyphs'>Biomarker</text>
+<text x='711.18' y='85.88' style='font-size: 6.00px; font-style: italic; fill: #888888; font-family: sans;' textLength='3.34px' lengthAdjust='spacingAndGlyphs'>5</text>
+<text x='682.21' y='44.68' style='font-size: 6.00px; font-style: italic; fill: #88CCEE; font-family: sans;' textLength='27.35px' lengthAdjust='spacingAndGlyphs'>Biomarker</text>
+<text x='711.18' y='44.68' style='font-size: 6.00px; font-style: italic; fill: #88CCEE; font-family: sans;' textLength='3.34px' lengthAdjust='spacingAndGlyphs'>2</text>
 <polyline points='365.48,235.46 365.48,232.72 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
 <polyline points='454.57,235.46 454.57,232.72 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
 <polyline points='543.65,235.46 543.65,232.72 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
@@ -236,16 +236,16 @@
 <rect x='42.72' y='280.28' width='311.80' height='214.26' style='stroke-width: 1.07; stroke: #333333;' />
 </g>
 <g clip-path='url(#cpMC4wMHw3MjAuMDB8MC4wMHw1NzYuMDA=)'>
-<text x='5.48' y='471.31' style='font-size: 6.00px; font-style: italic; fill: #6B9D59; font-family: sans;' textLength='27.35px' lengthAdjust='spacingAndGlyphs'>Biomarker</text>
-<text x='34.45' y='471.31' style='font-size: 6.00px; font-style: italic; fill: #6B9D59; font-family: sans;' textLength='3.34px' lengthAdjust='spacingAndGlyphs'>3</text>
-<text x='5.48' y='430.11' style='font-size: 6.00px; font-style: italic; fill: #C87A8A; font-family: sans;' textLength='27.35px' lengthAdjust='spacingAndGlyphs'>Biomarker</text>
-<text x='34.45' y='430.11' style='font-size: 6.00px; font-style: italic; fill: #C87A8A; font-family: sans;' textLength='3.34px' lengthAdjust='spacingAndGlyphs'>1</text>
-<text x='5.48' y='388.90' style='font-size: 6.00px; font-style: italic; fill: #C87A8A; font-family: sans;' textLength='27.35px' lengthAdjust='spacingAndGlyphs'>Biomarker</text>
-<text x='34.45' y='388.90' style='font-size: 6.00px; font-style: italic; fill: #C87A8A; font-family: sans;' textLength='3.34px' lengthAdjust='spacingAndGlyphs'>2</text>
-<text x='5.48' y='347.70' style='font-size: 6.00px; font-style: italic; fill: #5F96C2; font-family: sans;' textLength='27.35px' lengthAdjust='spacingAndGlyphs'>Biomarker</text>
-<text x='34.45' y='347.70' style='font-size: 6.00px; font-style: italic; fill: #5F96C2; font-family: sans;' textLength='3.34px' lengthAdjust='spacingAndGlyphs'>5</text>
-<text x='5.48' y='306.50' style='font-size: 6.00px; font-style: italic; fill: #6B9D59; font-family: sans;' textLength='27.35px' lengthAdjust='spacingAndGlyphs'>Biomarker</text>
-<text x='34.45' y='306.50' style='font-size: 6.00px; font-style: italic; fill: #6B9D59; font-family: sans;' textLength='3.34px' lengthAdjust='spacingAndGlyphs'>4</text>
+<text x='5.48' y='471.31' style='font-size: 6.00px; font-style: italic; fill: #CC6677; font-family: sans;' textLength='27.35px' lengthAdjust='spacingAndGlyphs'>Biomarker</text>
+<text x='34.45' y='471.31' style='font-size: 6.00px; font-style: italic; fill: #CC6677; font-family: sans;' textLength='3.34px' lengthAdjust='spacingAndGlyphs'>3</text>
+<text x='5.48' y='430.11' style='font-size: 6.00px; font-style: italic; fill: #88CCEE; font-family: sans;' textLength='27.35px' lengthAdjust='spacingAndGlyphs'>Biomarker</text>
+<text x='34.45' y='430.11' style='font-size: 6.00px; font-style: italic; fill: #88CCEE; font-family: sans;' textLength='3.34px' lengthAdjust='spacingAndGlyphs'>1</text>
+<text x='5.48' y='388.90' style='font-size: 6.00px; font-style: italic; fill: #88CCEE; font-family: sans;' textLength='27.35px' lengthAdjust='spacingAndGlyphs'>Biomarker</text>
+<text x='34.45' y='388.90' style='font-size: 6.00px; font-style: italic; fill: #88CCEE; font-family: sans;' textLength='3.34px' lengthAdjust='spacingAndGlyphs'>2</text>
+<text x='5.48' y='347.70' style='font-size: 6.00px; font-style: italic; fill: #888888; font-family: sans;' textLength='27.35px' lengthAdjust='spacingAndGlyphs'>Biomarker</text>
+<text x='34.45' y='347.70' style='font-size: 6.00px; font-style: italic; fill: #888888; font-family: sans;' textLength='3.34px' lengthAdjust='spacingAndGlyphs'>5</text>
+<text x='5.48' y='306.50' style='font-size: 6.00px; font-style: italic; fill: #CC6677; font-family: sans;' textLength='27.35px' lengthAdjust='spacingAndGlyphs'>Biomarker</text>
+<text x='34.45' y='306.50' style='font-size: 6.00px; font-style: italic; fill: #CC6677; font-family: sans;' textLength='3.34px' lengthAdjust='spacingAndGlyphs'>4</text>
 <polyline points='39.98,469.82 42.72,469.82 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
 <polyline points='39.98,428.61 42.72,428.61 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
 <polyline points='39.98,387.41 42.72,387.41 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
@@ -321,16 +321,16 @@
 <polyline points='680.02,387.41 677.28,387.41 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
 <polyline points='680.02,346.21 677.28,346.21 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
 <polyline points='680.02,305.00 677.28,305.00 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
-<text x='682.21' y='471.31' style='font-size: 6.00px; font-style: italic; fill: #6B9D59; font-family: sans;' textLength='27.35px' lengthAdjust='spacingAndGlyphs'>Biomarker</text>
-<text x='711.18' y='471.31' style='font-size: 6.00px; font-style: italic; fill: #6B9D59; font-family: sans;' textLength='3.34px' lengthAdjust='spacingAndGlyphs'>3</text>
-<text x='682.21' y='430.11' style='font-size: 6.00px; font-style: italic; fill: #5F96C2; font-family: sans;' textLength='27.35px' lengthAdjust='spacingAndGlyphs'>Biomarker</text>
-<text x='711.18' y='430.11' style='font-size: 6.00px; font-style: italic; fill: #5F96C2; font-family: sans;' textLength='3.34px' lengthAdjust='spacingAndGlyphs'>5</text>
-<text x='682.21' y='388.90' style='font-size: 6.00px; font-style: italic; fill: #6B9D59; font-family: sans;' textLength='27.35px' lengthAdjust='spacingAndGlyphs'>Biomarker</text>
-<text x='711.18' y='388.90' style='font-size: 6.00px; font-style: italic; fill: #6B9D59; font-family: sans;' textLength='3.34px' lengthAdjust='spacingAndGlyphs'>4</text>
-<text x='682.21' y='347.70' style='font-size: 6.00px; font-style: italic; fill: #C87A8A; font-family: sans;' textLength='27.35px' lengthAdjust='spacingAndGlyphs'>Biomarker</text>
-<text x='711.18' y='347.70' style='font-size: 6.00px; font-style: italic; fill: #C87A8A; font-family: sans;' textLength='3.34px' lengthAdjust='spacingAndGlyphs'>1</text>
-<text x='682.21' y='306.50' style='font-size: 6.00px; font-style: italic; fill: #C87A8A; font-family: sans;' textLength='27.35px' lengthAdjust='spacingAndGlyphs'>Biomarker</text>
-<text x='711.18' y='306.50' style='font-size: 6.00px; font-style: italic; fill: #C87A8A; font-family: sans;' textLength='3.34px' lengthAdjust='spacingAndGlyphs'>2</text>
+<text x='682.21' y='471.31' style='font-size: 6.00px; font-style: italic; fill: #CC6677; font-family: sans;' textLength='27.35px' lengthAdjust='spacingAndGlyphs'>Biomarker</text>
+<text x='711.18' y='471.31' style='font-size: 6.00px; font-style: italic; fill: #CC6677; font-family: sans;' textLength='3.34px' lengthAdjust='spacingAndGlyphs'>3</text>
+<text x='682.21' y='430.11' style='font-size: 6.00px; font-style: italic; fill: #888888; font-family: sans;' textLength='27.35px' lengthAdjust='spacingAndGlyphs'>Biomarker</text>
+<text x='711.18' y='430.11' style='font-size: 6.00px; font-style: italic; fill: #888888; font-family: sans;' textLength='3.34px' lengthAdjust='spacingAndGlyphs'>5</text>
+<text x='682.21' y='388.90' style='font-size: 6.00px; font-style: italic; fill: #CC6677; font-family: sans;' textLength='27.35px' lengthAdjust='spacingAndGlyphs'>Biomarker</text>
+<text x='711.18' y='388.90' style='font-size: 6.00px; font-style: italic; fill: #CC6677; font-family: sans;' textLength='3.34px' lengthAdjust='spacingAndGlyphs'>4</text>
+<text x='682.21' y='347.70' style='font-size: 6.00px; font-style: italic; fill: #88CCEE; font-family: sans;' textLength='27.35px' lengthAdjust='spacingAndGlyphs'>Biomarker</text>
+<text x='711.18' y='347.70' style='font-size: 6.00px; font-style: italic; fill: #88CCEE; font-family: sans;' textLength='3.34px' lengthAdjust='spacingAndGlyphs'>1</text>
+<text x='682.21' y='306.50' style='font-size: 6.00px; font-style: italic; fill: #88CCEE; font-family: sans;' textLength='27.35px' lengthAdjust='spacingAndGlyphs'>Biomarker</text>
+<text x='711.18' y='306.50' style='font-size: 6.00px; font-style: italic; fill: #88CCEE; font-family: sans;' textLength='3.34px' lengthAdjust='spacingAndGlyphs'>2</text>
 <polyline points='365.48,497.28 365.48,494.54 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
 <polyline points='454.57,497.28 454.57,494.54 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
 <polyline points='543.65,497.28 543.65,494.54 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
