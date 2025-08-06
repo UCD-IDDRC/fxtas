@@ -30,7 +30,7 @@ collapse_scid_levels <- function(dataset, ...) {
 #'
 #' @param x a scid variable ([factor])
 #' @param levels [character] string vector of levels to collapse
-#' @param newlevel [character] string for new collapsed level name
+#' @param new_level [character] string for new collapsed level name
 #' @returns a modified version of `x`
 #' @export
 #' @keywords internal

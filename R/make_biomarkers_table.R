@@ -8,7 +8,7 @@
 #' the column names in `data`
 #' @param stratifying_var_names a [character] vector specifying
 #' variables to stratify by
-#' @param whether to use the biomarker labels or
+#' @param use_labels whether to use the biomarker labels or
 #' the unlabelled biomarker variable names
 #' @returns a [flextable::flextable()]
 #' @export

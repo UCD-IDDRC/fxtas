@@ -15,7 +15,7 @@ collapse_scid_level(
 
 \item{levels}{\link{character} string vector of levels to collapse}
 
-\item{newlevel}{\link{character} string for new collapsed level name}
+\item{new_level}{\link{character} string for new collapsed level name}
 }
 \value{
 a modified version of \code{x}

@@ -118,6 +118,7 @@
 #' @importFrom tidyselect matches
 #' @importFrom tidyselect starts_with
 #' @importFrom tidyselect where
+#' @importFrom utils capture.output
 #' @importFrom utils head
 #' @importFrom utils stack
 #' @importFrom utils tail

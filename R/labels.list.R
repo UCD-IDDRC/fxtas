@@ -9,6 +9,6 @@
 labels.list <- function(object, ...) {
   to_return <-
     object |>
-    sapply(F = labelled::get_variable_labels) |>
+    sapply(FUN = labelled::get_variable_labels) |>
     unlist()
 }

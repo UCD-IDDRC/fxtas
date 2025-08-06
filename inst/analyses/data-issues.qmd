@@ -633,7 +633,7 @@ table1(na.is.category = FALSE,
 #   dplyr::filter(`FXTAS Stage (0-5)` %in% c(NA, "No Response (999)", "Missing (empty in RedCap)")) |> 
 #   dplyr::select(`FXS ID`, `Event Name`, `Visit Date`) |> 
 #   arrange() |> 
-#   readr::write_csv("inst/extdata/missing_FXTAS_stage.csv")
+#   readr::write_csv("inst/extdata/fxtas/missing_FXTAS_stage.csv")
 
 ```
 
