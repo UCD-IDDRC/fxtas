@@ -1,5 +1,5 @@
 
-We created a composite variable named "any autoimmune disorder" combining
+We created a composite variable named "autoimmune diagnoses or symptoms" combining
 systemic lupus erythematosus,
 rheumatoid arthritis,
 multiple sclerosis,
