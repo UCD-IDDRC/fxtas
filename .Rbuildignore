@@ -77,4 +77,13 @@ $run_dev.*
 ^man/compact_pvd_figure\.Rd$
 ^man/get_title_i_2\.Rd$
 ^man/tmp_data_prep\.Rd$
-^inst/analyses$
+^inst/analyses
+^inst/extdata/.*\.csv$
+^CTSC1647Trajectories-Ezra_DATA_2024-03-27_0920\.csv$
+^inst/extdata/CTSC1647Trajectories-Ezra_DATA_2024-03-27_0920\.csv$
+^inst/extdata/CTSC1647Trajectories-Ezra_DATA_2024-03-27_0920\.csv$
+^inst/extdata/GP34_Missing_CGG_Data_Samples_Table_10-9-2023-mdp\.xlsx$
+^inst/extdata/Missing_CGG_repeat_import_24Mar23\.xlsx$
+^inst/extdata/.*\.zip$
+^inst/extdata/.*$
+^tests/.*$
