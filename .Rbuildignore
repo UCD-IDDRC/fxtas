@@ -77,3 +77,4 @@ $run_dev.*
 ^man/compact_pvd_figure\.Rd$
 ^man/get_title_i_2\.Rd$
 ^man/tmp_data_prep\.Rd$
+^inst/analyses$

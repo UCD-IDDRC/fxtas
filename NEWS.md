@@ -57,6 +57,7 @@ on Dr. Bourgeois's recommendation.
 
 ## Package setup
 
+* moved `analyses/` into `inst` (#120)
 * updated test-coverage.yaml workflow
 * updated readme to specify new location of manuscript source code 
 in `analyses/`
