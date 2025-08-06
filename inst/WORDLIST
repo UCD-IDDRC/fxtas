@@ -35,6 +35,7 @@ biomarker
 biomarker's
 biomarkers
 codebase
+cowplot
 decapitalized
 dichotomizes
 et
@@ -43,7 +44,6 @@ ggplot
 github
 golem
 gp
-grayscale
 gtsummary
 https
 io
@@ -52,7 +52,6 @@ ncol
 ne
 neu
 nrow
-parallelize
 parkinsonian
 pre
 preconfigured
@@ -75,6 +74,8 @@ tibble
 tmp
 todo
 trichotomizes
+unlabelled
 varnames
 virtualenv
+vjust
 yaml
