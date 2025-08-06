@@ -40,16 +40,19 @@ to determine, for each `r outcomes_name`,
 the probability that an individual is 
 "correctly scored" at their "true underlying level" 
 [@young2021ordinal].
-In this analysis, 
-we assumed that all controls are truly at the reference levels
-for each `r outcomes_name`, 
-and we estimated the percentage of correctly scored individuals as
-the percentage of controls 
+Following the procedures proposed in the original SuStaIn methodology papers
+[@young2018uncovering; @young2021ordinal],
+we used the distributions of symptoms observed among the controls 
+to estimate the rates at which premutation carriers experience symptoms 
+and we thus estimated the percentages of FXTAS-related symptoms 
+(i.e., the proportion of symptoms due to FXTAS among premutation carriers) 
+as the percentage of controls 
 who were assessed as being at the reference level
 (@supptbl-prob-correct).
-It is crucial to allow some possibility of incorrect scoring, 
-so we capped the estimated correct scoring probabilities at 
-`r max_prob_correct *100`%.
+We limited the estimated probability of correct scoring to 
+`r max_prob_correct *100`%
+in order to allow for a plausible probability of symptoms 
+unrelated to FXTAS progression.
 
 Ordinal SuStaIn then uses 
 Markov Chain Monte Carlo (MCMC) sampling [@gelfand1990sampling]

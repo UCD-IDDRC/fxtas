@@ -20,6 +20,6 @@ tab1 <- table_subtype_by_demographics(
   table,
   demographic_vars = "Sex",
   footnotes_as_letters = FALSE) |> 
-  gtsummary::as_flex_table()
+  gtsummary::as_flex_table(ref_symbols = letters)
 tab1
 ```

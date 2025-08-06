@@ -9,7 +9,8 @@ n_perm_over_obs = sum(perm_stats >= obs_stat)
 pct_perm_over_obs = mean(perm_stats >= obs_stat)
 ```
 
-@fig-permute-llik-sex illustrates the permutation test approach that we implemented to compare event orderings between subgroups.
+@fig-permute-llik-sex illustrates the permutation test approach 
+that we implemented to compare event orderings between subgroups.
 This figure compares the mean log-likelihood for the sex-stratified model
 to the distribution of mean log-likelihoods when sex is permuted.
 Only `r n_perm_over_obs` out of `r length(perm_stats)` permuted mean-log-likelihoods

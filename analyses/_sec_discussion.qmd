@@ -16,7 +16,7 @@ lifetime anxiety disorders,
 mood disorders,
 and somatoform disorders in this study cohort
 are higher than
-usual population norms for these illnesses
+usual population norms for these illnesses,
 as noted in previous studies
 [@bourgeois2010lifetime; @seritan2013psychiatric; @seritan2013ages; @schneider2020women].
 This study design did not fractionate specific lifetime psychiatric illnesses
@@ -30,7 +30,7 @@ have demonstrated a higher-than-expected rate of these illnesses
 in premutation carriers [@hagerman2018; @roberts2009].
 The same increase in lifetime psychiatric illness burden
 is seen in other neurodegenerative illnesses
-(e.g., Parkinson’s disease, multiple sclerosis) 
+(e.g., Parkinson's disease, multiple sclerosis) 
 [@Rickardsi48; @Fusarpoli2013; @Benussi2022; @Noyce871; @Wijnands2019; 
 @GOVONI201641; @Silvagni2020; @MARRIE2024125; @sloan2024neuropsychiatric].
 As many psychiatric illnesses have a strong genetic predisposition,
@@ -50,7 +50,7 @@ seen in more advanced premutation conditions like FXTAS.
 As such, the high lifetime burden of psychiatric illness in this population
 cannot be plausibly attributed solely (perhaps substantially) to
 an “emotional reaction”
-to the loss of function associated with these functional impairments,
+to the loss of function associated with these functional impairments
 but rather should be understood as 
 at least partially 
 a component of the premutation carrier state *itself*.
@@ -60,7 +60,7 @@ is a significant component of the carrier state.
 Furthermore, as only a small proportion of the patients
 had MMSE scores in the impaired range,
 it is also unlikely that the high rates of
-depressive, anxiety (and other) psychiatric illness
+depressive and anxiety disorders (and other psychiatric illnesses)
 could be attributed *solely* to complications of FXTAS dementia,
 as most patients had normal MMSE scores.
 For example, depressive disorders
@@ -93,7 +93,12 @@ can often occur even before the diagnosis of FXTAS in the females,
 and the stress involved with mood disorders may be a precipitating feature
 for the onset of FXTAS.
 In addition, females may experience early cognitive impairment,
-particularly involving executive dysfunction and memory.
+particularly involving executive dysfunction and memory
+(as measured by 
+the BDS-2 total score 
+and 
+the CANTAB SWM instrument, 
+respectively).
 From a clinical perspective,
 we have seen significant psychiatric illness comorbid with
 some cognitive deficits in memory and EF abilities,
@@ -104,11 +109,18 @@ particularly in the splenium of the corpus callosum
 or in the periventricular area,
 then this demonstrates the onset of the neuropathology of FXTAS,
 even if there is no tremor or ataxia yet.
+[
+@apartis2012fxtas;
+@RenaudMathilde2015Rocc;
+@HallDeborahA.2017TCCS
+] 
+
+{{< include _sec-disc-stress-precip.qmd >}}
 
 {{< include _sec_disc_splenium_cc_sign.qmd >}}
 
 This suggests that the diagnostic criteria for FXTAS
-may need to be somewhat altered in females compared to males,
+may need to be altered in females compared to males,
 particularly for early cases.
 Indeed, the diagnostic criteria for FXTAS 
 were determined with the study of males only
@@ -118,7 +130,7 @@ were modified [@hall2014emerging]
 to include the involvement of the splenium,
 which is seen in the majority of females with FXTAS
 [@apartis2012fxtas; @schneider2020women].
-Hall *et al.* [-@hall2014emerging] also added
+Hall et al. [-@hall2014emerging] also added
 the feature of neuropathy,
 which occurs in the majority of FXTAS patients,
 but it is a common finding in the elderly with many causes,
@@ -134,36 +146,6 @@ As new treatments for FXTAS develop,
 it is hoped that the earlier the diagnosis is established,
 the more likely the treatment will be effective.
 
-```{r}
-#| label: p-val-test-cgg
-output_folder = "output/output.fixed_CV/"
-
-permuted_test_stats = collect_permutation_test_stats(
-  output_folder = output_folder,
-  permuting_variables = "FX3")
-
-observed_test_stat = get_observed_permutation_test_stat(
-  output_folder,
-  dataset_names = c('under100', 'over100'))
-
-pval_cgg_gp34_v1 = permutation_test(
-  observed_test_stat = observed_test_stat,
-  permuted_test_stats = permuted_test_stats,
-  n_permutations = n_permutations
-)
-
-```
-
-When we compared
-between 55-99 vs 100-200 CGG repeats in males and females combined,
-no significant difference was found
-(p = `r pval_cgg_gp34_v1`)
-(@suppfig-pvd-by-cgg).
-The finding of only minimal differences
-between 55-99 vs 100-200 CGG repeats is surprising,
-since several studies have found that the higher the CGG repeats,
-the earlier the onset and the faster the progression of FXTAS
-[@greco2006neuropathology; @leehey2008fmr1; @tassone2023insight].
-Perhaps the cut-off of 100 is too high for this distinction to be made.
+## Limitations and Future Work
 
 {{< include _sec_limitations.qmd >}}

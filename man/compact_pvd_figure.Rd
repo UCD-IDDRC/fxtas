@@ -2,7 +2,7 @@
 % Please edit documentation in R/compact_pvd_figure.R
 \name{compact_pvd_figure}
 \alias{compact_pvd_figure}
-\title{plot compact pvd: figure}
+\title{plot compact pvd figure}
 \usage{
 compact_pvd_figure(
   plot_dataset,
@@ -16,7 +16,7 @@ compact_pvd_figure(
 )
 }
 \description{
-plot compact pvd: figure
+plot compact pvd figure
 }
 \examples{
 size.y <- 11

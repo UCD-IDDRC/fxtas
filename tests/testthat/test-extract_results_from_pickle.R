@@ -1,17 +1,43 @@
-test_that("`extract_results_from_pickle()` produces stable results", {
-  output_path <-
-    fs::path_package("extdata/sim_data", package = "fxtas")
+test_that(
+  desc = "results are consistent",
+  code = {
 
-  pickle_folder <- fs::path(output_path, "pickle_files")
+    skip_on_ci()
 
-  skip_if_not(dir.exists(pickle_folder))
+    output_path <-
+      fs::path_package("extdata/sim_data", package = "fxtas")
 
-  results =
-    extract_results_from_pickle(output_folder = output_path,
-                                use_rds = FALSE)
+    pickle_folder <- fs::path(output_path, "pickle_files")
 
-  results$samples_sequence = NULL
-  results$samples_f = NULL
-  results |>
-    expect_snapshot_value(style = "serialize")
-})
+    skip_if_not(dir.exists(pickle_folder))
+
+    skip_if_not("fxtas39" %in% reticulate::conda_list()$name)
+
+    reticulate::py_require(
+      packages = c(
+        "git+https://github.com/ucl-pond/kde_ebm",
+        "git+https://github.com/d-morrison/pySuStaIn"
+      ),
+      python_version = "3.9"
+    )
+
+    results <-
+      extract_results_from_pickle(
+        output_folder = output_path,
+        use_rds = FALSE,
+        n_s = 2
+      )
+
+    results |>
+      dplyr::glimpse() |>
+      expect_snapshot()
+
+    results$samples_sequence <- NULL
+    results$samples_f <- NULL
+    results$samples_likelihood <- NULL
+
+    results |>
+      expect_snapshot_value(style = "serialize")
+
+  }
+)

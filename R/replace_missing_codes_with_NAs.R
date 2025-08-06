@@ -25,6 +25,8 @@ replace_missing_codes_with_NAs <- function(
         "NA (888)",
         "No Response (999)",
         "No Response",
+        "No Data",
+        "No Data (999)",
         "Missing/Refused (999)",
         "Missing (empty in RedCap)"
       ))

@@ -26,7 +26,8 @@ vignette: >
 library(fxtas)
 library(tidyverse)
 library(reticulate)
-reticulate::use_condaenv("fxtas39", required = TRUE)
+reticulate::use_condaenv("fxtas39", required = TRUE, conda = "auto")
+
 use_rds = FALSE
 ```
 
@@ -145,10 +146,14 @@ prob_score = prob_score0[,,-1]
 ```{r }
 #| label: build-score-vals-only-observed
 
-biomarker_levels = 
-  df |> 
-  dplyr::select(all_of(biomarkers)) |> 
-  lapply(FUN = \(x) x |> unique() |> sort())
+biomarker_levels <-
+  df |>
+  get_levels(biomarkers)
+
+# biomarker_levels = df |> 
+#   dplyr::select(all_of(biomarkers)) |> 
+# lapply(FUN = \(x) x |> unique() |> sort())
+
 score_vals = build_score_vals(biomarker_levels)
 
 score_vals
@@ -166,7 +171,8 @@ biomarker_levels = list(
   "Biomarker 3" = 0:3,
   "Biomarker 4" = 0:3,
   "Biomarker 5" = 0:3
-)
+) |> 
+  structure(class = c("levels_list", "list"))
 
 score_vals = build_score_vals(biomarker_levels)
 
@@ -234,7 +240,7 @@ samples_likelihood] = sustain_input.run_sustain_algorithm(plot=True)
 In R, we can run the algorithm with `run_OSA()`:
 
 ```{r}
-#| label: run-osa-R
+#| label: setup-run-OSA-R
 
 biomarker_group_list = list(
   "group 1" = biomarkers[1:2],
@@ -248,7 +254,11 @@ biomarker_groups = df |> compile_biomarker_groups_table(
 patient_data     |> readr::write_rds(file = fs::path(output_folder, "data.rds"))
 biomarker_levels |> readr::write_rds(file = fs::path(output_folder, "biomarker_levels.rds"))
 biomarker_groups |> readr::write_rds(file = fs::path(output_folder, "biomarker_groups.rds"))
-  
+```
+
+```{r}
+
+#| label: run-osa-R
 osa_output = run_and_save_OSA(
   dataset_name = dataset_name,
   patient_data = patient_data,
@@ -289,7 +299,9 @@ cvic_sim_data$loglike_matrix |> plot_cv_loglik()
 
 :::
 
-**Cross-validation information criterion (CVIC)**
+**Cross-validation information criterion (CVIC)**, 
+by number of latent subtype clusters.
+N = `r nrow(v1_usable_cases)` observations.
 
 :::
 

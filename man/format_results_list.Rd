@@ -9,8 +9,11 @@ format_results_list(
   biomarker_labels = names(biomarker_levels),
   biomarker_levels = NULL,
   biomarker_events_table = get_biomarker_events_table(biomarker_levels),
-  biomarker_event_names = biomarker_events_table$biomarker_level,
-  format_sst = TRUE
+  biomarker_event_names = get_biomarker_event_names(biomarker_events_table),
+  format_sst = TRUE,
+  n_s = get_n_subtypes(results),
+  subtype_order = seq_len(n_s),
+  biomarker_groups
 )
 }
 \arguments{
@@ -27,6 +30,12 @@ format_results_list(
 
 \item{format_sst}{should the subtype and stage table be formatted?
 (doesn't work for cross-validation fold pickle-files)}
+
+\item{n_s}{number of latent subgroups}
+
+\item{subtype_order}{\link{integer} indicating how to reorder the subtypes}
+
+\item{biomarker_groups}{a \link{list}}
 }
 \value{
 a \code{"SuStaIn_model"} object (extends \code{\link[=list]{list()}})

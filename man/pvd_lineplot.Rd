@@ -6,7 +6,9 @@
 \usage{
 pvd_lineplot(
   figs,
-  min_alpha = 0.25,
+  events_to_highlight = NULL,
+  highlight_color = NA,
+  min_alpha = 0.4,
   max_alpha = 1,
   stage_alpha = 1,
   facet_labels = names(figs),
@@ -14,11 +16,17 @@ pvd_lineplot(
   y_lab = "Sequential order",
   y_title_size = 9,
   y_text_size = 8,
-  x_text_size = 8
+  x_text_size = 8,
+  direction_colors = c("grey25", "#DC3220", "grey70", "#005AB5"),
+  expand = 0.25
 )
 }
 \arguments{
 \item{figs}{a \link{list} of todo}
+
+\item{events_to_highlight}{todo}
+
+\item{highlight_color}{todo}
 
 \item{min_alpha}{todo}
 
@@ -37,6 +45,10 @@ pvd_lineplot(
 \item{y_text_size}{todo}
 
 \item{x_text_size}{todo}
+
+\item{direction_colors}{a \link{character} vector of length 4}
+
+\item{expand}{\link{numeric} how much to pad the sides}
 }
 \description{
 Plot change in Stage ranking

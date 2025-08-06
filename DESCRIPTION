@@ -1,8 +1,9 @@
 Package: fxtas
 Title: FXTAS
-Version: 0.0.0.9026
-Authors@R: 
-    person("Douglas Ezra", "Morrison", , "demorrison@ucdavis.edu", role = c("cre", "aut"))
+Version: 0.0.0.9027
+Authors@R: c(
+    person("Douglas Ezra", "Morrison", , "demorrison@ucdavis.edu", role = c("cre", "aut")),
+    person("Matthew", "Ponzini", , "mdponzini@ucdavis.edu", role = c("aut")))
 Description: PKG_DESC.
 License: MIT + file LICENSE
 URL: https://github.com/ucd-iddrc/fxtas, https://ucd-iddrc.github.io/fxtas/
@@ -21,6 +22,8 @@ Imports:
     formattable,
     formulaic,
     fs,
+    gert,
+    ggbump,
     ggnewscale,
     ggplot2,
     ggtext,
@@ -36,6 +39,7 @@ Imports:
     magrittr,
     pander,
     purrr,
+    rcartocolor,
     readr,
     readxl,
     reticulate,
@@ -50,9 +54,11 @@ Imports:
     tidyr,
     tidyselect,
     units,
-    utils
+    utils,
+    vroom
 Suggests: 
     arsenal,
+    broman,
     constructive,
     cardx (>= 0.2.3),
     devtag (>= 0.0.0.9000),
@@ -76,7 +82,9 @@ Suggests:
     webshot2,
     withr,
     writexl,
-    chromote
+    chromote,
+    ggview,
+    loon
 Config/testthat/edition: 3
 Encoding: UTF-8
 Language: en-US

@@ -13,5 +13,6 @@
 \code{\link{NULL}}, invisibly
 }
 \description{
-based on https://rstudio.github.io/reticulate/articles/package.html#delay-loading-python-modules
+based on https://rstudio.github.io/reticulate/articles/package.html
+#delay-loading-python-modules
 }

@@ -1,7 +1,7 @@
 ---
 title: |
-       Progression of fragile X-associated tremor/ataxia syndrome 
-       revealed by subtype and stage inference
+  Progression of fragile X-associated tremor/ataxia syndrome 
+  revealed by subtype and stage inference
 format:
   html:
     echo: false
@@ -12,22 +12,6 @@ knitr:
     fig.path: ordinal-sustain_files/figure-docx/
     # see https://github.com/quarto-dev/quarto-cli/discussions/4254
 ---
-
-Correspondence to: Douglas Ezra Morrison
-Medical Sciences 1C #113
-One Shields Ave
-Davis, CA 95616
-<demorrison@ucdavis.edu>
-
-**Running title:** Progression of FXTAS symptoms{{< pagebreak >}}
-
-**Keywords:** 
-fragile X-associated tremor/ataxia syndrome; 
-subtype and stage inference; 
-sequential events; 
-disease development and progression; 
-sex differences; 
-latent subgroups
 
 ```{=html}
 <style>
@@ -46,14 +30,67 @@ knitr::opts_chunk$set(
   include = TRUE
 )
 pander::panderOptions("table.split.table", Inf)
-ggplot2::theme_set(ggplot2::theme_bw())
+
+```
+
+```{r}
+#| include: false
+#| label: set-colors
+
+# scale_colors1 = c("red", "blue", "magenta", "orange", "purple4")
+scale_color_indices <- c(9, 5, 7, 8, 4)
+scale_colors0 <- rcartocolor::carto_pal(name = "Safe")[scale_color_indices]
+library(rex)
+# rcartocolor::carto_pal(name = "Safe") |> 
+#   colorblindcheck::palette_plot()
+color_names1 <- 
+  rcartocolor::carto_pal(name = "Safe") |> 
+  loon::l_colorName() |>  
+  stringr::str_remove_all(pattern = rex::rex(digits))
+color_names1
+scale_colors1 <- scale_colors0 |> 
+  setNames(
+    c("violet red", "royal blue", "cadet blue", "khaki", "forest green"
+    ) 
+  )
+
+color_list <- glue::glue(
+  '[{{names(scale_colors1)}}]{color="{{scale_colors1}}"}', 
+  .open = "{{", 
+  .close = "}}"
+)
+
+lineplot_direction_colors <- c(
+  "Black" = "black",
+  # "#F8766D",
+  "Red" = "#DC3220",
+  "Light gray" = "grey",
+  # "#00BFC4"
+  "Blue" = "#005AB5"
+)
+
+lineplot_direction_color_names1 <- 
+  lineplot_direction_colors |> 
+  loon::l_colorName() |>  
+  stringr::str_remove_all(pattern = rex::rex(digits))
+
+options(
+  ggplot2.discrete.fill = rcartocolor::carto_pal(name = "Safe"),
+  ggplot2.discrete.colour = rcartocolor::carto_pal(name = "Safe")
+)
+
+ggplot2::theme_set(
+  ggplot2::theme_bw(base_family = "sans")
+)
 ```
 
 ```{r}
 #| label: libraries
 #| message: false
-library(fxtas)
-reticulate::use_condaenv("fxtas39", required = TRUE)
+
+reticulate::use_condaenv("fxtas39", required = TRUE, conda = "auto")
+# library(fxtas)
+devtools::load_all()
 library(tidyverse)
 library(reticulate)
 library(pander)
@@ -68,28 +105,33 @@ library(knitr)
 
 max_prob_correct <- .95
 
+do_collapse_scid_levels <- TRUE
+do_collapse_mri_levels <- TRUE
+
 fit_models <- TRUE
 run_cv <- TRUE
 
+verbose <- TRUE
+# rerun <- TRUE
 rerun <- FALSE
-
-use_rds <- TRUE
+use_rds <- !rerun
 
 plot_python <- TRUE
-fig_size <- c(20, 10)
+fig_size <- c(20, 10) # passed to pySuStaIn
 
-pvd_height <- 5.5
+# max size: 170 mm x 210 mm = 6.69 x 8.27 inches 
+pvd_height <- 6.5
 pvd_width <- 6
 pvd_subfig_width <- pvd_width - 1
 pvd_line_height <- 7
-pvd_line_width <- 8
+pvd_line_width <- 6.69
 pvd_line_subfig_width <- pvd_line_width
-lineplot_text_size <- 3.4
+lineplot_text_size <- 2.75
 size.y <- 8 # nolint: object_name_linter
-y_text_size <- 6
+y_text_size <- 10
 N_startpoints <- 10L # nolint: object_name_linter
 use_parallel_startpoints <- FALSE # couldn't get parallel to work, 2024/06/15
-N_S_max <- 8L # nolint: object_name_linter
+N_S_max <- 12L # nolint: object_name_linter
 N_S_max_stratified <- 2L # nolint: object_name_linter
 N_CV_folds <- 10L # nolint: object_name_linter
 
@@ -99,22 +141,46 @@ outcomes_name <- "symptom"
 events_name <- "symptomatic events"
 outcomes_name_sentence_start <- stringr::str_to_sentence(outcomes_name)
 
-compact_fig_caption <- paste(
-  "The different colors (red, blue, purple, green, magenta)",
-  "indicate the ordinal levels of symptom progression.",
-  "Color gradient intensity represents the likelihood of sequence position.",
-  "The brighter the color, the more likely that the corresponding",
+biomarker_text_color_info <- 
+  glue::glue(
+    "Label text colors indicate {outcomes_name} categories ",
+    "(@tbl-biomarker-list)."
+  )
+
+
+compact_fig_caption <- paste0(
+  "The heatmap colors (",
+  color_list |> paste(collapse = ", "),
+  ") indicate the ordinal levels of symptom progression",
+  " (@tbl-biomarker-list). ",
+  "Heatmap color gradient intensity ",
+  "represents the Bayesian posterior probability ",
+  "of the sequence position; ",
+  "the brighter the color, the more probable that the corresponding ",
   outcomes_name,
-  "event occurs in that position in the sequence."
+  " event occurs in that position in the sequence. ",
+  biomarker_text_color_info
 )
 
+# note: if we moved all the captions out of chunk options, 
+# then we could turn these strings into subfiles 
+# and make them a lot simpler to read.
 compact_fig_cap2 <- glue::glue(
-  "Red lines indicate {outcomes_name}s that moved to later positions ",
-  "between the left-hand subgroup and the right-hand subgroup. ",
-  "Blue lines indicate ",
-  "{outcomes_name}s that moved to earlier positions. ",
+  '[{{names(lineplot_direction_colors)[2]}}]{color="{{lineplot_direction_colors[2]}}"}',
+  " lines indicate {{outcomes_name}}s that moved to later positions ",
+  "between the left-hand subgroup and the right-hand subgroup.\n",
+  '[{{names(lineplot_direction_colors)[4]}}]{color="{{lineplot_direction_colors[4]}}"}',
+  " lines indicate {{outcomes_name}}s that moved to earlier positions.\n",
+  '[{{names(lineplot_direction_colors)[3]}}]{color="gray"}',
+  " lines indicate {{outcomes_name}}s that did not change positions.\n",
+  '[{{names(lineplot_direction_colors)[1]}}]{color="{{lineplot_direction_colors[1]}}"}',
+  " lines indicate FXTAS stages.\n",
   "Line opacity levels indicate the number of positions changed ",
-  "(higher opacity represents more positions changed)."
+  "(higher opacity represents more positions changed).\n",
+  biomarker_text_color_info,
+  "\nYellow highlights indicate symptoms with clinically-significant positional differences between subgroups.",
+  .open = "{{",
+  .close = "}}"
 )
 
 column_var <- c("Gender", "FX3*")
@@ -124,16 +190,32 @@ dataset_name <- "sample_data"
 root_dir <- here::here()
 setwd(root_dir)
 output_folder <-
-  "output/output.fixed_CV/" |>
+  "output/output.fixed_CV-scid-no-subthres/" |>
   fs::dir_create()
 ```
 
 ```{r}
 #| label: subset-data
 load("data/trax_gp34_v1.rda")
+
+if (do_collapse_scid_levels) {
+  scid_levels_to_collapse <- c("Absent", "Sub-Threshold")
+  trax_gp34_v1 <- trax_gp34_v1 |> 
+    collapse_scid_levels(
+      scid_levels_to_collapse)
+}
+
+if (do_collapse_mri_levels) {
+  trax_gp34_v1 <- trax_gp34_v1 |> collapse_mri_levels()
+}
+
 full_data <-
   trax_gp34_v1 |>
   add_labels()
+```
+
+```{r}
+#| label: get-subsets
 n_missing_CGG <- # nolint: object_name_linter
   full_data$CGG |>
   is.na() |>
@@ -144,12 +226,7 @@ v1_usable <-
   dplyr::filter(CGG < 200) |>
   dplyr::mutate(
     `FX3*` = .data$`FX3*` |>
-      forcats::fct_drop() |>
-      labelled::set_label_attribute("CGG Repeat Level"),
-    Parkinsons = Parkinsons |>
-      labelled::set_label_attribute("Parkinson's disease"),
-    `FXTAS Stage` = `FXTAS Stage` |>
-      labelled::set_label_attribute("FXTAS Stage")
+      forcats::fct_drop()
   )
 
 v1_usable_males <- v1_usable |> dplyr::filter(Gender == "Male")
@@ -203,6 +280,7 @@ patient_data <- v1_usable_cases
 biomarker_groups <- compile_biomarker_groups_table(
   dataset = v1_usable
 )
+# biomarker_groups |> saveRDS(file = fs::path(output_folder, "biomarker_groups.rds"))
 
 biomarker_varnames <-
   biomarker_groups |>
@@ -213,7 +291,7 @@ biomarker_levels <-
   get_levels(biomarker_varnames)
 
 biomarker_events_table <-
-  construct_biomarker_events_table(
+  make_biomarker_events_table(
     biomarker_levels,
     biomarker_groups = biomarker_groups
   )
@@ -222,73 +300,6 @@ nlevs <-
   biomarker_levels |> sapply(length)
 max_levels <- nlevs |> max()
 ```
-
-<!-- [Target journal:  -->
-<!-- [Brain (Original Articles)](https://academic.oup.com/brain/pages/general_instructions). -->
-<!-- Word limit for main text: 6000. -->
-<!-- Figure + table limit: 8.]{.mark} -->
-
-# Abstract {.unnumbered}
-
-<!-- [Abstract word limit: 400]{.mark} -->
-
-{{< include _sec_abstract.qmd >}}
-
-**Keywords:** 
-Fragile X-associated tremor/ataxia syndrome;
-Subtype and Stage Inference;
-sequential events; 
-disease development and progression;
-sex differences;
-latent subgroups
-
-{{< pagebreak >}}
-
-# Introduction
-
-{{< include _sec_intro.qmd >}}
-
-# Materials and methods
-
-## Data
-
-### Study cohorts
-
-{{< include _sec_study_cohorts.qmd >}}
-
-### `r outcomes_name_sentence_start`s of neurodegenerative events
-
-{{< include _sec_biomarkers.qmd >}}
-
-## Statistical analysis {#sec-Statistical-analysis}
-
-### Ordinal SuStaIn model {#sec-scored-events-model}
-
-{{< include _sec_ordinal_sustain_model.qmd >}}
-
-### Imputation of missing data {#sec-incomplete-data}
-
-{{< include _sec_incomplete_data.qmd >}}
-
-### Statistical hypothesis tests
-
-{{< include _sec_hypothesis_tests.qmd >}}
-
-### Latent subtype clustering {#sec-methods-latent-subtypes}
-
-{{< include _sec_methods_clustering.qmd >}}
-
-<!-- {{< include _methods_longitudinal.qmd >}} -->
-
-### Visualizing modeling results
-
-{{< include _sec_pvd_description.qmd >}}
-
-## Software
-
-{{< include _sec_software.qmd >}}
-
-# Results
 
 ```{r}
 #| label: get-control-dists
@@ -302,30 +313,82 @@ prob_correct <-
 ```
 
 ```{r}
+#| label: basic-summary-stats
+biomarkers_table <-
+  v1_usable |>
+  make_biomarkers_table(
+    biomarker_varnames = biomarker_varnames,
+    biomarker_events_table = biomarker_events_table
+  ) |> 
+  left_join(
+    biomarker_groups |> distinct(.data$biomarker_group, .data$group_color),
+    by = c("category" = "biomarker_group")
+  )
+```
+
+# Abstract {.unnumbered}
+
+{{< include _sec_abstract.qmd >}}
+
+{{< pagebreak >}}
+
+**Author affiliations:**
+
+Correspondence to: Douglas Ezra Morrison  
+Medical Sciences 1C #113  
+One Shields Ave  
+Davis, CA 95616  
+<demorrison@ucdavis.edu>  
+
+**Running title:** Progression of FXTAS symptoms
+
+**Keywords:** 
+fragile X-associated tremor/ataxia syndrome; 
+subtype and stage inference; 
+disease development and progression; 
+sex differences; 
+latent subgroups
+
+{{< pagebreak >}}
+
+## Introduction
+
+{{< include _sec_intro.qmd >}}
+
+## Materials and methods
+
+{{< include _sec-materials-and-methods.qmd >}}
+
+```{r}
 #| message: false
 #| label: model-all-subgroups-first-visits
 #| include: false
-#| eval: !expr fit_models
 
-sustain_output <- run_and_save_OSA(
-  biomarker_levels = biomarker_levels,
-  prob_correct = prob_correct,
-  SuStaInLabels = biomarker_varnames,
-  N_startpoints = N_startpoints,
-  N_S_max = N_S_max,
-  N_iterations_MCMC = N_iterations_MCMC,
-  output_folder = output_folder,
-  dataset_name = dataset_name,
-  use_parallel_startpoints = use_parallel_startpoints,
-  seed = 1,
-  plot = plot_python,
-  rerun = rerun,
-  patient_data = patient_data,
-  N_CV_folds = N_CV_folds
-)
+if (fit_models) {
+  
+  sustain_output <- run_and_save_OSA(
+    verbose = verbose,
+    biomarker_levels = biomarker_levels,
+    prob_correct = prob_correct,
+    SuStaInLabels = biomarker_varnames,
+    N_startpoints = N_startpoints,
+    N_S_max = N_S_max,
+    N_iterations_MCMC = N_iterations_MCMC,
+    output_folder = output_folder,
+    dataset_name = dataset_name,
+    use_parallel_startpoints = use_parallel_startpoints,
+    seed = 1,
+    plot = plot_python,
+    rerun = rerun,
+    patient_data = patient_data,
+    N_CV_folds = N_CV_folds
+  )
+}
 ```
 
 {{< include _sec_run_stratified_models.qmd >}}
+
+## Results
 
 ```{r}
 #| label: extract-figs
@@ -335,7 +398,8 @@ results_v1 <- extract_results_from_pickles(
   n_s = 1:N_S_max,
   rda_filename = "data.RData",
   dataset_name = "sample_data",
-  output_folder = "output/output.fixed_CV"
+  output_folder = output_folder,
+  verbose = verbose
 )
 
 results_females_first = extract_results_from_pickle(
@@ -353,41 +417,56 @@ results_males_first = extract_results_from_pickle(
   dataset_name = "males",
   output_folder = output_folder
 )
-  
-fig_females_first <- extract_figs_from_pickle(
+
+fig_females_first <- results_females_first |> 
+  plot_positional_var(
+  biomarker_groups = biomarker_groups,
+  biomarker_levels = biomarker_levels,
   use_rds = use_rds,
   size.y = size.y,
   n_s = 1,
-  rda_filename = "data.RData",
-  dataset_name = "females",
-  output_folder = "output/output.fixed_CV"
+  use_labels = TRUE
 )
 
-fig_males_first <- extract_figs_from_pickle(
+fig_males_first <- results_males_first |> 
+  plot_positional_var(
+  biomarker_groups = biomarker_groups,
+  biomarker_levels = biomarker_levels,
   use_rds = use_rds,
   size.y = size.y,
   n_s = 1,
-  rda_filename = "data.RData",
-  dataset_name = "males",
-  output_folder = "output/output.fixed_CV"
+  use_labels = TRUE
 )
 
 fig_both_first <- extract_figs_from_pickle(
+  biomarker_groups = biomarker_groups,
+  biomarker_levels = biomarker_levels,
   use_rds = use_rds,
   size.y = size.y,
   n_s = 1,
   rda_filename = "data.RData",
   dataset_name = "sample_data",
-  output_folder = "output/output.fixed_CV"
+  output_folder = output_folder
 )
 
 fig_both_first2 <-
-  list("all" = fig_both_first) |>
-  plot_compact_pvd()
+  list(fig_both_first) |>
+  plot_compact_pvd(
+    scale_colors = scale_colors1
+  )
 
-fig_both_first2 |> ggsave(filename = "output/thumbnail.jpeg")
+fig_both_first2 |> 
+  ggplot2::ggsave(
+    height = 120, 
+    width = 120,
+    units = "mm", 
+    dpi = 600,
+    filename = "output/thumbnail.jpeg"
+  )
 
 fig_under100 <- extract_figs_from_pickle(
+  biomarker_groups = biomarker_groups,
+  biomarker_levels = biomarker_levels,
   use_rds = use_rds,
   size.y = size.y,
   n_s = 1,
@@ -396,6 +475,8 @@ fig_under100 <- extract_figs_from_pickle(
 )
 
 fig_over100 <- extract_figs_from_pickle(
+  biomarker_groups = biomarker_groups,
+  biomarker_levels = biomarker_levels,
   use_rds = use_rds,
   size.y = size.y,
   n_s = 1,
@@ -404,6 +485,8 @@ fig_over100 <- extract_figs_from_pickle(
 )
 
 fig_under100_males <- extract_figs_from_pickle(
+  biomarker_groups = biomarker_groups,
+  biomarker_levels = biomarker_levels,
   use_rds = use_rds,
   size.y = size.y,
   n_s = 1,
@@ -412,6 +495,8 @@ fig_under100_males <- extract_figs_from_pickle(
 )
 
 fig_over100_males <- extract_figs_from_pickle(
+  biomarker_groups = biomarker_groups,
+  biomarker_levels = biomarker_levels,
   use_rds = use_rds,
   size.y = size.y,
   n_s = 1,
@@ -421,6 +506,8 @@ fig_over100_males <- extract_figs_from_pickle(
 
 
 fig_under100_females <- extract_figs_from_pickle(
+  biomarker_groups = biomarker_groups,
+  biomarker_levels = biomarker_levels,
   use_rds = use_rds,
   size.y = size.y,
   n_s = 1,
@@ -429,6 +516,8 @@ fig_under100_females <- extract_figs_from_pickle(
 )
 
 fig_over100_females <- extract_figs_from_pickle(
+  biomarker_groups = biomarker_groups,
+  biomarker_levels = biomarker_levels,
   use_rds = use_rds,
   size.y = size.y,
   n_s = 1,
@@ -437,265 +526,107 @@ fig_over100_females <- extract_figs_from_pickle(
 )
 ```
 
-```{r}
-#| label: basic-summary-stats
-stages <- v1_usable_cases |>
-  dplyr::select(`FXTAS Stage`) |>
-  table()
-biomarkers_table <-
-  v1_usable |>
-  make_biomarkers_table(
-    biomarker_varnames = biomarker_varnames,
-    biomarker_events_table = biomarker_events_table
-  )
-```
+{{< include _sec-results-pk-missing-issues.qmd >}}
 
-@tbl-demographics describes summary statistics of patient characteristics 
-included in the analysis. 
-Our data included: 
-`r nrow(v1_usable_cases)` fragile X premutation carriers and 
-`r nrow(controls_v1)` controls;
-`r nrow(v1_usable_males)` males and `r nrow(v1_usable_females)` females;
-and `r and::and(stages)` carriers at 
-FXTAS stages `r names(stages) |> and::and()`, respectively. 
-We found no differences between males and females in 
-age at baseline visit, 
-ethnicity/race, 
-FXTAS stage, or
-CGG repeat length.
-@tbl-biomarker-list lists the `r outcomes_name`s and their ordinal levels
-and reports percentages of clinically elevated levels at baseline visit, 
-stratified by sex.
-We found significant sex differences in 
-percentages of clinically elevated (non-reference) 
-`r outcomes_name` levels 
-at baseline visit for `r report_sex_differences(biomarkers_table)`.
+{{< include _sec-results-demographics.qmd >}}
 
-## Sex differences in sequential orders {#sec-methods-strat-sex}
+### Sex differences in sequential orders {#sec-methods-strat-sex}
 
-```{r}
-#| label: p-val-test-sex
+{{< include _sec-permutation-tests-sex.qmd >}}
 
-permuted_test_stats <- collect_permutation_test_stats(
-  output_folder = output_folder,
-  permuting_variables = "Gender"
-)
+{{< include _sec-permutation-tests-strat-cgg.qmd >}}
 
-observed_test_stat <- get_observed_permutation_test_stat(
-  output_folder,
-  dataset_names = c("females", "males")
-)
+{{< include _sec-permutation-tests-strat-sex.qmd >}}
 
-pval_sex_gp34_v1 <- permutation_test(
-  observed_test_stat = observed_test_stat,
-  permuted_test_stats = permuted_test_stats,
-  n_permutations = n_permutations
-)
-```
-
-@fig-first-only-pvd shows 
-the estimated sequential orders
-of FXTAS `r outcomes_name`s 
-in males and females, 
-and @fig-first-only-diffs shows differences in those orders.
-We found statistically significant evidence of a 
-difference in sequences of `r events_name`
-between males and females (p = `r pval_sex_gp34_v1`). 
-It appears that 
-female premutation carriers developed 
-SCID mood disorder symptoms, 
-both sub-threshold-level and threshold-level,
-prior to FXTAS Stage 1 diagnosis,
-whereas male carriers experienced these symptoms much later 
-(often between FXTAS Stages 3 and 4) (@fig-first-only-diffs).
-Ataxia occurred prior to Stage 1 for females 
-and after Stage 2 for males.
-However, ataxia severity level 1 occurred 
-earlier for males (between Stages 2-3) 
-than for females (between Stages 3-4).
-Advanced degrees of ataxia severity also occurred 
-earlier in the event sequence for males than females. 
-MRI biomarkers of decline and parkinsonian features 
-also appear to begin at earlier FXTAS stages for males than for females.
-
-
-```{r}
-#| label: p-val-test-sex-under100
-
-permuted_test_stats <- collect_permutation_test_stats(
-  output_folder = output_folder,
-  stratifying_levels = "CGG 55-99",
-  permuting_variables = "Gender"
-)
-
-observed_test_stat <- get_observed_permutation_test_stat(
-  output_folder,
-  dataset_names = c("under100_Female", "under100_Male")
-)
-
-pval_under100_sex_gp34_v1 <- permutation_test(
-  observed_test_stat = observed_test_stat,
-  permuted_test_stats = permuted_test_stats,
-  n_permutations = n_permutations
-)
-```
-
-```{r}
-#| label: p-val-test-sex-over100
-
-permuted_test_stats <- collect_permutation_test_stats(
-  output_folder = output_folder,
-  stratifying_levels = "CGG 100-199",
-  permuting_variables = "Gender"
-)
-
-observed_test_stat <- get_observed_permutation_test_stat(
-  output_folder,
-  dataset_names = c("over100_Female", "over100_Male")
-)
-
-pval_over100_sex_gp34_v1 <- permutation_test(
-  observed_test_stat = observed_test_stat,
-  permuted_test_stats = permuted_test_stats,
-  n_permutations = n_permutations
-)
-```
-
-When we conducted subgroup analyses by CGG repeat size,
-we found statistically significant evidence of 
-a difference between males and females
-among those with CGG < 100 (p = `r pval_under100_sex_gp34_v1`)
-(@suppfig-pvd-by-gender-cgg_under100).
-Several psychiatric disorders (as assessed by SCID) 
-occurred prior to FXTAS Stage 1
-among females with CGG < 100,
-but at later FXTAS stages for males with CGG < 100.
-MRI biomarkers appeared to occur at later stages in females compared to males.
-We did not find statistically significant evidence of 
-a difference between males and females
-among those with CGG ≥ 100 (p = `r pval_over100_sex_gp34_v1`) 
-(@suppfig-pvd-by-gender-cgg_over100).
-
-
-```{r}
-#| label: p-val-test-cgg-male
-
-permuted_test_stats <- collect_permutation_test_stats(
-  output_folder = output_folder,
-  stratifying_levels = "Male",
-  permuting_variables = "FX3"
-)
-
-observed_test_stat <- get_observed_permutation_test_stat(
-  output_folder,
-  dataset_names = c("under100_Male", "over100_Male")
-)
-
-pval_male_cgg_gp34_v1 <- permutation_test(
-  observed_test_stat = observed_test_stat,
-  permuted_test_stats = permuted_test_stats,
-  n_permutations = n_permutations
-)
-```
-
-
-```{r}
-#| label: p-val-test-cgg-female
-
-permuted_test_stats <- collect_permutation_test_stats(
-  output_folder = output_folder,
-  stratifying_levels = "Female",
-  permuting_variables = "FX3"
-)
-
-observed_test_stat <- get_observed_permutation_test_stat(
-  output_folder,
-  dataset_names = c("under100_Female", "over100_Female")
-)
-
-pval_female_cgg_gp34_v1 <- permutation_test(
-  observed_test_stat = observed_test_stat,
-  permuted_test_stats = permuted_test_stats,
-  n_permutations = n_permutations
-)
-
-n_over_100_female <-
-  v1_usable |>
-  dplyr::filter(
-    Gender == "Female",
-    CGG >= 100
-  ) |>
-  nrow()
-```
-
-We found significant evidence of an overall difference between CGG <100
-and CGG ≥100 among males (p = `r pval_male_cgg_gp34_v1`) 
-(@suppfig-pvd-by-cgg-male). 
-SWM between errors occurred prior to Stage 1 in males with CGG repeats <100, 
-whereas it occurred between stage 3 and 4 
-in males with CGG repeats ≥ 100 
-([Supplementary Fig. @fig-pvd-by-cgg-male-2]). 
-Postural, 
-resting, 
-and intermittent tremor 
-occurred in earlier FXTAS stages in those with CGG repeats <100 
-compared to those with CGG repeats ≥100.
-Several psychiatric disorders (as measured by SCID) 
-occurred later in the event sequence in participants with CGG repeats <100 
-compared to those with CGG repeats ≥100.  
-However, we did not find a significant difference between CGG <100 and CGG ≥100 
-among females (p = `r pval_female_cgg_gp34_v1`) 
-(@suppfig-pvd-by-cgg-female). 
-It should be noted that this comparison lacked statistical power 
-given the limited sample size of only `r n_over_100_female` females with CGG ≥100.
-
-## Subtype clustering
+### Subtype clustering
 
 ```{r}
 #| label: set-optimal-subtypes
-temp <- sustain_output |> attr("CV")
-n_s_min_CVIC <- which.min(temp$CVIC) # nolint: object_name_linter
+sustain_output_CV <- sustain_output |> attr("CV")
+n_s_min_CVIC <- which.min(sustain_output_CV$CVIC) # nolint: object_name_linter
 n_s_selected <- 4
-
+subtype_order <- c(3,1,4,2)
 results_cv_max <- extract_results_from_pickle(
   n_s = n_s_selected,
-  use_rds = use_rds,
+  use_rds = FALSE,
   dataset_name = dataset_name,
-  output_folder = output_folder
+  output_folder = output_folder,
+  subtype_order = subtype_order
 )
+figs_n_s_selected <- results_cv_max |> 
+  plot_positional_var(
+    biomarker_groups = biomarker_groups,
+    biomarker_levels = biomarker_levels,
+    use_labels = TRUE
+  )
 ```
 
 We conducted latent subtype classification analysis to cluster participants 
 that are relatively homogeneous within the same cluster 
 and heterogeneous from other clusters 
-based on similarities and difference in sequential patterns. 
-Based on the CVIC criterion (Supplementary material, [Detecting latent subtypes](#sec-subtypes)), 
-`r n_s_min_CVIC` subtypes were suggested to be the optimal number for the full, 
-unstratified dataset 
-([Supplementary Fig. @fig-cvic-1]). 
+based on similarities and differences in sequential patterns. 
+The cross-validation procedure
+(Supplementary material, [Detecting latent subtypes](#sec-subtypes))
+suggested `r n_s_min_CVIC` subtypes to be the optimal number for the full, 
+unstratified dataset ([Supplementary Fig. @suppfig-cvic-1]).
 The out-of-fold log-likelihood ("OOFLL") (Supplementary material, [Detecting latent subtypes](#sec-subtypes)) 
 showed substantial fold-to-fold variation 
-([Supplementary Fig. @fig-cvic-2]).
+([Supplementary Fig. @suppfig-cvic-2]).
 Between `r broman::spell_out(n_s_selected)` and `r broman::spell_out(N_S_max)` 
-latent subgroups, 
-the distribution of OOFLL appears to be
-approximately unchanging and the CVIC appears approximately flat, 
-and thus for easier clinical interpretation
+latent subtypes, 
+the distribution of OOFLL appeared to be
+approximately unchanging and the cross-validation information criterion (CVIC)
+appeared approximately flat, 
+and thus for clinical interpretation
 and in consideration of the principle of parsimony, 
 we chose to classify participants into `r n_s_selected` subtypes.
-The subtypes are numbered 1-4 in order of estimated relative frequency
-(that is, in order of how many participants were clustered into each subtype).
 
 ```{r}
 #| label: compute-n-in-subtype-0
-n_type_0 <- results_cv_max$subtype_and_stage_table |>
-  dplyr::filter(ml_subtype == "Type 0") |>
+
+sust_data <- results_cv_max$subtype_and_stage_table |> 
+  bind_cols(patient_data)
+
+n_type_0 <- sust_data |>
+  dplyr::filter(ml_subtype == "Subtype 0") |>
   nrow()
+
+cgg_by_subtype <- sust_data |> 
+  dplyr::summarize(
+    .by = ml_subtype, 
+    mean = mean(.data$CGG, na.rm = TRUE) |> round(1),
+    sd = sd(.data$CGG, na.rm = TRUE) |> round(1)
+  ) |> 
+  as.data.frame()
+rownames(cgg_by_subtype) = cgg_by_subtype$ml_subtype
+
+cgg_overall <- sust_data |> 
+  dplyr::summarize(
+    mean = mean(.data$CGG, na.rm = TRUE) |> round(1),
+    sd = sd(.data$CGG, na.rm = TRUE) |> round(1)
+  )
+
+test_sex <- 
+  sust_data |> 
+  filter(.data$ml_subtype != "Subtype 0") |> 
+  droplevels() |> 
+  select("ml_subtype", "Gender") |> 
+  table() |> 
+  prop.test()
+
+test_cgg <- 
+  sust_data |> 
+  dplyr::filter(.data$ml_subtype != "Subtype 0") |> 
+  stats::oneway.test(CGG ~ ml_subtype, data = _)
+
+
 ```
 
-@fig-pvd_chosen_subtypes shows the estimated sequential event orders
+@suppfig-pvd_chosen_subtypes shows the estimated sequential event orders
 for each of the subtype clusters.
-@suppfig-pvd_chosen_subtypes_linegraphs shows 
+<!-- @suppfig-pvd_chosen_subtypes_linegraphs  -->
+@fig-pvd_chosen_subtypes_bumpplot
+shows 
 differences in event sequences between subtypes. 
 @tbl-sg_demos shows 
 the demographics of the patients clustered in each subtype. 
@@ -704,122 +635,127 @@ patients had experienced too few events
 to be accurately classified into a subtype 
 and were excluded from @tbl-sg_demos.
 Subtype clustering analysis showed that 
-subtypes were mainly classified by sex and CGG repeat size, 
-supporting the results above. 
-Subtype 1 appeared more biased towards males (65.1%) 
-and lower CGG repeat size (83.2 ± 15.8) 
+CGG repeat size,
+a known risk factor of FXTAS,
+contributed to the segregation of subtypes 
+and variations between subtypes 
+(p-value = `r test_cgg$p.value |> scales::pvalue()`).
+We labeled the subtypes in descending order of mean CGG repeats. 
+Individuals with higher CGG repeats
+were over-represented in Subtype 1
+(CGG repeats mean = 
+`r cgg_by_subtype["Subtype 1", "mean"]` ± `r cgg_by_subtype["Subtype 1", "sd"]`)
 compared to the overall study population 
-(64.5% of males; CGG repeat size = 87.3  ± 18.9) and other subtypes; 
-Subtype 2 appeared biased towards females (53.1% of males) 
-and higher CGG repeat size (90.2 ± 22.3); 
-Subtype 3 appeared over-represented by males (82% of males) 
-and high CGG repeat size (92.4 ± 17.4); 
-and Subtype 4 was biased towards females (60% of males) 
-and lower CGG repeat (82.7 ± 17.3). 
+(CGG repeats mean = `r cgg_overall$mean`  ± `r cgg_overall$sd`) 
+and other subtypes.
+Subtype 2 had CGG repeats close to the overall study population 
+(`r cgg_by_subtype["Subtype 2", "mean"]` ± `r cgg_by_subtype["Subtype 2", "sd"]`).
+Subtype 3 had fewer CGG repeats than the overall study population
+(`r cgg_by_subtype["Subtype 3", "mean"]` ± `r cgg_by_subtype["Subtype 3", "sd"]`),
+and 
+Subtype 4 had the fewest CGG repeats
+(`r cgg_by_subtype["Subtype 4", "mean"]` ± `r cgg_by_subtype["Subtype 4", "sd"]`).
 
-```{r}
-#| label: get-n-events
-n_events <- nrow(biomarker_events_table)
-```
+{{< include _sec-subtype-diff-summary.qmd >}}
 
-Using the FXTAS Stage transitions as reference points,
-we examined the differences in the appearing symptoms
-relative to these FXTAS Stage transitions.
-Roughly speaking:
-Subtype 1 appeared to experience 
-early mood disorders (before FXTAS Stage 1),
-ataxia between Stages 2 and 3,
-head tremors between Stages 3 and 4,
-parkinsonian features between Stages 3 and 4,
-and white matter disease between Stages 4 and 5.
-Compared to Subtype 1, Subtype 2 appeared to experience 
-white matter disease phenotypes earlier (between Stages 2 and 4),
-memory impairment (assessed by SWM) earlier (Stage 3-4 versus 4-5),
-and psychiatric disorders later (between Stages 3 and 5).
-Subtype 2 might be described as "memory-first".
-Subtype 3 appeared to experience
-white matter disease phenotypes early (between Stages 1 and 3),
-and mood disorders late (Stages 4-5).
-Subtype 4 had the fewest participants and was difficult to interpret.
-It may represent a mixture of smaller latent subtypes and/or
-include outlier individuals with unusual event sequences.
-
-# Discussion
+## Discussion
 
 {{< include _sec_discussion.qmd >}}
 
-# Data availability {.unnumbered}
+## Data availability {.unnumbered}
 
 The de-identified data used in this analysis may be provided 
 upon request 
 from the principal investigators of the two cohorts.
 
-# Funding {.unnumbered}
+## Funding {.unnumbered}
 
 This study was supported by the 
 National Institute of Child Health and Human Development 
 (NICHD, HD036071) 
 and
-UC Davis MIND Institute’s 
+UC Davis MIND Institute's 
 Intellectual and Developmental Disabilities Research Center (IDDRC) 
 (P50HD103256)
 and the National Institute of Neurological Disorders and Stroke 
 (NINDS, NS110100).
 
-# Competing interests {.unnumbered}
+## Competing interests {.unnumbered}
 
 The authors report no competing interests.
 
-# Supplementary material {.unnumbered}
+## Supplementary material {.unnumbered}
 
-Supplementary material is available at Brain online.
+Supplementary material is available at Brain Communications online.
 
-# References {.unnumbered}
+## References {.unnumbered}
 
-::: {#refs}
+::: {.sectionrefs}
 :::
 
 {{< pagebreak >}}
 
-```{r}
-#| label: "tbl-demographics"
-#| tbl-cap: |
-#|    **Descriptive statistics of patient characteristics
-#|    by Sex and CGG repeat level.**
+:::{#tbl-demographics custom-style="Caption"}
 
-v1_usable |> make_demographics_table()
+```{r}
+#| label: demographics-tbl
+v1_usable |> make_demographics_table(
+  vars = c(
+    "Age at visit",
+    "Primary Race/Ethnicity",
+    "FXTAS Stage",
+    # "fxtas_dx",
+    "CGG"
+    # "Activation Ratio (0.0-1.0)"
+  )
+)
 ```
+
+**Descriptive statistics of patient characteristics by Sex and CGG repeat level.**
+
+:::
 
 {{< pagebreak >}}
 
-```{r}
-#| tbl-cap: |
-#|    **Symptoms included in analysis.**
-#|    The first level listed in each row of column
-#|    "Defined Ordered Levels"
-#|    is the "reference level" for the corresponding symptom,
-#|    and subsequent levels are considered
-#|    "clinically elevated levels".
-#|    Columns "Female" and "Male" list percentages of
-#|    clinically elevated levels
-#|    at baseline visit, stratified by sex.
-#| label: tbl-biomarker-list
+:::{#tbl-biomarker-list custom-style="Caption"}
 
-flex_biomarkers_table(biomarkers_table)
+```{r}
+#| label: biomarkers-tbl
+biomarkers_table |> 
+  flex_biomarkers_table(
+    width_biomarkers = 1.7,
+    width_levels = 1.5,
+    use_group_colors = TRUE
+  )
 ```
+
+**Symptoms included in analysis.**
+The first level in each cell of the
+"Defined Ordered Levels" column
+is the "reference level" for the corresponding symptom,
+and subsequent levels are considered
+"clinically elevated levels".
+Columns "Female" and "Male" list percentages of
+clinically elevated levels
+at baseline visit, stratified by sex.
+
+:::
 
 {{< pagebreak >}}
 
-::: {#tbl-sg_demos}
+::: {#tbl-sg_demos custom-style="Caption"}
 
 ```{r}
-#| results: asis
-
 set.seed(2)
 tbl_sg_demos <- table_subtype_by_demographics(
-  patient_data,
-  subtype_and_stage_table =
-    results_cv_max$subtype_and_stage_table,
+  demographic_vars = c(
+    "CGG",
+    "Age at visit" , 
+    "Male",
+    "Primary Race/Ethnicity"
+  ),
+  patient_data = patient_data,
+  subtype_and_stage_table = results_cv_max$subtype_and_stage_table,
   digits = list(
     CGG = 1,
     `FX3*` = c(0, 1),
@@ -827,116 +763,147 @@ tbl_sg_demos <- table_subtype_by_demographics(
     `Primary Race/Ethnicity` = c(0, 1)
   )
 )
-
-tbl_sg_demos |>
-  gtsummary::as_flex_table() |>
-  shared_flextable_settings() |>
-  flextable::width(width = 1.75) |>
-  flextable::width(j = 2:6, width = 0.75) |>
-  flextable::width(j = 7, width = 1)
+pval_cgg <- 
+  results_cv_max$subtype_and_stage_table |> 
+  bind_cols(patient_data) |> 
+  dplyr::filter(ml_subtype != "Subtype 0") |> 
+  oneway.test(
+  CGG ~ ml_subtype, data = _)
+N_subtyped <- results_cv_max$subtype_and_stage_table |> 
+  dplyr::filter(ml_subtype != "Subtype 0") |> 
+  nrow()
+pval_formatted <- pval_cgg$p.value |> scales::label_pvalue()()
+dfs <- pval_cgg$parameter |> round(1)
+subtype_pval_summaries <- glue::glue(
+  "Mean CGG differed significantly between subtypes;\n",
+  "one-way ANOVA F test statistic: ",
+  "{round(pval_cgg$statistic, 2)}" ,
+  " (DFs: {dfs[1]} and {dfs[2]});\n",
+  "p-value = {pval_formatted} (N = {N_subtyped}).")
 ```
 
-**Demographics of `r n_s_selected` latent subtype clusters
-identified by Ordinal SuStaIn.**
+
+```{r}
+#| results: asis
+
+tbl_sg_demos |>
+  gtsummary::as_flex_table(ref_symbols = letters) |>
+  shared_flextable_settings() |>
+  flextable::width(width = 1.7) |>
+  flextable::width(j = 2:6, width = 0.75) |>
+  flextable::width(j = 7, width = 0.7)
+```
+
+**Demographics of `r n_s_selected` latent subtype clusters**
+**identified by Ordinal SuStaIn.**
 `r n_type_0` patients had experienced too few events
 to be accurately classified into a subtype
 and were excluded from this table.
 
 :::
 
-{{< pagebreak >}}
-
 {{< include _sec_abbrev_table.qmd >}}
 
+{{< include _tbl-critical-findings.qmd >}}
+
 {{< pagebreak >}}
 
+:::{#fig-first-only-pvd custom-style="Caption"}
+
 ```{r}
-#| label: fig-first-only-pvd
 #| fig-height: !expr pvd_height
 #| fig-width: !expr pvd_width
-#| fig-cap: !expr
-#|    glue::glue(
-#|    "**Event sequences of FXTAS symptoms stratified by sex.**
-#|    {compact_fig_caption}")
 #| fig-cap-location: top
+
+pvdc_sex <- list(
+  "Males:" = fig_males_first,
+  "Females:" = fig_females_first
+) |>
+  # plot_compact_pvd_est2()
+  plot_compact_pvd(
+    scale_colors = scale_colors1, 
+    y_text_size = y_text_size
+  )
+
+print(pvdc_sex)
 
 list(
-  "Males <br>" = fig_males_first,
-  "Females <br>" = fig_females_first
+  "Males:" = fig_males_first,
+  "Females:" = fig_females_first
 ) |>
-  plot_compact_pvd(y_text_size = y_text_size)
+  # plot_compact_pvd_est2()
+  plot_compact_pvd(
+    scale_colors = scale_colors1, 
+    y_text_size = 10) |> 
+  ggplot2::ggsave(
+    height = 120, 
+    width = 120,
+    units = "mm", 
+    dpi = 600,
+    filename = "analyses/pvd_sex.pdf"
+  )
+
 ```
 
-```{r}
-results_list_by_sex <- list(
-  "Males" = results_males_first,
-  "Females" = results_females_first
-)
-
-results_list_by_sex |> stage_barplot()
-```
-
-
-{{< pagebreak >}}
-
-```{r}
-#| label: fig-first-only-diffs
-#| fig-height: !expr pvd_line_height
-#| fig-width: !expr pvd_line_width
-#| fig-cap: !expr
-#|    glue::glue(
-#|    "**Positional differences in estimated event sequence between
-#|    males and females.**
-#|    {compact_fig_cap2}")
-#| fig-cap-location: top
-
-list(
-  "Males" = fig_males_first,
-  "Females" = fig_females_first
-) |>
-  pvd_lineplot(text_size = lineplot_text_size)
-```
-
-{{< pagebreak >}}
-
-```{r}
-#| label: fig-pvd_chosen_subtypes
-#| fig-height: 7
-#| fig-width: !expr pvd_width
-#| fig-cap: !expr
-#|     glue::glue(
-#|     "**Event sequences for {n_s_selected} latent subtypes.**
-#|     {compact_fig_caption}")
-#| fig-cap-location: top
-
-figs <- extract_figs_from_pickle(
-  size.y = size.y,
-  n_s = n_s_selected,
-  dataset_name = dataset_name,
-  output_folder = output_folder
-)
-
-plot_compact_pvd_est2(
-  figs = figs,
-  tile_height = 1,
-  y_text_size = 6,
-  title_size = 8
-)
-```
-
-{{< pagebreak >}}
-
-::: {#fig-stage-barplot_chosen_subtypes}
-
-```{r}
-results_cv_max |> stage_barplot()
-```
-
-**Number of observations at each stage, by latent cluster
-
+**Event sequences of FXTAS symptoms stratified by sex.**
+`r compact_fig_caption`
+`r test_sex_summary`
 :::
 
 {{< pagebreak >}}
+
+:::{#fig-first-only-diffs custom-style="Caption"}
+
+```{r}
+#| fig-height: !expr pvd_line_height
+#| fig-width: !expr pvd_line_width
+
+lineplot_by_sex <- list(
+  "Males," = fig_males_first,
+  "Females," = fig_females_first
+) |>
+  pvd_lineplot(
+    expand = 0,
+    min_alpha = 0.5,
+    text_size = lineplot_text_size,
+    events_to_highlight = c(
+      "SCID: Mood Disorders: Threshold",
+      "Tandem Walk: Abnormal (<10 Steps)",
+      "Postural Tremor",
+      "Splenium WM Hyperintensity: Mild",
+      "Genu WM Hyperintensity",
+      "MRI: Cerebral: Mild",
+      "MRI: Cerebellar: Mild",
+      "MRI: Cerebral: Moderate/Severe",
+      "MRI: Cerebellar: Moderate/Severe",
+      "MCP-WM Hyperintensity: Mild",
+      "MCP-WM Hyperintensity: Moderate/Severe"
+    ),
+    highlight_color = "yellow"
+  )
+
+lineplot_by_sex
+
+# lineplot_by_sex +
+#  ggview::canvas(
+#    width = pvd_line_width, 
+#    height = pvd_line_height, 
+#    units = "in", 
+#    dpi = 600
+#  )
+```
+
+**Positional differences in estimated event sequence between males and females.**
+`r compact_fig_cap2`
+`r test_sex_summary`
+
+:::
+
+::: landscape
+
+{{< include _sec_subtypes_bumpchart.qmd >}}
+
+:::
 
 # Supplementary material
 

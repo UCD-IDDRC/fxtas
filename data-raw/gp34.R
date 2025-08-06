@@ -24,9 +24,22 @@ shared[label(gp4[, shared]) != label(gp3[, shared])]
 setdiff(names(gp3), names(gp4))
 setdiff(names(gp4), names(gp3))
 
-gp34 =
-  bind_rows("GP3" = gp3, "GP4" = gp4, .id = "Study") |>
-  clean_data()
+gp34_raw <-
+  bind_rows("GP3" = gp3, "GP4" = gp4, .id = "Study")
+
+gp34_raw |>
+  readr::write_rds(testthat::test_path("fixtures", "gp34_raw.rds"))
+
+
+gp34_raw |>
+  head(0) |>
+  readr::write_rds(testthat::test_path("fixtures", "gp34_raw_nodata.rds"))
+
+gp34 <- gp34_raw |> clean_data()
+
+gp34 |>
+  head(0) |>
+  readr::write_rds(testthat::test_path("fixtures", "gp34_nodata.rds"))
 
 
 trans =

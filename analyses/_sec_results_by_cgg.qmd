@@ -1,6 +1,7 @@
 @suppfig-pvd-by-cgg shows the estimated sequences 
 stratified by CGG repeat level.
-We did not find statistically significant evidence of a difference in event sequences
+We did not find statistically significant evidence of 
+a difference in event sequences
 between CGG < 100 and CGG ≥ 100 (p = `r pval_cgg_gp34_v1`),
 but some potential differences were noted
 (@suppfig-pvd-by-cgg and @suppfig-diff-by-cgg).
@@ -22,22 +23,23 @@ the earlier the onset and the faster the progression of FXTAS
 Perhaps the cut off of 100 is too high for this distinction to be made.
 
 These differences were more evident among males than females
-(Supplementary material, [Comparing CGG levels stratified by sex](#sec-cgg-strat-sex)).
+(Supplementary material, 
+[Comparing CGG levels stratified by sex](#sec-cgg-strat-sex)).
 When we fitted models for subgroup analyses by sex and CGG repeats level,
 the models for males showed the same patterns described above,
 except for head tremor
 (we found no difference in head tremor onset between CGG levels).
-@suppfig-pvd-by-cgg-male
+[Supplementary Fig. @suppfig-pvd-by-cgg-male-1]
 shows the corresponding stratified models and
+[Supplementary Fig. @suppfig-pvd-by-cgg-male-2]
 compares the estimates of the sequences for these two subgroups.
-
 
 We did not find statistically significant evidence of
 a difference between CGG <100 and CGG ≥100 among females
 (p = `r pval_female_cgg_gp34_v1`).
-@suppfig-pvd-by-cgg-female
+@suppfig-pvd-by-cgg-female-1
 shows the estimated stratified models
-and compares the estimates.
+and @suppfig-pvd-by-cgg-female-2 compares the estimates.
 Females had later onset of SWM Between Errors for CGG repeats ≥100
 and later onset of intermittent tremors for CGG repeats <100,
 but did not show evidence of the other patterns observed for males and
@@ -48,28 +50,32 @@ the available data included only `r n_over_100_female` females with CGG ≥100.
 
 {{< pagebreak >}}
 
-::: {#suppfig-pvd-by-cgg}
+::: {#suppfig-pvd-by-cgg custom-style="Caption"}
 
 ```{r}
 #| fig-height: !expr pvd_height
 #| fig-width: !expr pvd_width
 
 list(
-    fig_under100,
-    fig_over100
+    "CGG &lt; 100:" = fig_under100,
+    "CGG &ge; 100:" = fig_over100
   ) |> 
 plot_compact_pvd(
-  facet_label_prefix = c("CGG &lt; 100 <br>", "CGG &ge; 100 <br>"),
+  scale_colors = scale_colors1,
   y_text_size = y_text_size
 )
 
 
 ```
 
-`r glue::glue("**Event sequences stratified by CGG repeats (<100 vs 100+).** {compact_fig_caption}")`
+**Event sequences stratified by CGG repeats (<100 vs 100+).** 
+`r compact_fig_caption`
+`r test_cgg_summary`
 :::
 
-::: {#suppfig-diff-by-cgg}
+{{< pagebreak >}}
+
+::: {#suppfig-diff-by-cgg custom-style="Caption"}
 
 ```{r}
 #| fig-height: !expr pvd_line_height
@@ -81,11 +87,9 @@ list(
 pvd_lineplot(text_size = lineplot_text_size)
 ```
 
-**Event sequences stratified by CGG repeats (<100 vs 100+).** 
-Differences in event sequences between CGG repeat sizes.
+**Positional differences in event sequences**
+**stratified by CGG repeat sizes (<100 vs 100+).**
 `r compact_fig_cap2`
-
+`r test_cgg_summary`
 :::
 
-
-{{< pagebreak >}}

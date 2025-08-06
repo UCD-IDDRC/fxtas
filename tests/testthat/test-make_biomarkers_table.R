@@ -23,7 +23,7 @@ test_that("`test_biomarkers_table()` produces consistent results", {
     get_levels(biomarker_varnames)
 
   biomarker_events_table =
-    construct_biomarker_events_table(
+    make_biomarker_events_table(
       biomarker_levels,
       biomarker_groups = biomarker_groups)
 

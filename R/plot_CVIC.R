@@ -12,9 +12,15 @@ plot_CVIC <- function(CVIC) {
     CVIC = CVIC,
     `# subtypes` = seq_along(CVIC)
   ) |>
-    ggplot(aes(x = .data$`# subtypes` |> factor(), y = .data$CVIC, group = 1)) +
+    ggplot() +
+    aes(
+      x = .data$`# subtypes` |> factor(levels = .data$`# subtypes`),
+      y = .data$CVIC,
+      group = 1
+    ) +
     geom_line() +
     geom_point() +
-    xlab("# subtypes") +
+    xlab("# latent subtypes") +
+    ylab("Cross-validation information criterion") +
     theme_bw()
 }

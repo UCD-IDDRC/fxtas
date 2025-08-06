@@ -3,13 +3,17 @@
 #' @param figs a [list] of `PVD` objects
 #' @param biomarker_order a [character] vector specifying the
 #' order of biomarkers to use
+#' @param biomarker_var either "biomarker" or "biomarker_label"
 #' @returns a [tibble::tbl_df]
 #' @export
 #' @keywords internal
-compact_pvd_data_prep <- function(figs, biomarker_order = NULL) {
+compact_pvd_data_prep <- function(figs,
+                                  biomarker_order = NULL,
+                                  biomarker_var = "biomarker_label") {
   if (length(figs) == 1) {
     # extract data from pvd fig object
     dataset <- dplyr::bind_rows(figs[[1]]$data, .id = "facet")
+
   } else {
     # extract data from list of pvd fig object
     dataset <-
@@ -18,14 +22,16 @@ compact_pvd_data_prep <- function(figs, biomarker_order = NULL) {
         figs[[x]]$data
       }) |>
       dplyr::bind_rows(.id = "facet")
+
   }
 
   # determine biomarker event order
   event_order <- dataset |>
     dplyr::filter(.data$facet == 1) |>
     dplyr::select(all_of(c(
-      "row number and name", "event name", "biomarker"
-    ))) |>
+      "row number and name", "event name", biomarker_var
+    )))
+  event_order <- event_order |>
     dplyr::mutate(
       Order =
         sub("\\D*(\\d+).*", "\\1", .data$`row number and name`) |>
@@ -33,14 +39,17 @@ compact_pvd_data_prep <- function(figs, biomarker_order = NULL) {
     ) |>
     dplyr::mutate(
       `event order` = min(.data$Order),
-      .by = "biomarker"
+      .by = all_of(biomarker_var)
     ) |>
     # dplyr::select(
     #   biomarker, position
     # ) |>
-    arrange(across(all_of("event order"))) |>
+    arrange(.data[["event order"]]) |>
     dplyr::mutate(
-      biomarker = .data$biomarker |> forcats::fct_inorder()
+      biomarker = .data[[biomarker_var]] |>
+        tools::toTitleCase() |>
+        Hmisc::capitalize() |>
+        forcats::fct_inorder()
     ) |>
     dplyr::select(
       all_of(c("biomarker", "event order"))
@@ -53,7 +62,10 @@ compact_pvd_data_prep <- function(figs, biomarker_order = NULL) {
   # update biomarker levels in dataset
   plot_dataset <- dataset |>
     # convert biomarker to factor with event order levels
-    dplyr::mutate(biomarker = factor(.data$biomarker, levels = biomarker_order)) |>
+    dplyr::mutate(biomarker = .data[[biomarker_var]] |>
+                    tools::toTitleCase() |>
+                    Hmisc::capitalize() |>
+                    factor(levels = biomarker_order)) |>
     # arrange by biomarker levels
     arrange(across(all_of("biomarker"))) |>
     # create biomarker labels for figure

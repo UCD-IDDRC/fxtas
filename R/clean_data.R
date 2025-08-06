@@ -1,6 +1,6 @@
-clean_data <- function(dataset)
-{
-  dataset |>
+clean_data <- function(dataset) {
+  to_return <-
+    dataset |>
     dplyr::arrange(
       across(
         all_of(
@@ -16,10 +16,12 @@ clean_data <- function(dataset)
     dplyr::relocate("Visit Date", .after = "Event Name") |>
     clean_head_tremor_onset() |>
 
-    create_any_tremor() |>
+    combine_tremor() |>
     fix_tremor_onsets() |>
 
-    fix_onset_age_vars() |>
+    fix_onset_age_vars()
+
+  to_return <- to_return |>
 
     clean_kinesia() |>
     # includes BDS, MMSE
@@ -37,11 +39,11 @@ clean_data <- function(dataset)
 
     categorize_BDS() |>
 
-    # make_vars_numeric(regex = "BDS-2 Total Score") |>
-    # make_vars_numeric(regex = "MMSE total score") |>
+    # make_vars_numeric(regex = "BDS-2 Total Score") |> # nolint: commented_code_linter
+    # make_vars_numeric(regex = "MMSE total score") |> # nolint: commented_code_linter
 
     # `Drugs used` is unstructured text, with typos; unusable
-    # fix_drugs_used() |>
+    # fix_drugs_used() |> # nolint: commented_code_linter
 
     categorize_MMSE() |>
 
@@ -52,6 +54,7 @@ clean_data <- function(dataset)
     dplyr::relocate(contains("CGG"), .after = contains("ApoE")) |>
 
     fix_FXTAS_stage() |>
+    clean_fxtas_dx() |>
 
     fix_demographics() |>
 
@@ -82,6 +85,11 @@ clean_data <- function(dataset)
 
     drop_levels(except = exceptions_to_droplevels) |>
 
-    clean_gender() |> # droplevels() removes attributes
+    clean_gender() |>  # droplevels() removes attributes
+    fix_parkinsonian_features()
+
+  to_return <- to_return |>
     add_labels()
+
+  return(to_return)
 }

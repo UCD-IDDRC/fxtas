@@ -6,17 +6,25 @@
 \usage{
 plot_compact_pvd_est2(
   figs,
+  show_uncert = TRUE,
   tile_height = 1,
   tile_width = 1,
   y_text_size = 9,
   legend.position = "none",
-  scale_colors = c("red", "blue", "purple4", "darkgreen", "magenta"),
+  scale_colors = c("red", "blue", "magenta", "darkgreen", "purple4"),
   rel_heights = c(1, 0.1),
+  facet_label_prefix = names(figs),
+  facet_labels = compact_pvd_facet_labels(figs = figs, facet_label_prefix =
+    facet_label_prefix),
+  facet_label_size = 9,
+  vjust = 1.5,
   ...
 )
 }
 \arguments{
 \item{figs}{todo}
+
+\item{show_uncert}{Show the uncertainty in the sequential order. Logical.}
 
 \item{tile_height}{todo}
 
@@ -29,6 +37,14 @@ plot_compact_pvd_est2(
 \item{scale_colors}{todo}
 
 \item{rel_heights}{relative heights of the plot and the legend}
+
+\item{facet_label_prefix}{todo}
+
+\item{facet_labels}{facet labels}
+
+\item{facet_label_size}{\link{integer}: font size for cowplot facet labels}
+
+\item{vjust}{vjust for cowplot labels}
 
 \item{...}{arguments passed to \code{tmp_func()}}
 }

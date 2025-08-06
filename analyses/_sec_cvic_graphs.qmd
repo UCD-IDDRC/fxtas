@@ -1,28 +1,31 @@
-
-::: {#suppfig-cvic layout-ncol="2"}
-
-```{r}
-#| label: fig-cvic-1
-#| fig-width: 3
-#| fig-height: 3
-#| fig-cap: ""
-#| eval: !expr fit_models
-
-temp$CVIC |> plot_CVIC()
-```
+:::{#suppfig-cvic-1 custom-style="Caption"}
 
 ```{r}
-#| label: fig-cvic-2
-#| fig-width: 3
-#| fig-height: 3
-#| fig-cap: ""
 #| eval: !expr fit_models
 
-temp$loglike_matrix |> plot_cv_loglik(y_text_size = y_text_size)
+sustain_output_CV$CVIC |> plot_CVIC()
 ```
 
-**Selection criteria for number of latent subtypes**
-**(a)** Cross-validation information criterion
-**(b)** Test set log-likelihood across folds
+**Selection criteria for number of latent subtypes:**
+**cross-validation information criterion (CVIC)**.
+Each data point represents the estimated CVIC (y-axis)
+for the model fit with a given number of latent subtypes (x-axis)
+on the full data set (N = `r nrow(v1_usable_cases)`).
 
+:::
+
+:::{#suppfig-cvic-2 custom-style="Caption"}
+
+```{r}
+#| eval: !expr fit_models
+
+sustain_output_CV$loglike_matrix |> plot_cv_loglik(y_text_size = y_text_size)
+```
+
+**Selection criteria for number of latent subtypes:**
+**Out-Of-Fold Log-Likelihood criterion (OOFLL)**.
+Each data point represents the OOFLL statistic
+(i.e., the test set log-likelihood across cross-validation folds)
+for the Ordinal SuStaIn model fit with a given number of latent subtypes
+on the full data set (N = `r nrow(v1_usable_cases)`).
 :::

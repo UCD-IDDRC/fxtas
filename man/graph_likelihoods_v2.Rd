@@ -4,12 +4,16 @@
 \alias{graph_likelihoods_v2}
 \title{Title}
 \usage{
-graph_likelihoods_v2(likelihoods, alpha = 0.5)
+graph_likelihoods_v2(likelihoods, alpha = 0.5, facet = FALSE, legend = FALSE)
 }
 \arguments{
 \item{likelihoods}{todo}
 
 \item{alpha}{todo}
+
+\item{facet}{whether to facet by number of subtypes}
+
+\item{legend}{whether to show legend}
 }
 \value{
 a \link[ggplot2:ggplot]{ggplot2::ggplot}

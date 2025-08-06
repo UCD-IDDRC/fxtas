@@ -4,10 +4,21 @@
 \alias{flex_biomarkers_table}
 \title{Print method for \code{biomarkers_table}}
 \usage{
-flex_biomarkers_table(x)
+flex_biomarkers_table(
+  x,
+  width_biomarkers = 1.5,
+  width_levels = 1.45,
+  use_group_colors = TRUE
+)
 }
 \arguments{
 \item{x}{a "biomarkers_table" object from \code{make_biomarkers_table()}}
+
+\item{width_biomarkers}{\link{numeric}: width for \code{Symptom} column}
+
+\item{width_levels}{\link{numeric}: width for "Defined Ordered Levels" column}
+
+\item{use_group_colors}{\link{logical} whether to use text colors to represent categories}
 }
 \value{
 a \code{\link[flextable:flextable]{flextable::flextable()}}

@@ -15,23 +15,26 @@ stage_barplot <- function(object, ...) {
 #'
 #' @param object a `subtype_and_stage_table` object
 #' (a type of data.frame)
+#' @param xmax largest x-value to display
 #' @param ... unused
 #' @param include_type_0 [logical] whether to include Type 0 in the plot
 #'
 #' @returns a [ggplot2::ggplot]
 #' @export
 #' @examples sim_subtype_and_stage_table |> stage_barplot()
-stage_barplot.default <- function(object,
-                                  include_type_0 = TRUE,
-                                  ...) {
+stage_barplot.default <- function(
+    object,
+    include_type_0 = TRUE,
+    xmax = max(object$ml_stage, na.rm = TRUE),
+    ...) {
 
   multiple_subtypes <-
-    "Type 2" %in% object$ml_subtype
+    "Subtype 2" %in% levels(object$ml_subtype)
 
   if (multiple_subtypes && !include_type_0) {
     object <-
       object |>
-      dplyr::filter(.data$ml_subtype != "Type 0") |>
+      dplyr::filter(.data$ml_subtype != "Subtype 0") |>
       dplyr::mutate(
         ml_subtype = .data$ml_subtype |> droplevels()
       )
@@ -51,6 +54,8 @@ stage_barplot.default <- function(object,
       )
     ) +
     theme_bw() +
+    ggplot2::scale_color_manual(values = "red") +
+    ggplot2::expand_limits(x = xmax) +
     theme(legend.position = "bottom") +
     labs(color = "")
 
@@ -74,6 +79,7 @@ stage_barplot.list <- function(object, ...) {
       FUN = function(x) purrr::pluck(x, "subtype_and_stage_table")
     ) |>
     dplyr::bind_rows(.id = "stratum") |>
-    stage_barplot.default() +
+    dplyr::mutate(stratum = factor(.data$stratum, levels = names(object))) |>
+    stage_barplot.default(...) +
     facet_wrap(~ stratum)
 }

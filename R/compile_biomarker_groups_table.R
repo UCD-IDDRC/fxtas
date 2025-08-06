@@ -57,5 +57,10 @@ compile_biomarker_groups_table <- function(
       labelled::add_value_labels(biomarker = labels2)
   }
 
-  to_return
+  to_return <-
+    to_return |>
+    structure(
+      class = union("biomarker_groups_table", class(to_return))
+    )
+    return(to_return)
 }

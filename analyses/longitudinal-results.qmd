@@ -60,14 +60,15 @@ fig_both_mv_only = extract_figs_from_pickle(size.y = size.y,
 
 ### Males {.appendix}
 
-@fig-males shows estimated event sequences for males, depending on which subset of the data we use to fit the model.
+@fig-males shows estimated event sequences for males, 
+depending on which subset of the data we use to fit the model.
 
 ```{r}
 #| label: fig-males
 #| column: page
 #| fig-height: !expr pvd_line_height
 #| fig-width: !expr pvd_line_width
-#| fig-cap: !expr glue::glue("**Event sequences models for males, by data subset. (a)** {compact_fig_caption} **(b)** Change in estimated event sequences for males by data subset.")
+#| fig-cap: !expr glue::glue("**Event sequences models for males, by data subset. (A)** {compact_fig_caption} **(B)** Change in estimated event sequences for males by data subset.")
 #| fig-cap-location: top
 #| layout-ncol: 1
 #| fig-subcap: 
@@ -78,7 +79,7 @@ list(
     "Males, First Visit Only" = fig_males_first,
     "Males, All Visits" = fig_males_all
   ) |> 
-plot_compact_pvd(y_text_size = y_text_size)
+plot_compact_pvd(scale_colors = scale_colors1, y_text_size = y_text_size)
 
 list(
     "Males, First Visit Only" = fig_males_first,
@@ -101,7 +102,7 @@ list(
     "Females, First Visit Only" = fig_females_first,
     "Females, All Visits" = fig_females_all
   ) |> 
-plot_compact_pvd(y_text_size = y_text_size)
+plot_compact_pvd(scale_colors = scale_colors1, y_text_size = y_text_size)
 ```
 
 {{< pagebreak >}}
@@ -144,7 +145,7 @@ list(
     "Males" = fig_males_all,
     "Females" = fig_females_all
   ) |> 
-plot_compact_pvd(y_text_size = y_text_size)
+plot_compact_pvd(scale_colors = scale_colors1, y_text_size = y_text_size)
 ```
 
 {{< pagebreak >}}

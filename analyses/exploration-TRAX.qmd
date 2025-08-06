@@ -72,7 +72,7 @@ Here, we review the data from the first visits by each participant, stratified b
 There is substantial missingness in both `Primary Ethnicity` and `Primary Race`; not sure if we will need these variables:  
 
 
-Primary ethnicity we can drop. Primary race we may be able to look on Randi’s cards for that or ask her. There are only 44 to look up. 
+Primary ethnicity we can drop. Primary race we may be able to look on Randi's cards for that or ask her. There are only 44 to look up. 
 
 ```{r}
 
@@ -179,7 +179,7 @@ trax |>
 
 **Question:** can we fill in the earlier values using later values?
 
-Yes this is reasonable. Shouldn’t change between visits.  
+Yes this is reasonable. Shouldn't change between visits.  
 From Randi: use later versions if inconsistent, might change Due to improvements in assays. 
 
 ## Lifestyle
@@ -289,13 +289,13 @@ See my previous responses on the matter.
 ```{r}
 vars = c(
   
-  "Intention tremor",
-  "Resting tremor",
-  "Postural tremor",
-  "Intermittent tremor",
-  "Any tremor (excluding head)"
-  # "Tremor: Age of onset"
-  # "Tremor: Age of onset: missingness reasons"
+  "intention tremor",
+  "resting tremor",
+  "postural tremor",
+  "intermittent tremor hx",
+  "any tremor (excluding head)"
+  # "tremor: age of onset"
+  # "tremor: age of onset: missingness reasons"
 )
 table1(na.is.category = FALSE, 
   NA.label = NA.label1,
@@ -314,8 +314,8 @@ Age of onset and missingness reasons where any of the four above tremor types = 
 
 ```{r}
 vars = c(
-  "Tremor: Age of onset",
-  "Tremor: Age of onset: missingness reasons"
+  "tremor: age of onset",
+  "tremor: age of onset: missingness reasons"
 )
 
 footnote <- paste0(
@@ -327,7 +327,7 @@ table1(na.is.category = FALSE,
   stratified_formula(vars, column_var),
   # render.continuous = c(.="N", .="Mean (SD)", .="Median [Min,  Max]"),
   data = trax_visit1 |> 
-    dplyr::filter(`Any tremor (excluding head)` == "Some tremors recorded"),
+    dplyr::filter(`any tremor (excluding head)` == "Some tremors recorded"),
   footnote = footnote)
 ```
 
@@ -337,7 +337,7 @@ Do we have age of onset for those with 'No tremors recorded' or missing data?
 
 ```{r}
 vars = c(
-  "Tremor: Age of onset"
+  "tremor: age of onset"
 )
 
 footnote <- paste0(
@@ -349,17 +349,17 @@ table1(na.is.category = FALSE,
   stratified_formula(vars, column_var),
   # render.continuous = c(.="N", .="Mean (SD)", .="Median [Min,  Max]"),
   data = trax_visit1 |> 
-    dplyr::filter(`Any tremor (excluding head)` == "No tremors recorded" |
-             is.na(`Any tremor (excluding head)`)),
+    dplyr::filter(`any tremor (excluding head)` == "No tremors recorded" |
+             is.na(`any tremor (excluding head)`)),
   footnote = footnote)
 ```
 
 ```{r}
 # store number
 n_age_NoTremor <- trax_visit1 |> 
-  dplyr::filter((is.na(`Any tremor (excluding head)`) | 
-            `Any tremor (excluding head)` == "No tremors recorded") & 
-           !is.na(`Tremor: Age of onset`)) |> 
+  dplyr::filter((is.na(`any tremor (excluding head)`) | 
+            `any tremor (excluding head)` == "No tremors recorded") & 
+           !is.na(`tremor: age of onset`)) |> 
   nrow()
 ```
 
@@ -367,11 +367,11 @@ The `r n_age_NoTremor` patients with Age of Onset without having any tremor reco
 
 ```{r}
 trax |> 
-  dplyr::filter((is.na(`Any tremor (excluding head)`) | 
-            `Any tremor (excluding head)` == "No tremors recorded") &
-           !is.na(`Tremor: Age of onset`)) |> 
-  dplyr::select(`FXS ID`, `Event Name`, `Any tremor (excluding head)`, 
-                `Tremor: Age of onset`) |> 
+  dplyr::filter((is.na(`any tremor (excluding head)`) | 
+            `any tremor (excluding head)` == "No tremors recorded") &
+           !is.na(`tremor: age of onset`)) |> 
+  dplyr::select(`FXS ID`, `Event Name`, `any tremor (excluding head)`, 
+                `tremor: age of onset`) |> 
   pander()
 ```
 
@@ -383,8 +383,8 @@ Unfortunately head tremor was not collected in GP3
 
 ```{r}
 vars = c(
-  "Head tremor"
-  # "Head Tremor: Age of onset"
+  "head tremor hx"
+  # "head tremor: age of onset"
   
 )
 
@@ -403,12 +403,12 @@ table1(na.is.category = FALSE,
 
 <br>
 
-Age of onset and missingness reasons where "Head tremor" = "Yes":
+Age of onset and missingness reasons where "head tremor hx" = "Yes":
 
 ```{r}
 vars = c(
-  "Head Tremor: Age of onset",
-  "Head Tremor: Age of onset: missingness reasons"
+  "head tremor: age of onset",
+  "head tremor: age of onset: missingness reasons"
   
 )
 
@@ -420,7 +420,7 @@ table1(na.is.category = FALSE,
   NA.label = NA.label1,
   stratified_formula(vars, column_var),
   # render.continuous = c(.="N", .="Mean (SD)", .="Median [Min,  Max]"),
-  data = trax_visit1 |> dplyr::filter(Study == "GP4" & `Head tremor` == "Yes"),
+  data = trax_visit1 |> dplyr::filter(Study == "GP4" & `head tremor hx` == "Yes"),
   footnote = footnote)
 
 ```
@@ -428,10 +428,10 @@ table1(na.is.category = FALSE,
 ```{r}
 # store n for text
 n_age_NoHeadTremor <- trax_visit1 |> 
-    dplyr::filter((`Head tremor` == "No" |
-             is.na(`Head tremor`)) & 
+    dplyr::filter((`head tremor hx` == "No" |
+             is.na(`head tremor hx`)) & 
              Study == "GP4" &
-             !is.na(`Head Tremor: Age of onset`)) |>
+             !is.na(`head tremor: age of onset`)) |>
   nrow()
 ```
 
@@ -441,7 +441,7 @@ There are `r n_age_NoHeadTremor` patients with age of onset without having a Hea
 
 ```{r}
 vars = c(
-  "Head Tremor: Age of onset"
+  "head tremor: age of onset"
 )
 
 footnote <- paste0(
@@ -453,8 +453,8 @@ table1(na.is.category = FALSE,
   stratified_formula(vars, column_var),
   # render.continuous = c(.="N", .="Mean (SD)", .="Median [Min,  Max]"),
   data = trax_visit1 |> 
-    dplyr::filter((`Head tremor` == "No" |
-             is.na(`Head tremor`)) & 
+    dplyr::filter((`head tremor hx` == "No" |
+             is.na(`head tremor hx`)) & 
              Study == "GP4"),
   footnote = footnote)
 ```
@@ -468,11 +468,11 @@ See my previous responses on the matter.
 ```{r}
 
 vars = c(
-  "Ataxia",
-  "Ataxia: severity",
-  "Ataxia: severity*"
-  # "Ataxia: Age of onset",
-  # "Ataxia: Age of onset: missingness reasons"
+  "ataxia exam",
+  "ataxia severity exam",
+  "ataxia severity*"
+  # "ataxia age of onset hx",
+  # "ataxia age of onset hx: missingness reasons"
 )
 
 table1(na.is.category = FALSE, 
@@ -485,15 +485,15 @@ table1(na.is.category = FALSE,
 
 <br>
 
-Age of onset and missingness reasons where "Ataxia" = "Yes":
+Age of onset and missingness reasons where "ataxia exam" = "Yes":
 
 ```{r}
 vars = c(
-  # "Ataxia",
-  # "Ataxia: severity",
-  # "Ataxia: severity*"
-  "Ataxia: Age of onset",
-  "Ataxia: Age of onset: missingness reasons"
+  # "ataxia exam",
+  # "ataxia severity exam",
+  # "ataxia severity*"
+  "ataxia age of onset hx",
+  "ataxia age of onset hx: missingness reasons"
 )
 
 table1(na.is.category = FALSE, 
@@ -518,11 +518,11 @@ Do we have age of onset for those with 'No' Ataxia or missing data?
 
 ```{r}
 vars = c(
-  # "Ataxia",
-  # "Ataxia: severity",
-  # "Ataxia: severity*"
-  "Ataxia: Age of onset",
-  "Ataxia: Age of onset: missingness reasons"
+  # "ataxia exam",
+  # "ataxia severity exam",
+  # "ataxia severity*"
+  "ataxia age of onset hx",
+  "ataxia age of onset hx: missingness reasons"
 )
 
 footnote = paste0(
@@ -796,10 +796,10 @@ We categorized each kinesia variable as "0-1", "1-2", "2-3", and "3-4".
 ```{r}
 kinesia_vars = c(
       "Kinesia Left Rest Tremor",
-      "Kinesia Left Postural Tremor",
+      "Kinesia Left postural tremor",
       "Kinesia Left Kinetic Tremor",
       "Kinesia Right Rest Tremor",
-      "Kinesia Right Postural Tremor",
+      "Kinesia Right postural tremor",
       "Kinesia Right Kinetic Tremor"
     )
 kinesia_vars = 

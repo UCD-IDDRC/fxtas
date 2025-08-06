@@ -11,7 +11,7 @@ plot_compact_pvd(
   y_text_size = 9,
   facet_label_prefix = names(figs),
   legend.position = "none",
-  scale_colors = c("red", "blue", "purple4", "darkgreen", "magenta"),
+  scale_colors = c("red", "blue", "magenta", "darkgreen", "purple4"),
   ...
 )
 }
@@ -33,6 +33,7 @@ plot_compact_pvd(
   \describe{
     \item{\code{biomarker_order}}{a \link{character} vector specifying the
 order of biomarkers to use}
+    \item{\code{biomarker_var}}{either "biomarker" or "biomarker_label"}
   }}
 }
 \value{

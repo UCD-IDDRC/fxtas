@@ -1,0 +1,33 @@
+
+In both studies,
+each evaluation includes
+a detailed medical history,
+neurological examination,
+neuropsychological testing including the
+Wechsler Adult Intelligence Scale, Fourth Edition (WAIS IV),
+Behavior Dyscontrol Scale (BDS-2),
+Mini-Mental State Exam (MMSE) and
+Cambridge Automated Neuropsychological Test Battery (CANTAB);
+Structured Clinical Interview for
+DSM-IV
+Disorders
+(SCID-I/NP),
+motor testing,
+and brain MRI
+[@johnson2022fxtas_by_sex;
+@winarni2024apolipoproteine;
+@elias2024enlarged].
+After the clinical and MRI evaluation,
+each patient received a FXTAS stage designation ranging from 0 to 6
+according to stages identified by Bacalman et al. 2006
+[@bacalman2006psychiatric]
+based on tremor and ataxia severity.
+Stage 1 represents subclinical or uncertain tremor;
+Stage 2 is mild tremor without significant interference with
+activities of daily living (ADLs);
+Stage 3 is significant tremor that interferes with ADLs and significant ataxia;
+Stage 4 is significant ataxia needing a cane or walker;
+Stage 5 is requiring a wheelchair;
+and Stage 6 is bedridden
+(no participants at Stage 6 were included in the study).
+

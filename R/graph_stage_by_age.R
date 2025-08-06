@@ -8,7 +8,11 @@
 graph_stage_by_age <- function(data,
                                alpha = .7) {
   graph <- data |>
-    dplyr::filter(.data$ml_subtype != "Type 0") |>
+    dplyr::filter(.data$ml_subtype != "Subtype 0") |>
+    mutate(
+      .by = "ml_subtype",
+      ml_subtype = paste0(.data$ml_subtype, ": N = ", n())
+    ) |>
     ggplot() +
     aes(
       x = .data$age,
@@ -17,16 +21,25 @@ graph_stage_by_age <- function(data,
     ) +
     geom_point(
       alpha = alpha,
-      if ("sex" %in% names(data)) aes(col = .data$sex)
+      if ("sex" %in% names(data)) aes(col = .data$sex, shape = .data$sex)
     ) +
-    geom_smooth(method = "loess", formula = y ~ x) +
-    xlab("Age at visit (years)") +
-    ylab("Estimated sequence stage") +
+    geom_smooth(
+      aes(linetype = "LOESS curve (with 95% CI)"),
+      method = "loess",
+      formula = y ~ x
+    ) +
+    labs(
+      x = "Age at visit (years)",
+      y = "Estimated sequence stage",
+      linetype = "",
+      shape = "",
+      col = ""
+    ) +
     ggplot2::theme_bw() +
     theme(legend.position = "bottom")
 
   n_subtypes <- data |>
-    dplyr::filter(.data$ml_subtype != "Type 0") |>
+    dplyr::filter(.data$ml_subtype != "Subtype 0") |>
     dplyr::pull("ml_subtype") |>
     dplyr::n_distinct()
 

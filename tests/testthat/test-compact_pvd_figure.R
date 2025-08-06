@@ -2,6 +2,7 @@ test_that("`compact_pvd_figure()` produces consistent results", {
   size.y = 11
   figs = extract_figs_from_pickle(
     size.y = size.y,
+    use_rds = TRUE,
     n_s = 3,
     rda_filename = "data.RData",
     dataset_name = "sample_data",
@@ -16,9 +17,11 @@ test_that("`compact_pvd_figure()` produces consistent results", {
   scale_colors = c("red", "blue", "purple4")
   plot_dataset <- compact_pvd_data_prep(figs = figs)
   # facet labels
-  facet_names <- compact_pvd_facet_labels(figs = figs, facet_label_prefix = facet_label_prefix)
+  facet_names <- compact_pvd_facet_labels(
+    figs = figs,
+    facet_label_prefix = NULL)
   # generate figure
-  compact_pvd_figure(
+  plot1 <- compact_pvd_figure(
     plot_dataset,
     tile_height = tile_height,
     y_text_size = y_text_size,
@@ -26,7 +29,9 @@ test_that("`compact_pvd_figure()` produces consistent results", {
     # facet_label_size = facet_label_size,
     legend.position = legend.position,
     scale_colors = scale_colors
-  ) |>
+  )
+
+  plot1 |>
     vdiffr::expect_doppelganger(title = "compact_pvd_figure")
 
 })

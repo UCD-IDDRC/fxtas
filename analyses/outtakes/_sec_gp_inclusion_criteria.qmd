@@ -14,7 +14,7 @@ Participants in the following categories were included:
 
 1.	Premutation carriers with intellectual disabilities (IQ < 80) 
 or a diagnosis of autism spectrum disorder (ASD)
-(Autism, PDD-NOS, or Asperger’s syndrome).
+(Autism, PDD-NOS, or Asperger's syndrome).
 2.	Premutation carriers without intellectual disabilities or ASD.
 3.	Adult premutation carriers who have neurological symptoms or have been diagnosed with FXTAS.
 4.	Control individuals without the fragile X premutation.

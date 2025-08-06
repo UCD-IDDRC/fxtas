@@ -37,10 +37,13 @@ fit_models = TRUE
 run_cv =  TRUE
 # run_cv = FALSE
 
+do_collapse_scid_levels <- TRUE
+do_collapse_mri_levels <- TRUE
+
 N_startpoints = 10L
 use_parallel_startpoints = TRUE
 use_parallel_startpoints = FALSE
-N_S_max = 8L
+N_S_max = 12L
 N_S_max_stratified = 2L
 N_CV_folds = 10L
 rerun = TRUE
@@ -48,29 +51,31 @@ rerun = TRUE
 plot_python = TRUE
 fig_size = c(20, 10)
 
-args = commandArgs(trailingOnly = TRUE)
-message("args = ", args |> paste(collapse = "; "))
-if(N_CV_folds == 0)
-{
-  CV_fold_nums = NULL
-} else if(length(args) == 0 & N_CV_folds > 0)
-{
-
-  CV_fold_nums = 1:N_CV_folds
-
-} else
-{
-
-  CV_fold_nums = as.integer(as.character(args[1]))
-
-}
 N_iterations_MCMC = 1e5L
 dataset_name = 'sample_data'
 root_dir = here::here()
 setwd(root_dir)
 output_folder =
-  "output/output.fixed_CV" |>
+  "output/output.fixed_CV/pickle_files" |>
   fs::dir_create()
+
+
+args = commandArgs(trailingOnly = TRUE)
+message("args = ", args |> paste(collapse = "; "))
+if (N_CV_folds == 0) {
+  CV_fold_nums = NULL
+} else if(length(args) == 0 & N_CV_folds > 0) {
+
+  CV_fold_nums = 1:N_CV_folds
+
+} else {
+
+  CV_fold_nums = as.integer(as.character(args[1]))
+
+  if (1 %in% CV_fold_nums) save_run_info(output_folder)
+
+}
+
 
 
 ## ----------------------------------------------------------------------------------------------------
@@ -79,6 +84,15 @@ output_folder =
 
 # March 2024, main analysis now uses Trax/GP34 Visit 1 data replacing previous version using only GP34
 load("data/trax_gp34_v1.rda")
+if (do_collapse_scid_levels) {
+  scid_levels_to_collapse <- c("Absent", "Sub-Threshold")
+  trax_gp34_v1 <- trax_gp34_v1 |> collapse_scid_levels(scid_levels_to_collapse)
+}
+
+if (do_collapse_mri_levels) {
+  trax_gp34_v1 <- trax_gp34_v1 |> collapse_mri_levels()
+}
+
 df =
   trax_gp34_v1 |>
   dplyr::filter(
@@ -93,12 +107,12 @@ SuStaInLabels =
   biomarker_groups |>
   dplyr::pull("biomarker")
 
-
 biomarker_levels =
-  lapply(df[,biomarker_varnames], F = levels)
+  df |>
+  get_levels(biomarker_varnames)
 
 biomarker_events_table =
-  construct_biomarker_events_table(
+  make_biomarker_events_table(
     biomarker_levels,
     biomarker_groups)
 
@@ -326,7 +340,7 @@ sustain_output_cgg100minus_females = run_and_save_OSA(
   prob_correct = prob_correct,
   patient_data = patient_data |>
     dplyr::filter(`CGG` < 100,
-           Gender == "Female"),
+                  Gender == "Female"),
   SuStaInLabels = SuStaInLabels,
   N_startpoints = N_startpoints,
   N_S_max = N_S_max_stratified,

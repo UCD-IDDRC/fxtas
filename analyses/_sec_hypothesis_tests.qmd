@@ -3,7 +3,7 @@ To test for statistical significant evidence of differences
 in event sequences
 between males and females
 and between lower (CGG <100)
-and higher premutation levels (CGG 100-199),
+and higher CGG repeats (CGG 100-199),
 we implemented a permutation test [@welch1990construction]
 to calculate a p-value that is
 the probability of observing a difference

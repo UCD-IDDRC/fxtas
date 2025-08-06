@@ -1,0 +1,431 @@
+vars,labels
+# of drinks per day now,# of drinks per day now
+# of drinks per day now: missingness reasons,# of drinks per day now: missingness reasons
+ANA positive,ANA positive
+ANA positive: missingness reasons,ANA positive: missingness reasons
+Activation Ratio (0.0-1.0),activation ratio
+Age at visit,Age at visit
+"Agoraphobia without Panic (ANX27), Current","Agoraphobia without Panic (ANX27), Current"
+"Agoraphobia without Panic (ANX27), Current: missingness reasons","Agoraphobia without Panic (ANX27), Current: missingness reasons"
+"Agoraphobia without Panic (ANX27), Lifetime","Agoraphobia without Panic (ANX27), Lifetime"
+"Agoraphobia without Panic (ANX27), Lifetime: missingness reasons","Agoraphobia without Panic (ANX27), Lifetime: missingness reasons"
+Alcohol (SUD17) Current,Alcohol (SUD17) Current
+Alcohol (SUD17) Current: missingness reasons,Alcohol (SUD17) Current: missingness reasons
+"Alcohol (SUD17), Lifetime","Alcohol (SUD17), Lifetime"
+"Alcohol (SUD17), Lifetime: missingness reasons","Alcohol (SUD17), Lifetime: missingness reasons"
+Alcohol use/abuse,Alcohol use/abuse
+Alcohol use/abuse: missingness reasons,Alcohol use/abuse: missingness reasons
+Anesthesia (medic_surg_anes),Anesthesia (medic_surg_anes)
+Anesthesia (medic_surg_anes): missingness reasons,Anesthesia (medic_surg_anes): missingness reasons
+Anesthesia (new_mds_med_anes1),Anesthesia (new_mds_med_anes1)
+Anesthesia (new_mds_med_anes1): missingness reasons,Anesthesia (new_mds_med_anes1): missingness reasons
+"Anxiety Disorder NOS (ANX35), Current","Anxiety Disorder NOS (ANX35), Current"
+"Anxiety Disorder NOS (ANX35), Current: missingness reasons","Anxiety Disorder NOS (ANX35), Current: missingness reasons"
+"Anxiety Disorder NOS (ANX35), Lifetime","Anxiety Disorder NOS (ANX35), Lifetime"
+"Anxiety Disorder NOS (ANX35), Lifetime: missingness reasons","Anxiety Disorder NOS (ANX35), Lifetime: missingness reasons"
+"Anxiety Due to GMC (ANX33), Current","Anxiety Due to GMC (ANX33), Current"
+"Anxiety Due to GMC (ANX33), Current: missingness reasons","Anxiety Due to GMC (ANX33), Current: missingness reasons"
+"Anxiety Due to GMC (ANX33), Lifetime","Anxiety Due to GMC (ANX33), Lifetime"
+"Anxiety Due to GMC (ANX33), Lifetime: missingness reasons","Anxiety Due to GMC (ANX33), Lifetime: missingness reasons"
+Any Cancer,Any Cancer
+Any Cancer: missingness reasons,Any Cancer: missingness reasons
+ApoE,ApoE
+ApoE (original),ApoE (original)
+ApoE (original): missingness reasons,ApoE (original): missingness reasons
+ApoE: missingness reasons,ApoE: missingness reasons
+BDS-2 Total Score,BDS-2 total score
+BDS-2 Total Score*,BDS-2 total score
+BDS-2 Total Score: missingness reasons,BDS-2 Total Score: missingness reasons
+"Bipolar I Disorder (MD01), Current","Bipolar I Disorder (MD01), Current"
+"Bipolar I Disorder (MD01), Current: missingness reasons","Bipolar I Disorder (MD01), Current: missingness reasons"
+"Bipolar I Disorder (MD01), Lifetime","Bipolar I Disorder (MD01), Lifetime"
+"Bipolar I Disorder (MD01), Lifetime: missingness reasons","Bipolar I Disorder (MD01), Lifetime: missingness reasons"
+"Bipolar II Disorder (MD02), Current","Bipolar II Disorder (MD02), Current"
+"Bipolar II Disorder (MD02), Current: missingness reasons","Bipolar II Disorder (MD02), Current: missingness reasons"
+"Bipolar II Disorder (MD02), Lifetime","Bipolar II Disorder (MD02), Lifetime"
+"Bipolar II Disorder (MD02), Lifetime: missingness reasons","Bipolar II Disorder (MD02), Lifetime: missingness reasons"
+Birth Date,Birth Date
+Body Dysmorphic (SOM40),Body Dysmorphic (SOM40)
+Body Dysmorphic (SOM40): missingness reasons,Body Dysmorphic (SOM40): missingness reasons
+CGG,CGG repeats
+CGG (before backfill),CGG (before backfill)
+CGG 100-199,CGG 100-199
+CGG 55-99,CGG 55-99
+CGG: missingness reasons,CGG: missingness reasons
+Cancer Notes,Cancer Notes
+"Cannabis (SUD19), Lifetime","Cannabis (SUD19), Lifetime"
+"Cannabis (SUD19), Lifetime: missingness reasons","Cannabis (SUD19), Lifetime: missingness reasons"
+"Cannabis (SUD19),Current","Cannabis (SUD19),Current"
+"Cannabis (SUD19),Current: missingness reasons","Cannabis (SUD19),Current: missingness reasons"
+Cerebellar Atrophy,Cerebellar Atrophy
+Cerebellar Atrophy: missingness reasons,Cerebellar Atrophy: missingness reasons
+Cerebellar WM Hyperintensity,Cerebellar White Matter Hyperintensity
+Cerebellar WM Hyperintensity: missingness reasons,Cerebellar WM Hyperintensity: missingness reasons
+Cerebral Atrophy,Cerebral Atrophy
+Cerebral Atrophy: missingness reasons,Cerebral Atrophy: missingness reasons
+Cerebral WM Hyperintensity,Cerebral White Matter Hyperintensity
+Cerebral WM Hyperintensity: missingness reasons,Cerebral WM Hyperintensity: missingness reasons
+Cocaine (SUD22) Current,Cocaine (SUD22) Current
+Cocaine (SUD22) Current: missingness reasons,Cocaine (SUD22) Current: missingness reasons
+"Cocaine (SUD22), Lifetime","Cocaine (SUD22), Lifetime"
+"Cocaine (SUD22), Lifetime: missingness reasons","Cocaine (SUD22), Lifetime: missingness reasons"
+Corpus Callosum-Thickness,corpus callosum thickness
+Corpus Callosum-Thickness: missingness reasons,Corpus Callosum-Thickness: missingness reasons
+Current Medications 1,Current Medications 1
+Current Medications 10,Current Medications 10
+Current Medications 2,Current Medications 2
+Current Medications 3,Current Medications 3
+Current Medications 4,Current Medications 4
+Current Medications 5,Current Medications 5
+Current Medications 6,Current Medications 6
+Current Medications 7,Current Medications 7
+Current Medications 8,Current Medications 8
+Current Medications 9,Current Medications 9
+Depressive Disorder NOS (MD06) Current,Depressive Disorder NOS (MD06) Current
+Depressive Disorder NOS (MD06) Current: missingness reasons,Depressive Disorder NOS (MD06) Current: missingness reasons
+"Depressive Disorder NOS (MD06), Lifetime","Depressive Disorder NOS (MD06), Lifetime"
+"Depressive Disorder NOS (MD06), Lifetime: missingness reasons","Depressive Disorder NOS (MD06), Lifetime: missingness reasons"
+Drug use,Drug use
+Drug use: missingness reasons,Drug use: missingness reasons
+Drugs used,Drugs used
+"Dysthymic Disorder (MD05), Lifetime","Dysthymic Disorder (MD05), Lifetime"
+"Dysthymic Disorder (MD05), Lifetime: missingness reasons","Dysthymic Disorder (MD05), Lifetime: missingness reasons"
+Education Level,Education Level
+Education Level: missingness reasons,Education Level: missingness reasons
+Event Name,Event Name
+Event Name: missingness reasons,Event Name: missingness reasons
+FX,FX
+FX*,FX*
+FX**,FX**
+FX3*,CGG repeat level
+FX3**,FX3**
+FXS ID,FXS ID
+FXTAS Stage,FXTAS stage
+FXTAS Stage (0-5),FXTAS Stage (0-5)
+FXTAS Stage (0-5): missingness reasons,FXTAS Stage (0-5): missingness reasons
+FXTAS Stage: missingness reasons,FXTAS Stage: missingness reasons
+Floras Non-Sortable Allele Size (CGG) Results,Floras Non-Sortable Allele Size (CGG) Results
+Full Scale: Composite Score (FSIQ),Full Scale: Composite Score (FSIQ)
+Full Scale: Composite Score (FSIQ): missingness reasons,Full Scale: Composite Score (FSIQ): missingness reasons
+Gender,Sex
+Gender: missingness reasons,Gender: missingness reasons
+"Generalized Anxiety (ANX32), Current Only","Generalized Anxiety (ANX32), Current Only"
+"Generalized Anxiety (ANX32), Current Only: missingness reasons","Generalized Anxiety (ANX32), Current Only: missingness reasons"
+Genu (CC)-WM Hyperintensity,genu white matter hyperintensity
+Genu (CC)-WM Hyperintensity: missingness reasons,Genu (CC)-WM Hyperintensity: missingness reasons
+"Hallucinogenics/ PCP (SUD23), Current","Hallucinogenics/ PCP (SUD23), Current"
+"Hallucinogenics/ PCP (SUD23), Current: missingness reasons","Hallucinogenics/ PCP (SUD23), Current: missingness reasons"
+"Hallucinogenics/ PCP (SUD23), Lifetime","Hallucinogenics/ PCP (SUD23), Lifetime"
+"Hallucinogenics/ PCP (SUD23), Lifetime: missingness reasons","Hallucinogenics/ PCP (SUD23), Lifetime: missingness reasons"
+Hyperthyroid,hyperthyroid
+Hyperthyroid: missingness reasons,Hyperthyroid: missingness reasons
+Hypochondriasis (SOM39),Hypochondriasis (SOM39)
+Hypochondriasis (SOM39): missingness reasons,Hypochondriasis (SOM39): missingness reasons
+Hypothyroid,hypothyroid
+Hypothyroid: missingness reasons,Hypothyroid: missingness reasons
+"If No, please comment:","If No, please comment:"
+Immunological Notes,Immunological Notes
+Increased tone,increased tone
+Increased tone: missingness reasons,Increased tone: missingness reasons
+"Interviewers Diagnosis 1,  by Code","Interviewers Diagnosis 1,  by Code"
+"Interviewers Diagnosis 1,  by Code: missingness reasons","Interviewers Diagnosis 1,  by Code: missingness reasons"
+"Interviewers Diagnosis 1, Age of Onset","Interviewers Diagnosis 1, Age of Onset"
+"Interviewers Diagnosis 1, Age of Onset: missingness reasons","Interviewers Diagnosis 1, Age of Onset: missingness reasons"
+"Interviewers Diagnosis 2,  by Code","Interviewers Diagnosis 2,  by Code"
+"Interviewers Diagnosis 2,  by Code: missingness reasons","Interviewers Diagnosis 2,  by Code: missingness reasons"
+"Interviewers Diagnosis 2, Age of Onset","Interviewers Diagnosis 2, Age of Onset"
+"Interviewers Diagnosis 2, Age of Onset: missingness reasons","Interviewers Diagnosis 2, Age of Onset: missingness reasons"
+"Interviewers Diagnosis 3,  by Code","Interviewers Diagnosis 3,  by Code"
+"Interviewers Diagnosis 3,  by Code: missingness reasons","Interviewers Diagnosis 3,  by Code: missingness reasons"
+"Interviewers Diagnosis 3, Age of Onset","Interviewers Diagnosis 3, Age of Onset"
+"Interviewers Diagnosis 3, Age of Onset: missingness reasons","Interviewers Diagnosis 3, Age of Onset: missingness reasons"
+Kinesia Left Kinetic Tremor,Kinesia Left Kinetic Tremor
+Kinesia Left Kinetic Tremor*,Kinesia Left Kinetic Tremor*
+Kinesia Left Rest Tremor,Kinesia Left Rest Tremor
+Kinesia Left Rest Tremor*,Kinesia Left Rest Tremor*
+Kinesia Left postural tremor,Kinesia Left postural tremor
+Kinesia Left postural tremor*,Kinesia Left postural tremor*
+Kinesia Right Kinetic Tremor,Kinesia Right Kinetic Tremor
+Kinesia Right Kinetic Tremor*,Kinesia Right Kinetic Tremor*
+Kinesia Right Rest Tremor,Kinesia Right Rest Tremor
+Kinesia Right Rest Tremor*,Kinesia Right Rest Tremor*
+Kinesia Right postural tremor,Kinesia Right postural tremor
+Kinesia Right postural tremor*,Kinesia Right postural tremor*
+Lupus,Lupus
+Lupus: missingness reasons,Lupus: missingness reasons
+MCP-WM Hyperintensity,MCP white matter hyperintensity
+MCP-WM Hyperintensity: missingness reasons,MCP-WM Hyperintensity: missingness reasons
+MMSE total score,MMSE total score
+MMSE total score*,MMSE total score
+MMSE total score: missingness reasons,MMSE total score: missingness reasons
+MRI: Cerebellar,MRI: Cerebellar
+MRI: Cerebellar: missingness reasons,MRI: Cerebellar: missingness reasons
+MRI: Cerebral,MRI: Cerebral
+MRI: Cerebral: missingness reasons,MRI: Cerebral: missingness reasons
+"Major Depressive Disorder (MD04), Current","Major Depressive Disorder (MD04), Current"
+"Major Depressive Disorder (MD04), Current: missingness reasons","Major Depressive Disorder (MD04), Current: missingness reasons"
+"Major Depressive Disorder (MD04), Lifetime","Major Depressive Disorder (MD04), Lifetime"
+"Major Depressive Disorder (MD04), Lifetime: missingness reasons","Major Depressive Disorder (MD04), Lifetime: missingness reasons"
+Male,Male
+Marijuana use,Marijuana use
+Marijuana use: missingness reasons,Marijuana use: missingness reasons
+Masked faces,masked facies
+Masked faces: missingness reasons,Masked faces: missingness reasons
+Melanoma,Melanoma
+Melanoma: missingness reasons,Melanoma: missingness reasons
+"Mood Disorder Due to GMC (MD07), Current","Mood Disorder Due to GMC (MD07), Current"
+"Mood Disorder Due to GMC (MD07), Current: missingness reasons","Mood Disorder Due to GMC (MD07), Current: missingness reasons"
+"Mood Disorder Due to GMC (MD07), Lifetime","Mood Disorder Due to GMC (MD07), Lifetime"
+"Mood Disorder Due to GMC (MD07), Lifetime: missingness reasons","Mood Disorder Due to GMC (MD07), Lifetime: missingness reasons"
+Multiple Sclerosis: Workup,Multiple Sclerosis: Workup
+Multiple Sclerosis: Workup: missingness reasons,Multiple Sclerosis: Workup: missingness reasons
+OTS Problems solved on first choice,OTS Problems solved on first choice
+"Obsessive Compulsive (ANX30), Current","Obsessive Compulsive (ANX30), Current"
+"Obsessive Compulsive (ANX30), Current: missingness reasons","Obsessive Compulsive (ANX30), Current: missingness reasons"
+"Obsessive Compulsive (ANX30), Lifetime","Obsessive Compulsive (ANX30), Lifetime"
+"Obsessive Compulsive (ANX30), Lifetime: missingness reasons","Obsessive Compulsive (ANX30), Lifetime: missingness reasons"
+"Opioid (SUD21), Current","Opioid (SUD21), Current"
+"Opioid (SUD21), Current: missingness reasons","Opioid (SUD21), Current: missingness reasons"
+"Opioid (SUD21), Lifetime","Opioid (SUD21), Lifetime"
+"Opioid (SUD21), Lifetime: missingness reasons","Opioid (SUD21), Lifetime: missingness reasons"
+"Other (SUD25), Current","Other (SUD25), Current"
+"Other (SUD25), Current: missingness reasons","Other (SUD25), Current: missingness reasons"
+"Other (SUD25), Lifetime","Other (SUD25), Lifetime"
+"Other (SUD25), Lifetime: missingness reasons","Other (SUD25), Lifetime: missingness reasons"
+"Other Bipolar Disorder (MD03), Current","Other Bipolar Disorder (MD03), Current"
+"Other Bipolar Disorder (MD03), Current: missingness reasons","Other Bipolar Disorder (MD03), Current: missingness reasons"
+"Other Bipolar Disorder (MD03), Lifetime","Other Bipolar Disorder (MD03), Lifetime"
+"Other Bipolar Disorder (MD03), Lifetime: missingness reasons","Other Bipolar Disorder (MD03), Lifetime: missingness reasons"
+Other Cancer,Other Cancer
+Other Cancer (detailed),Other Cancer (detailed)
+Other Cancer: missingness reasons,Other Cancer: missingness reasons
+Other immunological disease & other symptoms: list,Other immunological disease & other symptoms: list
+PAL Total errors (adjusted),PAL Total errors (adjusted)
+PAL Total errors (adjusted)*,PAL total errors
+Pain Disorder (SOM37),Pain Disorder (SOM37)
+Pain Disorder (SOM37): missingness reasons,Pain Disorder (SOM37): missingness reasons
+"Panic Disorder (ANX26), Current","Panic Disorder (ANX26), Current"
+"Panic Disorder (ANX26), Current: missingness reasons","Panic Disorder (ANX26), Current: missingness reasons"
+"Panic Disorder (ANX26), Lifetime","Panic Disorder (ANX26), Lifetime"
+"Panic Disorder (ANX26), Lifetime: missingness reasons","Panic Disorder (ANX26), Lifetime: missingness reasons"
+Parkinsons,Parkinson's disease
+Parkinsons: missingness reasons,Parkinsons: missingness reasons
+Perceptual Reasoning: Composite Score (PRI),Perceptual Reasoning: Composite Score (PRI)
+Perceptual Reasoning: Composite Score (PRI): missingness reasons,Perceptual Reasoning: Composite Score (PRI): missingness reasons
+Performance: IQ Score,Performance: IQ Score
+Performance: IQ Score: missingness reasons,Performance: IQ Score: missingness reasons
+Periventricular WM Hyperintensity,Periventricular White Matter Hyperintensity
+Periventricular WM Hyperintensity: missingness reasons,Periventricular WM Hyperintensity: missingness reasons
+"Poly Drug (SUD24), Current","Poly Drug (SUD24), Current"
+"Poly Drug (SUD24), Current: missingness reasons","Poly Drug (SUD24), Current: missingness reasons"
+"Poly Drug (SUD24), Lifetime","Poly Drug (SUD24), Lifetime"
+"Poly Drug (SUD24), Lifetime: missingness reasons","Poly Drug (SUD24), Lifetime: missingness reasons"
+Pons-WM Hyperintensity,Pons White Matter Hyperintensity
+Pons-WM Hyperintensity: missingness reasons,Pons-WM Hyperintensity: missingness reasons
+"Posttraumatic Stress (ANX31), Current","Posttraumatic Stress (ANX31), Current"
+"Posttraumatic Stress (ANX31), Current: missingness reasons","Posttraumatic Stress (ANX31), Current: missingness reasons"
+"Posttraumatic Stress (ANX31), Lifetime","Posttraumatic Stress (ANX31), Lifetime"
+"Posttraumatic Stress (ANX31), Lifetime: missingness reasons","Posttraumatic Stress (ANX31), Lifetime: missingness reasons"
+Primary Ethnicity,Primary Ethnicity
+Primary Ethnicity: missingness reasons,Primary Ethnicity: missingness reasons
+"Primary Psychotic Symptoms (PS01), Current","Primary Psychotic Symptoms (PS01), Current"
+"Primary Psychotic Symptoms (PS01), Current: missingness reasons","Primary Psychotic Symptoms (PS01), Current: missingness reasons"
+"Primary Psychotic Symptoms (PS01), Lifetime","Primary Psychotic Symptoms (PS01), Lifetime"
+"Primary Psychotic Symptoms (PS01), Lifetime: missingness reasons","Primary Psychotic Symptoms (PS01), Lifetime: missingness reasons"
+Primary Race,Primary Race
+Primary Race/Ethnicity,primary race/ethnicity
+Primary Race: missingness reasons,Primary Race: missingness reasons
+Processing Speed: Composite Score (PSI),Processing Speed: Composite Score (PSI)
+Processing Speed: Composite Score (PSI): missingness reasons,Processing Speed: Composite Score (PSI): missingness reasons
+Prostate Cancer,Prostate Cancer
+Prostate Cancer: missingness reasons,Prostate Cancer: missingness reasons
+Pulmonary Fibrosis,pulmonary fibrosis
+Pulmonary Fibrosis: missingness reasons,Pulmonary Fibrosis: missingness reasons
+"Purdue pegboard 1st Trial Total, R+L+B","Purdue pegboard 1st Trial Total, R+L+B"
+"Purdue pegboard 1st Trial Total, R+L+B: missingness reasons","Purdue pegboard 1st Trial Total, R+L+B: missingness reasons"
+RTI Five-choice movement time,RTI Five-choice movement time
+RTI Five-choice movement time*,RTI five-choice movement time
+RVP A signal detection,RVP A signal detection
+RVP A signal detection*,RVP A signal detection*
+Raynauds Syndrome,Raynauds Syndrome
+Raynauds Syndrome: missingness reasons,Raynauds Syndrome: missingness reasons
+Recruited in study phase,Recruited in study phase
+Repeat Instance,Repeat Instance
+Repeat Instrument,Repeat Instrument
+Rheumatoid arthritis,Rheumatoid arthritis
+Rheumatoid arthritis: missingness reasons,Rheumatoid arthritis: missingness reasons
+SCID: anxiety disorders,anxiety disorders
+SCID: anxiety disorders: missingness reasons,anxiety disorders: missingness reasons
+SCID: mood disorders,mood disorders
+SCID: mood disorders: missingness reasons,mood disorders: missingness reasons
+SCID: psychotic symptoms,psychotic symptoms
+SCID: psychotic symptoms: missingness reasons,psychotic symptoms: missingness reasons
+SCID: somatoform disorders,somatoform disorders
+SCID: somatoform disorders: missingness reasons,somatoform disorders: missingness reasons
+SCID: substance use disorders,substance use disorders
+SCID: substance use disorders: missingness reasons,substance use disorders: missingness reasons
+SCL90: Anxiety,SCL90: Anxiety
+SCL90: Anxiety*,SCL90: Anxiety*
+SCL90: Anxiety: missingness reasons,SCL90: Anxiety: missingness reasons
+SCL90: Depression,SCL90: Depression
+SCL90: Depression*,SCL90: Depression*
+SCL90: Depression: missingness reasons,SCL90: Depression: missingness reasons
+SCL90: Global Severity Index,SCL90: Global Severity Index
+SCL90: Global Severity Index*,SCL90: Global Severity Index*
+SCL90: Global Severity Index: missingness reasons,SCL90: Global Severity Index: missingness reasons
+SCL90: Hostility,SCL90: Hostility
+SCL90: Hostility*,SCL90: Hostility*
+SCL90: Hostility: missingness reasons,SCL90: Hostility: missingness reasons
+SCL90: Interpersonal Sensitivity,SCL90: Interpersonal Sensitivity
+SCL90: Interpersonal Sensitivity*,SCL90: Interpersonal Sensitivity*
+SCL90: Interpersonal Sensitivity: missingness reasons,SCL90: Interpersonal Sensitivity: missingness reasons
+SCL90: Obsessive-Compulsive,SCL90: Obsessive-Compulsive
+SCL90: Obsessive-Compulsive*,SCL90: Obsessive-Compulsive*
+SCL90: Obsessive-Compulsive: missingness reasons,SCL90: Obsessive-Compulsive: missingness reasons
+SCL90: Paranoid Ideation,SCL90: Paranoid Ideation
+SCL90: Paranoid Ideation*,SCL90: Paranoid Ideation*
+SCL90: Paranoid Ideation: missingness reasons,SCL90: Paranoid Ideation: missingness reasons
+SCL90: Phobia,SCL90: Phobia
+SCL90: Phobia*,SCL90: Phobia*
+SCL90: Phobia: missingness reasons,SCL90: Phobia: missingness reasons
+SCL90: Positive Symptom Distress Index,SCL90: Positive Symptom Distress Index
+SCL90: Positive Symptom Distress Index*,SCL90: Positive Symptom Distress Index*
+SCL90: Positive Symptom Distress Index: missingness reasons,SCL90: Positive Symptom Distress Index: missingness reasons
+SCL90: Positive Symptom Total,SCL90: Positive Symptom Total
+SCL90: Positive Symptom Total*,SCL90: Positive Symptom Total*
+SCL90: Positive Symptom Total: missingness reasons,SCL90: Positive Symptom Total: missingness reasons
+SCL90: Psychoticism,SCL90: Psychoticism
+SCL90: Psychoticism*,SCL90: Psychoticism*
+SCL90: Psychoticism: missingness reasons,SCL90: Psychoticism: missingness reasons
+SCL90: Somatization,SCL90: Somatization
+SCL90: Somatization*,SCL90: Somatization*
+SCL90: Somatization: missingness reasons,SCL90: Somatization: missingness reasons
+SST Median correct RT on GO trials,SST Median correct RT on GO trials
+SWM Between errors,SWM Between errors
+SWM Between errors*,SWM between errors
+"Sedative-Hypnotic-Anxiolytic (SUD18), Current","Sedative-Hypnotic-Anxiolytic (SUD18), Current"
+"Sedative-Hypnotic-Anxiolytic (SUD18), Current: missingness reasons","Sedative-Hypnotic-Anxiolytic (SUD18), Current: missingness reasons"
+"Sedative-Hypnotic-Anxiolytic (SUD18), Lifetime","Sedative-Hypnotic-Anxiolytic (SUD18), Lifetime"
+"Sedative-Hypnotic-Anxiolytic (SUD18), Lifetime: missingness reasons","Sedative-Hypnotic-Anxiolytic (SUD18), Lifetime: missingness reasons"
+Sjogrens Syndrome,Sjogrens Syndrome
+Sjogrens Syndrome: missingness reasons,Sjogrens Syndrome: missingness reasons
+Skin Cancer,Skin Cancer
+Skin Cancer: missingness reasons,Skin Cancer: missingness reasons
+"Social Phobia (ANX28), Current","Social Phobia (ANX28), Current"
+"Social Phobia (ANX28), Current: missingness reasons","Social Phobia (ANX28), Current: missingness reasons"
+"Social Phobia (ANX28), Lifetime","Social Phobia (ANX28), Lifetime"
+"Social Phobia (ANX28), Lifetime: missingness reasons","Social Phobia (ANX28), Lifetime: missingness reasons"
+Somatization Disorder (SOM36),Somatization Disorder (SOM36)
+Somatization Disorder (SOM36): missingness reasons,Somatization Disorder (SOM36): missingness reasons
+"Specific Phobia (ANX29), Current","Specific Phobia (ANX29), Current"
+"Specific Phobia (ANX29), Current: missingness reasons","Specific Phobia (ANX29), Current: missingness reasons"
+"Specific Phobia (ANX29), Lifetime","Specific Phobia (ANX29), Lifetime"
+"Specific Phobia (ANX29), Lifetime: missingness reasons","Specific Phobia (ANX29), Lifetime: missingness reasons"
+Splenium (CC)-WM Hyperintensity,splenium white matter hyperintensity
+Splenium (CC)-WM Hyperintensity: missingness reasons,Splenium (CC)-WM Hyperintensity: missingness reasons
+Stage_3plus,FXTAS Stage
+Stage_3plus: missingness reasons,Stage_3plus: missingness reasons
+Stiff gait,stiff gait
+Stiff gait: missingness reasons,Stiff gait: missingness reasons
+Stimulants (SUD20) Current,Stimulants (SUD20) Current
+Stimulants (SUD20) Current: missingness reasons,Stimulants (SUD20) Current: missingness reasons
+"Stimulants (SUD20), Lifetime","Stimulants (SUD20), Lifetime"
+"Stimulants (SUD20), Lifetime: missingness reasons","Stimulants (SUD20), Lifetime: missingness reasons"
+Study,Study
+Sub-Insular WM Hyperintensity,Sub-Insular White Matter Hyperintensity
+Sub-Insular WM Hyperintensity: missingness reasons,Sub-Insular WM Hyperintensity: missingness reasons
+"Substance-Induced Anxiety (ANX34), Current","Substance-Induced Anxiety (ANX34), Current"
+"Substance-Induced Anxiety (ANX34), Current: missingness reasons","Substance-Induced Anxiety (ANX34), Current: missingness reasons"
+"Substance-Induced Anxiety (ANX34), Lifetime","Substance-Induced Anxiety (ANX34), Lifetime"
+"Substance-Induced Anxiety (ANX34), Lifetime: missingness reasons","Substance-Induced Anxiety (ANX34), Lifetime: missingness reasons"
+"Substance-Induced Mood Dis. (MD08), Current","Substance-Induced Mood Dis. (MD08), Current"
+"Substance-Induced Mood Dis. (MD08), Current: missingness reasons","Substance-Induced Mood Dis. (MD08), Current: missingness reasons"
+"Substance-Induced Mood Dis. (MD08), Lifetime","Substance-Induced Mood Dis. (MD08), Lifetime"
+"Substance-Induced Mood Dis. (MD08), Lifetime: missingness reasons","Substance-Induced Mood Dis. (MD08), Lifetime: missingness reasons"
+Surgery,Surgery
+Surgery 2: Type/Age,Surgery 2: Type/Age
+Surgery 3: Type/Age,Surgery 3: Type/Age
+Surgery 4: Type/Age,Surgery 4: Type/Age
+Surgery 5: Type/Age,Surgery 5: Type/Age
+Surgery type,Surgery type
+Surgery: Type/Age,Surgery: Type/Age
+Surgery: missingness reasons,Surgery: missingness reasons
+Tandem Walk,tandem walk
+Tandem Walk: missingness reasons,Tandem Walk: missingness reasons
+Thyroid Cancer,Thyroid Cancer
+Thyroid Cancer: missingness reasons,Thyroid Cancer: missingness reasons
+Thyroid problems,Thyroid problems
+Thyroid problems: missingness reasons,Thyroid problems: missingness reasons
+Undifferentiated Somatoform (SOM38),Undifferentiated Somatoform (SOM38)
+Undifferentiated Somatoform (SOM38): missingness reasons,Undifferentiated Somatoform (SOM38): missingness reasons
+Verbal Comprehension: Composite Score (VCI),Verbal Comprehension: Composite Score (VCI)
+Verbal Comprehension: Composite Score (VCI): missingness reasons,Verbal Comprehension: Composite Score (VCI): missingness reasons
+Visit Date,Visit Date
+Was SCID completed?,Was SCID completed?
+Was SCID completed?: missingness reasons,Was SCID completed?: missingness reasons
+Working Memory: Composite Score (WMI),Working Memory: Composite Score (WMI)
+Working Memory: Composite Score (WMI): missingness reasons,Working Memory: Composite Score (WMI): missingness reasons
+Years of Education,Years of Education
+any autoimmune disorder,autoimmune diagnoses or symptoms
+any autoimmune disorder: missingness reasons,any autoimmune disorder: missingness reasons
+any tremor (excluding head),any tremor (excluding head)
+any tremor (excluding head): missingness reasons,any tremor (excluding head): missingness reasons
+ataxia,gait ataxia
+ataxia age of onset hx,ataxia age of onset hx
+ataxia exam,ataxia exam
+ataxia exam: missingness reasons,ataxia exam: missingness reasons
+ataxia hx,ataxia hx
+ataxia hx: missingness reasons,ataxia hx: missingness reasons
+ataxia severity,ataxia severity
+ataxia severity exam,ataxia severity exam
+ataxia severity exam*,ataxia severity exam*
+ataxia severity exam: missingness reasons,ataxia severity exam: missingness reasons
+ataxia severity hx,ataxia severity hx
+ataxia severity hx*,ataxia severity hx*
+ataxia severity*,ataxia severity
+ataxia: missingness reasons,ataxia: missingness reasons
+fxtas_dx,FXTAS diagnosis
+fxtas_dx: missingness reasons,fxtas_dx: missingness reasons
+head tremor,head tremor
+head tremor exam,head tremor exam
+head tremor exam: missingness reasons,head tremor exam: missingness reasons
+head tremor hx,head tremor hx
+head tremor hx: missingness reasons,head tremor hx: missingness reasons
+head tremor: age of onset,head tremor: age of onset
+head tremor: age of onset: missingness reasons,head tremor: age of onset: missingness reasons
+head tremor: missingness reasons,head tremor: missingness reasons
+intention tremor,intention tremor
+intention tremor exam,intention tremor exam
+intention tremor exam: missingness reasons,intention tremor exam: missingness reasons
+intention tremor hx,intention tremor hx
+intention tremor hx: missingness reasons,intention tremor hx: missingness reasons
+intention tremor: missingness reasons,intention tremor: missingness reasons
+intermittent tremor,intermittent tremor
+intermittent tremor hx,intermittent tremor hx
+intermittent tremor hx: missingness reasons,intermittent tremor hx: missingness reasons
+intermittent tremor: missingness reasons,intermittent tremor: missingness reasons
+mds_fxtas_dx,mds_fxtas_dx
+mds_fxtas_dx: missingness reasons,mds_fxtas_dx: missingness reasons
+new_mds_fxtas_dx,new_mds_fxtas_dx
+new_mds_fxtas_dx: missingness reasons,new_mds_fxtas_dx: missingness reasons
+parkinsonian features,parkinsonian features
+parkinsonian features: missingness reasons,parkinsonian features: missingness reasons
+pfs_original,pfs_original
+pill-rolling tremor,pill-rolling tremor
+pill-rolling tremor exam,pill-rolling tremor exam
+pill-rolling tremor exam: missingness reasons,pill-rolling tremor exam: missingness reasons
+postural tremor,postural tremor
+postural tremor exam,postural tremor exam
+postural tremor exam: missingness reasons,postural tremor exam: missingness reasons
+postural tremor hx,postural tremor hx
+postural tremor hx: missingness reasons,postural tremor hx: missingness reasons
+postural tremor: missingness reasons,postural tremor: missingness reasons
+resting tremor,resting tremor
+resting tremor exam,resting tremor exam
+resting tremor exam: missingness reasons,resting tremor exam: missingness reasons
+resting tremor hx,resting tremor hx
+resting tremor hx: missingness reasons,resting tremor hx: missingness reasons
+resting tremor: missingness reasons,resting tremor: missingness reasons
+tremor severity,tremor severity
+tremor: age of onset,tremor: age of onset
+tremor: age of onset: missingness reasons,tremor: age of onset: missingness reasons

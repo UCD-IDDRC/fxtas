@@ -4,6 +4,8 @@
 #' `strata` and `vars`
 #' @param strata names of column variable, specified as [character]
 #' @param vars names of row variables, specified as [character]
+#' @param make_ft [logical] whether to convert to flextable
+#' @inheritDotParams format_demographics_table_as_flextable -x
 #' @inherit format_demographics_table_as_flextable return
 #' @export
 #'
@@ -12,7 +14,8 @@
 make_demographics_table <- function(
     data,
     strata = "Gender",
-    vars = c(# "Study",
+    vars = c(
+      # "Study",
       "Age at visit",
       # "# visits",
       # column_var,
@@ -21,8 +24,11 @@ make_demographics_table <- function(
       # "Primary Race",
       "FXTAS Stage",
       "CGG"
+      # "Activation Ratio (0.0-1.0)"
       # "ApoE")
-    )) {
+    ),
+    make_ft = TRUE,
+    ...) {
 
 
   data_to_use <- data |>
@@ -57,8 +63,13 @@ make_demographics_table <- function(
         "p-values represent tests for sex differences in",
         "distributions of characteristics, all CGG repeat levels."
       )
-    ) |>
-    format_demographics_table_as_flextable()
+    )
+
+  if (make_ft) {
+    to_return <-
+      to_return |>
+      format_demographics_table_as_flextable(...)
+  }
 
   return(to_return)
 
@@ -78,6 +89,7 @@ table_function <- function(data) {
         `Age at visit` ~ c(1, 2, 0, 0, 0),
         CGG ~ c(1, 2, 0, 0, 0)
       ),
+      missing_stat = "{N_miss} ({p_miss}%)",
       missing_text = "Missing"
     )
 }

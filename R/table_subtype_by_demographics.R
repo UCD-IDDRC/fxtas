@@ -33,7 +33,7 @@ table_subtype_by_demographics <- function(
 
   to_return <-
     patient_data2 |>
-    dplyr::filter(.data$ml_subtype != "Type 0") |>
+    dplyr::filter(.data$ml_subtype != "Subtype 0") |>
     drop_levels() |>
     dplyr::select(
       all_of(
@@ -55,7 +55,8 @@ table_subtype_by_demographics <- function(
 
     gtsummary::add_p(
       pvalue_fun = function(x) gtsummary::style_number(x, digits = 3),
-      test = list(CGG = "oneway.test"),
+      test = list(CGG = "oneway.test",
+                  `Age at visit` = "oneway.test"),
     ) |>
     gtsummary::add_stat_label(location = "row") |>
     gtsummary::add_overall() |>

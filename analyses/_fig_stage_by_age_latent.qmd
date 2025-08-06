@@ -1,16 +1,21 @@
 
-::: {#suppfig-stage-by-age}
+::: {#suppfig-stage-by-age custom-style="Caption"}
 
 ```{r}
 #| label: graph_stage_by_age
 #| fig-width: 6
-stages =
+#| fig-height: 3.8
+stages <-
   results_cv_max$subtype_and_stage_table |>
   dplyr::mutate(
     age = patient_data$`Age at visit`,
     id = patient_data$`FXS ID`,
     sex = patient_data$Gender
   )
+
+sample_size_SST <- results_cv_max$subtype_and_stage_table |> 
+  dplyr::filter(.data$ml_subtype != "Subtype 0") |> 
+  nrow()
 
 library(ggplot2)
 stages |>
@@ -20,6 +25,17 @@ stages |>
 
 **Estimated progression stage by age and latent subtype.**
 The blue line is a Locally Estimated Scatterplot Smoothing (LOESS)
-non-parametric regression curve.
+non-parametric regression curve [@cleveland1992local],
+and the gray ribbon is a 95% confidence interval for the LOESS curve.
+Individual data points represent the 
+age at visit (x-axis) and 
+estimated event sequence stage number at visit (y-axis)
+for individual Fragile X premutation carriers included in
+these analysis,
+for the subset of participants whose 
+disease had progressed far enough for 
+the Ordinal SuStaIn algorithm to be able to
+cluster them into one of the four latent subtypes
+(N = `r sample_size_SST`).
 
 :::

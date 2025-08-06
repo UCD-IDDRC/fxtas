@@ -12,13 +12,15 @@ extract_results_from_pickles(
   basename = paste0(dataset_name, "_subtype", n_s - 1),
   picklename = paste0(basename, ".pickle"),
   format_results = TRUE,
+  subtype_order = seq_len(n_s),
   use_rds = TRUE,
+  save_rds = format_results & identical(subtype_order, seq_len(n_s)),
   verbose = FALSE,
   ...
 )
 }
 \arguments{
-\item{n_s}{helps construct \code{picklename} by identifying number of latent subgroups}
+\item{n_s}{number of latent subgroups; helps construct \code{picklename}}
 
 \item{dataset_name}{root name of dataset}
 
@@ -32,7 +34,12 @@ extract_results_from_pickles(
 
 \item{format_results}{whether to apply \code{\link[=format_results_list]{format_results_list()}} to results before returning}
 
+\item{subtype_order}{an \link{integer} vector of length \code{n_s},
+indicating how to order the subtypes}
+
 \item{use_rds}{\link{logical} whether to use previously cached results}
+
+\item{save_rds}{a \link{logical} indicating whether to save new cached results}
 
 \item{verbose}{whether to print messages}
 

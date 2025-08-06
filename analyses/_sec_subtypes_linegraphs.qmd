@@ -1,16 +1,4 @@
-
-::: {#suppfig-pvd_chosen_subtypes_linegraphs}
-
-```{r}
-#| label: extract-figs-from-pickle-n-s-selected
-figs =
-  extract_figs_from_pickle(
-    size.y = size.y,
-    n_s = n_s_selected,
-    dataset_name = dataset_name,
-    output_folder = output_folder) |>
-  rlang::set_names(paste("Subtype", 1:length(figs)))
-```
+::: {#suppfig-pvd_chosen_subtypes_linegraphs custom-style="Caption"}
 
 ```{r}
 #| label: fig-pvd_chosen_subtypes_linegraphs-1

@@ -1,15 +1,16 @@
-::: {#tbl-abbrevs}
+::: {#tbl-abbrevs custom-style="Caption"}
 
 ```{r}
 read.csv("analyses/abbreviations.csv") |> 
-  flextable::as_flextable(
-    show_coltype = FALSE,
-    max_row = Inf,
-  ) |> 
-  shared_flextable_settings()
+  dplyr::select(-"Context") |> 
+  flextable::flextable() |> 
+  shared_flextable_settings() |> 
+  flextable::width(j = ~ Abbreviation, width = 1) |> 
+  flextable::width(j = ~ Meaning, width = 3.5)
+# if including Context: width = 1.2
 ```
 
 
-**Table of abbreviations**
+**Abbreviations used in article**
 
 :::

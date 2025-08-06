@@ -15,19 +15,104 @@ library(fxtas)
 
 ```{r}
 library(tidyverse)
+pfs = c("Masked faces",
+        "Increased tone",
+        "pill-rolling tremor exam",
+        "Stiff gait")
 parkinsonian_vars =
-    c(
-      "parkinsonian features",
-      "Masked faces",
-      "Increased tone",
-      "Pill-rolling tremor",
-      "Stiff gait")
+  c(
+    "Parkinsons",
+    "parkinsonian features",
+    pfs)
 parkinsonian_data = 
-  trax_gp34_all |> dplyr::select(all_of(parkinsonian_vars))
+  trax_gp34_all |> dplyr::select(all_of(
+    c(
+      "Study",
+      "FXS ID",
+      "Event Name",
+      "Visit Date",
+      parkinsonian_vars))) |> 
+  dplyr::mutate(
+    any_pf =if_any(
+      all_of(pfs),
+      ~ .x == "Yes"
+      )
+  )
 parkinsonian_data |> summary()
 parkinsonian_data |> dplyr::filter(`parkinsonian features` == "Yes") |> 
   dplyr::select(-`parkinsonian features`) |> ftable(row.vars = 1:2)
 
 parkinsonian_data |> dplyr::filter(`parkinsonian features` == "No")
+```
+
+Does anyone have `pk features` = Yes but no individual features? No:
+
+```{r}
+parkinsonian_data |> 
+  dplyr::filter(`parkinsonian features` == "Yes", !any_pf)
+
+```
+
+However, there are cases where there are individual parkinsonian features but `parkinsonian features`  == "No":
+
+```{r}
+
+parkinsonian_data |> 
+  dplyr::filter(`parkinsonian features` == "No", any_pf)
+
+parkinsonian_data |> 
+  select(`parkinsonian features`, any_pf) |> 
+  table(useNA = 'always')
+```
+
+
+```{r}
+
+parkinsonian_data |> 
+  slice_head(n = 1, by = `FXS ID`) |> 
+  dplyr::filter(
+    `parkinsonian features` == "No", any_pf) |> 
+  View()
+```
+
+How about a Parkinsons diagnosis with no features?
+
+```{r}
+
+parkinsonian_data |> 
+  dplyr::filter(
+    `Parkinsons` == "Yes", !any_pf)
+```
+
+No cases; all have features:
+
+```{r}
+parkinsonian_data |> 
+  dplyr::select(
+    `Parkinsons`, any_pf) |> 
+  table(useNA = 'always')
+```
+
+Can we complete more of the Parkinsons variable?
+
+```{r}
+
+parkinsonian_data |> 
+  arrange(`FXS ID`, `Visit Date`) |> 
+  filter(.by = `FXS ID`,
+         any(incomplete_dx_data(Parkinsons)))
+
+```
+
+(Even if this happened, filling in later observations wouldn't help us, 
+since we are only using the first observation.)
+
+Checking "Stiff gait" anyway:
+
+```{r}
+parkinsonian_data |> 
+  arrange(`FXS ID`, `Visit Date`) |> 
+  filter(.by = `FXS ID`,
+         any(incomplete_dx_data(`Stiff gait`)))
 ```
 

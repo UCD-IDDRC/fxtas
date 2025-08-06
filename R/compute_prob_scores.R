@@ -42,12 +42,12 @@ compute_prob_scores <- function(
 
   for (biomarker in biomarker_varnames)
   {
-
     if(verbose) message('computing prob scores for ', biomarker, " at ", Sys.time())
 
     cur_confusion_matrix = prob_dist[[biomarker]]
     cur_observed_scores =
-      dataset[[biomarker]] |>
+      dataset |>
+      pull(.data[[biomarker]], name = .data[["FXS ID"]]) |>
       as.character() |>
       stringr::str_replace_na()
 

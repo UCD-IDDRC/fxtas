@@ -1,63 +1,100 @@
-::: {#suppfig-pvd-by-gender-cgg_under100}
+:::{#suppfig-pvd-by-gender-cgg_under100-1 custom-style="Caption"}
 
 ```{r}
-#| label: fig-pvd-by-gender-cgg_under100-1
+#| label: supp-fig-pvd-by-gender-cgg_under100-1
 #| fig-height: !expr pvd_height
-#| fig-width: !expr pvd_subfig_width
-#| fig-cap: ""
+#| fig-width: !expr pvd_width
 
 # compact pvd
 list(
-    "CGG &lt; 100, Males  <br>" = fig_under100_males,
-    "CGG &lt; 100, Females  <br>" = fig_under100_females
+    "CGG &lt; 100, Males:" = fig_under100_males,
+    "CGG &lt; 100, Females:" = fig_under100_females
   ) |> 
-  plot_compact_pvd(y_text_size = y_text_size)
+  plot_compact_pvd(
+    scale_colors = scale_colors1,
+    y_text_size = y_text_size
+  )
 
-```
-
-```{r}
-#| label: fig-pvd-by-gender-cgg_under100-2
-#| fig-height: !expr pvd_line_height
-#| fig-width: !expr pvd_line_subfig_width
-#| fig-cap: ""
-
-# lineplot of event sequences
-list(
-    "CGG &lt; 100, Males" = fig_under100_males,
-    "CGG &lt; 100, Females" = fig_under100_females
-  ) |> 
-  pvd_lineplot(text_size = lineplot_text_size)
 ```
 
 **Event sequences stratified by sex, for CGG repeats <100.**
-**(a)** `r glue::glue("{compact_fig_caption}")`
-**(b)** Differences in event sequences by sex, for CGG repeats <100.
+`r compact_fig_caption`
+`r test_under100_sex_summary`
+
 
 :::
 
 {{< pagebreak >}}
 
-::: {#suppfig-pvd-by-gender-cgg_over100}
+:::{#suppfig-pvd-by-gender-cgg_under100-2 custom-style="Caption"}
 
 ```{r}
-#| label: fig-pvd-by-gender-cgg_over100-1
+#| label: supp-fig-pvd-by-gender-cgg_under100-2
+#| fig-height: !expr pvd_line_height
+#| fig-width: !expr pvd_line_subfig_width
+
+# lineplot of event sequences
+plot1 <- list(
+    "CGG &lt; 100, Males" = fig_under100_males,
+    "CGG &lt; 100, Females" = fig_under100_females
+  ) |> 
+  pvd_lineplot(
+    text_size = lineplot_text_size,
+    events_to_highlight = c(
+      "SCID: Mood Disorders: Threshold",
+      "Tandem Walk: Abnormal (<10 Steps)",
+      "Postural Tremor",
+      "Splenium WM Hyperintensity: Mild",
+      "Genu WM Hyperintensity",
+      "MRI: Cerebral: Mild",
+      "MRI: Cerebellar: Mild",
+      "MRI: Cerebellar: Moderate/Severe",
+      "MCP-WM Hyperintensity: Mild",
+      "MCP-WM Hyperintensity: Moderate/SEver"
+    ),
+    highlight_color = "yellow")
+plot1
+# plot1 + ggview::canvas(units = "in", 
+#                        width = pvd_line_height,
+#                        height = 6.69)
+```
+
+**Positional differences in event sequences by sex, for CGG repeats <100.**
+`r compact_fig_cap2`
+`r test_under100_sex_summary`
+
+:::
+
+{{< pagebreak >}}
+
+::: {#suppfig-pvd-by-gender-cgg_over100-1 custom-style="Caption"}
+
+```{r}
+#| label: supp-fig-pvd-by-gender-cgg_over100-1
 #| fig-height: !expr pvd_height
-#| fig-width: !expr pvd_subfig_width
-#| fig-cap: ""
+#| fig-width: !expr pvd_width
 
 # compact pvd
 list(
-    "CGG &ge; 100, Males  <br>" = fig_over100_males,
-    "CGG &ge; 100, Females  <br>" = fig_over100_females
+    "CGG &ge; 100, Males:" = fig_over100_males,
+    "CGG &ge; 100, Females:" = fig_over100_females
   ) |> 
-  plot_compact_pvd(y_text_size = y_text_size)
+  plot_compact_pvd(scale_colors = scale_colors1, y_text_size = y_text_size)
 ```
 
+**Event sequences stratified by sex, for CGG repeats ≥100.**
+`r compact_fig_caption`
+`r test_over100_sex_summary`
+:::
+
+{{< pagebreak >}}
+
+:::{#suppfig-pvd-by-gender-cgg_over100-2 custom-style="Caption"}
+
 ```{r}
-#| label: fig-pvd-by-gender-cgg_over100-2
+#| label: supp-fig-pvd-by-gender-cgg_over100-2
 #| fig-height: !expr pvd_line_height
 #| fig-width: !expr pvd_line_subfig_width
-#| fig-cap: ""
 
 # lineplot of event sequences
 
@@ -69,8 +106,8 @@ list(
 
 ```
 
-**Event sequences stratified by sex, for CGG repeats ≥100.**
-**(a)** `r glue::glue("{compact_fig_caption}")`
-**(b)** Differences in event sequences by sex, for CGG repeats ≥100.
+**Positional differences in event sequences by sex, for CGG repeats ≥100.**
+`r compact_fig_cap2`
+`r test_over100_sex_summary`
 :::
 

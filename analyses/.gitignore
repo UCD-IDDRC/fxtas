@@ -1,2 +1,6 @@
 *.html
-ordinal-sustain.docx.md
+*_files/
+*.md
+*.pdf
+Rplot01.png
+Presentation1.pptx

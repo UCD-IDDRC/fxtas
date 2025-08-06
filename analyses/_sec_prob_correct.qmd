@@ -3,7 +3,7 @@ correctly scored individuals
 for each `r outcomes_name`, [@young2021ordinal]
 estimated using the controls data.
 
-::: {#supptbl-prob-correct}
+::: {#supptbl-prob-correct custom-style="Caption"}
 
 ```{r}
 
@@ -12,18 +12,18 @@ prob_correct |>
   attr("data") |>
   flextable::flextable() |> 
   shared_flextable_settings() |>
-  width(width = 1)
+  flextable::width(width = 1)
 ```
 
 **Percentages of controls at baseline levels, 
 and corresponding estimates of 
 probability of correct scoring.**
-All controls are assumed to be truly 
-at the reference levels for each symptom, 
-and the percentage of correctly scored individuals 
-is thus estimated as 
+The percentage of correctly scored individuals 
+is estimated as 
 the percentage of controls 
 who were assessed as being 
-at the reference level.
+at the reference level,
+or 95%,
+whichever was smaller.
 
 :::

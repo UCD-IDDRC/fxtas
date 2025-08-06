@@ -17,6 +17,7 @@ for latent subtype clustering analysis
 
 ## Analysis
 
+* removed individual parkinsonian features from OS model (#106)
 * added info about displayed statistics to rows for `compute_prob_correct()` (#56)
 
 ## Graphics
@@ -48,7 +49,7 @@ on Dr. Bourgeois's recommendation.
 * removed "Parkinsonian features: " prefix from:
   - "Masked faces",
   - "Increased tone",
-  - "Pill-rolling tremor",
+  - "pill-rolling tremor exam",
   - "Stiff gait"
 * Renamed "CGG (backfilled)" to CGG
 * Renamed "ApoE (backfilled)" to ApoE

@@ -4,7 +4,11 @@
 \alias{permutation_test}
 \title{Compute permutation test p-value}
 \usage{
-permutation_test(permuted_test_stats, observed_test_stat, n_permutations = Inf)
+permutation_test(
+  permuted_test_stats,
+  observed_test_stat,
+  n_permutations = length(permuted_test_stats)
+)
 }
 \arguments{
 \item{permuted_test_stats}{a \code{\link[=numeric]{numeric()}} vector}

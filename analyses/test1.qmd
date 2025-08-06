@@ -1,0 +1,40 @@
+---
+authors:
+  - name: Douglas E. Morrison
+    affiliations:
+      - ref: ucdphs
+    email: demorrison@ucdavis.edu
+    address: "Medical Sciences 1C #113, One Shields Ave, Davis, CA 95616"
+number-sections: false
+---
+
+# main text
+
+## something {#sec-onetwothree}
+
+here's a citation: [@rcartocolor]
+
+## another section
+
+here's another: [@colorblindcheck]
+
+## Refs123 {.sectionbibliography}
+
+::: {.sectionrefs}
+:::
+
+## a third section
+
+and the original ref again [@rcartocolor]
+
+# Supplement {.appendix}
+
+and the original ref again [@rcartocolor]
+
+@sec-onetwothree
+
+```{r}
+outcomes_name_sentence_start = "symptomes"
+```
+
+[`r outcomes_name_sentence_start`s of neurodegenerative events](#sec-onetwothree)),

@@ -1,13 +1,3 @@
-tremor_types <- c(
-  "Hx Intention tremor",
-  "Exam Intention tremor",
-  "Hx Resting tremor",
-  "Exam Resting tremor",
-  "Hx Postural tremor",
-  "Exam Postural tremor",
-  "Intermittent tremor"
-)
-
 tremor_data <-
   trax_gp34_all |>
   dplyr::select(

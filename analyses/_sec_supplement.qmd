@@ -2,6 +2,8 @@
 
 {{< include exploration.qmd >}}
 
+{{< pagebreak >}}
+
 ## Estimates of event scoring accuracy {.appendix}
 
 {{< include _sec_prob_correct.qmd >}}
@@ -14,13 +16,21 @@
 
 {{< include _sec_subtypes_appendix.qmd >}}
 
+## Analyses stratified by sex {.appendix #sec-supp-methods-strat-sex}
+
+{{< include _fig-stage-barplot-by-sex.qmd >}}
+
 ## Analyses stratified by CGG repeats {.appendix #sec-methods-strat-cgg}
 
 {{< include _sec_results_by_cgg.qmd >}}
 
+{{< pagebreak >}}
+
 ## Comparing sexes stratified by CGG level {.appendix #sec-stratified-by-cgg-and-sex}
 
 {{< include _results_by_sex_strat_cgg.qmd >}}
+
+{{< pagebreak >}}
 
 ## Comparing CGG levels stratified by sex {.appendix #sec-cgg-strat-sex}
 
@@ -29,7 +39,3 @@
 <!-- ## Results with repeated measures {#sec-longitudinal-results .appendix} -->
 
 <!-- {{< include longitudinal-results.qmd >}} -->
-
-## Prevalence of parkinsonian features by FXTAS Stage {.appendix #sec-pk-ft-by-stage}
-
-{{< include _sec_stage_vs_pk_ft.qmd >}}
