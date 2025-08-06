@@ -332,6 +332,8 @@ biomarkers_table <-
 
 {{< pagebreak >}}
 
+**Author affiliations:**
+
 Correspondence to: Douglas Ezra Morrison  
 Medical Sciences 1C #113  
 One Shields Ave  
