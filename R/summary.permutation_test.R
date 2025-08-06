@@ -24,6 +24,6 @@ summary.permutation_test <- function(
     "Permutation test statistic (log-likelihood): ",
     "{test_stat}; ",
     "p-value {pval} ",
-    "(N = {N})."
+    "(N = {N} premutation carriers)."
   )
 }

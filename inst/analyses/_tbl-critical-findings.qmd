@@ -1,7 +1,7 @@
 :::{#tbl-critical-findings custom-style="Caption"}
 
 ```{r}
-"analyses/critical-findings.csv" |>
+"inst/analyses/critical-findings.csv" |>
   readr::read_csv(name_repair = "minimal") |>
   flextable::flextable() |>
   shared_flextable_settings(padding = 2) |>

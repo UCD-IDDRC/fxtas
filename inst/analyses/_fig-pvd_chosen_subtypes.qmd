@@ -38,7 +38,7 @@ pvd_subtypes_compact <- plot_compact_pvd_est2(
 
 
 ggsave(
-  "analyses/pvd_subtypes_compact.png", 
+  "inst/analyses/pvd_subtypes_compact.png", 
   plot = pvd_subtypes_compact, 
   device = "png", 
   width = pvd_width, height = 7, units = "in", 

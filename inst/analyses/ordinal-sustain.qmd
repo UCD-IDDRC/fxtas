@@ -91,8 +91,8 @@ ggplot2::theme_set(
 #| message: false
 
 reticulate::use_condaenv("fxtas39", required = TRUE, conda = "auto")
-library(fxtas)
-# devtools::load_all()
+# library(fxtas)
+devtools::load_all()
 library(tidyverse)
 library(reticulate)
 library(pander)
@@ -234,6 +234,7 @@ v1_usable <-
 v1_usable_males <- v1_usable |> dplyr::filter(Gender == "Male")
 v1_usable_females <- v1_usable |> dplyr::filter(Gender == "Female")
 v1_usable_cases <- v1_usable |> dplyr::filter(CGG >= 55)
+v1_usable_controls <- v1_usable |> dplyr::filter(CGG < 55)
 v1_usable_male_cases <-
   v1_usable |>
   dplyr::filter(
@@ -589,25 +590,7 @@ we chose to classify participants into `r n_s_selected` subtypes.
 sust_data <- results_cv_max$subtype_and_stage_table |> 
   bind_cols(patient_data)
 
-n_type_0 <- sust_data |>
-  dplyr::filter(ml_subtype == "Subtype 0") |>
-  nrow()
-
-cgg_by_subtype <- sust_data |> 
-  dplyr::summarize(
-    .by = ml_subtype, 
-    mean = mean(.data$CGG, na.rm = TRUE) |> round(1),
-    sd = sd(.data$CGG, na.rm = TRUE) |> round(1)
-  ) |> 
-  as.data.frame()
-rownames(cgg_by_subtype) = cgg_by_subtype$ml_subtype
-
-cgg_overall <- sust_data |> 
-  dplyr::summarize(
-    mean = mean(.data$CGG, na.rm = TRUE) |> round(1),
-    sd = sd(.data$CGG, na.rm = TRUE) |> round(1)
-  )
-
+# no longer significant:
 test_sex <- 
   sust_data |> 
   filter(.data$ml_subtype != "Subtype 0") |> 
@@ -745,7 +728,7 @@ N_subtyped <- results_cv_max$subtype_and_stage_table |>
 pval_formatted <- pval_cgg$p.value |> scales::label_pvalue()()
 dfs <- pval_cgg$parameter |> round(1)
 subtype_pval_summaries <- glue::glue(
-  "Mean CGG differed significantly between subtypes;\n",
+  "Mean CGG repeats differed significantly between subtypes;\n",
   "one-way ANOVA F test statistic: ",
   "{round(pval_cgg$statistic, 2)}" ,
   " (DFs: {dfs[1]} and {dfs[2]});\n",
@@ -810,7 +793,7 @@ list(
     width = 120,
     units = "mm", 
     dpi = 600,
-    filename = "analyses/pvd_sex.pdf"
+    filename = "inst/analyses/pvd_sex.pdf"
   )
 
 ```

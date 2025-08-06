@@ -1,3 +1,30 @@
+```{r}
+#| label: cgg-subtypes
+
+
+n_type_0 <- sust_data |>
+  dplyr::filter(ml_subtype == "Subtype 0") |>
+  nrow()
+
+cgg_by_subtype <- sust_data |> 
+  dplyr::summarize(
+    .by = ml_subtype, 
+    mean = mean(.data$CGG, na.rm = TRUE) |> round(1),
+    sd = sd(.data$CGG, na.rm = TRUE) |> round(1)
+  ) |> 
+  as.data.frame()
+rownames(cgg_by_subtype) = cgg_by_subtype$ml_subtype
+
+
+cgg_overall <- sust_data |> 
+  filter(.data$ml_subtype != "Subtype 0") |> 
+  dplyr::summarize(
+    mean = mean(.data$CGG, na.rm = TRUE) |> round(1),
+    sd = sd(.data$CGG, na.rm = TRUE) |> round(1)
+  )
+```
+
+
 @suppfig-pvd_chosen_subtypes shows the estimated sequential event orders
 for each of the subtype clusters.
 <!-- @suppfig-pvd_chosen_subtypes_linegraphs  -->
@@ -26,8 +53,9 @@ compared to the overall study population
 and other subtypes.
 Subtype 2 had CGG repeats close to the overall study population
 (`r cgg_by_subtype["Subtype 2", "mean"]` ± `r cgg_by_subtype["Subtype 2", "sd"]`).
-Subtype 3 had fewer CGG repeats than the overall study population
-(`r cgg_by_subtype["Subtype 3", "mean"]` ± `r cgg_by_subtype["Subtype 3", "sd"]`),
+Subtype 3 had fewer CGG repeats 
+(`r cgg_by_subtype["Subtype 3", "mean"]` ± `r cgg_by_subtype["Subtype 3", "sd"]`)
+than the overall study population,
 and
 Subtype 4 had the fewest CGG repeats
 (`r cgg_by_subtype["Subtype 4", "mean"]` ± `r cgg_by_subtype["Subtype 4", "sd"]`).

@@ -10,7 +10,10 @@ sustain_output_CV$CVIC |> plot_CVIC()
 **cross-validation information criterion (CVIC)**.
 Each data point represents the estimated CVIC (y-axis)
 for the model fit with a given number of latent subtypes (x-axis)
-on the full data set (N = `r nrow(v1_usable_cases)`).
+on the full data set 
+(N = `r nrow(v1_usable_cases)` carriers
+and 
+`r nrow(v1_usable_controls)` controls).
 
 :::
 
@@ -27,5 +30,8 @@ sustain_output_CV$loglike_matrix |> plot_cv_loglik(y_text_size = y_text_size)
 Each data point represents the OOFLL statistic
 (i.e., the test set log-likelihood across cross-validation folds)
 for the Ordinal SuStaIn model fit with a given number of latent subtypes
-on the full data set (N = `r nrow(v1_usable_cases)`).
+on the full data set
+(N = `r nrow(v1_usable_cases)` carriers
+and 
+`r nrow(v1_usable_controls)` controls).
 :::

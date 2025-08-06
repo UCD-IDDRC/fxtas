@@ -1,7 +1,7 @@
 ::: {#tbl-abbrevs custom-style="Caption"}
 
 ```{r}
-read.csv("analyses/abbreviations.csv") |> 
+read.csv("inst/analyses/abbreviations.csv") |> 
   dplyr::select(-"Context") |> 
   flextable::flextable() |> 
   shared_flextable_settings() |> 
