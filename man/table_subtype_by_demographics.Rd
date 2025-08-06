@@ -52,8 +52,8 @@ The gtsummary type selectors, e.g. \code{all_dichotomous()}, cannot be used
 with this argument. Default is \code{NULL}. See below for details.}
     \item{\code{missing,missing_text,missing_stat}}{Arguments dictating how and if missing values are presented:
 \itemize{
-\item \code{missing}: must be one of \code{c("ifany", "no", "always")}
-\item \code{missing_text}: string indicating text shown on missing row. Default is \code{"Unknown"}
+\item \code{missing}: must be one of \code{c("ifany", "no", "always")}.
+\item \code{missing_text}: string indicating text shown on missing row. Default is \code{"Unknown"}.
 \item \code{missing_stat}: statistic to show on missing row. Default is \code{"{N_miss}"}.
 Possible values are \code{N_miss}, \code{N_obs}, \code{N_nonmiss}, \code{p_miss}, \code{p_nonmiss}.
 }}
@@ -63,7 +63,11 @@ Values must be one of \code{c("alphanumeric", "frequency")}.
 Default is \code{all_categorical(FALSE) ~ "alphanumeric"}.}
     \item{\code{percent}}{(\code{string})\cr
 Indicates the type of percentage to return.
-Must be one of \code{c("column", "row", "cell")}. Default is \code{"column"}.}
+Must be one of \code{c("column", "row", "cell")}. Default is \code{"column"}.
+
+In rarer cases, you may need to define/override the typical denominators.
+In these cases, pass an integer or a data frame. Refer to the
+\code{\link[cards:ard_categorical]{?cards::ard_categorical(denominator)}} help file for details.}
     \item{\code{include}}{(\code{\link[dplyr:dplyr_tidy_select]{tidy-select}})\cr
 Variables to include in the summary table. Default is \code{everything()}.}
   }}

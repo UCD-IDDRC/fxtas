@@ -1,4 +1,5 @@
 test_that("results are consistent with fxtas data", {
+  withr::local_package("dplyr")
   output_folder <-
     "output/output.fixed_CV-scid-no-subthres/"
   figs <-
@@ -47,6 +48,7 @@ test_that("results are consistent with fxtas data", {
 
 
 test_that("results are consistent with simulated data", {
+  withr::local_package("dplyr")
   output_path =
     fs::path_package("extdata/sim_data", package = "fxtas")
 
