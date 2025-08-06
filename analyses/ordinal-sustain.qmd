@@ -13,6 +13,8 @@ knitr:
     # see https://github.com/quarto-dev/quarto-cli/discussions/4254
 ---
 
+# Main text
+
 ```{=html}
 <style>
 .quarto-figure-center > figure {
@@ -326,7 +328,7 @@ biomarkers_table <-
   )
 ```
 
-# Abstract {.unnumbered}
+## Abstract {.unnumbered}
 
 {{< include _sec_abstract.qmd >}}
 
@@ -349,11 +351,11 @@ latent subgroups
 
 {{< pagebreak >}}
 
-# Introduction
+## Introduction
 
 {{< include _sec_intro.qmd >}}
 
-# Materials and methods
+## Materials and methods
 
 {{< include _sec-materials-and-methods.qmd >}}
 
@@ -386,7 +388,7 @@ if (fit_models) {
 
 {{< include _sec_run_stratified_models.qmd >}}
 
-# Results
+## Results
 
 ```{r}
 #| label: extract-figs
@@ -528,7 +530,7 @@ fig_over100_females <- extract_figs_from_pickle(
 
 {{< include _sec-results-demographics.qmd >}}
 
-## Sex differences in sequential orders {#sec-methods-strat-sex}
+### Sex differences in sequential orders {#sec-methods-strat-sex}
 
 {{< include _sec-permutation-tests-sex.qmd >}}
 
@@ -536,7 +538,7 @@ fig_over100_females <- extract_figs_from_pickle(
 
 {{< include _sec-permutation-tests-strat-sex.qmd >}}
 
-## Subtype clustering
+### Subtype clustering
 
 ```{r}
 #| label: set-optimal-subtypes
@@ -656,17 +658,17 @@ Subtype 4 had the fewest CGG repeats
 
 {{< include _sec-subtype-diff-summary.qmd >}}
 
-# Discussion
+## Discussion
 
 {{< include _sec_discussion.qmd >}}
 
-# Data availability {.unnumbered}
+## Data availability {.unnumbered}
 
 The de-identified data used in this analysis may be provided 
 upon request 
 from the principal investigators of the two cohorts.
 
-# Funding {.unnumbered}
+## Funding {.unnumbered}
 
 This study was supported by the 
 National Institute of Child Health and Human Development 
@@ -678,17 +680,17 @@ Intellectual and Developmental Disabilities Research Center (IDDRC)
 and the National Institute of Neurological Disorders and Stroke 
 (NINDS, NS110100).
 
-# Competing interests {.unnumbered}
+## Competing interests {.unnumbered}
 
 The authors report no competing interests.
 
-# Supplementary material {.unnumbered}
+## Supplementary material {.unnumbered}
 
 Supplementary material is available at Brain Communications online.
 
-# References {.unnumbered}
+## References {.unnumbered}
 
-::: {#refs}
+::: {.sectionrefs}
 :::
 
 {{< pagebreak >}}

@@ -95,6 +95,7 @@ project:
 
 format:
   docx:
+    ref-hyperlink: false
     keep-md: true
     notes-after-punctuation: true
     reference-doc: Brain_template_2022.docx
@@ -148,6 +149,8 @@ format:
     date: last-modified
     date-format: "[Last modified:] YYYY-MM-DD: H:mm:ss (A)"
 bibliography: analyses/references.bib
+reference-section-title: References
+citeproc: false
 knitr:
   opts_chunk:
     collapse: true
@@ -160,6 +163,8 @@ execute:
   cache: false
   freeze: false  # re-render only when source changes
 filters:
+  - quarto
+  - section-bibliographies
   - highlight-text
   - authors-block
   - at: post-quarto

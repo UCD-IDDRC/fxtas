@@ -1,17 +1,32 @@
-something 
+---
+authors:
+  - name: Douglas E. Morrison
+    affiliations:
+      - ref: ucdphs
+    email: demorrison@ucdavis.edu
+    address: "Medical Sciences 1C #113, One Shields Ave, Davis, CA 95616"
+---
 
-::: landscape
+# main text
 
-:::{#fig-one custom-style="Caption"}
+## something {#sec-onetwothree}
 
-```{r}
-plot(1:10)
-```
+here's a citation: [@rcartocolor]
 
-this is a caption
+## another section
 
+here's another: [@colorblindcheck]
+
+
+::: {.sectionrefs}
 :::
 
-:::
+## a third section
 
-a third section
+and the original ref again [@rcartocolor]
+
+# Supplement {.unnumbered}
+
+and the original ref again [@rcartocolor]
+
+@sec-onetwothree
