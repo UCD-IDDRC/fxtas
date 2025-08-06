@@ -50,7 +50,8 @@ Hypochondriasis (SOM39).
 We then combined the "Absent" and "Sub-Threshold" levels
 in order to reduce the number of stages in the model,
 due to our limited sample size 
-(as described in the main text, @sec-outcome-vars),
+(as described in the main text, 
+[`r outcomes_name_sentence_start`s of neurodegenerative events](#sec-outcome-vars)),
 and since very relatively participants had composite SCID variables
 at the sub-threshold levels (@supptbl-scid).
 

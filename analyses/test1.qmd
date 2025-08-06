@@ -5,6 +5,7 @@ authors:
       - ref: ucdphs
     email: demorrison@ucdavis.edu
     address: "Medical Sciences 1C #113, One Shields Ave, Davis, CA 95616"
+number-sections: false
 ---
 
 # main text
@@ -25,8 +26,14 @@ here's another: [@colorblindcheck]
 
 and the original ref again [@rcartocolor]
 
-# Supplement {.unnumbered}
+# Supplement {.appendix}
 
 and the original ref again [@rcartocolor]
 
 @sec-onetwothree
+
+```{r}
+outcomes_name_sentence_start = "symptomes"
+```
+
+[`r outcomes_name_sentence_start`s of neurodegenerative events](#sec-onetwothree)),
