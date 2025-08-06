@@ -13,8 +13,6 @@ knitr:
     # see https://github.com/quarto-dev/quarto-cli/discussions/4254
 ---
 
-# Main text
-
 ```{=html}
 <style>
 .quarto-figure-center > figure {
@@ -328,7 +326,7 @@ biomarkers_table <-
   )
 ```
 
-## Abstract {.unnumbered}
+# Abstract {.unnumbered}
 
 {{< include _sec_abstract.qmd >}}
 

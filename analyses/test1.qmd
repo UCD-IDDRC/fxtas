@@ -18,6 +18,7 @@ here's a citation: [@rcartocolor]
 
 here's another: [@colorblindcheck]
 
+## Refs123 {.sectionbibliography}
 
 ::: {.sectionrefs}
 :::
