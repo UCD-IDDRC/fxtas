@@ -15,11 +15,14 @@ summary.permutation_test <- function(
     digits = 2,
     ...) {
 
-  test_stat <- object |> attr("observed_test_stat") |>
+  test_stat <- object |>
+    attr("observed_test_stat") |>
     round(digits)
-  pval <- object |> scales::label_pvalue(
-    prefix = c(" < ", " = ", " > "),
-    add_p = FALSE)()
+  pval <- object |>
+    scales::label_pvalue(
+      prefix = c(" < ", " = ", " > "),
+      add_p = FALSE
+    )()
   glue::glue(
     "Permutation test statistic (log-likelihood): ",
     "{test_stat}; ",
