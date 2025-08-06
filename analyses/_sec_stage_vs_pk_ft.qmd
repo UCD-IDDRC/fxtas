@@ -12,7 +12,7 @@ v1_usable_cases |>
   gtsummary::modify_spanning_header(
     c("stat_1", "stat_2") ~ "**parkinsonian features**"
   ) |> 
-  gtsummary::as_flex_table() |> 
+  gtsummary::as_flex_table(ref_symbols = letters) |> 
   shared_flextable_settings()
 
 ```

@@ -8,7 +8,7 @@
 #' @keywords internal
 format_demographics_table_as_flextable <- function(x, ...) { # nolint: object_length_linter
   x |>
-    gtsummary::as_flex_table() |>
+    gtsummary::as_flex_table(ref_symbols = letters) |>
     # update upper header label: '' to 'M vs. F'
     shared_flextable_settings(...) |>
     flextable::compose(

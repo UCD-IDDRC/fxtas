@@ -768,7 +768,7 @@ tbl_sg_demos <- table_subtype_by_demographics(
 #| results: asis
 
 tbl_sg_demos |>
-  gtsummary::as_flex_table() |>
+  gtsummary::as_flex_table(ref_symbols = letters) |>
   shared_flextable_settings() |>
   flextable::width(width = 1.7) |>
   flextable::width(j = 2:6, width = 0.75) |>
