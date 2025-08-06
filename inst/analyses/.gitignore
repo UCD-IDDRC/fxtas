@@ -1,6 +1,7 @@
 *.html
-*_files/
 *.md
 *.pdf
 Rplot01.png
 Presentation1.pptx
+test1_files
+test2_files
