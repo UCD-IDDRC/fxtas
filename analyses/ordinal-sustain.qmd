@@ -763,6 +763,23 @@ tbl_sg_demos <- table_subtype_by_demographics(
     `Primary Race/Ethnicity` = c(0, 1)
   )
 )
+pval_cgg <- 
+  results_cv_max$subtype_and_stage_table |> 
+  bind_cols(patient_data) |> 
+  dplyr::filter(ml_subtype != "Subtype 0") |> 
+  oneway.test(
+  CGG ~ ml_subtype, data = _)
+N_subtyped <- results_cv_max$subtype_and_stage_table |> 
+  dplyr::filter(ml_subtype != "Subtype 0") |> 
+  nrow()
+pval_formatted <- pval_cgg$p.value |> scales::label_pvalue()()
+dfs <- pval_cgg$parameter |> round(1)
+subtype_pval_summaries <- glue::glue(
+  "Mean CGG differed significantly between subtypes;\n",
+  "one-way ANOVA F test statistic: ",
+  "{round(pval_cgg$statistic, 2)}" ,
+  " (DFs: {dfs[1]} and {dfs[2]});\n",
+  "p-value = {pval_formatted} (N = {N_subtyped}).")
 ```
 
 

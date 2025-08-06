@@ -78,6 +78,5 @@ ggsave(
 **aligned by FXTAS stage.**
 Lines are used to show patterns of clinical interest.
 `r biomarker_text_color_info`
-@tbl-sg_demos includes exploratory hypothesis test results
-for differences in demographic characteristics by latent subtype.
+`r subtype_pval_summaries`
 :::

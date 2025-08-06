@@ -61,7 +61,5 @@ n_s_text <- n_s_selected |> xfun::numbers_to_words()
 
 **Event sequences for `r n_s_text` latent subtypes.** 
 `r compact_fig_caption`
-@tbl-sg_demos includes exploratory hypothesis test results
-for differences in demographic characteristics by latent subtype.
-`r labels2`.
+`r subtype_pval_summaries`
 :::
