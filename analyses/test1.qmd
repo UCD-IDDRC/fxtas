@@ -1,17 +1,17 @@
 something 
 
-::: landscape
+here's a citation: [@rcartocolor]
 
-:::{#fig-one custom-style="Caption"}
-
-```{r}
-plot(1:10)
-```
-
-this is a caption
-
-:::
-
+::: {#refs-main}
 :::
 
 a third section
+
+# References
+
+here's another: [@colorblindcheck]
+
+# Software
+
+::: {#refs-software}
+:::

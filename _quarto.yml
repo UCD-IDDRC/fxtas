@@ -54,7 +54,7 @@ authors:
     email: kmkim@ucdavis.edu
     affiliation:
       - ref: ucdphs
-
+citeproc: false
 affiliations:
   - id: ucdphs
     name: Department of Public Health Sciences, School of Medicine, University of California, Davis, Davis CA, United States
@@ -147,7 +147,10 @@ format:
     echo: false
     date: last-modified
     date-format: "[Last modified:] YYYY-MM-DD: H:mm:ss (A)"
-bibliography: analyses/references.bib
+# bibliography: analyses/references.bib
+bibliography:
+  main: analyses/references.bib
+  software: analyses/bib2.bib
 knitr:
   opts_chunk:
     collapse: true
@@ -160,10 +163,12 @@ execute:
   cache: false
   freeze: false  # re-render only when source changes
 filters:
+  - multibib
   - highlight-text
   - authors-block
   - at: post-quarto
     path: analyses/appendix_numbering.lua
+validate-yaml: false
 
 crossref:
   subref-labels: alpha A
