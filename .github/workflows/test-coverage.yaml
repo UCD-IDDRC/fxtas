@@ -34,15 +34,15 @@ jobs:
       - name: Test coverage
         run: |
 
-          library(reticulate)
-          reticulate::py_require(
-            packages = c(
-              "git+https://github.com/ucl-pond/kde_ebm",
-              "git+https://github.com/d-morrison/pySuStaIn"
-            ),
-            python_version = "3.9"
-          )
-          reticulate::py_config()
+          # library(reticulate)
+          # reticulate::py_require(
+          #   packages = c(
+          #     "git+https://github.com/ucl-pond/kde_ebm",
+          #     "git+https://github.com/d-morrison/pySuStaIn"
+          #   ),
+          #   python_version = "3.9"
+          # )
+          # reticulate::py_config()
 
           cov <- covr::package_coverage(
             quiet = FALSE,
