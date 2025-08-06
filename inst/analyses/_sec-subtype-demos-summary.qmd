@@ -1,0 +1,33 @@
+@suppfig-pvd_chosen_subtypes shows the estimated sequential event orders
+for each of the subtype clusters.
+<!-- @suppfig-pvd_chosen_subtypes_linegraphs  -->
+@fig-pvd_chosen_subtypes_bumpplot
+shows
+differences in event sequences between subtypes.
+@tbl-sg_demos shows
+the demographics of the patients clustered in each subtype.
+`r n_type_0 |> xfun::numbers_to_words() |> Hmisc::capitalize()`
+patients had experienced too few events
+to be accurately classified into a subtype
+and were excluded from @tbl-sg_demos.
+Subtype clustering analysis showed that
+CGG repeat size,
+a known risk factor of FXTAS,
+contributed to the segregation of subtypes
+and variations between subtypes
+(p-value = `r test_cgg$p.value |> scales::pvalue()`).
+We labeled the subtypes in descending order of mean CGG repeats.
+Individuals with higher CGG repeats
+were over-represented in Subtype 1
+(CGG repeats mean =
+`r cgg_by_subtype["Subtype 1", "mean"]` ± `r cgg_by_subtype["Subtype 1", "sd"]`)
+compared to the overall study population
+(CGG repeats mean = `r cgg_overall$mean`  ± `r cgg_overall$sd`)
+and other subtypes.
+Subtype 2 had CGG repeats close to the overall study population
+(`r cgg_by_subtype["Subtype 2", "mean"]` ± `r cgg_by_subtype["Subtype 2", "sd"]`).
+Subtype 3 had fewer CGG repeats than the overall study population
+(`r cgg_by_subtype["Subtype 3", "mean"]` ± `r cgg_by_subtype["Subtype 3", "sd"]`),
+and
+Subtype 4 had the fewest CGG repeats
+(`r cgg_by_subtype["Subtype 4", "mean"]` ± `r cgg_by_subtype["Subtype 4", "sd"]`).

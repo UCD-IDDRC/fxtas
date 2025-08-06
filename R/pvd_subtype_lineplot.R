@@ -49,7 +49,7 @@ pvd_subtype_lineplot <- function(
   dataset <- extract_lineplot_data(figs, facet_names)
 
   # truncate subtype_x to length(figs) - add check to force lengths to match?
-  subtype_x = subtype_x[1:length(figs)]
+  subtype_x <- subtype_x[seq_along(figs)]
 
   # additional processing
   plot_dataset <- dataset |>
@@ -62,7 +62,8 @@ pvd_subtype_lineplot <- function(
     pvd_bumpplot_preprocessing_2(
       min_alpha,
       max_alpha,
-      stage_alpha)
+      stage_alpha
+    )
 
 
   if (align_stage) {
@@ -84,13 +85,13 @@ pvd_subtype_lineplot <- function(
         ),
       aes(
         color = if (use_group_colors) .data$group_color else .data$line_color,
-        group = .data$`event name`),
+        group = .data$`event name`
+      ),
       ...
     ) +
     ggtext::geom_richtext(
       aes(
         label = .data$padded_label,
-        # hjust = .data$hjust,
         fill = .data$background
       ),
       label.color = NA,

@@ -1,13 +1,13 @@
-fix_CGG <- function(dataset)
-{
-  missingCGG = readxl::read_excel(
+fix_CGG <- function(dataset) {
+  missing_cgg <- readxl::read_excel(
     "inst/extdata/fxtas/Missing_CGG_repeat_import_24Mar23.xlsx",
-    sheet = "missing_CGG")
+    sheet = "missing_CGG"
+  )
 
-  colnames(missingCGG)[3] = "CGG (recovered)"
+  colnames(missing_cgg)[3] <- "CGG (recovered)"
 
-  # import additiona missingCGG data (10/2023)
-  updatedCGG = readxl::read_xlsx(
+  # import additiona missing_cgg data (10/2023)
+  updated_cgg <- readxl::read_xlsx(
     "inst/extdata/fxtas/GP34_Missing_CGG_Data_Samples_Table_10-9-2023-mdp.xlsx"
   ) |>
     dplyr::mutate(
@@ -21,18 +21,19 @@ fix_CGG <- function(dataset)
       )
     ) |>
     dplyr::relocate(
-      "Study", .before = "FXS ID"
+      "Study",
+      .before = "FXS ID"
     ) |>
     dplyr::rename(
       `CGG (recovered)` = "CGG (backfilled)"
     ) |>
     dplyr::select(
-      all_of(colnames(missingCGG))
+      all_of(colnames(missing_cgg))
     )
 
-  # combine previous and updated missingCGG data
-  # additional update should contain duplicates from previous missingCGG
-  newCGG <- rbind(missingCGG, updatedCGG) |>
+  # combine previous and updated missing_cgg data
+  # additional update should contain duplicates from previous missing_cgg
+  new_cgg <- rbind(missing_cgg, updated_cgg) |>
     arrange(across(all_of("FXS ID"))) |>
     # remove non-unique rows, e.g. still missing CGG
     unique() |>
@@ -47,41 +48,40 @@ fix_CGG <- function(dataset)
 
 
 
-  duplicates =
-    newCGG |>
+  duplicates <-
+    new_cgg |>
     count(.data$`FXS ID`) |>
     dplyr::filter(.data$n != 1)
 
-  if(nrow(duplicates) != 0) browser(message("why are there duplicates?"))
+  if (nrow(duplicates) != 0) {
+    browser(cli::cli_inform("why are there duplicates?"))
+  }
 
-  dataset =
+  dataset <-
     dataset |>
     left_join(
-      newCGG |> dplyr::select(-all_of("Study")),
+      new_cgg |> dplyr::select(-all_of("Study")),
       by = "FXS ID",
       relationship = "many-to-one"
     ) |>
     dplyr::mutate(
-      `Floras Non-Sortable Allele Size (CGG) Results` =
-        if_else(
-          is.na(.data$`Floras Non-Sortable Allele Size (CGG) Results`),
-          .data$`CGG (recovered)`,
-          .data$`Floras Non-Sortable Allele Size (CGG) Results`
-        ),
+      `Floras Non-Sortable Allele Size (CGG) Results` = if_else(
+        is.na(.data$`Floras Non-Sortable Allele Size (CGG) Results`),
+        .data$`CGG (recovered)`,
+        .data$`Floras Non-Sortable Allele Size (CGG) Results`
+      ),
       `CGG (recovered)` = NULL,
-      CGG =
-        .data$`Floras Non-Sortable Allele Size (CGG) Results` |>
+      CGG = .data$`Floras Non-Sortable Allele Size (CGG) Results` |>
         parse_CGG(),
-
-      `CGG: missingness reasons` =
-        missingness_reasons.numeric(
-          x = .data$`Floras Non-Sortable Allele Size (CGG) Results`,
-          x.clean = .data$CGG
-        ),
+      `CGG: missingness reasons` = missingness_reasons.numeric(
+        x = .data$`Floras Non-Sortable Allele Size (CGG) Results`,
+        x.clean = .data$CGG
+      ),
       `CGG (backfilled)` = .data$CGG
-    )  |>
+    ) |>
     dplyr::relocate(
-      "CGG (backfilled)", .after = "CGG"
+      "CGG (backfilled)",
+      .after = "CGG"
     ) |>
     dplyr::mutate(
       .by = "FXS ID",
