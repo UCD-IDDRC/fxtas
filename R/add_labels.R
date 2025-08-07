@@ -21,6 +21,8 @@ add_labels <- function(data) {
         set_label_attribute("pulmonary fibrosis"),
       "Stiff gait" = .data$`Stiff gait` |>
         set_label_attribute("stiff gait"),
+      CGG = .data$CGG |>
+        set_label_attribute("CGG repeats"),
       `FX3*` = .data$`FX3*` |>
         set_label_attribute("CGG repeat level"),
       Parkinsons = .data$Parkinsons |>
