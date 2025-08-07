@@ -386,7 +386,12 @@ latent subgroups
 #| label: model-all-subgroups-first-visits
 #| include: false
 
-if (fit_models) {
+sustain_output_path <- fs::path(
+  output_folder,
+  "sustain_output.rds"
+)
+
+if (fit_models || !file.exists(sustain_output_path)) {
   
   sustain_output <- run_and_save_OSA(
     verbose = verbose,
@@ -404,21 +409,10 @@ if (fit_models) {
     rerun = rerun,
     patient_data = patient_data,
     N_CV_folds = N_CV_folds
-  ) 
-  
-  sustain_output |> readr::write_rds(
-    fs::path(
-      output_folder,
-      "sustain_output.rds"
-    )
-  )
+  ) |> 
+    readr::write_rds(file = sustain_output_path)
 } else {
-  sustain_output <- readr::read_rds(
-    fs::path(
-      output_folder,
-      "sustain_output.rds"
-    )
-  )
+  sustain_output <- readr::read_rds(file = sustain_output_path)
 }
 ```
 
