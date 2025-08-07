@@ -44,12 +44,10 @@ library(rex)
 # rcartocolor::carto_pal(name = "Safe") |> 
 #   colorblindcheck::palette_plot()
 color_names1 <- 
-  # rcartocolor::carto_pal(name = "Safe") |> 
-  # loon::l_colorName() |>  
-  # stringr::str_remove_all(pattern = rex::rex(digits))
-  c("skyblue", "palevioletred", "khaki", "forestgreen", "royalblue", 
-"orchid", "cadetblue", "khaki", "violetred", "darkred", "skyblue", 
-"gray")
+  rcartocolor::carto_pal(name = "Safe") |>
+  loon::l_colorName() |>
+  stringr::str_remove_all(pattern = rex::rex(digits))
+  
 scale_colors1 <- scale_colors0 |> 
   setNames(
     c("violet red", "royal blue", "cadet blue", "khaki", "forest green"
