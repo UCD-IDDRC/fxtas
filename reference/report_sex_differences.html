@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">fxtas</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Unreleased version">0.0.0.9026</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Unreleased version">0.0.0.9028</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -87,7 +87,7 @@
 <span class="r-in"><span>  <span class="fu"><a href="get_levels.html">get_levels</a></span><span class="op">(</span><span class="va">biomarker_varnames</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">biomarker_events_table</span> <span class="op">=</span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="construct_biomarker_events_table.html">construct_biomarker_events_table</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="make_biomarker_events_table.html">make_biomarker_events_table</a></span><span class="op">(</span></span></span>
 <span class="r-in"><span>    <span class="va">biomarker_levels</span>,</span></span>
 <span class="r-in"><span>    biomarker_groups <span class="op">=</span> <span class="va">biomarker_groups</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
@@ -97,7 +97,7 @@
 <span class="r-in"><span>  <span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span>  <span class="va">table</span> <span class="op">|&gt;</span> <span class="fu">report_sex_differences</span><span class="op">(</span>cutoff <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "\"Ataxia: severity\" (18% of females versus 30.2% of males, p-value = 0.114), \"Genu (CC)-WM Hyperintensity\" (64.3% of females versus 46.8% of males, p-value = 0.260), \"MCP-WM Hyperintensity\" (25% of females versus 43.6% of males, p-value = 0.108), \"MRI: Cerebellar\" (85.7% of females versus 69% of males, p-value = 0.093), \"Splenium (CC)-WM Hyperintensity\" (47.6% of females versus 74% of males, p-value = 0.033), \"Hypothyroid\" (5% of females versus 14% of males, p-value = 0.177), \"head tremor\" (13.3% of females versus 32.6% of males, p-value = 0.060), \"Intermittent tremor\" (37.2% of females versus 27.3% of males, p-value = 0.198), and \"Resting tremor\" (16.3% of females versus 10.2% of males, p-value = 0.218)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "\"ataxia severity\" (21.1% of females versus 33% of males, p-value = 0.105), \"Paired Associates Learning (PAL): total errors\" (69.8% of females versus 60% of males, p-value = 0.284), \"Corpus Callosum-Thickness\" (35% of females versus 46.2% of males, p-value = 0.454), \"Middle cerebellar peduncle (MCP): White Matter Hyperintensity\" (26.7% of females versus 36.8% of males, p-value = 0.376), \"Splenium (Corpus Callosum) White Matter Hyperintensity\" (76.2% of females versus 65.7% of males, p-value = 0.433), \"parkinsonian features\" (10.7% of females versus 19.9% of males, p-value = 0.158), \"mood disorders\" (63.3% of females versus 45.5% of males, p-value = 0.101), \"somatoform disorders\" (9.4% of females versus 4.6% of males, p-value = 0.383), \"Behavior Dyscontrol Scale - 2nd Edition (BDS-2): total score\" (25.8% of females versus 20.6% of males, p-value = 0.385), \"Mini-Mental State Examination (MMSE): total score\" (14.3% of females versus 8.2% of males, p-value = 0.408), \"Hyperthyroid\" (9.1% of females versus 2.6% of males, p-value = 0.075), \"autoimmune diagnoses or symptoms\" (21% of females versus 11.2% of males, p-value = 0.058), and \"resting tremor\" (12.3% of females versus 8% of males, p-value = 0.323)"</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
@@ -106,11 +106,11 @@
 
 
     <footer><div class="pkgdown-footer-left">
-  <p>Developed by Douglas Ezra Morrison.</p>
+  <p>Developed by Douglas Ezra Morrison, Matthew Ponzini.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.2.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.9000.</p>
 </div>
 
     </footer></div>

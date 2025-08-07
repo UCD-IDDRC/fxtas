@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">fxtas</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Unreleased version">0.0.0.9026</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Unreleased version">0.0.0.9028</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,7 +53,11 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">compact_pvd_data_prep</span><span class="op">(</span><span class="va">figs</span>, biomarker_order <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">compact_pvd_data_prep</span><span class="op">(</span></span>
+<span>  <span class="va">figs</span>,</span>
+<span>  biomarker_order <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  biomarker_var <span class="op">=</span> <span class="st">"biomarker_label"</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -68,6 +72,10 @@
 <dd><p>a <a href="https://rdrr.io/r/base/character.html" class="external-link">character</a> vector specifying the
 order of biomarkers to use</p></dd>
 
+
+<dt id="arg-biomarker-var">biomarker_var<a class="anchor" aria-label="anchor" href="#arg-biomarker-var"></a></dt>
+<dd><p>either "biomarker" or "biomarker_label"</p></dd>
+
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
@@ -79,11 +87,11 @@ order of biomarkers to use</p></dd>
 
 
     <footer><div class="pkgdown-footer-left">
-  <p>Developed by Douglas Ezra Morrison.</p>
+  <p>Developed by Douglas Ezra Morrison, Matthew Ponzini.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.2.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.9000.</p>
 </div>
 
     </footer></div>

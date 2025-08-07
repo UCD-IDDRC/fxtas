@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">fxtas</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Unreleased version">0.0.0.9026</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Unreleased version">0.0.0.9028</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -60,6 +60,8 @@
 <span>  rda_filename <span class="op">=</span> <span class="st">"data.RData"</span>,</span>
 <span>  picklename <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="va">dataset_name</span>, <span class="st">"_subtype"</span>, <span class="va">n_s</span> <span class="op">-</span> <span class="fl">1</span>, <span class="st">".pickle"</span><span class="op">)</span>,</span>
 <span>  use_rds <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  biomarker_groups <span class="op">=</span> <span class="fu">readr</span><span class="fu">::</span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_rds.html" class="external-link">read_rds</a></span><span class="op">(</span><span class="fu">fs</span><span class="fu">::</span><span class="fu"><a href="https://fs.r-lib.org/reference/path.html" class="external-link">path</a></span><span class="op">(</span><span class="va">output_folder</span>, <span class="st">"biomarker_groups.rds"</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>  biomarker_levels <span class="op">=</span> <span class="fu">readr</span><span class="fu">::</span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_rds.html" class="external-link">read_rds</a></span><span class="op">(</span><span class="fu">fs</span><span class="fu">::</span><span class="fu"><a href="https://fs.r-lib.org/reference/path.html" class="external-link">path</a></span><span class="op">(</span><span class="va">output_folder</span>, <span class="st">"biomarker_levels.rds"</span><span class="op">)</span><span class="op">)</span>,</span>
 <span>  <span class="va">...</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
@@ -69,7 +71,7 @@
 
 
 <dl><dt id="arg-n-s">n_s<a class="anchor" aria-label="anchor" href="#arg-n-s"></a></dt>
-<dd><p>helps construct <code>picklename</code> by identifying number of latent subgroups</p></dd>
+<dd><p>number of latent subgroups; helps construct <code>picklename</code></p></dd>
 
 
 <dt id="arg-dataset-name">dataset_name<a class="anchor" aria-label="anchor" href="#arg-dataset-name"></a></dt>
@@ -90,6 +92,14 @@
 
 <dt id="arg-use-rds">use_rds<a class="anchor" aria-label="anchor" href="#arg-use-rds"></a></dt>
 <dd><p><a href="https://rdrr.io/r/base/logical.html" class="external-link">logical</a> whether to use previously cached results</p></dd>
+
+
+<dt id="arg-biomarker-groups">biomarker_groups<a class="anchor" aria-label="anchor" href="#arg-biomarker-groups"></a></dt>
+<dd><p><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a> with group colors, etc</p></dd>
+
+
+<dt id="arg-biomarker-levels">biomarker_levels<a class="anchor" aria-label="anchor" href="#arg-biomarker-levels"></a></dt>
+<dd><p><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a> containing biomarker ordinal level info</p></dd>
 
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
@@ -162,12 +172,6 @@
     <dt><code>results</code></dt>
 <dd><p>todo</p></dd>
 
-    <dt><code>biomarker_levels</code></dt>
-<dd><p>doesn't do much right now</p></dd>
-
-    <dt><code>biomarker_groups</code></dt>
-<dd><p>biomarker groupings</p></dd>
-
     <dt><code>biomarker_events_table</code></dt>
 <dd><p>todo</p></dd>
 
@@ -179,6 +183,9 @@
 
     <dt><code>synchronize_y_axes</code></dt>
 <dd><p>todo</p></dd>
+
+    <dt><code>use_labels</code></dt>
+<dd><p>whether to use biomarker labels or variable names</p></dd>
 
 
 </dl></dd>
@@ -202,22 +209,48 @@
 <span class="r-in"><span></span></span>
 <span class="r-in"><span>  <span class="va">figs</span></span></span>
 <span class="r-in"><span><span class="op">}</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $`Group 1`</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $`Subtype 1`</span>
 <span class="r-plt img"><img src="extract_figs_from_pickle-1.png" alt="" width="700" height="433"></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $`Group 2`</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $`Subtype 2`</span>
 <span class="r-plt img"><img src="extract_figs_from_pickle-2.png" alt="" width="700" height="433"></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $`Group 3`</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $`Subtype 3`</span>
 <span class="r-plt img"><img src="extract_figs_from_pickle-3.png" alt="" width="700" height="433"></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"class")</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "PVD.list" "list"    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"biomarker_labels")</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Biomarker 1   Biomarker 2   Biomarker 3   Biomarker 4   Biomarker 5 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> "Biomarker 1" "Biomarker 2" "Biomarker 3" "Biomarker 4" "Biomarker 5" </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"biomarker_event_names")</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "Biomarker 1: 1" "Biomarker 2: 1" "Biomarker 3: 1" "Biomarker 4: 1"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [5] "Biomarker 5: 1" "Biomarker 1: 2" "Biomarker 2: 2" "Biomarker 3: 2"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [9] "Biomarker 4: 2" "Biomarker 5: 2" "Biomarker 1: 3" "Biomarker 2: 3"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [13] "Biomarker 3: 3" "Biomarker 4: 3" "Biomarker 5: 3"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;labelled&lt;character&gt;[15]&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] Biomarker 1: 1 Biomarker 2: 1 Biomarker 3: 1 Biomarker 4: 1 Biomarker 5: 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [6] Biomarker 1: 2 Biomarker 2: 2 Biomarker 3: 2 Biomarker 4: 2 Biomarker 5: 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [11] Biomarker 1: 3 Biomarker 2: 3 Biomarker 3: 3 Biomarker 4: 3 Biomarker 5: 3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Labels:</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           value          label</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Biomarker 1: 0 Biomarker 1: 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Biomarker 1: 1 Biomarker 1: 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Biomarker 1: 2 Biomarker 1: 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Biomarker 1: 3 Biomarker 1: 3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Biomarker 2: 0 Biomarker 2: 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Biomarker 2: 1 Biomarker 2: 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Biomarker 2: 2 Biomarker 2: 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Biomarker 2: 3 Biomarker 2: 3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Biomarker 3: 0 Biomarker 3: 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Biomarker 3: 1 Biomarker 3: 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Biomarker 3: 2 Biomarker 3: 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Biomarker 3: 3 Biomarker 3: 3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Biomarker 4: 0 Biomarker 4: 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Biomarker 4: 1 Biomarker 4: 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Biomarker 4: 2 Biomarker 4: 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Biomarker 4: 3 Biomarker 4: 3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Biomarker 5: 0 Biomarker 5: 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Biomarker 5: 1 Biomarker 5: 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Biomarker 5: 2 Biomarker 5: 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Biomarker 5: 3 Biomarker 5: 3</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
@@ -225,11 +258,11 @@
 
 
     <footer><div class="pkgdown-footer-left">
-  <p>Developed by Douglas Ezra Morrison.</p>
+  <p>Developed by Douglas Ezra Morrison, Matthew Ponzini.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.2.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.9000.</p>
 </div>
 
     </footer></div>

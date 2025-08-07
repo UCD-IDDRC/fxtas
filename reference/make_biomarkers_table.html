@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">fxtas</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Unreleased version">0.0.0.9026</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Unreleased version">0.0.0.9028</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -57,7 +57,8 @@
 <span>  <span class="va">data</span>,</span>
 <span>  biomarker_varnames <span class="op">=</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">pull</a></span><span class="op">(</span><span class="fu"><a href="compile_biomarker_groups_table.html">compile_biomarker_groups_table</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"biomarker"</span><span class="op">)</span>,</span>
 <span>  <span class="va">biomarker_events_table</span>,</span>
-<span>  stratifying_var_names <span class="op">=</span> <span class="st">"Gender"</span></span>
+<span>  stratifying_var_names <span class="op">=</span> <span class="st">"Gender"</span>,</span>
+<span>  use_labels <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -77,12 +78,17 @@ the column names in <code>data</code></p></dd>
 
 <dt id="arg-biomarker-events-table">biomarker_events_table<a class="anchor" aria-label="anchor" href="#arg-biomarker-events-table"></a></dt>
 <dd><p><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a> from
-<code><a href="construct_biomarker_events_table.html">construct_biomarker_events_table()</a></code></p></dd>
+<code><a href="make_biomarker_events_table.html">make_biomarker_events_table()</a></code></p></dd>
 
 
 <dt id="arg-stratifying-var-names">stratifying_var_names<a class="anchor" aria-label="anchor" href="#arg-stratifying-var-names"></a></dt>
 <dd><p>a <a href="https://rdrr.io/r/base/character.html" class="external-link">character</a> vector specifying
 variables to stratify by</p></dd>
+
+
+<dt id="arg-use-labels">use_labels<a class="anchor" aria-label="anchor" href="#arg-use-labels"></a></dt>
+<dd><p>whether to use the biomarker labels or
+the unlabelled biomarker variable names</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -111,7 +117,7 @@ variables to stratify by</p></dd>
 <span class="r-in"><span>  <span class="fu"><a href="get_levels.html">get_levels</a></span><span class="op">(</span><span class="va">biomarker_varnames</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">biomarker_events_table</span> <span class="op">&lt;-</span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="construct_biomarker_events_table.html">construct_biomarker_events_table</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="make_biomarker_events_table.html">make_biomarker_events_table</a></span><span class="op">(</span></span></span>
 <span class="r-in"><span>    <span class="va">biomarker_levels</span>,</span></span>
 <span class="r-in"><span>    biomarker_groups <span class="op">=</span> <span class="va">biomarker_groups</span></span></span>
 <span class="r-in"><span>  <span class="op">)</span></span></span>
@@ -129,7 +135,6 @@ variables to stratify by</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> group 2  Biomarker 3 0, 1       15.4%      25%            0.645</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> group 2  Biomarker 4 0, 1, 2, 3 76.9%      75%            1    </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> group 3  Biomarker 5 0, 1, 2, 3 76.9%      75%            1    </span>
-<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
@@ -137,11 +142,11 @@ variables to stratify by</p></dd>
 
 
     <footer><div class="pkgdown-footer-left">
-  <p>Developed by Douglas Ezra Morrison.</p>
+  <p>Developed by Douglas Ezra Morrison, Matthew Ponzini.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.2.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.9000.</p>
 </div>
 
     </footer></div>

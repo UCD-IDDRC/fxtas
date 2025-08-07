@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">fxtas</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Unreleased version">0.0.0.9026</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Unreleased version">0.0.0.9028</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -63,7 +63,8 @@
 </ul></div>
 <div class="section level3">
 <h3 id="analysis-development-version">Analysis<a class="anchor" aria-label="anchor" href="#analysis-development-version"></a></h3>
-<ul><li>added info about displayed statistics to rows for <code><a href="../reference/compute_prob_correct.html">compute_prob_correct()</a></code> (<a href="https://github.com/ucd-iddrc/fxtas/issues/56" class="external-link">#56</a>)</li>
+<ul><li>removed individual parkinsonian features from OS model (<a href="https://github.com/ucd-iddrc/fxtas/issues/106" class="external-link">#106</a>)</li>
+<li>added info about displayed statistics to rows for <code><a href="../reference/compute_prob_correct.html">compute_prob_correct()</a></code> (<a href="https://github.com/ucd-iddrc/fxtas/issues/56" class="external-link">#56</a>)</li>
 </ul></div>
 <div class="section level3">
 <h3 id="graphics-development-version">Graphics<a class="anchor" aria-label="anchor" href="#graphics-development-version"></a></h3>
@@ -95,7 +96,7 @@
 <li>removed “Parkinsonian features:” prefix from:
 <ul><li>“Masked faces”,</li>
 <li>“Increased tone”,</li>
-<li>“Pill-rolling tremor”,</li>
+<li>“pill-rolling tremor exam”,</li>
 <li>“Stiff gait”</li>
 </ul></li>
 <li>Renamed “CGG (backfilled)” to CGG</li>
@@ -104,7 +105,8 @@
 </ul></div>
 <div class="section level3">
 <h3 id="package-setup-development-version">Package setup<a class="anchor" aria-label="anchor" href="#package-setup-development-version"></a></h3>
-<ul><li>updated test-coverage.yaml workflow</li>
+<ul><li>moved <code>analyses/</code> into <code>inst</code> (<a href="https://github.com/ucd-iddrc/fxtas/issues/120" class="external-link">#120</a>)</li>
+<li>updated test-coverage.yaml workflow</li>
 <li>updated readme to specify new location of manuscript source code in <code>analyses/</code>
 </li>
 <li>updated <code>WORDLIST</code>
@@ -129,11 +131,11 @@
 
 
     <footer><div class="pkgdown-footer-left">
-  <p>Developed by Douglas Ezra Morrison.</p>
+  <p>Developed by Douglas Ezra Morrison, Matthew Ponzini.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.2.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.9000.</p>
 </div>
 
     </footer></div>

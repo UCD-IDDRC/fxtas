@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">fxtas</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Unreleased version">0.0.0.9026</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Unreleased version">0.0.0.9028</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -61,7 +61,9 @@
 <span>  basename <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="va">dataset_name</span>, <span class="st">"_subtype"</span>, <span class="va">n_s</span> <span class="op">-</span> <span class="fl">1</span><span class="op">)</span>,</span>
 <span>  picklename <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="va">basename</span>, <span class="st">".pickle"</span><span class="op">)</span>,</span>
 <span>  format_results <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  subtype_order <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq_len</a></span><span class="op">(</span><span class="va">n_s</span><span class="op">)</span>,</span>
 <span>  use_rds <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  save_rds <span class="op">=</span> <span class="va">format_results</span> <span class="op">&amp;</span> <span class="fu"><a href="https://rdrr.io/r/base/identical.html" class="external-link">identical</a></span><span class="op">(</span><span class="va">subtype_order</span>, <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq_len</a></span><span class="op">(</span><span class="va">n_s</span><span class="op">)</span><span class="op">)</span>,</span>
 <span>  verbose <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  <span class="va">...</span></span>
 <span><span class="op">)</span></span></code></pre></div>
@@ -72,7 +74,7 @@
 
 
 <dl><dt id="arg-n-s">n_s<a class="anchor" aria-label="anchor" href="#arg-n-s"></a></dt>
-<dd><p>helps construct <code>picklename</code> by identifying number of latent subgroups</p></dd>
+<dd><p>number of latent subgroups; helps construct <code>picklename</code></p></dd>
 
 
 <dt id="arg-dataset-name">dataset_name<a class="anchor" aria-label="anchor" href="#arg-dataset-name"></a></dt>
@@ -99,8 +101,17 @@
 <dd><p>whether to apply <code><a href="format_results_list.html">format_results_list()</a></code> to results before returning</p></dd>
 
 
+<dt id="arg-subtype-order">subtype_order<a class="anchor" aria-label="anchor" href="#arg-subtype-order"></a></dt>
+<dd><p>an <a href="https://rdrr.io/r/base/integer.html" class="external-link">integer</a> vector of length <code>n_s</code>,
+indicating how to order the subtypes</p></dd>
+
+
 <dt id="arg-use-rds">use_rds<a class="anchor" aria-label="anchor" href="#arg-use-rds"></a></dt>
 <dd><p><a href="https://rdrr.io/r/base/logical.html" class="external-link">logical</a> whether to use previously cached results</p></dd>
+
+
+<dt id="arg-save-rds">save_rds<a class="anchor" aria-label="anchor" href="#arg-save-rds"></a></dt>
+<dd><p>a <a href="https://rdrr.io/r/base/logical.html" class="external-link">logical</a> indicating whether to save new cached results</p></dd>
 
 
 <dt id="arg-verbose">verbose<a class="anchor" aria-label="anchor" href="#arg-verbose"></a></dt>
@@ -123,9 +134,14 @@
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">output_path</span> <span class="op">=</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
+<span class="r-in"><span><span class="va">output_path</span> <span class="op">&lt;-</span></span></span>
 <span class="r-in"><span>  <span class="fu">fs</span><span class="fu">::</span><span class="fu"><a href="https://fs.r-lib.org/reference/path_package.html" class="external-link">path_package</a></span><span class="op">(</span><span class="st">"extdata/sim_data"</span>, package <span class="op">=</span> <span class="st">"fxtas"</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">results</span> <span class="op">=</span> <span class="fu">extract_results_from_pickle</span><span class="op">(</span>output_folder <span class="op">=</span> <span class="va">output_path</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">results</span> <span class="op">&lt;-</span> <span class="fu">extract_results_from_pickle</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  n <span class="op">=</span> <span class="fl">3</span>,</span></span>
+<span class="r-in"><span>  output_folder <span class="op">=</span> <span class="va">output_path</span>, use_rds <span class="op">=</span> <span class="cn">FALSE</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
@@ -133,11 +149,11 @@
 
 
     <footer><div class="pkgdown-footer-left">
-  <p>Developed by Douglas Ezra Morrison.</p>
+  <p>Developed by Douglas Ezra Morrison, Matthew Ponzini.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.2.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.9000.</p>
 </div>
 
     </footer></div>
