@@ -5,7 +5,7 @@
 #| include: false
 #| eval: !expr fit_models
 
-sustain_output_males = run_and_save_OSA(
+sustain_output_males <- run_and_save_OSA(
   patient_data = patient_data |> dplyr::filter(Gender == "Male"),
   prob_correct = prob_correct,
   biomarker_levels = biomarker_levels,

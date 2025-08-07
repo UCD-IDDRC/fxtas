@@ -110,13 +110,13 @@ max_prob_correct <- .95
 do_collapse_scid_levels <- TRUE
 do_collapse_mri_levels <- TRUE
 
-fit_models <- TRUE
 run_cv <- TRUE
 
 verbose <- TRUE
 # rerun <- TRUE
 rerun <- FALSE
 use_rds <- !rerun
+fit_models <- rerun
 
 plot_python <- TRUE
 fig_size <- c(20, 10) # passed to pySuStaIn
@@ -385,6 +385,20 @@ if (fit_models) {
     rerun = rerun,
     patient_data = patient_data,
     N_CV_folds = N_CV_folds
+  ) 
+  
+  sustain_output |> readr::write_rds(
+    fs::path(
+      output_folder,
+      "sustain_output.rds"
+    )
+  )
+} else {
+  sustain_output <- readr::read_rds(
+    fs::path(
+      output_folder,
+      "sustain_output.rds"
+    )
   )
 }
 ```
