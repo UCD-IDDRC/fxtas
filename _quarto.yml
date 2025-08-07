@@ -96,7 +96,7 @@ project:
 format:
   docx:
     crossref:
-      ref-hyperlink: false
+      ref-hyperlink: true
     keep-md: true
     notes-after-punctuation: true
     reference-doc: Brain_template_2022.docx
@@ -134,11 +134,11 @@ format:
     theme:
        light:
          - cosmo
-         - analyses/custom.scss
+         - inst/analyses/custom.scss
        dark:
          - darkly
-         - analyses/custom.scss
-    css: analyses/custom.scss
+         - inst/analyses/custom.scss
+    css: inst/analyses/custom.scss
     number-sections: true
     number-depth: 3
     html-math-method: mathjax
@@ -149,7 +149,7 @@ format:
     echo: false
     date: last-modified
     date-format: "[Last modified:] YYYY-MM-DD: H:mm:ss (A)"
-bibliography: analyses/references.bib
+bibliography: inst/analyses/references.bib
 reference-section-title: References
 citeproc: false
 knitr:
@@ -169,7 +169,7 @@ filters:
   - highlight-text
   - authors-block
   - at: post-quarto
-    path: analyses/appendix_numbering.lua
+    path: inst/analyses/appendix_numbering.lua
 
 crossref:
   subref-labels: alpha A

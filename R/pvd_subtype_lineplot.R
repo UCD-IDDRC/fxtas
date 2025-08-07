@@ -1,5 +1,6 @@
 #' @title Display Sequential Order of Events by Subtype
 #' @param figs A [list] of todo
+#' @param facet_label_prefixes [character]: prefixes for facet labels
 #' @param facet_labels todo
 #' @param facet_names [character]: facet names
 #' @param events_to_highlight todo
@@ -14,7 +15,7 @@
 #' @param mult [numeric] vector
 #' @param subtype_x Vector of x-axis value for the subtypes.
 #' @param align_stage [logical] whether to align by FXTAS stage
-#' @param use_group_color [logical]: whether to use existing group colors
+#' @param use_group_colors [logical]: whether to use existing group colors
 #' or custom line colors from `events_to_highlight` argument
 #' @param ... additional arguments passed to [ggbump::geom_bump]
 #' Default = c(1, 1.15, 1.75, 2.35)
@@ -29,6 +30,11 @@ pvd_subtype_lineplot <- function(
     stage_alpha = 1,
     facet_names = names(figs),
     facet_label_prefixes = NULL,
+    facet_labels = compact_pvd_facet_labels(
+      figs = figs,
+      facet_label_prefix = facet_label_prefixes
+    ) |>
+      unlist(),
     text_size = 3.4,
     y_lab = "Sequential order",
     y_title_size = 9,
@@ -43,13 +49,7 @@ pvd_subtype_lineplot <- function(
   dataset <- extract_lineplot_data(figs, facet_names)
 
   # truncate subtype_x to length(figs) - add check to force lengths to match?
-  subtype_x = subtype_x[1:length(figs)]
-
-  facet_labels <- compact_pvd_facet_labels(
-    figs = figs,
-    facet_label_prefix = facet_label_prefixes
-  ) |>
-    unlist()
+  subtype_x <- subtype_x[seq_along(figs)]
 
   # additional processing
   plot_dataset <- dataset |>
@@ -62,7 +62,8 @@ pvd_subtype_lineplot <- function(
     pvd_bumpplot_preprocessing_2(
       min_alpha,
       max_alpha,
-      stage_alpha)
+      stage_alpha
+    )
 
 
   if (align_stage) {
@@ -84,13 +85,13 @@ pvd_subtype_lineplot <- function(
         ),
       aes(
         color = if (use_group_colors) .data$group_color else .data$line_color,
-        group = .data$`event name`),
+        group = .data$`event name`
+      ),
       ...
     ) +
     ggtext::geom_richtext(
       aes(
         label = .data$padded_label,
-        # hjust = .data$hjust,
         fill = .data$background
       ),
       label.color = NA,

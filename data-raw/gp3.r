@@ -20,7 +20,7 @@ conflicts_prefer(vroom::col_double)
 conflicts_prefer(vroom::col_logical)
 conflicts_prefer(vroom::col_skip)
 dataset=vroom::vroom(
-  'inst/extdata/GPGenotypePhenotypeR-FXTASEventSequence10_DATA_2025-03-14_2119.csv',
+  'inst/extdata/fxtas/GPGenotypePhenotypeR-FXTASEventSequence10_DATA_2025-03-14_2119.csv',
   col_types = gp3_cols
 )
 

@@ -57,10 +57,12 @@ a \code{"SuStaIn_model"} object (extends \code{\link[=list]{list()}})
 Extract results from pickle file
 }
 \examples{
+\dontrun{
 output_path <-
   fs::path_package("extdata/sim_data", package = "fxtas")
 results <- extract_results_from_pickle(
   n = 3,
   output_folder = output_path, use_rds = FALSE
 )
+}
 }

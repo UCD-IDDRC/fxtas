@@ -1,4 +1,5 @@
 test_that("results are consistent with fxtas data", {
+  withr::local_package("dplyr")
   output_folder <-
     "output/output.fixed_CV-scid-no-subthres/"
   figs <-
@@ -47,13 +48,12 @@ test_that("results are consistent with fxtas data", {
 
 
 test_that("results are consistent with simulated data", {
-  output_path =
-    fs::path_package("extdata/sim_data", package = "fxtas")
+  withr::local_package("dplyr")
 
-  figs = extract_figs_from_pickle(
-    output_folder = output_path,
-    use_rds = FALSE,
-    n = 4)
+  figs <-
+    readr::read_rds(
+      testthat::test_path("fixtures", "sim-figs-4.rds")
+    )
 
   events_to_highlight <- tibble::tribble(
     ~event_name, ~line_color, ~highlight_color,

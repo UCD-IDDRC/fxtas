@@ -58,7 +58,7 @@ decreased_age =
   gp34 |>
   get_decreased_age()
 
-readr::write_csv(decreased_age, "inst/extdata/decreased_age.csv")
+readr::write_csv(decreased_age, "inst/extdata/fxtas/decreased_age.csv")
 
 # out of order:
 
@@ -68,7 +68,7 @@ gp34 |> get_out_of_order()
 
 decreased_age2 = gp34 |> get_decreased_age2()
 
-readr::write_csv(decreased_age2, "inst/extdata/decreased_age2.csv")
+readr::write_csv(decreased_age2, "inst/extdata/fxtas/decreased_age2.csv")
 
 
 if (data_exists("gp34")) {

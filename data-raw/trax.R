@@ -24,7 +24,7 @@ conflicted::conflict_prefer("not", "magrittr")
 conflicted::conflicts_prefer(dplyr::filter)
 
 dataset <- vroom::vroom(
-  "inst/extdata/CTSC1647Trajectories-Ezra_DATA_2025-03-24_1045.csv",
+  "inst/extdata/fxtas/CTSC1647Trajectories-Ezra_DATA_2025-03-24_1045.csv",
   col_types = trax_col_types
 )
 

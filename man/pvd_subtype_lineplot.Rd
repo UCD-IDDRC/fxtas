@@ -12,6 +12,8 @@ pvd_subtype_lineplot(
   stage_alpha = 1,
   facet_names = names(figs),
   facet_label_prefixes = NULL,
+  facet_labels = unlist(compact_pvd_facet_labels(figs = figs, facet_label_prefix =
+    facet_label_prefixes)),
   text_size = 3.4,
   y_lab = "Sequential order",
   y_title_size = 9,
@@ -37,6 +39,10 @@ pvd_subtype_lineplot(
 
 \item{facet_names}{\link{character}: facet names}
 
+\item{facet_label_prefixes}{\link{character}: prefixes for facet labels}
+
+\item{facet_labels}{todo}
+
 \item{text_size}{todo}
 
 \item{y_lab}{todo}
@@ -53,13 +59,11 @@ pvd_subtype_lineplot(
 
 \item{align_stage}{\link{logical} whether to align by FXTAS stage}
 
+\item{use_group_colors}{\link{logical}: whether to use existing group colors
+or custom line colors from \code{events_to_highlight} argument}
+
 \item{...}{additional arguments passed to \link[ggbump:geom_bump]{ggbump::geom_bump}
 Default = c(1, 1.15, 1.75, 2.35)}
-
-\item{facet_labels}{todo}
-
-\item{use_group_color}{\link{logical}: whether to use existing group colors
-or custom line colors from \code{events_to_highlight} argument}
 }
 \description{
 Display Sequential Order of Events by Subtype

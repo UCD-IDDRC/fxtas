@@ -14,6 +14,7 @@ collapse_scid_levels(dataset, ...)
   \describe{
     \item{\code{x}}{a scid variable (\link{factor})}
     \item{\code{levels}}{\link{character} string vector of levels to collapse}
+    \item{\code{new_level}}{\link{character} string for new collapsed level name}
   }}
 }
 \value{

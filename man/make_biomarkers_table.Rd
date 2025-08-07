@@ -25,7 +25,7 @@ the column names in \code{data}}
 \item{stratifying_var_names}{a \link{character} vector specifying
 variables to stratify by}
 
-\item{whether}{to use the biomarker labels or
+\item{use_labels}{whether to use the biomarker labels or
 the unlabelled biomarker variable names}
 }
 \value{

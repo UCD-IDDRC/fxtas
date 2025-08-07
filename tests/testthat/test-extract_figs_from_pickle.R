@@ -1,5 +1,6 @@
 test_that("`extract_figs_from_pickle()` produces stable results", {
 
+  skip_on_ci()
   reticulate::use_condaenv("fxtas39", required = TRUE,
                            conda = "auto")
   reticulate::py_require(
