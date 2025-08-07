@@ -18,8 +18,6 @@ and
 :::{#suppfig-cvic-2 custom-style="Caption"}
 
 ```{r}
-#| eval: !expr fit_models
-
 sustain_output_CV$loglike_matrix |> plot_cv_loglik(y_text_size = y_text_size)
 ```
 
