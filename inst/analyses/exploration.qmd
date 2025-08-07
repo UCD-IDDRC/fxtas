@@ -122,6 +122,7 @@ vars <- c(
   "resting tremor",
   "postural tremor",
   "intermittent tremor"
+  # "head tremor"
 )
 
 # gtsummary version:
@@ -166,37 +167,7 @@ table1(
 
 :::
 
-::: {#supptbl-head-tremors custom-style="Caption"}
-
-```{r}
-vars <- c(
-  "head tremor"
-  # "head tremor: age of onset"
-)
-
-footnote_ht <- paste(
-  "Head tremor was not collected in GP3 or Trax Phase 1.",
-  "Summaries provided are for GP4 + Trax Phase 2 only."
-)
-v1_usable_capital_labels |>
-  # dplyr::filter(!(Study %in% c("Trax Phase 1", "GP3"))) |> 
-  table1(
-    # footnote = footnote_ht,
-    na.is.category = FALSE,
-    overall = FALSE,
-    NA.label = na_label_1,
-    stratified_formula(vars, column_var),
-    # render.continuous = c(.="N", .="Mean (SD)", .="Median [Min,  Max]"),
-    data = _
-  ) |> 
-  table1::t1flex() |>
-  shared_flextable_settings()  |> 
-  flextable::width(width = width1)
-```
-
-**Head tremors by CGG level and sex**
-
-:::
+{{< include _tbl-head-tremors.qmd >}}
 
 {{< pagebreak >}}
 

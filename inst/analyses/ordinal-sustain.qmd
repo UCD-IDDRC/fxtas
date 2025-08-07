@@ -277,6 +277,27 @@ patient_data <- v1_usable_cases
 ```
 
 ```{r}
+v1_usable_capital_labels <- 
+  v1_usable 
+capitalize_label <- function(x) {
+  if (is.null(x)) {
+    NULL
+  } else {
+    stringr::str_replace(x, "([[:alpha:]])", toupper)
+  }
+}
+
+capitalize_labels <- TRUE
+if (capitalize_labels) {
+  
+  capitalized_labels <- labelled::var_label(v1_usable_capital_labels) |> 
+    lapply(FUN = capitalize_label)
+  labelled::var_label(v1_usable_capital_labels) <- 
+    capitalized_labels
+}
+```
+
+```{r}
 #| label: "biomarker-events"
 biomarker_groups <- compile_biomarker_groups_table(
   dataset = v1_usable
@@ -664,7 +685,8 @@ Supplementary material is available at Brain Communications online.
 
 ```{r}
 #| label: demographics-tbl
-v1_usable |> make_demographics_table(
+v1_usable_capital_labels |> 
+  make_demographics_table(
   vars = c(
     "Age at visit",
     "Primary Race/Ethnicity",
@@ -712,14 +734,16 @@ at baseline visit, stratified by sex.
 
 ```{r}
 set.seed(2)
-tbl_sg_demos <- table_subtype_by_demographics(
+tbl_sg_demos <- v1_usable_capital_labels |> 
+  filter(.data$CGG >= 55) |> 
+  table_subtype_by_demographics(
   demographic_vars = c(
     "CGG",
     "Age at visit" , 
     "Male",
     "Primary Race/Ethnicity"
   ),
-  patient_data = patient_data,
+  patient_data = _,
   subtype_and_stage_table = results_cv_max$subtype_and_stage_table,
   digits = list(
     CGG = 1,
