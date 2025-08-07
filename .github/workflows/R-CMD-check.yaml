@@ -42,7 +42,7 @@ jobs:
 
       - uses: r-lib/actions/setup-r-dependencies@HEAD
         with:
-          extra-packages: any::rcmdcheck
+          extra-packages: any::rcmdcheck, local::.
           needs: check
 
       - name: setup r-reticulate venv
