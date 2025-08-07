@@ -15,8 +15,7 @@ among those with higher CGG repeats ≥ 100
 (p = `r pval_over100_sex_gp34_v1`;
 Supplementary Fig.
 [-@suppfig-pvd-by-gender-cgg_over100-1] and
-[-@suppfig-pvd-by-gender-cgg_over100-2]
-).
+[-@suppfig-pvd-by-gender-cgg_over100-2]).
 Several psychiatric disorders (as assessed by SCID)
 occurred prior to FXTAS Stage 1
 among females with < 100 CGG repeats,
