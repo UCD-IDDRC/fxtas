@@ -625,7 +625,7 @@ n_type_0 <- sust_data |>
 type_0_summary <- glue::glue(
   "{n_type_0} patients had experienced too few events ",
   "to be accurately classified into a subtype ",
-  "and were excluded from this table."
+  "and were excluded from this table"
 )
 # no longer significant:
 test_sex <- 
@@ -773,7 +773,9 @@ subtype_pval_summaries <- glue::glue(
   "one-way ANOVA F test statistic: ",
   "{round(pval_cgg$statistic, 2)}" ,
   " (DFs: {dfs[1]} and {dfs[2]});\n",
-  "p-value = {pval_formatted} (N = {N_subtyped}).")
+  "p-value = {pval_formatted} ",
+  "(N = {N_subtyped}; {type_0_summary})."
+)
 ```
 
 
@@ -784,7 +786,7 @@ tbl_sg_demos |>
   gtsummary::modify_footnote_header(
     columns = stat_0,
     footnote = 
-      glue::glue("n (column %); {type_0_summary}")
+      glue::glue("n (column %); {type_0_summary}.")
   ) |> 
   gtsummary::as_flex_table(ref_symbols = letters) |>
   shared_flextable_settings() |>
