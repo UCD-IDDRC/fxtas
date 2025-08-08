@@ -27,8 +27,9 @@ pvd_bumpplot_preprocessing <- function(
           collapse_WM()
       )
     ) |>
-    dplyr::select(
-      all_of(
+    dplyr::slice_head(
+      n = 1,
+      by = all_of(
         c(
           "event name",
           "facet",
@@ -42,7 +43,6 @@ pvd_bumpplot_preprocessing <- function(
         )
       )
     ) |>
-    unique() |>
     arrange(.data$`event name`, .data$facet) |>
     dplyr::mutate(
       linesize = ifelse(
