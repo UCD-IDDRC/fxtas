@@ -618,6 +618,15 @@ we chose to classify participants into `r n_s_selected` subtypes.
 sust_data <- results_cv_max$subtype_and_stage_table |> 
   bind_cols(patient_data)
 
+n_type_0 <- sust_data |>
+  dplyr::filter(ml_subtype == "Subtype 0") |>
+  nrow()
+
+type_0_summary <- glue::glue(
+  "{n_type_0} patients had experienced too few events ",
+  "to be accurately classified into a subtype ",
+  "and were excluded from this table."
+)
 # no longer significant:
 test_sex <- 
   sust_data |> 
@@ -772,6 +781,11 @@ subtype_pval_summaries <- glue::glue(
 #| results: asis
 #| label: code-tbl_sg_demos
 tbl_sg_demos |>
+  gtsummary::modify_footnote_header(
+    columns = stat_0,
+    footnote = 
+      glue::glue("n (column %); {type_0_summary}")
+  ) |> 
   gtsummary::as_flex_table(ref_symbols = letters) |>
   shared_flextable_settings() |>
   flextable::width(width = 1.7) |>
@@ -781,9 +795,6 @@ tbl_sg_demos |>
 
 **Demographics of `r n_s_selected` latent subtype clusters**
 **identified by Ordinal SuStaIn.**
-`r n_type_0` patients had experienced too few events
-to be accurately classified into a subtype
-and were excluded from this table.
 
 :::
 

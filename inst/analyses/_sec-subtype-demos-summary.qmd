@@ -1,11 +1,6 @@
 ```{r}
 #| label: cgg-subtypes
 
-
-n_type_0 <- sust_data |>
-  dplyr::filter(ml_subtype == "Subtype 0") |>
-  nrow()
-
 cgg_by_subtype <- sust_data |> 
   dplyr::summarize(
     .by = ml_subtype, 
