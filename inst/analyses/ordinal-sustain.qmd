@@ -728,6 +728,7 @@ at baseline visit, stratified by sex.
 ::: {#tbl-sg_demos custom-style="Caption"}
 
 ```{r}
+#| label: code-tbl-sg_demos
 set.seed(2)
 tbl_sg_demos <- v1_usable_capital_labels |> 
   filter(.data$CGG >= 55) |> 
@@ -769,7 +770,7 @@ subtype_pval_summaries <- glue::glue(
 
 ```{r}
 #| results: asis
-
+#| label: code-tbl_sg_demos
 tbl_sg_demos |>
   gtsummary::as_flex_table(ref_symbols = letters) |>
   shared_flextable_settings() |>
@@ -798,12 +799,11 @@ and were excluded from this table.
 #| fig-height: !expr pvd_height
 #| fig-width: !expr pvd_width
 #| fig-cap-location: top
-
+#| label: figure-1
 pvdc_sex <- list(
   "Males:" = fig_males_first,
   "Females:" = fig_females_first
 ) |>
-  # plot_compact_pvd_est2()
   plot_compact_pvd(
     scale_colors = scale_colors1, 
     y_text_size = y_text_size
@@ -811,14 +811,7 @@ pvdc_sex <- list(
 
 print(pvdc_sex)
 
-list(
-  "Males:" = fig_males_first,
-  "Females:" = fig_females_first
-) |>
-  # plot_compact_pvd_est2()
-  plot_compact_pvd(
-    scale_colors = scale_colors1, 
-    y_text_size = 10) |> 
+pvdc_sex |> 
   ggplot2::ggsave(
     height = 120, 
     width = 120,
@@ -841,7 +834,7 @@ list(
 ```{r}
 #| fig-height: !expr pvd_line_height
 #| fig-width: !expr pvd_line_width
-
+#| label: figure-2
 lineplot_by_sex <- list(
   "Males," = fig_males_first,
   "Females," = fig_females_first

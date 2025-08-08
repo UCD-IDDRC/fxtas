@@ -1,9 +1,9 @@
 ::: {#fig-pvd_chosen_subtypes_bumpplot custom-style="Caption"}
 
 ```{r}
-#| fig-height: 5.2
+#| fig-height: 6.69
 #| fig-width: 8.27
-#| label: bumpplot-pvd-chosen-subtypes
+#| label: figure3-bumpplot-pvd-chosen-subtypes
 # max size: 170 mm x 210 mm = 6.69 x 8.27 inches 
 stage_line_color <- "black"
 # stage_line_color <- "#FFF"
@@ -53,25 +53,38 @@ color_info <- tibble::tribble(
 bump <- figs_n_s_selected |> 
   pvd_subtype_lineplot(
     smooth = 30,
-    y_lab = "",
-    text_size = 2.1,
-    x_text_size = 8,
+    y_lab = NULL,
+    mult = .2,
+    text_size = 7 / .pt,
+    x_text_size = 10,
     align_stage = TRUE,
     events_to_highlight = color_info,
     use_group_colors = TRUE
   )
 
-bump
-
-ggsave(
+# bump
+# bump + ggview::canvas(
+#   width = 8.27,
+#   # height = 5.2,
+#   height = 6.69,
+#   units = "in",
+#   dpi = 600
+# )
+ggplot2::ggsave(
   "inst/analyses/bump.png", 
   plot = bump, 
-  device = "png", 
-  width = 8.27, height = 5.2, units = "in", 
+  width = 8.27, height = 6.69, units = "in", 
   dpi = 600
 )
 
-# bump + ggview::canvas(width = 8.27, height= 5.2, units = "in", dpi = 600)
+ggplot2::ggsave(
+  "inst/analyses/bump.pdf", 
+  plot = bump, 
+  width = 8.27, height = 6.69, units = "in", 
+  dpi = 600
+)
+
+
 ```
 
 **Differences in event sequences between latent subtypes,**
