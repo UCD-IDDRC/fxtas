@@ -359,7 +359,8 @@ biomarkers_table <-
 Correspondence to: Douglas Ezra Morrison  
 Medical Sciences 1C #113  
 One Shields Ave  
-Davis, CA 95616  
+Davis, CA 95616
+United States of America
 <demorrison@ucdavis.edu>  
 
 **Running title:** Progression of FXTAS symptoms
