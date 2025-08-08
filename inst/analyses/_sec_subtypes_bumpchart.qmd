@@ -52,10 +52,12 @@ color_info <- tibble::tribble(
 
 bump <- figs_n_s_selected |> 
   pvd_subtype_lineplot(
-    smooth = 30,
+    smooth = 15,
     y_lab = NULL,
     mult = .2,
-    text_size = 7 / .pt,
+    text_size = 7 / ggplot2::.pt,
+    # text_size = 2.1,
+    # text_size = 5,
     x_text_size = 10,
     align_stage = TRUE,
     events_to_highlight = color_info,
