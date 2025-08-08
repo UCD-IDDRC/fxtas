@@ -1,6 +1,6 @@
 Package: fxtas
 Title: FXTAS
-Version: 0.0.0.9030
+Version: 0.0.0.9031
 Authors@R: c(
     person("Douglas Ezra", "Morrison", , "demorrison@ucdavis.edu", role = c("cre", "aut")),
     person("Matthew", "Ponzini", , "mdponzini@ucdavis.edu", role = c("aut")))
@@ -103,7 +103,7 @@ Roxygen: list(markdown = TRUE, roclets = c("collate", "rd", "namespace", "devtag
 Remotes: 
     bcgov/ssdtools,
     moodymudskipper/devtag,
-    d-morrison/gtsummary@main,
+    d-morrison/gtsummary@ezra-dev,
     insightsengineering/cardx
 Config/Needs/build: moodymudskipper/devtag
 Config/Needs/roxygen2: moodymudskipper/devtag
