@@ -27,8 +27,9 @@ pvd_bumpplot_preprocessing <- function(
           collapse_WM() |>
           collapse_hyperintensity() |>
           collapse_parentheticals() |>
-          collapse_impairment() |>  # nolint
-          # collapse_moderate() |>
+          remove_impairment() |>  # nolint
+          remove_RTI() |>
+          collapse_moderate() |>
           collapse_five()
       )
     ) |>

@@ -1,6 +1,7 @@
 :::{#suppfig-cvic-1 custom-style="Caption"}
 
 ```{r}
+#| label: plot-cvic
 sustain_output_CV$CVIC |> plot_CVIC()
 ```
 
@@ -18,6 +19,7 @@ and
 :::{#suppfig-cvic-2 custom-style="Caption"}
 
 ```{r}
+#| label: plot-ooffl
 sustain_output_CV$loglike_matrix |> plot_cv_loglik(y_text_size = y_text_size)
 ```
 

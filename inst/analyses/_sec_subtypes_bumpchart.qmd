@@ -64,23 +64,29 @@ bump <- figs_n_s_selected |>
     use_group_colors = TRUE
   )
 
-# bump
-# bump + ggview::canvas(
-#   width = 8.27,
-#   # height = 5.2,
-#   height = 6.69,
-#   units = "in",
-#   dpi = 600
-# )
+bump
+
+if (interactive()) {
+  bump + ggview::canvas(
+    width = 8.27,
+    # height = 5.2,
+    height = 6.69,
+    units = "in",
+    dpi = 600
+  )
+}
+
 ggplot2::ggsave(
   "inst/analyses/bump.png", 
   plot = bump, 
-  width = 8.27, height = 6.69, units = "in", 
+  width = 8.27, 
+  height = 6.69, 
+  units = "in", 
   dpi = 600
 )
 
 ggplot2::ggsave(
-  "inst/analyses/bump.pdf", 
+  "inst/analyses/Figure3.pdf", 
   plot = bump, 
   width = 8.27, height = 6.69, units = "in", 
   dpi = 600
