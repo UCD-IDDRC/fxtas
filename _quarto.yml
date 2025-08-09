@@ -5,7 +5,7 @@ authors:
     email: demorrison@ucdavis.edu
     address: "Medical Sciences 1C #113, One Shields Ave, Davis, CA 95616"
 
-  - name: Matthew Ponzini
+  - name: Matthew Dominic Ponzini
     email: mdponzini@ucdavis.edu
     affiliations:
       - ref: ucdphs
@@ -96,7 +96,7 @@ project:
 format:
   docx:
     crossref:
-      ref-hyperlink: true
+      ref-hyperlink: false
     keep-md: true
     notes-after-punctuation: true
     reference-doc: Brain_template_2022.docx

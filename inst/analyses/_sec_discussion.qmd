@@ -10,7 +10,8 @@ and in combination of sex and CGG repeat size.
 An important general conclusion of the study is that 
 there is substantial variation across premutation carriers 
 in the sequence of emergence of symptoms associated with FXTAS.
- 
+These findings are summarized in @tbl-critical-findings.
+
 The prevalences of
 lifetime anxiety disorders,
 mood disorders,
