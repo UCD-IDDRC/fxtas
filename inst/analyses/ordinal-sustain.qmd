@@ -734,6 +734,8 @@ at baseline visit, stratified by sex.
 
 {{< pagebreak >}}
 
+{{< include _sec_abbrev_table.qmd >}}
+
 ::: {#tbl-sg_demos custom-style="Caption"}
 
 ```{r}
@@ -801,8 +803,6 @@ tbl_sg_demos |>
 **identified by Ordinal SuStaIn.**
 
 :::
-
-{{< include _sec_abbrev_table.qmd >}}
 
 {{< include _tbl-critical-findings.qmd >}}
 

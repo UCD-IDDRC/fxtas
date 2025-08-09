@@ -28,7 +28,7 @@ activities of daily living (ADLs);
 Stage 3 is significant tremor that interferes with ADLs and significant ataxia;
 Stage 4 is significant ataxia needing a cane or walker;
 Stage 5 is requiring a wheelchair;
-and Stage 6 is bedridden
-(no participants at Stage 6 were included in the study) 
+and Stage 6 is bedridden.
+No participants at Stage 6 were included in the study 
 (@supptbl-fxtas-stage-by-cgg).
 
