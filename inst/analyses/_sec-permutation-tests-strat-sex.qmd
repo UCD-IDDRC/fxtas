@@ -73,6 +73,9 @@ plot_permutation_results(
 ```
 
 We did not find significant evidence of an overall difference between CGG <100
+and CGG ≥100 (p = `r pval_cgg_gp34_v1`)
+(Supplementary Figs. [-@suppfig-pvd-by-cgg] and [-@suppfig-diff-by-cgg]).
+We also did not find significant evidence of an overall difference between CGG <100
 and CGG ≥100 among males (p = `r pval_male_cgg_gp34_v1`)
 ([Supplementary Fig. @suppfig-pvd-by-cgg-male-1]).
 SCID anxiety disorders and SWM between errors occurred
