@@ -628,20 +628,6 @@ type_0_summary <- glue::glue(
   "to be accurately classified into a subtype ",
   "and were excluded from these results"
 )
-# no longer significant:
-test_sex <- 
-  sust_data |> 
-  filter(.data$ml_subtype != "Subtype 0") |> 
-  droplevels() |> 
-  select("ml_subtype", "Gender") |> 
-  table() |> 
-  prop.test()
-
-test_cgg <- 
-  sust_data |> 
-  dplyr::filter(.data$ml_subtype != "Subtype 0") |> 
-  stats::oneway.test(CGG ~ ml_subtype, data = _)
-
 
 ```
 
@@ -761,8 +747,7 @@ tbl_sg_demos <- v1_usable_capital_labels |>
   )
 )
 pval_cgg <- 
-  results_cv_max$subtype_and_stage_table |> 
-  bind_cols(patient_data) |> 
+  sust_data |> 
   dplyr::filter(ml_subtype != "Subtype 0") |> 
   oneway.test(
   CGG ~ ml_subtype, data = _)

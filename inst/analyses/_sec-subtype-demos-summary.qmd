@@ -17,6 +17,21 @@ cgg_overall <- sust_data |>
     mean = mean(.data$CGG, na.rm = TRUE) |> round(1),
     sd = sd(.data$CGG, na.rm = TRUE) |> round(1)
   )
+
+test_cgg <- 
+  sust_data |> 
+  dplyr::filter(.data$ml_subtype != "Subtype 0") |> 
+  stats::oneway.test(CGG ~ ml_subtype, data = _)
+
+# no longer significant:
+test_sex <- 
+  sust_data |> 
+  filter(.data$ml_subtype != "Subtype 0") |> 
+  droplevels() |> 
+  select("ml_subtype", "Gender") |> 
+  table() |> 
+  prop.test()
+
 ```
 
 
@@ -32,6 +47,9 @@ the demographics of the patients clustered in each subtype.
 patients had experienced too few events
 to be accurately classified into a subtype
 and were excluded from @tbl-sg_demos.
+@suppfig-stage-barplot_chosen_subtypes shows the 
+number of premutation carriers at each disease progression stage, 
+stratified by subtype.
 Subtype clustering analysis showed that
 CGG repeat size,
 a known risk factor of FXTAS,

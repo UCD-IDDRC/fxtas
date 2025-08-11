@@ -7,6 +7,7 @@
 table_subtype_by_demographics(
   patient_data,
   subtype_and_stage_table,
+  sust_data = bind_cols(patient_data, subtype_and_stage_table),
   footnotes_as_letters = FALSE,
   demographic_vars = c("CGG", "CGG 55-99", "Male", "Primary Race/Ethnicity"),
   ...
@@ -16,6 +17,9 @@ table_subtype_by_demographics(
 \item{patient_data}{a \link{data.frame}}
 
 \item{subtype_and_stage_table}{a \link{data.frame}}
+
+\item{sust_data}{a \link{data.frame} combining \code{patient_data}
+and \code{subtype_and_stage_table} by \code{\link[=cbind]{cbind()}}}
 
 \item{footnotes_as_letters}{\link{logical} whether to convert footnote}
 
