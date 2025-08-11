@@ -6,10 +6,6 @@ pvd_bumpplot_preprocessing_2 <- function(
   # alpha scaling #
   alpha_mult <- calc_alpha_mult(plot_dataset, max_alpha, min_alpha)
 
-  # tmp_labels <- gsub("<i.+'>", "", plot_dataset$`event label`) |>
-  #   gsub(pattern = "</i>", replacement = "", x = _) |>
-  #   gsub(pattern = "<b>", replacement = "", x = _) |>
-  #   gsub(pattern = "</b>", replacement = "", x = _)
   tmp_labels <- plot_dataset$`row number and name`
   max_event_length <- tmp_labels |>
     nchar() |>
