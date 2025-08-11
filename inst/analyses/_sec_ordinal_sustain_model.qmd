@@ -64,9 +64,8 @@ over the set of all possible orderings.
 We conducted subgroup analyses by fitting models stratified by
 sex (
 [Sex differences in sequential orders](#sec-methods-strat-sex)), 
-CGG repeats (<100 vs ≥100) (Supplementary material, 
-[Analyses stratified by CGG repeats](#sec-methods-strat-cgg)),
+CGG repeats (<100 vs ≥100) 
+(Supplementary material, Analyses stratified by CGG repeats),
 and combinations of sex and CGG repeats (<100 vs ≥100) 
-(Supplementary material, 
-[Comparing sexes stratified by CGG level](#sec-stratified-by-cgg-and-sex)).
+(Supplementary material, Comparing sexes stratified by CGG level).
 In these subgroup analyses, we did not search for latent clusters.
