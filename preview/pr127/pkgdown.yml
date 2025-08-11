@@ -7,7 +7,7 @@ articles:
   test-quarto-vignette: test-quarto-vignette.html
   articles/test-rmarkdown-article: test-rmarkdown-article.html
   test-rmarkdown-vignette: test-rmarkdown-vignette.html
-last_built: 2025-08-11T23:04Z
+last_built: 2025-08-11T23:33Z
 urls:
   reference: https:/UCD-IDDRC.github.io/fxtas/preview/pr127/reference
   article: https:/UCD-IDDRC.github.io/fxtas/preview/pr127/articles
