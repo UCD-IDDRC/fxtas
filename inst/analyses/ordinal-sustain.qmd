@@ -597,10 +597,11 @@ that are relatively homogeneous within the same cluster
 and heterogeneous from other clusters 
 based on similarities and differences in sequential patterns. 
 The cross-validation procedure
-(Supplementary material, [Detecting latent subtypes](#sec-subtypes))
+(Supplementary material, Detecting latent subtypes)
 suggested `r n_s_min_CVIC` subtypes to be the optimal number for the full, 
 unstratified dataset ([Supplementary Fig. @suppfig-cvic-1]).
-The out-of-fold log-likelihood ("OOFLL") (Supplementary material, [Detecting latent subtypes](#sec-subtypes)) 
+The out-of-fold log-likelihood ("OOFLL") 
+(Supplementary material, Detecting latent subtypes) 
 showed substantial fold-to-fold variation 
 ([Supplementary Fig. @suppfig-cvic-2]).
 Between `r n_s_selected` and `r broman::spell_out(N_S_max)` 

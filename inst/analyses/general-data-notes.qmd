@@ -1,9 +1,7 @@
-### Any autoimmune disorder {.appendix #sec-any-autoimmune}
+### Autoimmune diagnoses or symptoms {.appendix #sec-any-autoimmune}
 
 Due to the infrequent nature of individual autoimmune diseases, 
-a composite variable 
-("any autoimmune disorder" 
-or a positive ANA associated with autoimmune symptoms)
+a composite variable, "autoimmune diagnoses or symptoms",
 was created for analysis: 
 `"Yes"` if a patient had any of 
 systemic lupus erythematosus, 
