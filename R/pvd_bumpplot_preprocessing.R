@@ -21,14 +21,21 @@ pvd_bumpplot_preprocessing <- function(
         as.integer(),
       # made FXTAS Stage label bold
       `event label` = ifelse(
-        .data$biomarker == "FXTAS Stage",
-        paste0("<b>", .data$`event label`, "</b>"),
-        as.character(.data$`event label`)  |>
-          collapse_WM()
+        test = .data$biomarker == "FXTAS Stage",
+        yes = paste0("<b>", .data$`event label`, "</b>"),
+        no = as.character(.data$`event label`) |>
+          collapse_WM() |>
+          collapse_hyperintensity() |>
+          collapse_parentheticals() |>
+          remove_impairment() |>  # nolint
+          remove_RTI() |>
+          collapse_moderate() |>
+          collapse_five()
       )
     ) |>
-    dplyr::select(
-      all_of(
+    dplyr::slice_head(
+      n = 1,
+      by = all_of(
         c(
           "event name",
           "facet",
@@ -42,7 +49,6 @@ pvd_bumpplot_preprocessing <- function(
         )
       )
     ) |>
-    unique() |>
     arrange(.data$`event name`, .data$facet) |>
     dplyr::mutate(
       linesize = ifelse(

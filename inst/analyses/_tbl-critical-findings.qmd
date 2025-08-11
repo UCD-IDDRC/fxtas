@@ -10,6 +10,6 @@
   flextable::width(j = 2, width = 1.2)
 ```
 
-**Summary of critical findings**
+**Summary of main findings**
 
 :::

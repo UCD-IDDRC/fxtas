@@ -4,113 +4,18 @@ authors: default
 affiliations: default
 ---
 
-[Blue]{color="#0000FF"} # US
-
+:::{#fig-one}
 ```{r}
-scale_colors1 <- c("#882255", "#332288", "#44AA99", "#999933", "#117733") |> 
-  setNames(
-    c("violet red", "royal blue", "cadet blue", "khaki", "forest green"
-    ) 
-  )
-
-color_list <- glue::glue(
-  '[{{names(scale_colors1)}}]{color="{{scale_colors1}}"}', 
-  .open = "{{", 
-  .close = "}}"
-)
-outcomes_name <- "symptom"
-compact_fig_caption <- paste0(
-  "The heatmap colors (",
-  color_list |> paste(collapse = ", "),
-  ") indicate the ordinal levels of symptom progression. ",
-  "Color gradient intensity represents the Bayesian posterior probability ",
-  "of the sequence position.",
-  "The brighter the color, the more probable that the corresponding ",
-  outcomes_name,
-  " event occurs in that position in the sequence."
-)
+library(ggplot2)
+ggplot() + theme_void()
 ```
 
-`r compact_fig_caption`
-
-
-```{r}
-devtools::load_all()
-```
-
-```{r}
-
-"inst/analyses/critical-findings.csv" |> 
-  readr::read_csv(name_repair = "minimal") |> 
-  flextable::flextable() |> 
-  shared_flextable_settings() |> 
-  flextable::width(j = 1, width = 1) |> 
-  flextable::width(j = 3, width = 3.5) |> 
-  flextable::width(j = 2, width = 1.2)
-```
-
-::: landscape
-
-::: {#fig-pvd_chosen_subtypes_bumpplot}
-
-```{r}
-#| fig-height: 5.2
-#| fig-width: 9
-
-
-output_folder <-
-    "output/output.fixed_CV-scid-no-subthres/"
-  figs <-
-    readr::read_rds(
-      testthat::test_path("fixtures", "fxtas-figs4.rds")
-    )
-
-  
-color_info <- tibble::tribble(
-  ~event_name, ~line_color, ~highlight_color,
-  "MRI: Cerebellar: Mild",  "orange", "#FFF",
-  "MRI: Cerebral: Moderate/Severe", "orange", "#FFF",
-  # "SCID: Anxiety Disorders: Threshold", "orange", "#FFF",
-  "SCID: Mood Disorders: Threshold", "orange", "#FFF",
-  "Corpus Callosum-Thickness: Thin", "orange", "#FFF",
-  "Splenium WM Hyperintensity: Mild", "orange", "#FFF",
-  "Genu WM Hyperintensity", "orange", "#FFF",
-  "Parkinsonian Features", "green", "#FFF",
-  "Parkinsons", "green", "#FFF",
-  "FXTAS Stage: 1", "black", "yellow",
-  "FXTAS Stage: 2", "black", "yellow",
-  "FXTAS Stage: 3", "black", "yellow",
-  "FXTAS Stage: 4", "black", "yellow",
-  "FXTAS Stage: 5", "black", "yellow",
-  "SWM Between Errors: > 26", "purple", "#FFF",
-  "Postural Tremor", "red", "#FFF",
-  "Intermittent Tremor", "brown", "#FFF",
-  "Intention Tremor", "brown", "#FFF",
-  "Head Tremor", "cyan3", "#FFF",
-  "Tandem Walk: Abnormal (<10 Steps)", "magenta", "#FFF",
-  "Ataxia Severity: 1", "magenta", "#FFF",
-  
-)
-
-bump <- figs |> 
-  pvd_subtype_lineplot(
-    smooth = 30,
-    y_lab = "",
-    text_size = 2.1,
-    x_text_size = 8,
-    align_stage = TRUE,
-    events_to_highlight = color_info
-  )
-bump
-# bump + ggview::canvas(width = 9, height = 5.2, units = "in", dpi = 600)
-```
-
-
-**Differences in event sequences between latent subtypes,**
-**aligned by FXTAS stage.**
-Lines are used to show patterns of clinical interest.
-Text colors indicate symptoms grouped by measurement type.
-
+a blank figure
 :::
 
+:::{#fig-two}
+
+
+
+another blank figure
 :::

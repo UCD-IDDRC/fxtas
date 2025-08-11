@@ -359,7 +359,8 @@ biomarkers_table <-
 Correspondence to: Douglas Ezra Morrison  
 Medical Sciences 1C #113  
 One Shields Ave  
-Davis, CA 95616  
+Davis, CA 95616
+United States of America
 <demorrison@ucdavis.edu>  
 
 **Running title:** Progression of FXTAS symptoms
@@ -617,6 +618,15 @@ we chose to classify participants into `r n_s_selected` subtypes.
 sust_data <- results_cv_max$subtype_and_stage_table |> 
   bind_cols(patient_data)
 
+n_type_0 <- sust_data |>
+  dplyr::filter(ml_subtype == "Subtype 0") |>
+  nrow()
+
+type_0_summary <- glue::glue(
+  "{n_type_0} patients had experienced too few events ",
+  "to be accurately classified into a subtype ",
+  "and were excluded from these results"
+)
 # no longer significant:
 test_sex <- 
   sust_data |> 
@@ -724,9 +734,12 @@ at baseline visit, stratified by sex.
 
 {{< pagebreak >}}
 
+{{< include _sec_abbrev_table.qmd >}}
+
 ::: {#tbl-sg_demos custom-style="Caption"}
 
 ```{r}
+#| label: code-tbl-sg_demos
 set.seed(2)
 tbl_sg_demos <- v1_usable_capital_labels |> 
   filter(.data$CGG >= 55) |> 
@@ -762,14 +775,23 @@ subtype_pval_summaries <- glue::glue(
   "one-way ANOVA F test statistic: ",
   "{round(pval_cgg$statistic, 2)}" ,
   " (DFs: {dfs[1]} and {dfs[2]});\n",
-  "p-value = {pval_formatted} (N = {N_subtyped}).")
+  "p-value = {pval_formatted} ",
+  "(N = {N_subtyped} premutation carriers ",
+  "who could be clustered into a subtype;\n",
+  "{type_0_summary})."
+)
 ```
 
 
 ```{r}
 #| results: asis
-
+#| label: code-tbl_sg_demos
 tbl_sg_demos |>
+  gtsummary::modify_footnote_header(
+    columns = stat_0,
+    footnote = 
+      glue::glue("n (column %); {type_0_summary}.")
+  ) |> 
   gtsummary::as_flex_table(ref_symbols = letters) |>
   shared_flextable_settings() |>
   flextable::width(width = 1.7) |>
@@ -779,13 +801,8 @@ tbl_sg_demos |>
 
 **Demographics of `r n_s_selected` latent subtype clusters**
 **identified by Ordinal SuStaIn.**
-`r n_type_0` patients had experienced too few events
-to be accurately classified into a subtype
-and were excluded from this table.
 
 :::
-
-{{< include _sec_abbrev_table.qmd >}}
 
 {{< include _tbl-critical-findings.qmd >}}
 
@@ -797,12 +814,11 @@ and were excluded from this table.
 #| fig-height: !expr pvd_height
 #| fig-width: !expr pvd_width
 #| fig-cap-location: top
-
+#| label: figure-1
 pvdc_sex <- list(
   "Males:" = fig_males_first,
   "Females:" = fig_females_first
 ) |>
-  # plot_compact_pvd_est2()
   plot_compact_pvd(
     scale_colors = scale_colors1, 
     y_text_size = y_text_size
@@ -810,21 +826,24 @@ pvdc_sex <- list(
 
 print(pvdc_sex)
 
-list(
-  "Males:" = fig_males_first,
-  "Females:" = fig_females_first
-) |>
-  # plot_compact_pvd_est2()
-  plot_compact_pvd(
-    scale_colors = scale_colors1, 
-    y_text_size = 10) |> 
+pvdc_sex |> 
   ggplot2::ggsave(
     height = 120, 
     width = 120,
     units = "mm", 
     dpi = 600,
-    filename = "inst/analyses/pvd_sex.pdf"
+    filename = "inst/analyses/thumbnail.pdf"
   )
+
+pvdc_sex |> 
+  ggplot2::ggsave(
+  "inst/analyses/Figure1.pdf", 
+  plot = _, 
+  width = pvd_width, 
+  height = pvd_height, 
+  units = "in", 
+  dpi = 600
+)
 
 ```
 
@@ -840,7 +859,7 @@ list(
 ```{r}
 #| fig-height: !expr pvd_line_height
 #| fig-width: !expr pvd_line_width
-
+#| label: figure-2
 lineplot_by_sex <- list(
   "Males," = fig_males_first,
   "Females," = fig_females_first
@@ -867,13 +886,15 @@ lineplot_by_sex <- list(
 
 lineplot_by_sex
 
-# lineplot_by_sex +
-#  ggview::canvas(
-#    width = pvd_line_width, 
-#    height = pvd_line_height, 
-#    units = "in", 
-#    dpi = 600
-#  )
+lineplot_by_sex |> 
+  ggplot2::ggsave(
+  "inst/analyses/Figure2.pdf", 
+  plot = _, 
+  width = pvd_line_width, 
+  height = pvd_line_height, 
+  units = "in", 
+  dpi = 600
+)
 ```
 
 **Positional differences in estimated event sequence between males and females.**

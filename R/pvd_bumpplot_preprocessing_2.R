@@ -6,11 +6,7 @@ pvd_bumpplot_preprocessing_2 <- function(
   # alpha scaling #
   alpha_mult <- calc_alpha_mult(plot_dataset, max_alpha, min_alpha)
 
-  tmp_labels <- gsub("<i.+'>", "", plot_dataset$`event label`) |>
-    gsub(pattern = "</i>", replacement = "", x = _) |>
-    gsub(pattern = "<b>", replacement = "", x = _) |>
-    gsub(pattern = "</b>", replacement = "", x = _)
-
+  tmp_labels <- plot_dataset$`row number and name`
   max_event_length <- tmp_labels |>
     nchar() |>
     max()
@@ -33,12 +29,21 @@ pvd_bumpplot_preprocessing_2 <- function(
     ) |>
     dplyr::mutate(
       # apply to label?
-      padded_label = mapply( # nolint: undesirable_function_linter
+      padded_label2 = mapply( # nolint: undesirable_function_linter
         gsub,
         pattern = tmp_labels,
         replacement = .data$padded_event,
         x = .data$`event label`
-      )
+      ),
+      # this version would be simpler but loses boldface on FXTAS Stage:
+
+      padded_label =
+        ifelse(
+          test = .data$biomarker == "FXTAS Stage",
+          yes = paste0("<b>", .data$padded_event, "</b>"),
+          no = as.character(.data$padded_event)
+        ) |>
+        add_html_color(.data$group_color)
 
     )
 }
