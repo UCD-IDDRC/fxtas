@@ -835,6 +835,16 @@ pvdc_sex |>
     filename = "inst/analyses/thumbnail.pdf"
   )
 
+pvdc_sex |> 
+  ggplot2::ggsave(
+  "inst/analyses/Figure1.pdf", 
+  plot = _, 
+  width = pvd_width, 
+  height = pvd_height, 
+  units = "in", 
+  dpi = 600
+)
+
 ```
 
 **Event sequences of FXTAS symptoms stratified by sex.**
@@ -876,13 +886,15 @@ lineplot_by_sex <- list(
 
 lineplot_by_sex
 
-# lineplot_by_sex +
-#  ggview::canvas(
-#    width = pvd_line_width, 
-#    height = pvd_line_height, 
-#    units = "in", 
-#    dpi = 600
-#  )
+lineplot_by_sex |> 
+  ggplot2::ggsave(
+  "inst/analyses/Figure2.pdf", 
+  plot = _, 
+  width = pvd_line_width, 
+  height = pvd_line_height, 
+  units = "in", 
+  dpi = 600
+)
 ```
 
 **Positional differences in estimated event sequence between males and females.**

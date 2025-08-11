@@ -12,3 +12,10 @@ ggplot() + theme_void()
 
 a blank figure
 :::
+
+:::{#fig-two}
+
+
+
+another blank figure
+:::
