@@ -624,7 +624,7 @@ n_type_0 <- sust_data |>
   nrow()
 
 type_0_summary <- glue::glue(
-  "{n_type_0} patients had experienced too few events ",
+  "{n_type_0} carriers had experienced too few events ",
   "to be accurately classified into a subtype ",
   "and were excluded from these results"
 )
@@ -762,8 +762,9 @@ subtype_pval_summaries <- glue::glue(
   "{round(pval_cgg$statistic, 2)}" ,
   " (DFs: {dfs[1]} and {dfs[2]});\n",
   "p-value = {pval_formatted} ",
-  "(N = {N_subtyped} premutation carriers ",
-  "who could be clustered into a subtype;\n",
+  "(N = {N_subtyped} premutation carriers",
+  # " who could be clustered into a subtype", # nolint
+  ";\n",
   "{type_0_summary})."
 )
 ```
