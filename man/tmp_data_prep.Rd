@@ -6,6 +6,13 @@
 \usage{
 tmp_data_prep(x, show_uncert, biomarker_var = "biomarker_label")
 }
+\arguments{
+\item{x}{a \code{PVD} object (output from \code{\link[=plot_positional_var]{plot_positional_var()}})}
+
+\item{show_uncert}{\link{logical}: whether to show the uncertainty in the sequential order.}
+
+\item{biomarker_var}{a \link{character} string indicating which column to use}
+}
 \description{
 data prep function
 }

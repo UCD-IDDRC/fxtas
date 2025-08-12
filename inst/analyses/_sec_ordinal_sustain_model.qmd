@@ -62,7 +62,7 @@ for each subtype given the training dataset,
 assuming a uniform prior distribution 
 over the set of all possible orderings. 
 We conducted subgroup analyses by fitting models stratified by
-sex (
+sex (section 
 [Sex differences in sequential orders](#sec-methods-strat-sex)), 
 CGG repeats (<100 vs ≥100) 
 (Supplementary material, Analyses stratified by CGG repeats),

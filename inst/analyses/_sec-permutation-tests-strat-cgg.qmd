@@ -8,12 +8,14 @@ we conducted subgroup analyses by CGG repeat size.
 A statistically significant difference between males and females
 was found among those with lower CGG repeats < 100
 (p = `r pval_under100_sex_gp34_v1`;
-@suppfig-pvd-by-gender-cgg_under100-1),
+Supplementary Figs.
+[-@suppfig-pvd-by-gender-cgg_under100-1] and 
+[-@suppfig-pvd-by-gender-cgg_under100-2]),
 while a difference between males and females
 was not statistically significant
 among those with higher CGG repeats ≥ 100
 (p = `r pval_over100_sex_gp34_v1`;
-Supplementary Fig.
+Supplementary Figs.
 [-@suppfig-pvd-by-gender-cgg_over100-1] and
 [-@suppfig-pvd-by-gender-cgg_over100-2]).
 Several psychiatric disorders (as assessed by SCID)

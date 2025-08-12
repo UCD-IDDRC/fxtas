@@ -12,17 +12,11 @@
 
 {{< include general-data-notes.qmd >}}
 
-## Detecting latent subtypes {#sec-subtypes .appendix}
-
-{{< include _sec_subtypes_appendix.qmd >}}
+{{< pagebreak >}}
 
 ## Analyses stratified by sex {.appendix #sec-supp-methods-strat-sex}
 
 {{< include _fig-stage-barplot-by-sex.qmd >}}
-
-## Analyses stratified by CGG repeats {.appendix #sec-methods-strat-cgg}
-
-{{< include _sec_results_by_cgg.qmd >}}
 
 {{< pagebreak >}}
 
@@ -32,9 +26,19 @@
 
 {{< pagebreak >}}
 
+## Analyses stratified by CGG repeats {.appendix #sec-methods-strat-cgg}
+
+{{< include _sec_results_by_cgg.qmd >}}
+
+{{< pagebreak >}}
+
 ## Comparing CGG levels stratified by sex {.appendix #sec-cgg-strat-sex}
 
 {{< include _results_cgg_strat_sex.qmd >}}
+
+## Detecting latent subtypes {#sec-subtypes .appendix}
+
+{{< include _sec_subtypes_appendix.qmd >}}
 
 <!-- ## Results with repeated measures {#sec-longitudinal-results .appendix} -->
 

@@ -86,4 +86,3 @@ $run_dev.*
 ^\.lintr\.R$
 ^man/compact_pvd_figure\.Rd$
 ^man/get_title_i_2\.Rd$
-^man/tmp_data_prep\.Rd$

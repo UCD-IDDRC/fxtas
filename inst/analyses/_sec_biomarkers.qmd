@@ -11,6 +11,6 @@ Each "clinically elevated" ordinal level
 (above the first-listed, reference level) 
 constitutes an outcome event 
 in the disease progression modelling analysis 
-(see [Statistical analysis](#sec-Statistical-analysis)).
+(see section [Statistical analysis](#sec-Statistical-analysis)).
 Abbreviations used in `r outcomes_name` names
 are listed in @tbl-abbrevs.

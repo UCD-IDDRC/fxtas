@@ -2,6 +2,8 @@
 #'
 #' @param patient_data a [data.frame]
 #' @param subtype_and_stage_table a [data.frame]
+#' @param sust_data a [data.frame] combining `patient_data`
+#' and `subtype_and_stage_table` by [cbind()]
 #' @param footnotes_as_letters [logical] whether to convert footnote
 #' @param demographic_vars [character] varnames to compute statistics for
 #' symbols to letters (TRUE) instead of numbers (FALSE)
@@ -18,6 +20,8 @@
 table_subtype_by_demographics <- function(
     patient_data,
     subtype_and_stage_table,
+    sust_data = patient_data |>
+      bind_cols(subtype_and_stage_table),
     footnotes_as_letters = FALSE,
     demographic_vars = c(
       "CGG",
@@ -27,12 +31,9 @@ table_subtype_by_demographics <- function(
     ),
     ...) {
 
-  patient_data2 <-
-    patient_data |>
-    bind_cols(subtype_and_stage_table)
 
   to_return <-
-    patient_data2 |>
+    sust_data |>
     dplyr::filter(.data$ml_subtype != "Subtype 0") |>
     drop_levels() |>
     dplyr::select(

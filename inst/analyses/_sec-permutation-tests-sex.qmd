@@ -43,6 +43,9 @@ the estimated sequential orders
 of FXTAS `r outcomes_name`s 
 in males and females, 
 and @fig-first-only-diffs highlights sex differences in those orders.
+@suppfig-stage-barplot-by-sex shows the 
+number of premutation carriers at each disease progression stage, 
+stratified by sex.
 We found statistically significant evidence of a 
 difference in sequences of `r events_name`
 between males and females (p `r pval_sex_gp34_v1_formatted`). 
