@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">fxtas</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Unreleased version">0.0.0.9033</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Unreleased version">0.0.0.9034</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -56,6 +56,7 @@
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">table_subtype_by_demographics</span><span class="op">(</span></span>
 <span>  <span class="va">patient_data</span>,</span>
 <span>  <span class="va">subtype_and_stage_table</span>,</span>
+<span>  sust_data <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind_cols.html" class="external-link">bind_cols</a></span><span class="op">(</span><span class="va">patient_data</span>, <span class="va">subtype_and_stage_table</span><span class="op">)</span>,</span>
 <span>  footnotes_as_letters <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  demographic_vars <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"CGG"</span>, <span class="st">"CGG 55-99"</span>, <span class="st">"Male"</span>, <span class="st">"Primary Race/Ethnicity"</span><span class="op">)</span>,</span>
 <span>  <span class="va">...</span></span>
@@ -72,6 +73,11 @@
 
 <dt id="arg-subtype-and-stage-table">subtype_and_stage_table<a class="anchor" aria-label="anchor" href="#arg-subtype-and-stage-table"></a></dt>
 <dd><p>a <a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></p></dd>
+
+
+<dt id="arg-sust-data">sust_data<a class="anchor" aria-label="anchor" href="#arg-sust-data"></a></dt>
+<dd><p>a <a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a> combining <code>patient_data</code>
+and <code>subtype_and_stage_table</code> by <code><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind()</a></code></p></dd>
 
 
 <dt id="arg-footnotes-as-letters">footnotes_as_letters<a class="anchor" aria-label="anchor" href="#arg-footnotes-as-letters"></a></dt>
