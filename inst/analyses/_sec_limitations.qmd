@@ -6,8 +6,8 @@ especially given the relatively small sample sizes per subtype
 and the correspondingly large amounts of uncertainty
 in their event orderings
 (Supplementary Figs. 
-[-@suppfig-stage-barplot_chosen_subtypes] 
-and [-@suppfig-pvd_chosen_subtypes]).
+[-@suppfig-pvd_chosen_subtypes] 
+and [-@suppfig-stage-barplot_chosen_subtypes]).
 Larger sample sizes would enable us to 
 precisely estimate models with more stratifying variables. 
 In particular, the current dataset consists of 

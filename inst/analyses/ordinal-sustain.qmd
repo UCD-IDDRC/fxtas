@@ -359,8 +359,8 @@ biomarkers_table <-
 Correspondence to: Douglas Ezra Morrison  
 Medical Sciences 1C #113  
 One Shields Ave  
-Davis, CA 95616
-United States of America
+Davis, CA 95616  
+United States of America  
 <demorrison@ucdavis.edu>  
 
 **Running title:** Progression of FXTAS symptoms
@@ -839,8 +839,6 @@ pvdc_sex |>
 `r test_sex_summary`
 :::
 
-{{< pagebreak >}}
-
 :::{#fig-first-only-diffs custom-style="Caption"}
 
 ```{r}
@@ -890,11 +888,9 @@ lineplot_by_sex |>
 
 :::
 
-::: landscape
-
 {{< include _sec_subtypes_bumpchart.qmd >}}
 
-:::
+{{< pagebreak >}}
 
 # Supplementary material
 
