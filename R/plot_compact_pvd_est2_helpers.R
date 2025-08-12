@@ -1,6 +1,13 @@
 #' @title data prep function
-#' @dev
-tmp_data_prep <- function(x, show_uncert,  biomarker_var = "biomarker_label") {
+#' @param x a `PVD` object (output from [plot_positional_var()])
+#' @param show_uncert
+#' [logical]: whether to show the uncertainty in the sequential order.
+#' @param biomarker_var a [character] string indicating which column to use
+#' @keywords internal
+tmp_data_prep <- function(
+    x,
+    show_uncert,
+    biomarker_var = "biomarker_label") {
 
 
 
@@ -42,16 +49,19 @@ tmp_data_prep <- function(x, show_uncert,  biomarker_var = "biomarker_label") {
     # update biomarker levels in tmp
     plot_dataset <- tmp |>
       # convert biomarker to factor with event order levels
-      dplyr::mutate(biomarker = .data[[biomarker_var]] |>
-                      tools::toTitleCase() |>
-                      Hmisc::capitalize() |>
-                      factor(levels = biomarker_order)
+      dplyr::mutate(
+        biomarker = .data[[biomarker_var]] |>
+          tools::toTitleCase() |>
+          Hmisc::capitalize() |>
+          factor(levels = biomarker_order)
       ) |>
       # arrange by biomarker levels
       arrange(across(all_of("biomarker"))) |>
       # create biomarker labels for figure
       dplyr::mutate(
-        biomarker_label = glue::glue("<i style='color:{group_color}'>{biomarker}</i>") |>
+        biomarker_label = glue::glue(
+          "<i style='color:{group_color}'>{biomarker}</i>"
+        ) |>
           forcats::fct_inorder()
       ) |>
       dplyr::select(all_of(
@@ -157,7 +167,9 @@ tmp_data_prep <- function(x, show_uncert,  biomarker_var = "biomarker_label") {
   return(plot_dataset)
 }
 
-#### create plot for a given subtype ####
+#' @title create plot for a given subtype
+#' @inheritParams ggplot2::continuous_scale
+#' @noRd
 tmp_func <- function(plot_dataset,
                      y_position,
                      panel_title,
@@ -168,7 +180,8 @@ tmp_func <- function(plot_dataset,
                      y_text_size = 9,
                      legend.position, # nolint: object_name_linter
                      title_size = y_text_size,
-                     title_hjust = 0.5) {
+                     title_hjust = 0.5,
+                     breaks = c(0, 0.5, 1)) {
   # process color scales
   level2 <- colorRampPalette(c("white", scale_colors[1])) # level 2
   level3 <- colorRampPalette(c("white", scale_colors[2])) # level 3
@@ -202,7 +215,7 @@ tmp_func <- function(plot_dataset,
       low = level2_scale[10],
       high = level2_scale[100],
       limits = scale_limits,
-      breaks = c(0, 0.5, 1),
+      breaks = breaks,
       guide =
         ggplot2::guide_colorbar(title = "Pr(Stage)<sub>2</sub>", order = 1)
     ) +
@@ -224,7 +237,7 @@ tmp_func <- function(plot_dataset,
       low = level3_scale[10],
       high = level3_scale[100],
       limits = scale_limits,
-      breaks = c(0, 0.5, 1),
+      breaks = breaks,
       guide = ggplot2::guide_colorbar(
         title = "Pr(Stage)<sub>3</sub>",
         order = 2
@@ -248,7 +261,7 @@ tmp_func <- function(plot_dataset,
       low = level4_scale[10],
       high = level4_scale[100],
       limits = scale_limits,
-      breaks = c(0, 0.5, 1),
+      breaks = breaks,
       guide = ggplot2::guide_colorbar(
         title = "Pr(Stage)<sub>4</sub>",
         order = 3
@@ -272,7 +285,7 @@ tmp_func <- function(plot_dataset,
       low = level5_scale[10],
       high = level5_scale[100],
       limits = scale_limits,
-      breaks = c(0, 0.5, 1),
+      breaks = breaks,
       guide = ggplot2::guide_colorbar(
         title = "Pr(Stage)<sub>5</sub>",
         order = 4
@@ -296,7 +309,7 @@ tmp_func <- function(plot_dataset,
       low = level6_scale[10],
       high = level6_scale[100],
       limits = scale_limits,
-      breaks = c(0, 0.5, 1),
+      breaks = breaks,
       guide = ggplot2::guide_colorbar(
         title = "Pr(Stage)<sub>6</sub>",
         order = 5
