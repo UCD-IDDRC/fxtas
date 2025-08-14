@@ -32,6 +32,7 @@ test_that("results are consistent with fxtas data", {
     pvd_subtype_lineplot(
       facet_label_prefixes = NULL,
       align_stage = FALSE,
+      use_group_colors = FALSE,
       events_to_highlight = color_info)
 
   fig3 |>
@@ -41,8 +42,17 @@ test_that("results are consistent with fxtas data", {
     pvd_subtype_lineplot(
       facet_label_prefixes = NULL,
       align_stage = FALSE,
+      use_group_colors = FALSE,
       events_to_highlight = color_info) |>
     vdiffr::expect_doppelganger(title = "fxtas-data-2")
+
+  figs[1:2] |>
+    pvd_subtype_lineplot(
+      facet_label_prefixes = NULL,
+      align_stage = FALSE,
+      use_group_colors = TRUE,
+      events_to_highlight = color_info) |>
+    vdiffr::expect_doppelganger(title = "fxtas-data-group-color")
 
 })
 

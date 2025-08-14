@@ -92,7 +92,8 @@ pvd_subtype_lineplot <- function(
     ggtext::geom_richtext(
       aes(
         label = .data$`event label`,
-        fill = .data$background
+        fill = .data$background,
+        colour = if (use_group_colors) .data$group_color else .data$line_color
       ),
       label.color = NA,
       label.padding = grid::unit(rep(0, 4), "pt"),
