@@ -21,3 +21,11 @@ group_colors.PVD_list <- function(object) {
     attr("group_colors") |>
     pull("group_color")
 }
+
+#' @export
+group_colors.list <- function(object) {
+  object[[1]] |>
+    attr("biomarker_groups") |>
+    attr("group_colors") |>
+    pull("group_color")
+}

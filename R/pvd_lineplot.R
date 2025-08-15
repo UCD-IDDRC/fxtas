@@ -14,7 +14,9 @@
 #' @param y_lab todo
 #' @param direction_colors a [character] vector of length 4
 #' @param expand [numeric] how much to pad the sides
-#' @inheritParams pvd_subtype_lineplot
+#' @param group_cols a named [character] [vector]
+#' mapping from `biomarker_group` to a color palette
+#' @inheritParams cowplot::plot_grid
 #' @export
 #' @example inst/examples/exm-pvd_lineplot.R
 pvd_lineplot <- function(
@@ -39,7 +41,9 @@ pvd_lineplot <- function(
       "up" = "#005AB5"
     ),
     expand = 0.25,
-    group_colors = group_colors(figs)) {
+    group_cols = group_colors(figs),
+    rel_heights = c(2.5, 0.175, 0.25)) {
+
   dataset <- extract_lineplot_data(figs, facet_labels)
 
   # additional processing
@@ -94,7 +98,7 @@ pvd_lineplot <- function(
     ggplot2::scale_color_manual(
       guide = ggh4x::guide_stringlegend(order = 3),
       name = "Symptom category:",
-      values = group_colors
+      values = group_cols
     ) +
     ggplot2::scale_linewidth_identity(guide = "none") +
     ggplot2::scale_alpha_continuous(
@@ -163,7 +167,7 @@ pvd_lineplot <- function(
       cowplot::plot_grid(plot),
       cowplot::plot_grid(legends[3], legends[5], ncol = 2),
       cowplot::plot_grid(legends[7]),
-      rel_heights  = c(2.5, 0.175, 0.25)
+      rel_heights  = rel_heights
     )
   )
 
