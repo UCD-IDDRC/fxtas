@@ -19,6 +19,7 @@
 #' or custom line colors from `events_to_highlight` argument
 #' @param group_colors a named [character] [vector]
 #' mapping from `biomarker_group` to a color palette
+#' @param legend_text_size [grid::unit]: legend text size
 #' @param ... additional arguments passed to [ggbump::geom_bump]
 #' Default = c(1, 1.15, 1.75, 2.35)
 #'
@@ -47,6 +48,7 @@ pvd_subtype_lineplot <- function(
     align_stage = TRUE,
     use_group_colors = FALSE,
     group_cols = group_colors(figs),
+    legend_text_size = grid::unit(7, "pt"),
     ...) {
 
 
@@ -117,8 +119,8 @@ pvd_subtype_lineplot <- function(
     theme_classic() +
     theme(
       legend.position = "bottom",
-      legend.text = element_text(size = grid::unit(7, "pt")),
-      legend.title = element_text(size = grid::unit(7, "pt")),
+      legend.text = element_text(size = legend_text_size),
+      legend.title = element_text(size = legend_text_size),
       axis.title.x = ggplot2::element_blank(),
       axis.title.y = ggtext::element_markdown(size = y_title_size),
       axis.text.y = ggtext::element_markdown(size = y_text_size),

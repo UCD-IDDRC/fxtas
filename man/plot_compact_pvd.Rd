@@ -12,6 +12,10 @@ plot_compact_pvd(
   facet_label_prefix = names(figs),
   legend.position = "none",
   scale_colors = c("red", "blue", "magenta", "darkgreen", "purple4"),
+  rel_heights = c(1, 0.1),
+  ncol_legend = 1,
+  nrow_colors = 1,
+  guide_rel_widths = c(0.7, 0.3),
   ...
 )
 }
@@ -27,6 +31,15 @@ plot_compact_pvd(
 \item{legend.position}{todo}
 
 \item{scale_colors}{todo}
+
+\item{rel_heights}{(optional) Numerical vector of relative rows heights. Works just as
+\code{rel_widths} does, but for rows rather than columns.}
+
+\item{ncol_legend}{how many columns to use for legend}
+
+\item{nrow_colors}{now many rows to use for color guide}
+
+\item{guide_rel_widths}{relative widths of guides}
 
 \item{...}{
   Arguments passed on to \code{\link[=compact_pvd_data_prep]{compact_pvd_data_prep}}

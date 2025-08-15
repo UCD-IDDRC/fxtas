@@ -16,11 +16,16 @@ test_that("`compact_pvd_figure()` produces consistent results", {
   legend.position = "none"
   scale_colors = c("red", "blue", "purple4")
   plot_dataset <- compact_pvd_data_prep(figs = figs)
+  group_colors <- group_colors(figs)
   # facet labels
   facet_names <- compact_pvd_facet_labels(
     figs = figs,
     facet_label_prefix = NULL)
   # generate figure
+  temp_plot <- plot_dataset |> pvd_scatter(nrow_colors = 1, group_colors = group_colors)
+
+  group_color_legend <- temp_plot |> cowplot::get_legend()
+
   plot1 <- compact_pvd_figure(
     plot_dataset,
     tile_height = tile_height,
@@ -28,7 +33,9 @@ test_that("`compact_pvd_figure()` produces consistent results", {
     facet_names = facet_names,
     # facet_label_size = facet_label_size,
     legend.position = legend.position,
-    scale_colors = scale_colors
+    scale_colors = scale_colors,
+    group_colors = group_colors,
+    group_color_legend = group_color_legend
   )
 
   plot1 |>

@@ -12,6 +12,10 @@ compact_pvd_figure(
   legend.position,
   scale_colors,
   rel_heights = c(1, 0.1),
+  guide_rel_widths = c(0.3, 0.7),
+  group_colors,
+  ncol_legend = 1,
+  group_color_legend,
   ...
 )
 }
@@ -40,6 +44,13 @@ facet_names <- fxtas:::compact_pvd_facet_labels(
   figs = figs,
   facet_label_prefix = facet_label_prefix
 )
+
+group_colors <- figs |> group_colors()
+
+temp_plot <- plot_dataset |> pvd_scatter(nrow_colors = nrow_colors)
+
+group_color_legend <- temp_plot |> cowplot::get_legend()
+
 # generate figure
 fxtas:::compact_pvd_figure(
   plot_dataset,
@@ -48,7 +59,9 @@ fxtas:::compact_pvd_figure(
   facet_names = facet_names,
   # facet_label_size = facet_label_size,
   legend.position = legend.position,
-  scale_colors = scale_colors
+  scale_colors = scale_colors,
+  group_colors = group_colors,
+  group_color_legend = group_color_legend
 )
 }
 \keyword{internal}

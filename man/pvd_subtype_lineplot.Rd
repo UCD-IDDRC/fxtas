@@ -24,6 +24,7 @@ pvd_subtype_lineplot(
   align_stage = TRUE,
   use_group_colors = FALSE,
   group_cols = group_colors(figs),
+  legend_text_size = grid::unit(7, "pt"),
   ...
 )
 }
@@ -62,6 +63,8 @@ pvd_subtype_lineplot(
 
 \item{use_group_colors}{\link{logical}: whether to use existing group colors
 or custom line colors from \code{events_to_highlight} argument}
+
+\item{legend_text_size}{\link[grid:unit]{grid::unit}: legend text size}
 
 \item{...}{additional arguments passed to \link[ggbump:geom_bump]{ggbump::geom_bump}
 Default = c(1, 1.15, 1.75, 2.35)}
