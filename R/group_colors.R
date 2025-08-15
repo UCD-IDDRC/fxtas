@@ -7,9 +7,8 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{}
 #' figs <- readr::read_rds(
-#'  fs::path_package("fxtas", "extdata/sim-figs-4.rds")
+#'  fs::path_package("fxtas", "extdata/sim_data/sim-figs-4.rds")
 #' )
 #' group_colors(figs)
 group_colors <- function(object) {

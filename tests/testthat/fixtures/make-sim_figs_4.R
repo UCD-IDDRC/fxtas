@@ -20,4 +20,4 @@ figs |>
 
 
 figs |>
-  readr::write_rds("inst/extdata/sim-figs-4.rds")
+  readr::write_rds("inst/extdata/sim_data/sim-figs-4.rds")

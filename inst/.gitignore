@@ -1,5 +1,5 @@
 *.csv
 *.xlsx
 *.pickle
-extdata
+extdata/fxtas
 analyses/ordinal-sustain_files/libs/
