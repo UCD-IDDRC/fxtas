@@ -55,7 +55,7 @@
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">compile_biomarker_groups_table</span><span class="op">(</span></span>
 <span>  <span class="va">dataset</span>,</span>
-<span>  biomarker_group_list <span class="op">=</span> <span class="fu"><a href="compile_biomarker_group_list.html">compile_biomarker_group_list</a></span><span class="op">(</span>dataset <span class="op">=</span> <span class="va">dataset</span>, <span class="va">...</span><span class="op">)</span>,</span>
+<span>  biomarker_group_list <span class="op">=</span> <span class="fu"><a href="compile_biomarker_group_list.html">compile_biomarker_group_list</a></span><span class="op">(</span><span class="va">dataset</span>, <span class="va">...</span><span class="op">)</span>,</span>
 <span>  colors <span class="op">=</span> <span class="fu">choose_biomarker_group_colors</span><span class="op">(</span><span class="va">biomarker_group_list</span><span class="op">)</span>,</span>
 <span>  <span class="va">...</span></span>
 <span><span class="op">)</span></span></code></pre></div>
@@ -92,14 +92,16 @@
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">biomarker_group_list</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">biomarker_group_list</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
 <span class="r-in"><span>  <span class="st">"group 1"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Biomarker 1"</span>, <span class="st">"Biomarker 2"</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>  <span class="st">"group 2"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Biomarker 3"</span>, <span class="st">"Biomarker 4"</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>  <span class="st">"group 3"</span> <span class="op">=</span> <span class="st">"Biomarker 5"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="st">"group 3"</span> <span class="op">=</span> <span class="st">"Biomarker 5"</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">compile_biomarker_groups_table</span><span class="op">(</span></span></span>
-<span class="r-in"><span>   dataset <span class="op">=</span> <span class="va">sim_data</span>,</span></span>
-<span class="r-in"><span>   biomarker_group_list <span class="op">=</span> <span class="va">biomarker_group_list</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  dataset <span class="op">=</span> <span class="va">sim_data</span>,</span></span>
+<span class="r-in"><span>  biomarker_group_list <span class="op">=</span> <span class="va">biomarker_group_list</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 5 × 3</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   biomarker   biomarker_group group_color</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">*</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      </span>
