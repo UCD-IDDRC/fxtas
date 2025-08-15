@@ -873,7 +873,7 @@ lineplot_by_sex <- pvds_by_sex |>
   )
 
 if (interactive()) {
-  lineplot_by_sex |> ggview::canvas(
+  lineplot_by_sex + ggview::canvas(
     width = pvd_line_height, 
     height = pvd_line_height
   )

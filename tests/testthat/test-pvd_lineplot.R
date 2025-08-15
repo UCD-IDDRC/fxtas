@@ -23,7 +23,7 @@ test_that("results are consistent with real data", {
     )
 
   plot1 <- figs[1:2] |>
-    pvd_lineplot(group_colors = figs |> group_colors())
+    pvd_lineplot(group_cols = figs |> group_colors())
 
   plot1 |>
     vdiffr::expect_doppelganger(title = "fxtas-data-1-2")
