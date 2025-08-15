@@ -22,7 +22,11 @@ test_that("`compact_pvd_figure()` produces consistent results", {
     figs = figs,
     facet_label_prefix = NULL)
   # generate figure
-  temp_plot <- plot_dataset |> pvd_scatter(nrow_colors = 1, group_colors = group_colors)
+  legend_text_size = grid::unit(7, "pt")
+
+  temp_plot <- plot_dataset |>
+    pvd_scatter(nrow_colors = 1, group_colors = group_colors,
+                legend_text_size = legend_text_size)
 
   group_color_legend <- temp_plot |> cowplot::get_legend()
 
@@ -35,7 +39,8 @@ test_that("`compact_pvd_figure()` produces consistent results", {
     legend.position = legend.position,
     scale_colors = scale_colors,
     group_colors = group_colors,
-    group_color_legend = group_color_legend
+    group_color_legend = group_color_legend,
+    legend_text_size = legend_text_size
   )
 
   plot1 |>

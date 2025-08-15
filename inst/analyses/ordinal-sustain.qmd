@@ -441,6 +441,17 @@ results_v1 <- extract_results_from_pickles(
 ```{r}
 #| label: extract-marginal-fig
 
+fig_both_first <- extract_figs_from_pickle(
+  biomarker_groups = biomarker_groups,
+  biomarker_levels = biomarker_levels,
+  use_rds = use_rds,
+  size.y = size.y,
+  n_s = 1,
+  rda_filename = "data.RData",
+  dataset_name = "sample_data",
+  output_folder = output_folder
+)
+
 fig_both_first2 <-
   list(fig_both_first) |>
   plot_compact_pvd(
@@ -508,16 +519,6 @@ fig_males_first <- results_males_first |>
   use_labels = TRUE
 )
 
-fig_both_first <- extract_figs_from_pickle(
-  biomarker_groups = biomarker_groups,
-  biomarker_levels = biomarker_levels,
-  use_rds = use_rds,
-  size.y = size.y,
-  n_s = 1,
-  rda_filename = "data.RData",
-  dataset_name = "sample_data",
-  output_folder = output_folder
-)
 
 fig_under100 <- extract_figs_from_pickle(
   biomarker_groups = biomarker_groups,
@@ -727,7 +728,7 @@ biomarkers_table |>
   flex_biomarkers_table(
     width_biomarkers = 1.7,
     width_levels = 1.5,
-    use_group_colors = TRUE
+    use_group_colors = FALSE
   )
 ```
 
