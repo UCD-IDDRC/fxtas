@@ -65,7 +65,9 @@
        - attr(*, "biomarker_groups")= bmrkr_g_ [5 x 3] (S3: biomarker_groups_table/tbl_df/tbl/data.frame)
         ..$ biomarker      : chr [1:5] "Biomarker 1" "Biomarker 2" "Biomarker 3" "Biomarker 4" ...
         ..$ biomarker_group: chr [1:5] "group 1" "group 1" "group 2" "group 2" ...
-        ..$ group_color    : chr [1:5] "#88CCEE" "#88CCEE" "#CC6677" "#CC6677" ...
+        ..$ group_color    : Named chr [1:5] "#88CCEE" "#88CCEE" "#CC6677" "#CC6677" ...
+        .. ..- attr(*, "names")= chr [1:5] "group 1" "group 1" "group 2" "group 2" ...
+        ..- attr(*, "group_colors")= tibble [3 x 2] (S3: tbl_df/tbl/data.frame)
        - attr(*, "biomarker_levels")=List of 5
         ..$ Biomarker 1: int [1:4] 0 1 2 3
         ..$ Biomarker 2: int [1:4] 0 1 2 3
@@ -144,7 +146,9 @@
        - attr(*, "biomarker_groups")= bmrkr_g_ [5 x 3] (S3: biomarker_groups_table/tbl_df/tbl/data.frame)
         ..$ biomarker      : chr [1:5] "Biomarker 1" "Biomarker 2" "Biomarker 3" "Biomarker 4" ...
         ..$ biomarker_group: chr [1:5] "group 1" "group 1" "group 2" "group 2" ...
-        ..$ group_color    : chr [1:5] "#88CCEE" "#88CCEE" "#CC6677" "#CC6677" ...
+        ..$ group_color    : Named chr [1:5] "#88CCEE" "#88CCEE" "#CC6677" "#CC6677" ...
+        .. ..- attr(*, "names")= chr [1:5] "group 1" "group 1" "group 2" "group 2" ...
+        ..- attr(*, "group_colors")= tibble [3 x 2] (S3: tbl_df/tbl/data.frame)
        - attr(*, "biomarker_levels")=List of 5
         ..$ Biomarker 1: int [1:4] 0 1 2 3
         ..$ Biomarker 2: int [1:4] 0 1 2 3
@@ -467,20 +471,29 @@
     YXJrZXIgMQAEAAkAAAALQmlvbWFya2VyIDIABAAJAAAAC0Jpb21hcmtlciAzAAQACQAAAAtC
     aW9tYXJrZXIgNAAEAAkAAAALQmlvbWFya2VyIDUAAAAQAAAABQAEAAkAAAAHZ3JvdXAgMQAE
     AAkAAAAHZ3JvdXAgMQAEAAkAAAAHZ3JvdXAgMgAEAAkAAAAHZ3JvdXAgMgAEAAkAAAAHZ3Jv
-    dXAgMwAAABAAAAAFAAQACQAAAAcjODhDQ0VFAAQACQAAAAcjODhDQ0VFAAQACQAAAAcjQ0M2
-    Njc3AAQACQAAAAcjQ0M2Njc3AAQACQAAAAcjODg4ODg4AAAEAgAABf8AAAAQAAAAAwAEAAkA
-    AAAJYmlvbWFya2VyAAQACQAAAA9iaW9tYXJrZXJfZ3JvdXAABAAJAAAAC2dyb3VwX2NvbG9y
-    AAAEAgAACP8AAAANAAAAAoAAAAAAAAAFAAAEAgAAAv8AAAAQAAAABAAEAAkAAAAWYmlvbWFy
-    a2VyX2dyb3Vwc190YWJsZQAEAAkAAAAGdGJsX2RmAAQACQAAAAN0YmwABAAJAAAACmRhdGEu
-    ZnJhbWUAAAD+AAAEAgAAAAEABAAJAAAAEGJpb21hcmtlcl9sZXZlbHMAAAMTAAAABQAAAA0A
-    AAAEAAAAAAAAAAEAAAACAAAAAwAAAA0AAAAEAAAAAAAAAAEAAAACAAAAAwAAAA0AAAAEAAAA
-    AAAAAAEAAAACAAAAAwAAAA0AAAAEAAAAAAAAAAEAAAACAAAAAwAAAA0AAAAEAAAAAAAAAAEA
-    AAACAAAAAwAABAIAAAX/AAAAEAAAAAUABAAJAAAAC0Jpb21hcmtlciAxAAQACQAAAAtCaW9t
-    YXJrZXIgMgAEAAkAAAALQmlvbWFya2VyIDMABAAJAAAAC0Jpb21hcmtlciA0AAQACQAAAAtC
-    aW9tYXJrZXIgNQAABAIAAAL/AAAAEAAAAAIABAAJAAAAC2xldmVsc19saXN0AAQACQAAAARs
-    aXN0AAAA/gAABAIAAAABAAQACQAAAA1zdWJ0eXBlX29yZGVyAAAADQAAAAMAAAABAAAAAgAA
-    AAMAAAQCAAAAAQAEAAkAAAACaXgAAAANAAAAAwAAAAMAAAABAAAAAgAABAIAAAABAAQACQAA
-    AAhuX2V2ZW50cwAAAA0AAAABAAAADwAAAP4=
+    dXAgMwAAAhAAAAAFAAQACQAAAAcjODhDQ0VFAAQACQAAAAcjODhDQ0VFAAQACQAAAAcjQ0M2
+    Njc3AAQACQAAAAcjQ0M2Njc3AAQACQAAAAcjODg4ODg4AAAEAgAABf8AAAAQAAAABQAEAAkA
+    AAAHZ3JvdXAgMQAEAAkAAAAHZ3JvdXAgMQAEAAkAAAAHZ3JvdXAgMgAEAAkAAAAHZ3JvdXAg
+    MgAEAAkAAAAHZ3JvdXAgMwAAAP4AAAQCAAAF/wAAABAAAAADAAQACQAAAAliaW9tYXJrZXIA
+    BAAJAAAAD2Jpb21hcmtlcl9ncm91cAAEAAkAAAALZ3JvdXBfY29sb3IAAAQCAAAI/wAAAA0A
+    AAACgAAAAAAAAAUAAAQCAAAC/wAAABAAAAAEAAQACQAAABZiaW9tYXJrZXJfZ3JvdXBzX3Rh
+    YmxlAAQACQAAAAZ0YmxfZGYABAAJAAAAA3RibAAEAAkAAAAKZGF0YS5mcmFtZQAABAIAAAAB
+    AAQACQAAAAxncm91cF9jb2xvcnMAAAMTAAAAAgAAAhAAAAADAAQACQAAAAdncm91cCAxAAQA
+    CQAAAAdncm91cCAyAAQACQAAAAdncm91cCAzAAAEAgAABf8AAAAQAAAAAwAEAAkAAAAHIzg4
+    Q0NFRQAEAAkAAAAHI0NDNjY3NwAEAAkAAAAHIzg4ODg4OAAAAP4AAAIQAAAAAwAEAAkAAAAH
+    Izg4Q0NFRQAEAAkAAAAHI0NDNjY3NwAEAAkAAAAHIzg4ODg4OAAABAIAAAX/AAAAEAAAAAMA
+    BAAJAAAAB2dyb3VwIDEABAAJAAAAB2dyb3VwIDIABAAJAAAAB2dyb3VwIDMAAAD+AAAEAgAA
+    Av8AAAAQAAAAAwAEAAkAAAAGdGJsX2RmAAQACQAAAAN0YmwABAAJAAAACmRhdGEuZnJhbWUA
+    AAQCAAAI/wAAAA0AAAACgAAAAP////0AAAQCAAAF/wAAABAAAAACAAQACQAAAA9iaW9tYXJr
+    ZXJfZ3JvdXAABAAJAAAAC2dyb3VwX2NvbG9yAAAA/gAAAP4AAAQCAAAAAQAEAAkAAAAQYmlv
+    bWFya2VyX2xldmVscwAAAxMAAAAFAAAADQAAAAQAAAAAAAAAAQAAAAIAAAADAAAADQAAAAQA
+    AAAAAAAAAQAAAAIAAAADAAAADQAAAAQAAAAAAAAAAQAAAAIAAAADAAAADQAAAAQAAAAAAAAA
+    AQAAAAIAAAADAAAADQAAAAQAAAAAAAAAAQAAAAIAAAADAAAEAgAABf8AAAAQAAAABQAEAAkA
+    AAALQmlvbWFya2VyIDEABAAJAAAAC0Jpb21hcmtlciAyAAQACQAAAAtCaW9tYXJrZXIgMwAE
+    AAkAAAALQmlvbWFya2VyIDQABAAJAAAAC0Jpb21hcmtlciA1AAAEAgAAAv8AAAAQAAAAAgAE
+    AAkAAAALbGV2ZWxzX2xpc3QABAAJAAAABGxpc3QAAAD+AAAEAgAAAAEABAAJAAAADXN1YnR5
+    cGVfb3JkZXIAAAANAAAAAwAAAAEAAAACAAAAAwAABAIAAAABAAQACQAAAAJpeAAAAA0AAAAD
+    AAAAAwAAAAEAAAACAAAEAgAAAAEABAAJAAAACG5fZXZlbnRzAAAADQAAAAEAAAAPAAAA/g==
 
 # results are consistent with custom ordering
 
@@ -549,7 +562,9 @@
        - attr(*, "biomarker_groups")= bmrkr_g_ [5 x 3] (S3: biomarker_groups_table/tbl_df/tbl/data.frame)
         ..$ biomarker      : chr [1:5] "Biomarker 1" "Biomarker 2" "Biomarker 3" "Biomarker 4" ...
         ..$ biomarker_group: chr [1:5] "group 1" "group 1" "group 2" "group 2" ...
-        ..$ group_color    : chr [1:5] "#88CCEE" "#88CCEE" "#CC6677" "#CC6677" ...
+        ..$ group_color    : Named chr [1:5] "#88CCEE" "#88CCEE" "#CC6677" "#CC6677" ...
+        .. ..- attr(*, "names")= chr [1:5] "group 1" "group 1" "group 2" "group 2" ...
+        ..- attr(*, "group_colors")= tibble [3 x 2] (S3: tbl_df/tbl/data.frame)
        - attr(*, "biomarker_levels")=List of 5
         ..$ Biomarker 1: int [1:4] 0 1 2 3
         ..$ Biomarker 2: int [1:4] 0 1 2 3

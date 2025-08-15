@@ -17,6 +17,8 @@
 #' @param align_stage [logical] whether to align by FXTAS stage
 #' @param use_group_colors [logical]: whether to use existing group colors
 #' or custom line colors from `events_to_highlight` argument
+#' @param group_colors a named [character] [vector]
+#' mapping from `biomarker_group` to a color palette
 #' @param ... additional arguments passed to [ggbump::geom_bump]
 #' Default = c(1, 1.15, 1.75, 2.35)
 #'
@@ -44,7 +46,10 @@ pvd_subtype_lineplot <- function(
     mult = .2,
     align_stage = TRUE,
     use_group_colors = FALSE,
+    group_colors = group_colors(figs),
     ...) {
+
+
 
   dataset <- extract_lineplot_data(figs, facet_names)
 
@@ -76,7 +81,8 @@ pvd_subtype_lineplot <- function(
     ggplot() +
     aes(
       x = .data$facet_order,
-      y = if (align_stage) .data$y else .data$Order
+      y = if (align_stage) .data$y else .data$Order,
+      color = if (use_group_colors) .data$biomarker_group else .data$line_color
     ) +
     ggbump::geom_bump(
       data = plot_dataset |>
@@ -84,7 +90,6 @@ pvd_subtype_lineplot <- function(
           .data$`event name` %in% c(events_to_highlight$event_name)
         ),
       aes(
-        color = if (use_group_colors) .data$group_color else .data$line_color,
         group = .data$`event name`
       ),
       ...
@@ -111,13 +116,21 @@ pvd_subtype_lineplot <- function(
     labs(y = y_lab) +
     theme_classic() +
     theme(
-      legend.position = "none",
+      legend.position = "bottom",
       axis.title.x = ggplot2::element_blank(),
       axis.title.y = ggtext::element_markdown(size = y_title_size),
       axis.text.y = ggtext::element_markdown(size = y_text_size),
       axis.text.x = ggtext::element_markdown(size = x_text_size)
-    ) +
-    scale_color_identity()
+    )
+
+  if (use_group_colors) {
+    to_return <- to_return +
+      ggplot2::scale_color_manual(name = "Symptom category:",
+                                  values = group_colors)
+  } else {
+    to_return <- to_return +
+      ggplot2::scale_color_identity(guide = "none")
+  }
 
   return(to_return)
 }
