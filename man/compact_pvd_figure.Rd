@@ -16,6 +16,7 @@ compact_pvd_figure(
   group_colors,
   ncol_legend = 1,
   group_color_legend,
+  legend_text_size,
   ...
 )
 }
