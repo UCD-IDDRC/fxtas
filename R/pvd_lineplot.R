@@ -161,17 +161,17 @@ pvd_lineplot <- function(
   if (!guide_group_colors) {
     return(to_return)
   } else {
-  legends <- to_return |> cowplot::get_legend()
-  plot <- to_return + theme(legend.position = "none")
+    legends <- to_return |> cowplot::get_legend()
+    plot <- to_return + theme(legend.position = "none")
 
-  cowplot::ggdraw(
-    cowplot::plot_grid(
-      ncol = 1,
-      cowplot::plot_grid(plot),
-      cowplot::plot_grid(legends[3], legends[5], ncol = 2),
-      cowplot::plot_grid(legends[7]),
-      rel_heights  = rel_heights
+    cowplot::ggdraw(
+      cowplot::plot_grid(
+        ncol = 1,
+        cowplot::plot_grid(plot),
+        cowplot::plot_grid(legends[3], legends[5], ncol = 2),
+        cowplot::plot_grid(legends[7]),
+        rel_heights  = rel_heights
+      )
     )
-  )
   }
 }

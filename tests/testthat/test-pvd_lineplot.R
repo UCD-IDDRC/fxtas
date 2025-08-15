@@ -9,7 +9,9 @@ test_that("results are consistent", {
   )
 
   figs[1:2] |>
-    pvd_lineplot(group_cols = figs |> group_colors()) |>
+    pvd_lineplot(
+      group_cols = figs |> group_colors()
+    ) |>
     vdiffr::expect_doppelganger(title = "sim-data-1-2")
 
 })
