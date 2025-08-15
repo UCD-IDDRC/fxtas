@@ -159,7 +159,7 @@ pvd_lineplot <- function(
     )
 
   if (!guide_group_colors) {
-    return(to_return)
+    return(to_return + guides(col = "none"))
   } else {
     legends <- to_return |> cowplot::get_legend()
     plot <- to_return + theme(legend.position = "none")

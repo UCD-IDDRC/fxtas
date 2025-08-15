@@ -29,9 +29,11 @@ compact_pvd_figure <- function(
 
   # create level color scales
   if (length(scale_colors) != nlevels) {
-    stop(
-      "`scale_colors` must be the same length as the number of levels",
-      " (number of levels = ", nlevels, ")"
+    cli::cli_abort(
+      c(
+        "`scale_colors` must be the same length as the number of levels",
+        " (number of levels = {nlevels})"
+      )
     )
   }
 
