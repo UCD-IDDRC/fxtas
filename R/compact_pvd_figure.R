@@ -202,7 +202,9 @@ compact_pvd_figure <- function(
 
   if (legend.position == "none") {
     fig <- cowplot::plot_grid(
-      fig, horizontal_greyscale_legend,
+      fig,
+      horizontal_greyscale_legend, # stored as internal data;
+      # see data-raw/pvd_grayscale_legend.R for details
       nrow = 2,
       rel_heights = rel_heights
     )
