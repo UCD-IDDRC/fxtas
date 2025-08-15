@@ -51,6 +51,7 @@ test_that("results are consistent with fxtas data", {
       facet_label_prefixes = NULL,
       align_stage = FALSE,
       use_group_colors = TRUE,
+      group_colors = figs |> group_colors(),
       events_to_highlight = color_info) |>
     vdiffr::expect_doppelganger(title = "fxtas-data-group-color")
 

@@ -60,7 +60,8 @@ compile_biomarker_groups_table <- function(
   to_return <-
     to_return |>
     structure(
-      class = union("biomarker_groups_table", class(to_return))
+      class = union("biomarker_groups_table", class(to_return)),
+      group_colors = colors
     )
     return(to_return)
 }

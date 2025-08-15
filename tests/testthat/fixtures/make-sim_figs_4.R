@@ -1,3 +1,4 @@
+devtools::load_all()
 reticulate::use_condaenv("fxtas39", required = TRUE, conda = "auto")
 
 results <- extract_results_from_pickle(

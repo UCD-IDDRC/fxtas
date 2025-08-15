@@ -1,0 +1,22 @@
+#' Extract group colors
+#'
+#' @param object an object
+#'
+#' @returns a named [character] [vector] mapping from `biomarker_group` to a color palette
+#' @export
+#'
+#' @examples
+#' figs <- readr::read_rds(
+#'  testthat::test_path("fixtures", "sim-figs-4.rds")
+#' )
+group_colors <- function(object) {
+  UseMethod("group_colors")
+}
+
+#' @export
+group_colors.PVD_list <- function(object) {
+  object |>
+    attr("biomarker_groups") |>
+    attr("group_colors") |>
+    pull("group_color")
+}

@@ -31,7 +31,7 @@
 #' @param synchronize_y_axes todo
 #' @param use_labels whether to use biomarker labels or variable names
 #' @inheritDotParams autoplot.PF
-#' @returns a `"PVD.list` (a [list] of `PVD` objects from [autoplot.PF()])
+#' @returns a `"PVD_list` (a [list] of `PVD` objects from [autoplot.PF()])
 #' @export
 #' @example inst/examples/exm-plot_positional_var.R
 plot_positional_var <- function(
@@ -243,13 +243,15 @@ plot_positional_var <- function(
     } else {
       names(figs) <- paste("Subtype", seq_along(figs))
     }
-    class(figs) <- c("PVD.list", class(figs))
+    class(figs) <- c("PVD_list", class(figs))
   }
 
   figs <- figs |>
     structure(
       biomarker_labels = biomarker_labels,
-      biomarker_event_names = biomarker_event_names
+      biomarker_event_names = biomarker_event_names,
+      biomarker_groups = biomarker_groups,
+      biomarker_levels = biomarker_levels
     )
 
   return(figs)
