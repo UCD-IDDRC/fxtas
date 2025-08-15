@@ -19,8 +19,8 @@ pvd_scatter <- function(
   temp_plot <- temp_data |>
     ggplot() +
     aes(
-      x = .data[[subtypes[1] ]],
-      y = .data[[subtypes[2] ]],
+      x = .data[[subtypes[1]]],
+      y = .data[[subtypes[2]]],
       col = .data$biomarker_group
     ) +
     geom_point() +
