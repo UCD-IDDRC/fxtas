@@ -7,9 +7,11 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{}
 #' figs <- readr::read_rds(
-#'  testthat::test_path("fixtures", "sim-figs-4.rds")
+#'  fs::path_package("fxtas", "extdata/sim-figs-4.rds")
 #' )
+#' group_colors(figs)
 group_colors <- function(object) {
   UseMethod("group_colors")
 }
