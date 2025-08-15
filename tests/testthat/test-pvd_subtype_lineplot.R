@@ -25,7 +25,8 @@ test_that("results are consistent with fxtas data", {
     pvd_subtype_lineplot(
       facet_label_prefixes = NULL,
       align_stage = FALSE,
-      events_to_highlight = color_info) |>
+      events_to_highlight = color_info
+    ) |>
     vdiffr::expect_doppelganger(title = "fxtas-data-4")
 
   fig3 <- figs[1:3] |>
@@ -33,7 +34,8 @@ test_that("results are consistent with fxtas data", {
       facet_label_prefixes = NULL,
       align_stage = FALSE,
       use_group_colors = FALSE,
-      events_to_highlight = color_info)
+      events_to_highlight = color_info
+    )
 
   fig3 |>
     vdiffr::expect_doppelganger(title = "fxtas-data-3")
@@ -43,7 +45,8 @@ test_that("results are consistent with fxtas data", {
       facet_label_prefixes = NULL,
       align_stage = FALSE,
       use_group_colors = FALSE,
-      events_to_highlight = color_info) |>
+      events_to_highlight = color_info
+    ) |>
     vdiffr::expect_doppelganger(title = "fxtas-data-2")
 
   figs[1:2] |>
@@ -52,7 +55,8 @@ test_that("results are consistent with fxtas data", {
       align_stage = FALSE,
       use_group_colors = TRUE,
       group_colors = figs |> group_colors(),
-      events_to_highlight = color_info) |>
+      events_to_highlight = color_info
+    ) |>
     vdiffr::expect_doppelganger(title = "fxtas-data-group-color")
 
 })
@@ -68,21 +72,24 @@ test_that("results are consistent with simulated data", {
 
   events_to_highlight <- tibble::tribble(
     ~event_name, ~line_color, ~highlight_color,
-    "Biomarker 2: 1",  "orange", "#FFF")
+    "Biomarker 2: 1",  "orange", "#FFF"
+  )
 
 
   figs |>
     pvd_subtype_lineplot(
       facet_label_prefixes = NULL,
       align_stage = FALSE,
-      events_to_highlight = events_to_highlight) |>
+      events_to_highlight = events_to_highlight
+    ) |>
     vdiffr::expect_doppelganger(title = "sim-data-4")
 
   figs[1:3] |>
     pvd_subtype_lineplot(
       facet_label_prefixes = NULL,
       align_stage = FALSE,
-      events_to_highlight = events_to_highlight) |>
+      events_to_highlight = events_to_highlight
+    ) |>
     vdiffr::expect_doppelganger(title = "sim-data-3")
 
 })
