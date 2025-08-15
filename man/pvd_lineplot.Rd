@@ -72,8 +72,11 @@ output_path <-
 
 figs <- extract_figs_from_pickle(
   output_folder = output_path,
+  use_rds = TRUE,
   n = 3
 )
 
-figs[1:2] |> pvd_lineplot()
+figs[1:2] |> pvd_lineplot(
+  group_cols = group_colors(figs)
+)
 }
