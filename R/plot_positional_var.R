@@ -52,11 +52,9 @@ plot_positional_var <- function(
     biomarker_event_names = biomarker_events_table |>
       get_biomarker_event_names(),
     biomarker_plot_order = NULL,
-    # ml_f_EM = results$ml_f_EM,
-    ml_f_EM = NULL,
+    ml_f_EM = NULL, # previously default = results$ml_f_EM
     cval = FALSE,
     subtype_order = seq_len(dim(samples_sequence)[1]),
-    # subtype_order = NULL,
     biomarker_order = NULL,
     title_font_size = 12,
     stage_font_size = 10,
@@ -162,19 +160,6 @@ plot_positional_var <- function(
   figs <- list()
   # Loop over figures
   for (i in 1:N_S) {
-    # Create the figure and axis for this subtype loop
-
-    # confus_matrix_c =
-    #   samples_sequence[subtype_order[i],,] |>
-    #   t() |>
-    #   compute_heatmap(
-    #     biomarker_labels = biomarker_labels,
-    #     colour_mat = colour_mat,
-    #     stage_biomarker_index = stage_biomarker_index,
-    #     stage_score = stage_score,
-    #     biomarker_event_names =
-    #       biomarker_event_names
-    #   )
 
     if (!is.null(subtype_titles)) {
       title_i <- subtype_titles[subtype_order[i]]
@@ -184,26 +169,42 @@ plot_positional_var <- function(
           results$subtype_and_stage_table,
         cval = cval,
         i = subtype_order[i]
-        # i = i
       )
     }
 
-    # heatmap_table =
-    #   confus_matrix_c |>
-    #   as.data.frame.table() |>
-    #   as_tibble() |>
-    #   pivot_wider(
-    #     id_cols = c("biomarker","SuStaIn.Stage"),
-    #     names_from = "color",
-    #     values_from = "Freq") |>
-    #   arrange(biomarker, SuStaIn.Stage)
-    #
-    # # Plot the colourized matrix
-    #
-    # plot1 =
-    #   heatmap_table |>
-    #   heatmap_table_to_plot() +
-    #   ggtitle(title_i)
+    old_version <-  FALSE
+    if (old_version) {
+      # Create the figure and axis for this subtype loop
+
+      confus_matrix_c <-
+        samples_sequence[subtype_order[i], , ] |>
+        t() |>
+        compute_heatmap(
+          biomarker_labels = biomarker_labels,
+          colour_mat = colour_mat,
+          stage_biomarker_index = stage_biomarker_index,
+          stage_score = stage_score,
+          biomarker_event_names = biomarker_event_names
+        )
+
+      heatmap_table <-
+        confus_matrix_c |>
+        as.data.frame.table() |>
+        as_tibble() |>
+        pivot_wider(
+          id_cols = c("biomarker", "SuStaIn.Stage"),
+          names_from = "color",
+          values_from = "Freq"
+        ) |>
+        arrange(.data$biomarker, .data$SuStaIn.Stage)
+
+      # Plot the colourized matrix
+
+      plot1 <- # nolint: object_usage_linter
+        heatmap_table |>
+        heatmap_table_to_plot() +
+        ggtitle(title_i)
+    }
 
     PFs <-
       samples_sequence[subtype_order[i], , ] |>
@@ -228,7 +229,7 @@ plot_positional_var <- function(
     figs[[i]] <- structure(
       PF_plot,
       biomarker_order = PFs |> attr("biomarker_order"),
-      # alt_plot = plot1,
+      # alt_plot = plot1, # nolint
       title = title_i
     )
     # https://medium.com/@tobias.stalder.geo/plot-rgb-satellite-imagery-in-true-color-with-ggplot2-in-r-10bdb0e4dd1f # nolint

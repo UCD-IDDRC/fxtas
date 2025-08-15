@@ -8,13 +8,10 @@ results <- extract_results_from_pickle(
   use_rds = FALSE
 )
 
+# don't save `results` to .rds; too big
+
+
 figs <- results |> plot_positional_var()
-
-# results |>
-#   readr::write_rds(
-#     testthat::test_path("fixtures", "sim-results-4.rds")
-#   )
-
 
 figs |>
   readr::write_rds(

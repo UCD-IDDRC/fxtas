@@ -10,7 +10,7 @@ choose_biomarker_group_colors <- function(
   # colorspace::qualitative_hcl(n = _, "Dark2")  # nolint
     setNames(biomarker_group_names)
 
-  biomarker_group_colors[biomarker_group_names == "Stage"] = "black"
+  biomarker_group_colors[biomarker_group_names == "Stage"] <- "black"
 
   tibble(
     biomarker_group = biomarker_group_names |>

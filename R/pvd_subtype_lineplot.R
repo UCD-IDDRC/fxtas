@@ -17,7 +17,8 @@
 #' @param align_stage [logical] whether to align by FXTAS stage
 #' @param use_group_colors [logical]: whether to use existing group colors
 #' or custom line colors from `events_to_highlight` argument
-#' @param group_colors a named [character] [vector] mapping from `biomarker_group` to a color palette
+#' @param group_colors a named [character] [vector]
+#' mapping from `biomarker_group` to a color palette
 #' @param ... additional arguments passed to [ggbump::geom_bump]
 #' Default = c(1, 1.15, 1.75, 2.35)
 #'

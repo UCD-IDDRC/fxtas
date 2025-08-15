@@ -63,7 +63,8 @@ pvd_subtype_lineplot(
 \item{use_group_colors}{\link{logical}: whether to use existing group colors
 or custom line colors from \code{events_to_highlight} argument}
 
-\item{group_colors}{a named \link{character} \link{vector} mapping from \code{biomarker_group} to a color palette}
+\item{group_colors}{a named \link{character} \link{vector}
+mapping from \code{biomarker_group} to a color palette}
 
 \item{...}{additional arguments passed to \link[ggbump:geom_bump]{ggbump::geom_bump}
 Default = c(1, 1.15, 1.75, 2.35)}

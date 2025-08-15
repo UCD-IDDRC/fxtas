@@ -2,7 +2,8 @@
 #'
 #' @param object an object
 #'
-#' @returns a named [character] [vector] mapping from `biomarker_group` to a color palette
+#' @returns a named [character] [vector] mapping
+#' from `biomarker_group` to a color palette
 #' @export
 #'
 #' @examples

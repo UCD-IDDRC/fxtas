@@ -10,7 +10,8 @@ group_colors(object)
 \item{object}{an object}
 }
 \value{
-a named \link{character} \link{vector} mapping from \code{biomarker_group} to a color palette
+a named \link{character} \link{vector} mapping
+from \code{biomarker_group} to a color palette
 }
 \description{
 Extract group colors
