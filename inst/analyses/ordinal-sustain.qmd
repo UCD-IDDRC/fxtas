@@ -30,7 +30,10 @@ knitr::opts_chunk$set(
   include = TRUE
 )
 pander::panderOptions("table.split.table", Inf)
-
+sessioninfo::package_info(pkgs = "installed") |> 
+  tibble::as_tibble() |>  
+  dplyr::select("package", "ondiskversion", "source") |> 
+  readr::write_csv("packages.csv")
 ```
 
 ```{r}

@@ -19,6 +19,8 @@ facet_names <- fxtas:::compact_pvd_facet_labels(
   figs = figs,
   facet_label_prefix = facet_label_prefix
 )
+
+group_colors <- figs |> group_colors()
 # generate figure
 fxtas:::compact_pvd_figure(
   plot_dataset,
@@ -27,5 +29,6 @@ fxtas:::compact_pvd_figure(
   facet_names = facet_names,
   # facet_label_size = facet_label_size,
   legend.position = legend.position,
-  scale_colors = scale_colors
+  scale_colors = scale_colors,
+  group_colors = group_colors
 )

@@ -25,6 +25,9 @@ plot_compact_pvd <- function(
     figs = figs,
     facet_label_prefix = facet_label_prefix
   )
+
+  group_colors <- figs |> group_colors()
+
   # generate figure
   compact_pvd_figure(
     plot_dataset,
@@ -32,6 +35,7 @@ plot_compact_pvd <- function(
     y_text_size = y_text_size,
     facet_names = facet_names,
     legend.position = legend.position,
-    scale_colors = scale_colors
+    scale_colors = scale_colors,
+    group_colors = group_colors
   )
 }

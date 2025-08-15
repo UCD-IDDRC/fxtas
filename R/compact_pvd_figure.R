@@ -11,6 +11,7 @@ compact_pvd_figure <- function(
     legend.position, # nolint: object_name_linter
     scale_colors,
     rel_heights = c(1, 0.1),
+    group_colors,
     ...) {
   # set tile width
   tile_width <- 1
@@ -26,6 +27,16 @@ compact_pvd_figure <- function(
     dplyr::pull("level") |>
     unique() |>
     length()
+
+  plot_dataset |>
+    slice_head(
+      n = 1,
+      by = c("facet", "event name")
+    ) |>
+    tidyr::pivot_wider(
+      names_from = facet,
+      values_from = position
+    )
 
   # create level color scales
   if (length(scale_colors) != nlevels) {
