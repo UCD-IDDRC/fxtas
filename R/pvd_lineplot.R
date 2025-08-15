@@ -105,7 +105,8 @@ pvd_lineplot <- function(
     ggplot2::scale_color_manual(
       guide = ggh4x::guide_stringlegend(
         order = 3,
-        nrow = nrow_group_col),
+        nrow = nrow_group_col
+      ),
       name = "Symptom category:",
       values = group_cols
     ) +
@@ -150,7 +151,8 @@ pvd_lineplot <- function(
       guide = ggplot2::guide_legend(
         size = x_text_size,
         order = 2,
-        ncol = 2),
+        ncol = 2
+      ),
       name = "Direction:",
       drop = FALSE,
       values = direction_colors

@@ -2,7 +2,7 @@ pvd_scatter <- function(
     plot_dataset,
     nrow_colors,
     group_colors,
-    legend_text_size) {
+    legend_text_size = grid::unit(7, "pt")) {
   subtypes <- plot_dataset$facet |> unique() |> as.character()
 
   temp_data <- plot_dataset |>

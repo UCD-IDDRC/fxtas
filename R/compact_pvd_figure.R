@@ -15,7 +15,7 @@ compact_pvd_figure <- function(
     group_colors,
     ncol_legend = 1,
     group_color_legend,
-    legend_text_size,
+    legend_text_size = grid::unit(7, "pt"),
     ...) {
   # set tile width
   tile_width <- 1

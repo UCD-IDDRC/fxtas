@@ -64,13 +64,13 @@ pvd_subtype_lineplot(
 \item{use_group_colors}{\link{logical}: whether to use existing group colors
 or custom line colors from \code{events_to_highlight} argument}
 
+\item{group_cols}{a named \link{character} \link{vector}
+mapping from \code{biomarker_group} to a color palette}
+
 \item{legend_text_size}{\link[grid:unit]{grid::unit}: legend text size}
 
 \item{...}{additional arguments passed to \link[ggbump:geom_bump]{ggbump::geom_bump}
 Default = c(1, 1.15, 1.75, 2.35)}
-
-\item{group_colors}{a named \link{character} \link{vector}
-mapping from \code{biomarker_group} to a color palette}
 }
 \description{
 Display Sequential Order of Events by Subtype
