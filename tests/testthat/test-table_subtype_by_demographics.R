@@ -34,6 +34,11 @@ test_that(
     )
 
     ft |>
+      as.data.frame() |>
+      ssdtools:::expect_snapshot_data(name = "table_subtype_by_demographics")
+
+    skip_on_ci()
+    ft |>
       gtsummary::as_flex_table() |>
       shared_flextable_settings(padding = 2) |>
       flextable::gen_grob(fit = "fixed") |>

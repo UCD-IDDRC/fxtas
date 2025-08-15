@@ -1,4 +1,5 @@
 test_that("results are consistent", {
+
   prob_correct <-
     testthat::test_path("fixtures", "prob_correct.rds") |>
     readr::read_rds()
@@ -7,6 +8,8 @@ test_that("results are consistent", {
   ft = prob_correct |>
     flextable::flextable() |>
     shared_flextable_settings(padding = 2)
+
+  skip_on_ci()
 
   ft |>
     flextable::gen_grob(fit = "fixed") |>
