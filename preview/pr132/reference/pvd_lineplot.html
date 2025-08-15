@@ -69,7 +69,8 @@
 <span>  direction_colors <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>`(stage)` <span class="op">=</span> <span class="st">"grey25"</span>, down <span class="op">=</span> <span class="st">"#DC3220"</span>, neutral <span class="op">=</span> <span class="st">"grey70"</span>, up <span class="op">=</span></span>
 <span>    <span class="st">"#005AB5"</span><span class="op">)</span>,</span>
 <span>  expand <span class="op">=</span> <span class="fl">0.25</span>,</span>
-<span>  group_colors <span class="op">=</span> <span class="fu"><a href="group_colors.html">group_colors</a></span><span class="op">(</span><span class="va">figs</span><span class="op">)</span></span>
+<span>  group_cols <span class="op">=</span> <span class="fu"><a href="group_colors.html">group_colors</a></span><span class="op">(</span><span class="va">figs</span><span class="op">)</span>,</span>
+<span>  rel_heights <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2.5</span>, <span class="fl">0.175</span>, <span class="fl">0.25</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -133,9 +134,14 @@
 <dd><p><a href="https://rdrr.io/r/base/numeric.html" class="external-link">numeric</a> how much to pad the sides</p></dd>
 
 
-<dt id="arg-group-colors">group_colors<a class="anchor" aria-label="anchor" href="#arg-group-colors"></a></dt>
+<dt id="arg-group-cols">group_cols<a class="anchor" aria-label="anchor" href="#arg-group-cols"></a></dt>
 <dd><p>a named <a href="https://rdrr.io/r/base/character.html" class="external-link">character</a> <a href="https://rdrr.io/r/base/vector.html" class="external-link">vector</a>
 mapping from <code>biomarker_group</code> to a color palette</p></dd>
+
+
+<dt id="arg-rel-heights">rel_heights<a class="anchor" aria-label="anchor" href="#arg-rel-heights"></a></dt>
+<dd><p>(optional) Numerical vector of relative rows heights. Works just as
+<code>rel_widths</code> does, but for rows rather than columns.</p></dd>
 
 </dl></div>
 
@@ -150,7 +156,7 @@ mapping from <code>biomarker_group</code> to a color palette</p></dd>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">figs</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">]</span> <span class="op">|&gt;</span> <span class="fu">pvd_lineplot</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in is_missing(values):</span> promise already under evaluation: recursive default argument reference or earlier problems?</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in UseMethod("pull"):</span> no applicable method for 'pull' applied to an object of class "NULL"</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
