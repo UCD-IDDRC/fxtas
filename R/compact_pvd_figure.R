@@ -29,9 +29,11 @@ compact_pvd_figure <- function(
 
   # create level color scales
   if (length(scale_colors) != nlevels) {
-    stop(
-      "`scale_colors` must be the same length as the number of levels",
-      " (number of levels = ", nlevels, ")"
+    cli::cli_abort(
+      c(
+        "`scale_colors` must be the same length as the number of levels",
+        " (number of levels = {nlevels})"
+      )
     )
   }
 
@@ -202,7 +204,9 @@ compact_pvd_figure <- function(
 
   if (legend.position == "none") {
     fig <- cowplot::plot_grid(
-      fig, horizontal_greyscale_legend,
+      fig,
+      horizontal_greyscale_legend, # stored as internal data;
+      # see data-raw/pvd_grayscale_legend.R for details
       nrow = 2,
       rel_heights = rel_heights
     )

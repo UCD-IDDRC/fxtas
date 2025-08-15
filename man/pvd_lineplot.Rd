@@ -17,8 +17,12 @@ pvd_lineplot(
   y_title_size = 9,
   y_text_size = 8,
   x_text_size = 8,
-  direction_colors = c("grey25", "#DC3220", "grey70", "#005AB5"),
-  expand = 0.25
+  direction_colors = c(`(stage)` = "grey25", down = "#DC3220", neutral = "grey70", up =
+    "#005AB5"),
+  expand = 0.25,
+  group_cols = group_colors(figs),
+  rel_heights = c(2.5, 0.175, 0.25),
+  guide_group_colors = TRUE
 )
 }
 \arguments{
@@ -49,6 +53,15 @@ pvd_lineplot(
 \item{direction_colors}{a \link{character} vector of length 4}
 
 \item{expand}{\link{numeric} how much to pad the sides}
+
+\item{group_cols}{a named \link{character} \link{vector}
+mapping from \code{biomarker_group} to a color palette}
+
+\item{rel_heights}{(optional) Numerical vector of relative rows heights. Works just as
+\code{rel_widths} does, but for rows rather than columns.}
+
+\item{guide_group_colors}{\link{logical}:
+whether to provide a guide for group colors}
 }
 \description{
 Plot change in Stage ranking
@@ -59,8 +72,11 @@ output_path <-
 
 figs <- extract_figs_from_pickle(
   output_folder = output_path,
+  use_rds = TRUE,
   n = 3
 )
 
-figs[1:2] |> pvd_lineplot()
+figs[1:2] |> pvd_lineplot(
+  group_cols = group_colors(figs)
+)
 }

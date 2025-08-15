@@ -18,6 +18,7 @@ Extract group colors
 }
 \examples{
 figs <- readr::read_rds(
- testthat::test_path("fixtures", "sim-figs-4.rds")
+ fs::path_package("fxtas", "extdata/sim_data/sim-figs-4.rds")
 )
+group_colors(figs)
 }

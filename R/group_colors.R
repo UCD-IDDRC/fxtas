@@ -8,8 +8,9 @@
 #'
 #' @examples
 #' figs <- readr::read_rds(
-#'  testthat::test_path("fixtures", "sim-figs-4.rds")
+#'  fs::path_package("fxtas", "extdata/sim_data/sim-figs-4.rds")
 #' )
+#' group_colors(figs)
 group_colors <- function(object) {
   UseMethod("group_colors")
 }
@@ -17,6 +18,14 @@ group_colors <- function(object) {
 #' @export
 group_colors.PVD_list <- function(object) {
   object |>
+    attr("biomarker_groups") |>
+    attr("group_colors") |>
+    pull("group_color")
+}
+
+#' @export
+group_colors.list <- function(object) {
+  object[[1]] |>
     attr("biomarker_groups") |>
     attr("group_colors") |>
     pull("group_color")

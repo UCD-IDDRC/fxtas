@@ -1,6 +1,6 @@
 Package: fxtas
 Title: FXTAS
-Version: 0.0.0.9036
+Version: 0.0.0.9037
 Authors@R: c(
     person("Douglas Ezra", "Morrison", , "demorrison@ucdavis.edu", role = c("cre", "aut")),
     person("Matthew", "Ponzini", , "mdponzini@ucdavis.edu", role = c("aut")))
@@ -24,6 +24,7 @@ Imports:
     fs,
     gert,
     ggbump (>= 0.1.99999),
+    ggh4x,
     ggnewscale,
     ggplot2,
     ggtext,
@@ -100,7 +101,7 @@ Config/reticulate/autoconfigure:
   )
 Config/build/copy-method: link
 Roxygen: list(markdown = TRUE, roclets = c("collate", "rd", "namespace", "devtag::dev_roclet"))
-Remotes:  
+Remotes: 
     bcgov/ssdtools,
     moodymudskipper/devtag,
     d-morrison/gtsummary@ezra-dev,

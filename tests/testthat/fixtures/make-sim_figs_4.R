@@ -17,3 +17,7 @@ figs |>
   readr::write_rds(
     testthat::test_path("fixtures", "sim-figs-4.rds")
   )
+
+
+figs |>
+  readr::write_rds("inst/extdata/sim_data/sim-figs-4.rds")

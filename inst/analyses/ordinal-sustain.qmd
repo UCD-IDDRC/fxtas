@@ -845,10 +845,13 @@ pvdc_sex |>
 #| fig-height: !expr pvd_line_height
 #| fig-width: !expr pvd_line_width
 #| label: figure-2
-lineplot_by_sex <- list(
+
+pvds_by_sex <- list(
   "Males," = fig_males_first,
   "Females," = fig_females_first
-) |>
+)
+
+lineplot_by_sex <- pvds_by_sex |>
   pvd_lineplot(
     expand = 0,
     min_alpha = 0.5,
@@ -869,7 +872,14 @@ lineplot_by_sex <- list(
     highlight_color = "yellow"
   )
 
-lineplot_by_sex
+if (interactive()) {
+  lineplot_by_sex + ggview::canvas(
+    width = pvd_line_height, 
+    height = pvd_line_height
+  )
+} else{
+  lineplot_by_sex
+}
 
 lineplot_by_sex |> 
   ggplot2::ggsave(
