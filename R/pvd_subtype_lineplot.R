@@ -46,7 +46,7 @@ pvd_subtype_lineplot <- function(
     mult = .2,
     align_stage = TRUE,
     use_group_colors = FALSE,
-    group_colors = group_colors(figs),
+    group_cols = group_colors(figs),
     ...) {
 
 
@@ -117,6 +117,8 @@ pvd_subtype_lineplot <- function(
     theme_classic() +
     theme(
       legend.position = "bottom",
+      legend.text = element_text(size = grid::unit(7, "pt")),
+      legend.title = element_text(size = grid::unit(7, "pt")),
       axis.title.x = ggplot2::element_blank(),
       axis.title.y = ggtext::element_markdown(size = y_title_size),
       axis.text.y = ggtext::element_markdown(size = y_text_size),
@@ -125,8 +127,11 @@ pvd_subtype_lineplot <- function(
 
   if (use_group_colors) {
     to_return <- to_return +
-      ggplot2::scale_color_manual(name = "Symptom category:",
-                                  values = group_colors)
+      ggplot2::scale_color_manual(
+        guide = ggh4x::guide_stringlegend(nrow = 1),
+        name = "Symptom category:",
+        values = group_cols
+      )
   } else {
     to_return <- to_return +
       ggplot2::scale_color_identity(guide = "none")
