@@ -23,7 +23,7 @@ Imports:
     formulaic,
     fs,
     gert,
-    ggbump,
+    ggbump (>= 0.1.99999),
     ggnewscale,
     ggplot2,
     ggtext,
@@ -100,11 +100,12 @@ Config/reticulate/autoconfigure:
   )
 Config/build/copy-method: link
 Roxygen: list(markdown = TRUE, roclets = c("collate", "rd", "namespace", "devtag::dev_roclet"))
-Remotes: 
+Remotes:  
     bcgov/ssdtools,
     moodymudskipper/devtag,
     d-morrison/gtsummary@ezra-dev,
-    insightsengineering/cardx
+    insightsengineering/cardx,
+    davidsjoberg/ggbump
 Config/Needs/build: moodymudskipper/devtag
 Config/Needs/roxygen2: moodymudskipper/devtag
 Config/Needs/website: quarto, rmarkdown
