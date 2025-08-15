@@ -14,7 +14,7 @@
 #' @param y_lab todo
 #' @param direction_colors a [character] vector of length 4
 #' @param expand [numeric] how much to pad the sides
-#'
+#' @inheritParams pvd_subtype_lineplot
 #' @export
 #' @example inst/examples/exm-pvd_lineplot.R
 pvd_lineplot <- function(
@@ -31,23 +31,24 @@ pvd_lineplot <- function(
     y_text_size = 8,
     x_text_size = 8,
     direction_colors = c(
-      "grey25",
+      "(stage)" = "grey25",
       # "#F8766D",
-      "#DC3220",
-      "grey70",
+      "down" = "#DC3220",
+      "neutral" = "grey70",
       # "#00BFC4"
-      "#005AB5"
+      "up" = "#005AB5"
     ),
-    expand = 0.25) {
-
+    expand = 0.25,
+    group_colors = group_colors(figs)) {
   dataset <- extract_lineplot_data(figs, facet_labels)
 
   # additional processing
   plot_dataset <- dataset |>
     pvd_lineplot_preprocessing(
-    facet_labels,
-    events_to_highlight,
-    highlight_color)
+      facet_labels,
+      events_to_highlight,
+      highlight_color
+    )
 
   # alpha scaling #
   alpha_mult <- calc_alpha_mult(plot_dataset, max_alpha, min_alpha)
@@ -82,13 +83,38 @@ pvd_lineplot <- function(
       aes(
         label = .data$`event label`,
         hjust = .data$hjust,
-        fill = .data$background
+        fill = .data$background,
+        color = .data$biomarker_group
       ),
       label.color = NA,
       label.padding = grid::unit(rep(1, 4), "pt"),
       size = text_size
     ) +
     scale_fill_identity() +
+    ggplot2::scale_color_manual(
+      guide = ggh4x::guide_stringlegend(order = 3),
+      name = "Symptom category:",
+      values = group_colors
+    ) +
+    ggplot2::scale_linewidth_identity(guide = "none") +
+    ggplot2::scale_alpha_continuous(
+      guide = ggplot2::guide_legend(order = 1),
+      name = "Distance:",
+      range = c(min_alpha, max_alpha)
+    ) +
+    scale_x_continuous(
+      expand = ggplot2::expansion(add = c(expand)),
+      limits = c(0.65, 1.5),
+      breaks = c(1, 1.15),
+      labels = facet_x_labels
+    ) +
+    scale_y_discrete(
+      name = y_lab,
+      limits = rev,
+      breaks = NULL
+    ) +
+    theme_classic() +
+    ggnewscale::new_scale_color() +
     geom_line(
       data = plot_dataset |> filter(.data$biomarker != "FXTAS Stage"),
       aes(
@@ -97,7 +123,6 @@ pvd_lineplot <- function(
         alpha = .data$abs_change,
         linewidth = .data$linesize
       )
-
     ) +
     geom_line(
       data = plot_dataset |> filter(.data$biomarker == "FXTAS Stage"),
@@ -107,32 +132,19 @@ pvd_lineplot <- function(
         linewidth = .data$linesize
       ),
       alpha = stage_alpha,
-
-
-    ) +
-    ggplot2::scale_linewidth_identity(guide = "none") +
-    ggplot2::scale_alpha_continuous(
-      name = "Distance",
-      range = c(min_alpha, max_alpha)
-    ) +
-    scale_x_continuous(
-      expand = ggplot2::expansion(add = c(expand)),
-      limits = c(0.65, 1.5),
-      breaks = c(1, 1.15),
-      labels = facet_x_labels
     ) +
     scale_color_manual(
-      name = "Direction",
+      guide = ggplot2::guide_legend(order = 2),
+      name = "Direction:",
       drop = FALSE,
       values = direction_colors
-    ) +
-    scale_y_discrete(
-      name = y_lab,
-      limits = rev,
-      breaks = NULL) +
-    theme_classic() +
+    ) -> temp
+
+  to_return <- temp +
     theme(
+      # legend.byrow = TRUE,
       legend.position = "bottom",
+      legend.box = "vertical",
       axis.title.x = ggplot2::element_blank(),
       axis.title.y = ggtext::element_markdown(size = y_title_size),
       axis.text.y = ggtext::element_markdown(size = y_text_size),
@@ -141,4 +153,18 @@ pvd_lineplot <- function(
         hjust = plot_dataset[["hjust"]]
       )
     )
+  # legnds <- cowplot::get_panel(temp, "legend", return_all = TRUE)
+  legends <- to_return |> cowplot::get_legend()
+  plot <- to_return + theme(legend.position = "none")
+
+  cowplot::ggdraw(
+    cowplot::plot_grid(
+      ncol = 1,
+      cowplot::plot_grid(plot),
+      cowplot::plot_grid(legends[3], legends[5], ncol = 2),
+      cowplot::plot_grid(legends[7]),
+      rel_heights  = c(2.5, 0.175, 0.25)
+    )
+  )
+
 }

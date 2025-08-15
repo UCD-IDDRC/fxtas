@@ -24,6 +24,7 @@ Imports:
     fs,
     gert,
     ggbump (>= 0.1.99999),
+    ggh4x,
     ggnewscale,
     ggplot2,
     ggtext,

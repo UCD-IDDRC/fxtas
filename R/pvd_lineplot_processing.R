@@ -24,8 +24,9 @@ pvd_lineplot_preprocessing <- function(
         as.character(.data$`event label`)
       )
     ) |>
-    dplyr::select(
-      all_of(
+    dplyr::slice_head(
+      n = 1,
+      by = all_of(
         c(
           "event name",
           "facet",
@@ -37,7 +38,6 @@ pvd_lineplot_preprocessing <- function(
         )
       )
     ) |>
-    unique() |>
     arrange(.data$`event name`, .data$facet) |>
     dplyr::mutate(
       # logical: did sequence change
