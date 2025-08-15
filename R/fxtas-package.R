@@ -69,6 +69,7 @@
 #' @importFrom ggplot2 ggtitle
 #' @importFrom ggplot2 guide_colorbar
 #' @importFrom ggplot2 guide_legend
+#' @importFrom ggplot2 guides
 #' @importFrom ggplot2 labs
 #' @importFrom ggplot2 scale_color_identity
 #' @importFrom ggplot2 scale_color_manual
