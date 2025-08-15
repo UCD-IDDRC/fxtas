@@ -16,6 +16,8 @@
 #' @param expand [numeric] how much to pad the sides
 #' @param group_cols a named [character] [vector]
 #' mapping from `biomarker_group` to a color palette
+#' @param guide_group_colors [logical]:
+#' whether to provide a guide for group colors
 #' @inheritParams cowplot::plot_grid
 #' @export
 #' @example inst/examples/exm-pvd_lineplot.R
@@ -42,7 +44,8 @@ pvd_lineplot <- function(
     ),
     expand = 0.25,
     group_cols = group_colors(figs),
-    rel_heights = c(2.5, 0.175, 0.25)) {
+    rel_heights = c(2.5, 0.175, 0.25),
+    guide_group_colors = TRUE) {
 
   dataset <- extract_lineplot_data(figs, facet_labels)
 
@@ -77,7 +80,7 @@ pvd_lineplot <- function(
   )
 
   # plot
-  plot_dataset |>
+  to_return <- plot_dataset |>
     ggplot() +
     aes(
       x = .data$facet_order,
@@ -142,11 +145,8 @@ pvd_lineplot <- function(
       name = "Direction:",
       drop = FALSE,
       values = direction_colors
-    ) -> temp
-
-  to_return <- temp +
+    ) +
     theme(
-      # legend.byrow = TRUE,
       legend.position = "bottom",
       legend.box = "vertical",
       axis.title.x = ggplot2::element_blank(),
@@ -157,7 +157,10 @@ pvd_lineplot <- function(
         hjust = plot_dataset[["hjust"]]
       )
     )
-  # legnds <- cowplot::get_panel(temp, "legend", return_all = TRUE)
+
+  if (!guide_group_colors) {
+    return(to_return)
+  } else {
   legends <- to_return |> cowplot::get_legend()
   plot <- to_return + theme(legend.position = "none")
 
@@ -170,5 +173,5 @@ pvd_lineplot <- function(
       rel_heights  = rel_heights
     )
   )
-
+  }
 }

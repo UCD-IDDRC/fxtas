@@ -21,7 +21,8 @@ pvd_lineplot(
     "#005AB5"),
   expand = 0.25,
   group_cols = group_colors(figs),
-  rel_heights = c(2.5, 0.175, 0.25)
+  rel_heights = c(2.5, 0.175, 0.25),
+  guide_group_colors = TRUE
 )
 }
 \arguments{
@@ -58,6 +59,9 @@ mapping from \code{biomarker_group} to a color palette}
 
 \item{rel_heights}{(optional) Numerical vector of relative rows heights. Works just as
 \code{rel_widths} does, but for rows rather than columns.}
+
+\item{guide_group_colors}{\link{logical}:
+whether to provide a guide for group colors}
 }
 \description{
 Plot change in Stage ranking
