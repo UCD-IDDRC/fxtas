@@ -18,6 +18,8 @@
 #' mapping from `biomarker_group` to a color palette
 #' @param guide_group_colors [logical]:
 #' whether to provide a guide for group colors
+#' @param legend_text_size [grid::unit]: legend text size
+#' @param nrow_group_col [integer] how many rows in group_col legend
 #' @inheritParams cowplot::plot_grid
 #' @export
 #' @example inst/examples/exm-pvd_lineplot.R
@@ -34,6 +36,7 @@ pvd_lineplot <- function(
     y_title_size = 9,
     y_text_size = 8,
     x_text_size = 8,
+    nrow_group_col = 1,
     direction_colors = c(
       "(stage)" = "grey25",
       # "#F8766D",
@@ -44,7 +47,8 @@ pvd_lineplot <- function(
     ),
     expand = 0.25,
     group_cols = group_colors(figs),
-    rel_heights = c(2.5, 0.175, 0.25),
+    rel_heights = c(2.5, .5),
+    legend_text_size = grid::unit(7, "pt"),
     guide_group_colors = TRUE) {
 
   dataset <- extract_lineplot_data(figs, facet_labels)
@@ -99,7 +103,10 @@ pvd_lineplot <- function(
     ) +
     scale_fill_identity() +
     ggplot2::scale_color_manual(
-      guide = ggh4x::guide_stringlegend(order = 3),
+      guide = ggh4x::guide_stringlegend(
+        order = 3,
+        nrow = nrow_group_col
+      ),
       name = "Symptom category:",
       values = group_cols
     ) +
@@ -141,7 +148,11 @@ pvd_lineplot <- function(
       alpha = stage_alpha,
     ) +
     scale_color_manual(
-      guide = ggplot2::guide_legend(order = 2),
+      guide = ggplot2::guide_legend(
+        size = x_text_size,
+        order = 2,
+        ncol = 2
+      ),
       name = "Direction:",
       drop = FALSE,
       values = direction_colors
@@ -149,6 +160,8 @@ pvd_lineplot <- function(
     theme(
       legend.position = "bottom",
       legend.box = "vertical",
+      legend.text = element_text(size = legend_text_size),
+      legend.title = element_text(size = legend_text_size),
       axis.title.x = ggplot2::element_blank(),
       axis.title.y = ggtext::element_markdown(size = y_title_size),
       axis.text.y = ggtext::element_markdown(size = y_text_size),
@@ -168,8 +181,11 @@ pvd_lineplot <- function(
       cowplot::plot_grid(
         ncol = 1,
         cowplot::plot_grid(plot),
-        cowplot::plot_grid(legends[3], legends[5], ncol = 2),
-        cowplot::plot_grid(legends[7]),
+        cowplot::plot_grid(
+          nrow = 2,
+          cowplot::plot_grid(legends[3], legends[5], ncol = 2),
+          cowplot::plot_grid(legends[7])
+        ),
         rel_heights  = rel_heights
       )
     )

@@ -17,8 +17,9 @@
 #' @param align_stage [logical] whether to align by FXTAS stage
 #' @param use_group_colors [logical]: whether to use existing group colors
 #' or custom line colors from `events_to_highlight` argument
-#' @param group_colors a named [character] [vector]
+#' @param group_cols a named [character] [vector]
 #' mapping from `biomarker_group` to a color palette
+#' @param legend_text_size [grid::unit]: legend text size
 #' @param ... additional arguments passed to [ggbump::geom_bump]
 #' Default = c(1, 1.15, 1.75, 2.35)
 #'
@@ -46,7 +47,8 @@ pvd_subtype_lineplot <- function(
     mult = .2,
     align_stage = TRUE,
     use_group_colors = FALSE,
-    group_colors = group_colors(figs),
+    group_cols = group_colors(figs),
+    legend_text_size = grid::unit(7, "pt"),
     ...) {
 
 
@@ -117,6 +119,8 @@ pvd_subtype_lineplot <- function(
     theme_classic() +
     theme(
       legend.position = "bottom",
+      legend.text = element_text(size = legend_text_size),
+      legend.title = element_text(size = legend_text_size),
       axis.title.x = ggplot2::element_blank(),
       axis.title.y = ggtext::element_markdown(size = y_title_size),
       axis.text.y = ggtext::element_markdown(size = y_text_size),
@@ -125,8 +129,11 @@ pvd_subtype_lineplot <- function(
 
   if (use_group_colors) {
     to_return <- to_return +
-      ggplot2::scale_color_manual(name = "Symptom category:",
-                                  values = group_colors)
+      ggplot2::scale_color_manual(
+        guide = ggh4x::guide_stringlegend(nrow = 1),
+        name = "Symptom category:",
+        values = group_cols
+      )
   } else {
     to_return <- to_return +
       ggplot2::scale_color_identity(guide = "none")

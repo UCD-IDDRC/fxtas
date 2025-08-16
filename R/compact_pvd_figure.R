@@ -11,6 +11,11 @@ compact_pvd_figure <- function(
     legend.position, # nolint: object_name_linter
     scale_colors,
     rel_heights = c(1, 0.1),
+    guide_rel_widths = c(.3, .7),
+    group_colors,
+    ncol_legend = 1,
+    group_color_legend,
+    legend_text_size = grid::unit(7, "pt"),
     ...) {
   # set tile width
   tile_width <- 1
@@ -26,6 +31,7 @@ compact_pvd_figure <- function(
     dplyr::pull("level") |>
     unique() |>
     length()
+
 
   # create level color scales
   if (length(scale_colors) != nlevels) {
@@ -189,8 +195,10 @@ compact_pvd_figure <- function(
     ggplot2::theme_bw() +
     ggplot2::theme(
       # add color scale info in figure caption:
+      legend.text = element_text(size = legend_text_size),
+      legend.title = ggtext::element_markdown(size = legend_text_size),
       legend.position = legend.position,
-      legend.title = ggtext::element_markdown(), # markdown for legends
+      # markdown for legends
       legend.byrow = TRUE,
       legend.box = "horizontal",
       # legend.justification = ,
@@ -205,7 +213,13 @@ compact_pvd_figure <- function(
   if (legend.position == "none") {
     fig <- cowplot::plot_grid(
       fig,
-      horizontal_greyscale_legend, # stored as internal data;
+      cowplot::plot_grid(
+        ncol = ncol_legend,
+        group_color_legend,
+        horizontal_greyscale_legend, # stored as internal data;
+        rel_widths = guide_rel_widths,
+        ...
+      ),
       # see data-raw/pvd_grayscale_legend.R for details
       nrow = 2,
       rel_heights = rel_heights

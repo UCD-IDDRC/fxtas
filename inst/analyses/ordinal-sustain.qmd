@@ -30,7 +30,10 @@ knitr::opts_chunk$set(
   include = TRUE
 )
 pander::panderOptions("table.split.table", Inf)
-
+sessioninfo::package_info(pkgs = "installed") |> 
+  tibble::as_tibble() |>  
+  dplyr::select("package", "ondiskversion", "source") |> 
+  readr::write_csv("inst/analyses/packages.csv")
 ```
 
 ```{r}
@@ -120,10 +123,10 @@ plot_python <- TRUE
 fig_size <- c(20, 10) # passed to pySuStaIn
 
 # max size: 170 mm x 210 mm = 6.69 x 8.27 inches 
-pvd_height <- 6.5
-pvd_width <- 6
+pvd_height <- 8
+pvd_width <- 6.5
 pvd_subfig_width <- pvd_width - 1
-pvd_line_height <- 7
+pvd_line_height <- 8
 pvd_line_width <- 6.69
 pvd_line_subfig_width <- pvd_line_width
 lineplot_text_size <- 2.75
@@ -422,7 +425,7 @@ if (fit_models || !file.exists(sustain_output_path)) {
 ## Results
 
 ```{r}
-#| label: extract-figs
+#| label: extract-subtype-results
 
 results_v1 <- extract_results_from_pickles(
   use_rds = use_rds,
@@ -433,6 +436,53 @@ results_v1 <- extract_results_from_pickles(
   verbose = verbose
 )
 
+```
+
+```{r}
+#| label: extract-marginal-fig
+
+fig_both_first <- extract_figs_from_pickle(
+  biomarker_groups = biomarker_groups,
+  biomarker_levels = biomarker_levels,
+  use_rds = use_rds,
+  size.y = size.y,
+  n_s = 1,
+  rda_filename = "data.RData",
+  dataset_name = "sample_data",
+  output_folder = output_folder
+)
+
+fig_both_first2 <-
+  list(fig_both_first) |>
+  plot_compact_pvd(
+    scale_colors = scale_colors1,
+    rel_heights = c(.9, 0.1),
+    ncol_legend = 2,
+    guide_rel_widths = c(0, 1)
+  )
+
+if (interactive()) {
+  fig_both_first2 + ggview::canvas(
+    height = 120, 
+    width = 120,
+    units = "mm", 
+    dpi = 600
+  )
+}
+
+fig_both_first2 |> 
+  ggplot2::ggsave(
+    height = 120, 
+    width = 120,
+    units = "mm", 
+    dpi = 600,
+    filename = "inst/analyses/thumbnail.jpeg"
+  )
+```
+
+
+```{r}
+#| label: extract-strat-results
 results_females_first = extract_results_from_pickle(
   use_rds = use_rds,
   n_s = 1,
@@ -469,31 +519,6 @@ fig_males_first <- results_males_first |>
   use_labels = TRUE
 )
 
-fig_both_first <- extract_figs_from_pickle(
-  biomarker_groups = biomarker_groups,
-  biomarker_levels = biomarker_levels,
-  use_rds = use_rds,
-  size.y = size.y,
-  n_s = 1,
-  rda_filename = "data.RData",
-  dataset_name = "sample_data",
-  output_folder = output_folder
-)
-
-fig_both_first2 <-
-  list(fig_both_first) |>
-  plot_compact_pvd(
-    scale_colors = scale_colors1
-  )
-
-fig_both_first2 |> 
-  ggplot2::ggsave(
-    height = 120, 
-    width = 120,
-    units = "mm", 
-    dpi = 600,
-    filename = "output/thumbnail.jpeg"
-  )
 
 fig_under100 <- extract_figs_from_pickle(
   biomarker_groups = biomarker_groups,
@@ -703,7 +728,7 @@ biomarkers_table |>
   flex_biomarkers_table(
     width_biomarkers = 1.7,
     width_levels = 1.5,
-    use_group_colors = TRUE
+    use_group_colors = FALSE
   )
 ```
 
@@ -808,10 +833,26 @@ pvdc_sex <- list(
 ) |>
   plot_compact_pvd(
     scale_colors = scale_colors1, 
-    y_text_size = y_text_size
+    y_text_size = y_text_size,
+    ncol_legend = 2,
+    nrow_colors = 2,
+    legend_text_size = grid::unit(8, "pt"),
+    guide_rel_widths = c(.7, .3)
   )
 
-print(pvdc_sex)
+if (interactive()) {
+pvdc_sex + ggview::canvas(
+    width = pvd_width, 
+    height = pvd_height,
+    units = "in",
+    dpi = 600
+  )
+    
+} else {
+
+  print(pvdc_sex)
+
+}
 
 pvdc_sex |> 
   ggplot2::ggsave(
@@ -856,6 +897,7 @@ lineplot_by_sex <- pvds_by_sex |>
     expand = 0,
     min_alpha = 0.5,
     text_size = lineplot_text_size,
+    x_text_size = grid::unit(8, "points"),
     events_to_highlight = c(
       "SCID: Mood Disorders: Threshold",
       "Tandem Walk: Abnormal (<10 Steps)",
@@ -869,13 +911,18 @@ lineplot_by_sex <- pvds_by_sex |>
       "MCP-WM Hyperintensity: Mild",
       "MCP-WM Hyperintensity: Moderate/Severe"
     ),
-    highlight_color = "yellow"
+    highlight_color = "yellow",
+    legend_text_size = grid::unit(8, "pt"),
+    rel_heights = c(.7, .1),
+    nrow_group_col = 1
   )
 
 if (interactive()) {
   lineplot_by_sex + ggview::canvas(
-    width = pvd_line_height, 
-    height = pvd_line_height
+    width = pvd_line_width, 
+    height = pvd_line_height,
+    units = "in", 
+    dpi = 600
   )
 } else{
   lineplot_by_sex

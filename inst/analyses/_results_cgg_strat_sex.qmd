@@ -4,6 +4,7 @@
 ```{r}
 #| fig-height: !expr pvd_height
 #| fig-width: !expr pvd_width
+#| label: pvd-males-by-cgg
 
 # compact pvd
 list(

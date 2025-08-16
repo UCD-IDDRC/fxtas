@@ -58,13 +58,11 @@ bump <- figs_n_s_selected |>
     text_size = 7 / ggplot2::.pt,
     # text_size = 2.1,
     # text_size = 5,
-    x_text_size = 10,
+    x_text_size = grid::unit(7, "pt"),
     align_stage = TRUE,
     events_to_highlight = color_info,
     use_group_colors = TRUE
   )
-
-bump
 
 if (interactive()) {
   bump + ggview::canvas(
@@ -74,6 +72,8 @@ if (interactive()) {
     units = "in",
     dpi = 600
   )
+} else {
+  print(bump)
 }
 
 ggplot2::ggsave(
