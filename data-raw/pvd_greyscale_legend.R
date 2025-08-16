@@ -37,7 +37,7 @@ horizontal_legend_fig <- ggplot() +
     high = level2_scale[100],
     limits = scale_limits,
     breaks = c(0, 0.5, 1),
-    guide = ggplot2::guide_colorbar(title = "Pr(Stage)", order = 1)
+    guide = ggplot2::guide_colorbar(title = "Pr(Stage):", order = 1)
   ) +
   theme(
     legend.direction = "horizontal",
