@@ -45,19 +45,19 @@ jobs:
           extra-packages: any::rcmdcheck, local::.
           needs: check
 
-      - name: setup r-reticulate venv
-        shell: Rscript {0}
-        run: |
+      # - name: setup r-reticulate venv
+      #   shell: Rscript {0}
+      #   run: |
 
-          library(reticulate)
-          reticulate::py_require(
-            packages = c(
-              "git+https://github.com/ucl-pond/kde_ebm",
-              "git+https://github.com/d-morrison/pySuStaIn"
-            ),
-            python_version = "3.9"
-          )
-          reticulate::py_config()
+      #     library(reticulate)
+      #     reticulate::py_require(
+      #       packages = c(
+      #         "git+https://github.com/ucl-pond/kde_ebm",
+      #         "git+https://github.com/d-morrison/pySuStaIn"
+      #       ),
+      #       python_version = "3.9"
+      #     )
+      #     reticulate::py_config()
 
       - uses: r-lib/actions/check-r-package@HEAD
         with:
