@@ -64,8 +64,6 @@ bump <- figs_n_s_selected |>
     use_group_colors = TRUE
   )
 
-bump
-
 if (interactive()) {
   bump + ggview::canvas(
     width = 8.27,
@@ -74,6 +72,8 @@ if (interactive()) {
     units = "in",
     dpi = 600
   )
+} else {
+  print(bump)
 }
 
 ggplot2::ggsave(
