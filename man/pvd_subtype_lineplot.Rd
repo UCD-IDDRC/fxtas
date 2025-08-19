@@ -23,7 +23,8 @@ pvd_subtype_lineplot(
   mult = 0.2,
   align_stage = TRUE,
   use_group_colors = FALSE,
-  group_colors = group_colors(figs),
+  group_cols = group_colors(figs),
+  legend_text_size = grid::unit(7, "pt"),
   ...
 )
 }
@@ -63,8 +64,10 @@ pvd_subtype_lineplot(
 \item{use_group_colors}{\link{logical}: whether to use existing group colors
 or custom line colors from \code{events_to_highlight} argument}
 
-\item{group_colors}{a named \link{character} \link{vector}
+\item{group_cols}{a named \link{character} \link{vector}
 mapping from \code{biomarker_group} to a color palette}
+
+\item{legend_text_size}{\link[grid:unit]{grid::unit}: legend text size}
 
 \item{...}{additional arguments passed to \link[ggbump:geom_bump]{ggbump::geom_bump}
 Default = c(1, 1.15, 1.75, 2.35)}

@@ -17,11 +17,13 @@ pvd_lineplot(
   y_title_size = 9,
   y_text_size = 8,
   x_text_size = 8,
+  nrow_group_col = 1,
   direction_colors = c(`(stage)` = "grey25", down = "#DC3220", neutral = "grey70", up =
     "#005AB5"),
   expand = 0.25,
   group_cols = group_colors(figs),
-  rel_heights = c(2.5, 0.175, 0.25),
+  rel_heights = c(2.5, 0.5),
+  legend_text_size = grid::unit(7, "pt"),
   guide_group_colors = TRUE
 )
 }
@@ -50,6 +52,8 @@ pvd_lineplot(
 
 \item{x_text_size}{todo}
 
+\item{nrow_group_col}{\link{integer} how many rows in group_col legend}
+
 \item{direction_colors}{a \link{character} vector of length 4}
 
 \item{expand}{\link{numeric} how much to pad the sides}
@@ -59,6 +63,8 @@ mapping from \code{biomarker_group} to a color palette}
 
 \item{rel_heights}{(optional) Numerical vector of relative rows heights. Works just as
 \code{rel_widths} does, but for rows rather than columns.}
+
+\item{legend_text_size}{\link[grid:unit]{grid::unit}: legend text size}
 
 \item{guide_group_colors}{\link{logical}:
 whether to provide a guide for group colors}

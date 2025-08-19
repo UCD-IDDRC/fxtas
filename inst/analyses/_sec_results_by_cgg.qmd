@@ -54,6 +54,7 @@ the available data included only `r n_over_100_female` females with CGG ≥100.
 ```{r}
 #| fig-height: !expr pvd_height
 #| fig-width: !expr pvd_width
+#| label: pvd-by-cgg
 
 list(
     "CGG &lt; 100:" = fig_under100,
@@ -78,7 +79,7 @@ plot_compact_pvd(
 ```{r}
 #| fig-height: !expr pvd_line_height
 #| fig-width: !expr pvd_line_width
-
+#| label: lineplot-by-cgg
 list(
   "CGG &lt; 100" = fig_under100,
   "CGG &ge; 100" = fig_over100) |>

@@ -1,6 +1,6 @@
 Package: fxtas
 Title: FXTAS
-Version: 0.0.0.9037
+Version: 0.0.0.9038
 Authors@R: c(
     person("Douglas Ezra", "Morrison", , "demorrison@ucdavis.edu", role = c("cre", "aut")),
     person("Matthew", "Ponzini", , "mdponzini@ucdavis.edu", role = c("aut")))
@@ -84,7 +84,8 @@ Suggests:
     withr,
     writexl,
     chromote,
-    ggview
+    ggview,
+    sessioninfo
 Config/testthat/edition: 3
 Encoding: UTF-8
 Language: en-US
