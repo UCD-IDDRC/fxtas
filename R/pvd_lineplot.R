@@ -117,7 +117,7 @@ pvd_lineplot <- function(
       range = c(min_alpha, max_alpha)
     ) +
     scale_x_continuous(
-      expand = ggplot2::expansion(add = c(expand)),
+      expand = ggplot2::expansion(add = expand),
       limits = c(0.65, 1.5),
       breaks = c(1, 1.15),
       labels = facet_x_labels
