@@ -9,7 +9,7 @@ tmp function using list of extract_figs_from_pickle"></head><body>
 
     <a class="navbar-brand me-2" href="../index.html">fxtas</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Unreleased version">0.0.0.9037</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Unreleased version">0.0.0.9038</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -63,6 +63,11 @@ tmp function using list of extract_figs_from_pickle</p>
 <span>  facet_label_prefix <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">figs</span><span class="op">)</span>,</span>
 <span>  legend.position <span class="op">=</span> <span class="st">"none"</span>,</span>
 <span>  scale_colors <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"red"</span>, <span class="st">"blue"</span>, <span class="st">"magenta"</span>, <span class="st">"darkgreen"</span>, <span class="st">"purple4"</span><span class="op">)</span>,</span>
+<span>  rel_heights <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">0.1</span><span class="op">)</span>,</span>
+<span>  ncol_legend <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>  nrow_colors <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>  guide_rel_widths <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.7</span>, <span class="fl">0.3</span><span class="op">)</span>,</span>
+<span>  legend_text_size <span class="op">=</span> <span class="fu">grid</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/grid/unit.html" class="external-link">unit</a></span><span class="op">(</span><span class="fl">7</span>, <span class="st">"pt"</span><span class="op">)</span>,</span>
 <span>  <span class="va">...</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
@@ -93,6 +98,27 @@ tmp function using list of extract_figs_from_pickle</p>
 
 <dt id="arg-scale-colors">scale_colors<a class="anchor" aria-label="anchor" href="#arg-scale-colors"></a></dt>
 <dd><p>todo</p></dd>
+
+
+<dt id="arg-rel-heights">rel_heights<a class="anchor" aria-label="anchor" href="#arg-rel-heights"></a></dt>
+<dd><p>(optional) Numerical vector of relative rows heights. Works just as
+<code>rel_widths</code> does, but for rows rather than columns.</p></dd>
+
+
+<dt id="arg-ncol-legend">ncol_legend<a class="anchor" aria-label="anchor" href="#arg-ncol-legend"></a></dt>
+<dd><p>how many columns to use for legend</p></dd>
+
+
+<dt id="arg-nrow-colors">nrow_colors<a class="anchor" aria-label="anchor" href="#arg-nrow-colors"></a></dt>
+<dd><p>now many rows to use for color guide</p></dd>
+
+
+<dt id="arg-guide-rel-widths">guide_rel_widths<a class="anchor" aria-label="anchor" href="#arg-guide-rel-widths"></a></dt>
+<dd><p>relative widths of guides</p></dd>
+
+
+<dt id="arg-legend-text-size">legend_text_size<a class="anchor" aria-label="anchor" href="#arg-legend-text-size"></a></dt>
+<dd><p><a href="https://rdrr.io/r/grid/unit.html" class="external-link">grid::unit</a>: legend text size</p></dd>
 
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>

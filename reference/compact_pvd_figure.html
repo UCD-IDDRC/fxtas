@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">fxtas</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Unreleased version">0.0.0.9037</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Unreleased version">0.0.0.9038</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -61,6 +61,11 @@
 <span>  <span class="va">legend.position</span>,</span>
 <span>  <span class="va">scale_colors</span>,</span>
 <span>  rel_heights <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">0.1</span><span class="op">)</span>,</span>
+<span>  guide_rel_widths <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.3</span>, <span class="fl">0.7</span><span class="op">)</span>,</span>
+<span>  <span class="va">group_colors</span>,</span>
+<span>  ncol_legend <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>  <span class="va">group_color_legend</span>,</span>
+<span>  legend_text_size <span class="op">=</span> <span class="fu">grid</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/grid/unit.html" class="external-link">unit</a></span><span class="op">(</span><span class="fl">7</span>, <span class="st">"pt"</span><span class="op">)</span>,</span>
 <span>  <span class="va">...</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
@@ -68,9 +73,10 @@
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">size.y</span> <span class="op">&lt;-</span> <span class="fl">11</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">size_y</span> <span class="op">&lt;-</span> <span class="fl">11</span></span></span>
 <span class="r-in"><span><span class="va">figs</span> <span class="op">&lt;-</span> <span class="fu"><a href="extract_figs_from_pickle.html">extract_figs_from_pickle</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>  size.y <span class="op">=</span> <span class="va">size.y</span>,</span></span>
+<span class="r-in"><span>  use_rdS <span class="op">=</span> <span class="cn">TRUE</span>,</span></span>
+<span class="r-in"><span>  size.y <span class="op">=</span> <span class="va">size_y</span>,</span></span>
 <span class="r-in"><span>  n_s <span class="op">=</span> <span class="fl">3</span>,</span></span>
 <span class="r-in"><span>  rda_filename <span class="op">=</span> <span class="st">"data.RData"</span>,</span></span>
 <span class="r-in"><span>  dataset_name <span class="op">=</span> <span class="st">"sample_data"</span>,</span></span>
@@ -89,9 +95,8 @@
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">y_text_size</span> <span class="op">&lt;-</span> <span class="fl">11</span></span></span>
 <span class="r-in"><span><span class="va">tile_height</span> <span class="op">&lt;-</span> <span class="fl">1</span></span></span>
-<span class="r-in"><span><span class="co"># facet_label_size = 8</span></span></span>
 <span class="r-in"><span><span class="va">facet_label_prefix</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">figs</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">legend.position</span> <span class="op">&lt;-</span> <span class="st">"none"</span></span></span>
+<span class="r-in"><span><span class="va">legend_position</span> <span class="op">&lt;-</span> <span class="st">"none"</span></span></span>
 <span class="r-in"><span><span class="va">scale_colors</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"red"</span>, <span class="st">"blue"</span>, <span class="st">"purple4"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">plot_dataset</span> <span class="op">&lt;-</span> <span class="fu">fxtas</span><span class="fu">:::</span><span class="fu"><a href="compact_pvd_data_prep.html">compact_pvd_data_prep</a></span><span class="op">(</span>figs <span class="op">=</span> <span class="va">figs</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="co"># facet labels</span></span></span>
@@ -99,17 +104,30 @@
 <span class="r-in"><span>  figs <span class="op">=</span> <span class="va">figs</span>,</span></span>
 <span class="r-in"><span>  facet_label_prefix <span class="op">=</span> <span class="va">facet_label_prefix</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">nrow_colors</span> <span class="op">&lt;-</span> <span class="fl">1</span></span></span>
+<span class="r-in"><span><span class="va">group_colors</span> <span class="op">&lt;-</span> <span class="va">figs</span> <span class="op">|&gt;</span> <span class="fu"><a href="group_colors.html">group_colors</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">temp_plot</span> <span class="op">&lt;-</span> <span class="va">plot_dataset</span> <span class="op">|&gt;</span> <span class="fu">pvd_scatter</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  group_colors <span class="op">=</span> <span class="va">group_colors</span>,</span></span>
+<span class="r-in"><span>  nrow_colors <span class="op">=</span> <span class="va">nrow_colors</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in pvd_scatter(plot_dataset, group_colors = group_colors, nrow_colors = nrow_colors):</span> could not find function "pvd_scatter"</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">group_color_legend</span> <span class="op">&lt;-</span> <span class="va">temp_plot</span> <span class="op">|&gt;</span> <span class="fu">cowplot</span><span class="fu">::</span><span class="fu"><a href="https://wilkelab.org/cowplot/reference/get_legend.html" class="external-link">get_legend</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'temp_plot' not found</span>
+<span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># generate figure</span></span></span>
-<span class="r-in"><span><span class="fu">fxtas</span><span class="fu">:::</span><span class="fu">compact_pvd_figure</span><span class="op">(</span></span></span>
+<span class="r-in"><span><span class="fu">compact_pvd_figure</span><span class="op">(</span></span></span>
 <span class="r-in"><span>  <span class="va">plot_dataset</span>,</span></span>
 <span class="r-in"><span>  tile_height <span class="op">=</span> <span class="va">tile_height</span>,</span></span>
 <span class="r-in"><span>  y_text_size <span class="op">=</span> <span class="va">y_text_size</span>,</span></span>
 <span class="r-in"><span>  facet_names <span class="op">=</span> <span class="va">facet_names</span>,</span></span>
-<span class="r-in"><span>  <span class="co"># facet_label_size = facet_label_size,</span></span></span>
-<span class="r-in"><span>  legend.position <span class="op">=</span> <span class="va">legend.position</span>,</span></span>
-<span class="r-in"><span>  scale_colors <span class="op">=</span> <span class="va">scale_colors</span></span></span>
+<span class="r-in"><span>  legend.position <span class="op">=</span> <span class="va">legend_position</span>,</span></span>
+<span class="r-in"><span>  scale_colors <span class="op">=</span> <span class="va">scale_colors</span>,</span></span>
+<span class="r-in"><span>  group_colors <span class="op">=</span> <span class="va">group_colors</span>,</span></span>
+<span class="r-in"><span>  group_color_legend <span class="op">=</span> <span class="va">group_color_legend</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
-<span class="r-plt img"><img src="compact_pvd_figure-1.png" alt="" width="700" height="433"></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in compact_pvd_figure(plot_dataset, tile_height = tile_height, y_text_size = y_text_size,     facet_names = facet_names, legend.position = legend_position,     scale_colors = scale_colors, group_colors = group_colors,     group_color_legend = group_color_legend):</span> could not find function "compact_pvd_figure"</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
