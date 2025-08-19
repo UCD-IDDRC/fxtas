@@ -1,3 +1,9 @@
+@suppfig-stage-by-age shows estimated disease progression stage
+(that is, number of events experienced)
+by age at visit and estimated latent subtype,
+with a
+Locally Estimated Scatterplot Smoothing (LOESS)
+non-parametric regression curve superimposed [@cleveland1992local].
 This graph is a model diagnostic; if the model fits the data well,
 then older patients should on average be classified as being farther
 along in their disease progression, resulting in an upwards trend.
