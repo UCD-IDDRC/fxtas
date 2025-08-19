@@ -18,7 +18,7 @@
 
 {{< include _fig-stage-barplot_chosen_subtypes.qmd >}}
 
-{{< include _fig_stage_by_age_latent.qmd >}}
+<!-- {{< include _fig_stage_by_age_latent.qmd >}} -->
 
 <!-- {{< include _sec_subtypes_linegraphs.qmd >}} -->
 

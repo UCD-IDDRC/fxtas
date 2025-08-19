@@ -35,10 +35,5 @@ across cross-validation folds
 [Supplementary Fig. @suppfig-cvic-2] shows
 the distribution of the OOFLL statistic
 as a function of number of latent subgroups.
-@suppfig-stage-by-age shows estimated disease progression stage
-(that is, number of events experienced)
-by age at visit and estimated latent subtype,
-with a
-Locally Estimated Scatterplot Smoothing (LOESS)
-non-parametric regression curve superimposed [@cleveland1992local].
-{{< include _sec-subtypes-by-age-summary.qmd >}}
+
+<!-- {{< include _sec-subtypes-by-age-summary.qmd >}} -->
