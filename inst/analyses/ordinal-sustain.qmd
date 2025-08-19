@@ -913,7 +913,7 @@ lineplot_by_sex <- pvds_by_sex |>
     ),
     highlight_color = "yellow",
     legend_text_size = grid::unit(8, "pt"),
-    rel_heights = c(.7, .1),
+    rel_heights = c(.6, .1),
     nrow_group_col = 1
   )
 
