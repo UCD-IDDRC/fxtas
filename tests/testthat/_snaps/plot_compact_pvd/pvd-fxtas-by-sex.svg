@@ -1111,29 +1111,29 @@
 <g clip-path='url(#cpMC4wMHw3MjAuMDB8NTIzLjY0fDU3Ni4wMA==)'>
 </g>
 <g clip-path='url(#cpMC4wMHw3MjAuMDB8MC4wMHw1NzYuMDA=)'>
-<rect x='186.26' y='527.96' width='347.48' height='17.52' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' />
-<text x='191.74' y='538.47' style='font-size: 7.00px; font-family: sans;' textLength='29.57px' lengthAdjust='spacingAndGlyphs'>Symptom</text>
-<text x='223.25' y='538.47' style='font-size: 7.00px; font-family: sans;' textLength='28.80px' lengthAdjust='spacingAndGlyphs'>category:</text>
-<text x='257.73' y='539.14' style='font-size: 7.00px; fill: #CC6677; font-family: sans;' textLength='19.46px' lengthAdjust='spacingAndGlyphs'>Ataxia</text>
-<text x='282.66' y='539.14' style='font-size: 7.00px; fill: #999933; font-family: sans;' textLength='28.40px' lengthAdjust='spacingAndGlyphs'>CANTAB</text>
-<text x='315.69' y='539.14' style='font-size: 7.00px; fill: #332288; font-family: sans;' textLength='12.84px' lengthAdjust='spacingAndGlyphs'>MRI</text>
-<text x='334.00' y='539.14' style='font-size: 7.00px; fill: #117733; font-family: sans;' textLength='62.05px' lengthAdjust='spacingAndGlyphs'>Parkinson's disease</text>
-<text x='401.20' y='539.14' style='font-size: 7.00px; fill: #44AA99; font-family: sans;' textLength='16.73px' lengthAdjust='spacingAndGlyphs'>SCID</text>
-<text x='423.40' y='539.14' style='font-size: 7.00px; fill: #AA4499; font-family: sans;' textLength='21.79px' lengthAdjust='spacingAndGlyphs'>Scores</text>
-<text x='450.67' y='539.14' style='font-size: 7.00px; font-family: sans;' textLength='18.30px' lengthAdjust='spacingAndGlyphs'>Stage</text>
-<text x='474.44' y='539.14' style='font-size: 7.00px; fill: #888888; font-family: sans;' textLength='23.34px' lengthAdjust='spacingAndGlyphs'>Thyroid</text>
-<text x='503.05' y='539.14' style='font-size: 7.00px; fill: #88CCEE; font-family: sans;' textLength='26.06px' lengthAdjust='spacingAndGlyphs'>Tremors</text>
-<rect x='290.35' y='542.30' width='139.29' height='41.22' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' />
-<text x='295.83' y='564.90' style='font-size: 8.00px; font-family: sans;' textLength='36.46px' lengthAdjust='spacingAndGlyphs'>Pr(Stage):</text>
-<image width='86.40' height='17.28' x='337.77' y='547.78' preserveAspectRatio='none' xlink:href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAABCAYAAABkOJMpAAAASElEQVQ4jWN8/vz5/////zPAMAMDAwMyHx3jk6en3GASp1TtQIiRo4YaemjJp5ZaYuXIUUepHmxsWukjR56U+CCE//37hyEGAPQLsx/sRK4DAAAAAElFTkSuQmCC'/>
-<polyline points='337.91,561.60 337.91,565.06 ' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
-<polyline points='380.97,561.60 380.97,565.06 ' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
-<polyline points='424.02,561.60 424.02,565.06 ' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
-<polyline points='337.91,551.23 337.91,547.78 ' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
-<polyline points='380.97,551.23 380.97,547.78 ' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
-<polyline points='424.02,551.23 424.02,547.78 ' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
-<text x='337.91' y='576.04' text-anchor='middle' style='font-size: 8.00px; font-family: sans;' textLength='11.12px' lengthAdjust='spacingAndGlyphs'>0.0</text>
-<text x='380.97' y='576.04' text-anchor='middle' style='font-size: 8.00px; font-family: sans;' textLength='11.12px' lengthAdjust='spacingAndGlyphs'>0.5</text>
-<text x='424.02' y='576.04' text-anchor='middle' style='font-size: 8.00px; font-family: sans;' textLength='11.12px' lengthAdjust='spacingAndGlyphs'>1.0</text>
+<rect x='107.16' y='534.10' width='289.68' height='31.45' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' />
+<text x='112.64' y='551.81' style='font-size: 8.00px; font-family: sans;' textLength='33.80px' lengthAdjust='spacingAndGlyphs'>Symptom</text>
+<text x='148.65' y='551.81' style='font-size: 8.00px; font-family: sans;' textLength='32.91px' lengthAdjust='spacingAndGlyphs'>category:</text>
+<text x='187.27' y='546.08' style='font-size: 8.00px; fill: #CC6677; font-family: sans;' textLength='22.24px' lengthAdjust='spacingAndGlyphs'>Ataxia</text>
+<text x='187.27' y='559.06' style='font-size: 8.00px; fill: #999933; font-family: sans;' textLength='32.46px' lengthAdjust='spacingAndGlyphs'>CANTAB</text>
+<text x='224.24' y='546.08' style='font-size: 8.00px; fill: #332288; font-family: sans;' textLength='14.67px' lengthAdjust='spacingAndGlyphs'>MRI</text>
+<text x='224.24' y='559.06' style='font-size: 8.00px; fill: #117733; font-family: sans;' textLength='70.92px' lengthAdjust='spacingAndGlyphs'>Parkinson's disease</text>
+<text x='300.26' y='546.08' style='font-size: 8.00px; fill: #44AA99; font-family: sans;' textLength='19.12px' lengthAdjust='spacingAndGlyphs'>SCID</text>
+<text x='300.26' y='559.06' style='font-size: 8.00px; fill: #AA4499; font-family: sans;' textLength='24.91px' lengthAdjust='spacingAndGlyphs'>Scores</text>
+<text x='330.63' y='546.08' style='font-size: 8.00px; font-family: sans;' textLength='20.91px' lengthAdjust='spacingAndGlyphs'>Stage</text>
+<text x='330.63' y='559.06' style='font-size: 8.00px; fill: #888888; font-family: sans;' textLength='26.68px' lengthAdjust='spacingAndGlyphs'>Thyroid</text>
+<text x='362.54' y='546.08' style='font-size: 8.00px; fill: #88CCEE; font-family: sans;' textLength='29.78px' lengthAdjust='spacingAndGlyphs'>Tremors</text>
+<rect x='542.35' y='529.21' width='139.29' height='41.22' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' />
+<text x='547.83' y='551.81' style='font-size: 8.00px; font-family: sans;' textLength='36.46px' lengthAdjust='spacingAndGlyphs'>Pr(Stage):</text>
+<image width='86.40' height='17.28' x='589.77' y='534.69' preserveAspectRatio='none' xlink:href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAABCAYAAABkOJMpAAAASElEQVQ4jWN8/vz5/////zPAMAMDAwMyHx3jk6en3GASp1TtQIiRo4YaemjJp5ZaYuXIUUepHmxsWukjR56U+CCE//37hyEGAPQLsx/sRK4DAAAAAElFTkSuQmCC'/>
+<polyline points='589.91,548.51 589.91,551.97 ' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
+<polyline points='632.97,548.51 632.97,551.97 ' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
+<polyline points='676.02,548.51 676.02,551.97 ' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
+<polyline points='589.91,538.14 589.91,534.69 ' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
+<polyline points='632.97,538.14 632.97,534.69 ' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
+<polyline points='676.02,538.14 676.02,534.69 ' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
+<text x='589.91' y='562.95' text-anchor='middle' style='font-size: 8.00px; font-family: sans;' textLength='11.12px' lengthAdjust='spacingAndGlyphs'>0.0</text>
+<text x='632.97' y='562.95' text-anchor='middle' style='font-size: 8.00px; font-family: sans;' textLength='11.12px' lengthAdjust='spacingAndGlyphs'>0.5</text>
+<text x='676.02' y='562.95' text-anchor='middle' style='font-size: 8.00px; font-family: sans;' textLength='11.12px' lengthAdjust='spacingAndGlyphs'>1.0</text>
 </g>
 </svg>

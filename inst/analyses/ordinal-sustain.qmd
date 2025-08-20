@@ -833,11 +833,7 @@ pvdc_sex <- list(
 ) |>
   plot_compact_pvd(
     scale_colors = scale_colors1, 
-    y_text_size = y_text_size,
-    ncol_legend = 2,
-    nrow_colors = 2,
-    legend_text_size = grid::unit(8, "pt"),
-    guide_rel_widths = c(.7, .3)
+    y_text_size = y_text_size
   )
 
 if (interactive()) {
