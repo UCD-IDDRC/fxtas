@@ -894,10 +894,7 @@ pvds_by_sex <- list(
 
 lineplot_by_sex <- pvds_by_sex |>
   pvd_lineplot(
-    expand = 0,
-    min_alpha = 0.5,
     text_size = lineplot_text_size,
-    x_text_size = grid::unit(8, "points"),
     events_to_highlight = c(
       "SCID: Mood Disorders: Threshold",
       "Tandem Walk: Abnormal (<10 Steps)",
@@ -910,11 +907,7 @@ lineplot_by_sex <- pvds_by_sex |>
       "MRI: Cerebellar: Moderate/Severe",
       "MCP-WM Hyperintensity: Mild",
       "MCP-WM Hyperintensity: Moderate/Severe"
-    ),
-    highlight_color = "yellow",
-    legend_text_size = grid::unit(8, "pt"),
-    rel_heights = c(.6, .1),
-    nrow_group_col = 1
+    )
   )
 
 if (interactive()) {
