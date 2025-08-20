@@ -43,7 +43,7 @@ the probability that an individual is
 Following the procedures proposed in the original SuStaIn methodology papers
 [@young2018uncovering; @young2021ordinal],
 we used the distributions of symptoms observed among the controls 
-to estimate the rates at which premutation carriers experience symptoms 
+to estimate the rates at which premutation carriers experience symptoms, 
 and we thus estimated the percentages of FXTAS-related symptoms 
 (i.e., the proportion of symptoms due to FXTAS among premutation carriers) 
 as the percentage of controls 
