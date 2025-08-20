@@ -7,8 +7,8 @@
 pvd_lineplot(
   figs,
   events_to_highlight = NULL,
-  highlight_color = NA,
-  min_alpha = 0.4,
+  highlight_color = "yellow",
+  min_alpha = 0.5,
   max_alpha = 1,
   stage_alpha = 1,
   facet_labels = names(figs),
@@ -16,14 +16,14 @@ pvd_lineplot(
   y_lab = "Sequential order",
   y_title_size = 9,
   y_text_size = 8,
-  x_text_size = 8,
+  x_text_size = grid::unit(8, "points"),
   nrow_group_col = 1,
   direction_colors = c(`(stage)` = "grey25", down = "#DC3220", neutral = "grey70", up =
     "#005AB5"),
-  expand = 0.25,
+  expand = 0,
   group_cols = group_colors(figs),
-  rel_heights = c(2.5, 0.5),
-  legend_text_size = grid::unit(7, "pt"),
+  rel_heights = c(0.6, 0.1),
+  legend_text_size = grid::unit(8, "pt"),
   guide_group_colors = TRUE
 )
 }

@@ -26,8 +26,8 @@
 pvd_lineplot <- function(
     figs,
     events_to_highlight = NULL,
-    highlight_color = NA,
-    min_alpha = 0.4,
+    highlight_color = "yellow",
+    min_alpha = 0.5,
     max_alpha = 1,
     stage_alpha = 1,
     facet_labels = names(figs),
@@ -35,7 +35,7 @@ pvd_lineplot <- function(
     y_lab = "Sequential order",
     y_title_size = 9,
     y_text_size = 8,
-    x_text_size = 8,
+    x_text_size = grid::unit(8, "points"),
     nrow_group_col = 1,
     direction_colors = c(
       "(stage)" = "grey25",
@@ -45,10 +45,10 @@ pvd_lineplot <- function(
       # "#00BFC4"
       "up" = "#005AB5"
     ),
-    expand = 0.25,
+    expand = 0,
     group_cols = group_colors(figs),
-    rel_heights = c(2.5, .5),
-    legend_text_size = grid::unit(7, "pt"),
+    rel_heights = c(.6, .1),
+    legend_text_size = grid::unit(8, "pt"),
     guide_group_colors = TRUE) {
 
   dataset <- extract_lineplot_data(figs, facet_labels)
