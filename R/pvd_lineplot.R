@@ -47,7 +47,7 @@ pvd_lineplot <- function(
     ),
     expand = 0,
     group_cols = group_colors(figs),
-    rel_heights = c(.6, .1),
+    rel_heights = c(6, 1),
     legend_text_size = grid::unit(8, "pt"),
     guide_group_colors = TRUE) {
 
