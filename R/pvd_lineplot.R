@@ -167,7 +167,7 @@ pvd_lineplot <- function(
       axis.text.y = ggtext::element_markdown(size = y_text_size),
       axis.text.x = ggtext::element_markdown(
         size = x_text_size,
-        hjust = plot_dataset[["hjust"]]
+        hjust = plot_dataset[["hjust"]] |> unique()
       )
     )
 
