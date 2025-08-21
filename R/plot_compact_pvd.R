@@ -23,10 +23,10 @@ plot_compact_pvd <- function(
     legend.position = "none", # nolint: object_name_linter
     scale_colors = c("red", "blue", "magenta", "darkgreen", "purple4"),
     rel_heights = c(1, 0.1),
-    ncol_legend = 1,
-    nrow_colors = 1,
+    ncol_legend = 2,
+    nrow_colors = 2,
     guide_rel_widths = c(.7, .3),
-    legend_text_size = grid::unit(7, "pt"),
+    legend_text_size = grid::unit(8, "pt"),
     ...) {
   # extract and prep data from fig list
   plot_dataset <- compact_pvd_data_prep(figs = figs, ...)
