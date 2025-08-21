@@ -2,11 +2,14 @@
 ```{r}
 #| label: count-incomplete-data
 x1 = v1_usable_cases |> dplyr::pull(`ataxia severity`)
-n_missing = sum(x1 |> is.na())
+n_missing_ataxia_severity = sum(x1 |> is.na())
 # n_obs = sum(x1 |> is.na() |> not()) # not() is deprecated?
 n_obs = sum(!is.na(x1))
 n_total = length(x1)
-pct_missing = scales::percent(n_missing / n_total, accuracy = 0.1)
+pct_missing = scales::percent(
+  n_missing_ataxia_severity / n_total, 
+  accuracy = 0.1
+)
 pct_obs = scales::percent(n_obs / n_total, accuracy = 0.1)
 probs =
   x1 |>
@@ -31,7 +34,7 @@ possible values of the missing variable
 that matched the marginal distribution of observed data
 among the cases.
 For example,
-`r n_missing` of the `r length(x1)` cases (`r pct_missing`)
+`r n_missing_ataxia_severity` of the `r length(x1)` cases (`r pct_missing`)
 had missing values for ataxia severity,
 and `r n_obs` (`r pct_obs`) had recorded values,
 distributed among ataxia severity levels 0-4
