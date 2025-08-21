@@ -852,15 +852,6 @@ pvdc_sex + ggview::canvas(
 
 pvdc_sex |> 
   ggplot2::ggsave(
-    height = 120, 
-    width = 120,
-    units = "mm", 
-    dpi = 600,
-    filename = "inst/analyses/thumbnail.pdf"
-  )
-
-pvdc_sex |> 
-  ggplot2::ggsave(
   "inst/analyses/Figure1.pdf", 
   plot = _, 
   width = pvd_width, 
@@ -869,12 +860,51 @@ pvdc_sex |>
   dpi = 600
 )
 
+
 ```
 
 **Event sequences of FXTAS symptoms stratified by sex.**
 `r compact_fig_caption`
 `r test_sex_summary`
 :::
+
+
+```{r}
+#| label: thumbnail-by-sex
+pvdc_sex <- list(
+  "Males:" = fig_males_first,
+  "Females:" = fig_females_first
+) |>
+  plot_compact_pvd(
+    scale_colors = scale_colors1, 
+    y_text_size = y_text_size,
+    rel_heights = c(.9, 0.1),
+    ncol_legend = 2,
+    show_group_color_legend = FALSE,
+    guide_rel_widths = c(0, 1)
+  )
+
+if (interactive()) {
+pvdc_sex + ggview::canvas(
+    height = 120, 
+    width = 120,
+    units = "mm",
+    dpi = 600
+  )
+    
+}
+
+pvdc_sex |> 
+  ggplot2::ggsave(
+    height = 120, 
+    width = 120,
+    units = "mm", 
+    dpi = 600,
+    filename = "inst/analyses/graphical-abstract.pdf"
+  )
+
+
+```
 
 :::{#fig-first-only-diffs custom-style="Caption"}
 
