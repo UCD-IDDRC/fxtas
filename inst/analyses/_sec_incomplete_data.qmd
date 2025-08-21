@@ -40,7 +40,7 @@ and `r n_obs` (`r pct_obs`) had recorded values,
 distributed among ataxia severity levels 0-4
 (`r v1_usable_cases$"ataxia severity*" |> counts_and_pcts() |> and::and()`,
 respectively).
-For the `r n_missing` cases with missing values,
+For the `r n_missing_ataxia_severity` cases with missing values,
 we assigned probabilities of `r probs |> and::and()`
 to ataxia severity levels `r 0:4 |> and::and()`, respectively,
 and missing values were imputed under the marginal distribution
