@@ -452,13 +452,22 @@ fig_both_first <- extract_figs_from_pickle(
   output_folder = output_folder
 )
 
+abstract_text <- paste0(
+  "The Ordinal Subtype and Stage Inference (SuStaIn) algorithm allows us to ", 
+  "estimate the order of symptoms in ",
+  "Fragile X-associated tremor/ataxia syndrome (FXTAS) patients. "
+)
+
 fig_both_first2 <-
   list(fig_both_first) |>
-  plot_compact_pvd(
+  graphical_abstract(
     scale_colors = scale_colors1,
-    rel_heights = c(.9, 0.1),
-    ncol_legend = 2,
-    guide_rel_widths = c(0, 1)
+    rel_heights = c(.9, 0.25),
+  ncol_legend = 2,
+  guide_rel_widths = c(1.325, 1),
+  abstract = abstract_text,
+  abstract_size = 2.7,
+  abstract_width = 50
   )
 
 if (interactive()) {
