@@ -44,8 +44,14 @@ sessioninfo::package_info(pkgs = "installed") |>
 scale_color_indices <- c(9, 5, 7, 8, 4)
 scale_colors0 <- rcartocolor::carto_pal(name = "Safe")[scale_color_indices]
 library(rex)
-# rcartocolor::carto_pal(name = "Safe") |> 
-#   colorblindcheck::palette_plot()
+
+if (FALSE) {
+  rcartocolor::carto_pal(name = "Safe") |> colorblindcheck::palette_plot()
+  rcartocolor::carto_pal(name = "Safe")[scale_color_indices] |>
+    colorblindcheck::palette_plot()
+  rcartocolor::carto_pal(name = "Safe", n = 8) |>
+    colorblindcheck::palette_plot()
+}
 color_names1 <- 
   rcartocolor::carto_pal(name = "Safe") |>
   loon::l_colorName() |>
