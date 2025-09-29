@@ -35,5 +35,5 @@ test_that("`test_biomarkers_table()` produces consistent results", {
       stratifying_var_names = "Sex"
     )
   biomarkers_table |>
-  ssdtools:::expect_snapshot_data(name = "biomarkers_table")
+  expect_snapshot_data(name = "biomarkers_table")
 })

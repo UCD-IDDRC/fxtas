@@ -14,6 +14,6 @@ test_that("results are consistent", {
   make_biomarker_events_table(
     biomarker_levels,
     biomarker_groups
-  ) |> ssdtools:::expect_snapshot_data(name = "table1")
+  ) |> expect_snapshot_data(name = "table1")
 
 })

@@ -335,7 +335,8 @@ tmp_func <- function(plot_dataset,
       legend.margin = ggplot2::margin(0, 0.15, 0, -0.45, "cm"),
       axis.title.y = ggplot2::element_blank(),
       axis.title.x = ggtext::element_markdown(size = x_axis_title_size),
-      axis.text.y = ggtext::element_markdown(size = y_text_size),
+      axis.text.y.left = ggtext::element_markdown(size = y_text_size),
+      axis.text.y.right = ggtext::element_markdown(size = y_text_size),
       # allow markdown for coloring
       plot.title = ggtext::element_markdown(
         hjust = title_hjust,

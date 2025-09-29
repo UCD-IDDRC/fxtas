@@ -9,6 +9,6 @@ test_that("results are consistent", {
     test_input |> clean_fxtas_dx()
 
   test_output |>
-    ssdtools:::expect_snapshot_data(name = "fxtas-dx")
+    expect_snapshot_data(name = "fxtas-dx")
 
 })

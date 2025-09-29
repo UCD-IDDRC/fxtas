@@ -7,6 +7,6 @@ test_that("results are consistent", {
 
   lliks |>
     format_likelihoods() |>
-    ssdtools:::expect_snapshot_data(name = "lliks-formatted")
+    expect_snapshot_data(name = "lliks-formatted")
 
 })
