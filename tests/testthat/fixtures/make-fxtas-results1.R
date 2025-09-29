@@ -7,10 +7,14 @@ output_folder <-
 n_s_selected <- 1
 results_no_subtypes <- extract_results_from_pickle(
   n_s = n_s_selected,
-  use_rds = TRUE,
+  use_rds = FALSE,
   dataset_name = dataset_name,
   output_folder = output_folder
 )
+
+results_no_subtypes$samples_sequence <-
+  results_no_subtypes$samples_sequence[ , , 1:1000, drop = FALSE]
+
 
 results_no_subtypes |>
   readr::write_rds(
