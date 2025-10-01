@@ -3,10 +3,9 @@ on:
     branches: [main, master]
   pull_request:
 
-name: "Documentation check"
-
 jobs:
   docs-check:
+    name: "Documentation check"
     runs-on: ubuntu-latest
     env:
       GITHUB_PAT: ${{ github.token }}
