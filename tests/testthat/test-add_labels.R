@@ -11,6 +11,6 @@ test_that("results are consistent", {
     arrange(vars)
 
   labels_df |>
-    ssdtools:::expect_snapshot_data(name = "var-labels")
+    expect_snapshot_data(name = "var-labels")
 
 })

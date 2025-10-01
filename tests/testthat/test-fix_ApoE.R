@@ -27,6 +27,6 @@ test_that("results are consistent", {
   apoe |>
     arrange(`FXS ID`, `Event Name`) |>
     select(`FXS ID`, ApoE, `ApoE (original)`) |>
-    ssdtools:::expect_snapshot_data(name = "real_data")
+    expect_snapshot_data(name = "real_data")
 
 })

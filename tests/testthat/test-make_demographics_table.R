@@ -7,7 +7,7 @@ test_that(
 
     ft |>
       as.data.frame() |>
-      ssdtools:::expect_snapshot_data(name = "demographics-table")
+      expect_snapshot_data(name = "demographics-table")
   }
 )
 

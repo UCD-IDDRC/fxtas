@@ -21,5 +21,5 @@ test_that("results are consistent", {
     relocate(sort(tidyselect::peek_vars()))
 
   result |>
-    ssdtools:::expect_snapshot_data(name = "tremor-vars")
+    expect_snapshot_data(name = "tremor-vars")
 })

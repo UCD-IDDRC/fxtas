@@ -18,7 +18,7 @@ test_that("results are consistent", {
     relocate(sort(tidyselect::peek_vars()))
 
   snap |>
-    ssdtools:::expect_snapshot_data(name = "ataxia-vars")
+    expect_snapshot_data(name = "ataxia-vars")
 
 
 
