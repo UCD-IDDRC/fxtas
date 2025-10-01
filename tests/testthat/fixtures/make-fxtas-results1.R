@@ -13,7 +13,7 @@ results_no_subtypes <- extract_results_from_pickle(
 )
 
 results_no_subtypes$samples_sequence <-
-  results_no_subtypes$samples_sequence[ , , 1:1000, drop = FALSE]
+  results_no_subtypes$samples_sequence[, , 1:1000, drop = FALSE]
 
 
 results_no_subtypes |>
