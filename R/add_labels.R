@@ -96,8 +96,5 @@ add_labels <- function(data) {
         .data$Stage_3plus |>
         labelled::set_label_attribute("FXTAS Stage")
     )
-  to_return <- to_return |>
-    add_default_labels()
-
 
 }
