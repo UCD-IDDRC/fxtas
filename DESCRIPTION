@@ -84,9 +84,7 @@ Suggests:
     writexl,
     chromote,
     ggview,
-    sessioninfo,
-    colorblindcheck,
-    loon
+    sessioninfo
 Config/testthat/edition: 3
 Encoding: UTF-8
 Language: en-US
