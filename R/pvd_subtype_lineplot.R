@@ -124,7 +124,8 @@ pvd_subtype_lineplot <- function(
       axis.title.x = ggplot2::element_blank(),
       axis.title.y = ggtext::element_markdown(size = y_title_size),
       axis.text.y = ggtext::element_markdown(size = y_text_size),
-      axis.text.x = ggtext::element_markdown(size = x_text_size)
+      axis.text.x = ggtext::element_markdown(size = x_text_size),
+      axis.line.y = ggplot2::element_blank()
     )
 
   if (use_group_colors) {

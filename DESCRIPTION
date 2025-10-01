@@ -1,6 +1,6 @@
 Package: fxtas
 Title: FXTAS
-Version: 0.0.0.9044
+Version: 0.0.0.9045
 Authors@R: c(
     person("Douglas Ezra", "Morrison", , "demorrison@ucdavis.edu", role = c("cre", "aut")),
     person("Matthew", "Ponzini", , "mdponzini@ucdavis.edu", role = c("aut")))
@@ -71,7 +71,6 @@ Suggests:
     rmarkdown,
     scales,
     spelling,
-    ssdtools (>= 2.0.0),
     svglite,
     testthat (>= 3.0.0),
     tidyverse,
@@ -90,7 +89,7 @@ Config/testthat/edition: 3
 Encoding: UTF-8
 Language: en-US
 LazyData: true
-RoxygenNote: 7.3.2
+RoxygenNote: 7.3.3
 Depends: 
     R (>= 4.2.0)
 VignetteBuilder: knitr, quarto
@@ -103,7 +102,6 @@ Config/reticulate/autoconfigure:
 Config/build/copy-method: link
 Roxygen: list(markdown = TRUE, roclets = c("collate", "rd", "namespace", "devtag::dev_roclet"))
 Remotes: 
-    bcgov/ssdtools,
     moodymudskipper/devtag,
     d-morrison/gtsummary@ezra-dev,
     insightsengineering/cardx,

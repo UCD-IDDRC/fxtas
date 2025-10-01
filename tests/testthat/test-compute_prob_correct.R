@@ -28,7 +28,7 @@ test_that(
 
     prob_correct |>
       attr("data") |>
-      ssdtools:::expect_snapshot_data(name = "prob-correct")
+      expect_snapshot_data(name = "prob-correct")
 
   }
 )

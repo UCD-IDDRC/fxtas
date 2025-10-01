@@ -14,7 +14,7 @@ test_that(
 
     ft |>
       as.data.frame() |>
-      ssdtools:::expect_snapshot_data(name = "table-st-by-demo")
+      expect_snapshot_data(name = "table-st-by-demo")
   }
 )
 
@@ -35,7 +35,7 @@ test_that(
 
     ft |>
       as.data.frame() |>
-      ssdtools:::expect_snapshot_data(name = "table_subtype_by_demographics")
+      expect_snapshot_data(name = "table_subtype_by_demographics")
 
     skip_on_ci()
     ft |>
