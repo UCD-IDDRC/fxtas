@@ -149,7 +149,7 @@ pvd_lineplot <- function(
     ) +
     scale_color_manual(
       guide = ggplot2::guide_legend(
-        size = x_text_size,
+        theme = theme(legend.title = element_text(size = x_text_size)),
         order = 2,
         ncol = 2
       ),
