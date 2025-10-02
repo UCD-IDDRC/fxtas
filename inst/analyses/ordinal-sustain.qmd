@@ -1,8 +1,8 @@
 ---
 title: |
-  Progression of fragile X-associated tremor/ataxia syndrome 
+Progression of fragile X-associated tremor/ataxia syndrome 
   revealed by subtype and stage inference
-format:
+  format:
   html:
     echo: false
   docx: default
@@ -51,12 +51,12 @@ if (FALSE) {
     colorblindcheck::palette_plot()
   rcartocolor::carto_pal(name = "Safe", n = 8) |>
     colorblindcheck::palette_plot()
+  color_names1 <- 
+    rcartocolor::carto_pal(name = "Safe") |>
+    loon::l_colorName() |>
+    stringr::str_remove_all(pattern = rex::rex(digits))
 }
-color_names1 <- 
-  rcartocolor::carto_pal(name = "Safe") |>
-  loon::l_colorName() |>
-  stringr::str_remove_all(pattern = rex::rex(digits))
-  
+
 scale_colors1 <- scale_colors0 |> 
   setNames(
     c("violet red", "royal blue", "cadet blue", "khaki", "forest green"
@@ -78,10 +78,13 @@ lineplot_direction_colors <- c(
   "Blue" = "#005AB5"
 )
 
-lineplot_direction_color_names1 <- 
-  lineplot_direction_colors |> 
-  loon::l_colorName() |>  
-  stringr::str_remove_all(pattern = rex::rex(digits))
+if (FALSE) {
+  lineplot_direction_color_names1 <- 
+    lineplot_direction_colors |> 
+    loon::l_colorName() |>  
+    stringr::str_remove_all(pattern = rex::rex(digits))
+  
+}
 
 options(
   ggplot2.discrete.fill = rcartocolor::carto_pal(name = "Safe"),
@@ -97,8 +100,9 @@ ggplot2::theme_set(
 #| label: libraries
 #| message: false
 
+# note: don't install miniconda on DEM mac laptop; it breaks the current setup
 reticulate::use_condaenv("fxtas39", required = TRUE, conda = "auto")
-# library(fxtas)
+library(fxtas)
 devtools::load_all()
 library(tidyverse)
 library(reticulate)
@@ -469,11 +473,12 @@ fig_both_first2 <-
   graphical_abstract(
     scale_colors = scale_colors1,
     rel_heights = c(.9, 0.25),
-  ncol_legend = 2,
-  guide_rel_widths = c(1.325, 1),
-  abstract = abstract_text,
-  abstract_size = 2.7,
-  abstract_width = 50
+    ncol_legend = 2,
+    y_text_size = 7,
+    guide_rel_widths = c(1.325, 1),
+    abstract = abstract_text,
+    abstract_size = 2.7,
+    abstract_width = 50
   )
 
 if (interactive()) {
@@ -516,23 +521,23 @@ results_males_first = extract_results_from_pickle(
 
 fig_females_first <- results_females_first |> 
   plot_positional_var(
-  biomarker_groups = biomarker_groups,
-  biomarker_levels = biomarker_levels,
-  use_rds = use_rds,
-  size.y = size.y,
-  n_s = 1,
-  use_labels = TRUE
-)
+    biomarker_groups = biomarker_groups,
+    biomarker_levels = biomarker_levels,
+    use_rds = use_rds,
+    size.y = size.y,
+    n_s = 1,
+    use_labels = TRUE
+  )
 
 fig_males_first <- results_males_first |> 
   plot_positional_var(
-  biomarker_groups = biomarker_groups,
-  biomarker_levels = biomarker_levels,
-  use_rds = use_rds,
-  size.y = size.y,
-  n_s = 1,
-  use_labels = TRUE
-)
+    biomarker_groups = biomarker_groups,
+    biomarker_levels = biomarker_levels,
+    use_rds = use_rds,
+    size.y = size.y,
+    n_s = 1,
+    use_labels = TRUE
+  )
 
 
 fig_under100 <- extract_figs_from_pickle(
@@ -718,15 +723,15 @@ Supplementary material is available at Brain Communications online.
 #| label: demographics-tbl
 v1_usable_capital_labels |> 
   make_demographics_table(
-  vars = c(
-    "Age at visit",
-    "Primary Race/Ethnicity",
-    "FXTAS Stage",
-    # "fxtas_dx",
-    "CGG"
-    # "Activation Ratio (0.0-1.0)"
+    vars = c(
+      "Age at visit",
+      "Primary Race/Ethnicity",
+      "FXTAS Stage",
+      # "fxtas_dx",
+      "CGG"
+      # "Activation Ratio (0.0-1.0)"
+    )
   )
-)
 ```
 
 **Descriptive statistics of patient characteristics by Sex and CGG repeat level.**
@@ -771,26 +776,26 @@ set.seed(2)
 tbl_sg_demos <- v1_usable_capital_labels |> 
   filter(.data$CGG >= 55) |> 
   table_subtype_by_demographics(
-  demographic_vars = c(
-    "CGG",
-    "Age at visit" , 
-    "Male",
-    "Primary Race/Ethnicity"
-  ),
-  patient_data = _,
-  subtype_and_stage_table = results_cv_max$subtype_and_stage_table,
-  digits = list(
-    CGG = 1,
-    `FX3*` = c(0, 1),
-    Gender = c(0, 1),
-    `Primary Race/Ethnicity` = c(0, 1)
+    demographic_vars = c(
+      "CGG",
+      "Age at visit" , 
+      "Male",
+      "Primary Race/Ethnicity"
+    ),
+    patient_data = _,
+    subtype_and_stage_table = results_cv_max$subtype_and_stage_table,
+    digits = list(
+      CGG = 1,
+      `FX3*` = c(0, 1),
+      Gender = c(0, 1),
+      `Primary Race/Ethnicity` = c(0, 1)
+    )
   )
-)
 pval_cgg <- 
   sust_data |> 
   dplyr::filter(ml_subtype != "Subtype 0") |> 
   oneway.test(
-  CGG ~ ml_subtype, data = _)
+    CGG ~ ml_subtype, data = _)
 N_subtyped <- results_cv_max$subtype_and_stage_table |> 
   dplyr::filter(ml_subtype != "Subtype 0") |> 
   nrow()
@@ -852,28 +857,28 @@ pvdc_sex <- list(
   )
 
 if (interactive()) {
-pvdc_sex + ggview::canvas(
+  pvdc_sex + ggview::canvas(
     width = pvd_width, 
     height = pvd_height,
     units = "in",
     dpi = 600
   )
-    
+  
 } else {
-
+  
   print(pvdc_sex)
-
+  
 }
 
 pvdc_sex |> 
   ggplot2::ggsave(
-  "inst/analyses/Figure1.pdf", 
-  plot = _, 
-  width = pvd_width, 
-  height = pvd_height, 
-  units = "in", 
-  dpi = 600
-)
+    "inst/analyses/Figure1.pdf", 
+    plot = _, 
+    width = pvd_width, 
+    height = pvd_height, 
+    units = "in", 
+    dpi = 600
+  )
 
 
 ```
@@ -900,13 +905,13 @@ pvdc_sex <- list(
   )
 
 if (interactive()) {
-pvdc_sex + ggview::canvas(
+  pvdc_sex + ggview::canvas(
     height = 120, 
     width = 120,
     units = "mm",
     dpi = 600
   )
-    
+  
 }
 
 pvdc_sex |> 
@@ -964,13 +969,13 @@ if (interactive()) {
 
 lineplot_by_sex |> 
   ggplot2::ggsave(
-  "inst/analyses/Figure2.pdf", 
-  plot = _, 
-  width = pvd_line_width, 
-  height = pvd_line_height, 
-  units = "in", 
-  dpi = 600
-)
+    "inst/analyses/Figure2.pdf", 
+    plot = _, 
+    width = pvd_line_width, 
+    height = pvd_line_height, 
+    units = "in", 
+    dpi = 600
+  )
 ```
 
 **Positional differences in estimated event sequence between males and females.**

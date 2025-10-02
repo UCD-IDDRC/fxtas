@@ -2,6 +2,7 @@
 #' @param figs todo
 #' @param tile_height todo
 #' @param y_text_size todo
+#' @param x_title_size todo
 #' @param facet_label_prefix todo
 #' @param legend.position todo
 #' @param scale_colors todo
@@ -20,6 +21,7 @@ graphical_abstract <- function(
     figs,
     tile_height = 1,
     y_text_size = 9,
+    x_title_size = 8,
     facet_label_prefix = names(figs),
     legend.position = "none", # nolint: object_name_linter
     scale_colors = c("red", "blue", "magenta", "darkgreen", "purple4"),
@@ -228,6 +230,7 @@ graphical_abstract <- function(
       legend.box = "horizontal",
       # legend.justification = ,
       legend.margin = ggplot2::margin(0, 0.15, 0, -0.45, "cm"),
+      axis.title.x = ggplot2::element_text(size = x_title_size),
       axis.title.y = ggplot2::element_blank(),
       axis.text.y = ggtext::element_markdown(
         size = y_text_size

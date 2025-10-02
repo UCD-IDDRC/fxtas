@@ -8,6 +8,7 @@ graphical_abstract(
   figs,
   tile_height = 1,
   y_text_size = 9,
+  x_title_size = 8,
   facet_label_prefix = names(figs),
   legend.position = "none",
   scale_colors = c("red", "blue", "magenta", "darkgreen", "purple4"),
@@ -28,6 +29,8 @@ graphical_abstract(
 \item{tile_height}{todo}
 
 \item{y_text_size}{todo}
+
+\item{x_title_size}{todo}
 
 \item{facet_label_prefix}{todo}
 
