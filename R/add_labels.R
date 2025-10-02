@@ -8,6 +8,7 @@
 #' @examples test_data |> add_labels()
 add_labels <- function(data) {
   to_return <- data |>
+    add_default_labels() |>
     set_mri_var_labels() |>
     set_scid_labels() |>
     dplyr::mutate(
@@ -95,8 +96,6 @@ add_labels <- function(data) {
         .data$Stage_3plus |>
         labelled::set_label_attribute("FXTAS Stage")
     )
-  to_return <- to_return |>
-    add_default_labels()
 
-
+  return(to_return)
 }
