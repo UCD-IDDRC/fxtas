@@ -97,4 +97,5 @@ add_labels <- function(data) {
         labelled::set_label_attribute("FXTAS Stage")
     )
 
+  return(to_return)
 }
