@@ -1,8 +1,8 @@
 ---
 title: |
-Progression of fragile X-associated tremor/ataxia syndrome 
+  Progression of fragile X-associated tremor/ataxia syndrome 
   revealed by subtype and stage inference
-  format:
+format:
   html:
     echo: false
   docx: default
