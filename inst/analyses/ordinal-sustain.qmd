@@ -898,7 +898,7 @@ pvdc_sex <- list(
 ) |>
   plot_compact_pvd(
     scale_colors = scale_colors1, 
-    y_text_size = y_text_size,
+    y_text_size = 8,
     rel_heights = c(.9, 0.1),
     ncol_legend = 2,
     show_group_color_legend = FALSE,
