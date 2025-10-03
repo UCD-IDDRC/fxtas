@@ -8,6 +8,7 @@ graphical_abstract(
   figs,
   tile_height = 1,
   y_text_size = 9,
+  x_title_size = 8,
   facet_label_prefix = names(figs),
   legend.position = "none",
   scale_colors = c("red", "blue", "magenta", "darkgreen", "purple4"),
@@ -19,6 +20,7 @@ graphical_abstract(
   abstract,
   abstract_size = 5,
   abstract_width = 50,
+  show_grayscale_legend = (legend.position == "none"),
   ...
 )
 }
@@ -28,6 +30,8 @@ graphical_abstract(
 \item{tile_height}{todo}
 
 \item{y_text_size}{todo}
+
+\item{x_title_size}{todo}
 
 \item{facet_label_prefix}{todo}
 
@@ -51,6 +55,8 @@ graphical_abstract(
 \item{abstract_size}{\link{numeric} Abstract text size}
 
 \item{abstract_width}{\link{numeric} Length at which to wrap the abstract text.}
+
+\item{show_grayscale_legend}{\link{logical} whether to show grayscale legend}
 
 \item{...}{List of plots to be arranged into the grid. The plots can be any objects that
 the function \code{\link[cowplot:as_gtable]{as_gtable()}} can handle (see also examples).}

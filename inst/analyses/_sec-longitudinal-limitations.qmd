@@ -1,6 +1,6 @@
 Longitudinal data with more frequent follow-up visits 
 would also enable us to answer questions about 
-patients’ responses to receiving FXTAS diagnoses; 
+patients' responses to receiving FXTAS diagnoses; 
 in particular, it would be interesting to observe whether 
 anxiety and depressive symptoms increase 
 close or shortly following the onset of FXTAS. 

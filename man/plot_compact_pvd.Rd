@@ -18,6 +18,7 @@ plot_compact_pvd(
   guide_rel_widths = c(0.7, 0.3),
   legend_text_size = grid::unit(8, "pt"),
   show_group_color_legend = TRUE,
+  show_grayscale_legend = (legend.position == "none"),
   ...
 )
 }
@@ -46,6 +47,8 @@ plot_compact_pvd(
 \item{legend_text_size}{\link[grid:unit]{grid::unit}: legend text size}
 
 \item{show_group_color_legend}{\link{logical}: whether to show group col legend}
+
+\item{show_grayscale_legend}{\link{logical} whether to show grayscale legend}
 
 \item{...}{
   Arguments passed on to \code{\link[=compact_pvd_data_prep]{compact_pvd_data_prep}}
