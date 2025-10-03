@@ -903,10 +903,7 @@ pvdc_sex <- list(
     rel_heights = c(.9, 0.2),
     ncol_legend = 2,
     show_group_color_legend = FALSE,
-    internal_caption_text = abstract_text,
-    guide_rel_widths = c(1, 0),
-    abstract_size = 2.7,
-    abstract_width = 50
+    guide_rel_widths = c(0, 1)
   )
 
 if (interactive()) {
