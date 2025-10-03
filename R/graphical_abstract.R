@@ -13,6 +13,7 @@
 #' @param abstract [character] String that summzrizes the study's main findings.
 #' @param abstract_size [numeric] Abstract text size
 #' @param abstract_width [numeric] Length at which to wrap the abstract text.
+#' @param show_grayscale_legend [logical] whether to show grayscale legend
 #' @inheritParams cowplot::plot_grid
 #' @returns a [ggplot2::ggplot]
 #' @export
@@ -33,6 +34,7 @@ graphical_abstract <- function(
     abstract,
     abstract_size = 5,
     abstract_width = 50,
+    show_grayscale_legend = (legend.position == "none"),
     ...
 ) {
   # extract and prep data from fig list
@@ -238,34 +240,37 @@ graphical_abstract <- function(
       strip.text = ggtext::element_markdown() # allow markdown for labels
     )
 
-  abstract_plot <- ggplot2::ggplot() +
-    ggplot2::aes(
-      x = -0.9, y = 0,
-      label = abstract |> stringr::str_wrap(width = abstract_width),
-      hjust = 0
-    ) +
-    ggplot2::geom_text(size = abstract_size) +
-    ggplot2::scale_x_continuous(limits = c(-1, 1)) +
-    # ggplot2::scale_y_continuous(
-    #   limits = c(-0.1, 0.1),
-    #   expand = ggplot2::expansion(0)
-    # ) +
-    ggplot2::theme_void()
+  abstract_plot <-
+    build_plot_abstract(
+      abstract,
+      abstract_width,
+      abstract_size
+    )
 
   if (legend.position == "none") {
-    fig <- cowplot::plot_grid(
-      fig,
-      cowplot::plot_grid(
-        ncol = ncol_legend,
+    if (show_grayscale_legend) {
+      fig <- cowplot::plot_grid(
+        fig,
+        cowplot::plot_grid(
+          ncol = ncol_legend,
+          abstract_plot,
+          horizontal_greyscale_legend,
+          rel_widths = guide_rel_widths,
+          ...
+        ),
+        # see data-raw/pvd_grayscale_legend.R for details
+        nrow = 2,
+        rel_heights = rel_heights
+      )
+    } else {
+      fig <- cowplot::plot_grid(
+        fig,
         abstract_plot,
-        horizontal_greyscale_legend, # stored as internal data;
-        rel_widths = guide_rel_widths,
-        ...
-      ),
-      # see data-raw/pvd_grayscale_legend.R for details
-      nrow = 2,
-      rel_heights = rel_heights
-    )
+        # see data-raw/pvd_grayscale_legend.R for details
+        nrow = 2,
+        rel_heights = rel_heights
+      )
+    }
   }
 
   return(fig)

@@ -61,4 +61,23 @@ test_that("`compact_pvd_figure()` produces consistent results", {
   plot2 |>
     vdiffr::expect_doppelganger(title = "compact_pvd_figure-multiscale")
 
+  plot3 <- compact_pvd_figure(
+    plot_dataset,
+    tile_height = tile_height,
+    y_text_size = y_text_size,
+    facet_names = facet_names,
+    # facet_label_size = facet_label_size,
+    legend.position = "none",
+    show_grayscale_legend = FALSE,
+    scale_colors = scale_colors,
+    group_colors = group_colors,
+    group_color_legend = group_color_legend,
+    legend_text_size = legend_text_size
+  )
+
+  plot3 |>
+    vdiffr::expect_doppelganger(title = "compact_pvd_figure-no-grayscale")
+
+
+
 })

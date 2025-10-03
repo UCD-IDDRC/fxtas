@@ -855,11 +855,7 @@ pvdc_sex <- list(
 ) |>
   plot_compact_pvd(
     scale_colors = scale_colors1, 
-    y_text_size = y_text_size,
-    ncol_legend = 1,
-    nrow_colors = 1,
-    rel_heights = c(1, 0.2),
-    legend.position = "bottom"
+    y_text_size = y_text_size
   )
 
 if (interactive()) {
@@ -904,10 +900,13 @@ pvdc_sex <- list(
   plot_compact_pvd(
     scale_colors = scale_colors1, 
     y_text_size = 8,
-    rel_heights = c(.9, 0.1),
+    rel_heights = c(.9, 0.2),
     ncol_legend = 2,
     show_group_color_legend = FALSE,
-    guide_rel_widths = c(0, 1)
+    internal_caption_text = abstract_text,
+    guide_rel_widths = c(1, 0),
+    abstract_size = 2.7,
+    abstract_width = 50
   )
 
 if (interactive()) {

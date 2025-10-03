@@ -15,10 +15,14 @@ compact_pvd_figure(
   guide_rel_widths = c(0.3, 0.7),
   group_colors,
   ncol_legend = 1,
-  group_color_legend,
+  group_color_legend = NULL,
   legend_text_size = grid::unit(7, "pt"),
+  show_grayscale_legend = (legend.position == "none"),
   ...
 )
+}
+\arguments{
+\item{show_grayscale_legend}{\link{logical} whether to show grayscale legend}
 }
 \description{
 plot compact pvd figure

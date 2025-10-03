@@ -1,4 +1,5 @@
 #' plot compact pvd figure
+#' @param show_grayscale_legend [logical] whether to show grayscale legend
 #' @example inst/examples/exm-compact_pvd_figure.R
 
 #' @dev
@@ -14,8 +15,9 @@ compact_pvd_figure <- function(
     guide_rel_widths = c(.3, .7),
     group_colors,
     ncol_legend = 1,
-    group_color_legend,
+    group_color_legend = NULL,
     legend_text_size = grid::unit(7, "pt"),
+    show_grayscale_legend = (legend.position == "none"),
     ...) {
   # set tile width
   tile_width <- 1
@@ -210,23 +212,25 @@ compact_pvd_figure <- function(
       strip.text = ggtext::element_markdown() # allow markdown for labels
     )
 
-  if (legend.position == "none") {
+  if (show_grayscale_legend) {
     fig <- cowplot::plot_grid(
       fig,
       cowplot::plot_grid(
-        ncol = ncol_legend,
         group_color_legend,
         horizontal_greyscale_legend, # stored as internal data;
+        # see data-raw/pvd_grayscale_legend.R for details
+        ncol = ncol_legend,
         rel_widths = guide_rel_widths,
         ...
       ),
-      # see data-raw/pvd_grayscale_legend.R for details
+
       nrow = 2,
       rel_heights = rel_heights
     )
+
   } else {
     fig <- cowplot::plot_grid(
-      fig + guides(color = guide_legend(ncol = 3)),
+      fig,
       group_color_legend,
       nrow = 2,
       rel_heights = rel_heights
