@@ -134,7 +134,7 @@ plot_python <- TRUE
 fig_size <- c(20, 10) # passed to pySuStaIn
 
 # max size: 170 mm x 210 mm = 6.69 x 8.27 inches 
-pvd_height <- 8
+pvd_height <- 8.25
 pvd_width <- 6.5
 pvd_subfig_width <- pvd_width - 1
 pvd_line_height <- 8
@@ -855,7 +855,11 @@ pvdc_sex <- list(
 ) |>
   plot_compact_pvd(
     scale_colors = scale_colors1, 
-    y_text_size = y_text_size
+    y_text_size = y_text_size,
+    ncol_legend = 1,
+    nrow_colors = 1,
+    rel_heights = c(1, 0.2),
+    legend.position = "bottom"
   )
 
 if (interactive()) {

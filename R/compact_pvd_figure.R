@@ -224,6 +224,13 @@ compact_pvd_figure <- function(
       nrow = 2,
       rel_heights = rel_heights
     )
+  } else {
+    fig <- cowplot::plot_grid(
+      fig + guides(color = guide_legend(ncol = 3)),
+      group_color_legend,
+      nrow = 2,
+      rel_heights = rel_heights
+    )
   }
 
   return(fig)

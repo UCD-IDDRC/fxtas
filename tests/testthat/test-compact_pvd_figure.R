@@ -13,7 +13,6 @@ test_that("`compact_pvd_figure()` produces consistent results", {
   tile_height = 1
   # facet_label_size = 8
   facet_label_prefix = names(figs)
-  legend.position = "none"
   scale_colors = c("red", "blue", "purple4")
   plot_dataset <- compact_pvd_data_prep(figs = figs)
   group_colors <- group_colors(figs)
@@ -36,7 +35,7 @@ test_that("`compact_pvd_figure()` produces consistent results", {
     y_text_size = y_text_size,
     facet_names = facet_names,
     # facet_label_size = facet_label_size,
-    legend.position = legend.position,
+    legend.position = "none",
     scale_colors = scale_colors,
     group_colors = group_colors,
     group_color_legend = group_color_legend,
@@ -45,5 +44,21 @@ test_that("`compact_pvd_figure()` produces consistent results", {
 
   plot1 |>
     vdiffr::expect_doppelganger(title = "compact_pvd_figure")
+
+  plot2 <- compact_pvd_figure(
+    plot_dataset,
+    tile_height = tile_height,
+    y_text_size = y_text_size,
+    facet_names = facet_names,
+    # facet_label_size = facet_label_size,
+    legend.position = "bottom",
+    scale_colors = scale_colors,
+    group_colors = group_colors,
+    group_color_legend = group_color_legend,
+    legend_text_size = legend_text_size
+  )
+
+  plot2 |>
+    vdiffr::expect_doppelganger(title = "compact_pvd_figure-multiscale")
 
 })
