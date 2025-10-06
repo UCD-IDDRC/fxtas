@@ -219,6 +219,8 @@ graphical_abstract <- function(
     # plot theme
     ggplot2::theme_bw() +
     ggplot2::theme(
+      # remove x axis title
+      axis.title.x = element_blank(),
       # add color scale info in figure caption:
       legend.text = element_text(size = legend_text_size),
       legend.title = ggtext::element_markdown(size = legend_text_size),
@@ -231,7 +233,10 @@ graphical_abstract <- function(
       axis.title.y = ggplot2::element_blank(),
       axis.text.y = ggtext::element_markdown(
         size = y_text_size
-      ), # allow markdown for coloring
+      ),
+      # adjust margins
+      plot.margin = unit(c(0,0,0,0), "cm"),
+      # allow markdown for coloring
       strip.text = ggtext::element_markdown() # allow markdown for labels
     )
 
@@ -249,16 +254,27 @@ graphical_abstract <- function(
     # ) +
     ggplot2::theme_void()
 
+  x_title_and_scale <- cowplot::plot_grid(
+    ggplot() +
+      aes(x = 0, y = 0, label = "Sequential order") +
+      geom_text(size = 5, hjust = 0.63) +
+      theme_void() +
+      theme(plot.margin = unit(c(0,0,0,0), "cm")),
+    horizontal_greyscale_legend,
+    ncol = 1, nrow = 2
+  )
+
+  grob2 <- cowplot::plot_grid(
+    abstract_plot,
+    x_title_and_scale,
+    ncol = 2,
+    rel_widths = guide_rel_widths
+  )
+
   if (legend.position == "none") {
     fig <- cowplot::plot_grid(
       fig,
-      cowplot::plot_grid(
-        ncol = ncol_legend,
-        abstract_plot,
-        horizontal_greyscale_legend, # stored as internal data;
-        rel_widths = guide_rel_widths,
-        ...
-      ),
+      grob2,
       # see data-raw/pvd_grayscale_legend.R for details
       nrow = 2,
       rel_heights = rel_heights

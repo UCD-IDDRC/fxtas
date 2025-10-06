@@ -842,7 +842,8 @@ pvdc_sex <- list(
 ) |>
   plot_compact_pvd(
     scale_colors = scale_colors1, 
-    y_text_size = y_text_size
+    y_text_size = y_text_size,
+    legend.position = "bottom"
   )
 
 if (interactive()) {
@@ -880,17 +881,24 @@ pvdc_sex |>
 
 ```{r}
 #| label: thumbnail-by-sex
+
+abstract_text <- paste0(
+  "Female premutation carriers developed mood disorder symptoms prior to FXTAS Stage 1 diagnosis, whereas male carriers experienced these symptoms much later (after FXTAS Stage 4)"
+)
+
 pvdc_sex <- list(
   "Males:" = fig_males_first,
   "Females:" = fig_females_first
 ) |>
-  plot_compact_pvd(
+  graphical_abstract(
     scale_colors = scale_colors1, 
-    y_text_size = y_text_size,
-    rel_heights = c(.9, 0.1),
+    y_text_size = 7,
+    rel_heights = c(.9, 0.25),
     ncol_legend = 2,
-    show_group_color_legend = FALSE,
-    guide_rel_widths = c(0, 1)
+    guide_rel_widths = c(1.2, 0.9),
+    abstract = abstract_text,
+    abstract_size = 2.75,
+    abstract_width = 45
   )
 
 if (interactive()) {
