@@ -4,5 +4,5 @@ test_that("results are consistent", {
     readr::read_rds()
   pfs_distinct |>
     fix_parkinsonian_features() |>
-    ssdtools:::expect_snapshot_data(name = "pfs")
+    expect_snapshot_data(name = "pfs")
 })

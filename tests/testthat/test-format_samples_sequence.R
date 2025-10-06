@@ -20,5 +20,5 @@ test_that("results are consistent", {
     n_s = get_n_subtypes(results)
   )
   samples_seq_formatted[,,1] |> t() |> as.data.frame() |>
-    ssdtools:::expect_snapshot_data(name = "sim-data")
+    expect_snapshot_data(name = "sim-data")
 })

@@ -54,10 +54,15 @@ create_scid_domains <- function(
     ) |>
     # create domain variables using max level
     dplyr::mutate(
-      `SCID: mood disorders` = rowMax(scid_md_vars_lif),
-      `SCID: substance use disorders` = rowMax(scid_sud_vars_lif),
-      `SCID: anxiety disorders` = rowMax(scid_anx_vars_lif),
-      `SCID: somatoform disorders` = rowMax(scid_somatic_vars_lif),
-      `SCID: psychotic symptoms` = rowMax(scid_psych_vars_lif)
+      `SCID: mood disorders` = rowMax(scid_md_vars_lif) |>
+        set_label_attribute("mood disorders"),
+      `SCID: substance use disorders` = rowMax(scid_sud_vars_lif) |>
+        set_label_attribute("substance use disorders"),
+      `SCID: anxiety disorders` = rowMax(scid_anx_vars_lif) |>
+        set_label_attribute("anxiety disorders"),
+      `SCID: somatoform disorders` = rowMax(scid_somatic_vars_lif) |>
+        set_label_attribute("somatoform disorders"),
+      `SCID: psychotic symptoms` = rowMax(scid_psych_vars_lif) |>
+        set_label_attribute("psychotic symptoms")
     )
 }
