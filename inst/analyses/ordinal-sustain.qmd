@@ -47,7 +47,7 @@ library(rex)
 
 if (FALSE) {
   rcartocolor::carto_pal(name = "Safe") |> 
-    colorblindcheck::palette_check(plot = TRUE)
+    colorblindcheck::palette_plot()
   rcartocolor::carto_pal(name = "Safe")[scale_color_indices] |> 
     colorblindcheck::palette_check(plot = TRUE)
   rcartocolor::carto_pal(name = "Safe", n = 8) |>

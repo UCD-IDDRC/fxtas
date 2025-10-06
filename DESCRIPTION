@@ -13,6 +13,7 @@ Imports:
     base,
     broom,
     cli,
+    colorblindcheck (>= 1.0.3),
     colorspace,
     config (>= 0.3.1),
     cowplot,
@@ -101,11 +102,12 @@ Config/reticulate/autoconfigure:
   )
 Config/build/copy-method: link
 Roxygen: list(markdown = TRUE, roclets = c("collate", "rd", "namespace", "devtag::dev_roclet"))
-Remotes: 
+Remotes:  
     moodymudskipper/devtag,
     d-morrison/gtsummary@ezra-dev,
     insightsengineering/cardx,
-    davidsjoberg/ggbump
+    davidsjoberg/ggbump,
+    d-morrison/colorblindcheck
 Config/Needs/build: moodymudskipper/devtag
 Config/Needs/roxygen2: moodymudskipper/devtag
 Config/Needs/website: quarto, rmarkdown
