@@ -85,7 +85,8 @@ Suggests:
     writexl,
     chromote,
     ggview,
-    sessioninfo
+    sessioninfo,
+    pryr
 Config/testthat/edition: 3
 Encoding: UTF-8
 Language: en-US
@@ -102,7 +103,7 @@ Config/reticulate/autoconfigure:
   )
 Config/build/copy-method: link
 Roxygen: list(markdown = TRUE, roclets = c("collate", "rd", "namespace", "devtag::dev_roclet"))
-Remotes:  
+Remotes: 
     moodymudskipper/devtag,
     d-morrison/gtsummary@ezra-dev,
     insightsengineering/cardx,
