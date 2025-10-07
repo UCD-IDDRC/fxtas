@@ -46,12 +46,13 @@ scale_colors0 <- rcartocolor::carto_pal(name = "Safe")[scale_color_indices]
 library(rex)
 
 if (FALSE) {
+  par("mar" = c(3.1, 3.1, 1.1, 2.1))
   rcartocolor::carto_pal(name = "Safe") |> 
     colorblindcheck::palette_plot(show_hex = TRUE)
   rcartocolor::carto_pal(name = "Safe")[scale_color_indices] |> 
-    colorblindcheck::palette_check(plot = TRUE)
+    colorblindcheck::palette_plot(show_hex = TRUE)
   rcartocolor::carto_pal(name = "Safe", n = 8) |>
-    colorblindcheck::palette_check(plot = TRUE)
+    colorblindcheck::palette_plot(show_hex = TRUE)
   color_names1 <- 
     rcartocolor::carto_pal(name = "Safe") |>
     loon::l_colorName() |>
