@@ -31,8 +31,7 @@ graphical_abstract <- function(
     abstract,
     abstract_size = 5,
     abstract_width = 50,
-    ...
-) {
+    ...) {
   # extract and prep data from fig list
   plot_dataset <- compact_pvd_data_prep(figs = figs, ...)
   # facet labels
@@ -52,7 +51,6 @@ graphical_abstract <- function(
     )
 
   nlevels <- plot_dataset |>
-    dplyr::filter(!is.na(level)) |>
     dplyr::pull("level") |>
     unique() |>
     length()
@@ -220,7 +218,7 @@ graphical_abstract <- function(
     ggplot2::theme_bw() +
     ggplot2::theme(
       # remove x axis title
-      axis.title.x = element_blank(),
+      axis.title.x = ggplot2::element_blank(),
       # add color scale info in figure caption:
       legend.text = element_text(size = legend_text_size),
       legend.title = ggtext::element_markdown(size = legend_text_size),
@@ -235,7 +233,7 @@ graphical_abstract <- function(
         size = y_text_size
       ),
       # adjust margins
-      plot.margin = unit(c(0,0,0,0), "cm"),
+      plot.margin = grid::unit(c(0, 0, 0, 0), "cm"),
       # allow markdown for coloring
       strip.text = ggtext::element_markdown() # allow markdown for labels
     )
@@ -248,18 +246,14 @@ graphical_abstract <- function(
     ) +
     ggplot2::geom_text(size = abstract_size) +
     ggplot2::scale_x_continuous(limits = c(-1, 1)) +
-    # ggplot2::scale_y_continuous(
-    #   limits = c(-0.1, 0.1),
-    #   expand = ggplot2::expansion(0)
-    # ) +
     ggplot2::theme_void()
 
   x_title_and_scale <- cowplot::plot_grid(
     ggplot() +
       aes(x = 0, y = 0, label = "Sequential order") +
-      geom_text(size = 5, hjust = 0.63) +
-      theme_void() +
-      theme(plot.margin = unit(c(0,0,0,0), "cm")),
+      ggplot2::geom_text(size = 5, hjust = 0.63) +
+      ggplot2::theme_void() +
+      theme(plot.margin = grid::unit(c(0, 0, 0, 0), "cm")),
     horizontal_greyscale_legend,
     ncol = 1, nrow = 2
   )

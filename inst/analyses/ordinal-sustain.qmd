@@ -889,7 +889,9 @@ pvdc_sex |>
 #| label: thumbnail-by-sex
 
 abstract_text <- paste0(
-  "Female premutation carriers developed mood disorder symptoms prior to FXTAS Stage 1 diagnosis, whereas male carriers experienced these symptoms much later (after FXTAS Stage 4)"
+  "Female premutation carriers developed mood disorder symptoms prior to FXTAS", 
+  " Stage 1 diagnosis, whereas male carriers experienced these symptoms much",
+  " later (after FXTAS Stage 4)"
 )
 
 pvdc_sex <- list(
