@@ -44,18 +44,6 @@ sessioninfo::package_info(pkgs = "installed") |>
 scale_color_indices <- c(9, 5, 7, 8, 4)
 scale_colors0 <- rcartocolor::carto_pal(name = "Safe")[scale_color_indices]
 library(rex)
-
-if (FALSE) {
-  rcartocolor::carto_pal(name = "Safe") |> colorblindcheck::palette_plot()
-  rcartocolor::carto_pal(name = "Safe")[scale_color_indices] |>
-    colorblindcheck::palette_plot()
-  rcartocolor::carto_pal(name = "Safe", n = 8) |>
-    colorblindcheck::palette_plot()
-}
-color_names1 <- 
-  rcartocolor::carto_pal(name = "Safe") |>
-  loon::l_colorName() |>
-  stringr::str_remove_all(pattern = rex::rex(digits))
   
 scale_colors1 <- scale_colors0 |> 
   setNames(
@@ -78,10 +66,25 @@ lineplot_direction_colors <- c(
   "Blue" = "#005AB5"
 )
 
-lineplot_direction_color_names1 <- 
-  lineplot_direction_colors |> 
-  loon::l_colorName() |>  
-  stringr::str_remove_all(pattern = rex::rex(digits))
+
+
+if (FALSE) {
+  rcartocolor::carto_pal(name = "Safe") |> colorblindcheck::palette_plot()
+  rcartocolor::carto_pal(name = "Safe")[scale_color_indices] |>
+    colorblindcheck::palette_plot()
+  rcartocolor::carto_pal(name = "Safe", n = 8) |>
+    colorblindcheck::palette_plot()
+  color_names1 <- 
+    rcartocolor::carto_pal(name = "Safe") |>
+    loon::l_colorName() |>
+    stringr::str_remove_all(pattern = rex::rex(digits))
+  
+  lineplot_direction_color_names1 <- 
+    lineplot_direction_colors |> 
+    loon::l_colorName() |>  
+    stringr::str_remove_all(pattern = rex::rex(digits))
+
+}
 
 options(
   ggplot2.discrete.fill = rcartocolor::carto_pal(name = "Safe"),
@@ -458,13 +461,22 @@ fig_both_first <- extract_figs_from_pickle(
   output_folder = output_folder
 )
 
+abstract_text <- paste0(
+  "The Ordinal Subtype and Stage Inference (SuStaIn) algorithm allows us to ", 
+  "estimate the order of symptoms in ",
+  "Fragile X-associated tremor/ataxia syndrome (FXTAS) patients. "
+)
+
 fig_both_first2 <-
   list(fig_both_first) |>
-  plot_compact_pvd(
+  graphical_abstract(
     scale_colors = scale_colors1,
-    rel_heights = c(.9, 0.1),
-    ncol_legend = 2,
-    guide_rel_widths = c(0, 1)
+    rel_heights = c(.9, 0.25),
+  ncol_legend = 2,
+  guide_rel_widths = c(1.325, 1),
+  abstract = abstract_text,
+  abstract_size = 2.7,
+  abstract_width = 50
   )
 
 if (interactive()) {
@@ -839,7 +851,8 @@ pvdc_sex <- list(
 ) |>
   plot_compact_pvd(
     scale_colors = scale_colors1, 
-    y_text_size = y_text_size
+    y_text_size = y_text_size,
+    legend.position = "bottom"
   )
 
 if (interactive()) {
@@ -877,17 +890,26 @@ pvdc_sex |>
 
 ```{r}
 #| label: thumbnail-by-sex
+
+abstract_text <- paste0(
+  "Female premutation carriers developed mood disorder symptoms prior to FXTAS", 
+  " Stage 1 diagnosis, whereas male carriers experienced these symptoms much",
+  " later (after FXTAS Stage 4)"
+)
+
 pvdc_sex <- list(
   "Males:" = fig_males_first,
   "Females:" = fig_females_first
 ) |>
-  plot_compact_pvd(
+  graphical_abstract(
     scale_colors = scale_colors1, 
-    y_text_size = y_text_size,
-    rel_heights = c(.9, 0.1),
+    y_text_size = 7,
+    rel_heights = c(.9, 0.25),
     ncol_legend = 2,
-    show_group_color_legend = FALSE,
-    guide_rel_widths = c(0, 1)
+    guide_rel_widths = c(1.2, 0.9),
+    abstract = abstract_text,
+    abstract_size = 2.75,
+    abstract_width = 45
   )
 
 if (interactive()) {
