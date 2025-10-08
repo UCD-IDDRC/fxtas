@@ -44,18 +44,6 @@ sessioninfo::package_info(pkgs = "installed") |>
 scale_color_indices <- c(9, 5, 7, 8, 4)
 scale_colors0 <- rcartocolor::carto_pal(name = "Safe")[scale_color_indices]
 library(rex)
-
-if (FALSE) {
-  rcartocolor::carto_pal(name = "Safe") |> colorblindcheck::palette_plot()
-  rcartocolor::carto_pal(name = "Safe")[scale_color_indices] |>
-    colorblindcheck::palette_plot()
-  rcartocolor::carto_pal(name = "Safe", n = 8) |>
-    colorblindcheck::palette_plot()
-}
-color_names1 <- 
-  rcartocolor::carto_pal(name = "Safe") |>
-  loon::l_colorName() |>
-  stringr::str_remove_all(pattern = rex::rex(digits))
   
 scale_colors1 <- scale_colors0 |> 
   setNames(
@@ -78,10 +66,25 @@ lineplot_direction_colors <- c(
   "Blue" = "#005AB5"
 )
 
-lineplot_direction_color_names1 <- 
-  lineplot_direction_colors |> 
-  loon::l_colorName() |>  
-  stringr::str_remove_all(pattern = rex::rex(digits))
+
+
+if (FALSE) {
+  rcartocolor::carto_pal(name = "Safe") |> colorblindcheck::palette_plot()
+  rcartocolor::carto_pal(name = "Safe")[scale_color_indices] |>
+    colorblindcheck::palette_plot()
+  rcartocolor::carto_pal(name = "Safe", n = 8) |>
+    colorblindcheck::palette_plot()
+  color_names1 <- 
+    rcartocolor::carto_pal(name = "Safe") |>
+    loon::l_colorName() |>
+    stringr::str_remove_all(pattern = rex::rex(digits))
+  
+  lineplot_direction_color_names1 <- 
+    lineplot_direction_colors |> 
+    loon::l_colorName() |>  
+    stringr::str_remove_all(pattern = rex::rex(digits))
+
+}
 
 options(
   ggplot2.discrete.fill = rcartocolor::carto_pal(name = "Safe"),
