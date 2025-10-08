@@ -9,7 +9,7 @@
 #' @param nrow_colors now many rows to use for color guide
 #' @param guide_rel_widths relative widths of guides
 #' @param legend_text_size [grid::unit]: legend text size
-#' @param abstract [character] String that summzrizes the study's main findings.
+#' @param abstract [character] String that summarizes the study's main findings.
 #' @param abstract_size [numeric] Abstract text size
 #' @param abstract_width [numeric] Length at which to wrap the abstract text.
 #' @inheritParams cowplot::plot_grid

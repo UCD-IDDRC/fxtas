@@ -46,7 +46,7 @@ graphical_abstract(
 
 \item{legend_text_size}{\link[grid:unit]{grid::unit}: legend text size}
 
-\item{abstract}{\link{character} String that summzrizes the study's main findings.}
+\item{abstract}{\link{character} String that summarizes the study's main findings.}
 
 \item{abstract_size}{\link{numeric} Abstract text size}
 
