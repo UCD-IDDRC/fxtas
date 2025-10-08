@@ -130,8 +130,8 @@ The gtsummary type selectors, e.g. <code>all_dichotomous()</code>, cannot be use
 with this argument. Default is <code>NULL</code>. See below for details.</p></dd>
 
     <dt><code>missing,missing_text,missing_stat</code></dt>
-<dd><p>Arguments dictating how and if missing values are presented:</p><ul><li><p><code>missing</code>: must be one of <code>c("ifany", "no", "always")</code></p></li>
-<li><p><code>missing_text</code>: string indicating text shown on missing row. Default is <code>"Unknown"</code></p></li>
+<dd><p>Arguments dictating how and if missing values are presented:</p><ul><li><p><code>missing</code>: must be one of <code>c("ifany", "no", "always")</code>.</p></li>
+<li><p><code>missing_text</code>: string indicating text shown on missing row. Default is <code>"Unknown"</code>.</p></li>
 <li><p><code>missing_stat</code>: statistic to show on missing row. Default is <code>"{N_miss}"</code>.
 Possible values are <code>N_miss</code>, <code>N_obs</code>, <code>N_nonmiss</code>, <code>p_miss</code>, <code>p_nonmiss</code>.</p></li>
 </ul></dd>
@@ -145,7 +145,10 @@ Default is <code>all_categorical(FALSE) ~ "alphanumeric"</code>.</p></dd>
     <dt><code>percent</code></dt>
 <dd><p>(<code>string</code>)<br>
 Indicates the type of percentage to return.
-Must be one of <code>c("column", "row", "cell")</code>. Default is <code>"column"</code>.</p></dd>
+Must be one of <code>c("column", "row", "cell")</code>. Default is <code>"column"</code>.</p>
+<p>In rarer cases, you may need to define/override the typical denominators.
+In these cases, pass an integer or a data frame. Refer to the
+<code><a href="https://insightsengineering.github.io/cards/latest-tag/reference/ard_tabulate.html" class="external-link">?cards::ard_tabulate(denominator)</a></code> help file for details.</p></dd>
 
     <dt><code>include</code></dt>
 <dd><p>(<code><a href="https://dplyr.tidyverse.org/reference/dplyr_tidy_select.html" class="external-link">tidy-select</a></code>)<br>
