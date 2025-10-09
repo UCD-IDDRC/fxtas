@@ -904,9 +904,8 @@ abstract_text <- paste0(
   "Ordinal Subtype and Stage Inference ", 
   "estimates the order of symptoms in ",
   "Fragile X-associated tremor/ataxia syndrome patients. ",
-  "Female premutation carriers developed mood disorder symptoms prior to FXTAS", 
-  " Stage 1 diagnosis, whereas male carriers experienced these symptoms much",
-  " later (after FXTAS Stage 4)"
+  "Female premutation carriers developed mood disorder symptoms ",
+  "at earlier FXTAS stages than males."
 )
 
 pvdc_sex <- list(
@@ -918,7 +917,7 @@ pvdc_sex <- list(
     y_text_size = 7,
     rel_heights = c(.9, 0.25),
     ncol_legend = 2,
-    guide_rel_widths = c(1.2, 0.9),
+    guide_rel_widths = c(1.5, 0.8),
     abstract = abstract_text,
     abstract_size = 2.75,
     abstract_width = 45
