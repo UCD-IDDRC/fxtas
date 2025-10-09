@@ -209,7 +209,7 @@ Not sure I understand this question.
 
 **Question:** What should we do with codes 888 and 999 for these variables? Should they be treated as "Never used" or as actual missing values? What about blank entries (empty fields in RedCap)?  
 
-Again I think 888 and 999 should be treated as “no” or “none” and missing values as “no data”. but will need to check with Kyoungmi. 
+Again I think 888 and 999 should be treated as "no" or "none" and missing values as "no data". but will need to check with Kyoungmi. 
 
 ```{r}
 vars = c(

@@ -21,7 +21,7 @@ We visualized differences in event sequences by
 sex, 
 CGG repeat size, or 
 latent subgroup 
-using “positional difference graphs” (PDGs). 
+using "positional difference graphs" (PDGs). 
 PDGs consist of two juxtaposed lists of symptoms in each of two subgroups, 
 with each list ordered by most likely sequence position in that subgroup. 
 Lines connect the locations of the same symptoms between the subgroups. 

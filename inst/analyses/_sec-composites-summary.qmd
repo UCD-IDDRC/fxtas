@@ -33,8 +33,8 @@ recommend a minimum of three observations per
 symptom level [@young2021ordinal].
 In order to limit the number of symptom levels
 with extremely rare observations in our models,
-we combined the “Moderate” and “Severe” levels for the MRI variables
-and the “Absent” and “Sub-Threshold” levels for the SCID domain variables.
+we combined the "Moderate" and "Severe" levels for the MRI variables
+and the "Absent" and "Sub-Threshold" levels for the SCID domain variables.
 
 Supplementary Tables [-@supptbl-fxtas-stage-by-cgg] - [-@supptbl-autoimmune]
 summarize each of the `r outcomes_name`s
