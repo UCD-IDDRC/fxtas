@@ -11,6 +11,8 @@ test_that("`plot_compact_pvd()` produces consistent results", {
     )
    fig1 <- fig0 |>
     plot_compact_pvd(scale_colors = c("red", "blue", "purple4"),
+                     legend.position = "none",
+                     rel_heights = c(1, 0.1),
                      facet_label_prefix = NULL)
 
   fig1 |> vdiffr::expect_doppelganger(title = "pvd")
@@ -30,7 +32,10 @@ test_that(
 
     fig2 <-
       pvd_list_by_sex |>
-      plot_compact_pvd()
+      plot_compact_pvd(
+        legend.position = "none",
+        rel_heights = c(1, 0.1)
+      )
 
     fig2 |> vdiffr::expect_doppelganger(title = "pvd-fxtas-by-sex")
 

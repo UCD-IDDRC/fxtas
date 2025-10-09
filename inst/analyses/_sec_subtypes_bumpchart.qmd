@@ -10,13 +10,6 @@ stage_line_color <- "black"
 stage_highlight_color <- "yellow"
 # stage_highlight_color <- "#FFF"
 scale_colors2 <- rcartocolor::carto_pal(name = "Safe")
-group_1_color <- "orange"
-group_2_color <- "green"
-group_3_color <- "purple"
-group_4_color <- "red"
-group_5_color <- "brown"
-group_6_color <- "cyan3"
-group_7_color <- "magenta"
 group_1_color <- scale_colors2[1]
 group_2_color <- scale_colors2[2]
 group_3_color <- scale_colors2[3]
