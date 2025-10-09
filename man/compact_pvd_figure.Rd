@@ -21,6 +21,7 @@ compact_pvd_figure(
   group_color_legend,
   legend_text_size = grid::unit(7, "pt"),
   colorbar_label_type = "level",
+  strip_text_size = grid::unit(8, "points"),
   ...
 )
 }
@@ -36,6 +37,8 @@ compact_pvd_figure(
 
 \item{colorbar_label_type}{what kind of label to use?
 Current options are \code{"level"} and \code{"subscript"}}
+
+\item{strip_text_size}{passed to \code{ggtext::element_markdown()}}
 
 \item{...}{additional element specifications not part of base ggplot2. In general,
 these should also be defined in the \verb{element tree} argument. \link[rlang:splice]{Splicing} a list is also supported.}

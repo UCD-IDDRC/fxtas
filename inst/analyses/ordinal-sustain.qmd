@@ -136,7 +136,7 @@ plot_python <- TRUE
 fig_size <- c(20, 10) # passed to pySuStaIn
 
 # max size: 170 mm x 210 mm = 6.69 x 8.27 inches 
-pvd_height <- 8.25
+pvd_height <- 8.0
 pvd_width <- 6.5
 pvd_subfig_width <- pvd_width - 1
 pvd_line_height <- 8
@@ -901,7 +901,7 @@ pvdc_sex |>
 #| label: thumbnail-by-sex
 
 abstract_text <- paste0(
-  "Ordinal Subtype and Stage Inference", 
+  "Ordinal Subtype and Stage Inference ", 
   "estimates the order of symptoms in ",
   "Fragile X-associated tremor/ataxia syndrome patients. ",
   "Female premutation carriers developed mood disorder symptoms prior to FXTAS", 

@@ -3,6 +3,7 @@
 #' @inheritParams ggplot2::theme
 #' @param colorbar_label_type what kind of label to use?
 #' Current options are `"level"` and `"subscript"`
+#' @param strip_text_size passed to `ggtext::element_markdown()`
 #' @keywords internal
 compact_pvd_figure <- function(
     plot_dataset,
@@ -22,6 +23,7 @@ compact_pvd_figure <- function(
     group_color_legend,
     legend_text_size = grid::unit(7, "pt"),
     colorbar_label_type = "level",
+    strip_text_size = grid::unit(8, "points"),
     ...) {
   # set tile width
   tile_width <- 1
@@ -227,12 +229,12 @@ compact_pvd_figure <- function(
       legend.byrow = TRUE,
       legend.box = legend.box,
       # legend.justification = ,
-      legend.margin = ggplot2::margin(0, 0.15, 0, 0, "cm"),
+      legend.margin = ggplot2::margin(t = 0, r = 0.15, b = 0.25, l = 0, "cm"),
       axis.title.y = ggplot2::element_blank(),
       axis.text.y = ggtext::element_markdown(
         size = y_text_size
       ), # allow markdown for coloring
-      strip.text = ggtext::element_markdown() # allow markdown for labels
+      strip.text = ggtext::element_markdown(size = strip_text_size) # allow markdown for labels
     )
 
   if (legend.position == "none") {

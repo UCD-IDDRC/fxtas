@@ -21,7 +21,6 @@ plot_compact_pvd <- function(
     tile_height = 1,
     y_text_size = 9,
     facet_label_prefix = names(figs),
-
     legend.position = "right",
     legend.direction = "vertical",
     legend.box = "vertical",
@@ -34,6 +33,7 @@ plot_compact_pvd <- function(
     guide_rel_widths = c(.7, .3),
     legend_text_size = grid::unit(8, "pt"),
     show_group_color_legend = TRUE,
+    strip_text_size = grid::unit(8, "points"),
     ...) {
   # extract and prep data from fig list
   plot_dataset <- compact_pvd_data_prep(figs = figs, ...)
@@ -73,6 +73,7 @@ plot_compact_pvd <- function(
     group_color_legend = group_color_legend,
     ncol_legend = ncol_legend,
     guide_rel_widths = guide_rel_widths,
-    legend_text_size = legend_text_size
+    legend_text_size = legend_text_size,
+    strip_text_size = grid::unit(8, "points")
   )
 }

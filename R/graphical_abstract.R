@@ -235,7 +235,7 @@ graphical_abstract <- function(
       # adjust margins
       plot.margin = grid::unit(c(0, 0, 0, 0), "cm"),
       # allow markdown for coloring
-      strip.text = ggtext::element_markdown() # allow markdown for labels
+      strip.text = ggtext::element_markdown(size = legend_text_size) # allow markdown for labels
     )
 
   abstract_plot <- ggplot2::ggplot() +
@@ -251,7 +251,7 @@ graphical_abstract <- function(
   x_title_and_scale <- cowplot::plot_grid(
     ggplot() +
       aes(x = 0, y = 0, label = "Sequential order") +
-      ggplot2::geom_text(size = 5, hjust = 0.63) +
+      ggplot2::geom_text(size = grid::unit(3, "pt"), hjust = 0.63) +
       ggplot2::theme_void() +
       theme(plot.margin = grid::unit(c(0, 0, 0, 0), "cm")),
     horizontal_greyscale_legend,
