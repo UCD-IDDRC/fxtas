@@ -1,7 +1,9 @@
 #' plot compact pvd figure
 #' @example inst/examples/exm-compact_pvd_figure.R
-
-#' @dev
+#' @inheritParams ggplot2::theme
+#' @param colorbar_label_type what kind of label to use?
+#' Current options are `"level"` and `"subscript"`
+#' @keywords internal
 compact_pvd_figure <- function(
     plot_dataset,
     tile_height,
@@ -9,6 +11,9 @@ compact_pvd_figure <- function(
     facet_names,
     # facet_label_size,
     legend.position, # nolint: object_name_linter
+    legend.direction = "vertical",
+    legend.box = "vertical",
+    legend.key.height = grid::unit(1, "lines"),
     scale_colors,
     rel_heights = c(1, 0.1),
     guide_rel_widths = c(.3, .7),
@@ -16,6 +21,7 @@ compact_pvd_figure <- function(
     ncol_legend = 1,
     group_color_legend,
     legend_text_size = grid::unit(7, "pt"),
+    colorbar_label_type = "level",
     ...) {
   # set tile width
   tile_width <- 1
@@ -78,11 +84,14 @@ compact_pvd_figure <- function(
       limits = scale_limits,
       breaks = c(0, 0.5, 1),
       guide = ggplot2::guide_colorbar(
-        title = "Pr(Stage)<sub>2</sub>",
+        title = colorbar_title(
+          type = colorbar_label_type,
+          level = 1),
+        draw.ulim = FALSE,
+        draw.llim = FALSE,
         order = 1
       )
     ) +
-    # guides(fill = guide_legend(title = "Pr(Stage)<sub>2</sub>")) +
     ggnewscale::new_scale_fill() +
     # layer for biomarker level 3
     ggplot2::geom_tile(
@@ -103,7 +112,12 @@ compact_pvd_figure <- function(
       limits = scale_limits,
       breaks = c(0, 0.5, 1),
       guide = ggplot2::guide_colorbar(
-        title = "Pr(Stage)<sub>3</sub>", order = 2
+        title = colorbar_title(
+          type = colorbar_label_type,
+          level = 2),
+        draw.ulim = FALSE,
+        draw.llim = FALSE,
+        order = 2
       )
     ) +
     # guides(fill = guide_legend(title = "Pr(Stage)<sub>3</sub>")) +
@@ -126,11 +140,14 @@ compact_pvd_figure <- function(
       limits = scale_limits,
       breaks = c(0, 0.5, 1),
       guide = ggplot2::guide_colorbar(
-        title = "Pr(Stage)<sub>4</sub>",
+        title = colorbar_title(
+          type = colorbar_label_type,
+          level = 3),
+        draw.ulim = FALSE,
+        draw.llim = FALSE,
         order = 3
       )
     ) +
-    # guides(fill = guide_legend(title = "Pr(Stage)<sub>4</sub>")) +
     ggnewscale::new_scale_fill() +
     # layer for biomarker level 5
     ggplot2::geom_tile(
@@ -150,11 +167,14 @@ compact_pvd_figure <- function(
       limits = scale_limits,
       breaks = c(0, 0.5, 1),
       guide = ggplot2::guide_colorbar(
-        title = "Pr(Stage)<sub>5</sub>",
+        title = colorbar_title(
+          type = colorbar_label_type,
+          level = 4),
+        draw.ulim = FALSE,
+        draw.llim = FALSE,
         order = 4
       )
     ) +
-    # guides(fill = guide_legend(title = "Pr(Stage)<sub>5</sub>")) +
     ggnewscale::new_scale_fill() +
     # layer for biomarker level 6
     ggplot2::geom_tile(
@@ -174,11 +194,14 @@ compact_pvd_figure <- function(
       limits = scale_limits,
       breaks = c(0, 0.5, 1),
       guide = ggplot2::guide_colorbar(
-        title = "Pr(Stage)<sub>6</sub>",
+        title = colorbar_title(
+          type = colorbar_label_type,
+          level = 5),
+        draw.ulim = FALSE,
+        draw.llim = FALSE,
         order = 5
       )
     ) +
-    # guides(fill = guide_legend(title = "Pr(Stage)<sub>6</sub>")) +
     # reverse order of y-axis (biomarkers)
     ggplot2::scale_y_discrete(limits = rev) +
     # frame x axis
@@ -198,11 +221,13 @@ compact_pvd_figure <- function(
       legend.text = element_text(size = legend_text_size),
       legend.title = ggtext::element_markdown(size = legend_text_size),
       legend.position = legend.position,
+      legend.direction = legend.direction,
+      legend.key.height = legend.key.height,
       # markdown for legends
       legend.byrow = TRUE,
-      legend.box = "horizontal",
+      legend.box = legend.box,
       # legend.justification = ,
-      legend.margin = ggplot2::margin(0, 0.15, 0, -0.45, "cm"),
+      legend.margin = ggplot2::margin(0, 0.15, 0, 0, "cm"),
       axis.title.y = ggplot2::element_blank(),
       axis.text.y = ggtext::element_markdown(
         size = y_text_size
@@ -221,6 +246,13 @@ compact_pvd_figure <- function(
         ...
       ),
       # see data-raw/pvd_grayscale_legend.R for details
+      nrow = 2,
+      rel_heights = rel_heights
+    )
+  } else if (legend.position == "right") {
+    fig <- cowplot::plot_grid(
+      fig,
+      group_color_legend,
       nrow = 2,
       rel_heights = rel_heights
     )

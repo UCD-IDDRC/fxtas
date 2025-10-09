@@ -34,6 +34,25 @@ test_that(
 
     fig2 |> vdiffr::expect_doppelganger(title = "pvd-fxtas-by-sex")
 
+    fig3 <-
+      pvd_list_by_sex |>
+      plot_compact_pvd(
+        legend.position = "right",
+        legend.direction = "vertical"
+      )
+
+    fig3 |> vdiffr::expect_doppelganger(title = "pvd-fxtas-by-sex-with-legend")
+
+    fig4 <-
+      pvd_list_by_sex |>
+      plot_compact_pvd(
+        legend.position = "right",
+        legend.direction = "vertical",
+        colorbar_label_type = "subscript"
+
+      )
+
+    fig4 |> vdiffr::expect_doppelganger(title = "pvd-fxtas-by-sex-with-legend-subscript")
 
   }
 )

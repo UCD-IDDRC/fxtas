@@ -1,0 +1,2 @@
+The code used to perform this analysis is available at
+<https://github.com/UCD-IDDRC/fxtas>.

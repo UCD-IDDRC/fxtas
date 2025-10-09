@@ -5,7 +5,6 @@
 #' @param tile_height todo
 #' @param y_text_size todo
 #' @param facet_label_prefix todo
-#' @param legend.position todo
 #' @param scale_colors todo
 #' @param ncol_legend how many columns to use for legend
 #' @param nrow_colors now many rows to use for color guide
@@ -13,6 +12,7 @@
 #' @param legend_text_size [grid::unit]: legend text size
 #' @param show_group_color_legend [logical]: whether to show group col legend
 #' @inheritParams cowplot::plot_grid
+#' @inheritParams compact_pvd_figure
 #' @export
 #' @returns a [ggplot2::ggplot]
 #' @example inst/examples/exm-plot_compact_pvd.R
@@ -22,10 +22,14 @@ plot_compact_pvd <- function(
     y_text_size = 9,
     facet_label_prefix = names(figs),
     legend.position = "none", # nolint: object_name_linter
+    legend.direction = "horizontal",
+    legend.box = "vertical",
+    legend.key.height = grid::unit(1, "lines"),
+    colorbar_label_type = "level",
     scale_colors = c("red", "blue", "magenta", "darkgreen", "purple4"),
     rel_heights = c(1, 0.1),
     ncol_legend = 2,
-    nrow_colors = 2,
+    nrow_colors = dplyr::if_else(legend.position == "none", 2, 1),
     guide_rel_widths = c(.7, .3),
     legend_text_size = grid::unit(8, "pt"),
     show_group_color_legend = TRUE,
@@ -58,6 +62,10 @@ plot_compact_pvd <- function(
     y_text_size = y_text_size,
     facet_names = facet_names,
     legend.position = legend.position,
+    legend.direction = legend.direction,
+    legend.box = legend.box,
+    legend.key.height = legend.key.height,
+    colorbar_label_type = colorbar_label_type,
     scale_colors = scale_colors,
     group_colors = group_colors,
     rel_heights = rel_heights,

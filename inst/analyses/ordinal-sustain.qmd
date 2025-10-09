@@ -42,6 +42,7 @@ sessioninfo::package_info(pkgs = "installed") |>
 
 # scale_colors1 = c("red", "blue", "magenta", "orange", "purple4")
 scale_color_indices <- c(9, 5, 7, 8, 4)
+# scale_color_indices <- 1:5
 scale_colors0 <- rcartocolor::carto_pal(name = "Safe")[scale_color_indices]
 library(rex)
   
@@ -69,11 +70,14 @@ lineplot_direction_colors <- c(
 
 
 if (FALSE) {
-  rcartocolor::carto_pal(name = "Safe") |> colorblindcheck::palette_plot()
+  par("mar" = c(2,4,3,2))
+  
+  rcartocolor::carto_pal(name = "Safe") |> 
+    colorblindcheck::palette_plot(show_hex = TRUE)
   rcartocolor::carto_pal(name = "Safe")[scale_color_indices] |>
-    colorblindcheck::palette_plot()
+    colorblindcheck::palette_plot(show_hex = TRUE)
   rcartocolor::carto_pal(name = "Safe", n = 8) |>
-    colorblindcheck::palette_plot()
+    colorblindcheck::palette_plot(show_hex = TRUE)
   color_names1 <- 
     rcartocolor::carto_pal(name = "Safe") |>
     loon::l_colorName() |>
@@ -462,8 +466,8 @@ fig_both_first <- extract_figs_from_pickle(
 )
 
 abstract_text <- paste0(
-  "The Ordinal Subtype and Stage Inference (SuStaIn) algorithm allows us to ", 
-  "estimate the order of symptoms in ",
+  "The Ordinal Subtype and Stage Inference (SuStaIn) algorithm", 
+  "estimates the order of symptoms in ",
   "Fragile X-associated tremor/ataxia syndrome (FXTAS) patients. "
 )
 
@@ -684,9 +688,12 @@ type_0_summary <- glue::glue(
 
 ## Data availability {.unnumbered}
 
+Data sharing is not applicable to this article as 
+no new data were created or analysed in this study.
 The de-identified data used in this analysis may be provided 
 upon request 
 from the principal investigators of the two cohorts.
+{{< include _sec-code_availability.qmd >}}
 
 ## Funding {.unnumbered}
 
@@ -852,7 +859,9 @@ pvdc_sex <- list(
   plot_compact_pvd(
     scale_colors = scale_colors1, 
     y_text_size = y_text_size,
-    legend.position = "bottom"
+    legend.position = "right",
+    legend.direction = "vertical",
+    rel_heights = c(1, .025)
   )
 
 if (interactive()) {
@@ -892,6 +901,9 @@ pvdc_sex |>
 #| label: thumbnail-by-sex
 
 abstract_text <- paste0(
+  "Ordinal Subtype and Stage Inference", 
+  "estimates the order of symptoms in ",
+  "Fragile X-associated tremor/ataxia syndrome patients. ",
   "Female premutation carriers developed mood disorder symptoms prior to FXTAS", 
   " Stage 1 diagnosis, whereas male carriers experienced these symptoms much",
   " later (after FXTAS Stage 4)"

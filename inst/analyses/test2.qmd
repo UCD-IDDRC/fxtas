@@ -4,18 +4,5 @@ authors: default
 affiliations: default
 ---
 
-:::{#fig-one}
-```{r}
-library(ggplot2)
-ggplot() + theme_void()
-```
-
-a blank figure
-:::
-
-:::{#fig-two}
-
-
-
-another blank figure
-:::
+paragraph 
+{{< include _sec_software.qmd >}}
