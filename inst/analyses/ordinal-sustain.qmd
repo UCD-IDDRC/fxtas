@@ -901,11 +901,11 @@ pvdc_sex |>
 #| label: thumbnail-by-sex
 
 abstract_text <- paste0(
-  "Ordinal Subtype and Stage Inference ", 
-  "estimates the order of symptoms in ",
-  "Fragile X-associated tremor/ataxia syndrome patients. ",
-  "Female premutation carriers developed mood disorder symptoms ",
-  "at earlier FXTAS stages than males."
+  "Fragile X-associated tremor/ataxia syndrome's ",
+  "symptom onset order ",
+  "varies by sex, ",
+  "highlighting the need for ", 
+  "sex-specific criteria for diagnosis and staging."
 ) # |> stringr::str_wrap()
 
 pvdc_sex2 <- list(
@@ -919,13 +919,14 @@ pvdc_sex2 <- list(
     legend.direction = "vertical",
     legend.key.height = grid::unit(.4, "lines"),
     show_group_color_legend = FALSE,
-    rel_heights = c(1, .1),
+    rel_heights = c(1.25, .1),
     nrow_colors = 2,
     x_title_size = 8
   ) +
   labs(caption = abstract_text) +
   theme(
     plot.caption = ggtext::element_textbox_simple(
+      size = 8,
       margin = ggplot2::margin(t = 5, unit = "pt")
     ),
     plot.caption.position = "plot")
