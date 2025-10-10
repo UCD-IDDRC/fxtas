@@ -7,9 +7,11 @@ DSM,Diagnostic and Statistical Manual of Mental Disorders,
 EF,Executive function,
 FXTAS,Fragile X-associated tremor/ataxia syndrome,
 GP,Genotype-Phenotype Study in Fragile X Families,
+Hyp.,Hyperintensity,MRI
 ICARS,International Cooperative Ataxia Rating Scale,
 MCP,Middle cerebellar peduncle,
 MMSE,Mini-Mental State Exam,
+Mod.,Moderate,Severity levels
 MRI,Magnetic Resonance Imaging,
 OS/OSA,Ordinal SuStaIn algorithm,Statistical analysis methods
 PAL,Paired Associates Learning,CANTAB instrument
@@ -22,5 +24,3 @@ TRAX,Trajectories and Markers of Neurodegeneration in Fragile X Premutation Carr
 UPDRS,Unified Parkinson’s Disease Rating Scale,
 WM,White Matter, MRI
 WAIS IV,Wechsler Adult Intelligence Scale (Fourth Edition),
-Hyp.,Hyperintensity,MRI
-Mod.,Moderate,Severity levels
