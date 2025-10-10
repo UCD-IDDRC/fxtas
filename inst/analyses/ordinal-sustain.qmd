@@ -906,7 +906,7 @@ abstract_text <- paste0(
   "Fragile X-associated tremor/ataxia syndrome patients. ",
   "Female premutation carriers developed mood disorder symptoms ",
   "at earlier FXTAS stages than males."
-)
+) # |> stringr::str_wrap()
 
 pvdc_sex2 <- list(
   "Males:" = fig_males_first,
@@ -918,10 +918,17 @@ pvdc_sex2 <- list(
     legend.position = "right",
     legend.direction = "vertical",
     legend.key.height = grid::unit(.4, "lines"),
+    show_group_color_legend = FALSE,
     rel_heights = c(1, .1),
     nrow_colors = 2,
     x_title_size = 8
-  )
+  ) +
+  labs(caption = abstract_text) +
+  theme(
+    plot.caption = ggtext::element_textbox_simple(
+      margin = ggplot2::margin(t = 5, unit = "pt")
+    ),
+    plot.caption.position = "plot")
 
 if (interactive()) {
 pvdc_sex2 + ggview::canvas(
@@ -930,7 +937,6 @@ pvdc_sex2 + ggview::canvas(
     units = "mm",
     dpi = 600
   )
-    
 }
 
 pvdc_sex2 |> 

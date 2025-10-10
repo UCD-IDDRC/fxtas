@@ -241,15 +241,17 @@ compact_pvd_figure <- function(
       axis.text.y = ggtext::element_markdown(
         size = y_text_size
       ), # allow markdown for coloring
-      strip.text = ggtext::element_markdown(size = strip_text_size) # allow markdown for labels
+      strip.text = ggtext::element_markdown(
+        size = strip_text_size) # allow markdown for labels
     )
+
 
   if (legend.position == "none") {
     fig <- cowplot::plot_grid(
       fig,
       cowplot::plot_grid(
         ncol = ncol_legend,
-        group_color_legend,
+        if (!is.null(group_color_legend)) group_color_legend,
         horizontal_greyscale_legend, # stored as internal data;
         rel_widths = guide_rel_widths,
         ...
@@ -258,7 +260,7 @@ compact_pvd_figure <- function(
       nrow = 2,
       rel_heights = rel_heights
     )
-  } else if (legend.position == "right") {
+  } else if (!is.null(group_color_legend) && legend.position == "right") {
     fig <- cowplot::plot_grid(
       fig,
       group_color_legend,

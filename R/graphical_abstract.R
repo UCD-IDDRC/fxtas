@@ -238,15 +238,10 @@ graphical_abstract <- function(
       strip.text = ggtext::element_markdown(size = legend_text_size) # allow markdown for labels
     )
 
-  abstract_plot <- ggplot2::ggplot() +
-    ggplot2::aes(
-      x = -0.9, y = 0,
-      label = abstract |> stringr::str_wrap(width = abstract_width),
-      hjust = 0
-    ) +
-    ggplot2::geom_text(size = abstract_size) +
-    ggplot2::scale_x_continuous(limits = c(-1, 1)) +
-    ggplot2::theme_void()
+  abstract_plot <- build_abstract_plot(
+    abstract_text = abstract,
+    abstract_size = 5,
+    abstract_width = 50)
 
   x_title_and_scale <- cowplot::plot_grid(
     ggplot() +
