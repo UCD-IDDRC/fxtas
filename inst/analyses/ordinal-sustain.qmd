@@ -908,23 +908,23 @@ abstract_text <- paste0(
   "at earlier FXTAS stages than males."
 )
 
-pvdc_sex <- list(
+pvdc_sex2 <- list(
   "Males:" = fig_males_first,
   "Females:" = fig_females_first
 ) |>
-  graphical_abstract(
+  plot_compact_pvd(
     scale_colors = scale_colors1, 
-    y_text_size = 7,
-    rel_heights = c(.9, 0.25),
-    ncol_legend = 2,
-    guide_rel_widths = c(1.5, 0.8),
-    abstract = abstract_text,
-    abstract_size = 2.75,
-    abstract_width = 45
+    y_text_size = 8,
+    legend.position = "right",
+    legend.direction = "vertical",
+    legend.key.height = grid::unit(.4, "lines"),
+    rel_heights = c(1, .1),
+    nrow_colors = 2,
+    x_title_size = 8
   )
 
 if (interactive()) {
-pvdc_sex + ggview::canvas(
+pvdc_sex2 + ggview::canvas(
     height = 120, 
     width = 120,
     units = "mm",
@@ -933,7 +933,7 @@ pvdc_sex + ggview::canvas(
     
 }
 
-pvdc_sex |> 
+pvdc_sex2 |> 
   ggplot2::ggsave(
     height = 120, 
     width = 120,

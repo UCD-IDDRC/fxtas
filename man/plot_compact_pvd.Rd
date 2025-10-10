@@ -9,6 +9,8 @@ plot_compact_pvd(
   figs,
   tile_height = 1,
   y_text_size = 9,
+  x_text_size = y_text_size,
+  x_title_size = x_text_size,
   facet_label_prefix = names(figs),
   legend.position = "right",
   legend.direction = "vertical",
@@ -31,7 +33,11 @@ plot_compact_pvd(
 
 \item{tile_height}{todo}
 
-\item{y_text_size}{todo}
+\item{y_text_size}{\link{integer}: size of y-axis text}
+
+\item{x_text_size}{\link{integer}: size of x-axis tick labels}
+
+\item{x_title_size}{\link{integer}: size of x-axis title}
 
 \item{facet_label_prefix}{todo}
 

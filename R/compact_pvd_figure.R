@@ -4,6 +4,9 @@
 #' @param colorbar_label_type what kind of label to use?
 #' Current options are `"level"` and `"subscript"`
 #' @param strip_text_size passed to `ggtext::element_markdown()`
+#' @param y_text_size [integer]: size of y-axis text
+#' @param x_text_size [integer]: size of x-axis tick labels
+#' @param x_title_size [integer]: size of x-axis title
 #' @keywords internal
 compact_pvd_figure <- function(
     plot_dataset,
@@ -24,6 +27,8 @@ compact_pvd_figure <- function(
     legend_text_size = grid::unit(7, "pt"),
     colorbar_label_type = "level",
     strip_text_size = grid::unit(8, "points"),
+    x_text_size = y_text_size,
+    x_title_size = x_text_size,
     ...) {
   # set tile width
   tile_width <- 1
@@ -230,6 +235,8 @@ compact_pvd_figure <- function(
       legend.box = legend.box,
       # legend.justification = ,
       legend.margin = ggplot2::margin(t = 0, r = 0.15, b = 0.25, l = 0, "cm"),
+      axis.title.x = ggplot2::element_text(size = x_title_size),
+      axis.text.x = ggplot2::element_text(size = x_text_size),
       axis.title.y = ggplot2::element_blank(),
       axis.text.y = ggtext::element_markdown(
         size = y_text_size

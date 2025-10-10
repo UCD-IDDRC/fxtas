@@ -22,10 +22,14 @@ compact_pvd_figure(
   legend_text_size = grid::unit(7, "pt"),
   colorbar_label_type = "level",
   strip_text_size = grid::unit(8, "points"),
+  x_text_size = y_text_size,
+  x_title_size = x_text_size,
   ...
 )
 }
 \arguments{
+\item{y_text_size}{\link{integer}: size of y-axis text}
+
 \item{legend.position}{the default position of legends ("none", "left",
 "right", "bottom", "top", "inside")}
 
@@ -39,6 +43,10 @@ compact_pvd_figure(
 Current options are \code{"level"} and \code{"subscript"}}
 
 \item{strip_text_size}{passed to \code{ggtext::element_markdown()}}
+
+\item{x_text_size}{\link{integer}: size of x-axis tick labels}
+
+\item{x_title_size}{\link{integer}: size of x-axis title}
 
 \item{...}{additional element specifications not part of base ggplot2. In general,
 these should also be defined in the \verb{element tree} argument. \link[rlang:splice]{Splicing} a list is also supported.}

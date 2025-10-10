@@ -30,7 +30,7 @@ plot_compact_pvd_est2(
 
 \item{tile_width}{todo}
 
-\item{y_text_size}{todo}
+\item{y_text_size}{\link{integer}: size of y-axis text}
 
 \item{legend.position}{the default position of legends ("none", "left",
 "right", "bottom", "top", "inside")}

@@ -3,7 +3,6 @@
 #' @inheritDotParams compact_pvd_data_prep
 #' @param figs todo
 #' @param tile_height todo
-#' @param y_text_size todo
 #' @param facet_label_prefix todo
 #' @param scale_colors todo
 #' @param ncol_legend how many columns to use for legend
@@ -20,6 +19,8 @@ plot_compact_pvd <- function(
     figs,
     tile_height = 1,
     y_text_size = 9,
+    x_text_size = y_text_size,
+    x_title_size = x_text_size,
     facet_label_prefix = names(figs),
     legend.position = "right",
     legend.direction = "vertical",
@@ -74,6 +75,8 @@ plot_compact_pvd <- function(
     ncol_legend = ncol_legend,
     guide_rel_widths = guide_rel_widths,
     legend_text_size = legend_text_size,
-    strip_text_size = grid::unit(8, "points")
+    strip_text_size = grid::unit(8, "points"),
+    x_text_size = x_text_size,
+    x_title_size = x_title_size
   )
 }

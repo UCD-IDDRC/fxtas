@@ -18,7 +18,7 @@ plot_compact_pvd_est(
 
 \item{tile_height}{todo}
 
-\item{y_text_size}{todo}
+\item{y_text_size}{\link{integer}: size of y-axis text}
 
 \item{facet_label_prefix}{todo}
 
