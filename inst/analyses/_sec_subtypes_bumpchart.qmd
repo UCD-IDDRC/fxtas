@@ -55,6 +55,9 @@ bump <- figs_n_s_selected |>
     align_stage = TRUE,
     events_to_highlight = color_info,
     use_group_colors = TRUE
+  ) +
+  theme(
+    legend.margin = margin(t = 0)
   )
 
 if (interactive()) {
