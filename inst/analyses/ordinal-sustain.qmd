@@ -65,7 +65,7 @@ lineplot_direction_colors <- c(
   "Light gray" = "grey",
   # "#00BFC4"
   "Blue" = "#005AB5"
-)
+) |> gplots::col2hex()
 
 
 
@@ -77,6 +77,8 @@ if (FALSE) {
   rcartocolor::carto_pal(name = "Safe")[scale_color_indices] |>
     colorblindcheck::palette_plot(show_hex = TRUE)
   rcartocolor::carto_pal(name = "Safe", n = 8) |>
+    colorblindcheck::palette_plot(show_hex = TRUE)
+  lineplot_direction_colors |>
     colorblindcheck::palette_plot(show_hex = TRUE)
   color_names1 <- 
     rcartocolor::carto_pal(name = "Safe") |>
