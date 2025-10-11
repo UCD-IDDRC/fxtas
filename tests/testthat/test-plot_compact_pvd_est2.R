@@ -17,4 +17,16 @@ test_that("results are consistent", {
   fig |>
     vdiffr::expect_doppelganger(title = "sim-data")
 
+  fig2 <- plot_compact_pvd_est2(
+    facet_label_prefix = rep("", 4),
+    show_uncert = FALSE,
+    figs = figs,
+    tile_height = 1,
+    y_text_size = 6,
+    title_size = 8,
+    legend = "color"
+  )
+  fig2 |>
+    vdiffr::expect_doppelganger(title = "sim-data-color-legend")
+
 })

@@ -10,6 +10,7 @@ plot_compact_pvd_est2(
   tile_height = 1,
   tile_width = 1,
   y_text_size = 9,
+  legend = "grayscale",
   legend.position = "none",
   scale_colors = c("red", "blue", "magenta", "darkgreen", "purple4"),
   rel_heights = c(1, 0.1),
@@ -31,6 +32,8 @@ plot_compact_pvd_est2(
 \item{tile_width}{todo}
 
 \item{y_text_size}{\link{integer}: size of y-axis text}
+
+\item{legend}{"grayscale" or "color"}
 
 \item{legend.position}{the default position of legends ("none", "left",
 "right", "bottom", "top", "inside")}

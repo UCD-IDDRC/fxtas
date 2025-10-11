@@ -2,7 +2,7 @@
 
 ```{r}
 #| label: supp-fig-pvd_chosen_subtypes
-#| fig-height: 7
+#| fig-height: !expr pvd_height
 #| fig-width: !expr pvd_width
 #| fig-cap-location: top
 
@@ -32,7 +32,8 @@ pvd_subtypes_compact <- plot_compact_pvd_est2(
   title_size = 5,
   title_hjust = 0.5,
   vjust = 1.25,
-  x_axis_title_size = 8
+  x_axis_title_size = 8,
+  legend = "color"
 ) 
 
 
@@ -41,7 +42,9 @@ ggsave(
   "inst/analyses/pvd_subtypes_compact.png", 
   plot = pvd_subtypes_compact, 
   device = "png", 
-  width = pvd_width, height = 7, units = "in", 
+  width = pvd_width, 
+  height = pvd_height, 
+  units = "in", 
   dpi = 600
 )
 

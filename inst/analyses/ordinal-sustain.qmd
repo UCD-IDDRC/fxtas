@@ -1026,7 +1026,6 @@ pvds_by_sex <- list(
 
 lineplot_by_sex <- pvds_by_sex |>
   pvd_lineplot(
-    x_positions = c(1.01, 1.14),
     text_size = lineplot_text_size,
     events_to_highlight = c(
       "SCID: Mood Disorders: Threshold",
