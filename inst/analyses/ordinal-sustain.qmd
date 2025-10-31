@@ -65,7 +65,7 @@ lineplot_direction_colors <- c(
   "Light gray" = "grey",
   # "#00BFC4"
   "Blue" = "#005AB5"
-) |> gplots::col2hex()
+)
 
 
 
@@ -79,6 +79,7 @@ if (FALSE) {
   rcartocolor::carto_pal(name = "Safe", n = 8) |>
     colorblindcheck::palette_plot(show_hex = TRUE)
   lineplot_direction_colors |>
+    gplots::col2hex() |> 
     colorblindcheck::palette_plot(show_hex = TRUE)
   color_names1 <- 
     rcartocolor::carto_pal(name = "Safe") |>
@@ -165,6 +166,32 @@ biomarker_text_color_info <-
     "(@tbl-biomarker-list)."
   )
 
+abbreviations <- read.csv("inst/analyses/abbreviations.csv")
+
+abbreviations_to_define <- c(
+  "SWM",
+  "MRI",
+  "FXTAS",
+  "RTI",
+  "MCP",
+  "BDS-2",
+  "MMSE",
+  "Mod.",
+  "PAL",
+  "RTI",
+  "CANTAB",
+  "SCID"
+)
+
+abbrevs_caption <- 
+  abbreviations |> 
+  filter(Abbreviation %in% abbreviations_to_define) |> 
+  mutate(equals = glue::glue("{Abbreviation} = {Meaning}")) |> 
+  pull(equals) |> 
+  paste(collapse = "; ")
+
+abbrevs_caption <-
+  paste0("Abbreviations: ", abbrevs_caption, ".")
 
 compact_fig_caption <- paste0(
   "The heatmap colors (",
@@ -177,7 +204,9 @@ compact_fig_caption <- paste0(
   "the brighter the color, the more probable that the corresponding ",
   outcomes_name,
   " event occurs in that position in the sequence. ",
-  biomarker_text_color_info
+  biomarker_text_color_info,
+  " ",
+  abbrevs_caption
 )
 
 # note: if we moved all the captions out of chunk options, 
@@ -196,7 +225,8 @@ compact_fig_cap2 <- glue::glue(
   "Line opacity levels indicate the number of positions changed ",
   "(higher opacity represents more positions changed).\n",
   biomarker_text_color_info,
-  "\nYellow highlights indicate symptoms with clinically-significant positional differences between subgroups.",
+  "\nYellow highlights indicate symptoms with clinically-significant positional differences between subgroups. ",
+  abbrevs_caption,
   .open = "{{",
   .close = "}}"
 )
@@ -329,6 +359,8 @@ biomarker_varnames <-
 biomarker_levels <-
   v1_usable |>
   get_levels(biomarker_varnames)
+
+biomarker_levels2 <- biomarker_levels |> create_blevels_no_abbrev()
 
 biomarker_events_table <-
   make_biomarker_events_table(
@@ -902,47 +934,6 @@ pvdc_sex |>
 ```{r}
 #| label: thumbnail-by-sex
 
-
-biomarker_levels2 <- 
-  biomarker_levels
-
-library(labelled)
-biomarker_levels2[["PAL Total errors (adjusted)*"]] =
-  biomarker_levels2[["PAL Total errors (adjusted)*"]] |> 
-  set_label_attribute("Paired Associates Learning Errors")
-
-biomarker_levels2[["MCP-WM Hyperintensity"]] =
-  biomarker_levels2[["MCP-WM Hyperintensity"]] |> 
-  set_label_attribute("middle cerebellar peduncle")
-
-biomarker_levels2[["MCP-WM Hyperintensity"]] =
-  biomarker_levels2[["MCP-WM Hyperintensity"]] |> 
-  set_label_attribute("middle cerebellar peduncle")
-
-biomarker_levels2[["MMSE total score*"]] =
-  biomarker_levels2[["MMSE total score*"]] |> 
-  set_label_attribute("Mini-Mental State Examination")
-
-biomarker_levels2[["MRI: Cerebral"]] =
-  biomarker_levels2[["MRI: Cerebral"]] |> 
-  set_label_attribute("Cerebral MRI Abnormalities")
-
-biomarker_levels2[["MRI: Cerebellar"]] =
-  biomarker_levels2[["MRI: Cerebellar"]] |> 
-  set_label_attribute("Cerebellar MRI Abnormalities")
-
-biomarker_levels2[["RTI Five-choice movement time*"]] =
-  biomarker_levels2[["RTI Five-choice movement time*"]] |> 
-  set_label_attribute("Five-choice reaction time")
-
-biomarker_levels2[["SWM Between errors*"]] =
-  biomarker_levels2[["SWM Between errors*"]] |> 
-  set_label_attribute("Spatial Working Memory")
-
-biomarker_levels2[["BDS-2 Total Score*"]] =
-  biomarker_levels2[["BDS-2 Total Score*"]] |> 
-  set_label_attribute("Behavioral Dyscontrol Scale")
-
 fig_females_first2 <- results_females_first |> 
   plot_positional_var(
   biomarker_groups = biomarker_groups,
@@ -963,11 +954,13 @@ fig_males_first2 <- results_males_first |>
   use_labels = TRUE
 )
 abstract_text <- paste0(
-  "Symptom onset order ",
-  "varies by sex ",
-  "in Fragile X-associated tremor/ataxia syndrome (FXTAS), ",
-  "highlighting the need for ", 
-  "sex-specific criteria for diagnosis and staging."
+  "Fragile X-associated tremor/ataxia syndrome (FXTAS) ",
+  "is a neurodegenerative disorder affecting adult fragile X gene premutation carriers. ",
+  "An open question is: in what sequential order do FXTAS symptoms appear, ",
+  "and does the sequence vary between males and females? ",
+  "We used Ordinal Subtype and Stage Inference ",
+  "to show sex differences in symptom onset order, ",
+  "highlighting the need for sex-specific diagnostic and staging criteria."
 ) # |> stringr::str_wrap()
 
 pvdc_sex2 <- list(
@@ -979,7 +972,7 @@ pvdc_sex2 <- list(
     y_text_size = 8,
     legend.position = "right",
     legend.direction = "vertical",
-    legend.key.height = grid::unit(.4, "lines"),
+    legend.key.height = grid::unit(.35, "lines"),
     show_group_color_legend = FALSE,
     rel_heights = c(1.25, .1),
     nrow_colors = 2,
@@ -989,7 +982,7 @@ pvdc_sex2 <- list(
   theme(
     plot.caption = ggtext::element_textbox_simple(
       size = 8,
-      margin = ggplot2::margin(t = 5, unit = "pt")
+      margin = ggplot2::margin(t = 7, unit = "pt")
     ),
     plot.caption.position = "plot")
 
@@ -1066,9 +1059,7 @@ lineplot_by_sex |>
 )
 ```
 
-**Positional differences in estimated event sequence between males and females.**
-`r compact_fig_cap2`
-`r test_sex_summary`
+**Positional differences in estimated event sequence between males and females.** `r compact_fig_cap2` `r test_sex_summary`
 
 :::
 

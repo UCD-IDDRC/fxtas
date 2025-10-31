@@ -32,9 +32,6 @@ extract_figs_from_pickle <- function(
     picklename = picklename,
     use_rds = use_rds)
 
-
-
-
   plot_positional_var(
     results = results,
     biomarker_groups = biomarker_groups,
