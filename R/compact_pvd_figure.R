@@ -8,6 +8,7 @@
 #' @param x_text_size [integer]: size of x-axis tick labels
 #' @param x_title_size [integer]: size of x-axis title
 #' @keywords internal
+#' @export
 compact_pvd_figure <- function(
     plot_dataset,
     tile_height,

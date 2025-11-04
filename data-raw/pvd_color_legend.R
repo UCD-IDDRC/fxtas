@@ -34,4 +34,4 @@ fig_both_first2 |> print()
 
 pvd_color_legend <- cowplot::get_legend(fig_both_first2)
 
-usethis::use_data(pvd_color_legend, overwrite = TRUE)
+usethis::use_data(pvd_color_legend, overwrite = TRUE, internal = TRUE)
