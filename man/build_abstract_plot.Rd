@@ -7,7 +7,8 @@
 build_abstract_plot(abstract_text, abstract_size = 5, abstract_width = 50)
 }
 \arguments{
-\item{abstract_text}{\link{character} String that summarizes the study's main findings.}
+\item{abstract_text}{\link{character}
+String that summarizes the study's main findings.}
 
 \item{abstract_size}{\link{numeric} Abstract text size}
 
