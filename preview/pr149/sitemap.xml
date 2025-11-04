@@ -66,7 +66,6 @@
 <url><loc>https:/UCD-IDDRC.github.io/fxtas/preview/pr149/reference/get_biomarker_events_table.html</loc></url>
 <url><loc>https:/UCD-IDDRC.github.io/fxtas/preview/pr149/reference/get_levels.html</loc></url>
 <url><loc>https:/UCD-IDDRC.github.io/fxtas/preview/pr149/reference/get_observed_permutation_test_stat.html</loc></url>
-<url><loc>https:/UCD-IDDRC.github.io/fxtas/preview/pr149/reference/get_title_i_2.html</loc></url>
 <url><loc>https:/UCD-IDDRC.github.io/fxtas/preview/pr149/reference/get_visit1.html</loc></url>
 <url><loc>https:/UCD-IDDRC.github.io/fxtas/preview/pr149/reference/graph_CGG_repeats.html</loc></url>
 <url><loc>https:/UCD-IDDRC.github.io/fxtas/preview/pr149/reference/graph_likelihoods_v2.html</loc></url>
@@ -96,6 +95,7 @@
 <url><loc>https:/UCD-IDDRC.github.io/fxtas/preview/pr149/reference/print.permutation_test.html</loc></url>
 <url><loc>https:/UCD-IDDRC.github.io/fxtas/preview/pr149/reference/print_PVDs.html</loc></url>
 <url><loc>https:/UCD-IDDRC.github.io/fxtas/preview/pr149/reference/pvd_lineplot.html</loc></url>
+<url><loc>https:/UCD-IDDRC.github.io/fxtas/preview/pr149/reference/pvd_scatter.html</loc></url>
 <url><loc>https:/UCD-IDDRC.github.io/fxtas/preview/pr149/reference/pvd_subtype_lineplot.html</loc></url>
 <url><loc>https:/UCD-IDDRC.github.io/fxtas/preview/pr149/reference/reexports.html</loc></url>
 <url><loc>https:/UCD-IDDRC.github.io/fxtas/preview/pr149/reference/remove_missingness_reason_vars.html</loc></url>

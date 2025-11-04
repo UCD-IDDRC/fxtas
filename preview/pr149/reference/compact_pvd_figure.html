@@ -159,14 +159,12 @@ these should also be defined in the <code>element tree</code> argument. <a href=
 <span class="r-in"><span><span class="va">nrow_colors</span> <span class="op">&lt;-</span> <span class="fl">1</span></span></span>
 <span class="r-in"><span><span class="va">group_colors</span> <span class="op">&lt;-</span> <span class="va">figs</span> <span class="op">|&gt;</span> <span class="fu"><a href="group_colors.html">group_colors</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">temp_plot</span> <span class="op">&lt;-</span> <span class="va">plot_dataset</span> <span class="op">|&gt;</span> <span class="fu">pvd_scatter</span><span class="op">(</span></span></span>
+<span class="r-in"><span><span class="va">temp_plot</span> <span class="op">&lt;-</span> <span class="va">plot_dataset</span> <span class="op">|&gt;</span> <span class="fu"><a href="pvd_scatter.html">pvd_scatter</a></span><span class="op">(</span></span></span>
 <span class="r-in"><span>  group_colors <span class="op">=</span> <span class="va">group_colors</span>,</span></span>
 <span class="r-in"><span>  nrow_colors <span class="op">=</span> <span class="va">nrow_colors</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in pvd_scatter(plot_dataset, group_colors = group_colors, nrow_colors = nrow_colors):</span> could not find function "pvd_scatter"</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">group_color_legend</span> <span class="op">&lt;-</span> <span class="va">temp_plot</span> <span class="op">|&gt;</span> <span class="fu">cowplot</span><span class="fu">::</span><span class="fu"><a href="https://wilkelab.org/cowplot/reference/get_legend.html" class="external-link">get_legend</a></span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'temp_plot' not found</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># generate figure</span></span></span>
 <span class="r-in"><span><span class="fu">compact_pvd_figure</span><span class="op">(</span></span></span>

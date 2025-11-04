@@ -115,10 +115,8 @@ temp_plot <- plot_dataset |> pvd_scatter(
   group_colors = group_colors,
   nrow_colors = nrow_colors
 )
-#> Error in pvd_scatter(plot_dataset, group_colors = group_colors, nrow_colors = nrow_colors): could not find function "pvd_scatter"
 
 group_color_legend <- temp_plot |> cowplot::get_legend()
-#> Error: object 'temp_plot' not found
 
 # generate figure
 compact_pvd_figure(
