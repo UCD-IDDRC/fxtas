@@ -1,6 +1,6 @@
 #' Build ggplot with abstract text for cowplot
 #'
-#' @param abstract [character] String that summarizes the study's main findings.
+#' @param abstract_text [character] String that summarizes the study's main findings.
 #' @param abstract_size [numeric] Abstract text size
 #' @param abstract_width [numeric] Length at which to wrap the abstract text.
 #'

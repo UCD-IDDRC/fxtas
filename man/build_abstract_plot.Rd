@@ -7,11 +7,11 @@
 build_abstract_plot(abstract_text, abstract_size = 5, abstract_width = 50)
 }
 \arguments{
+\item{abstract_text}{\link{character} String that summarizes the study's main findings.}
+
 \item{abstract_size}{\link{numeric} Abstract text size}
 
 \item{abstract_width}{\link{numeric} Length at which to wrap the abstract text.}
-
-\item{abstract}{\link{character} String that summarizes the study's main findings.}
 }
 \value{
 a \link[ggplot2:ggplot]{ggplot2::ggplot}
