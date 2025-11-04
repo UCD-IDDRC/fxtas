@@ -85,4 +85,3 @@ $run_dev.*
 ^CTSC1647Trajectories-Ezra_DATA_2024-03-27_0920\.csv$
 ^\.lintr\.R$
 ^ci$
-^man/get_title_i_2\.Rd$

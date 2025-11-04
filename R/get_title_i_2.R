@@ -5,7 +5,7 @@
 #' @param i [integer]
 #'
 #' @returns a [character] string
-#' @dev
+#' @noRd
 get_title_i_2 <- function(
     subtype_and_stage_table,
     cval = FALSE,
