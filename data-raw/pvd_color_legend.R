@@ -34,4 +34,7 @@ fig_both_first2 |> print()
 
 pvd_color_legend <- cowplot::get_legend(fig_both_first2)
 
-usethis::use_data(pvd_color_legend, overwrite = TRUE, internal = TRUE)
+"data-raw/pvd_greyscale_legend.R" |> here::here() |> source()
+
+usethis::use_data(horizontal_greyscale_legend, pvd_color_legend,
+                  overwrite = TRUE, internal = TRUE)
