@@ -1,4 +1,3 @@
-*.csv
 *.xlsx
 *.pickle
 extdata/fxtas
