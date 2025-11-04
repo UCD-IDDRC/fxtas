@@ -84,5 +84,5 @@ $run_dev.*
 ^inst/extdata/fxtas/.*\.csv$
 ^CTSC1647Trajectories-Ezra_DATA_2024-03-27_0920\.csv$
 ^\.lintr\.R$
-^man/get_title_i_2\.Rd$
 ^ci$
+^man/get_title_i_2\.Rd$
