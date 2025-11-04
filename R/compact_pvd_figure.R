@@ -7,6 +7,10 @@
 #' @param y_text_size [integer]: size of y-axis text
 #' @param x_text_size [integer]: size of x-axis tick labels
 #' @param x_title_size [integer]: size of x-axis title
+#' @param legend.key.height size of legend keys (unit);
+#' key background height & width inherit from legend.key.size
+#' or can be specified separately.
+#' In turn legend.key.size inherits from spacing.
 #' @keywords internal
 #' @export
 compact_pvd_figure <- function(

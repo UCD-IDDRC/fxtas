@@ -39,6 +39,11 @@ compact_pvd_figure(
 \item{legend.box}{arrangement of multiple legends ("horizontal" or
 "vertical")}
 
+\item{legend.key.height}{size of legend keys (unit);
+key background height & width inherit from legend.key.size
+or can be specified separately.
+In turn legend.key.size inherits from spacing.}
+
 \item{colorbar_label_type}{what kind of label to use?
 Current options are \code{"level"} and \code{"subscript"}}
 
