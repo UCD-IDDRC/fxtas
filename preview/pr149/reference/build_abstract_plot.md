@@ -10,6 +10,11 @@ build_abstract_plot(abstract_text, abstract_size = 5, abstract_width = 50)
 
 ## Arguments
 
+- abstract_text:
+
+  [character](https://rdrr.io/r/base/character.html) String that
+  summarizes the study's main findings.
+
 - abstract_size:
 
   [numeric](https://rdrr.io/r/base/numeric.html) Abstract text size
@@ -18,11 +23,6 @@ build_abstract_plot(abstract_text, abstract_size = 5, abstract_width = 50)
 
   [numeric](https://rdrr.io/r/base/numeric.html) Length at which to wrap
   the abstract text.
-
-- abstract:
-
-  [character](https://rdrr.io/r/base/character.html) String that
-  summarizes the study's main findings.
 
 ## Value
 

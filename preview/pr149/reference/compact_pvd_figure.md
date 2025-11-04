@@ -129,5 +129,5 @@ compact_pvd_figure(
   group_colors = group_colors,
   group_color_legend = group_color_legend
 )
-#> Error in compact_pvd_figure(plot_dataset, tile_height = tile_height, y_text_size = y_text_size,     facet_names = facet_names, legend.position = legend_position,     scale_colors = scale_colors, group_colors = group_colors,     group_color_legend = group_color_legend): could not find function "compact_pvd_figure"
+#> Error in compact_pvd_figure(plot_dataset, tile_height = tile_height, y_text_size = y_text_size,     facet_names = facet_names, legend.position = legend_position,     scale_colors = scale_colors, group_colors = group_colors,     group_color_legend = group_color_legend): object 'horizontal_greyscale_legend' not found
 ```

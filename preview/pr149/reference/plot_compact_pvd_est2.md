@@ -100,4 +100,5 @@ plot_compact_pvd_est2(
   y_text_size = 6,
   title_size = 8
 )
+#> Error in plot_compact_pvd_est2(figs = figs, tile_height = 1, y_text_size = 6,     title_size = 8): object 'horizontal_greyscale_legend' not found
 ```
