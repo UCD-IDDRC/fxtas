@@ -10,13 +10,6 @@ stage_line_color <- "black"
 stage_highlight_color <- "yellow"
 # stage_highlight_color <- "#FFF"
 scale_colors2 <- rcartocolor::carto_pal(name = "Safe")
-group_1_color <- "orange"
-group_2_color <- "green"
-group_3_color <- "purple"
-group_4_color <- "red"
-group_5_color <- "brown"
-group_6_color <- "cyan3"
-group_7_color <- "magenta"
 group_1_color <- scale_colors2[1]
 group_2_color <- scale_colors2[2]
 group_3_color <- scale_colors2[3]
@@ -62,6 +55,9 @@ bump <- figs_n_s_selected |>
     align_stage = TRUE,
     events_to_highlight = color_info,
     use_group_colors = TRUE
+  ) +
+  theme(
+    legend.margin = margin(t = 0)
   )
 
 if (interactive()) {
@@ -98,6 +94,5 @@ ggplot2::ggsave(
 **Differences in event sequences between latent subtypes,**
 **aligned by FXTAS stage.**
 Lines are used to show patterns of clinical interest.
-`r biomarker_text_color_info`
-`r subtype_pval_summaries`
+`r biomarker_text_color_info` `r abbrevs_caption` `r subtype_pval_summaries`
 :::

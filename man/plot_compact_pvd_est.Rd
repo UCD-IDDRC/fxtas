@@ -18,11 +18,12 @@ plot_compact_pvd_est(
 
 \item{tile_height}{todo}
 
-\item{y_text_size}{todo}
+\item{y_text_size}{\link{integer}: size of y-axis text}
 
 \item{facet_label_prefix}{todo}
 
-\item{legend.position}{todo}
+\item{legend.position}{the default position of legends ("none", "left",
+"right", "bottom", "top", "inside")}
 
 \item{scale_colors}{todo}
 }

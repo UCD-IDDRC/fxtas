@@ -18,6 +18,7 @@ pvd_lineplot(
   y_text_size = 8,
   x_text_size = grid::unit(8, "points"),
   nrow_group_col = 1,
+  x_positions = c(1.01, 1.14),
   direction_colors = c(`(stage)` = "grey25", down = "#DC3220", neutral = "grey70", up =
     "#005AB5"),
   expand = 0,
@@ -53,6 +54,8 @@ pvd_lineplot(
 \item{x_text_size}{todo}
 
 \item{nrow_group_col}{\link{integer} how many rows in group_col legend}
+
+\item{x_positions}{positions of x-axis ticks}
 
 \item{direction_colors}{a \link{character} vector of length 4}
 

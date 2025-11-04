@@ -122,6 +122,7 @@ format:
   pdf:
     documentclass: scrartcl
   html:
+    lightbox: auto
     toc: true
     notes-after-punctuation: true
     csl: brain.csl

@@ -9,7 +9,7 @@ extend to new data not used in training.
 We performed `r N_CV_folds`-fold cross-validation on the unstratified data
 and calculated the CVIC and OOFLL for 1-`r N_S_max` latent subtypes.
 We selected an optimal number of latent subtypes based on 
-a combination of these metrics and the principle of parsimony (“Occam’s razor”). 
+a combination of these metrics and the principle of parsimony ("Occam's razor"). 
 Once we determined the optimal number of latent subtypes, 
 we classified each individual into their most likely subtype 
 and investigated distributional differences of sex and CGG repeat size 

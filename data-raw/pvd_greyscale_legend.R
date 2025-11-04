@@ -42,7 +42,9 @@ horizontal_legend_fig <- ggplot() +
   theme(
     legend.direction = "horizontal",
     legend.text = element_text(size = legend_text_size),
-    legend.title = ggtext::element_markdown(size = legend_text_size)
+    legend.title = ggtext::element_markdown(size = legend_text_size),
+    legend.key.height = grid::unit(1, "lines"),
+    legend.key.width = grid::unit(.8, "lines")
   )
 
 horizontal_greyscale_legend <- cowplot::get_legend(horizontal_legend_fig)
