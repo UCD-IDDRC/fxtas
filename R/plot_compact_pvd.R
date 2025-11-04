@@ -22,10 +22,10 @@ plot_compact_pvd <- function(
     x_text_size = y_text_size,
     x_title_size = x_text_size,
     facet_label_prefix = names(figs),
-    legend.position = "right",
-    legend.direction = "vertical",
-    legend.box = "vertical",
-    legend.key.height = grid::unit(1, "lines"),
+    legend.position = "right", # nolint object_name_linter
+    legend.direction = "vertical", # nolint object_name_linter
+    legend.box = "vertical", # nolint object_name_linter
+    legend.key.height = grid::unit(1, "lines"), # nolint object_name_linter
     colorbar_label_type = "level",
     scale_colors = c("red", "blue", "magenta", "darkgreen", "purple4"),
     rel_heights = c(1, .025),

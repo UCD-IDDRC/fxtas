@@ -77,7 +77,11 @@ plot_compact_pvd_est2 <- function(
     vjust = vjust
   ) |>
     cowplot::plot_grid(
-      if (legend == "grayscale") horizontal_greyscale_legend else pvd_color_legend,
+      if (legend == "grayscale") {
+        horizontal_greyscale_legend
+      } else {
+        pvd_color_legend
+      },
       nrow = 2,
       rel_heights = rel_heights
     )

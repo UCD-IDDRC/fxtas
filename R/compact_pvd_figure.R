@@ -15,9 +15,9 @@ compact_pvd_figure <- function(
     facet_names,
     # facet_label_size,
     legend.position, # nolint: object_name_linter
-    legend.direction = "vertical",
-    legend.box = "vertical",
-    legend.key.height = grid::unit(1, "lines"),
+    legend.direction = "vertical", # nolint: object_name_linter
+    legend.box = "vertical", # nolint: object_name_linter
+    legend.key.height = grid::unit(1, "lines"), # nolint: object_name_linter
     scale_colors,
     rel_heights = c(1, 0.1),
     guide_rel_widths = c(.3, .7),
@@ -93,7 +93,8 @@ compact_pvd_figure <- function(
       guide = ggplot2::guide_colorbar(
         title = colorbar_title(
           type = colorbar_label_type,
-          level = 1),
+          level = 1
+        ),
         draw.ulim = FALSE,
         draw.llim = FALSE,
         order = 1
@@ -121,7 +122,8 @@ compact_pvd_figure <- function(
       guide = ggplot2::guide_colorbar(
         title = colorbar_title(
           type = colorbar_label_type,
-          level = 2),
+          level = 2
+        ),
         draw.ulim = FALSE,
         draw.llim = FALSE,
         order = 2
@@ -149,7 +151,8 @@ compact_pvd_figure <- function(
       guide = ggplot2::guide_colorbar(
         title = colorbar_title(
           type = colorbar_label_type,
-          level = 3),
+          level = 3
+        ),
         draw.ulim = FALSE,
         draw.llim = FALSE,
         order = 3
@@ -176,7 +179,8 @@ compact_pvd_figure <- function(
       guide = ggplot2::guide_colorbar(
         title = colorbar_title(
           type = colorbar_label_type,
-          level = 4),
+          level = 4
+        ),
         draw.ulim = FALSE,
         draw.llim = FALSE,
         order = 4
@@ -203,7 +207,8 @@ compact_pvd_figure <- function(
       guide = ggplot2::guide_colorbar(
         title = colorbar_title(
           type = colorbar_label_type,
-          level = 5),
+          level = 5
+        ),
         draw.ulim = FALSE,
         draw.llim = FALSE,
         order = 5
@@ -238,11 +243,14 @@ compact_pvd_figure <- function(
       axis.title.x = ggplot2::element_text(size = x_title_size),
       axis.text.x = ggplot2::element_text(size = x_text_size),
       axis.title.y = ggplot2::element_blank(),
+      # allow markdown for coloring:
       axis.text.y = ggtext::element_markdown(
         size = y_text_size
-      ), # allow markdown for coloring
+      ),
+      # allow markdown for labels:
       strip.text = ggtext::element_markdown(
-        size = strip_text_size) # allow markdown for labels
+        size = strip_text_size
+      )
     )
 
 
