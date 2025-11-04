@@ -242,7 +242,8 @@ graphical_abstract <- function(
   abstract_plot <- build_abstract_plot(
     abstract_text = abstract,
     abstract_size = 5,
-    abstract_width = 50)
+    abstract_width = 50
+  )
 
   x_title_and_scale <- cowplot::plot_grid(
     ggplot() +
