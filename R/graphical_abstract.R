@@ -235,7 +235,8 @@ graphical_abstract <- function(
       # adjust margins
       plot.margin = grid::unit(c(0, 0, 0, 0), "cm"),
       # allow markdown for coloring
-      strip.text = ggtext::element_markdown(size = legend_text_size) # allow markdown for labels
+      strip.text = ggtext::element_markdown(size = legend_text_size)
+      # allow markdown for labels
     )
 
   abstract_plot <- build_abstract_plot(

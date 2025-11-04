@@ -3,7 +3,7 @@ pvd_lineplot_preprocessing <- function(
     facet_labels,
     events_to_highlight,
     highlight_color,
-    x_positions = c(1,1.15)) {
+    x_positions = c(1, 1.15)) {
   data |>
     dplyr::mutate(
       # extract order number
