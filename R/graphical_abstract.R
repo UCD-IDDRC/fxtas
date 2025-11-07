@@ -230,7 +230,6 @@ graphical_abstract <- function(
       legend.box = "horizontal",
       # legend.justification = ,
       legend.margin = ggplot2::margin(0, 0.15, 0, -0.45, "cm"),
-      axis.title.x = ggplot2::element_text(size = x_title_size),
       axis.title.y = ggplot2::element_blank(),
       axis.text.y = ggtext::element_markdown(
         size = y_text_size

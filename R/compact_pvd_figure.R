@@ -266,7 +266,6 @@ compact_pvd_figure <- function(
         if (!is.null(group_color_legend)) group_color_legend,
         horizontal_greyscale_legend, # stored as internal data;
         # see data-raw/pvd_grayscale_legend.R for details
-        ncol = ncol_legend,
         rel_widths = guide_rel_widths,
         ...
       ),
@@ -276,13 +275,6 @@ compact_pvd_figure <- function(
     )
 
   } else if (!is.null(group_color_legend) && legend.position == "right") {
-    fig <- cowplot::plot_grid(
-      fig,
-      group_color_legend,
-      nrow = 2,
-      rel_heights = rel_heights
-    )
-  } else {
     fig <- cowplot::plot_grid(
       fig,
       group_color_legend,

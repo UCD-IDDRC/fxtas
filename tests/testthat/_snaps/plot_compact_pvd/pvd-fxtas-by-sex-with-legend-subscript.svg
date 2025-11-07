@@ -1147,17 +1147,17 @@
 <text x='695.46' y='528.89' style='font-size: 8.00px; font-family: sans;' textLength='11.12px' lengthAdjust='spacingAndGlyphs'>0.0</text>
 <text x='695.46' y='493.01' style='font-size: 8.00px; font-family: sans;' textLength='11.12px' lengthAdjust='spacingAndGlyphs'>0.5</text>
 <text x='695.46' y='457.13' style='font-size: 8.00px; font-family: sans;' textLength='11.12px' lengthAdjust='spacingAndGlyphs'>1.0</text>
-<rect x='165.75' y='559.74' width='388.51' height='18.46' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' />
-<text x='171.23' y='570.97' style='font-size: 8.00px; font-family: sans;' textLength='33.80px' lengthAdjust='spacingAndGlyphs'>Symptom</text>
-<text x='207.23' y='570.97' style='font-size: 8.00px; font-family: sans;' textLength='32.91px' lengthAdjust='spacingAndGlyphs'>category:</text>
-<text x='245.86' y='571.73' style='font-size: 8.00px; fill: #CC6677; font-family: sans;' textLength='22.24px' lengthAdjust='spacingAndGlyphs'>Ataxia</text>
-<text x='273.57' y='571.73' style='font-size: 8.00px; fill: #999933; font-family: sans;' textLength='32.46px' lengthAdjust='spacingAndGlyphs'>CANTAB</text>
-<text x='310.54' y='571.73' style='font-size: 8.00px; fill: #332288; font-family: sans;' textLength='14.67px' lengthAdjust='spacingAndGlyphs'>MRI</text>
-<text x='330.68' y='571.73' style='font-size: 8.00px; fill: #117733; font-family: sans;' textLength='70.92px' lengthAdjust='spacingAndGlyphs'>Parkinson's disease</text>
-<text x='406.70' y='571.73' style='font-size: 8.00px; fill: #44AA99; font-family: sans;' textLength='19.12px' lengthAdjust='spacingAndGlyphs'>SCID</text>
-<text x='431.29' y='571.73' style='font-size: 8.00px; fill: #AA4499; font-family: sans;' textLength='24.91px' lengthAdjust='spacingAndGlyphs'>Scores</text>
-<text x='461.66' y='571.73' style='font-size: 8.00px; font-family: sans;' textLength='20.91px' lengthAdjust='spacingAndGlyphs'>Stage</text>
-<text x='488.05' y='571.73' style='font-size: 8.00px; fill: #888888; font-family: sans;' textLength='26.68px' lengthAdjust='spacingAndGlyphs'>Thyroid</text>
-<text x='519.96' y='571.73' style='font-size: 8.00px; fill: #88CCEE; font-family: sans;' textLength='29.78px' lengthAdjust='spacingAndGlyphs'>Tremors</text>
+<rect x='165.55' y='559.74' width='388.91' height='18.46' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' />
+<text x='171.03' y='570.97' style='font-size: 8.00px; font-family: sans;' textLength='33.80px' lengthAdjust='spacingAndGlyphs'>Symptom</text>
+<text x='207.03' y='570.97' style='font-size: 8.00px; font-family: sans;' textLength='32.91px' lengthAdjust='spacingAndGlyphs'>category:</text>
+<text x='245.66' y='571.73' style='font-size: 8.00px; fill: #CC6677; font-family: sans;' textLength='22.24px' lengthAdjust='spacingAndGlyphs'>Ataxia</text>
+<text x='273.37' y='571.73' style='font-size: 8.00px; fill: #999933; font-family: sans;' textLength='32.46px' lengthAdjust='spacingAndGlyphs'>CANTAB</text>
+<text x='310.34' y='571.73' style='font-size: 8.00px; fill: #332288; font-family: sans;' textLength='14.67px' lengthAdjust='spacingAndGlyphs'>MRI</text>
+<text x='330.48' y='571.73' style='font-size: 8.00px; fill: #117733; font-family: sans;' textLength='70.92px' lengthAdjust='spacingAndGlyphs'>Parkinson's disease</text>
+<text x='406.90' y='571.73' style='font-size: 8.00px; fill: #44AA99; font-family: sans;' textLength='19.12px' lengthAdjust='spacingAndGlyphs'>SCID</text>
+<text x='431.49' y='571.73' style='font-size: 8.00px; fill: #AA4499; font-family: sans;' textLength='24.91px' lengthAdjust='spacingAndGlyphs'>Scores</text>
+<text x='461.86' y='571.73' style='font-size: 8.00px; font-family: sans;' textLength='20.91px' lengthAdjust='spacingAndGlyphs'>Stage</text>
+<text x='488.25' y='571.73' style='font-size: 8.00px; fill: #888888; font-family: sans;' textLength='26.68px' lengthAdjust='spacingAndGlyphs'>Thyroid</text>
+<text x='520.16' y='571.73' style='font-size: 8.00px; fill: #88CCEE; font-family: sans;' textLength='29.78px' lengthAdjust='spacingAndGlyphs'>Tremors</text>
 </g>
 </svg>

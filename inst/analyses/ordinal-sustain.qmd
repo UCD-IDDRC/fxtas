@@ -106,7 +106,7 @@ ggplot2::theme_set(
 
 # note: don't install miniconda on DEM mac laptop; it breaks the current setup
 reticulate::use_condaenv("fxtas39", required = TRUE, conda = "auto")
-library(fxtas)
+# library(fxtas)
 devtools::load_all()
 library(tidyverse)
 library(reticulate)
@@ -987,7 +987,7 @@ pvdc_sex2 <- list(
     plot.caption.position = "plot")
 
 if (interactive()) {
-  pvdc_sex + ggview::canvas(
+  pvdc_sex2 + ggview::canvas(
     height = 120, 
     width = 120,
     units = "mm",
