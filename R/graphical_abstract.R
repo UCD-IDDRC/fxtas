@@ -13,7 +13,6 @@
 #' @param abstract [character] String that summarizes the study's main findings.
 #' @param abstract_size [numeric] Abstract text size
 #' @param abstract_width [numeric] Length at which to wrap the abstract text.
-#' @param show_grayscale_legend [logical] whether to show grayscale legend
 #' @inheritParams cowplot::plot_grid
 #' @returns a [ggplot2::ggplot]
 #' @export

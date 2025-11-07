@@ -1,5 +1,4 @@
 #' plot compact pvd figure
-#' @param show_grayscale_legend [logical] whether to show grayscale legend
 #' @example inst/examples/exm-compact_pvd_figure.R
 #' @inheritParams ggplot2::theme
 #' @param colorbar_label_type what kind of label to use?

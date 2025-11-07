@@ -24,11 +24,7 @@ plot_compact_pvd(
   guide_rel_widths = c(0.7, 0.3),
   legend_text_size = grid::unit(8, "pt"),
   show_group_color_legend = TRUE,
-<<<<<<< HEAD
-  show_grayscale_legend = (legend.position == "none"),
-=======
   strip_text_size = grid::unit(8, "points"),
->>>>>>> e4e69509f0cf4d6f73591e0cbb8126d2d9d325eb
   ...
 )
 }
@@ -77,11 +73,7 @@ Current options are \code{"level"} and \code{"subscript"}}
 
 \item{show_group_color_legend}{\link{logical}: whether to show group col legend}
 
-<<<<<<< HEAD
-\item{show_grayscale_legend}{\link{logical} whether to show grayscale legend}
-=======
 \item{strip_text_size}{passed to \code{ggtext::element_markdown()}}
->>>>>>> e4e69509f0cf4d6f73591e0cbb8126d2d9d325eb
 
 \item{...}{
   Arguments passed on to \code{\link[=compact_pvd_data_prep]{compact_pvd_data_prep}}

@@ -20,21 +20,14 @@ compact_pvd_figure(
   ncol_legend = 1,
   group_color_legend = NULL,
   legend_text_size = grid::unit(7, "pt"),
-<<<<<<< HEAD
-  show_grayscale_legend = (legend.position == "none"),
-=======
   colorbar_label_type = "level",
   strip_text_size = grid::unit(8, "points"),
   x_text_size = y_text_size,
   x_title_size = x_text_size,
->>>>>>> e4e69509f0cf4d6f73591e0cbb8126d2d9d325eb
   ...
 )
 }
 \arguments{
-<<<<<<< HEAD
-\item{show_grayscale_legend}{\link{logical} whether to show grayscale legend}
-=======
 \item{y_text_size}{\link{integer}: size of y-axis text}
 
 \item{legend.position}{the default position of legends ("none", "left",
@@ -62,7 +55,6 @@ Current options are \code{"level"} and \code{"subscript"}}
 
 \item{...}{additional element specifications not part of base ggplot2. In general,
 these should also be defined in the \verb{element tree} argument. \link[rlang:splice]{Splicing} a list is also supported.}
->>>>>>> e4e69509f0cf4d6f73591e0cbb8126d2d9d325eb
 }
 \description{
 plot compact pvd figure

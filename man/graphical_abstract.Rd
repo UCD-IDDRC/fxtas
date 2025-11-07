@@ -20,7 +20,6 @@ graphical_abstract(
   abstract,
   abstract_size = 5,
   abstract_width = 50,
-  show_grayscale_legend = (legend.position == "none"),
   ...
 )
 }
@@ -55,8 +54,6 @@ graphical_abstract(
 \item{abstract_size}{\link{numeric} Abstract text size}
 
 \item{abstract_width}{\link{numeric} Length at which to wrap the abstract text.}
-
-\item{show_grayscale_legend}{\link{logical} whether to show grayscale legend}
 
 \item{...}{List of plots to be arranged into the grid. The plots can be any objects that
 the function \code{\link[cowplot:as_gtable]{as_gtable()}} can handle (see also examples).}

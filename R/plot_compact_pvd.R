@@ -10,7 +10,6 @@
 #' @param guide_rel_widths relative widths of guides
 #' @param legend_text_size [grid::unit]: legend text size
 #' @param show_group_color_legend [logical]: whether to show group col legend
-#' @param show_grayscale_legend [logical] whether to show grayscale legend
 #' @inheritParams cowplot::plot_grid
 #' @inheritParams compact_pvd_figure
 #' @export
@@ -73,7 +72,6 @@ plot_compact_pvd <- function(
     group_colors = group_colors,
     rel_heights = rel_heights,
     group_color_legend = group_color_legend,
-    show_grayscale_legend = show_grayscale_legend,
     ncol_legend = ncol_legend,
     guide_rel_widths = guide_rel_widths,
     legend_text_size = legend_text_size,
