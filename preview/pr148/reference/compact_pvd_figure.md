@@ -135,5 +135,4 @@ compact_pvd_figure(
   group_colors = group_colors,
   group_color_legend = group_color_legend
 )
-#> Error in cowplot::plot_grid(ncol = ncol_legend, if (!is.null(group_color_legend)) group_color_legend,     horizontal_greyscale_legend, ncol = ncol_legend, rel_widths = guide_rel_widths,     ...): formal argument "ncol" matched by multiple actual arguments
 ```
