@@ -28,7 +28,7 @@ compact_pvd_figure <- function(
     guide_rel_widths = c(.3, .7),
     group_colors,
     ncol_legend = 1,
-    group_color_legend,
+    group_color_legend = NULL,
     legend_text_size = grid::unit(7, "pt"),
     colorbar_label_type = "level",
     strip_text_size = grid::unit(8, "points"),
@@ -258,7 +258,6 @@ compact_pvd_figure <- function(
       )
     )
 
-
   if (legend.position == "none") {
     fig <- cowplot::plot_grid(
       fig,
@@ -266,13 +265,15 @@ compact_pvd_figure <- function(
         ncol = ncol_legend,
         if (!is.null(group_color_legend)) group_color_legend,
         horizontal_greyscale_legend, # stored as internal data;
+        # see data-raw/pvd_grayscale_legend.R for details
         rel_widths = guide_rel_widths,
         ...
       ),
-      # see data-raw/pvd_grayscale_legend.R for details
+
       nrow = 2,
       rel_heights = rel_heights
     )
+
   } else if (!is.null(group_color_legend) && legend.position == "right") {
     fig <- cowplot::plot_grid(
       fig,
