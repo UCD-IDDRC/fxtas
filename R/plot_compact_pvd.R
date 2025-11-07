@@ -3,9 +3,7 @@
 #' @inheritDotParams compact_pvd_data_prep
 #' @param figs todo
 #' @param tile_height todo
-#' @param y_text_size todo
 #' @param facet_label_prefix todo
-#' @param legend.position todo
 #' @param scale_colors todo
 #' @param ncol_legend how many columns to use for legend
 #' @param nrow_colors now many rows to use for color guide
@@ -14,6 +12,7 @@
 #' @param show_group_color_legend [logical]: whether to show group col legend
 #' @param show_grayscale_legend [logical] whether to show grayscale legend
 #' @inheritParams cowplot::plot_grid
+#' @inheritParams compact_pvd_figure
 #' @export
 #' @returns a [ggplot2::ggplot]
 #' @example inst/examples/exm-plot_compact_pvd.R
@@ -21,16 +20,22 @@ plot_compact_pvd <- function(
     figs,
     tile_height = 1,
     y_text_size = 9,
+    x_text_size = y_text_size,
+    x_title_size = x_text_size,
     facet_label_prefix = names(figs),
-    legend.position = "none", # nolint: object_name_linter
+    legend.position = "right", # nolint object_name_linter
+    legend.direction = "vertical", # nolint object_name_linter
+    legend.box = "vertical", # nolint object_name_linter
+    legend.key.height = grid::unit(1, "lines"), # nolint object_name_linter
+    colorbar_label_type = "level",
     scale_colors = c("red", "blue", "magenta", "darkgreen", "purple4"),
-    rel_heights = c(1, 0.1),
+    rel_heights = c(1, .025),
     ncol_legend = 2,
-    nrow_colors = 2,
+    nrow_colors = dplyr::if_else(legend.position == "none", 2, 1),
     guide_rel_widths = c(.7, .3),
     legend_text_size = grid::unit(8, "pt"),
     show_group_color_legend = TRUE,
-    show_grayscale_legend = (legend.position == "none"),
+    strip_text_size = grid::unit(8, "points"),
     ...) {
   # extract and prep data from fig list
   plot_dataset <- compact_pvd_data_prep(figs = figs, ...)
@@ -60,6 +65,10 @@ plot_compact_pvd <- function(
     y_text_size = y_text_size,
     facet_names = facet_names,
     legend.position = legend.position,
+    legend.direction = legend.direction,
+    legend.box = legend.box,
+    legend.key.height = legend.key.height,
+    colorbar_label_type = colorbar_label_type,
     scale_colors = scale_colors,
     group_colors = group_colors,
     rel_heights = rel_heights,
@@ -67,6 +76,9 @@ plot_compact_pvd <- function(
     show_grayscale_legend = show_grayscale_legend,
     ncol_legend = ncol_legend,
     guide_rel_widths = guide_rel_widths,
-    legend_text_size = legend_text_size
+    legend_text_size = legend_text_size,
+    strip_text_size = grid::unit(8, "points"),
+    x_text_size = x_text_size,
+    x_title_size = x_title_size
   )
 }

@@ -10,7 +10,7 @@
 #' @param nrow_colors now many rows to use for color guide
 #' @param guide_rel_widths relative widths of guides
 #' @param legend_text_size [grid::unit]: legend text size
-#' @param abstract [character] String that summzrizes the study's main findings.
+#' @param abstract [character] String that summarizes the study's main findings.
 #' @param abstract_size [numeric] Abstract text size
 #' @param abstract_width [numeric] Length at which to wrap the abstract text.
 #' @param show_grayscale_legend [logical] whether to show grayscale legend
@@ -34,9 +34,13 @@ graphical_abstract <- function(
     abstract,
     abstract_size = 5,
     abstract_width = 50,
+<<<<<<< HEAD
     show_grayscale_legend = (legend.position == "none"),
     ...
 ) {
+=======
+    ...) {
+>>>>>>> e4e69509f0cf4d6f73591e0cbb8126d2d9d325eb
   # extract and prep data from fig list
   plot_dataset <- compact_pvd_data_prep(figs = figs, ...)
   # facet labels
@@ -56,7 +60,6 @@ graphical_abstract <- function(
     )
 
   nlevels <- plot_dataset |>
-    dplyr::filter(!is.na(level)) |>
     dplyr::pull("level") |>
     unique() |>
     length()
@@ -223,6 +226,8 @@ graphical_abstract <- function(
     # plot theme
     ggplot2::theme_bw() +
     ggplot2::theme(
+      # remove x axis title
+      axis.title.x = ggplot2::element_blank(),
       # add color scale info in figure caption:
       legend.text = element_text(size = legend_text_size),
       legend.title = ggtext::element_markdown(size = legend_text_size),
@@ -236,41 +241,45 @@ graphical_abstract <- function(
       axis.title.y = ggplot2::element_blank(),
       axis.text.y = ggtext::element_markdown(
         size = y_text_size
-      ), # allow markdown for coloring
-      strip.text = ggtext::element_markdown() # allow markdown for labels
+      ),
+      # adjust margins
+      plot.margin = grid::unit(c(0, 0, 0, 0), "cm"),
+      # allow markdown for coloring
+      strip.text = ggtext::element_markdown(size = legend_text_size)
+      # allow markdown for labels
     )
 
-  abstract_plot <-
-    build_plot_abstract(
-      abstract,
-      abstract_width,
-      abstract_size
-    )
+  abstract_plot <- build_abstract_plot(
+    abstract_text = abstract,
+    abstract_size = 5,
+    abstract_width = 50
+  )
+
+  x_title_and_scale <- cowplot::plot_grid(
+    ggplot() +
+      aes(x = 0, y = 0, label = "Sequential order") +
+      ggplot2::geom_text(size = grid::unit(3, "pt"), hjust = 0.63) +
+      ggplot2::theme_void() +
+      theme(plot.margin = grid::unit(c(0, 0, 0, 0), "cm")),
+    horizontal_greyscale_legend,
+    ncol = 1, nrow = 2
+  )
+
+  grob2 <- cowplot::plot_grid(
+    abstract_plot,
+    x_title_and_scale,
+    ncol = 2,
+    rel_widths = guide_rel_widths
+  )
 
   if (legend.position == "none") {
-    if (show_grayscale_legend) {
-      fig <- cowplot::plot_grid(
-        fig,
-        cowplot::plot_grid(
-          ncol = ncol_legend,
-          abstract_plot,
-          horizontal_greyscale_legend,
-          rel_widths = guide_rel_widths,
-          ...
-        ),
-        # see data-raw/pvd_grayscale_legend.R for details
-        nrow = 2,
-        rel_heights = rel_heights
-      )
-    } else {
-      fig <- cowplot::plot_grid(
-        fig,
-        abstract_plot,
-        # see data-raw/pvd_grayscale_legend.R for details
-        nrow = 2,
-        rel_heights = rel_heights
-      )
-    }
+    fig <- cowplot::plot_grid(
+      fig,
+      grob2,
+      # see data-raw/pvd_grayscale_legend.R for details
+      nrow = 2,
+      rel_heights = rel_heights
+    )
   }
 
   return(fig)

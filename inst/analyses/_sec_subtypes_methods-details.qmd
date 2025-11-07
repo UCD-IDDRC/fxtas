@@ -7,7 +7,7 @@ and participants D, E, and F had all experienced tremors but not ataxia,
 then participants A, B, and C would be grouped as a subgroup cluster
 in which ataxia precedes tremor,
 and participants D, E, and F would be clustered into
-a “tremor before ataxia” subgroup.
+a "tremor before ataxia" subgroup.
 If participants G, H, and I displayed
 both ataxia and tremors at the time of assessment,
 then the Ordinal SuStaIn algorithm might be
@@ -18,7 +18,7 @@ On the other hand,
 if participants J, K, and L displayed neither ataxia nor tremors,
 they would also not be classified into
 either of the two clusters described above
-and would be assigned to a new cluster “Subgroup 0”,
+and would be assigned to a new cluster "Subgroup 0",
 representing individuals whose disease has not yet begun to progress
 by the time when they were assessed for the study.
 

@@ -10,5 +10,4 @@ an application programming interface between Python and R.
 A color-blind friendly color palette was selected using
 the `rcartocolor` and `colorblindcheck` R packages 
 [@rcartocolor; @colorblindcheck].
-The code used to perform this analysis is available at
-<https://github.com/UCD-IDDRC/fxtas>.
+{{< include _sec-code_availability.qmd >}}

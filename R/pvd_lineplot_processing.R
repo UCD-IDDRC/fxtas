@@ -2,7 +2,8 @@ pvd_lineplot_preprocessing <- function(
     data,
     facet_labels,
     events_to_highlight,
-    highlight_color) {
+    highlight_color,
+    x_positions = c(1, 1.15)) {
   data |>
     dplyr::mutate(
       # extract order number
@@ -53,8 +54,8 @@ pvd_lineplot_preprocessing <- function(
         1
       ),
       facet_order = case_when(
-        facet == facet_labels[1] ~ 1,
-        facet == facet_labels[2] ~ 1.15
+        facet == facet_labels[1] ~ x_positions[1],
+        facet == facet_labels[2] ~ x_positions[2]
       ),
       # colors of choice
       Change_color = dplyr::case_when(

@@ -5,48 +5,45 @@
 #' @param i [integer]
 #'
 #' @returns a [character] string
-#' @dev
+#' @noRd
 get_title_i_2 <- function(
-    subtype_and_stage_table,
-    cval = FALSE,
-    i) {
-
-  subtype = paste("Subtype", i)
-  n_s = attr(subtype_and_stage_table$ml_subtype, "n_s")
+  subtype_and_stage_table,
+  cval = FALSE,
+  i
+) {
+  subtype <- paste("Subtype", i)
+  n_s <- attr(subtype_and_stage_table$ml_subtype, "n_s")
 
   if (n_s == 1) {
-    n_samples = nrow(subtype_and_stage_table)
-    title_i = glue::glue("n = {n_samples}")
-  } else if(cval) {
-    title_i = glue::glue("Subtype {i} cross-validated")
-
+    n_samples <- nrow(subtype_and_stage_table)
+    title_i <- glue::glue("n = {n_samples}")
+  } else if (cval) {
+    title_i <- glue::glue("Subtype {i} cross-validated")
   } else {
-    subtype_and_stage_table =
+    subtype_and_stage_table <-
       subtype_and_stage_table |>
       dplyr::filter(.data$ml_subtype != "Subtype 0")
 
-    n_samples = nrow(subtype_and_stage_table)
-    n_i = sum(
+    n_samples <- nrow(subtype_and_stage_table)
+    n_i <- sum(
       subtype_and_stage_table$ml_subtype == subtype
     )
 
-    p_i = formattable::percent(
+    p_i <- formattable::percent(
       n_i / n_samples,
       digits = 1,
-      drop0trailing = TRUE)
+      drop0trailing = TRUE
+    )
 
-    if (is.finite(n_samples))
-    {
-      title_i = glue::glue(
-        "Subtype {i} ({p_i}, n = {n_i})")
-    } else
-    {
+    if (is.finite(n_samples)) {
+      title_i <- glue::glue(
+        "Subtype {i} ({p_i}, n = {n_i})"
+      )
+    } else {
       cli::cli_warn("not sure why this case is occurring; investigate.")
-      title_i = glue::glue("Subtype {i} ({p_i})")
+      title_i <- glue::glue("Subtype {i} ({p_i})")
     }
-
   }
 
   return(title_i)
-
 }

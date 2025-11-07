@@ -36,6 +36,8 @@
 
 {{< include _results_cgg_strat_sex.qmd >}}
 
+{{< pagebreak >}}
+
 ## Detecting latent subtypes {#sec-subtypes .appendix}
 
 {{< include _sec_subtypes_appendix.qmd >}}

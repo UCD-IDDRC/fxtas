@@ -16,6 +16,8 @@ and
 
 :::
 
+{{< pagebreak >}}
+
 :::{#suppfig-cvic-2 custom-style="Caption"}
 
 ```{r}
@@ -26,7 +28,7 @@ sustain_output_CV$loglike_matrix |> plot_cv_loglik(y_text_size = y_text_size)
 **Selection criteria for number of latent subtypes:**
 **Out-Of-Fold Log-Likelihood criterion (OOFLL)**.
 Each data point represents the OOFLL statistic
-(i.e., the test set log-likelihood across cross-validation folds)
+(i.e., the test set log-likelihood across cross-validation (CV) folds)
 for the Ordinal SuStaIn model fit with a given number of latent subtypes
 on the full data set
 (N = `r nrow(v1_usable_cases)` carriers

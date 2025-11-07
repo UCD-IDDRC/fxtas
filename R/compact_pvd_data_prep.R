@@ -26,9 +26,10 @@ compact_pvd_data_prep <- function(figs,
   # determine biomarker event order
   event_order <- dataset |>
     dplyr::filter(.data$facet == 1) |>
-    dplyr::select(all_of(c(
-      "row number and name", "event name", biomarker_var
-    )))
+    dplyr::select(
+      c("row number and name", "event name", biomarker_var) |> all_of()
+    )
+
   event_order <- event_order |>
     dplyr::mutate(
       Order =

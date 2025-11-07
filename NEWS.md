@@ -13,7 +13,7 @@
 for latent subtype clustering analysis
 * Added more interpretation of subtype analysis results
 * Removed repeated measures analysis
-
+* Added description of findings to graphical abstract
 
 ## Analysis
 

@@ -12,6 +12,7 @@
 #' @param max_alpha todo
 #' @param stage_alpha todo
 #' @param y_lab todo
+#' @param x_positions positions of x-axis ticks
 #' @param direction_colors a [character] vector of length 4
 #' @param expand [numeric] how much to pad the sides
 #' @param group_cols a named [character] [vector]
@@ -37,6 +38,7 @@ pvd_lineplot <- function(
     y_text_size = 8,
     x_text_size = grid::unit(8, "points"),
     nrow_group_col = 1,
+    x_positions = c(1.01, 1.14),
     direction_colors = c(
       "(stage)" = "grey25",
       # "#F8766D",
@@ -58,7 +60,8 @@ pvd_lineplot <- function(
     pvd_lineplot_preprocessing(
       facet_labels,
       events_to_highlight,
-      highlight_color
+      highlight_color,
+      x_positions = x_positions
     )
 
   # alpha scaling #
@@ -119,7 +122,7 @@ pvd_lineplot <- function(
     scale_x_continuous(
       expand = ggplot2::expansion(add = expand),
       limits = c(0.65, 1.5),
-      breaks = c(1, 1.15),
+      breaks = x_positions,
       labels = facet_x_labels
     ) +
     scale_y_discrete(

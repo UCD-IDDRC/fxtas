@@ -6,6 +6,7 @@
 #' @param facet_labels facet labels
 #' @param facet_label_size [integer]: font size for cowplot facet labels
 #' @param vjust vjust for cowplot labels
+#' @param legend "grayscale" or "color"
 #' @param ... arguments passed to `tmp_func()`
 #' @export
 #' @example inst/examples/exm-plot_compact_pvd_est2.R
@@ -16,6 +17,7 @@ plot_compact_pvd_est2 <- function(
     tile_height = 1,
     tile_width = 1,
     y_text_size = 9,
+    legend = "grayscale",
     legend.position = "none", # nolint: object_name_linter
     scale_colors = c("red", "blue", "magenta", "darkgreen", "purple4"),
     rel_heights = c(1, 0.1),
@@ -26,7 +28,6 @@ plot_compact_pvd_est2 <- function(
     ),
     facet_label_size = 9,
     vjust = 1.5,
-
     ...) {
   # prepare data from figure list
   #   unlike the other functions, the data will remain in a list, not combined
@@ -76,7 +77,11 @@ plot_compact_pvd_est2 <- function(
     vjust = vjust
   ) |>
     cowplot::plot_grid(
-      horizontal_greyscale_legend,
+      if (legend == "grayscale") {
+        horizontal_greyscale_legend
+      } else {
+        pvd_color_legend
+      },
       nrow = 2,
       rel_heights = rel_heights
     )

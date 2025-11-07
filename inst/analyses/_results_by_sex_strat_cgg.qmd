@@ -6,15 +6,25 @@
 #| fig-width: !expr pvd_width
 
 # compact pvd
-list(
+cur_plot <- list(
     "CGG &lt; 100, Males:" = fig_under100_males,
     "CGG &lt; 100, Females:" = fig_under100_females
   ) |> 
   plot_compact_pvd(
     scale_colors = scale_colors1,
     y_text_size = y_text_size
-  )
+  ) |> 
+  print()
 
+if (interactive()) {
+cur_plot + ggview::canvas(
+    width = pvd_width, 
+    height = pvd_height,
+    units = "in",
+    dpi = 600
+  )
+    
+}
 ```
 
 **Event sequences stratified by sex, for CGG repeats <100.**
@@ -35,8 +45,8 @@ list(
 
 # lineplot of event sequences
 plot1 <- list(
-    "CGG &lt; 100, Males" = fig_under100_males,
-    "CGG &lt; 100, Females" = fig_under100_females
+    "CGG &lt;100, Males" = fig_under100_males,
+    "CGG &lt;100, Females" = fig_under100_females
   ) |> 
   pvd_lineplot(
     text_size = lineplot_text_size,
@@ -75,11 +85,20 @@ plot1
 #| fig-width: !expr pvd_width
 
 # compact pvd
-list(
-    "CGG &ge; 100, Males:" = fig_over100_males,
-    "CGG &ge; 100, Females:" = fig_over100_females
+cur_plot <- list(
+    "CGG &ge;100, Males:" = fig_over100_males,
+    "CGG &ge;100, Females:" = fig_over100_females
   ) |> 
-  plot_compact_pvd(scale_colors = scale_colors1, y_text_size = y_text_size)
+  plot_compact_pvd(scale_colors = scale_colors1, y_text_size = y_text_size) |> 
+  print()
+if (interactive()) {
+cur_plot + ggview::canvas(
+    width = pvd_width, 
+    height = pvd_height,
+    units = "in",
+    dpi = 600
+  )
+}
 ```
 
 **Event sequences stratified by sex, for CGG repeats ≥100.**
@@ -98,12 +117,20 @@ list(
 
 # lineplot of event sequences
 
-list(
+cur_plot <- list(
     "CGG &ge; 100, Males" = fig_over100_males,
     "CGG &ge; 100, Females" = fig_over100_females
   ) |> 
-  pvd_lineplot(text_size = lineplot_text_size)
-
+  pvd_lineplot(text_size = lineplot_text_size) |> 
+  print()
+if (interactive()) {
+cur_plot + ggview::canvas(
+    width = pvd_width, 
+    height = pvd_height,
+    units = "in",
+    dpi = 600
+  )
+}
 ```
 
 **Positional differences in event sequences by sex, for CGG repeats ≥100.**
