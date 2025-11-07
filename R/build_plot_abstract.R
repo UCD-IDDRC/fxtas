@@ -10,9 +10,5 @@ build_plot_abstract <- function(
     ) +
     ggplot2::geom_text(size = abstract_size) +
     ggplot2::scale_x_continuous(limits = c(-1, 1)) +
-    # ggplot2::scale_y_continuous(
-    #   limits = c(-0.1, 0.1),
-    #   expand = ggplot2::expansion(0)
-    # ) +
     ggplot2::theme_void()
 }
