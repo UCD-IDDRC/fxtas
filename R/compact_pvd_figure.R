@@ -276,14 +276,14 @@ compact_pvd_figure <- function(
       rel_heights = rel_heights
     )
 
-  } else {
+  } else if (!is.null(group_color_legend) && legend.position == "right") {
     fig <- cowplot::plot_grid(
       fig,
       group_color_legend,
       nrow = 2,
       rel_heights = rel_heights
     )
-  } else if (!is.null(group_color_legend) && legend.position == "right") {
+  } else {
     fig <- cowplot::plot_grid(
       fig,
       group_color_legend,

@@ -34,13 +34,7 @@ graphical_abstract <- function(
     abstract,
     abstract_size = 5,
     abstract_width = 50,
-<<<<<<< HEAD
-    show_grayscale_legend = (legend.position == "none"),
-    ...
-) {
-=======
     ...) {
->>>>>>> e4e69509f0cf4d6f73591e0cbb8126d2d9d325eb
   # extract and prep data from fig list
   plot_dataset <- compact_pvd_data_prep(figs = figs, ...)
   # facet labels
