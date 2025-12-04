@@ -6,3 +6,7 @@ to see their documentation.
 - ggplot2:
 
   [`autoplot`](https://ggplot2.tidyverse.org/reference/autoplot.html)
+
+- labelled:
+
+  [`var_label`](https://larmarange.github.io/labelled/reference/var_label.html)
