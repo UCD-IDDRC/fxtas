@@ -8,6 +8,8 @@
 }
 \arguments{
 \item{object}{a \link{list}}
+
+\item{...}{not used}
 }
 \value{
 a named \link{character} \link{vector}
