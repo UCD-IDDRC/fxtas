@@ -3,8 +3,8 @@
 #' @param figs a [list] of PVDs
 
 
-compact_pvd_est_data_prep <- function(figs){
-  if(length(figs) == 1){
+compact_pvd_est_data_prep <- function(figs) {
+  if (length(figs) == 1) {
     # extract data from pvd fig object
     dataset <- dplyr::bind_rows(figs[[1]]$data, .id = "facet")
   } else {
@@ -33,7 +33,10 @@ compact_pvd_est_data_prep <- function(figs){
     dplyr::mutate(
       Order =
         .data$`row number and name` |>
-        stringr::str_replace("\\D*(\\d+).*", "\\1") |>
+        stringr::str_replace(
+          pattern = "\\D*(\\d+).*",
+          replacement = "\\1"
+        ) |>
         as.numeric()
     ) |>
     dplyr::mutate(
@@ -62,7 +65,8 @@ compact_pvd_est_data_prep <- function(figs){
       "facet",
       "row number and name",
       "event name",
-      "biomarker") |>
+      "biomarker"
+    ) |>
     dplyr::mutate(
       Order =
         sub(
