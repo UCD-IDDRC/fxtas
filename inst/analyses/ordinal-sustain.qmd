@@ -223,7 +223,7 @@ compact_fig_cap2 <- glue::glue(
   "(higher opacity represents more positions changed).\n",
   biomarker_text_color_info,
   "\nYellow highlights indicate symptoms with clinically-significant positional differences between subgroups. ",
-  abbrevs_caption,
+  abbrevs_caption2,
   .open = "{{",
   .close = "}}"
 )
