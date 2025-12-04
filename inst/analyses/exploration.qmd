@@ -301,7 +301,7 @@ table1(
   table1::t1flex() |>
   shared_flextable_settings() |> 
   flextable::width(width = width1) |> 
-  flextable::width(j = 1, width = 1.545) |> 
+  flextable::width(j = 1, width = 1.4) |> 
   flextable::width(j = c(2, 5), width = 0.75) |> 
   flextable::width(j = c(3, 6), width = 0.8) |> 
   flextable::width(j = c(4, 7), width = 0.85)
@@ -363,7 +363,7 @@ table1(
   table1::t1flex() |>
   shared_flextable_settings() |> 
   flextable::width(width = width1) |> 
-  flextable::width(j = 1, width = 1.45) |> 
+  flextable::width(j = 1, width = 1.35) |> 
   flextable::width(j = c(2, 5), width = 0.75) |> 
   flextable::width(j = c(3, 6), width = 0.8) |> 
   flextable::width(j = c(4, 7), width = 0.85)
@@ -477,7 +477,7 @@ table1(
   table1::t1flex() |>
   shared_flextable_settings() |>
   flextable::width(width = width1) |>
-  flextable::width(j = 1, width = 1.4) |> 
+  flextable::width(j = 1, width = 1.3) |> 
   flextable::width(j = c(2, 5), width = 0.8) |> 
   flextable::width(j = c(3, 6), width = 0.8) |> 
   flextable::width(j = c(4, 7), width = 0.85)
