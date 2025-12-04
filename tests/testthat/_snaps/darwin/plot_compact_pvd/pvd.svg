@@ -655,16 +655,16 @@
 <text x='561.02' y='505.00' text-anchor='middle' style='font-size: 9.00px; fill: #4D4D4D; font-family: sans;' textLength='5.01px' lengthAdjust='spacingAndGlyphs'>5</text>
 <text x='622.42' y='505.00' text-anchor='middle' style='font-size: 9.00px; fill: #4D4D4D; font-family: sans;' textLength='10.01px' lengthAdjust='spacingAndGlyphs'>10</text>
 <text x='683.82' y='505.00' text-anchor='middle' style='font-size: 9.00px; fill: #4D4D4D; font-family: sans;' textLength='10.01px' lengthAdjust='spacingAndGlyphs'>15</text>
-<text x='5.48' y='441.64' style='font-size: 9.00px; font-style: italic; fill: #CC6677; font-family: sans;' textLength='41.02px' lengthAdjust='spacingAndGlyphs'>Biomarker</text>
-<text x='48.94' y='441.64' style='font-size: 9.00px; font-style: italic; fill: #CC6677; font-family: sans;' textLength='5.01px' lengthAdjust='spacingAndGlyphs'>3</text>
-<text x='5.48' y='350.84' style='font-size: 9.00px; font-style: italic; fill: #CC6677; font-family: sans;' textLength='41.02px' lengthAdjust='spacingAndGlyphs'>Biomarker</text>
-<text x='48.94' y='350.84' style='font-size: 9.00px; font-style: italic; fill: #CC6677; font-family: sans;' textLength='5.01px' lengthAdjust='spacingAndGlyphs'>4</text>
-<text x='5.48' y='260.05' style='font-size: 9.00px; font-style: italic; fill: #888888; font-family: sans;' textLength='41.02px' lengthAdjust='spacingAndGlyphs'>Biomarker</text>
-<text x='48.94' y='260.05' style='font-size: 9.00px; font-style: italic; fill: #888888; font-family: sans;' textLength='5.01px' lengthAdjust='spacingAndGlyphs'>5</text>
-<text x='5.48' y='169.26' style='font-size: 9.00px; font-style: italic; fill: #88CCEE; font-family: sans;' textLength='41.02px' lengthAdjust='spacingAndGlyphs'>Biomarker</text>
-<text x='48.94' y='169.26' style='font-size: 9.00px; font-style: italic; fill: #88CCEE; font-family: sans;' textLength='5.01px' lengthAdjust='spacingAndGlyphs'>1</text>
-<text x='5.48' y='78.47' style='font-size: 9.00px; font-style: italic; fill: #88CCEE; font-family: sans;' textLength='41.02px' lengthAdjust='spacingAndGlyphs'>Biomarker</text>
-<text x='48.94' y='78.47' style='font-size: 9.00px; font-style: italic; fill: #88CCEE; font-family: sans;' textLength='5.01px' lengthAdjust='spacingAndGlyphs'>2</text>
+<text x='5.48' y='441.64' style='font-size: 9.00px; fill: #CC6677; font-family: sans;' textLength='41.02px' lengthAdjust='spacingAndGlyphs'>Biomarker</text>
+<text x='48.94' y='441.64' style='font-size: 9.00px; fill: #CC6677; font-family: sans;' textLength='5.01px' lengthAdjust='spacingAndGlyphs'>3</text>
+<text x='5.48' y='350.84' style='font-size: 9.00px; fill: #CC6677; font-family: sans;' textLength='41.02px' lengthAdjust='spacingAndGlyphs'>Biomarker</text>
+<text x='48.94' y='350.84' style='font-size: 9.00px; fill: #CC6677; font-family: sans;' textLength='5.01px' lengthAdjust='spacingAndGlyphs'>4</text>
+<text x='5.48' y='260.05' style='font-size: 9.00px; fill: #888888; font-family: sans;' textLength='41.02px' lengthAdjust='spacingAndGlyphs'>Biomarker</text>
+<text x='48.94' y='260.05' style='font-size: 9.00px; fill: #888888; font-family: sans;' textLength='5.01px' lengthAdjust='spacingAndGlyphs'>5</text>
+<text x='5.48' y='169.26' style='font-size: 9.00px; fill: #88CCEE; font-family: sans;' textLength='41.02px' lengthAdjust='spacingAndGlyphs'>Biomarker</text>
+<text x='48.94' y='169.26' style='font-size: 9.00px; fill: #88CCEE; font-family: sans;' textLength='5.01px' lengthAdjust='spacingAndGlyphs'>1</text>
+<text x='5.48' y='78.47' style='font-size: 9.00px; fill: #88CCEE; font-family: sans;' textLength='41.02px' lengthAdjust='spacingAndGlyphs'>Biomarker</text>
+<text x='48.94' y='78.47' style='font-size: 9.00px; fill: #88CCEE; font-family: sans;' textLength='5.01px' lengthAdjust='spacingAndGlyphs'>2</text>
 <polyline points='56.14,439.39 58.88,439.39 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
 <polyline points='56.14,348.60 58.88,348.60 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
 <polyline points='56.14,257.81 58.88,257.81 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />

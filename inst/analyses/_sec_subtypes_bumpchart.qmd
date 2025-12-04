@@ -94,5 +94,5 @@ ggplot2::ggsave(
 **Differences in event sequences between latent subtypes,**
 **aligned by FXTAS stage.**
 Lines are used to show patterns of clinical interest.
-`r biomarker_text_color_info` `r abbrevs_caption` `r subtype_pval_summaries`
+`r biomarker_text_color_info` `r abbrevs_caption2` `r subtype_pval_summaries`
 :::

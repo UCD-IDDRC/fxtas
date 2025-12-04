@@ -67,7 +67,7 @@ compact_pvd_data_prep <- function(figs,
     # create biomarker labels for figure
     dplyr::mutate(
       biomarker_label = glue::glue(
-        "<i style='color:{group_color}'>{biomarker}</i>"
+        "<span style='color:{group_color}'>{biomarker}</span>"
       ) |>
         forcats::fct_inorder()
     )

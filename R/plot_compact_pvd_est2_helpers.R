@@ -60,7 +60,7 @@ tmp_data_prep <- function(
       # create biomarker labels for figure
       dplyr::mutate(
         biomarker_label = glue::glue(
-          "<i style='color:{group_color}'>{biomarker}</i>"
+          "<span style='color:{group_color}'>{biomarker}</span>"
         ) |>
           forcats::fct_inorder()
       ) |>
@@ -148,7 +148,7 @@ tmp_data_prep <- function(
       # create biomarker labels for figure
       dplyr::mutate(
         biomarker_label =
-          glue::glue("<i style='color:{group_color}'>{biomarker}</i>") |>
+          glue::glue("<span style='color:{group_color}'>{biomarker}</span>") |>
           forcats::fct_inorder()
       ) |>
       dplyr::select(

@@ -49,7 +49,8 @@ test_that("results are consistent with three groups", {
     plot_positional_var(
       results = results,
       biomarker_groups = biomarker_groups,
-      biomarker_levels = biomarker_levels)
+      biomarker_levels = biomarker_levels
+    )
 
   plot1[[1]] |>
     vdiffr::expect_doppelganger(title = "plot3.1")

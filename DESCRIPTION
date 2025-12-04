@@ -1,6 +1,6 @@
 Package: fxtas
 Title: FXTAS
-Version: 0.0.0.9049
+Version: 0.0.0.9050
 Authors@R: c(
     person("Douglas Ezra", "Morrison", , "demorrison@ucdavis.edu", role = c("cre", "aut")),
     person("Matthew", "Ponzini", , "mdponzini@ucdavis.edu", role = c("aut")))
@@ -13,7 +13,6 @@ Imports:
     base,
     broom,
     cli,
-    colorblindcheck (>= 1.0.3),
     colorspace,
     config (>= 0.3.1),
     cowplot,
@@ -61,6 +60,7 @@ Imports:
 Suggests: 
     arsenal,
     broman,
+    colorblindcheck (>= 1.0.3),
     constructive,
     cardx (>= 0.2.3),
     devtag (>= 0.0.0.9000),

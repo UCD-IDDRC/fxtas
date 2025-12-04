@@ -12,7 +12,7 @@ test_that("results are consistent", {
     pvd_lineplot(
       group_cols = figs |> group_colors()
     ) |>
-    vdiffr::expect_doppelganger(title = "sim-data-1-2")
+    vdiffr::expect_doppelganger(title = "sim-data-1-2", variant = system_os())
 
 })
 
@@ -28,6 +28,6 @@ test_that("results are consistent with real data", {
     pvd_lineplot(group_cols = figs |> group_colors())
 
   plot1 |>
-    vdiffr::expect_doppelganger(title = "fxtas-data-1-2")
+    vdiffr::expect_doppelganger(title = "fxtas-data-1-2", variant = system_os())
 
 })
