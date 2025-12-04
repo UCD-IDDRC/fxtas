@@ -166,30 +166,29 @@ biomarker_text_color_info <-
 
 abbreviations <- read.csv("inst/analyses/abbreviations.csv")
 
-abbreviations_to_define <- c(
-  "SWM",
-  "MRI",
-  "FXTAS",
-  "RTI",
-  "MCP",
-  "BDS-2",
-  "MMSE",
-  "Mod.",
-  "PAL",
-  "RTI",
-  "CANTAB",
-  "SCID"
-)
+abbrevs_list1 <- c(
+      "SWM",
+      "MRI",
+      "FXTAS",
+      "RTI",
+      "MCP",
+      "BDS-2",
+      "MMSE",
+      "Mod.",
+      "PAL",
+      "RTI",
+      "CANTAB",
+      "SCID"
+    )
 
-abbrevs_caption <- 
-  abbreviations |> 
-  filter(Abbreviation %in% abbreviations_to_define) |> 
-  mutate(equals = glue::glue("{Abbreviation} = {Meaning}")) |> 
-  pull(equals) |> 
-  paste(collapse = "; ")
+abbrevs_caption <- abbreviations |> 
+  build_abbrevs_caption(abbreviations_to_define = abbrevs_list1)
 
-abbrevs_caption <-
-  paste0("Abbreviations: ", abbrevs_caption, ".")
+abbrevs_list2 <- abbrevs_list1 |> union(c("Hyp.", "WM"))
+
+abbrevs_caption2 <- abbreviations |> 
+  build_abbrevs_caption(abbreviations_to_define = abbrevs_list2)
+
 
 compact_fig_caption <- paste0(
   "The heatmap colors (",
@@ -936,23 +935,23 @@ pvdc_sex |>
 
 fig_females_first2 <- results_females_first |> 
   plot_positional_var(
-  biomarker_groups = biomarker_groups,
-  biomarker_levels = biomarker_levels2,
-  use_rds = use_rds,
-  size.y = size.y,
-  n_s = 1,
-  use_labels = TRUE
-)
+    biomarker_groups = biomarker_groups,
+    biomarker_levels = biomarker_levels2,
+    use_rds = use_rds,
+    size.y = size.y,
+    n_s = 1,
+    use_labels = TRUE
+  )
 
 fig_males_first2 <- results_males_first |> 
   plot_positional_var(
-  biomarker_groups = biomarker_groups,
-  biomarker_levels = biomarker_levels2,
-  use_rds = use_rds,
-  size.y = size.y,
-  n_s = 1,
-  use_labels = TRUE
-)
+    biomarker_groups = biomarker_groups,
+    biomarker_levels = biomarker_levels2,
+    use_rds = use_rds,
+    size.y = size.y,
+    n_s = 1,
+    use_labels = TRUE
+  )
 abstract_text <- paste0(
   "Fragile X-associated tremor/ataxia syndrome (FXTAS) ",
   "is a neurodegenerative disorder affecting adult fragile X gene premutation carriers. ",

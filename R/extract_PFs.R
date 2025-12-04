@@ -36,7 +36,7 @@ extract_PFs <- function(
     ) |>
     dplyr::mutate(
       `event label` =
-        glue("<i style='color:{group_color}'>{`row number and name`}</i>"),
+        glue("<span style='color:{group_color}'>{`row number and name`}</span>"),
       `event label` = if_else(
         .data$biomarker_group == "stage",
         paste0("**", .data$`event label`, "**"),
