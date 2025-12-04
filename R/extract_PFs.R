@@ -37,9 +37,7 @@ extract_PFs <- function(
         paste0("**", .data$`event label`, "**"),
         .data$`event label`
       ),
-      `event label` = .data$`event label` |>
-        factor() |>
-        forcats::fct_inorder()
+      `event label` = .data$`event label` |> forcats::as_factor()
     )
   return(to_return)
 }
