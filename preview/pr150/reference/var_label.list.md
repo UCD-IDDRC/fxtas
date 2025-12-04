@@ -6,18 +6,18 @@ Extract variable labels from a list object
 
 ``` r
 # S3 method for class 'list'
-var_label(object, ...)
+var_label(x, ...)
 ```
 
 ## Arguments
 
-- object:
-
-  a [list](https://rdrr.io/r/base/list.html)
-
 - ...:
 
   not used
+
+- object:
+
+  a [list](https://rdrr.io/r/base/list.html)
 
 ## Value
 
