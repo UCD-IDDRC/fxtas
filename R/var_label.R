@@ -12,7 +12,7 @@ labelled::var_label
 #' @export
 var_label.list <- function(object, ...) {
 
-  has_var_labels <- !is.null(object[[1]] |> attr('label'))
+  has_var_labels <- !is.null(object[[1]] |> attr("label"))
 
   if (has_var_labels) {
     object |>
