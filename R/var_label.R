@@ -10,14 +10,14 @@ labelled::var_label
 #' @example inst/examples/exm-var_label.list.R
 #'
 #' @export
-var_label.list <- function(object, ...) {
+var_label.list <- function(x, ...) {
 
-  has_var_labels <- !is.null(object[[1]] |> attr("label"))
+  has_var_labels <- !is.null(x[[1]] |> attr("label"))
 
   if (has_var_labels) {
-    object |>
+    x |>
       purrr::map_chr(.f = labelled::get_variable_labels)
   } else {
-    names(object)
+    names(x)
   }
 }

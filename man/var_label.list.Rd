@@ -4,12 +4,12 @@
 \alias{var_label.list}
 \title{Extract variable labels from a list object}
 \usage{
-\method{var_label}{list}(object, ...)
+\method{var_label}{list}(x, ...)
 }
 \arguments{
-\item{object}{a \link{list}}
-
 \item{...}{not used}
+
+\item{object}{a \link{list}}
 }
 \value{
 a named \link{character} \link{vector}
