@@ -19,8 +19,7 @@
 #' get_biomarker_events_table(biomarker_levels)
 get_biomarker_events_table <- function(biomarker_levels, do_factor = TRUE) {
 
-  var_labels <- biomarker_levels |>
-    get_var_labels1()
+  var_labels <- biomarker_levels |> var_label()
 
   var_labels_long <-
     var_labels |>
