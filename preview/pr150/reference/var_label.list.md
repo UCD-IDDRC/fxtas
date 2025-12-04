@@ -11,13 +11,13 @@ var_label(x, ...)
 
 ## Arguments
 
+- x:
+
+  a [list](https://rdrr.io/r/base/list.html)
+
 - ...:
 
   not used
-
-- object:
-
-  a [list](https://rdrr.io/r/base/list.html)
 
 ## Value
 
