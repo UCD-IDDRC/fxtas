@@ -1,21 +1,20 @@
 test_that("`plot_compact_pvd()` produces consistent results", {
 
-  # fig0 <-
-  #   fs::path_package("extdata/sim_data/", package = "fxtas") |>
-  #   extract_figs_from_pickle(output_folder = _,
-  #                            n_s = 3,
-  #                            use_rds = FALSE)
   fig0 <-
     readr::read_rds(
       testthat::test_path("fixtures", "sim-figs-3.rds")
     )
-   fig1 <- fig0 |>
+  fig1 <- fig0 |>
     plot_compact_pvd(scale_colors = c("red", "blue", "purple4"),
                      legend.position = "none",
                      rel_heights = c(1, 0.1),
                      facet_label_prefix = NULL)
 
-  fig1 |> vdiffr::expect_doppelganger(title = "pvd")
+  fig1 |>
+    vdiffr::expect_doppelganger(
+      title = "pvd",
+      variant = system_os()
+    )
 
 
 })
@@ -37,7 +36,10 @@ test_that(
         rel_heights = c(1, 0.1)
       )
 
-    fig2 |> vdiffr::expect_doppelganger(title = "pvd-fxtas-by-sex")
+    fig2 |> vdiffr::expect_doppelganger(
+      title = "pvd-fxtas-by-sex",
+      variant = system_os()
+    )
 
     fig3 <-
       pvd_list_by_sex |>
@@ -46,7 +48,10 @@ test_that(
         legend.direction = "vertical"
       )
 
-    fig3 |> vdiffr::expect_doppelganger(title = "pvd-fxtas-by-sex-with-legend")
+    fig3 |> vdiffr::expect_doppelganger(
+      variant = system_os(),
+      title = "pvd-fxtas-by-sex-with-legend"
+    )
 
     fig4 <-
       pvd_list_by_sex |>
@@ -57,7 +62,10 @@ test_that(
 
       )
 
-    fig4 |> vdiffr::expect_doppelganger(title = "pvd-fxtas-by-sex-with-legend-subscript")
+    fig4 |> vdiffr::expect_doppelganger(
+      variant = system_os(),
+      title = "pvd-fxtas-by-sex-with-legend-subscript"
+    )
 
   }
 )
