@@ -4,7 +4,7 @@ labelled::var_label
 
 #' Extract variable labels from a list object
 #'
-#' @param object a [list]
+#' @param x a [list]
 #' @param ... not used
 #' @returns a named [character] [vector]
 #' @example inst/examples/exm-var_label.list.R

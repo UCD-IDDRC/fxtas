@@ -7,9 +7,9 @@
 \method{var_label}{list}(x, ...)
 }
 \arguments{
-\item{...}{not used}
+\item{x}{a \link{list}}
 
-\item{object}{a \link{list}}
+\item{...}{not used}
 }
 \value{
 a named \link{character} \link{vector}
