@@ -12,12 +12,12 @@ Source:
 [`DESCRIPTION`](https://github.com/ucd-iddrc/fxtas/blob/main/DESCRIPTION)
 
 Morrison D, Ponzini M (2025). *fxtas: FXTAS*. R package version
-0.0.0.9050, <https://github.com/ucd-iddrc/fxtas>.
+0.0.0.9051, <https://github.com/ucd-iddrc/fxtas>.
 
     @Manual{,
       title = {fxtas: FXTAS},
       author = {Douglas Ezra Morrison and Matthew Ponzini},
       year = {2025},
-      note = {R package version 0.0.0.9050},
+      note = {R package version 0.0.0.9051},
       url = {https://github.com/ucd-iddrc/fxtas},
     }
