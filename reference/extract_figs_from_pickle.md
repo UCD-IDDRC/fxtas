@@ -205,8 +205,7 @@ if (dir.exists(output_path)) {
 #> attr(,"class")
 #> [1] "PVD_list" "list"    
 #> attr(,"biomarker_labels")
-#>   Biomarker 1   Biomarker 2   Biomarker 3   Biomarker 4   Biomarker 5 
-#> "Biomarker 1" "Biomarker 2" "Biomarker 3" "Biomarker 4" "Biomarker 5" 
+#> [1] "Biomarker 1" "Biomarker 2" "Biomarker 3" "Biomarker 4" "Biomarker 5"
 #> attr(,"biomarker_event_names")
 #> <labelled<character>[15]>
 #>  [1] Biomarker 1: 1 Biomarker 2: 1 Biomarker 3: 1 Biomarker 4: 1 Biomarker 5: 1

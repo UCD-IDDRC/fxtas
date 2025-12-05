@@ -72,6 +72,9 @@ Other Ordinal Data.” *Frontiers in Artificial Intelligence* 4: 613261.
 - [`autoplot(`*`<permutation_test>`*`)`](https://UCD-IDDRC.github.io/fxtas/reference/autoplot.permutation_test.md)
   : Plot the distribution of a permuted test statistic
 
+- [`build_abbrevs_caption()`](https://UCD-IDDRC.github.io/fxtas/reference/build_abbrevs_caption.md)
+  : Build abbreviations caption
+
 - [`build_abstract_plot()`](https://UCD-IDDRC.github.io/fxtas/reference/build_abstract_plot.md)
   : Build ggplot with abstract text for cowplot
 
@@ -381,6 +384,9 @@ Other Ordinal Data.” *Frontiers in Artificial Intelligence* 4: 613261.
 
 - [`test_subtype_and_stage_table`](https://UCD-IDDRC.github.io/fxtas/reference/test_subtype_and_stage_table.md)
   : Simulated subtype-and-stage table
+
+- [`var_label(`*`<list>`*`)`](https://UCD-IDDRC.github.io/fxtas/reference/var_label.list.md)
+  : Extract variable labels from a list object
 
 - [`write_permuted_test_stats()`](https://UCD-IDDRC.github.io/fxtas/reference/write_permuted_test_stats.md)
   : Write permuted test stats as RDS

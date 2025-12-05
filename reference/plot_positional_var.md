@@ -11,8 +11,7 @@ plot_positional_var(
   samples_f = results$samples_f,
   n_samples = nrow(results$ml_subtype),
   score_vals = build_score_vals(biomarker_levels),
-  biomarker_labels = labelled:::var_label.data.frame(biomarker_levels, null_action =
-    "fill", unlist = TRUE),
+  biomarker_labels = var_label(biomarker_levels),
   biomarker_groups = attr(results, "biomarker_groups"),
   biomarker_levels = attr(results, "biomarker_levels"),
   biomarker_events_table = get_biomarker_events_table(biomarker_levels),
