@@ -150,7 +150,7 @@ futile.options,1.0.1,CRAN (R 4.5.0)
 future,1.67.0,CRAN (R 4.5.0)
 future.apply,1.20.0,CRAN (R 4.5.0)
 fuzzyjoin,0.1.6.1,CRAN (R 4.5.0)
-fxtas,0.0.0.9050,load_all()
+fxtas,0.0.0.9027,local
 gargle,1.6.0,CRAN (R 4.5.0)
 gbutils,0.5,CRAN (R 4.5.0)
 gdtools,0.4.4,CRAN (R 4.5.0)
