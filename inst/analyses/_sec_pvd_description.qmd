@@ -1,0 +1,36 @@
+We visualized the results of Ordinal SuStaIn analysis
+using "positional variance diagrams" (PVDs) 
+[@fonteijn2011event; @fonteijn2012event].
+PVDs are heatmaps with `r events_name` on the y-axis
+and sequence positions of events on the x-axis.
+Each event is estimated to occur at some point in continuing time
+*relative to* other events in sequence.
+It should be noted that the exact onset time of each event
+cannot be determined by the method we used for this analysis.
+The PVD's color scale indicates the Bayesian posterior probability that
+a particular event (y-axis)
+appears at a particular position along the progression sequence (x-axis).
+The heatmap colors (red, blue, magenta, orange, purple)
+indicate the ordinal levels of symptom progression.
+Color intensity represents the Bayesian posterior probability 
+of sequence position.
+That is, a brighter color indicates a more probable sequence position,
+and a paler color indicates a less probable position.
+
+We visualized differences in event sequences by 
+sex, 
+CGG repeat size, or 
+latent subgroup 
+using "positional difference graphs" (PDGs). 
+PDGs consist of two juxtaposed lists of symptoms in each of two subgroups, 
+with each list ordered by most likely sequence position in that subgroup. 
+Lines connect the locations of the same symptoms between the subgroups. 
+The colors of the connecting lines indicate whether the event occurs at 
+an earlier position in the righthand subgroup compared to the lefthand subgroup 
+(blue line), 
+at a later position (red line), 
+or the same position (grey line). 
+FXTAS stages are connected by black lines, 
+to highlight which symptoms occur in different FXTAS stages 
+between the two subgroups 
+(i.e., which symptom lines cross one or more stage lines).

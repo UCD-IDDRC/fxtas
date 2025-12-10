@@ -1,0 +1,68 @@
+:::{#suppfig-pvd_chosen_subtypes custom-style="Caption"}
+
+```{r}
+#| label: supp-fig-pvd_chosen_subtypes
+#| fig-height: !expr pvd_height
+#| fig-width: !expr pvd_width
+#| fig-cap-location: top
+
+
+labels1 <- compact_pvd_facet_labels(
+  figs = figs_n_s_selected,
+  facet_label_prefix = NULL
+) |> unlist()
+
+labels2 <- 
+  paste0(
+    LETTERS[seq_along(figs_n_s_selected)],
+    ": ",
+    labels1
+  )
+
+labels3 <- paste0(labels2, collapse = ". ")
+
+pvd_subtypes_compact <- plot_compact_pvd_est2(
+  scale_colors = scale_colors1,
+  figs = figs_n_s_selected,
+  facet_label_prefix = NULL,
+  facet_labels = "",
+  show_uncert = TRUE,
+  tile_height = 1,
+  y_text_size = 8,
+  title_size = 5,
+  title_hjust = 0.5,
+  vjust = 1.25,
+  x_axis_title_size = 8,
+  legend = "color"
+) 
+
+
+
+ggsave(
+  "inst/analyses/pvd_subtypes_compact.png", 
+  plot = pvd_subtypes_compact, 
+  device = "png", 
+  width = pvd_width, 
+  height = pvd_height, 
+  units = "in", 
+  dpi = 600
+)
+
+if (interactive()) {
+  pvd_subtypes_compact + ggview::canvas(
+    units = "in",
+    width = pvd_width,
+    height = 7
+  )
+} else {
+  pvd_subtypes_compact
+}
+
+# max size: 170 mm x 210 mm = 6.69 x 8.27 inches 
+n_s_text <- n_s_selected |> xfun::numbers_to_words()
+```
+
+**Event sequences for `r n_s_text` latent subtypes.** 
+`r compact_fig_caption`
+`r subtype_pval_summaries`
+:::

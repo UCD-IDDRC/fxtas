@@ -1,0 +1,23 @@
+::: {#suppfig-mcmc-loglik custom-style="Caption"}
+
+```{r}
+#| fig-width: !expr pvd_width
+lliks <- results_v1 |>
+  sapply(FUN = function(x) x$samples_likelihood)
+
+lliks |>
+  graph_likelihoods_v2(alpha = 0.5) |>
+  suppressWarnings()
+
+```
+
+**Log-likelihood of training data set**,
+**by MCMC iteration and number of latent subtypes.**
+Adding up to 6 clusters substantially improves the log-likelihood.
+
+:::
+
+@suppfig-mcmc-loglik shows the distribution of log-likelihoods
+from the MCMC samples for the full dataset
+(not stratified by sex or CGG repeats).
+Adding up to 6 clusters substantially improves the log-likelihood.

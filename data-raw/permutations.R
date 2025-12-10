@@ -14,36 +14,42 @@ cli::cli_alert_info('\nStarting at: {Sys.time()}')
 args = commandArgs(trailingOnly = TRUE)
 message("args = ", args |> paste(collapse = "; "))
 
-if(length(args) == 0)
-{
+if (length(args) == 0) {
   message('no arguments found')
   permutation_seeds = 1:1020
   permuting_variables = "Gender"
   stratifying_variables = NULL
 
-} else
-{
+} else {
 
   permutation_seeds = as.integer(as.character(args[1]))
   permuting_variables = args[2]
   stratifying_variables = args[3]
-  if(is.na(stratifying_variables) || stratifying_variables == "") stratifying_variables = NULL
-
+  if (is.na(stratifying_variables) || stratifying_variables == "") {
+    stratifying_variables = NULL
+  }
 }
 
 cli::cli_alert_info("permuting variables: {permuting_variables}")
 
-if(is.null(stratifying_variables))
-{
+if(is.null(stratifying_variables)) {
   cli::cli_alert_info("no stratifying variables provided")
-} else
-{
+} else {
   cli::cli_alert_info("stratifying variables: {stratifying_variables}")
 }
 
 library(reticulate)
+reticulate::py_require(
+  packages = c(
+    "git+https://github.com/ucl-pond/kde_ebm",
+    "git+https://github.com/d-morrison/pySuStaIn"
+  ),
+  python_version = "3.9"
+)
 if(interactive()) reticulate::use_condaenv("fxtas39", required = TRUE)
-py_config()
+cli::cli_alert_info('\nStarting at: {Sys.time()}')
+
+reticulate::py_config()
 
 devtools::load_all()
 library(tidyverse)
@@ -51,8 +57,7 @@ library(pander)
 library(dplyr)
 
 
-if(!reticulate::py_module_available("pySuStaIn"))
-{
+if(!reticulate::py_module_available("pySuStaIn")) {
   stop("pySuStaIn is not installed correctly.")
 }
 
@@ -68,8 +73,11 @@ fit_models = TRUE
 run_cv =  TRUE
 # run_cv = FALSE
 
+do_collapse_scid_levels <- TRUE
+do_collapse_mri_levels <- TRUE
+
 N_startpoints = 10L
-N_S_max = 8L
+N_S_max = 1L
 N_S_max_stratified = 1L
 
 
@@ -78,36 +86,58 @@ dataset_name = 'sample_data'
 root_dir = here::here()
 setwd(root_dir)
 output_folder =
-  "output/output.fixed_CV" |>
+  "output/output.fixed_CV/pickle_files" |>
   fs::dir_create()
 
+if (1 %in% permutation_seeds) {
+  save_run_info(
+    output_folder,
+    script = "permutations.R"
+  )
+}
 
 ## ----------------------------------------------------------------------------------------------------
+# April 2024, main analysis now uses Trax/GP34 Visit 1 data replacing previous version using only GP34
+load("data/trax_gp34_v1.rda")
+if (do_collapse_scid_levels) {
+  scid_levels_to_collapse <- c("Absent", "Sub-Threshold")
+  trax_gp34_v1 <- trax_gp34_v1 |> collapse_scid_levels(scid_levels_to_collapse)
+}
 
-biomarker_groups = compile_biomarker_groups_table()
+if (do_collapse_mri_levels) {
+  trax_gp34_v1 <- trax_gp34_v1 |> collapse_mri_levels()
+}
+
+v1_usable <-
+  trax_gp34_v1 |>
+  add_labels() |>
+  dplyr::filter(CGG < 200) |>
+  dplyr::mutate(
+    `FX3*` = .data$`FX3*` |>
+      forcats::fct_drop() |>
+      labelled::set_label_attribute("CGG Repeat Level"),
+    Parkinsons = Parkinsons |>
+      labelled::set_label_attribute("Parkinson's disease"),
+    `FXTAS Stage` = `FXTAS Stage` |>
+      labelled::set_label_attribute("FXTAS Stage")
+  )
+
+
+biomarker_groups = compile_biomarker_groups_table(dataset = v1_usable)
 
 biomarker_varnames =
   biomarker_groups |>
   dplyr::pull("biomarker")
 
-# April 2024, main analysis now uses Trax/GP34 Visit 1 data replacing previous version using only GP34
-load("data/trax_gp34_v1.rda")
-df =
-  trax_gp34_v1 |>
-  dplyr::filter(
-    !is.na(`FX*`),
-    # exclude patients with CGG > 200 (full mutation)
-    CGG < 200)
-
-biomarker_levels = df |> get_levels(biomarker_varnames)
+biomarker_levels = v1_usable |> get_levels(biomarker_varnames)
 
 control_data =
-  df |>
+  v1_usable |>
   dplyr::filter(CGG <55) |>
   dplyr::select(all_of(biomarker_varnames))
 
 patient_data =
-  df |>
+  v1_usable |>
   # na.omit() |>
   dplyr::filter(
     CGG >= 55,
@@ -187,7 +217,7 @@ for (cur_stratum in 1:nrow(strata))
     patient_data = cur_data,
     permutation_seeds = permutation_seeds,
     N_startpoints = N_startpoints,
-    N_S_max = 1L,
+    N_S_max = N_S_max,
     N_iterations_MCMC = N_iterations_MCMC,
     output_folder = output_folder1,
     use_parallel_startpoints = FALSE,

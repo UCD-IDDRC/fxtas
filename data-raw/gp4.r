@@ -5,14 +5,21 @@ graphics.off()
 library(Hmisc)
 library(dplyr)
 library(vroom)
+devtools::load_all()
 #Read Data
 dataset=vroom::vroom(
-  'inst/extdata/CTSC3704GP4GenotypeP-FXTASEventSequence10_DATA_2025-02-27_1709.csv',
+  'inst/extdata/fxtas/CTSC3704GP4GenotypeP-FXTASEventSequence10_DATA_2025-03-14_2119.csv',
   col_types = cols(
+    new_mds_ne_it = col_integer(),
+    new_mds_fxtas_dx = col_integer(),
+    new_mds_ne_gas = col_integer(),
+    mol_mos_meth = col_skip(),
     dem_date = col_date(),
     new_mds_med_can_other = col_integer(),
     new_mds_med_anes1 = col_character(),
     medic_surg_anes = col_character(),
+    mol_act_ratio = col_double(),
+    mol_mos_meth = col_double(),
     # did we remove these variables?
     kin_l_resttrem = col_double(),
     kin_l_posttrem = col_double(),
@@ -276,8 +283,8 @@ dataset$new_mds_ne_tand = factor(dataset$new_mds_ne_tand,levels=c("1","2","3","9
 # dataset$new_mds_psy_dri = factor(dataset$new_mds_psy_dri)
 # levels(dataset$new_mds_psy_dri) = levels(dataset$new_mds_psy_dri) |> sub(pattern = "888", "")
 
-
-
+dataset$new_mds_fxtas_dx = factor(dataset$new_mds_fxtas_dx,levels=c("0","1","2","3","888","999"))
+levels(dataset$new_mds_fxtas_dx)=c("No","Possible","Probable","Definite","NA (888)","No Response (999)")
 levels(dataset$redcap_event_name)=c("GP4 - Visit 1","GP4 - Visit 2","GP4 - Visit 3","GP4 - Visit 4","GP4 - Single Visit","GP4 - Participant Survey")
 levels(dataset$sex)=c("Female","Male")
 levels(dataset$new_mds_psy_drug)=c("None","Past Only","Present","No Response (999)","NA (888)","Question not asked at time of data entry; check records (777)")
@@ -395,13 +402,17 @@ levels(dataset$scid_som40)=c("Inadequate Info","Absent","Sub-Threshold","Thresho
 # edu variable
 levels(dataset$dem_edlev)=c("K-7","8-9","10-11","High School/GED","Partial College","BA/BS","MA/MS/PhD/MD","No dataset")
 # new variables
-levels(dataset$new_mds_ne_head)=c("No","Yes","No Response","NA","Question not asked at time of data entry; check records")
-levels(dataset$new_mds_ne_rt)=c("No","Yes","No Response","NA","Question not asked at time of data entry; check records")
-levels(dataset$new_mds_ne_it)=c("No","Yes","No Response","Question not asked at time of data entry; check records")
-levels(dataset$new_mds_ne_pt)=c("No","Yes","No Response","Question not asked at time of data entry; check records")
-levels(dataset$new_mds_ne_tand)=c("Normal","Steps (Abnormal, < 10)","Unable (Absent)","No data","question not asked at time of data entry; check records")
+levels(dataset$new_mds_ne_head)=c("No","Yes","No Response (999)","NA","Question not asked at time of data entry; check records  (777)")
+levels(dataset$new_mds_ne_rt)=c("No","Yes","No Response (999)","NA","Question not asked at time of data entry; check records")
+levels(dataset$new_mds_ne_it)=c("No","Yes","No Response (999)","Question not asked at time of data entry; check records (777)")
+levels(dataset$new_mds_ne_pt)=c("No","Yes","No Response (999)","Question not asked at time of data entry; check records (777)")
+levels(dataset$new_mds_ne_tand)=c("Normal","Abnormal (<10 steps)","Unable (Absent)","No Response (999)",
+                                  "Question not asked at time of data entry; check records (777)")
 
-
+dataset <- dataset |>
+  mutate(
+    mol_act_ratio = mol_act_ratio |> clean_mol_act_ratio()
+  )
 
 #Setting Labels
 
@@ -409,7 +420,7 @@ labels = c(subj_id = "FXS ID",
            redcap_event_name = "Event Name",
            new_mds_med_anes1="Anesthesia (new_mds_med_anes1)",
            medic_surg_anes="Anesthesia (medic_surg_anes)",
-           # pp_t1rlb_total ="Purdue pegboard 1st Trial Total, R+L+B",
+           pp_t1rlb_total ="Purdue pegboard 1st Trial Total, R+L+B",
            new_mds_med_can_notes ="Cancer Notes",
            new_mds_med_thy ="Thyroid problems",
            new_mds_med_hyothy ="Hypothyroid",
@@ -495,22 +506,22 @@ labels = c(subj_id = "FXS ID",
            new_mds_med_sur3 = "Surgery 3: Type/Age",
            new_mds_med_sur4 = "Surgery 4: Type/Age",
            new_mds_med_sur5 = "Surgery 5: Type/Age",
-           new_mds_neu_trem_int = "Hx Intention tremor",
-           new_mds_neu_trem_rest = "Hx Resting tremor",
-           new_mds_neu_trem_pos = "Hx Postural tremor",
-           new_mds_neu_trem_irm = "Intermittent tremor",
-           new_mds_neu_trem_age = "Tremor: Age of onset",
-           new_mds_neu_trem_head = "Hx Head tremor",
-           new_mds_neu_trem_age2 = "Head Tremor: Age of onset",
-           new_mds_neu_atax = "Walking/ataxia Problems",
-           new_mds_neu_atax_age = "Ataxia: Age of onset",
-           new_mds_ne_ga = "Ataxia",
-           new_mds_ne_gas = "Ataxia: severity",
+           new_mds_neu_trem_int = "intention tremor hx",
+           new_mds_neu_trem_rest = "resting tremor hx",
+           new_mds_neu_trem_pos = "postural tremor hx",
+           new_mds_neu_trem_irm = "intermittent tremor hx",
+           new_mds_neu_trem_age = "tremor: age of onset",
+           new_mds_neu_trem_head = "head tremor hx",
+           new_mds_neu_trem_age2 = "head tremor: age of onset",
+           new_mds_neu_atax = "ataxia hx",
+           new_mds_neu_atax_age = "ataxia age of onset hx",
+           new_mds_ne_ga = "ataxia exam",
+           new_mds_ne_gas = "ataxia severity exam",
            new_mds_med_park = "Parkinsons",
            new_mds_ne_pf = "parkinsonian features",
            new_mds_ne_pfmf = "Masked faces",
            new_mds_ne_pfit = "Increased tone",
-           new_mds_ne_pfprt = "Pill-rolling tremor",
+           new_mds_ne_pfprt = "pill-rolling tremor exam",
            new_mds_ne_pfsg = "Stiff gait",
            new_mds_fxtas_stage = "FXTAS Stage (0-5)",
            bds2_score = "BDS-2 Total Score",
@@ -556,7 +567,8 @@ labels = c(subj_id = "FXS ID",
            new_mds_med_ray = "Raynauds Syndrome",
            new_mds_med_pulm = "Pulmonary Fibrosis",
            new_mds_med_immun_notes = "Immunological Notes",
-
+           redcap_repeat_instrument = "Repeat Instrument",
+           redcap_repeat_instance = "Repeat Instance",
            mri_cere_atr = "Cerebral Atrophy",
            mri_cerebel_atr = "Cerebellar Atrophy",
            mri_cere_wm_hyper = "Cerebral WM Hyperintensity",
@@ -588,22 +600,23 @@ labels = c(subj_id = "FXS ID",
            rtifmdmt = "RTI Five-choice movement time",
            swmbe468 = "SWM Between errors",
            kin_l_resttrem="Kinesia Left Rest Tremor",
-           kin_l_posttrem="Kinesia Left Postural Tremor",
+           kin_l_posttrem="Kinesia Left postural tremor",
            kin_l_kintrem ="Kinesia Left Kinetic Tremor",
            kin_r_resttrem="Kinesia Right Rest Tremor",
-           kin_r_posttrem="Kinesia Right Postural Tremor",
+           kin_r_posttrem="Kinesia Right postural tremor",
            kin_r_kintrem ="Kinesia Right Kinetic Tremor",
            # moca_tot_score ="MOCA Total score",
 
            # new vars
-           mol_mos_meth = "Fraction of Methylation (0.0-1.0)",
+           # mol_mos_meth = "Fraction of Methylation (0.0-1.0)",
            mol_act_ratio = "Activation Ratio (0.0-1.0)",
-           new_mds_ne_head = "Exam Head tremor",
-           new_mds_ne_rt = "Exam Resting tremor",
-           new_mds_ne_rts = "Tremor severity",
-           new_mds_ne_it = "Exam Intention tremor",
-           new_mds_ne_pt = "Exam Postural tremor",
-           new_mds_ne_tand = "Tandem Walk"
+           new_mds_ne_head = "head tremor exam",
+           new_mds_ne_rt = "resting tremor exam",
+           new_mds_ne_rts = "tremor severity",
+           new_mds_ne_it = "intention tremor exam",
+           new_mds_ne_pt = "postural tremor exam",
+           new_mds_ne_tand = "Tandem Walk",
+           new_mds_fxtas_dx = "new_mds_fxtas_dx"
 )
 
 if(!isTRUE(setequal(names(dataset), names(labels)))) {
@@ -638,22 +651,22 @@ names(dataset) = labels[names(dataset)]
   # label(dataset$new_mds_med_sur3)="Surgery 3: Type/Age"
   # label(dataset$new_mds_med_sur4)="Surgery 4: Type/Age"
   # label(dataset$new_mds_med_sur5)="Surgery 5: Type/Age"
-  # label(dataset$new_mds_neu_trem_int)="Intention tremor"
-  # label(dataset$new_mds_neu_trem_rest)="Resting tremor"
-  # label(dataset$new_mds_neu_trem_pos)="Postural tremor"
-  # label(dataset$new_mds_neu_trem_irm)="Intermittent tremor"
-  # label(dataset$new_mds_neu_trem_age)="Tremor: Age of onset"
-  # label(dataset$new_mds_neu_trem_head)="Head tremor"
-  # label(dataset$new_mds_neu_trem_age2)="Head Tremor: Age of onset"
-  # label(dataset$new_mds_neu_atax)="Walking/ataxia Problems"
+  # label(dataset$new_mds_neu_trem_int)="intention tremor"
+  # label(dataset$new_mds_neu_trem_rest)="resting tremor"
+  # label(dataset$new_mds_neu_trem_pos)="postural tremor"
+  # label(dataset$new_mds_neu_trem_irm)="intermittent tremor hx"
+  # label(dataset$new_mds_neu_trem_age)="tremor: age of onset"
+  # label(dataset$new_mds_neu_trem_head)="head tremor hx"
+  # label(dataset$new_mds_neu_trem_age2)="head tremor: age of onset"
+  # label(dataset$new_mds_neu_atax)="ataxia hx"
   # label(dataset$new_mds_neu_atax_age)="Age of onset"
-  # label(dataset$new_mds_ne_ga)="Ataxia"
+  # label(dataset$new_mds_ne_ga)="ataxia exam"
   # label(dataset$new_mds_ne_gas)="Ataxia severity"
   # label(dataset$new_mds_med_park)="Parkinsons"
   # label(dataset$new_mds_ne_pf)="parkinsonian features"
   # label(dataset$new_mds_ne_pfmf)="Masked faces"
   # label(dataset$new_mds_ne_pfit)="Increased tone"
-  # label(dataset$new_mds_ne_pfprt)="Pill-rolling tremor"
+  # label(dataset$new_mds_ne_pfprt)="pill-rolling tremor exam"
   # label(dataset$new_mds_ne_pfsg)="Stiff gait"
   # label(dataset$new_mds_fxtas_stage)="FXTAS Stage (0-5)"
   # label(dataset$bds2_score)="BDS-2 Total Score"

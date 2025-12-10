@@ -1,0 +1,16 @@
+::: {#tbl-abbrevs custom-style="Caption"}
+
+```{r}
+abbreviations |> 
+  dplyr::select(-"Context") |> 
+  flextable::flextable() |> 
+  shared_flextable_settings() |> 
+  flextable::width(j = ~ Abbreviation, width = 1) |> 
+  flextable::width(j = ~ Meaning, width = 3.5)
+# if including Context: width = 1.2
+```
+
+
+**Abbreviations used in article**
+
+:::

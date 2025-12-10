@@ -1,0 +1,18 @@
+:::{#suppfig-stage-barplot-by-sex custom-style="Caption"}
+
+```{r}
+#| label: stage-barplot-by-sex
+#| fig-height: 3.5
+#| fig-width: !expr pvd_width
+results_list_by_sex <- list(
+  "Males" = results_males_first,
+  "Females" = results_females_first
+)
+
+results_list_by_sex |> stage_barplot(xmax = nrow(biomarker_events_table))
+```
+
+**Distribution of estimated disease stage, stratified by sex**.
+{{< include _stage-barplot-text.qmd >}}
+
+:::

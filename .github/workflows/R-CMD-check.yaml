@@ -19,7 +19,7 @@ jobs:
       fail-fast: false
       matrix:
         config:
-          - {os: macos-13,   r: 'release'}
+          - {os: windows-latest,   r: 'release'}
 
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
@@ -42,26 +42,22 @@ jobs:
 
       - uses: r-lib/actions/setup-r-dependencies@HEAD
         with:
-          extra-packages: any::rcmdcheck
+          extra-packages: any::rcmdcheck, local::.
           needs: check
 
-      - name: setup r-reticulate venv
-        shell: Rscript {0}
-        run: |
+      # - name: setup r-reticulate venv
+      #   shell: Rscript {0}
+      #   run: |
 
-          library(reticulate)
-
-          path_to_venv <- virtualenv_create(
-            envname = "fxtas39",
-            python = Sys.which("python"), # placed on PATH by the setup-python action
-            packages = c(
-              "git+https://github.com/d-morrison/pySuStaIn"
-            )
-          )
-
-          writeLines(
-            paste0("RETICULATE_PYTHON=", virtualenv_python(path_to_venv)),
-            Sys.getenv("GITHUB_ENV"))
+      #     library(reticulate)
+      #     reticulate::py_require(
+      #       packages = c(
+      #         "git+https://github.com/ucl-pond/kde_ebm",
+      #         "git+https://github.com/d-morrison/pySuStaIn"
+      #       ),
+      #       python_version = "3.9"
+      #     )
+      #     reticulate::py_config()
 
       - uses: r-lib/actions/check-r-package@HEAD
         with:

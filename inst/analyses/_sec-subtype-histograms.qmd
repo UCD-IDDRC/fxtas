@@ -1,0 +1,33 @@
+```{r}
+subtype_data <- dplyr::bind_cols(
+  patient_data,
+  results_cv_max$subtype_and_stage_table) |> 
+  filter(ml_subtype != "Subtype 0")
+```
+
+```{r}
+subtype_data |> 
+  ggplot2::ggplot() + 
+  aes(
+    x = CGG,
+    fill = Gender
+  ) +
+  geom_histogram(alpha = .4) +
+  facet_wrap(~ml_subtype, ncol = 1) +
+  theme(legend.position = "bottom")
+```
+
+
+```{r}
+subtype_data |> 
+  ggplot2::ggplot() + 
+  aes(
+    x = CGG,
+    col = Gender,
+    y = `Age at visit`
+  ) +
+  geom_point(alpha = .4) +
+  facet_wrap(~ml_subtype, ncol = 1) +
+  theme(legend.position = "bottom")
+```
+

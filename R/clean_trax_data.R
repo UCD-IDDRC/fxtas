@@ -1,5 +1,4 @@
-clean_trax_data <- function(dataset)
-{
+clean_trax_data <- function(dataset) {
   dataset |>
     # fix date before arranging
     fix_date() |>
@@ -8,9 +7,10 @@ clean_trax_data <- function(dataset)
     remove_unneeded_records() |>
     dplyr::relocate("Visit Date", .after = "Event Name") |>
     dplyr::relocate("FXS ID", .before = "Event Name") |>
-    # clean_head_tremor_onset() |>
+    # no need to call `clean_head_tremor_onset() |>`;
+    # in trax, it's already numeric
 
-    create_any_tremor() |>
+    combine_tremor() |>
     fix_tremor_onsets() |>
 
     fix_onset_age_vars() |>
@@ -34,22 +34,23 @@ clean_trax_data <- function(dataset)
 
     categorize_BDS() |>
 
-    # make_vars_numeric(regex = "BDS-2 Total Score") |>
-    # make_vars_numeric(regex = "MMSE total score") |>
+    # make_vars_numeric(regex = "BDS-2 Total Score") |> # nolint: commented_code_linter
+    # make_vars_numeric(regex = "MMSE total score") |> # nolint: commented_code_linter
 
     # `Drugs used` is unstructured text, with typos; unusable
-    # fix_drugs_used() |>
+    # fix_drugs_used() |> # nolint: commented_code_linter
 
-    # categorize_MMSE() |>
+    # categorize_MMSE() |> # nolint: commented_code_linter
 
-    # fix_ApoE() |>
+    # fix_ApoE() |> # nolint: commented_code_linter
 
     fix_CGG() |>
 
 
-    # dplyr::relocate(contains("CGG"), .after = contains("ApoE")) |>
+    # dplyr::relocate(contains("CGG"), .after = contains("ApoE")) |> # nolint: commented_code_linter
 
     fix_FXTAS_stage() |>
+    clean_fxtas_dx() |>
 
     fix_demographics() |>
 
@@ -69,7 +70,7 @@ clean_trax_data <- function(dataset)
     define_cases_and_controls() |>
 
     # Ataxia
-    clean_trax_ataxia() |>
+    clean_ataxia() |>
 
     fix_factors() |>
 
@@ -83,6 +84,7 @@ clean_trax_data <- function(dataset)
     ) |>
     clean_gender() |>
     dplyr::mutate(`MMSE total score*` = NA) |>
+    fix_parkinsonian_features() |>
     add_labels()
 
 

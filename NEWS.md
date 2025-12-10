@@ -13,14 +13,16 @@
 for latent subtype clustering analysis
 * Added more interpretation of subtype analysis results
 * Removed repeated measures analysis
-
+* Added description of findings to graphical abstract
 
 ## Analysis
 
+* removed individual parkinsonian features from OS model (#106)
 * added info about displayed statistics to rows for `compute_prob_correct()` (#56)
 
 ## Graphics
 
+* added red reference line at 3 obs per stage in `stage_barplot()` (#91)
 * added grayscale legend to PVDs (#83)
 * added test for `pvd_lineplot()` (#68)
 * added `biomarker_order` argument to `compact_pvd_data_prep()` 
@@ -47,7 +49,7 @@ on Dr. Bourgeois's recommendation.
 * removed "Parkinsonian features: " prefix from:
   - "Masked faces",
   - "Increased tone",
-  - "Pill-rolling tremor",
+  - "pill-rolling tremor exam",
   - "Stiff gait"
 * Renamed "CGG (backfilled)" to CGG
 * Renamed "ApoE (backfilled)" to ApoE
@@ -55,6 +57,7 @@ on Dr. Bourgeois's recommendation.
 
 ## Package setup
 
+* moved `analyses/` into `inst` (#120)
 * updated test-coverage.yaml workflow
 * updated readme to specify new location of manuscript source code 
 in `analyses/`

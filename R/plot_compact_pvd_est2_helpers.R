@@ -1,81 +1,70 @@
 #' @title data prep function
-#' @dev
-tmp_data_prep <- function(x) {
-  tmp <- x$data
-  # determine biomarker event order
-  event_order <- tmp |>
-    dplyr::select(
-      all_of(
-        c(
-          "row number and name",
-          "event name",
-          "biomarker"
-        )
-      )
-    ) |>
-    dplyr::mutate(
-      Order =
-        .data$`row number and name` |>
-        sub("\\D*(\\d+).*", "\\1", x = _) |>
-        as.numeric()
-    ) |>
-    dplyr::mutate(
-      `event order` = min(.data$Order),
-      .by = all_of("biomarker")
-    ) |>
-    # dplyr::select(
-    #   biomarker, position
-    # ) |>
-    arrange(across(all_of("event order"))) |>
-    dplyr::mutate(biomarker = forcats::fct_inorder(.data$biomarker)) |>
-    dplyr::select(
-      c("biomarker", "event order") |> all_of()
-    ) |>
-    unique()
+#' @param x a `PVD` object (output from [plot_positional_var()])
+#' @param show_uncert
+#' [logical]: whether to show the uncertainty in the sequential order.
+#' @param biomarker_var a [character] string indicating which column to use
+#' @keywords internal
+tmp_data_prep <- function(
+    x,
+    show_uncert,
+    biomarker_var = "biomarker_label") {
 
-  event_order_facet <- tmp |>
-    dplyr::select(
-      all_of(
-        c(
-          "row number and name",
-          "event name",
-          "biomarker"
-        )
-      )
-    ) |>
-    dplyr::mutate(
-      Order = .data$`row number and name` |>
-        sub("\\D*(\\d+).*", "\\1", x = _) |>
-        as.numeric()
-    ) |>
-    unique()
 
-  plot_dataset <- merge(
-    event_order_facet,
-    tmp,
-    by = c(
-      "row number and name",
-      "event name",
-      "biomarker"
-    )
-  ) |>
-    dplyr::filter(.data$position == .data$Order) |>
-    # convert biomarker to factor with event order levels
-    dplyr::mutate(
-      biomarker =
-        .data$biomarker |>
-        factor(levels = levels(event_order$biomarker))
-    ) |>
-    # arrange by biomarker levels
-    arrange(pick("biomarker")) |>
-    # create biomarker labels for figure
-    dplyr::mutate(
-      biomarker_label =
-        glue::glue("<i style='color:{group_color}'>{biomarker}</i>") |>
-        forcats::fct_inorder()
-    ) |>
-    dplyr::select(
-      all_of(
+
+  if (show_uncert) {
+    tmp <- x$data
+
+
+    event_order <- tmp |>
+      dplyr::select(all_of(c(
+        "row number and name", "event name", biomarker_var
+      ))) |>
+      dplyr::mutate(
+        Order =
+          sub("\\D*(\\d+).*", "\\1", .data$`row number and name`) |>
+          as.numeric()
+      ) |>
+      dplyr::mutate(
+        `event order` = min(.data$Order),
+        .by = biomarker_var
+      ) |>
+      # dplyr::select(
+      #   biomarker, position
+      # ) |>
+      arrange(across(all_of("event order"))) |>
+      dplyr::mutate(
+        biomarker = .data[[biomarker_var]] |>
+          tools::toTitleCase() |>
+          Hmisc::capitalize() |>
+          forcats::fct_inorder()
+      ) |>
+      dplyr::select(
+        all_of(c("biomarker", "event order"))
+      ) |>
+      unique()
+
+
+    biomarker_order <- event_order$biomarker |> levels()
+
+    # update biomarker levels in tmp
+    plot_dataset <- tmp |>
+      # convert biomarker to factor with event order levels
+      dplyr::mutate(
+        biomarker = .data[[biomarker_var]] |>
+          tools::toTitleCase() |>
+          Hmisc::capitalize() |>
+          factor(levels = biomarker_order)
+      ) |>
+      # arrange by biomarker levels
+      arrange(across(all_of("biomarker"))) |>
+      # create biomarker labels for figure
+      dplyr::mutate(
+        biomarker_label = glue::glue(
+          "<span style='color:{group_color}'>{biomarker}</span>"
+        ) |>
+          forcats::fct_inorder()
+      ) |>
+      dplyr::select(all_of(
         c(
           "biomarker",
           "biomarker_label",
@@ -83,22 +72,116 @@ tmp_data_prep <- function(x) {
           "proportion",
           "level"
         )
+      ))
+  } else {
+    tmp <- x$data
+    # determine biomarker event order
+    event_order <- tmp |>
+      dplyr::select(
+        all_of(
+          c(
+            "row number and name",
+            "event name",
+            biomarker_var
+          )
+        )
+      ) |>
+      dplyr::mutate(
+        Order =
+          .data$`row number and name` |>
+          sub("\\D*(\\d+).*", "\\1", x = _) |>
+          as.numeric()
+      ) |>
+      dplyr::mutate(
+        `event order` = min(.data$Order),
+        .by = all_of(biomarker_var)
+      ) |>
+      # dplyr::select(
+      #   biomarker, position
+      # ) |>
+      arrange(across(all_of("event order"))) |>
+      dplyr::mutate(biomarker = .data[[biomarker_var]] |>
+                      tools::toTitleCase() |>
+                      Hmisc::capitalize() |>
+                      forcats::fct_inorder()) |>
+      dplyr::select(
+        c("biomarker", "event order") |> all_of()
+      ) |>
+      unique()
+
+    event_order_facet <- tmp |>
+      dplyr::select(
+        all_of(
+          c(
+            "row number and name",
+            "event name",
+            "biomarker"
+          )
+        )
+      ) |>
+      dplyr::mutate(
+        Order = .data$`row number and name` |>
+          sub("\\D*(\\d+).*", "\\1", x = _) |>
+          as.numeric()
+      ) |>
+      unique()
+
+    plot_dataset <- merge(
+      event_order_facet,
+      tmp,
+      by = c(
+        "row number and name",
+        "event name",
+        "biomarker"
       )
-    )
+    ) |>
+      dplyr::filter(.data$position == .data$Order) |>
+      # convert biomarker to factor with event order levels
+      dplyr::mutate(
+        biomarker = .data$biomarker |>
+          tools::toTitleCase() |>
+          Hmisc::capitalize() |>
+          factor(levels = levels(event_order$biomarker))
+      ) |>
+      # arrange by biomarker levels
+      arrange(pick("biomarker")) |>
+      # create biomarker labels for figure
+      dplyr::mutate(
+        biomarker_label =
+          glue::glue("<span style='color:{group_color}'>{biomarker}</span>") |>
+          forcats::fct_inorder()
+      ) |>
+      dplyr::select(
+        all_of(
+          c(
+            "biomarker",
+            "biomarker_label",
+            "position",
+            "proportion",
+            "level"
+          )
+        )
+      )
+  }
 
   return(plot_dataset)
 }
 
-#### create plot for a given subtype ####
+#' @title create plot for a given subtype
+#' @inheritParams ggplot2::continuous_scale
+#' @noRd
 tmp_func <- function(plot_dataset,
                      y_position,
                      panel_title,
                      scale_colors,
                      tile_height,
                      tile_width,
-                     y_text_size,
+                     x_axis_title_size = 9,
+                     y_text_size = 9,
                      legend.position, # nolint: object_name_linter
-                     title_size = y_text_size) {
+                     title_size = y_text_size,
+                     title_hjust = 0.5,
+                     breaks = c(0, 0.5, 1)) {
   # process color scales
   level2 <- colorRampPalette(c("white", scale_colors[1])) # level 2
   level3 <- colorRampPalette(c("white", scale_colors[2])) # level 3
@@ -132,7 +215,7 @@ tmp_func <- function(plot_dataset,
       low = level2_scale[10],
       high = level2_scale[100],
       limits = scale_limits,
-      breaks = c(0, 0.5, 1),
+      breaks = breaks,
       guide =
         ggplot2::guide_colorbar(title = "Pr(Stage)<sub>2</sub>", order = 1)
     ) +
@@ -154,7 +237,7 @@ tmp_func <- function(plot_dataset,
       low = level3_scale[10],
       high = level3_scale[100],
       limits = scale_limits,
-      breaks = c(0, 0.5, 1),
+      breaks = breaks,
       guide = ggplot2::guide_colorbar(
         title = "Pr(Stage)<sub>3</sub>",
         order = 2
@@ -178,7 +261,7 @@ tmp_func <- function(plot_dataset,
       low = level4_scale[10],
       high = level4_scale[100],
       limits = scale_limits,
-      breaks = c(0, 0.5, 1),
+      breaks = breaks,
       guide = ggplot2::guide_colorbar(
         title = "Pr(Stage)<sub>4</sub>",
         order = 3
@@ -202,7 +285,7 @@ tmp_func <- function(plot_dataset,
       low = level5_scale[10],
       high = level5_scale[100],
       limits = scale_limits,
-      breaks = c(0, 0.5, 1),
+      breaks = breaks,
       guide = ggplot2::guide_colorbar(
         title = "Pr(Stage)<sub>5</sub>",
         order = 4
@@ -226,7 +309,7 @@ tmp_func <- function(plot_dataset,
       low = level6_scale[10],
       high = level6_scale[100],
       limits = scale_limits,
-      breaks = c(0, 0.5, 1),
+      breaks = breaks,
       guide = ggplot2::guide_colorbar(
         title = "Pr(Stage)<sub>6</sub>",
         order = 5
@@ -251,10 +334,14 @@ tmp_func <- function(plot_dataset,
       legend.justification = ,
       legend.margin = ggplot2::margin(0, 0.15, 0, -0.45, "cm"),
       axis.title.y = ggplot2::element_blank(),
-      axis.title.x = ggtext::element_markdown(size = title_size),
-      axis.text.y = ggtext::element_markdown(size = y_text_size),
+      axis.title.x = ggtext::element_markdown(size = x_axis_title_size),
+      axis.text.y.left = ggtext::element_markdown(size = y_text_size),
+      axis.text.y.right = ggtext::element_markdown(size = y_text_size),
       # allow markdown for coloring
-      plot.title = ggtext::element_markdown(hjust = 0.5, size = title_size)
+      plot.title = ggtext::element_markdown(
+        hjust = title_hjust,
+        size = title_size
+      )
     )
 
   return(fig)

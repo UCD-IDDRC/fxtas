@@ -1,0 +1,7 @@
+```{r}
+v1_usable |> 
+  filter(CGG > 55) |> 
+  select(`parkinsonian features`, Parkinsons) |> 
+  table(useNA = "ifany")
+```
+

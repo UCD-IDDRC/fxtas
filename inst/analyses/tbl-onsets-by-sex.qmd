@@ -1,0 +1,59 @@
+```{r}
+#| tbl-cap: "Age of onset for those with 'Some tremors recorded', by sex"
+#| label: "tbl-tremor-ao-by-sex"
+#|
+vars = c(
+  "tremor: age of onset",
+  # "tremor: age of onset: missingness reasons",
+  NULL
+)
+
+
+table1a(
+
+  stratified_formula(vars, column_var),
+  # render.continuous = c(.="N", .="Mean (SD)", .="Median [Min,  Max]"),
+  data = visit1_cgg_55_199 |>
+    dplyr::filter(`any tremor (excluding head)` == "Some tremors recorded"))
+```
+
+
+<br>
+
+```{r}
+#| tbl-cap: "Age of onset for those with a head tremor recorded."
+#| label: "tbl-head-tremor-AO-by-sex"
+vars = c(
+  "head tremor: age of onset",
+  "head tremor: age of onset: missingness reasons"
+  
+)
+
+table1a(
+  
+  stratified_formula(vars, column_var),
+  # render.continuous = c(.="N", .="Mean (SD)", .="Median [Min,  Max]"),
+  data = visit1_cgg_55_199 |> dplyr::filter(`head tremor hx` == "Yes"))
+
+```
+
+
+<br>
+
+Age of onset and missingness reasons where "ataxia exam" = "Yes":
+
+```{r}
+vars = c(
+  # "ataxia exam",
+  # "ataxia severity exam",
+  # "ataxia severity*"
+  "ataxia age of onset hx",
+  "ataxia age of onset hx: missingness reasons"
+)
+
+table1a(
+  
+  stratified_formula(vars, column_var),
+  # render.continuous = c(.="N", .="Mean (SD)", .="Median [Min,  Max]"),
+  data = visit1_cgg_55_199 |> dplyr::filter(Ataxia == "Yes"))
+```

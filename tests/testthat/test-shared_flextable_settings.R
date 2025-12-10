@@ -7,16 +7,12 @@ test_that("results are consistent", {
   withr::local_package("flextable")
   ft = prob_correct |>
     flextable::flextable() |>
-    shared_flextable_settings() |>
-    flextable::width(width = 1)
+    shared_flextable_settings(padding = 2)
 
-  html_file <- tempfile(fileext = ".html")
-  flextable::save_as_html(ft, path = html_file)
-  doconv::expect_snapshot_html(
-    x = html_file,
-    vwidth = 1200, # based on what github actions seems to do
-    vheight = 744, # these get passed down to `webshot2::webshot()`
-    name = "prob_correct_table",
-    engine = "testthat"
-  )
+  skip_on_ci()
+
+  ft |>
+    flextable::gen_grob(fit = "fixed") |>
+    vdiffr::expect_doppelganger(title = "prob_correct_table")
+
 })

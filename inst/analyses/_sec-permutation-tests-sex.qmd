@@ -1,0 +1,61 @@
+
+```{r}
+#| label: p-val-test-sex
+
+permuted_test_stats_sex <- collect_permutation_test_stats(
+  output_folder = output_folder,
+  permuting_variables = "Gender"
+)
+
+observed_test_stat_sex <- get_observed_permutation_test_stat(
+  output_folder,
+  dataset_names = c("females", "males")
+)
+
+pval_sex_gp34_v1 <- permutation_test(
+  observed_test_stat = observed_test_stat_sex,
+  permuted_test_stats = permuted_test_stats_sex,
+  n_permutations = n_permutations
+)
+
+pval_sex_gp34_v1_formatted <- pval_sex_gp34_v1 |> scales::label_pvalue()()
+
+test_sex_summary <- pval_sex_gp34_v1 |> 
+  summary(N = nrow(v1_usable_cases))
+
+```
+
+
+```{r}
+#| eval: false
+#| label: plot-permutation-test-sex
+plot_permutation_results(
+  permuted_test_stats,
+  observed_test_stat)
+```
+
+
+We first characterized 
+sequential orders of FXTAS symptoms by sex 
+and sex differences in the estimated sequential orders.
+@fig-first-only-pvd shows 
+the estimated sequential orders
+of FXTAS `r outcomes_name`s 
+in males and females, 
+and @fig-first-only-diffs highlights sex differences in those orders.
+@suppfig-stage-barplot-by-sex shows the 
+number of premutation carriers at each disease progression stage, 
+stratified by sex.
+We found statistically significant evidence of a 
+difference in sequences of `r events_name`
+between males and females (p `r pval_sex_gp34_v1_formatted`). 
+It appears that 
+female premutation carriers developed 
+mood disorder symptoms prior to FXTAS Stage 1 diagnosis,
+whereas male carriers experienced these symptoms much later 
+(after FXTAS Stage 4) (@fig-first-only-diffs).
+Postural tremors developed between Stage 2 and 3 for females,
+and between Stages 3 and 4 for males.
+Several MRI biomarkers of decline
+also appear to begin at earlier FXTAS stages for males,
+except for mild MRI cerebral biomarkers, which began earlier in females.

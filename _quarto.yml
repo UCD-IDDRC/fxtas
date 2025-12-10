@@ -5,7 +5,7 @@ authors:
     email: demorrison@ucdavis.edu
     address: "Medical Sciences 1C #113, One Shields Ave, Davis, CA 95616"
 
-  - name: Matthew Ponzini
+  - name: Matthew Dominic Ponzini
     email: mdponzini@ucdavis.edu
     affiliations:
       - ref: ucdphs
@@ -92,16 +92,19 @@ affiliations:
     country: United States
 project:
   execute-dir: project
+
 format:
   docx:
-    keep-md: false
+    crossref:
+      ref-hyperlink: false
+    keep-md: true
     notes-after-punctuation: true
-    reference-doc: vignettes/Brain_template_2022.docx
-    csl: vignettes/american-medical-association.csl
+    reference-doc: Brain_template_2022.docx
+    csl: american-medical-association.csl
     toc: false
     echo: false
-    # fig-format: svg
-    fig-dpi: 300
+    # fig-format: svg # seems to break things
+    fig-dpi: 600
     # dpi: 300
     toc-depth: 4
     cap-location: top
@@ -113,15 +116,16 @@ format:
     link-citations: true
     # date: last-modified
     # date-format: "[Last modified:] YYYY-MM-DD: H:mm:ss (A)"
-    embed-resources: true
+    embed-resources: false
     appendix-style: plain
     mainfont: serif
   pdf:
     documentclass: scrartcl
   html:
+    lightbox: auto
     toc: true
     notes-after-punctuation: true
-    csl: vignettes/brain.csl
+    csl: brain.csl
     # fig-format: svg
     toc-float: true
     toc-depth: 4
@@ -131,11 +135,11 @@ format:
     theme:
        light:
          - cosmo
-         - vignettes/custom.scss
+         - inst/analyses/custom.scss
        dark:
          - darkly
-         - vignettes/custom.scss
-    css: vignettes/custom.scss
+         - inst/analyses/custom.scss
+    css: inst/analyses/custom.scss
     number-sections: true
     number-depth: 3
     html-math-method: mathjax
@@ -146,7 +150,9 @@ format:
     echo: false
     date: last-modified
     date-format: "[Last modified:] YYYY-MM-DD: H:mm:ss (A)"
-bibliography: vignettes/references.bib
+bibliography: inst/analyses/references.bib
+reference-section-title: References
+citeproc: false
 knitr:
   opts_chunk:
     collapse: true
@@ -159,11 +165,15 @@ execute:
   cache: true
   freeze: auto  # re-render only when source changes
 filters:
+  - quarto
+  - section-bibliographies
+  - highlight-text
   - authors-block
   - at: post-quarto
-    path: vignettes/appendix_numbering.lua
+    path: inst/analyses/appendix_numbering.lua
 
 crossref:
+  subref-labels: alpha A
   appendix-title: "Supplementary material" # doesn't seem to work
   custom:
     - kind: float

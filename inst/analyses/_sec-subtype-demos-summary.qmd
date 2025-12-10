@@ -1,0 +1,74 @@
+```{r}
+#| label: cgg-subtypes
+
+cgg_by_subtype <- sust_data |> 
+  dplyr::summarize(
+    .by = ml_subtype, 
+    mean = mean(.data$CGG, na.rm = TRUE) |> round(1),
+    sd = sd(.data$CGG, na.rm = TRUE) |> round(1)
+  ) |> 
+  as.data.frame()
+rownames(cgg_by_subtype) = cgg_by_subtype$ml_subtype
+
+
+cgg_overall <- sust_data |> 
+  filter(.data$ml_subtype != "Subtype 0") |> 
+  dplyr::summarize(
+    mean = mean(.data$CGG, na.rm = TRUE) |> round(1),
+    sd = sd(.data$CGG, na.rm = TRUE) |> round(1)
+  )
+
+test_cgg <- 
+  sust_data |> 
+  dplyr::filter(.data$ml_subtype != "Subtype 0") |> 
+  stats::oneway.test(CGG ~ ml_subtype, data = _)
+
+# no longer significant:
+test_sex <- 
+  sust_data |> 
+  filter(.data$ml_subtype != "Subtype 0") |> 
+  droplevels() |> 
+  select("ml_subtype", "Gender") |> 
+  table() |> 
+  prop.test()
+
+```
+
+
+@suppfig-pvd_chosen_subtypes shows the estimated sequential event orders
+for each of the subtype clusters.
+<!-- @suppfig-pvd_chosen_subtypes_linegraphs  -->
+@fig-pvd_chosen_subtypes_bumpplot
+shows
+differences in event sequences between subtypes.
+@tbl-sg_demos shows
+the demographics of the patients clustered in each subtype.
+`r n_type_0 |> xfun::numbers_to_words() |> Hmisc::capitalize()`
+patients had experienced too few events
+to be accurately classified into a subtype
+and were excluded from @tbl-sg_demos.
+@suppfig-stage-barplot_chosen_subtypes shows the 
+number of premutation carriers at each disease progression stage, 
+stratified by subtype.
+Subtype clustering analysis showed that
+CGG repeat size,
+a known risk factor of FXTAS,
+contributed to the segregation of subtypes
+and variations between subtypes
+(p-value = `r test_cgg$p.value |> scales::pvalue()`).
+We labeled the subtypes in descending order of mean CGG repeats.
+Individuals with higher CGG repeats
+were over-represented in Subtype 1
+(CGG repeats mean =
+`r cgg_by_subtype["Subtype 1", "mean"]` ± `r cgg_by_subtype["Subtype 1", "sd"]`)
+compared to the overall study population
+(CGG repeats mean = `r cgg_overall$mean`  ± `r cgg_overall$sd`)
+and other subtypes.
+Subtype 2 had CGG repeats close to the overall study population
+(`r cgg_by_subtype["Subtype 2", "mean"]` ± `r cgg_by_subtype["Subtype 2", "sd"]`).
+Subtype 3 had fewer CGG repeats 
+(`r cgg_by_subtype["Subtype 3", "mean"]` ± `r cgg_by_subtype["Subtype 3", "sd"]`)
+than the overall study population,
+and
+Subtype 4 had the fewest CGG repeats
+(`r cgg_by_subtype["Subtype 4", "mean"]` ± `r cgg_by_subtype["Subtype 4", "sd"]`).

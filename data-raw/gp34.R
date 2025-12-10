@@ -24,9 +24,22 @@ shared[label(gp4[, shared]) != label(gp3[, shared])]
 setdiff(names(gp3), names(gp4))
 setdiff(names(gp4), names(gp3))
 
-gp34 =
-  bind_rows("GP3" = gp3, "GP4" = gp4, .id = "Study") |>
-  clean_data()
+gp34_raw <-
+  bind_rows("GP3" = gp3, "GP4" = gp4, .id = "Study")
+
+gp34_raw |>
+  readr::write_rds(testthat::test_path("fixtures", "gp34_raw.rds"))
+
+
+gp34_raw |>
+  head(0) |>
+  readr::write_rds(testthat::test_path("fixtures", "gp34_raw_nodata.rds"))
+
+gp34 <- gp34_raw |> clean_data()
+
+gp34 |>
+  head(0) |>
+  readr::write_rds(testthat::test_path("fixtures", "gp34_nodata.rds"))
 
 
 trans =
@@ -45,7 +58,7 @@ decreased_age =
   gp34 |>
   get_decreased_age()
 
-readr::write_csv(decreased_age, "inst/extdata/decreased_age.csv")
+readr::write_csv(decreased_age, "inst/extdata/fxtas/decreased_age.csv")
 
 # out of order:
 
@@ -55,7 +68,7 @@ gp34 |> get_out_of_order()
 
 decreased_age2 = gp34 |> get_decreased_age2()
 
-readr::write_csv(decreased_age2, "inst/extdata/decreased_age2.csv")
+readr::write_csv(decreased_age2, "inst/extdata/fxtas/decreased_age2.csv")
 
 
 if (data_exists("gp34")) {

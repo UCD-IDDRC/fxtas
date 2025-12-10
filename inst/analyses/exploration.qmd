@@ -1,0 +1,527 @@
+```{r}
+#| label: load-data-exploration.qmd
+library(fxtas)
+load("data/trax_gp34_v1.rda")
+full_data <-
+  trax_gp34_v1 |>
+  add_labels()
+n_missing_CGG <- # nolint: object_name_linter
+  full_data$CGG |>
+  is.na() |>
+  sum()
+n_above_200 <- sum(full_data$CGG >= 200, na.rm = TRUE)
+v1_usable <-
+  full_data |>
+  dplyr::filter(CGG < 200) |>
+  dplyr::mutate(
+    `FX3*` = .data$`FX3*` |>
+      forcats::fct_drop()
+  )
+
+v1_usable_cases <- 
+  v1_usable |> dplyr::filter(CGG >= 55)
+
+
+outcomes_name <- "symptom"
+events_name <- "symptomatic events"
+column_var <- c("Gender", "FX3*")
+
+```
+
+```{r}
+v1_usable_capital_labels <- 
+  v1_usable 
+capitalize_label <- function(x) {
+  if (is.null(x)) {
+    NULL
+  } else {
+    stringr::str_replace(x, "([[:alpha:]])", toupper)
+  }
+}
+
+capitalize_labels <- TRUE
+if (capitalize_labels) {
+  
+  capitalized_labels <- labelled::var_label(v1_usable_capital_labels) |> 
+    lapply(FUN = capitalize_label)
+  labelled::var_label(v1_usable_capital_labels) <- 
+    capitalized_labels
+}
+```
+
+The following supplementary tables 
+[-@supptbl-fxtas-stage-by-cgg] - [-@supptbl-autoimmune] 
+summarize the distributions of the `r outcomes_name`s
+that we analyzed in this paper, stratified by sex and CGG level.
+
+```{r}
+#| label: exploration-setup
+#| include: false
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  echo = FALSE,
+  message = FALSE,
+  warning = FALSE,
+  comment = "#>"
+)
+```
+
+```{r}
+#| label: setup-demos-unstratified
+#| message: false
+library(fxtas)
+library(pander)
+library(table1)
+library(dplyr)
+library(magrittr)
+
+# dealing with missing values:
+na_label_1 <- "Missing"
+show_missingness_reasons <- FALSE
+footnote1 <- 'Codes `777`, `888`, and `999` are counted as "Missing" (NA).'
+width1 = .85
+```
+
+
+
+::: {#supptbl-fxtas-stage-by-cgg custom-style="Caption"}
+
+```{r}
+vars <- c(
+  "FXTAS Stage",
+  if (show_missingness_reasons) "FXTAS Stage: missingness reasons"
+)
+
+table1(
+  na.is.category = FALSE, overall = FALSE,
+  NA.label = na_label_1,
+  stratified_formula(vars, column_var),
+  data = v1_usable_capital_labels
+) |> 
+  table1::t1flex() |>
+  shared_flextable_settings() |> 
+  flextable::width(width = width1)
+
+```
+
+**FXTAS Stage by CGG level and sex**
+
+:::
+
+::: {#supptbl-tremors custom-style="Caption"}
+
+```{r}
+#| label: tab-tremors
+vars <- c(
+  "intention tremor",
+  "resting tremor",
+  "postural tremor",
+  "intermittent tremor"
+  # "head tremor"
+)
+
+# gtsummary version:
+# if (FALSE) {
+# tbl_function <- function(x) {
+#   gtsummary::tbl_summary(
+#     data = x,
+#     by = column_var[2],
+#     type = gtsummary::all_dichotomous() ~ "categorical"
+#   )
+# }
+# 
+# v1_usable_capital_labels |> 
+#   select(all_of(c(vars, column_var))) |> 
+#   gtsummary::tbl_strata(
+#     strata = column_var[1],
+#     .tbl_fun = tbl_function
+#   ) |> 
+#   gtsummary::as_flex_table() |> 
+#   shared_flextable_settings()
+# }
+
+
+table1(
+  na.is.category = FALSE, 
+  overall = FALSE,
+  NA.label = na_label_1,
+  stratified_formula(vars, column_var),
+  render.continuous = c(
+    . = "N",
+    . = "Mean (SD)",
+    . = "Median [Min, Max]"
+  ),
+  data = v1_usable_capital_labels
+) |> 
+  table1::t1flex() |>
+  shared_flextable_settings()  |> 
+  flextable::width(width = width1)
+```
+
+**Tremors by CGG level and sex**
+
+:::
+
+{{< include _tbl-head-tremors.qmd >}}
+
+{{< pagebreak >}}
+
+::: {#supptbl-ataxia-by-cgg custom-style="Caption"}
+
+```{r}
+vars <- c(
+  "Tandem Walk",
+  "ataxia",
+  "ataxia severity*"
+  # "ataxia age of onset",
+  # "ataxia age of onset: missingness reasons"
+)
+
+table1(
+  na.is.category = FALSE, overall = FALSE,
+  NA.label = na_label_1,
+  stratified_formula(vars, column_var),
+  # render.continuous = c(.="N", .="Mean (SD)", .="Median [Min,  Max]"),
+  data = v1_usable_capital_labels
+) |> 
+  table1::t1flex() |>
+  shared_flextable_settings() |> 
+  flextable::width(width = width1)
+```
+
+**Ataxia by CGG status**
+
+:::
+
+::: {#supptbl-parkinsons-by-cgg custom-style="Caption"}
+
+```{r}
+pk_vars <- c(
+  "Parkinsons",
+  c(
+    "parkinsonian features" # see note from March 19, 2025 in 2025-02-19 draft
+    # "Masked faces",
+    # "Increased tone",
+    # "pill-rolling tremor",
+    # "Stiff gait"
+  )
+)
+
+if (!show_missingness_reasons) {
+  pk_vars <- pk_vars |> remove_missingness_reason_vars()
+}
+
+table1(
+  na.is.category = FALSE, overall = FALSE,
+  NA.label = na_label_1,
+  stratified_formula(pk_vars, column_var),
+  data = v1_usable_capital_labels
+) |> 
+  table1::t1flex() |>
+  shared_flextable_settings() |> 
+  flextable::width(width = width1) |> 
+  flextable::width(j = 1, width = .9)
+```
+
+**Parkinson's disease and parkinsonian features, by CGG status**
+
+:::
+
+{{< include _sec_stage_vs_pk_ft.qmd >}}
+
+{{< pagebreak >}}
+
+::: {#supptbl-bds2 custom-style="Caption"}
+
+```{r}
+vars <- c("BDS-2 Total Score", "BDS-2 Total Score*")
+
+# https://stackoverflow.com/questions/71035743/r-is-there-a-way-to-round-to-1-decimal-place-in-table1-for-continuous-variables
+my.render.cont <- function(x) {
+    with(stats.default(x), 
+         c("",
+           
+          "Mean (SD)" = sprintf("%s (%s)",
+                                round_pad(MEAN, 1),
+                                round_pad(SD, 1)),
+         
+          "Median (Min, Max)" = sprintf("%s (%s, %s)",
+                                       round_pad(MEDIAN, 1), 
+                                       round_pad(MIN, 0), 
+                                       round_pad(MAX, 0)))
+    )
+}
+
+
+table1(
+  # na.is.category = FALSE, 
+  overall = FALSE,
+  # NA.label = na_label_1,
+  stratified_formula(vars, column_var),
+  # render.continuous = c(.="N", .="Mean (SD)", .="Median [Min,  Max]"),
+  render.continuous = my.render.cont,
+  # footnote = footnote1,
+  data = v1_usable_capital_labels
+) |> 
+  table1::t1flex() |>
+  shared_flextable_settings() |> 
+  flextable::width(width = width1) |> 
+  flextable::width(j = 1, width = 1.1)
+```
+
+**Behavior Dyscontrol Scale - Second Edition (BDS-2)**
+
+:::
+
+::: {#supptbl-mmse custom-style="Caption"}
+
+```{r}
+# vars = grep(
+#   "MMSE total score",
+#   value = TRUE,
+#   names(trax_gp34_all),
+#   fixed = TRUE)
+
+vars <- c(
+  "MMSE total score",
+  # "MMSE total score: missingness reasons",
+  "MMSE total score*"
+)
+
+table1(
+  # na.is.category = FALSE, 
+  overall = FALSE,
+  # NA.label = na_label_1,
+  stratified_formula(vars, column_var),
+  # footnote = footnote1,
+  # render.continuous = c(.="N", .="Mean (SD)", .="Median [Min,  Max]"),
+  render.continuous = my.render.cont,
+  data = v1_usable_capital_labels
+) |> 
+  table1::t1flex() |>
+  shared_flextable_settings() |> 
+  flextable::width(width = width1) |> 
+  flextable::width(j = 1, width = 1.4) |> 
+  flextable::width(j = c(2, 5), width = 0.75) |> 
+  flextable::width(j = c(3, 6), width = 0.8) |> 
+  flextable::width(j = c(4, 7), width = 0.85)
+```
+
+**Mini-Mental State Examination (MMSE)**
+
+:::
+
+::: {#supptbl-scid custom-style="Caption"}
+
+```{r}
+vars <- scid_vars_for_table1()
+
+table1(
+  # na.is.category = FALSE, 
+  overall = FALSE,
+  # NA.label = na_label_1,
+  stratified_formula(vars, column_var),
+  # render.continuous = c(.="N", .="Mean (SD)", .="Median [Min,  Max]"),
+  data = v1_usable_capital_labels
+) |> 
+  table1::t1flex() |>
+  shared_flextable_settings() |> 
+  flextable::width(width = width1) |> 
+  flextable::width(j = 1, width = 1)
+```
+
+**Structured Clinical Interview for DSM Disorders (SCID)**
+
+:::
+
+{{< pagebreak >}}
+
+::: {#supptbl-mood-disorders custom-style="Caption"}
+
+```{r}
+library(rex)
+scid_md_vars <- 
+  c(
+    "Bipolar I Disorder (MD01), Lifetime", 
+    "Bipolar II Disorder (MD02), Lifetime", 
+    "Other Bipolar Disorder (MD03), Lifetime", 
+    "Major Depressive Disorder (MD04), Lifetime", 
+    "Dysthymic Disorder (MD05), Lifetime", 
+    "Depressive Disorder NOS (MD06), Lifetime",
+    "Mood Disorder Due to GMC (MD07), Lifetime", 
+    "Substance-Induced Mood Dis. (MD08), Lifetime"
+  )
+
+table1(
+  na.is.category = FALSE,
+  overall = FALSE,
+  NA.label = na_label_1,
+  droplevels = FALSE,
+  x = stratified_formula(scid_md_vars, column_var),
+  data = v1_usable_capital_labels
+) |> 
+  table1::t1flex() |>
+  shared_flextable_settings() |> 
+  flextable::width(width = width1) |> 
+  flextable::width(j = 1, width = 1.35) |> 
+  flextable::width(j = c(2, 5), width = 0.75) |> 
+  flextable::width(j = c(3, 6), width = 0.8) |> 
+  flextable::width(j = c(4, 7), width = 0.85)
+```
+
+**Variables contributing to the "Mood Disorders" composite variable,**
+**by Sex and CGG level**
+
+
+:::
+
+{{< pagebreak >}}
+
+::: {#supptbl-mri custom-style="Caption"}
+
+```{r}
+vars <- c(
+  # "Cerebral Atrophy",
+  # "Cerebellar Atrophy",
+  # "Cerebral WM Hyperintensity",
+  # "Cerebellar WM Hyperintensity",
+  # "Pons-WM Hyperintensity",
+  # "Sub-Insular WM Hyperintensity",
+  # "Periventricular WM Hyperintensity",
+  "MRI: Cerebellar",
+  "MRI: Cerebral",
+  "MCP-WM Hyperintensity",
+  "Splenium (CC)-WM Hyperintensity",
+  "Genu (CC)-WM Hyperintensity",
+  "Corpus Callosum-Thickness"
+)
+
+table1(
+  na.is.category = FALSE,
+  overall = FALSE,
+  NA.label = na_label_1,
+  droplevels = FALSE,
+  x = stratified_formula(vars, column_var),
+  data = v1_usable_capital_labels
+) |> 
+  table1::t1flex() |>
+  shared_flextable_settings() |> 
+  flextable::width(width = .7) |> 
+  flextable::width(j = 1, width = 2) 
+```
+
+**MRI variables by Sex and CGG level**
+
+:::
+
+{{< pagebreak >}}
+
+::: {#supptbl-cantab custom-style="Caption"}
+
+```{r}
+# table1(na.is.category = FALSE, overall = FALSE,
+#   NA.label = na_label_1,
+#   stratified_formula("Drugs used", column_var),
+#   data = v1_usable_capital_labels)
+
+my.render.cont_cantab <- function(x) {
+    with(stats.default(x), 
+         c("",
+           
+          "Mean (SD)" = sprintf("%s (%s)",
+                                round_pad(MEAN, 1),
+                                round_pad(SD, 1)),
+         
+          "Median (Min, Max)" = sprintf("%s\n(%s, %s)",
+                                       round_pad(MEDIAN, 1), 
+                                       round_pad(MIN, 1), 
+                                       round_pad(MAX, 1)))
+    )
+}
+
+
+cantab_vars <- c(
+  "SWM Between errors",
+  "SWM Between errors*",
+  # "SST Median correct RT on GO trials",
+  # "RVP A signal detection",
+  # "RVP A signal detection*",
+  # "OTS Problems solved on first choice",
+  "PAL Total errors (adjusted)",
+  "PAL Total errors (adjusted)*",
+  "RTI Five-choice movement time",
+  "RTI Five-choice movement time*"
+)
+# >
+# sapply(
+#   F = function(x)
+#     grep(
+#       value =  TRUE,
+#       fixed = TRUE,
+#       pattern = x,
+#       x = names(v1_usable_capital_labels)
+#     )
+# ) |>
+#   as.vector()
+
+
+table1(
+  # na.is.category = FALSE,
+  overall = FALSE,
+  # NA.label = "Missing (empty in RedCap)",
+  stratified_formula(cantab_vars, column_var),
+  # render.continuous = c(.="N", .="Mean (SD)", .="Median [Min,  Max]"),
+  render.continuous = my.render.cont_cantab,
+  data = v1_usable_capital_labels
+) |> 
+  table1::t1flex() |>
+  shared_flextable_settings() |>
+  flextable::width(width = width1) |>
+  flextable::width(j = 1, width = 1.3) |> 
+  flextable::width(j = c(2, 5), width = 0.8) |> 
+  flextable::width(j = c(3, 6), width = 0.8) |> 
+  flextable::width(j = c(4, 7), width = 0.85)
+```
+
+**Cambridge Neuropsychological Test Automated Battery (CANTAB)**
+We used categorization cutoffs taken from Talebi et al 2020 
+[@talebi2020cambridge]. 
+SWM = Spatial Working Memory. 
+PAL = Paired Associates Learning.
+RTI = Reaction Time.
+
+:::
+
+::: {#supptbl-autoimmune custom-style="Caption"}
+
+```{r}
+vars <- c(
+  "Hypothyroid",
+  "Hyperthyroid",
+  # "Thyroid problems",
+  # "Lupus",
+  # "Rheumatoid arthritis",
+  # "Multiple Sclerosis: Workup",
+  # "ANA positive",
+  # "Sjogrens Syndrome",
+  # "Raynauds Syndrome",
+  "Pulmonary Fibrosis",
+  "any autoimmune disorder"
+)
+
+table1(
+  na.is.category = FALSE,
+  overall = FALSE,
+  NA.label = na_label_1,
+  stratified_formula(vars, column_var),
+  data = v1_usable_capital_labels
+) |> 
+  table1::t1flex() |>
+  shared_flextable_settings() |> 
+  flextable::width(width = width1) |> 
+  flextable::width(j = 1, width = .9)
+```
+
+**Thyroid and autoimmune diseases**
+
+:::

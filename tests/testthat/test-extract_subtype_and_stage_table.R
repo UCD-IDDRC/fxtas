@@ -1,21 +1,18 @@
-test_that("`extract_subtype_and_stage_table()` produces consistent results", {
+test_that("results are consistent", {
 
-  output_path =
-    fs::path_package("extdata/sim_data", package = "fxtas")
+  results00 <- readr::read_rds(
+    testthat::test_path("fixtures", "results00.rds")
+  )
 
-  pickle_folder <- fs::path(output_path, "pickle_files")
+  table1 = results00 |> extract_subtype_and_stage_table(n_s = 3)
 
-  skip_if_not(dir.exists(pickle_folder))
+  expect_snapshot_data(table1, name = "SuStaIn_ML_table")
 
-  picklename = "sample_data_subtype2.pickle"
-  results00 =
-    output_path |>
-    fs::path("pickle_files", picklename) |>
-    py_load_object() |>
-    force()
+  table2 = results00 |> extract_subtype_and_stage_table(
+    n_s = 3,
+    subtype_order = c(3, 1, 2))
 
-  table1 = results00 |> extract_subtype_and_stage_table()
-
-  ssdtools:::expect_snapshot_data(table1, name = "SuStaIn_ML_table")
+  expect_snapshot_data(table2, name = "SuStaIn_ML_table-reordered")
 
 })
+

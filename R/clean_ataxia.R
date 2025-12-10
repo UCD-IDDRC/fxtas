@@ -1,42 +1,50 @@
 clean_ataxia <- function(data) {
-  data |>
+  to_return <-
+    data |>
     dplyr::mutate(
-
-      "Ataxia severity: missingness reasons" =
-        missingness_reasons.numeric(.data$`Ataxia: severity`),
+      `ataxia age of onset hx` = .data$`ataxia age of onset hx` |>
+        clean_numeric(),
+      across(
+        any_of(c("ataxia exam", "ataxia hx")),
+        replace_missing_codes
+      ),
+      `ataxia severity exam: missingness reasons` =
+        .data$`ataxia severity exam` |> # nolint: indentation_linter
+        missingness_reasons.numeric(),
 
       # setting missing codes as 0s:
-      "Ataxia: severity" =
-        dplyr::if_else(
-          condition = .data$`Ataxia: severity` %in% c(888, 999),
-          true = "0",
-          false = .data$`Ataxia: severity`
+
+      across(
+        any_of(
+          c(
+            "ataxia severity exam",
+            "ataxia severity hx"
+          )
         ),
+        function(x) {
+          x |>
+            replace_missing_with_0() |>
+            clean_numeric()
+        }
+      )
+    ) |>
+    combine_presence_and_severity(
+      binary_varname = "ataxia hx",
+      severity_varname = "ataxia severity hx"
+    ) |>
+    combine_presence_and_severity(
+      binary_varname = "ataxia exam",
+      severity_varname = "ataxia severity exam"
+    ) |>
+    combine_history_and_exam("ataxia severity")
 
-      "Ataxia: severity" =
-        .data$`Ataxia: severity` |>
-        clean_numeric(),
-
-      Ataxia =
-        if_else(
-          condition = (.data$`Ataxia: severity` %in% 0) &
-            is.na(.data$Ataxia),
-          true = "No",
-          false = .data$`Ataxia`
-        ) |>
-        factor(levels = c("No", "Yes")),
-
-      "Ataxia: severity" =
-        if_else(
-          condition = (.data$Ataxia %in% "No") &
-            is.na(.data$`Ataxia: severity`),
-          true = 0,
-          false = .data$`Ataxia: severity`
-        ),
-
-      "Ataxia: severity*" =
-        .data$`Ataxia: severity` |>
+  to_return <-
+    to_return |>
+    combine_history_and_exam("ataxia") |>
+    mutate(
+      "ataxia severity*" =
+        .data$`ataxia severity` |> # nolint: indentation_linter
+        floor() |>
         factor()
-
     )
 }

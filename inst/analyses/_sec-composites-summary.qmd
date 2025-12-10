@@ -1,0 +1,45 @@
+
+We created a composite variable named "autoimmune diagnoses or symptoms" combining
+systemic lupus erythematosus,
+rheumatoid arthritis,
+multiple sclerosis,
+positive anti-nuclear antibody (ANA),
+Sjogren's syndrome,
+and
+Raynaud's syndrome,
+since these conditions were too rare to analyze separately
+(details in Supplementary material, Autoimmune diagnoses or symptoms).
+We also created composite variables for four domains of
+the Structured Clinical Interview for DSM-IV (SCID-IV):
+mood disorders,
+substance use disorders,
+anxiety disorders, and
+somatoform disorders;
+there were no participants with psychotic disorders in our data
+(more details in Supplementary material, SCID composite variables).
+We also created composite variables for
+MRI variables for cerebral and cerebellar abnormalities;
+we did not combine the variables representing
+corpus callosum MRI abnormalities,
+since these variables were created using
+Likert scales that differed from each other
+(details in Supplementary material, MRI variables).
+For the Cambridge Neuropsychological Test Automated Battery (CANTAB)
+variables, we used categorization cutoffs taken from Talebi et al 2020
+[@talebi2020cambridge].
+
+The developers of the Ordinal SuStaIn algorithm
+recommend a minimum of three observations per
+symptom level [@young2021ordinal].
+In order to limit the number of symptom levels
+with extremely rare observations in our models,
+we combined the "Moderate" and "Severe" levels for the MRI variables
+and the "Absent" and "Sub-Threshold" levels for the SCID domain variables.
+
+Supplementary Tables [-@supptbl-fxtas-stage-by-cgg] - [-@supptbl-autoimmune]
+summarize each of the `r outcomes_name`s
+that we included in the analysis models,
+stratified by
+CGG repeat size (`r levels(v1_usable$"FX3*")`)
+and
+sex.

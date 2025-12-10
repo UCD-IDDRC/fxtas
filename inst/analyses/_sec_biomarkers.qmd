@@ -1,0 +1,16 @@
+We analyzed measurements of 
+`r length(biomarker_levels)` ordinal `r outcomes_name`s,
+each with 
+between two and `r max_levels |> xfun::numbers_to_words()` levels, 
+listed in @tbl-biomarker-list.
+Herein the term "`r outcomes_name`s" refers to 
+a broad range of medical signs 
+or indications of medical state 
+observed from patients.
+Each "clinically elevated" ordinal level 
+(above the first-listed, reference level) 
+constitutes an outcome event 
+in the disease progression modelling analysis 
+(see section [Statistical analysis](#sec-Statistical-analysis)).
+Abbreviations used in `r outcomes_name` names
+are listed in @tbl-abbrevs.

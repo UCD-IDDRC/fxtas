@@ -1,0 +1,7 @@
+The apparent discrepancy is due to different proportions of missing data;
+`r parkinsons_na_pct`% of the "Parkinson's disease" variable is missing,
+whereas `r pf_na_pct`% of the "parkinsonian features" variable is missing.
+Parkinson's disease diagnoses were made by
+the participants' primary physicians or neurologists,
+outside of the GP and TRAX studies,
+whereas parkinsonian features were assessed as part of the study protocols.

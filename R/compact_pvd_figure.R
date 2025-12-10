@@ -1,37 +1,18 @@
-#' plot compact pvd: figure
-#' @examples
-#' size.y <- 11
-#' figs <- extract_figs_from_pickle(
-#'   size.y = size.y,
-#'   n_s = 3,
-#'   rda_filename = "data.RData",
-#'   dataset_name = "sample_data",
-#'   output_folder = fs::path_package("extdata/sim_data", package = "fxtas")
-#' )
-#'
-#' y_text_size <- 11
-#' tile_height <- 1
-#' # facet_label_size = 8
-#' facet_label_prefix <- names(figs)
-#' legend.position <- "none"
-#' scale_colors <- c("red", "blue", "purple4")
-#' plot_dataset <- fxtas:::compact_pvd_data_prep(figs = figs)
-#' # facet labels
-#' facet_names <- fxtas:::compact_pvd_facet_labels(
-#'   figs = figs,
-#'   facet_label_prefix = facet_label_prefix
-#' )
-#' # generate figure
-#' fxtas:::compact_pvd_figure(
-#'   plot_dataset,
-#'   tile_height = tile_height,
-#'   y_text_size = y_text_size,
-#'   facet_names = facet_names,
-#'   # facet_label_size = facet_label_size,
-#'   legend.position = legend.position,
-#'   scale_colors = scale_colors
-#' )
-#' @dev
+#' plot compact pvd figure
+#' @example inst/examples/exm-compact_pvd_figure.R
+#' @inheritParams ggplot2::theme
+#' @param colorbar_label_type what kind of label to use?
+#' Current options are `"level"` and `"subscript"`
+#' @param strip_text_size passed to `ggtext::element_markdown()`
+#' @param y_text_size [integer]: size of y-axis text
+#' @param x_text_size [integer]: size of x-axis tick labels
+#' @param x_title_size [integer]: size of x-axis title
+#' @param legend.key.height size of legend keys (unit);
+#' key background height & width inherit from legend.key.size
+#' or can be specified separately.
+#' In turn legend.key.size inherits from spacing.
+#' @keywords internal
+#' @export
 compact_pvd_figure <- function(
     plot_dataset,
     tile_height,
@@ -39,8 +20,20 @@ compact_pvd_figure <- function(
     facet_names,
     # facet_label_size,
     legend.position, # nolint: object_name_linter
+    legend.direction = "vertical", # nolint: object_name_linter
+    legend.box = "vertical", # nolint: object_name_linter
+    legend.key.height = grid::unit(1, "lines"), # nolint: object_name_linter
     scale_colors,
     rel_heights = c(1, 0.1),
+    guide_rel_widths = c(.3, .7),
+    group_colors,
+    ncol_legend = 1,
+    group_color_legend = NULL,
+    legend_text_size = grid::unit(7, "pt"),
+    colorbar_label_type = "level",
+    strip_text_size = grid::unit(8, "points"),
+    x_text_size = y_text_size,
+    x_title_size = x_text_size,
     ...) {
   # set tile width
   tile_width <- 1
@@ -57,11 +50,14 @@ compact_pvd_figure <- function(
     unique() |>
     length()
 
+
   # create level color scales
   if (length(scale_colors) != nlevels) {
-    stop(
-      "`scale_colors` must be the same length as the number of levels",
-      " (number of levels = ", nlevels, ")"
+    cli::cli_abort(
+      c(
+        "`scale_colors` must be the same length as the number of levels",
+        " (number of levels = {nlevels})"
+      )
     )
   }
 
@@ -100,11 +96,15 @@ compact_pvd_figure <- function(
       limits = scale_limits,
       breaks = c(0, 0.5, 1),
       guide = ggplot2::guide_colorbar(
-        title = "Pr(Stage)<sub>2</sub>",
+        title = colorbar_title(
+          type = colorbar_label_type,
+          level = 1
+        ),
+        draw.ulim = FALSE,
+        draw.llim = FALSE,
         order = 1
       )
     ) +
-    # guides(fill = guide_legend(title = "Pr(Stage)<sub>2</sub>")) +
     ggnewscale::new_scale_fill() +
     # layer for biomarker level 3
     ggplot2::geom_tile(
@@ -125,7 +125,13 @@ compact_pvd_figure <- function(
       limits = scale_limits,
       breaks = c(0, 0.5, 1),
       guide = ggplot2::guide_colorbar(
-        title = "Pr(Stage)<sub>3</sub>", order = 2
+        title = colorbar_title(
+          type = colorbar_label_type,
+          level = 2
+        ),
+        draw.ulim = FALSE,
+        draw.llim = FALSE,
+        order = 2
       )
     ) +
     # guides(fill = guide_legend(title = "Pr(Stage)<sub>3</sub>")) +
@@ -148,11 +154,15 @@ compact_pvd_figure <- function(
       limits = scale_limits,
       breaks = c(0, 0.5, 1),
       guide = ggplot2::guide_colorbar(
-        title = "Pr(Stage)<sub>4</sub>",
+        title = colorbar_title(
+          type = colorbar_label_type,
+          level = 3
+        ),
+        draw.ulim = FALSE,
+        draw.llim = FALSE,
         order = 3
       )
     ) +
-    # guides(fill = guide_legend(title = "Pr(Stage)<sub>4</sub>")) +
     ggnewscale::new_scale_fill() +
     # layer for biomarker level 5
     ggplot2::geom_tile(
@@ -172,11 +182,15 @@ compact_pvd_figure <- function(
       limits = scale_limits,
       breaks = c(0, 0.5, 1),
       guide = ggplot2::guide_colorbar(
-        title = "Pr(Stage)<sub>5</sub>",
+        title = colorbar_title(
+          type = colorbar_label_type,
+          level = 4
+        ),
+        draw.ulim = FALSE,
+        draw.llim = FALSE,
         order = 4
       )
     ) +
-    # guides(fill = guide_legend(title = "Pr(Stage)<sub>5</sub>")) +
     ggnewscale::new_scale_fill() +
     # layer for biomarker level 6
     ggplot2::geom_tile(
@@ -196,11 +210,15 @@ compact_pvd_figure <- function(
       limits = scale_limits,
       breaks = c(0, 0.5, 1),
       guide = ggplot2::guide_colorbar(
-        title = "Pr(Stage)<sub>6</sub>",
+        title = colorbar_title(
+          type = colorbar_label_type,
+          level = 5
+        ),
+        draw.ulim = FALSE,
+        draw.llim = FALSE,
         order = 5
       )
     ) +
-    # guides(fill = guide_legend(title = "Pr(Stage)<sub>6</sub>")) +
     # reverse order of y-axis (biomarkers)
     ggplot2::scale_y_discrete(limits = rev) +
     # frame x axis
@@ -217,22 +235,49 @@ compact_pvd_figure <- function(
     ggplot2::theme_bw() +
     ggplot2::theme(
       # add color scale info in figure caption:
+      legend.text = element_text(size = legend_text_size),
+      legend.title = ggtext::element_markdown(size = legend_text_size),
       legend.position = legend.position,
-      legend.title = ggtext::element_markdown(), # markdown for legends
+      legend.direction = legend.direction,
+      legend.key.height = legend.key.height,
+      # markdown for legends
       legend.byrow = TRUE,
-      legend.box = "horizontal",
+      legend.box = legend.box,
       # legend.justification = ,
-      legend.margin = ggplot2::margin(0, 0.15, 0, -0.45, "cm"),
+      legend.margin = ggplot2::margin(t = 0, r = 0.15, b = 0.25, l = 0, "cm"),
+      axis.title.x = ggplot2::element_text(size = x_title_size),
+      axis.text.x = ggplot2::element_text(size = x_text_size),
       axis.title.y = ggplot2::element_blank(),
+      # allow markdown for coloring:
       axis.text.y = ggtext::element_markdown(
         size = y_text_size
-      ), # allow markdown for coloring
-      strip.text = ggtext::element_markdown() # allow markdown for labels
+      ),
+      # allow markdown for labels:
+      strip.text = ggtext::element_markdown(
+        size = strip_text_size
+      )
     )
 
   if (legend.position == "none") {
     fig <- cowplot::plot_grid(
-      fig, horizontal_greyscale_legend,
+      fig,
+      cowplot::plot_grid(
+        ncol = ncol_legend,
+        if (!is.null(group_color_legend)) group_color_legend,
+        horizontal_greyscale_legend, # stored as internal data;
+        # see data-raw/pvd_grayscale_legend.R for details
+        rel_widths = guide_rel_widths,
+        ...
+      ),
+
+      nrow = 2,
+      rel_heights = rel_heights
+    )
+
+  } else if (!is.null(group_color_legend) && legend.position == "right") {
+    fig <- cowplot::plot_grid(
+      fig,
+      group_color_legend,
       nrow = 2,
       rel_heights = rel_heights
     )

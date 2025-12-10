@@ -1,3 +1,5 @@
+seed <- readline("What's the seed stored in teams?")
+set.seed(seed)
 load_all()
 test_data =
   trax_gp34_all |>

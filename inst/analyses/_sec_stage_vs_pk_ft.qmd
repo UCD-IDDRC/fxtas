@@ -1,0 +1,23 @@
+::: {#supptbl-stage-vs-pk-ft custom-style="Caption"}
+
+```{r}
+v1_usable_cases |>
+  select("parkinsonian features", "Stage_3plus") |>
+  gtsummary::tbl_summary(
+    percent = "row",
+    missing_text = "Missing",
+    by = `parkinsonian features`) |>
+  gtsummary::add_overall() |>
+  gtsummary::remove_footnote_header(columns = everything()) |> 
+  gtsummary::modify_spanning_header(
+    c("stat_1", "stat_2") ~ "**parkinsonian features**"
+  ) |> 
+  gtsummary::as_flex_table(ref_symbols = letters) |> 
+  shared_flextable_settings()
+
+```
+
+**Prevalence of parkinsonian features by FXTAS Stage among premutation carriers**
+(excluding observations with missing data for parkinsonian features).
+
+:::

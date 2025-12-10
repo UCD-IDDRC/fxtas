@@ -9,9 +9,22 @@ plot_compact_pvd(
   figs,
   tile_height = 1,
   y_text_size = 9,
+  x_text_size = y_text_size,
+  x_title_size = x_text_size,
   facet_label_prefix = names(figs),
-  legend.position = "none",
-  scale_colors = c("red", "blue", "purple4", "darkgreen", "magenta"),
+  legend.position = "right",
+  legend.direction = "vertical",
+  legend.box = "vertical",
+  legend.key.height = grid::unit(1, "lines"),
+  colorbar_label_type = "level",
+  scale_colors = c("red", "blue", "magenta", "darkgreen", "purple4"),
+  rel_heights = c(1, 0.025),
+  ncol_legend = 2,
+  nrow_colors = dplyr::if_else(legend.position == "none", 2, 1),
+  guide_rel_widths = c(0.7, 0.3),
+  legend_text_size = grid::unit(8, "pt"),
+  show_group_color_legend = TRUE,
+  strip_text_size = grid::unit(8, "points"),
   ...
 )
 }
@@ -20,19 +33,54 @@ plot_compact_pvd(
 
 \item{tile_height}{todo}
 
-\item{y_text_size}{todo}
+\item{y_text_size}{\link{integer}: size of y-axis text}
+
+\item{x_text_size}{\link{integer}: size of x-axis tick labels}
+
+\item{x_title_size}{\link{integer}: size of x-axis title}
 
 \item{facet_label_prefix}{todo}
 
-\item{legend.position}{todo}
+\item{legend.position}{the default position of legends ("none", "left",
+"right", "bottom", "top", "inside")}
+
+\item{legend.direction}{layout of items in legends ("horizontal" or
+"vertical")}
+
+\item{legend.box}{arrangement of multiple legends ("horizontal" or
+"vertical")}
+
+\item{legend.key.height}{size of legend keys (unit);
+key background height & width inherit from legend.key.size
+or can be specified separately.
+In turn legend.key.size inherits from spacing.}
+
+\item{colorbar_label_type}{what kind of label to use?
+Current options are \code{"level"} and \code{"subscript"}}
 
 \item{scale_colors}{todo}
+
+\item{rel_heights}{(optional) Numerical vector of relative rows heights. Works just as
+\code{rel_widths} does, but for rows rather than columns.}
+
+\item{ncol_legend}{how many columns to use for legend}
+
+\item{nrow_colors}{now many rows to use for color guide}
+
+\item{guide_rel_widths}{relative widths of guides}
+
+\item{legend_text_size}{\link[grid:unit]{grid::unit}: legend text size}
+
+\item{show_group_color_legend}{\link{logical}: whether to show group col legend}
+
+\item{strip_text_size}{passed to \code{ggtext::element_markdown()}}
 
 \item{...}{
   Arguments passed on to \code{\link[=compact_pvd_data_prep]{compact_pvd_data_prep}}
   \describe{
     \item{\code{biomarker_order}}{a \link{character} vector specifying the
 order of biomarkers to use}
+    \item{\code{biomarker_var}}{either "biomarker" or "biomarker_label"}
   }}
 }
 \value{

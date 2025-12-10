@@ -10,15 +10,15 @@ plot_positional_var(
   samples_f = results$samples_f,
   n_samples = nrow(results$ml_subtype),
   score_vals = build_score_vals(biomarker_levels),
-  biomarker_labels = names(biomarker_levels),
-  biomarker_groups = NULL,
-  biomarker_levels = NULL,
+  biomarker_labels = var_label(biomarker_levels),
+  biomarker_groups = attr(results, "biomarker_groups"),
+  biomarker_levels = attr(results, "biomarker_levels"),
   biomarker_events_table = get_biomarker_events_table(biomarker_levels),
-  biomarker_event_names = dplyr::pull(biomarker_events_table, "biomarker_level"),
+  biomarker_event_names = get_biomarker_event_names(biomarker_events_table),
   biomarker_plot_order = NULL,
   ml_f_EM = NULL,
   cval = FALSE,
-  subtype_order = NULL,
+  subtype_order = seq_len(dim(samples_sequence)[1]),
   biomarker_order = NULL,
   title_font_size = 12,
   stage_font_size = 10,
@@ -34,6 +34,7 @@ plot_positional_var(
   save_path = NULL,
   save_kwargs = NULL,
   synchronize_y_axes = FALSE,
+  use_labels = TRUE,
   ...
 )
 }
@@ -96,6 +97,8 @@ plot_positional_var(
 
 \item{synchronize_y_axes}{todo}
 
+\item{use_labels}{whether to use biomarker labels or variable names}
+
 \item{...}{
   Arguments passed on to \code{\link[=autoplot.PF]{autoplot.PF}}
   \describe{
@@ -105,8 +108,30 @@ plot_positional_var(
   }}
 }
 \value{
-a \verb{"PVD.list} (a \link{list} of \code{PVD} objects from \code{\link[=autoplot.PF]{autoplot.PF()}})
+a \verb{"PVD_list} (a \link{list} of \code{PVD} objects from \code{\link[=autoplot.PF]{autoplot.PF()}})
 }
 \description{
 Plot positional variance diagram
+}
+\examples{
+\dontrun{
+  output_folder <-
+    "output/output.fixed_CV-scid-no-subthres/"
+
+  results <-
+    output_folder |>
+    extract_results_from_pickle(
+      output_folder = _,
+      n_s = 1,
+      use_rds = TRUE
+    )
+
+  plot1 <-
+    plot_positional_var(
+      results = results,
+      use_labels = TRUE)
+
+  plot1 |>
+    vdiffr::expect_doppelganger(title = "plot1")
+}
 }

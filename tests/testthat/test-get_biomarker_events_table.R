@@ -11,7 +11,8 @@ test_that(
       df |>
       get_levels(biomarker_varnames, keep_labels = TRUE)
 
-    get_biomarker_events_table(biomarker_levels) |>
-      ssdtools:::expect_snapshot_data(name = "biomarker-events-table")
+    biomarker_events_table <- get_biomarker_events_table(biomarker_levels)
+    biomarker_events_table |>
+      expect_snapshot_data(name = "biomarker-events-table")
   }
 )

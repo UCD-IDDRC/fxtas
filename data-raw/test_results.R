@@ -71,7 +71,7 @@ biomarker_groups =
 
 library(dplyr)
 biomarker_groups = biomarker_groups |>
-  dplyr::filter(biomarker_group %in% c("Tremors", "Stage", "Ataxia", "Parkinsonian", "MRI"))
+  dplyr::filter(biomarker_group %in% c("Tremors", "Stage", "ataxia exam", "Parkinsonian", "MRI"))
 
 SuStaInLabels =
   biomarker_varnames =
@@ -94,7 +94,7 @@ biomarker_levels =
   lapply(df[,biomarker_varnames], F = levels)
 
 biomarker_events_table =
-  construct_biomarker_events_table(
+  make_biomarker_events_table(
     biomarker_levels,
     biomarker_groups)
 

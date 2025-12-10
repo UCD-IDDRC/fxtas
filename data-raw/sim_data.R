@@ -20,8 +20,7 @@ sim_results_3s =
                               output_folder = _,
                               use_rds = FALSE)
 
-sim_subtype_and_stage_table = sim_results_3s |>
-  extract_subtype_and_stage_table()
+sim_subtype_and_stage_table = sim_results_3s$subtype_and_stage_table
 
 usethis::use_data(sim_subtype_and_stage_table, overwrite = TRUE)
 

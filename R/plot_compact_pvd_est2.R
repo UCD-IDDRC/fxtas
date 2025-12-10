@@ -1,33 +1,50 @@
 #' @title Plot SuStaIn Sequential Estimate
 #' @inheritParams plot_compact_pvd_est
+#' @param show_uncert Show the uncertainty in the sequential order. Logical.
 #' @param tile_width todo
 #' @param rel_heights relative heights of the plot and the legend
+#' @param facet_labels facet labels
+#' @param facet_label_size [integer]: font size for cowplot facet labels
+#' @param vjust vjust for cowplot labels
+#' @param legend "grayscale" or "color"
 #' @param ... arguments passed to `tmp_func()`
 #' @export
 #' @example inst/examples/exm-plot_compact_pvd_est2.R
 #'
 plot_compact_pvd_est2 <- function(
     figs,
+    show_uncert = TRUE,
     tile_height = 1,
     tile_width = 1,
     y_text_size = 9,
+    legend = "grayscale",
     legend.position = "none", # nolint: object_name_linter
-    scale_colors = c("red", "blue", "purple4", "darkgreen", "magenta"),
+    scale_colors = c("red", "blue", "magenta", "darkgreen", "purple4"),
     rel_heights = c(1, 0.1),
+    facet_label_prefix = names(figs),
+    facet_labels = compact_pvd_facet_labels(
+      figs = figs,
+      facet_label_prefix = facet_label_prefix
+    ),
+    facet_label_size = 9,
+    vjust = 1.5,
     ...) {
   # prepare data from figure list
   #   unlike the other functions, the data will remain in a list, not combined
-  figs_plot <- lapply(
-    figs,
-    function(x) tmp_data_prep(x)
-  )
+  if (show_uncert) {
+    figs_plot <- lapply(
+      figs,
+      function(x) tmp_data_prep(x, show_uncert)
+    )
+  } else {
+    figs_plot <- lapply(
+      figs,
+      function(x) tmp_data_prep(x, show_uncert)
+    )
+  }
+
   # add the figure title as list names
-  names(figs_plot) <- c(
-    figs[[1]]$labels$title,
-    figs[[2]]$labels$title,
-    figs[[3]]$labels$title,
-    figs[[4]]$labels$title
-  )
+  names(figs_plot) <- facet_labels
 
   # create plot for each panel
   p <- lapply(
@@ -53,11 +70,18 @@ plot_compact_pvd_est2 <- function(
 
   cowplot::plot_grid(
     plotlist = p,
-    nrow = 2,
-    ncol = 2
+    nrow = length(figs) / 2,
+    ncol = 2,
+    labels = "AUTO",
+    label_size = facet_label_size,
+    vjust = vjust
   ) |>
     cowplot::plot_grid(
-      horizontal_greyscale_legend,
+      if (legend == "grayscale") {
+        horizontal_greyscale_legend
+      } else {
+        pvd_color_legend
+      },
       nrow = 2,
       rel_heights = rel_heights
     )

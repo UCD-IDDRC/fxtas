@@ -10,7 +10,7 @@ plot_compact_pvd_est(
   y_text_size = 9,
   facet_label_prefix = names(figs),
   legend.position = "none",
-  scale_colors = c("red", "blue", "purple4", "darkgreen", "magenta")
+  scale_colors = c("red", "blue", "magenta", "darkgreen", "purple4")
 )
 }
 \arguments{
@@ -18,11 +18,12 @@ plot_compact_pvd_est(
 
 \item{tile_height}{todo}
 
-\item{y_text_size}{todo}
+\item{y_text_size}{\link{integer}: size of y-axis text}
 
 \item{facet_label_prefix}{todo}
 
-\item{legend.position}{todo}
+\item{legend.position}{the default position of legends ("none", "left",
+"right", "bottom", "top", "inside")}
 
 \item{scale_colors}{todo}
 }

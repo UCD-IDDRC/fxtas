@@ -1,0 +1,93 @@
+
+```{r}
+parkinsons_na_mean <-
+  v1_usable$Parkinsons |> is.na() |> mean()
+
+parkinsons_na_pct <-
+  round(parkinsons_na_mean * 100, 1)
+
+pf_na_mean <-
+  v1_usable$`parkinsonian features` |> is.na() |> mean()
+
+pf_na_pct <-
+  round(pf_na_mean * 100, 1)
+
+mean_stage_3plus <- mean(v1_usable_cases$`FXTAS Stage (0-5)` >= 3, na.rm = TRUE)
+pct_stage_3plus <- (100 * mean_stage_3plus) |> round(0)
+
+tbl_pf_stage3plus <- 
+  v1_usable_cases |> 
+  select(Stage_3plus, `parkinsonian features`) |> 
+  table()
+
+n_pf_s3plus <- tbl_pf_stage3plus["3+" ,"Yes"]
+pr_pf_stage3plus <- tbl_pf_stage3plus |> proportions(m = 1)
+pct_pf_stage3plus <- round(pr_pf_stage3plus * 100, 1)
+  
+pd_count <- 
+  sum(v1_usable_cases$Parkinsons == "Yes", na.rm = TRUE)
+
+pd_count_male <- 
+  sum(v1_usable_male_cases$Parkinsons == "Yes", na.rm = TRUE)
+
+pd_count_female <- 
+  sum(v1_usable_female_cases$Parkinsons == "Yes", na.rm = TRUE)
+
+parkinsons_female_mean <- 
+  mean(v1_usable_female_cases$Parkinsons == "Yes", na.rm = TRUE)
+
+parkinsons_female_pct <- 
+  round(parkinsons_female_mean * 100, 1)
+
+
+pf_female_mean <- 
+  mean(v1_usable_female_cases$`parkinsonian features` == "Yes", na.rm = TRUE)
+
+pf_female_pct <- 
+  round(pf_female_mean * 100, 1)
+
+stages <- v1_usable_cases |>
+  dplyr::select(all_of("FXTAS Stage")) |>
+  table()
+
+n_pf_screened_cases <- 
+  sum(!is.na(v1_usable_cases$`parkinsonian features`))
+
+cases_pf <- v1_usable_cases |> 
+  filter(`parkinsonian features` == "Yes") |> 
+  select(Gender) |> 
+  table()
+
+```
+
+
+@tbl-demographics describes summary statistics of patient characteristics
+included in the analysis.
+Our data included:
+`r nrow(v1_usable_cases)` fragile X premutation carriers and
+`r nrow(controls_v1)` controls;
+`r nrow(v1_usable_males)` males and `r nrow(v1_usable_females)` females;
+and `r and::and(stages)` premutation carriers at
+FXTAS stages `r names(stages) |> and::and()`, respectively.
+`r pct_stage_3plus`% of premutation carriers were at FXTAS Stages 3-5
+at the time of their baseline visit (@tbl-demographics).
+Out of `r n_pf_screened_cases` premutation carriers 
+who were screened for parkinsonian features,
+`r n_pf_s3plus` carriers
+(`r pct_pf_stage3plus["3+", "Yes"]`% of `r sum(tbl_pf_stage3plus["3+",])`)
+at FXTAS Stages 3-5 had parkinsonian features,
+while `r tbl_pf_stage3plus["0-2", "Yes"]` premutation carriers
+(`r pct_pf_stage3plus["0-2", "Yes"]`% of `r sum(tbl_pf_stage3plus["0-2",])`)
+at FXTAS Stages 0-2 had parkinsonian features
+(@supptbl-stage-vs-pk-ft).
+`r pd_count |> broman::spell_out() |> Hmisc::capitalize()`
+premutation carriers
+(`r pd_count_male` male and `r pd_count_female` female)
+were diagnosed with Parkinson's disease
+by the participants' primary care physicians or neurologists,
+whereas `r sum(cases_pf)` premutation carriers 
+(`r cases_pf["Male"]` male and `r cases_pf["Female"]` female)
+had parkinsonian features assessed as part of the study protocols
+(@supptbl-parkinsons-by-cgg).
+<!-- All nine participants with recorded Parkinson's disease diagnoses -->
+<!-- also had parkinsonian features recorded. -->

@@ -11,11 +11,13 @@ extract_figs_from_pickle(
   rda_filename = "data.RData",
   picklename = paste0(dataset_name, "_subtype", n_s - 1, ".pickle"),
   use_rds = TRUE,
+  biomarker_groups = readr::read_rds(fs::path(output_folder, "biomarker_groups.rds")),
+  biomarker_levels = readr::read_rds(fs::path(output_folder, "biomarker_levels.rds")),
   ...
 )
 }
 \arguments{
-\item{n_s}{helps construct \code{picklename} by identifying number of latent subgroups}
+\item{n_s}{number of latent subgroups; helps construct \code{picklename}}
 
 \item{dataset_name}{root name of dataset}
 
@@ -26,6 +28,10 @@ extract_figs_from_pickle(
 \item{picklename}{the name of the pickle file to open}
 
 \item{use_rds}{\link{logical} whether to use previously cached results}
+
+\item{biomarker_groups}{\link{data.frame} with group colors, etc}
+
+\item{biomarker_levels}{\link{list} containing biomarker ordinal level info}
 
 \item{...}{
   Arguments passed on to \code{\link[=plot_positional_var]{plot_positional_var}}
@@ -53,16 +59,15 @@ extract_figs_from_pickle(
     \item{\code{save_path}}{todo}
     \item{\code{save_kwargs}}{todo}
     \item{\code{results}}{todo}
-    \item{\code{biomarker_levels}}{doesn't do much right now}
-    \item{\code{biomarker_groups}}{biomarker groupings}
     \item{\code{biomarker_events_table}}{todo}
     \item{\code{biomarker_event_names}}{todo}
     \item{\code{biomarker_plot_order}}{todo}
     \item{\code{synchronize_y_axes}}{todo}
+    \item{\code{use_labels}}{whether to use biomarker labels or variable names}
   }}
 }
 \value{
-a \verb{"PVD.list} (a \link{list} of \code{PVD} objects from \code{\link[=autoplot.PF]{autoplot.PF()}})
+a \verb{"PVD_list} (a \link{list} of \code{PVD} objects from \code{\link[=autoplot.PF]{autoplot.PF()}})
 }
 \description{
 Extact PVDs from pickle file

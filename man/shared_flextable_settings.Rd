@@ -4,14 +4,20 @@
 \alias{shared_flextable_settings}
 \title{Apply flextable settings to match Brain journal requirements}
 \usage{
-shared_flextable_settings(x)
+shared_flextable_settings(x, padding = 0)
 }
 \arguments{
 \item{x}{a \link[flextable:flextable]{flextable::flextable}}
+
+\item{padding}{controls \code{padding.top} and \code{padding.bottom} in \code{\link[flextable:padding]{flextable::padding()}}}
 }
 \value{
 a modified \link[flextable:flextable]{flextable::flextable}
 }
 \description{
 Apply flextable settings to match Brain journal requirements
+}
+\examples{
+head(iris) |> flextable::flextable() |> shared_flextable_settings()
+
 }

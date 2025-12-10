@@ -6,8 +6,8 @@ create_any_autoimmune <- function(
       "Multiple Sclerosis: Workup",
       "ANA positive",
       "Sjogrens Syndrome",
-      "Raynauds Syndrome",
-      "Pulmonary Fibrosis"
+      "Raynauds Syndrome"
+      # "Pulmonary Fibrosis" # no cases anyway
     )
 )
 {

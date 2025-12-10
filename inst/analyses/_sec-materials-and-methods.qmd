@@ -1,0 +1,46 @@
+
+## Data
+
+### Study cohorts
+
+{{< include _sec_study_cohorts.qmd >}}
+
+{{< include _sec-assessments.qmd >}}
+
+{{< include _sec_symptom_scales.qmd >}}
+
+{{< include _sec-primary-analysis.qmd >}}
+
+### `r outcomes_name_sentence_start`s of neurodegenerative events {#sec-outcome-vars}
+
+{{< include _sec_biomarkers.qmd >}}
+
+{{< include _sec-composites-summary.qmd >}}
+
+## Statistical analysis {#sec-Statistical-analysis}
+
+### Ordinal SuStaIn model {#sec-scored-events-model}
+
+{{< include _sec_ordinal_sustain_model.qmd >}}
+
+### Imputation of missing data {#sec-incomplete-data}
+
+{{< include _sec_incomplete_data.qmd >}}
+
+### Statistical hypothesis tests
+
+{{< include _sec_hypothesis_tests.qmd >}}
+
+### Latent subtype clustering {#sec-methods-latent-subtypes}
+
+{{< include _sec_methods_clustering.qmd >}}
+
+<!-- {{< include _methods_longitudinal.qmd >}} -->
+
+### Visualizing modeling results
+
+{{< include _sec_pvd_description.qmd >}}
+
+## Software
+
+{{< include _sec_software.qmd >}}

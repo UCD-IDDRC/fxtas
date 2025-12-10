@@ -18,7 +18,7 @@ test_that("`report_sex_differences()` produces stable results", {
     get_levels(biomarker_varnames)
 
   biomarker_events_table =
-    construct_biomarker_events_table(
+    make_biomarker_events_table(
       biomarker_levels,
       biomarker_groups = biomarker_groups)
 

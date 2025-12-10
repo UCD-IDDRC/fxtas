@@ -1,0 +1,42 @@
+### Autoimmune diagnoses or symptoms {.appendix #sec-any-autoimmune}
+
+Due to the infrequent nature of individual autoimmune diseases, 
+a composite variable, "autoimmune diagnoses or symptoms",
+was created for analysis: 
+`"Yes"` if a patient had any of 
+systemic lupus erythematosus, 
+rheumatoid arthritis, 
+multiple sclerosis, 
+positive ANA (anti-nuclear antibody), 
+Sjogren's syndrome, 
+or Raynaud's syndrome; 
+otherwise, 
+`"No"` for no autoimmune diseases recorded.
+
+### MRI variables {.appendix #sec-MRI-composites}
+
+The MRI variables are combined into composite variables 
+taking the most severe score within a brain region.
+
+- "MRI Cerebellar" was composited as the most severe score of 
+Cerebellar atrophy, 
+Cerebellar white matter (WM) hyperintensity, and 
+Middle cerebellar peduncle (MCP) WM hyperintensity.
+
+- "MRI Cerebral" was composited as the most severe score of 
+Cerebral atrophy, 
+Cerebral WM hyperintensity,
+Pons WM hyperintensity, 
+Sub-insular WM hyperintensity, and
+Periventricular WM hyperintensity.  
+
+- Splenium WM hyperintensity,
+Genu WM hyperintensity, and 
+Corpus Callosum thickness 
+remained as separate fields,
+because they had been coded using
+incompatible Likert scales.
+
+### SCID composite variables {.appendix #sec-SCID-composites}
+
+{{< include _sec_scid-composites.qmd >}}

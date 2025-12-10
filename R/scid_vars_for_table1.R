@@ -42,8 +42,8 @@ scid_vars_for_table1 <- function()
     #   "Other (SUD25), Lifetime",
     #   "Other (SUD25), Current",
     "SCID: anxiety disorders",
-    "SCID: somatoform disorders",
-    "SCID: psychotic symptoms"
+    "SCID: somatoform disorders"
+    # "SCID: psychotic symptoms"
     # "Primary Psychotic Symptoms (PS01), Lifetime",
     # "Primary Psychotic Symptoms (PS01), Current"
   )

@@ -17,7 +17,7 @@
 #'   get_levels(biomarker_varnames)
 #'
 #' biomarker_events_table =
-#'   construct_biomarker_events_table(
+#'   make_biomarker_events_table(
 #'     biomarker_levels,
 #'     biomarker_groups = biomarker_groups)
 #'
@@ -50,12 +50,12 @@ report_sex_differences <- function(table, cutoff = 0.05) {
           "SWM Between errors",
           "the CANTAB subtest of Spatial Working Memory (SWM) Between errors"
         ) |>
-        stringr::str_replace("Head tremor", "head tremor"),
+        stringr::str_replace("head tremor hx", "head tremor hx"),
 
       p_val_formatted =
         .data$`p-value` |>
         scales::label_pvalue(
-          prefix = paste(c("<", "=", ">"), "")
+          prefix = c("< ", "= ", "> ")
         )(),
 
       comparison = glue::glue(

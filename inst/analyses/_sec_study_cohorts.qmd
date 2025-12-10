@@ -1,0 +1,31 @@
+Research participants were recruited between `r min_year` and `r max_year`
+for two longitudinal cohorts:
+the Genotype-Phenotype Study in Fragile X Families
+("GP"; funded by NICHD R01HD036071; PI Hagerman) and
+the Trajectories and Markers of Neurodegeneration
+in Fragile X Premutation Carriers study
+("TRAX"; funded by NINDS NS110100; PIs Hessl and Rivera)
+conducted at the University of California, Davis MIND Institute.
+A written informed consent form was obtained from all participants 
+according to the procedures approved by the 
+University of California, Davis Institutional Review Board.
+
+The GP longitudinal study is an ongoing effort 
+focused on adult male and female 
+carriers of the *FMR1* premutation who 
+present with neurological problems that do not meet diagnostic criteria of FXTAS 
+or have been diagnosed with FXTAS,
+and healthy control individuals without the fragile X premutation,
+aged 40-85 at entry,
+with follow-up visits approximately every two years.
+For those carriers diagnosed with FXTAS at the entry, 
+their historical symptoms were retrospectively collected and recorded.
+
+The TRAX longitudinal study is an ongoing effort studying 
+adult male premutation carriers 
+ranging from 40-82 years
+and male healthy controls 
+ages 40-75 at baseline visit. 
+The TRAX participants return for follow up visits 
+with varying intervals between visits averaging 2.5 years
+to assess phenotypic progression over time.

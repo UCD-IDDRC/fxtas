@@ -1,0 +1,29 @@
+@supptbl-prob-correct shows the estimated percentage of 
+correctly scored individuals
+for each `r outcomes_name`, [@young2021ordinal]
+estimated using the controls data.
+
+::: {#supptbl-prob-correct custom-style="Caption"}
+
+```{r}
+
+library(flextable)
+prob_correct |>
+  attr("data") |>
+  flextable::flextable() |> 
+  shared_flextable_settings() |>
+  flextable::width(width = 1)
+```
+
+**Percentages of controls at baseline levels, 
+and corresponding estimates of 
+probability of correct scoring.**
+The percentage of correctly scored individuals 
+is estimated as 
+the percentage of controls 
+who were assessed as being 
+at the reference level,
+or 95%,
+whichever was smaller.
+
+:::

@@ -37,11 +37,11 @@ library(reticulate)
 ```{r biomarker list, include = FALSE}
 
 tremors = c(
-  "Intention tremor" = 1,
-  "Resting tremor" = 1,
-  "Postural tremor" = 1,
-  "Intermittent tremor" = 1,
-  "Any tremor (excluding head)" = 1
+  "intention tremor" = 1,
+  "resting tremor" = 1,
+  "postural tremor" = 1,
+  "intermittent tremor hx" = 1,
+  "any tremor (excluding head)" = 1
 )
 
 categorical_biomarker_directions = c(
@@ -54,7 +54,7 @@ categorical_biomarker_directions = c(
 
 continuous_biomarker_directions = 
   c(
-    "Ataxia: severity" = 1,
+    "ataxia severity exam" = 1,
     "MMSE total score" = -1,
     "BDS-2 Total Score" = -1,
     "SCL90: Somatization" = 1,

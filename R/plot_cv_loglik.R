@@ -16,21 +16,28 @@ plot_cv_loglik <- function(cv_loglik, y_text_size = 8)
     tidyr::pivot_longer(
       cols = cv_loglik |> ncol() |> seq_len() |> as.character(),
       values_to = "loglik",
-      names_to = "# subgroups"
+      names_to = "# subtypes"
     ) |>
     ggplot() +
-    aes(x = .data$`# subgroups`,
+    aes(x = .data$`# subtypes` |> factor(levels = unique(.data$`# subtypes`)),
         y = .data$loglik,
         col = .data$fold) +
-    xlab("# subtypes") +
-    geom_point() +
-    geom_line(aes(group = .data$fold, linetype = .data$fold)) +
+    xlab("# latent subtypes") +
+    geom_point() + # note: shape can't handle more than 6 values well
+    geom_line(aes(group = .data$fold,
+                  linetype = .data$fold)) +
     # geom_boxplot() +
     theme_bw() +
-    theme(legend.position = "none",
-          axis.text.y = ggtext::element_markdown(
-            size = y_text_size
-          )) +
+    labs(
+      col = "Cross-validation fold",
+      linetype = "Cross-validation fold"
+    ) +
+    theme(
+      legend.position = "bottom",
+      axis.text.y = ggtext::element_markdown(
+        size = y_text_size
+      )
+    ) +
     ylab("Log-likelihood of CV test folds")
 
 

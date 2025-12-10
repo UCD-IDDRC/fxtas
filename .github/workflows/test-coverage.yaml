@@ -11,7 +11,7 @@ permissions: read-all
 
 jobs:
   test-coverage:
-    runs-on: macos-13
+    runs-on: windows-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
 
@@ -31,27 +31,19 @@ jobs:
           extra-packages: any::covr, any::xml2
           needs: coverage
 
-      - name: setup r-reticulate venv
-        shell: Rscript {0}
-        run: |
-
-          library(reticulate)
-
-          path_to_venv <- virtualenv_create(
-            envname = "fxtas39",
-            python = Sys.which("python"), # placed on PATH by the setup-python action
-            packages = c(
-              "git+https://github.com/d-morrison/pySuStaIn"
-            )
-          )
-
-          writeLines(
-            paste0("RETICULATE_PYTHON=", virtualenv_python(path_to_venv)),
-            Sys.getenv("GITHUB_ENV"))
-
-
       - name: Test coverage
         run: |
+
+          # library(reticulate)
+          # reticulate::py_require(
+          #   packages = c(
+          #     "git+https://github.com/ucl-pond/kde_ebm",
+          #     "git+https://github.com/d-morrison/pySuStaIn"
+          #   ),
+          #   python_version = "3.9"
+          # )
+          # reticulate::py_config()
+
           cov <- covr::package_coverage(
             quiet = FALSE,
             clean = FALSE,

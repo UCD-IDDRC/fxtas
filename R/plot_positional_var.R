@@ -29,27 +29,28 @@
 #' @param biomarker_event_names todo
 #' @param biomarker_plot_order todo
 #' @param synchronize_y_axes todo
+#' @param use_labels whether to use biomarker labels or variable names
 #' @inheritDotParams autoplot.PF
-#' @returns a `"PVD.list` (a [list] of `PVD` objects from [autoplot.PF()])
+#' @returns a `"PVD_list` (a [list] of `PVD` objects from [autoplot.PF()])
 #' @export
-#'
+#' @example inst/examples/exm-plot_positional_var.R
 plot_positional_var <- function(
     results,
     samples_sequence = results$samples_sequence,
     samples_f = results$samples_f,
     n_samples = results$ml_subtype |> nrow(),
     score_vals = build_score_vals(biomarker_levels),
-    biomarker_labels = names(biomarker_levels),
-    biomarker_groups = NULL,
-    biomarker_levels = NULL,
-    biomarker_events_table =
-      biomarker_levels |> get_biomarker_events_table(),
-    biomarker_event_names =
-      biomarker_events_table |> dplyr::pull("biomarker_level"),
+    biomarker_labels = biomarker_levels |> var_label(),
+    biomarker_groups = results |> attr("biomarker_groups"),
+    biomarker_levels = results |> attr("biomarker_levels"),
+    biomarker_events_table = biomarker_levels |>
+      get_biomarker_events_table(),
+    biomarker_event_names = biomarker_events_table |>
+      get_biomarker_event_names(),
     biomarker_plot_order = NULL,
-    ml_f_EM = NULL,
+    ml_f_EM = NULL, # previously default = results$ml_f_EM
     cval = FALSE,
-    subtype_order = NULL,
+    subtype_order = seq_len(dim(samples_sequence)[1]),
     biomarker_order = NULL,
     title_font_size = 12,
     stage_font_size = 10,
@@ -65,6 +66,7 @@ plot_positional_var <- function(
     save_path = NULL,
     save_kwargs = NULL,
     synchronize_y_axes = FALSE,
+    use_labels = TRUE,
     ...) {
   # Get the number of subtypes
   N_S <- dim(samples_sequence)[1]
@@ -113,7 +115,8 @@ plot_positional_var <- function(
   if (!is.null(biomarker_order)) {
     # self._plot_biomarker_order is not suited to this version
     # Ignore for compatability, for now
-    # One option is to reshape, sum position, and lowest->highest determines order
+    # One option is to reshape,
+    # sum position, and lowest->highest determines order
     if (length(biomarker_order) > N_bio) {
       biomarker_order <- 1:N_bio
     }
@@ -152,81 +155,60 @@ plot_positional_var <- function(
   # Container for all figure objects
   figs <- list()
   # Loop over figures
-  for (i in 1:N_S)
-  {
-    # Create the figure and axis for this subtype loop
-
-    # confus_matrix_c =
-    #   samples_sequence[subtype_order[i],,] |>
-    #   t() |>
-    #   compute_heatmap(
-    #     biomarker_labels = biomarker_labels,
-    #     colour_mat = colour_mat,
-    #     stage_biomarker_index = stage_biomarker_index,
-    #     stage_score = stage_score,
-    #     biomarker_event_names =
-    #       biomarker_event_names
-    #   )
+  for (i in 1:N_S) {
 
     if (!is.null(subtype_titles)) {
-      title_i <- subtype_titles[i]
+      title_i <- subtype_titles[subtype_order[i]]
     } else {
       title_i <- get_title_i_2(
         subtype_and_stage_table =
           results$subtype_and_stage_table,
         cval = cval,
-        i = i
+        i = subtype_order[i]
       )
     }
 
-    # heatmap_table =
-    #   confus_matrix_c |>
-    #   as.data.frame.table() |>
-    #   as_tibble() |>
-    #   pivot_wider(
-    #     id_cols = c("biomarker","SuStaIn.Stage"),
-    #     names_from = "color",
-    #     values_from = "Freq") |>
-    #   arrange(biomarker, SuStaIn.Stage)
-    #
-    # # Plot the colourized matrix
-    #
-    # plot1 =
-    #   heatmap_table |>
-    #   heatmap_table_to_plot() +
-    #   ggtitle(title_i)
+    old_version <-  FALSE
+    if (old_version) {
+      # Create the figure and axis for this subtype loop
+
+      confus_matrix_c <-
+        samples_sequence[subtype_order[i], , ] |>
+        t() |>
+        compute_heatmap(
+          biomarker_labels = biomarker_labels,
+          colour_mat = colour_mat,
+          stage_biomarker_index = stage_biomarker_index,
+          stage_score = stage_score,
+          biomarker_event_names = biomarker_event_names
+        )
+
+      heatmap_table <-
+        confus_matrix_c |>
+        as.data.frame.table() |>
+        as_tibble() |>
+        pivot_wider(
+          id_cols = c("biomarker", "SuStaIn.Stage"),
+          names_from = "color",
+          values_from = "Freq"
+        ) |>
+        arrange(.data$biomarker, .data$SuStaIn.Stage)
+
+      # Plot the colourized matrix
+
+      plot1 <- # nolint: object_usage_linter
+        heatmap_table |>
+        heatmap_table_to_plot() +
+        ggtitle(title_i)
+    }
 
     PFs <-
       samples_sequence[subtype_order[i], , ] |>
-      t() |>
-      compute_position_frequencies() |>
-      simplify_biomarker_names(cols = "event name") |>
-      # get biomarker names
-      left_join(
-        biomarker_events_table |>
-          simplify_biomarker_names(cols = c("biomarker", "biomarker_level")),
-        by = c("event name" = "biomarker_level")
-      ) |>
-      # get biomarker groups and colors
-      left_join(
-        biomarker_groups |>
-          simplify_biomarker_names(cols = "biomarker"),
-        by = c("biomarker")
-      ) |>
-      arrange_position_frequencies(
-        biomarker_order = biomarker_plot_order
-      ) |>
-      dplyr::mutate(
-        `event label` =
-          glue("<i style='color:{group_color}'>{`row number and name`}</i>"),
-        `event label` = if_else(
-          .data$biomarker_group == "stage",
-          paste0("**", .data$`event label`, "**"),
-          .data$`event label`
-        ),
-        `event label` =
-          .data$`event label` |>
-            factor(levels = .data$`event label` |> unique())
+      extract_PFs(
+        biomarker_events_table = biomarker_events_table,
+        biomarker_plot_order = biomarker_plot_order,
+        biomarker_groups = biomarker_groups,
+        use_labels = use_labels
       )
 
 
@@ -234,31 +216,39 @@ plot_positional_var <- function(
       biomarker_plot_order <- PFs |> attr("biomarker_order")
     }
 
-    PF.plot <-
+    PF_plot <-
       PFs |>
       autoplot.PF(...) +
       ggplot2::ggtitle(title_i)
 
 
     figs[[i]] <- structure(
-      PF.plot,
+      PF_plot,
       biomarker_order = PFs |> attr("biomarker_order"),
-      # alt_plot = plot1,
+      # alt_plot = plot1, # nolint
       title = title_i
     )
-    # https://medium.com/@tobias.stalder.geo/plot-rgb-satellite-imagery-in-true-color-with-ggplot2-in-r-10bdb0e4dd1f
+    # https://medium.com/@tobias.stalder.geo/plot-rgb-satellite-imagery-in-true-color-with-ggplot2-in-r-10bdb0e4dd1f # nolint
   }
 
   if (length(figs) == 1) {
     figs <- figs[[1]]
   } else {
-    names(figs) <- paste("Group", seq_along(figs))
-    class(figs) <- c("PVD.list", class(figs))
+    subtype_names0 <- dimnames(samples_sequence)[[1]]
+    if (!is.null(subtype_names0)) {
+      names(figs) <- subtype_names0[subtype_order]
+    } else {
+      names(figs) <- paste("Subtype", seq_along(figs))
+    }
+    class(figs) <- c("PVD_list", class(figs))
   }
 
   figs <- figs |>
     structure(
-      biomarker_event_names = biomarker_event_names
+      biomarker_labels = biomarker_labels,
+      biomarker_event_names = biomarker_event_names,
+      biomarker_groups = biomarker_groups,
+      biomarker_levels = biomarker_levels
     )
 
   return(figs)

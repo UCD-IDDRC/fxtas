@@ -1,0 +1,503 @@
+---
+title: "SuStaIn Model Fitting"
+authors:
+  - name: Alexandra Young
+  - name: Douglas Ezra Morrison
+    # affiliations:
+    #   - ref: ucdphs
+    corresponding: true
+    email: demorrison@ucdavis.edu
+    address: One Shields Ave, Davis, CA 95616
+format:
+  html:
+    echo: true
+    toc: true
+    number-sections: true
+    html-math-method: mathjax
+vignette: >
+  %\VignetteIndexEntry{OS_example}
+  %\VignetteEngine{quarto::html}
+  %\VignetteEncoding{UTF-8}
+---
+
+
+```{r}
+#| label: setup
+library(fxtas)
+library(tidyverse)
+library(reticulate)
+reticulate::use_condaenv("fxtas39", required = TRUE, conda = "auto")
+
+use_rds = FALSE
+```
+
+# Import data
+
+```{r}
+#| label: import-data
+
+df = sim_data
+
+SuStaInLabels = biomarkers = c('Biomarker 1', 'Biomarker 2', 'Biomarker 3',
+               'Biomarker 4', 'Biomarker 5')
+
+biomarker_group_list = list(
+  "group 1" = c("Biomarker 1", "Biomarker 2"),
+  "group 2" = c("Biomarker 3", "Biomarker 4"),
+  "group 3" = "Biomarker 5"
+)
+```
+
+# Set up data for new version of SuStaIn
+The objective here is two create to variables:
+
+* `p_NL` -- a subject x region matrix indicating the probability
+that a region is normal for a subject.
+* `p_score` -- a subject x (region * score) matrix indicating 
+the probability that a region is a given score.
+
+Ps should be non-zero. 
+
+```{r}
+#| label: prob-dist
+ModelScores = DataScores = as.character(0:3)
+
+control_data = df |> dplyr::filter(Category == "Control") |> dplyr::select(all_of(biomarkers))
+patient_data = df |> dplyr::filter(Category == "Patient") |> dplyr::select(all_of(biomarkers))
+
+# prob_correct = (control_data == 0) |> colMeans()
+prob_correct = 
+  df |> 
+  dplyr::filter(Category == "Control") |> 
+  summarize(
+    across(
+      .cols = all_of(biomarkers), 
+      .fns = ~ mean(.x == 0))
+  ) |> 
+  unlist()
+
+prob_dist_dims = 
+  list(
+    modelscore = ModelScores,
+    datascore = DataScores,
+    biomarker = biomarkers)
+
+prob_dist = array(
+  NA,
+  dim = sapply(length, X = prob_dist_dims),
+  dimnames = prob_dist_dims)
+
+for (biomarker in biomarkers)
+{
+  for (datascore in DataScores)
+  {
+    for (modelscore in ModelScores)
+    {
+      if(datascore == modelscore)
+      {
+        prob_dist[modelscore, datascore, biomarker] = prob_correct[biomarker] 
+      } else
+      {
+        prob_dist[modelscore, datascore, biomarker] = 
+          (1 - prob_correct[biomarker] ) / (length(DataScores) - 1)
+      }
+    }
+  }
+}
+
+prob_nl_dist = prob_dist[1, , ]
+prob_score_dist = prob_dist[-1, , ]
+
+```
+
+```{r}
+#| label: prob-score
+prob_score_dims = 
+  list(
+  ID = df |> dplyr::filter(Category == "Patient") |> dplyr::pull(Index),
+  Biomarker = biomarkers,
+  model = ModelScores
+)
+  
+prob_score0 = array(
+  NA,
+  dim = prob_score_dims |> sapply(length),
+  dimnames = prob_score_dims
+)
+
+for (biomarker in biomarkers)
+{
+  for (datascore in DataScores)
+  {
+    for (modelscore in ModelScores)
+    {
+      prob_score0[patient_data[[biomarker]] == datascore, biomarker, modelscore] = 
+        prob_dist[modelscore, datascore, biomarker]
+    }
+    
+  }
+}
+
+prob_nl = prob_score0[,,"0"]
+prob_score = prob_score0[,,-1]
+
+```
+
+```{r }
+#| label: build-score-vals-only-observed
+
+biomarker_levels <-
+  df |>
+  get_levels(biomarkers)
+
+# biomarker_levels = df |> 
+#   dplyr::select(all_of(biomarkers)) |> 
+# lapply(FUN = \(x) x |> unique() |> sort())
+
+score_vals = build_score_vals(biomarker_levels)
+
+score_vals
+
+```
+
+or, to match original example from Alex Young:
+
+```{R}
+#| label: build-score-vals-all-possible
+
+biomarker_levels = list(
+  "Biomarker 1" = 0:3,
+  "Biomarker 2" = 0:3,
+  "Biomarker 3" = 0:3,
+  "Biomarker 4" = 0:3,
+  "Biomarker 5" = 0:3
+) |> 
+  structure(class = c("levels_list", "list"))
+
+score_vals = build_score_vals(biomarker_levels)
+
+score_vals
+```
+
+::: {.callout-warning}
+When switching between these two methods of calculating `score_vals`,
+the number of events in the sequence changes, so the pickle files need 
+to be rebuilt accordingly. 
+Otherwise, we might get errors about array lengths and indices.
+:::
+
+# Run SuStaIn model
+
+```{r "set run parameters"}
+
+N_startpoints = 10L
+N_S_max = 4L
+N_iterations_MCMC = 1e5L
+dataset_name = 'sample_data'
+output_folder = 
+  fs::path("inst/extdata/sim_data")
+print(output_folder)
+```
+
+```{python "initialize-model"}
+
+import pandas
+import numpy as np
+import numpy.matlib
+import matplotlib.pyplot as plt
+import seaborn as sns
+import sys
+import scipy
+from glob import glob
+import pySuStaIn
+import os
+
+os.getcwd()
+print(r.output_folder)
+sustain_input = pySuStaIn.OrdinalSustain(
+    r.prob_nl,
+    r.prob_score,
+    r.score_vals,
+    r.SuStaInLabels,
+    r.N_startpoints,
+    r.N_S_max, 
+    r.N_iterations_MCMC, 
+    r.output_folder, 
+    r.dataset_name, 
+    True,
+    1)
+```
+
+```{python "fit-model", fig.width = 8, fig.height = 9}
+
+[samples_sequence, samples_f, 
+ml_subtype, prob_ml_subtype, ml_stage, 
+prob_ml_stage, prob_subtype_stage, 
+samples_likelihood] = sustain_input.run_sustain_algorithm(plot=True)
+
+```
+
+In R, we can run the algorithm with `run_OSA()`:
+
+```{r}
+#| label: setup-run-OSA-R
+
+biomarker_group_list = list(
+  "group 1" = biomarkers[1:2],
+  "group 2" = biomarkers[3:4],
+  "group 3" = biomarkers[5]
+)
+
+biomarker_groups = df |> compile_biomarker_groups_table(
+  biomarker_group_list = biomarker_group_list
+)
+patient_data     |> readr::write_rds(file = fs::path(output_folder, "data.rds"))
+biomarker_levels |> readr::write_rds(file = fs::path(output_folder, "biomarker_levels.rds"))
+biomarker_groups |> readr::write_rds(file = fs::path(output_folder, "biomarker_groups.rds"))
+```
+
+```{r}
+
+#| label: run-osa-R
+osa_output = run_and_save_OSA(
+  dataset_name = dataset_name,
+  patient_data = patient_data,
+  prob_correct = prob_correct,
+  prob_score = prob_score0,
+  score_vals = score_vals,
+  output_folder = output_folder, 
+  biomarker_levels = biomarker_levels,
+  SuStaInLabels = SuStaInLabels,
+  N_startpoints = N_startpoints,
+  N_iterations_MCMC = N_iterations_MCMC,
+  plot = TRUE,
+  N_S_max = N_S_max,
+  N_CV_folds = 10,
+  rerun = TRUE,
+  verbose = TRUE
+)
+
+cvic_sim_data <- osa_output |> extract_cvic()
+cvic_sim_data |> usethis::use_data(overwrite = TRUE)
+```
+
+::: {#fig-cvic layout-ncol="2"}
+
+::: {#fig-cvic-1}
+
+```{r}
+cvic_sim_data$CVIC |> plot_CVIC()
+```
+
+:::
+
+::: {#fig-cvic-2}
+
+```{r}
+cvic_sim_data$loglike_matrix |> plot_cv_loglik()
+```
+
+:::
+
+**Cross-validation information criterion (CVIC)**, 
+by number of latent subtype clusters.
+N = `r nrow(v1_usable_cases)` observations.
+
+:::
+
+```{r}
+#| label: graph-likelihoods
+likelihoods = 
+  py$samples_likelihood |> 
+  magrittr::set_colnames(
+    paste(1:ncol(py$samples_likelihood), "subtype(s)")
+  ) |> 
+  as_tibble() |> 
+  dplyr::mutate(Iteration = dplyr::row_number())
+
+alpha = 0.5
+ggplot() +
+  geom_line(
+    alpha = alpha,
+    aes(
+    x = seq_len(nrow(likelihoods)), 
+    y = likelihoods[[1]],
+    col = "One subtype"
+    )
+  ) +
+  geom_line(
+    alpha = alpha,
+    aes(
+    x = seq_len(nrow(likelihoods)), 
+    y = likelihoods[[2]],
+    col = "Two subtypes"
+    )
+  ) +
+  geom_line(
+    alpha = alpha,
+    aes(
+    x = seq_len(nrow(likelihoods)), 
+    y = likelihoods[[3]],
+    col = "Three subtypes"
+    )
+  )
+
+```
+
+```{r}
+#| label: graph-likelihoods-2
+likelihoods2 = 
+  likelihoods  |> 
+  tidyr::pivot_longer(cols = paste(1:ncol(py$samples_likelihood), "subtype(s)"))
+
+likelihoods2 |> 
+  ggplot(
+       aes(
+    x = Iteration, 
+    y = value,
+    col = name
+    )) +
+  geom_line(alpha = alpha) +
+  facet_wrap(~name) +
+  ylab("log-likelihood")
+
+```
+
+### trying `plt.show()`
+
+```{python}
+#| label: fig-python.plt.show
+#| fig-cap: "python.plt.show"
+# plt.show() # doesn't work
+```
+
+
+### attempting to call the plot function to get the heatmaps
+
+```{python}
+#| label: fig-plot_positional_var
+#| fig-cap: "calling `plot_positional_var()` directly in python"
+n_samples = r.prob_nl.shape[0]
+figs, ax = sustain_input.plot_positional_var(
+  samples_sequence=samples_sequence,
+  samples_f=samples_f,
+  n_samples= n_samples,
+  score_vals = r.score_vals,
+  biomarker_labels=r.biomarkers,
+  save_path=r.output_folder)
+```
+
+show figs:
+
+```{python}
+#| label: fig-show-figs
+for fig in figs:
+  fig.show()
+
+# py$samples_sequence
+
+```
+
+## figs in R
+
+```{r}
+#| label: fig-plot-compact-pvd-n1
+#| fig-cap: "Compact PVD: 1 subgroup"
+#| fig-height: 3
+figs = extract_figs_from_pickle(
+  output_folder = output_folder,
+  use_rds = use_rds,
+  n_s = 1)
+  
+figs = list(figs)
+
+plot_compact_pvd(
+  figs = figs,
+  tile_height = 1,
+  facet_label_prefix = "All data",
+  y_text_size = 8,
+  biomarker_order = biomarkers,
+  scale_colors = c("red", "magenta", "blue")
+)
+```
+
+```{r}
+#| label: fig-plot-compact-pvd-n2
+#| fig-cap: "Compact PVD: 2 subgroups"
+#| fig-height: 3
+
+figs = extract_figs_from_pickle(
+  output_folder = output_folder,
+  use_rds = use_rds,
+  n_s = 2)
+  
+plot_compact_pvd(
+  figs = figs,
+  tile_height = 1,
+  y_text_size = 8,
+  biomarker_order = biomarkers,
+  scale_colors = c("red", "magenta", "blue")
+)
+```
+
+```{r}
+#| label: fig-plot-compact-pvd-n3
+#| fig-cap: "Compact PVD: 3 subgroups"
+#| fig-height: 3
+
+results3 <- extract_results_from_pickle(
+  output_folder = output_folder,
+  use_rds = use_rds,
+  n_s = 3)
+
+results_s3_sim_data <- results3
+results_s3_sim_data |> use_data(overwrite = TRUE)
+
+figs3 = extract_figs_from_pickle(
+  output_folder = output_folder,
+  use_rds = use_rds,
+  n_s = 3)
+
+plot_compact_pvd(
+  figs = figs3,
+  tile_height = 1,
+  facet_label_prefix = NULL,
+  y_text_size = 8,
+  biomarker_order = biomarkers,
+  scale_colors = c("red", "magenta", "blue")
+)
+```
+
+we can also do position difference graphs: (PDGs):
+
+```{r}
+figs[1:2] |> pvd_lineplot()
+```
+
+We can check the distribution of ML stages with `stage_barplot()`:
+
+```{r}
+results3 |> stage_barplot()
+```
+
+
+```{r}
+#| label: save-files
+
+readr::write_rds(
+  x = biomarker_levels,
+  file = fs::path(output_folder, "biomarker_levels.rds")
+)
+
+biomarker_groups_table = df |> compile_biomarker_groups_table(
+ biomarker_group_list
+)
+
+readr::write_rds(
+  x = biomarker_groups_table,
+  file = fs::path(output_folder, "biomarker_groups.rds")
+)
+
+```
+
+

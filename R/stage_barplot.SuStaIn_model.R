@@ -8,5 +8,5 @@
 #' @example inst/examples/exm-stage_barplot.SuStaIn_model.R
 stage_barplot.SuStaIn_model <- function(object, ...) {
   object$subtype_and_stage_table |>
-    stage_barplot.default(...)
+    stage_barplot.default(xmax = object |> attr("n_events"), ...)
 }

@@ -1,0 +1,17 @@
+
+The primary sequence analysis of symptomatic events
+included baseline visit data
+from `r nrow(v1_usable)` participants from the GP and TRAX cohorts,
+consisting of
+`r nrow(v1_usable_cases)` premutation carriers and
+`r nrow(controls_v1)` controls.
+@tbl-demographics provides
+demographic information about the study participants.
+Data from unaffected control participants were used to estimate
+the distribution of the analyzed `r outcomes_name`s
+among non-FXTAS individuals
+as reference in SuStaIn modeling
+(more details in section [Ordinal SuStaIn model](#sec-scored-events-model)).
+Then the cases' data were used to estimate FXTAS event sequences,
+using the estimated control distributions to account for random variation
+in observed symptoms unrelated to the underlying event sequence.

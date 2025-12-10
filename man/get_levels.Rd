@@ -4,7 +4,7 @@
 \alias{get_levels}
 \title{Extract levels from a set of variable names}
 \usage{
-get_levels(data, varnames = names(data), keep_labels = FALSE)
+get_levels(data, varnames = names(data), keep_labels = TRUE)
 }
 \arguments{
 \item{data}{a \link{data.frame}}
@@ -14,7 +14,8 @@ get_levels(data, varnames = names(data), keep_labels = FALSE)
 \item{keep_labels}{\link{logical} whether to preserve variable labels from \code{data} in output}
 }
 \value{
-a \link{list} of \link{character} vectors containing the levels of the columns in \code{data} specified by \code{varnames}
+a \link{list} of \link{character} vectors containing
+the levels of the columns in \code{data} specified by \code{varnames}
 }
 \description{
 Extract levels from a set of variable names

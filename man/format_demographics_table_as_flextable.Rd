@@ -9,7 +9,11 @@ format_demographics_table_as_flextable(x, ...)
 \arguments{
 \item{x}{a \link[gtsummary:gtsummary-package]{gtsummary::gtsummary} object}
 
-\item{...}{not used}
+\item{...}{
+  Arguments passed on to \code{\link[=shared_flextable_settings]{shared_flextable_settings}}
+  \describe{
+    \item{\code{padding}}{controls \code{padding.top} and \code{padding.bottom} in \code{\link[flextable:padding]{flextable::padding()}}}
+  }}
 }
 \value{
 a \link[flextable:flextable]{flextable::flextable}

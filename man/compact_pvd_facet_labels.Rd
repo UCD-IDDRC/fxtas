@@ -11,6 +11,9 @@ compact_pvd_facet_labels(figs, facet_label_prefix)
 
 \item{facet_label_prefix}{a \link{character} string (length 1)}
 }
+\value{
+a \link{list} of labels
+}
 \description{
 Create facet labels
 }

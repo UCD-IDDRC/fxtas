@@ -1,0 +1,12 @@
+We found no differences between males and females in
+age at baseline visit,
+ethnicity/race,
+FXTAS stage, or
+CGG repeat length.
+@tbl-biomarker-list lists the `r outcomes_name`s and their ordinal levels
+and reports percentages of clinically elevated levels at baseline visit,
+stratified by sex.
+We found significant sex differences in
+percentages of clinically elevated (non-reference)
+`r outcomes_name` levels
+at baseline visit for `r report_sex_differences(biomarkers_table)`.

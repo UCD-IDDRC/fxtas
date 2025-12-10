@@ -1,0 +1,94 @@
+@suppfig-pvd-by-cgg shows the estimated sequences 
+stratified by CGG repeat level.
+We did not find statistically significant evidence of 
+a difference in event sequences
+between CGG < 100 and CGG ≥ 100 (p = `r pval_cgg_gp34_v1`),
+but some potential differences were noted
+(@suppfig-pvd-by-cgg and @suppfig-diff-by-cgg).
+SWM between errors occurred prior to Stage 1
+in participants with CGG repeats <100,
+whereas it occurred between stage 4 and 5 in those with CGG repeats ≥ 100
+(@suppfig-diff-by-cgg).
+Postural, resting, head, and intermittent tremor occurred earlier
+in those with CGG repeats <100 compared to those with CGG repeats ≥100.
+Several psychiatric disorders (as measured by SCID) occurred
+later in the event sequence in participants with CGG repeats <100
+compared to those with CGG repeats ≥100.
+
+The finding of only minimal differences 
+between 55-99 vs 100-199 CGG repeats is surprising, 
+since several studies have found that the higher the CGG repeats,
+the earlier the onset and the faster the progression of FXTAS 
+[@greco2006neuropathology; @leehey2008fmr1; @tassone2023insight]. 
+Perhaps the cut off of 100 is too high for this distinction to be made.
+
+These differences were more evident among males than females
+(Supplementary material, Comparing CGG levels stratified by sex).
+When we fitted models for subgroup analyses by sex and CGG repeats level,
+the models for males showed the same patterns described above,
+except for head tremor
+(we found no difference in head tremor onset between CGG levels).
+[Supplementary Fig. @suppfig-pvd-by-cgg-male-1]
+shows the corresponding stratified models and
+[Supplementary Fig. @suppfig-pvd-by-cgg-male-2]
+compares the estimates of the sequences for these two subgroups.
+
+We did not find statistically significant evidence of
+a difference between CGG <100 and CGG ≥100 among females
+(p = `r pval_female_cgg_gp34_v1`).
+@suppfig-pvd-by-cgg-female-1
+shows the estimated stratified models
+and @suppfig-pvd-by-cgg-female-2 compares the estimates.
+Females had later onset of SWM Between Errors for CGG repeats ≥100
+and later onset of intermittent tremors for CGG repeats <100,
+but did not show evidence of the other patterns observed for males and
+for the models without sex-stratification.
+Limited sample size in females for subgroup analyses 
+was likely an issue;
+the available data included only `r n_over_100_female` females with CGG ≥100.
+
+{{< pagebreak >}}
+
+::: {#suppfig-pvd-by-cgg custom-style="Caption"}
+
+```{r}
+#| fig-height: !expr pvd_height
+#| fig-width: !expr pvd_width
+#| label: pvd-by-cgg
+
+list(
+    "CGG &lt; 100:" = fig_under100,
+    "CGG &ge; 100:" = fig_over100
+  ) |> 
+plot_compact_pvd(
+  scale_colors = scale_colors1,
+  y_text_size = y_text_size
+)
+
+```
+
+**Event sequences stratified by CGG repeats (<100 vs 100+).** 
+`r compact_fig_caption`
+`r test_cgg_summary`
+:::
+
+{{< pagebreak >}}
+
+::: {#suppfig-diff-by-cgg custom-style="Caption"}
+
+```{r}
+#| fig-height: !expr pvd_line_height
+#| fig-width: !expr pvd_line_width
+#| label: lineplot-by-cgg
+list(
+  "CGG &lt; 100" = fig_under100,
+  "CGG &ge; 100" = fig_over100) |>
+pvd_lineplot(text_size = lineplot_text_size)
+```
+
+**Positional differences in event sequences**
+**stratified by CGG repeat sizes (<100 vs 100+).**
+`r compact_fig_cap2`
+`r test_cgg_summary`
+:::
+

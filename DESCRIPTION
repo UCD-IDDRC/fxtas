@@ -1,8 +1,9 @@
 Package: fxtas
 Title: FXTAS
-Version: 0.0.0.9023
-Authors@R: 
-    person("Douglas Ezra", "Morrison", , "demorrison@ucdavis.edu", role = c("cre", "aut"))
+Version: 0.0.0.9051
+Authors@R: c(
+    person("Douglas Ezra", "Morrison", , "demorrison@ucdavis.edu", role = c("cre", "aut")),
+    person("Matthew", "Ponzini", , "mdponzini@ucdavis.edu", role = c("aut")))
 Description: PKG_DESC.
 License: MIT + file LICENSE
 URL: https://github.com/ucd-iddrc/fxtas, https://ucd-iddrc.github.io/fxtas/
@@ -21,6 +22,9 @@ Imports:
     formattable,
     formulaic,
     fs,
+    gert,
+    ggbump (>= 0.1.99999),
+    ggh4x,
     ggnewscale,
     ggplot2,
     ggtext,
@@ -36,6 +40,7 @@ Imports:
     magrittr,
     pander,
     purrr,
+    rcartocolor,
     readr,
     readxl,
     reticulate,
@@ -50,9 +55,12 @@ Imports:
     tidyr,
     tidyselect,
     units,
-    utils
+    utils,
+    vroom
 Suggests: 
     arsenal,
+    broman,
+    colorblindcheck (>= 1.0.3),
     constructive,
     cardx (>= 0.2.3),
     devtag (>= 0.0.0.9000),
@@ -64,7 +72,6 @@ Suggests:
     rmarkdown,
     scales,
     spelling,
-    ssdtools (>= 2.0.0),
     svglite,
     testthat (>= 3.0.0),
     tidyverse,
@@ -76,14 +83,17 @@ Suggests:
     webshot2,
     withr,
     writexl,
-    chromote
+    chromote,
+    ggview,
+    sessioninfo,
+    pryr
 Config/testthat/edition: 3
 Encoding: UTF-8
 Language: en-US
 LazyData: true
-RoxygenNote: 7.3.2.9000
+RoxygenNote: 7.3.3
 Depends: 
-    R (>= 4.1.0)
+    R (>= 4.2.0)
 VignetteBuilder: knitr, quarto
 Config/reticulate/autoconfigure:
   list(
@@ -94,10 +104,11 @@ Config/reticulate/autoconfigure:
 Config/build/copy-method: link
 Roxygen: list(markdown = TRUE, roclets = c("collate", "rd", "namespace", "devtag::dev_roclet"))
 Remotes: 
-    bcgov/ssdtools,
     moodymudskipper/devtag,
-    d-morrison/gtsummary@main,
-    insightsengineering/cardx
+    d-morrison/gtsummary@ezra-dev,
+    insightsengineering/cardx,
+    davidsjoberg/ggbump,
+    d-morrison/colorblindcheck
 Config/Needs/build: moodymudskipper/devtag
 Config/Needs/roxygen2: moodymudskipper/devtag
 Config/Needs/website: quarto, rmarkdown

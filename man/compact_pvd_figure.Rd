@@ -2,7 +2,7 @@
 % Please edit documentation in R/compact_pvd_figure.R
 \name{compact_pvd_figure}
 \alias{compact_pvd_figure}
-\title{plot compact pvd: figure}
+\title{plot compact pvd figure}
 \usage{
 compact_pvd_figure(
   plot_dataset,
@@ -10,18 +10,60 @@ compact_pvd_figure(
   y_text_size,
   facet_names,
   legend.position,
+  legend.direction = "vertical",
+  legend.box = "vertical",
+  legend.key.height = grid::unit(1, "lines"),
   scale_colors,
   rel_heights = c(1, 0.1),
+  guide_rel_widths = c(0.3, 0.7),
+  group_colors,
+  ncol_legend = 1,
+  group_color_legend = NULL,
+  legend_text_size = grid::unit(7, "pt"),
+  colorbar_label_type = "level",
+  strip_text_size = grid::unit(8, "points"),
+  x_text_size = y_text_size,
+  x_title_size = x_text_size,
   ...
 )
 }
+\arguments{
+\item{y_text_size}{\link{integer}: size of y-axis text}
+
+\item{legend.position}{the default position of legends ("none", "left",
+"right", "bottom", "top", "inside")}
+
+\item{legend.direction}{layout of items in legends ("horizontal" or
+"vertical")}
+
+\item{legend.box}{arrangement of multiple legends ("horizontal" or
+"vertical")}
+
+\item{legend.key.height}{size of legend keys (unit);
+key background height & width inherit from legend.key.size
+or can be specified separately.
+In turn legend.key.size inherits from spacing.}
+
+\item{colorbar_label_type}{what kind of label to use?
+Current options are \code{"level"} and \code{"subscript"}}
+
+\item{strip_text_size}{passed to \code{ggtext::element_markdown()}}
+
+\item{x_text_size}{\link{integer}: size of x-axis tick labels}
+
+\item{x_title_size}{\link{integer}: size of x-axis title}
+
+\item{...}{additional element specifications not part of base ggplot2. In general,
+these should also be defined in the \verb{element tree} argument. \link[rlang:splice]{Splicing} a list is also supported.}
+}
 \description{
-plot compact pvd: figure
+plot compact pvd figure
 }
 \examples{
-size.y <- 11
+size_y <- 11
 figs <- extract_figs_from_pickle(
-  size.y = size.y,
+  use_rdS = TRUE,
+  size.y = size_y,
   n_s = 3,
   rda_filename = "data.RData",
   dataset_name = "sample_data",
@@ -30,9 +72,8 @@ figs <- extract_figs_from_pickle(
 
 y_text_size <- 11
 tile_height <- 1
-# facet_label_size = 8
 facet_label_prefix <- names(figs)
-legend.position <- "none"
+legend_position <- "none"
 scale_colors <- c("red", "blue", "purple4")
 plot_dataset <- fxtas:::compact_pvd_data_prep(figs = figs)
 # facet labels
@@ -40,15 +81,26 @@ facet_names <- fxtas:::compact_pvd_facet_labels(
   figs = figs,
   facet_label_prefix = facet_label_prefix
 )
+nrow_colors <- 1
+group_colors <- figs |> group_colors()
+
+temp_plot <- plot_dataset |> pvd_scatter(
+  group_colors = group_colors,
+  nrow_colors = nrow_colors
+)
+
+group_color_legend <- temp_plot |> cowplot::get_legend()
+
 # generate figure
-fxtas:::compact_pvd_figure(
+compact_pvd_figure(
   plot_dataset,
   tile_height = tile_height,
   y_text_size = y_text_size,
   facet_names = facet_names,
-  # facet_label_size = facet_label_size,
-  legend.position = legend.position,
-  scale_colors = scale_colors
+  legend.position = legend_position,
+  scale_colors = scale_colors,
+  group_colors = group_colors,
+  group_color_legend = group_color_legend
 )
 }
 \keyword{internal}
