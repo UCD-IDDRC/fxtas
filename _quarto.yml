@@ -162,8 +162,8 @@ knitr:
 execute:
   warning: false
   message: false
-  cache: false
-  freeze: false  # re-render only when source changes
+  cache: true
+  freeze: auto  # re-render only when source changes
 filters:
   - quarto
   - section-bibliographies
