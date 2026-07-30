@@ -2,6 +2,10 @@
 
 ## Internal
 
+* Updated the reusable GitHub Actions workflows to call `Morrison-Lab/gha`
+  instead of `d-morrison/gha`, following that repository's move.
+  Actions does not follow repository-rename redirects for `uses:`, so the
+  calls were failing to resolve before any job started.
 * Added a scheduled `Clean up PR Previews` workflow that prunes closed-PR `gh-pages` previews and compacts `gh-pages` history, so deleted render snapshots stop bloating the repo (closes #155).
 
 ## Manuscript
